@@ -1,0 +1,7 @@
+-ver "C:/Radiant/ip/pmi/pmi_lifcl.v"
+-lib pmi -vhd "C:/Radiant/ip/pmi/pmi_lifcl.vhd"
+-ver "C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_tx/rtl/ddr_tx.v"
+-sdc "C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_tx/constraints/ddr_tx.ldc"
+-path "C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_tx" "C:/Users/SP5WWP/Documents/Radiant/OpenHT"
+-top ddr_tx
+-a "LIFCL"

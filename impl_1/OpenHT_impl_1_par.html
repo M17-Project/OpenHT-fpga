@@ -1,0 +1,479 @@
+<HTML>
+<HEAD>
+<TITLE>Place & Route Report</TITLE>
+<link href="file:///C:/Radiant/data/theme/css/light/report.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="file:///C:/Radiant/data/theme/css/print/report.css" rel="stylesheet" type="text/css" media="print"/>
+<style type="text/css">
+#toc {
+  position: fixed;
+  right: 2px;
+  top: 2px;
+  padding: 2px 5px 2px 5px;
+  background-color:rgba(210,210,210,0.1);
+  border-style: solid;
+  border-color: rgba(192,192,192,0.8);
+  border-width:1px;
+}
+#toc_list {
+  display: none;
+  }
+</style>
+
+<script type="text/javascript">
+<!--
+function showTocList() {
+var a = document.getElementById("toc_list");
+a.style.display = "block";
+}
+
+function hideTocList() {
+var a = document.getElementById("toc_list");
+if (a)
+    a.style.display = "none";
+}
+
+//-->
+</script>
+
+</HEAD>
+
+<BODY>
+
+<DIV id="content" onclick="hideTocList()"><PRE>
+<A name="Par"></A>Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
+
+Wed Feb 22 11:01:35 2023
+
+Command Line: par -w -n 1 -t 1 -s 1 -cores 1 -exp parPathBased=OFF \
+	OpenHT_impl_1_map.udb OpenHT_impl_1.udb 
+
+
+<A name="par_cts"></A><B><U><big>Cost Table Summary</big></U></B>
+Level/       Number       Worst        Timing       Worst        Timing       Run          Run
+Cost [udb]   Unrouted     Slack        Score        Slack(hold)  Score(hold)  Time         Status
+----------   --------     -----        ------       -----------  -----------  ----         ------
+5_1   *      0            -            0            -            0            10           Completed
+* : Design saved.
+
+Total (real) run time for 1-seed: 10 secs 
+
+par done!
+
+Lattice Place and Route Report for Design &quot;OpenHT_impl_1_map.udb&quot;
+Wed Feb 22 11:01:35 2023
+
+
+<A name="par_best"></A><B><U><big>Best Par Run</big></U></B>
+PAR: Place And Route Radiant Software (64-bit) 2022.1.0.52.3.
+Command Line: par -w -t 1 -cores 1 -exp parPathBased=OFF OpenHT_impl_1_map.udb \
+	OpenHT_impl_1_par.dir/5_1.udb 
+
+Loading OpenHT_impl_1_map.udb ...
+Loading device for application GENERIC from file &apos;je5d30.nph&apos; in environment: C:/Radiant/ispfpga.
+Package Status:                     Final          Version 39.
+Performance Hardware Data Status:   Final          Version 115.1.
+
+
+
+Design:  main_all
+Family:  LIFCL
+Device:  LIFCL-40
+Package: QFN72
+Performance Grade:   7_High-Performance_1.0V
+WARNING - par: Unable to find the instance/port &apos;spi_mosi&apos; in the constraint &apos;ldc_set_location -site {57} [get_ports spi_mosi]&apos;
+
+WARNING - par: In the constraint &apos;ldc_set_location -site {57} [get_ports spi_mosi]&apos;, the locate object is not specified
+
+WARNING - par: Unable to find the instance/port &apos;spi_sck&apos; in the constraint &apos;ldc_set_location -site {58} [get_ports spi_sck]&apos;
+
+WARNING - par: In the constraint &apos;ldc_set_location -site {58} [get_ports spi_sck]&apos;, the locate object is not specified
+
+WARNING - par: Unable to find the instance/port &apos;spi_ncs&apos; in the constraint &apos;ldc_set_location -site {55} [get_ports spi_ncs]&apos;
+
+WARNING - par: In the constraint &apos;ldc_set_location -site {55} [get_ports spi_ncs]&apos;, the locate object is not specified
+
+WARNING - par: Unable to find the instance/port &apos;nrst&apos; in the constraint &apos;ldc_set_location -site {53} [get_ports nrst]&apos;
+
+WARNING - par: In the constraint &apos;ldc_set_location -site {53} [get_ports nrst]&apos;, the locate object is not specified
+
+WARNING - par: Top module port &apos;nrst&apos; does not connect to anything.
+WARNING - par: Top module port &apos;spi_ncs&apos; does not connect to anything.
+WARNING - par: Top module port &apos;spi_mosi&apos; does not connect to anything.
+WARNING - par: Top module port &apos;spi_sck&apos; does not connect to anything.
+
+Device SLICE utilization summary after final SLICE packing:
+   SLICE              2/16128        &lt;1% used
+
+WARNING - par: Unable to find the instance/port &apos;spi_mosi&apos; in the constraint &apos;ldc_set_location -site {57} [get_ports spi_mosi]&apos;
+
+WARNING - par: In the constraint &apos;ldc_set_location -site {57} [get_ports spi_mosi]&apos;, the locate object is not specified
+
+WARNING - par: Unable to find the instance/port &apos;spi_sck&apos; in the constraint &apos;ldc_set_location -site {58} [get_ports spi_sck]&apos;
+
+WARNING - par: In the constraint &apos;ldc_set_location -site {58} [get_ports spi_sck]&apos;, the locate object is not specified
+
+WARNING - par: Unable to find the instance/port &apos;spi_ncs&apos; in the constraint &apos;ldc_set_location -site {55} [get_ports spi_ncs]&apos;
+
+WARNING - par: In the constraint &apos;ldc_set_location -site {55} [get_ports spi_ncs]&apos;, the locate object is not specified
+
+WARNING - par: Unable to find the instance/port &apos;nrst&apos; in the constraint &apos;ldc_set_location -site {53} [get_ports nrst]&apos;
+
+WARNING - par: In the constraint &apos;ldc_set_location -site {53} [get_ports nrst]&apos;, the locate object is not specified
+
+WARNING - par: No master clock for
+	generated clock	create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 2 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOP }] .
+WARNING - par: Unable to find the instance/port &apos;spi_mosi&apos; in the constraint &apos;ldc_set_location -site {57} [get_ports spi_mosi]&apos;
+
+WARNING - par: In the constraint &apos;ldc_set_location -site {57} [get_ports spi_mosi]&apos;, the locate object is not specified
+
+WARNING - par: Unable to find the instance/port &apos;spi_sck&apos; in the constraint &apos;ldc_set_location -site {58} [get_ports spi_sck]&apos;
+
+WARNING - par: In the constraint &apos;ldc_set_location -site {58} [get_ports spi_sck]&apos;, the locate object is not specified
+
+WARNING - par: Unable to find the instance/port &apos;spi_ncs&apos; in the constraint &apos;ldc_set_location -site {55} [get_ports spi_ncs]&apos;
+
+WARNING - par: In the constraint &apos;ldc_set_location -site {55} [get_ports spi_ncs]&apos;, the locate object is not specified
+
+WARNING - par: Unable to find the instance/port &apos;nrst&apos; in the constraint &apos;ldc_set_location -site {53} [get_ports nrst]&apos;
+
+WARNING - par: In the constraint &apos;ldc_set_location -site {53} [get_ports nrst]&apos;, the locate object is not specified
+
+Number of Signals: 17
+Number of Connections: 77
+
+<A name="par_dus"></A><B><U><big>Device utilization summary:</big></U></B>
+
+   VHI                   1/1           100% used
+   DIFFIO18              5/37           13% used
+                         5/11           45% bonded
+   IOLOGIC               4/74            5% used
+   SEIO18               18/74           24% used
+                        18/22           81% bonded
+   SEIO33                2/185           1% used
+                         2/17           11% bonded
+   PLL                   1/3            33% used
+   SLICE                 2/16128        &lt;1% used
+     LUT                 2/32256        &lt;1% used
+     REG                 0/32256         0% used
+
+
+Pin Constraint Summary:
+   15 out of 15 pins locked (100% locked).
+Starting Placer Phase 0 (HIER). CPU time: 3 secs , REAL time: 3 secs 
+....
+Finished Placer Phase 0 (HIER). CPU time: 3 secs , REAL time: 3 secs 
+
+.   
+Starting Placer Phase 1. CPU time: 3 secs , REAL time: 3 secs 
+..  ..
+....................
+
+Placer score = 32603.
+Finished Placer Phase 1. CPU time: 6 secs , REAL time: 6 secs 
+
+Starting Placer Phase 2.
+.
+
+Placer score =  32564
+Finished Placer Phase 2.  CPU time: 6 secs , REAL time: 6 secs 
+
+After final PLC packing legalization, all 0 SLICEs that were not satisfying 1 CLK/CE/LSR per HALF-PLC restriction are all placed into compatible PLCs.
+
+
+<A name="par_clk"></A><B><U><big>Clock Report</big></U></B>
+
+Global Clock Resources:
+  CLK_PIN    : 1 out of 13 (7%)
+  PLL        : 1 out of 3 (33%)
+  DCS        : 0 out of 1 (0%)
+  DCC        : 0 out of 62 (0%)
+  ECLKDIV    : 0 out of 12 (0%)
+  PCLKDIV    : 0 out of 1 (0%)
+  OSC        : 0 out of 1 (0%)
+  DPHY       : 0 out of 2 (0%)
+  PCIE       : 0 out of 1 (0%)
+
+Global Clocks:
+  PRIMARY &quot;clk_64&quot; from CLKOP on comp &quot;pll0.lscc_pll_inst.gen_no_refclk_mon.u_PLL.PLL_inst&quot; on PLL site &quot;PLL_ULC&quot;, clk load = 2, ce load = 0, sr load = 0
+  PRIMARY &quot;clk_rx_i_c&quot; from comp &quot;clk_rx_i&quot; on CLK_PIN site &quot;22 (PB54A)&quot;, clk load = 2, ce load = 0, sr load = 0
+
+  PRIMARY  : 2 out of 16 (12%)
+
+Edge Clocks:
+
+  No edge clock selected.
+
+
+
+
+
+I/O Usage Summary (final):
+   2 out of 185 (1.1%) SEIO33 sites used.
+   2 out of 17 (11.8%) bonded SEIO33 sites used.
+   Number of SEIO33 components: 2; differential: 0
+   Number of Vref pins used: 0
+   13 out of 74 (17.6%) SEIO18 sites used.
+   13 out of 22 (59.1%) bonded SEIO18 sites used.
+   Number of SEIO18 components: 13; differential: 5
+   5 out of 37 (13.5%) DIFFIO18 sites used.
+   5 out of 11 (45.5%) bonded DIFFIO18 sites used.
+   Number of DIFFIO18 components: 5; differential: 5
+
+I/O Bank Usage Summary:
++----------+----------------+------------+------------+------------+
+| I/O Bank | Usage          | Bank Vccio | Bank Vref1 | Bank Vref2 |
++----------+----------------+------------+------------+------------+
+| 0        | 2 / 10 ( 20%)  | 3.3V       | -          | -          |
+| 1        | 0 / 7 (  0%)   | -          | -          | -          |
+| 3        | 10 / 12 ( 83%) | 1.8V       | -          | -          |
+| 5        | 8 / 10 ( 80%)  | 1.8V       | -          | -          |
++----------+----------------+------------+------------+------------+
+
+Total Placer CPU time: 6 secs , REAL time: 6 secs 
+
+Writing design to file OpenHT_impl_1_par.dir/5_1.udb ...
+
+WARNING - par: Unable to find the instance/port &apos;spi_mosi&apos; in the constraint &apos;ldc_set_location -site {57} [get_ports spi_mosi]&apos;
+
+WARNING - par: In the constraint &apos;ldc_set_location -site {57} [get_ports spi_mosi]&apos;, the locate object is not specified
+
+WARNING - par: Unable to find the instance/port &apos;spi_sck&apos; in the constraint &apos;ldc_set_location -site {58} [get_ports spi_sck]&apos;
+
+WARNING - par: In the constraint &apos;ldc_set_location -site {58} [get_ports spi_sck]&apos;, the locate object is not specified
+
+WARNING - par: Unable to find the instance/port &apos;spi_ncs&apos; in the constraint &apos;ldc_set_location -site {55} [get_ports spi_ncs]&apos;
+
+WARNING - par: In the constraint &apos;ldc_set_location -site {55} [get_ports spi_ncs]&apos;, the locate object is not specified
+
+WARNING - par: Unable to find the instance/port &apos;nrst&apos; in the constraint &apos;ldc_set_location -site {53} [get_ports nrst]&apos;
+
+WARNING - par: In the constraint &apos;ldc_set_location -site {53} [get_ports nrst]&apos;, the locate object is not specified
+
+
+Start NBR router at 11:01:42 02/22/23
+
+*****************************************************************
+Info: NBR allows conflicts(one node used by more than one signal)
+      in the earlier iterations. In each iteration, it tries to  
+      solve the conflicts while keeping the critical connections 
+      routed as short as possible. The routing process is said to
+      be completed when no conflicts exist and all connections   
+      are routed.                                                
+Note: NBR uses a different method to calculate timing slacks. The
+      worst slack and total negative slack may not be the same as
+      that in timing report. You should always run the timing    
+      tool to verify your design.                                
+*****************************************************************
+
+Starting routing resource preassignment
+Preassignment Summary:
+--------------------------------------------------------------------------------
+6 connections routed with dedicated routing resources
+2 global clock signals routed
+23 connections routed (of 77 total) (29.87%)
+---------------------------------------------------------
+Clock routing summary:
+Primary clocks (4 used out of 32 available):
+    Signal &quot;clk_rx_i_c&quot; (2, 18)
+       Clock   loads: 2     out of     2 routed (100.00%)
+       Data    loads: 0     out of     1 routed (  0.00%)
+    Signal &quot;clk_64&quot; (4, 20)
+       Clock   loads: 2     out of     2 routed (100.00%)
+Other clocks:
+    Signal &quot;VCC_net&quot;
+       Clock   loads: 2     out of     2 routed (100.00%)
+       Control loads: 2     out of     2 routed (100.00%)
+       Data    loads: 9     out of     9 routed (100.00%)
+    Signal &quot;pll0.lscc_pll_inst.fbclk_w&quot;
+       Clock   loads: 1     out of     1 routed (100.00%)
+    Signal &quot;clk_i_c&quot;
+       Clock   loads: 1     out of     1 routed (100.00%)
+---------------------------------------------------------
+--------------------------------------------------------------------------------
+Completed routing resource preassignment
+WARNING - par: No master clock for
+	generated clock	create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 2 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOP }] .
+
+Start NBR section for initial routing at 11:01:43 02/22/23
+Level 4, iteration 1
+0(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 2 secs 
+
+Info: Initial congestion level at 75.00% usage is 0
+Info: Initial congestion area  at 75.00% usage is 0 (0.00%)
+
+Start NBR section for normal routing at 11:01:43 02/22/23
+Level 4, iteration 1
+0(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 2 secs 
+
+Start NBR section for post-routing at 11:01:43 02/22/23
+
+End NBR router with 0 unrouted connection
+WARNING - par: No master clock for
+	generated clock	create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 2 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOP }] .
+
+Starting full timing analysis...
+
+
+<A name="par_nbrsum"></A><B><U><big>NBR Summary</big></U></B>
+-----------
+  Number of unrouted connections : 0 (0.00%)
+  Estimated worst slack&lt;setup&gt; : &lt;n/a&gt;
+  Estimated worst slack&lt;hold &gt; : &lt;n/a&gt;
+  Timing score&lt;setup&gt; : 0
+  Timing score&lt;hold &gt; : 0
+  Number of connections with timing violations&lt;setup&gt; : 0 (0.00%)
+  Number of connections with timing violations&lt;hold &gt; : 0 (0.00%)
+-----------
+
+
+Total CPU time 2 secs 
+Total REAL time: 3 secs 
+Completely routed.
+End of route.  77 routed (100.00%); 0 unrouted.
+
+Writing design to file OpenHT_impl_1_par.dir/5_1.udb ...
+
+
+All signals are completely routed.
+
+
+PAR_SUMMARY::Run status = Completed
+PAR_SUMMARY::Number of unrouted conns = 0
+PAR_SUMMARY::Worst  slack&lt;setup/&lt;ns&gt;&gt; = &lt;n/a&gt;
+PAR_SUMMARY::Timing score&lt;setup/&lt;ns&gt;&gt; = &lt;n/a&gt;
+PAR_SUMMARY::Worst  slack&lt;hold /&lt;ns&gt;&gt; = &lt;n/a&gt;
+PAR_SUMMARY::Timing score&lt;hold /&lt;ns&gt;&gt; = &lt;n/a&gt;
+PAR_SUMMARY::Number of errors = 0
+
+Total CPU  Time: 10 secs 
+Total REAL Time: 10 secs 
+Peak Memory Usage: 408.47 MB
+
+
+par done!
+
+Note: user must run &apos;timing&apos; for timing closure signoff.
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&amp;T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
+
+
+
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+</PRE></DIV>
+
+<DIV id="toc" class="radiant"><span onmousemove="showTocList()">Contents</span>
+<UL id="toc_list">
+<LI><A href=#par_cts>Cost Table Summary</A></LI>
+<LI><A href=#par_best>Best Par Run</A></LI>
+<LI><A href=#par_dus>Device utilization summary</A></LI>
+<LI><A href=#par_clk>Clock Report</A></LI>
+<LI><A href=#par_nbrsum>NBR Summary</A></LI>
+</UL>
+</DIV>
+
+<button id="back_to_top" class="radiant" onclick="scrollToTop()">&lt;</button>
+<script type="text/javascript">
+<!--
+var scrollStep = 0;
+function scrollToTop(){
+  var funScroll = function() {
+    var top = document.body.scrollTop;
+    if (top == 0) {
+      scrollStep = 0;
+      return;
+    }
+    if (scrollStep == 0)
+      scrollStep = top/20 + 1;
+    top -= scrollStep;
+    if (top < 0)
+      top = 0;
+    document.body.scrollTop = top;
+    requestAnimationFrame(funScroll);
+  };
+  funScroll();
+}
+
+window.addEventListener('scroll', function(e) {
+  var backToTop = document.getElementById('back_to_top')
+  if (document.body.scrollTop > 0) {
+    backToTop.style.display = 'block';
+  } else {	backToTop.style.display = 'none'  }});
+
+//-->
+</script>
+
+<style type="text/css">
+#back_to_top {
+  bottom:20px; right:20px;
+  width:30px; height:30px;
+  font-size: 20px;
+  padding: 2px 5px 2px 5px;
+  position:fixed;
+  background-color:rgba(210,210,210,0.1);
+  border-style: solid;
+  border-color: rgba(192,192,192,0.8);
+  border-width:1px;
+  display:none;
+  -webkit-transform: rotate(90deg);
+  -webkit-transform-origin:50% 50%;
+}
+#back_to_top:focus {
+  outline-width:0px;
+}
+</style>
+
+</BODY>
+

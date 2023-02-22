@@ -1,0 +1,40 @@
+
+map -i "OpenHT_impl_1_syn.udb" -pdc "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/impl_1.pdc" -o "OpenHT_impl_1_map.udb" -mp "OpenHT_impl_1.mrp" -hierrpt     
+map:  version Radiant Software (64-bit) 2022.1.0.52.3
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
+
+Command line:   map -i OpenHT_impl_1_syn.udb -pdc C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/impl_1.pdc -o OpenHT_impl_1_map.udb -mp OpenHT_impl_1.mrp -hierrpt -gui 
+
+Loading device for application GENERIC from file 'je5d30.nph' in environment: C:/Radiant/ispfpga.
+Package Status:                     Final          Version 39.
+
+
+
+   Remove unused logic
+
+   Do not produce over sized UDBs.
+
+Design:  main_all
+Family:  LIFCL
+Device:  LIFCL-40
+Package: QFN72
+Performance Grade:  7_High-Performance_1.0V
+
+Running general design DRC...
+
+WARNING - Top module port 'nrst' does not connect to anything.
+WARNING - Top module port 'spi_ncs' does not connect to anything.
+WARNING - Top module port 'spi_mosi' does not connect to anything.
+WARNING - Top module port 'spi_sck' does not connect to anything.
+ERROR - Cannot lock port 'spi_miso' on pad '45' which is taken per other location, sysConfig or prohibit attribute/constraint.
+INFO - Errors found in user's design.  Output files not written. Check map report for more details.
+ 
+
+   Number of warnings:  4
+   Number of errors:    1
+

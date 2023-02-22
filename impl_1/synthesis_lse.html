@@ -1,0 +1,451 @@
+<HTML>
+<HEAD>
+<TITLE>Synthesis Report</TITLE>
+<link href="file:///C:/Radiant/data/theme/css/light/report.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="file:///C:/Radiant/data/theme/css/print/report.css" rel="stylesheet" type="text/css" media="print"/>
+<style type="text/css">
+#toc {
+  position: fixed;
+  right: 2px;
+  top: 2px;
+  padding: 2px 5px 2px 5px;
+  background-color:rgba(210,210,210,0.1);
+  border-style: solid;
+  border-color: rgba(192,192,192,0.8);
+  border-width:1px;
+}
+#toc_list {
+  display: none;
+  }
+</style>
+
+<script type="text/javascript">
+<!--
+function showTocList() {
+var a = document.getElementById("toc_list");
+a.style.display = "block";
+}
+
+function hideTocList() {
+var a = document.getElementById("toc_list");
+if (a)
+    a.style.display = "none";
+}
+
+//-->
+</script>
+
+</HEAD>
+
+<BODY>
+
+<DIV id="content" onclick="hideTocList()"><PRE>
+<A name="Syn"></A><B><U><big>Synthesis Report</big></U></B>
+synthesis:  version Radiant Software (64-bit) 2022.1.0.52.3
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
+Wed Feb 22 11:14:30 2023
+
+
+Command Line:  C:\Radiant\ispfpga\bin\nt64\synthesis.exe -f OpenHT_impl_1_lattice.synproj -gui -msgset C:/Users/SP5WWP/Documents/Radiant/OpenHT/promote.xml 
+
+Synthesis options:
+The -a option is LIFCL.
+The -t option is QFN72.
+The -sp option is 7_High-Performance_1.0V.
+The -p option is LIFCL-40.
+                                                          
+
+
+##########################################################
+
+
+### Lattice Family     : LIFCL
+
+
+### Device             : LIFCL-40
+
+
+### Package            : QFN72
+
+
+### Performance Grade  : 7_High-Performance_1.0V
+
+
+                                                         
+
+
+INFO - synthesis: User-Selected Strategy Settings
+Optimization goal = Timing
+Top-level module name = main_all.
+Target frequency = 200.000000 MHz.
+Maximum fanout = 1000.
+Timing path count = 3
+BRAM utilization = 100.000000 %
+DSP usage = true
+DSP utilization = 100.000000 %
+fsm_encoding_style = auto
+resolve_mixed_drivers = 0
+fix_gated_clocks = 1
+
+
+Mux style = Auto
+Use Carry Chain = true
+carry_chain_length = 0
+Loop Limit = 1950.
+Use IO Insertion = TRUE
+Use IO Reg = AUTO
+
+Resource Sharing = TRUE
+Propagate Constants = TRUE
+Remove Duplicate Registers = TRUE
+force_gsr = yes
+Output HDL file name = OpenHT_impl_1.vm.
+ROM style = auto
+RAM style = auto
+The -comp option is FALSE.
+The -syn option is FALSE.
+-sdc option: SDC file input is OpenHT_impl_1_cpe.ldc.
+Hardtimer checking is enabled (default). The -dt option is not used.
+-path C:/Radiant/ispfpga/je5d00/data (searchpath added)
+-path C:/Users/SP5WWP/Documents/Radiant/OpenHT (searchpath added)
+-path C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_rx (searchpath added)
+-path C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_tx (searchpath added)
+-path C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1 (searchpath added)
+-path C:/Users/SP5WWP/Documents/Radiant/OpenHT/pll_osc (searchpath added)
+Mixed language design
+Verilog design file = C:/Radiant/ip/pmi/pmi_lifcl.v
+Verilog design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/pll_osc/rtl/pll_osc.v
+Verilog design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_rx/rtl/ddr_rx.v
+Verilog design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_tx/rtl/ddr_tx.v
+VHDL library = pmi
+VHDL design file = C:/Radiant/ip/pmi/pmi_lifcl.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/main.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/spi_slave.vhd
+The -r option is OFF. [ Remove LOC Properties is OFF. ]
+Compile design.
+Compile Design Begin
+Analyzing Verilog file c:/radiant/ip/pmi/pmi_lifcl.v. VERI-1482
+INFO - synthesis: c:/radiant/ip/pmi/pmi_lifcl.v(1): analyzing included file c:/radiant/ip/pmi/pmi_addsub.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_addsub.v(40): analyzing included file c:/radiant/ip/pmi/../common/adder_subtractor/rtl/lscc_add_sub.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_lifcl.v(2): analyzing included file c:/radiant/ip/pmi/pmi_add.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_add.v(50): analyzing included file c:/radiant/ip/pmi/../common/adder/rtl/lscc_adder.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_lifcl.v(3): analyzing included file c:/radiant/ip/pmi/pmi_complex_mult.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_complex_mult.v(52): analyzing included file c:/radiant/ip/pmi/../common/complex_mult/rtl/lscc_complex_mult.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_lifcl.v(4): analyzing included file c:/radiant/ip/pmi/pmi_counter.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_counter.v(39): analyzing included file c:/radiant/ip/pmi/../common/counter/rtl/lscc_cntr.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_lifcl.v(5): analyzing included file c:/radiant/ip/pmi/pmi_distributed_dpram.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_distributed_dpram.v(43): analyzing included file c:/radiant/ip/pmi/../common/distributed_dpram/rtl/lscc_distributed_dpram.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_lifcl.v(6): analyzing included file c:/radiant/ip/pmi/pmi_distributed_spram.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_distributed_spram.v(42): analyzing included file c:/radiant/ip/pmi/../common/distributed_spram/rtl/lscc_distributed_spram.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_lifcl.v(7): analyzing included file c:/radiant/ip/pmi/pmi_distributed_rom.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_distributed_rom.v(42): analyzing included file c:/radiant/ip/pmi/../common/distributed_rom/rtl/lscc_distributed_rom.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_lifcl.v(8): analyzing included file c:/radiant/ip/pmi/pmi_distributed_shift_reg.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_distributed_shift_reg.v(41): analyzing included file c:/radiant/ip/pmi/../common/ram_shift_reg/rtl/lscc_shift_register.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_lifcl.v(9): analyzing included file c:/radiant/ip/pmi/pmi_fifo.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_fifo.v(44): analyzing included file c:/radiant/ip/pmi/../avant/fifo/rtl/lscc_fifo.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_lifcl.v(10): analyzing included file c:/radiant/ip/pmi/pmi_fifo_dc.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_fifo_dc.v(47): analyzing included file c:/radiant/ip/pmi/../avant/fifo_dc/rtl/lscc_fifo_dc.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_lifcl.v(11): analyzing included file c:/radiant/ip/pmi/pmi_mac.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_mac.v(52): analyzing included file c:/radiant/ip/pmi/../common/mult_accumulate/rtl/lscc_mult_accumulate.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_lifcl.v(12): analyzing included file c:/radiant/ip/pmi/pmi_multaddsubsum.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_multaddsubsum.v(53): analyzing included file c:/radiant/ip/pmi/../common/mult_add_sub_sum/rtl/lscc_mult_add_sub_sum.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_lifcl.v(13): analyzing included file c:/radiant/ip/pmi/pmi_multaddsub.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_multaddsub.v(52): analyzing included file c:/radiant/ip/pmi/../common/mult_add_sub/rtl/lscc_mult_add_sub.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_lifcl.v(14): analyzing included file c:/radiant/ip/pmi/pmi_mult.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_mult.v(51): analyzing included file c:/radiant/ip/pmi/../common/multiplier/rtl/lscc_multiplier.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_lifcl.v(15): analyzing included file c:/radiant/ip/pmi/pmi_ram_dp.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_ram_dp.v(48): analyzing included file c:/radiant/ip/pmi/../avant/ram_dp/rtl/lscc_ram_dp.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_lifcl.v(16): analyzing included file c:/radiant/ip/pmi/pmi_ram_dp_be.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_ram_dp_be.v(49): analyzing included file c:/radiant/ip/pmi/../avant/ram_dp/rtl/lscc_ram_dp.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_lifcl.v(17): analyzing included file c:/radiant/ip/pmi/pmi_ram_dp_true.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_ram_dp_true.v(49): analyzing included file c:/radiant/ip/pmi/../avant/ram_dp_true/rtl/lscc_ram_dp_true.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_lifcl.v(18): analyzing included file c:/radiant/ip/pmi/pmi_ram_dq.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_ram_dq.v(45): analyzing included file c:/radiant/ip/pmi/../avant/ram_dq/rtl/lscc_ram_dq.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_lifcl.v(19): analyzing included file c:/radiant/ip/pmi/pmi_ram_dq_be.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_ram_dq_be.v(45): analyzing included file c:/radiant/ip/pmi/../avant/ram_dq/rtl/lscc_ram_dq.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_lifcl.v(20): analyzing included file c:/radiant/ip/pmi/pmi_rom.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_rom.v(45): analyzing included file c:/radiant/ip/pmi/../avant/rom/rtl/lscc_rom.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_lifcl.v(21): analyzing included file c:/radiant/ip/pmi/pmi_sub.v. VERI-1328
+INFO - synthesis: c:/radiant/ip/pmi/pmi_sub.v(50): analyzing included file c:/radiant/ip/pmi/../common/subtractor/rtl/lscc_subtractor.v. VERI-1328
+Analyzing Verilog file c:/users/sp5wwp/documents/radiant/openht/pll_osc/rtl/pll_osc.v. VERI-1482
+Analyzing Verilog file c:/users/sp5wwp/documents/radiant/openht/ddr_rx/rtl/ddr_rx.v. VERI-1482
+Analyzing Verilog file c:/users/sp5wwp/documents/radiant/openht/ddr_tx/rtl/ddr_tx.v. VERI-1482
+Analyzing VHDL file c:/radiant/ip/pmi/pmi_lifcl.vhd. VHDL-1481
+Analyzing VHDL file c:/radiant/ip/pmi/pmi_lifcl.vhd
+
+INFO - synthesis: c:/radiant/ip/pmi/pmi_lifcl.vhd(4): analyzing package components. VHDL-1014
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd
+
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd(6): analyzing entity main_all. VHDL-1012
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd(30): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd
+
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(6): analyzing entity spi_slave. VHDL-1012
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(18): analyzing architecture magic. VHDL-1010
+INFO - synthesis: The default VHDL library search path is now "C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1". VHDL-1504
+Top module language type = VHDL.
+Top module name (VHDL, mixed language): main_all
+                                                         
+
+
+### Number of Logic Cells: 32256
+
+
+### Number of RAM Blocks: 84
+
+
+### Number of DSP Blocks: 462
+
+
+### Number of PLLs: 3
+
+
+### Number of IO Pins: 185
+
+
+##########################################################
+
+
+                                                         
+
+
+WARNING - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd(111): Removing unused instance spi0. VDB-5034
+WARNING - synthesis: I/O Port nrst 's net has no driver and is unused.
+WARNING - synthesis: I/O Port spi_ncs 's net has no driver and is unused.
+WARNING - synthesis: I/O Port spi_miso 's net has no driver and is unused.
+WARNING - synthesis: I/O Port spi_mosi 's net has no driver and is unused.
+WARNING - synthesis: I/O Port spi_sck 's net has no driver and is unused.
+WARNING - synthesis: I/O Port io0 's net has no driver and is unused.
+WARNING - synthesis: I/O Port io1 's net has no driver and is unused.
+WARNING - synthesis: I/O Port io2 's net has no driver and is unused.
+WARNING - synthesis: I/O Port io3 's net has no driver and is unused.
+WARNING - synthesis: I/O Port io5 's net has no driver and is unused.
+WARNING - synthesis: I/O Port io6 's net has no driver and is unused.
+WARNING - synthesis: I/O Port io7 's net has no driver and is unused.
+
+
+
+WARNING - synthesis: I/O Port nrst 's net has no driver and is unused.
+WARNING - synthesis: I/O Port spi_ncs 's net has no driver and is unused.
+WARNING - synthesis: I/O Port spi_miso 's net has no driver and is unused.
+WARNING - synthesis: I/O Port spi_mosi 's net has no driver and is unused.
+WARNING - synthesis: I/O Port spi_sck 's net has no driver and is unused.
+WARNING - synthesis: I/O Port io0 's net has no driver and is unused.
+WARNING - synthesis: I/O Port io1 's net has no driver and is unused.
+WARNING - synthesis: I/O Port io2 's net has no driver and is unused.
+WARNING - synthesis: I/O Port io3 's net has no driver and is unused.
+WARNING - synthesis: I/O Port io5 's net has no driver and is unused.
+WARNING - synthesis: I/O Port io6 's net has no driver and is unused.
+WARNING - synthesis: I/O Port io7 's net has no driver and is unused.
+GSR will not be inferred because no asynchronous signal was found in the netlist.
+Starting design annotation....
+WARNING - synthesis: No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP'.
+WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 2 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
+WARNING - synthesis: No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK'.
+WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 2 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
+WARNING - synthesis: No master clock for
+	generated clock	create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 2 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP }] .
+
+Starting full timing analysis...
+Starting design annotation....
+WARNING - synthesis: No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP'.
+WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 2 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
+WARNING - synthesis: No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK'.
+WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 2 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
+WARNING - synthesis: No master clock for
+	generated clock	create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 2 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP }] .
+
+Starting full timing analysis...
+Starting design annotation....
+WARNING - synthesis: No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP'.
+WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 2 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
+WARNING - synthesis: No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK'.
+WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 2 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
+WARNING - synthesis: No master clock for
+	generated clock	create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 2 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP }] .
+
+Starting full timing analysis...
+Starting design annotation....
+WARNING - synthesis: No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP'.
+WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 2 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
+WARNING - synthesis: No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK'.
+WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 2 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
+WARNING - synthesis: No master clock for
+	generated clock	create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 2 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP }] .
+
+Starting full timing analysis...
+WARNING - synthesis: Removing unused instance GSR_INST. VDB-5034
+
+
+<A name="lse_area"></A><B><U><big>Area Report</big></U></B>
+
+################### Begin Area Report (main_all)######################
+Number of register bits => 0 of 32256 (0 % )
+DELAYB => 2
+GSR => 1
+IB => 8
+IDDRX1 => 2
+LUT4 => 1
+OB => 7
+ODDRX1 => 2
+PLL => 1
+################### End Area Report ##################
+Number of odd-length carry chains : 0
+Number of even-length carry chains : 0
+
+
+<A name="lse_clock"></A><B><U><big>Clock Report</big></U></B>
+
+################### Begin Clock Report ######################
+Clock Nets
+Number of Clocks: 3
+  Net : clk_rx_i_c, loads : 3
+  Net : clk_i_c, loads : 1
+  Net : pll0/lscc_pll_inst/clk_64, loads : 2
+Clock Enable Nets
+Number of Clock Enables: 0
+Highest fanout non-clock nets
+Top 10 highest fanout non-clock nets:
+  Net : VCC_net, loads : 12
+  Net : data_rx09_i_c, loads : 1
+  Net : data_rx24_i_c, loads : 1
+  Net : spi_miso_c_c, loads : 1
+  Net : io5_c_c, loads : 1
+  Net : io6_c_c, loads : 1
+  Net : io7_c_c, loads : 1
+  Net : io4_c, loads : 1
+  Net : ddr_rx0/lscc_gddr_inst/RX_SCLK_CENTERED_STATIC_BYPASS.u_lscc_gddr_rx_sclk_centered_static_bypass/data_i_del_w[0], loads : 1
+  Net : ddr_rx1/lscc_gddr_inst/RX_SCLK_CENTERED_STATIC_BYPASS.u_lscc_gddr_rx_sclk_centered_static_bypass/data_i_del_w[0], loads : 1
+################### End Clock Report ##################
+
+Peak Memory Usage: 262 MB
+
+--------------------------------------------------------------
+Total CPU Time: 3 secs 
+Total REAL Time: 3 secs 
+--------------------------------------------------------------
+
+
+
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+</PRE></DIV>
+
+<DIV id="toc" class="radiant"><span onmousemove="showTocList()">Contents</span>
+<UL id="toc_list">
+<LI><A href=#Syn>Top</A></LI>
+<LI><A href=#lse_area>Area Report</A></LI>
+<LI><A href=#lse_clock>Clock Report</A></LI>
+</UL>
+</DIV>
+
+<button id="back_to_top" class="radiant" onclick="scrollToTop()">&lt;</button>
+<script type="text/javascript">
+<!--
+var scrollStep = 0;
+function scrollToTop(){
+  var funScroll = function() {
+    var top = document.body.scrollTop;
+    if (top == 0) {
+      scrollStep = 0;
+      return;
+    }
+    if (scrollStep == 0)
+      scrollStep = top/20 + 1;
+    top -= scrollStep;
+    if (top < 0)
+      top = 0;
+    document.body.scrollTop = top;
+    requestAnimationFrame(funScroll);
+  };
+  funScroll();
+}
+
+window.addEventListener('scroll', function(e) {
+  var backToTop = document.getElementById('back_to_top')
+  if (document.body.scrollTop > 0) {
+    backToTop.style.display = 'block';
+  } else {	backToTop.style.display = 'none'  }});
+
+//-->
+</script>
+
+<style type="text/css">
+#back_to_top {
+  bottom:20px; right:20px;
+  width:30px; height:30px;
+  font-size: 20px;
+  padding: 2px 5px 2px 5px;
+  position:fixed;
+  background-color:rgba(210,210,210,0.1);
+  border-style: solid;
+  border-color: rgba(192,192,192,0.8);
+  border-width:1px;
+  display:none;
+  -webkit-transform: rotate(90deg);
+  -webkit-transform-origin:50% 50%;
+}
+#back_to_top:focus {
+  outline-width:0px;
+}
+</style>
+
+</BODY>
+

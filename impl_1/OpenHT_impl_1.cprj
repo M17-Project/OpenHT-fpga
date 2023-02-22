@@ -1,0 +1,8 @@
+-ver "C:/Radiant/ip/pmi/pmi_lifcl.v"
+-lib pmi -vhd "C:/Radiant/ip/pmi/pmi_lifcl.vhd"
+-lib "work" -vhd "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/main.vhd" "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/spi_slave.vhd"
+-sdc "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/impl_1.sdc"
+-path "C:/Users/SP5WWP/Documents/Radiant/OpenHT"
+-top main_all
+-isTop
+-a "LIFCL"
