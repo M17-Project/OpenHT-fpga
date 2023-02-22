@@ -1,0 +1,31 @@
+#Start recording tcl command: 2/22/2023 10:17:21
+#Project Location: C:/Users/SP5WWP/Documents/Radiant/OpenHT; Project name: OpenHT
+prj_create -name "OpenHT" -impl "impl_1" -dev LIFCL-40-7SG72I -performance "7_High-Performance_1.0V" -synthesis "lse"
+prj_add_source "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/impl_1.sdc" "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/impl_1.pdc"
+prj_save 
+prj_add_source "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/main.vhd"
+prj_add_source "C:/Users/SP5WWP/Documents/Radiant/OpenHT/pll_osc/pll_osc.ipx"
+prj_add_source "C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_rx/ddr_rx.ipx"
+prj_add_source "C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_tx/ddr_tx.ipx"
+prj_run Synthesis -impl impl_1
+prj_run Synthesis -impl impl_1
+prj_run Synthesis -impl impl_1
+prj_run Synthesis -impl impl_1
+prj_run Synthesis -impl impl_1
+prj_run Synthesis -impl impl_1
+prj_run Synthesis -impl impl_1
+prj_add_source "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/spi_slave.vhd"
+prj_run Synthesis -impl impl_1
+prj_run Synthesis -impl impl_1
+prj_run Synthesis -impl impl_1
+prj_run Synthesis -impl impl_1
+prj_run Synthesis -impl impl_1
+prj_run Map -impl impl_1
+prj_run Export -impl impl_1
+prj_set_impl_opt -impl "impl_1" "top" "main_all"
+prj_run Synthesis -impl impl_1
+prj_run Synthesis -impl impl_1
+prj_run Synthesis -impl impl_1
+prj_run Map -impl impl_1
+prj_archive -includeAll "C:/Users/SP5WWP/Documents/Radiant/OpenHT.zip"
+#Stop recording: 2/22/2023 12:33:35
