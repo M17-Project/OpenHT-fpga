@@ -1,5 +1,5 @@
 DRC: Design Rule Check Radiant Software (64-bit) 2022.1.0.52.3
-Wed Feb 22 11:32:01 2023
+Wed Feb 22 21:23:02 2023
 
 WARNING - Top module port 'nrst' does not connect to anything.
 WARNING - Top module port 'spi_ncs' does not connect to anything.
