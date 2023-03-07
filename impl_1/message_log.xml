@@ -457,194 +457,194 @@
         <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(6): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(12): </Dynamic>
             <Dynamic>spi_slave</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd</Navigation>
-            <Navigation>6</Navigation>
+            <Navigation>12</Navigation>
         </Message>
         <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(18): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(28): </Dynamic>
             <Dynamic>magic</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd</Navigation>
-            <Navigation>18</Navigation>
+            <Navigation>28</Navigation>
         </Message>
         <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd(6): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd(15): </Dynamic>
             <Dynamic>add_const</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd</Navigation>
-            <Navigation>6</Navigation>
+            <Navigation>15</Navigation>
         </Message>
         <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd(16): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd(25): </Dynamic>
             <Dynamic>magic</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd</Navigation>
-            <Navigation>16</Navigation>
+            <Navigation>25</Navigation>
         </Message>
         <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd(6): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd(12): </Dynamic>
             <Dynamic>complex_mul</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd</Navigation>
-            <Navigation>6</Navigation>
+            <Navigation>12</Navigation>
         </Message>
         <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd(13): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd(19): </Dynamic>
             <Dynamic>magic</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd</Navigation>
+            <Navigation>19</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd(12): </Dynamic>
+            <Dynamic>decim</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd</Navigation>
+            <Navigation>12</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd(26): </Dynamic>
+            <Dynamic>magic</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd</Navigation>
+            <Navigation>26</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd(12): </Dynamic>
+            <Dynamic>fir_channel</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd</Navigation>
+            <Navigation>12</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd(25): </Dynamic>
+            <Dynamic>magic</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd</Navigation>
+            <Navigation>25</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd(13): </Dynamic>
+            <Dynamic>fir_serial</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd</Navigation>
             <Navigation>13</Navigation>
         </Message>
         <Message>
-            <ID>35921012</ID>
-            <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd(6): </Dynamic>
-            <Dynamic>decim</Dynamic>
-            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd</Navigation>
-            <Navigation>6</Navigation>
-        </Message>
-        <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd(20): </Dynamic>
-            <Dynamic>magic</Dynamic>
-            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd</Navigation>
-            <Navigation>20</Navigation>
-        </Message>
-        <Message>
-            <ID>35921012</ID>
-            <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd(6): </Dynamic>
-            <Dynamic>fir_channel</Dynamic>
-            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd</Navigation>
-            <Navigation>6</Navigation>
-        </Message>
-        <Message>
-            <ID>35921010</ID>
-            <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd(19): </Dynamic>
-            <Dynamic>magic</Dynamic>
-            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd</Navigation>
-            <Navigation>19</Navigation>
-        </Message>
-        <Message>
-            <ID>35921012</ID>
-            <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd(6): </Dynamic>
-            <Dynamic>fir_serial</Dynamic>
-            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd</Navigation>
-            <Navigation>6</Navigation>
-        </Message>
-        <Message>
-            <ID>35921010</ID>
-            <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd(19): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd(26): </Dynamic>
             <Dynamic>magic</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd</Navigation>
-            <Navigation>19</Navigation>
+            <Navigation>26</Navigation>
         </Message>
         <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd(6): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd(12): </Dynamic>
             <Dynamic>freq_demod</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd</Navigation>
-            <Navigation>6</Navigation>
+            <Navigation>12</Navigation>
         </Message>
         <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd(14): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd(20): </Dynamic>
             <Dynamic>magic</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd</Navigation>
-            <Navigation>14</Navigation>
+            <Navigation>20</Navigation>
         </Message>
         <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd(6): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd(12): </Dynamic>
             <Dynamic>iq_des</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd</Navigation>
-            <Navigation>6</Navigation>
+            <Navigation>12</Navigation>
         </Message>
         <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd(17): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd(23): </Dynamic>
             <Dynamic>magic</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd</Navigation>
-            <Navigation>17</Navigation>
+            <Navigation>23</Navigation>
         </Message>
         <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd(6): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd(15): </Dynamic>
             <Dynamic>local_osc</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd</Navigation>
-            <Navigation>6</Navigation>
+            <Navigation>15</Navigation>
         </Message>
         <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd(18): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd(27): </Dynamic>
             <Dynamic>magic</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd</Navigation>
-            <Navigation>18</Navigation>
+            <Navigation>27</Navigation>
         </Message>
         <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd(7): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd(14): </Dynamic>
             <Dynamic>mag_est</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd</Navigation>
-            <Navigation>7</Navigation>
-        </Message>
-        <Message>
-            <ID>35921010</ID>
-            <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd(17): </Dynamic>
-            <Dynamic>magic</Dynamic>
-            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd</Navigation>
-            <Navigation>17</Navigation>
-        </Message>
-        <Message>
-            <ID>35921012</ID>
-            <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd(6): </Dynamic>
-            <Dynamic>am_modulator</Dynamic>
-            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd</Navigation>
-            <Navigation>6</Navigation>
-        </Message>
-        <Message>
-            <ID>35921010</ID>
-            <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd(14): </Dynamic>
-            <Dynamic>magic</Dynamic>
-            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd</Navigation>
             <Navigation>14</Navigation>
         </Message>
         <Message>
+            <ID>35921010</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd(24): </Dynamic>
+            <Dynamic>magic</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd</Navigation>
+            <Navigation>24</Navigation>
+        </Message>
+        <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(6): </Dynamic>
-            <Dynamic>ctrl_regs</Dynamic>
-            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd</Navigation>
-            <Navigation>6</Navigation>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd(12): </Dynamic>
+            <Dynamic>am_modulator</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd</Navigation>
+            <Navigation>12</Navigation>
         </Message>
         <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(20): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd(20): </Dynamic>
+            <Dynamic>magic</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd</Navigation>
+            <Navigation>20</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(12): </Dynamic>
+            <Dynamic>ctrl_regs</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd</Navigation>
+            <Navigation>12</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(26): </Dynamic>
             <Dynamic>magic</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd</Navigation>
-            <Navigation>20</Navigation>
+            <Navigation>26</Navigation>
         </Message>
         <Message>
             <ID>35921012</ID>
@@ -665,82 +665,82 @@
         <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd(12): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd(19): </Dynamic>
             <Dynamic>dither_source</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd</Navigation>
+            <Navigation>19</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd(28): </Dynamic>
+            <Dynamic>magic</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd</Navigation>
+            <Navigation>28</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(12): </Dynamic>
+            <Dynamic>fm_modulator</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd</Navigation>
             <Navigation>12</Navigation>
         </Message>
         <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd(21): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(23): </Dynamic>
             <Dynamic>magic</Dynamic>
-            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd</Navigation>
-            <Navigation>21</Navigation>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd</Navigation>
+            <Navigation>23</Navigation>
         </Message>
         <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(6): </Dynamic>
-            <Dynamic>fm_modulator</Dynamic>
-            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd</Navigation>
-            <Navigation>6</Navigation>
-        </Message>
-        <Message>
-            <ID>35921010</ID>
-            <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(17): </Dynamic>
-            <Dynamic>magic</Dynamic>
-            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd</Navigation>
-            <Navigation>17</Navigation>
-        </Message>
-        <Message>
-            <ID>35921012</ID>
-            <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd(6): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd(14): </Dynamic>
             <Dynamic>iq_balancer_16</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd</Navigation>
-            <Navigation>6</Navigation>
+            <Navigation>14</Navigation>
         </Message>
         <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd(17): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd(25): </Dynamic>
             <Dynamic>magic</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd</Navigation>
-            <Navigation>17</Navigation>
+            <Navigation>25</Navigation>
         </Message>
         <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd(6): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd(12): </Dynamic>
             <Dynamic>iq_offset</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd</Navigation>
-            <Navigation>6</Navigation>
+            <Navigation>12</Navigation>
         </Message>
         <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd(17): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd(23): </Dynamic>
             <Dynamic>magic</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd</Navigation>
-            <Navigation>17</Navigation>
+            <Navigation>23</Navigation>
         </Message>
         <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(6): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(12): </Dynamic>
             <Dynamic>mod_sel</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd</Navigation>
-            <Navigation>6</Navigation>
+            <Navigation>12</Navigation>
         </Message>
         <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(18): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(24): </Dynamic>
             <Dynamic>magic</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd</Navigation>
-            <Navigation>18</Navigation>
+            <Navigation>24</Navigation>
         </Message>
         <Message>
             <ID>35921012</ID>
@@ -761,34 +761,34 @@
         <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd(6): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd(13): </Dynamic>
             <Dynamic>unpack</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd</Navigation>
-            <Navigation>6</Navigation>
+            <Navigation>13</Navigation>
         </Message>
         <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd(16): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd(23): </Dynamic>
             <Dynamic>magic</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd</Navigation>
-            <Navigation>16</Navigation>
+            <Navigation>23</Navigation>
         </Message>
         <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd(6): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd(12): </Dynamic>
             <Dynamic>zero_insert</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd</Navigation>
-            <Navigation>6</Navigation>
+            <Navigation>12</Navigation>
         </Message>
         <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd(14): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd(20): </Dynamic>
             <Dynamic>magic</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd</Navigation>
-            <Navigation>14</Navigation>
+            <Navigation>20</Navigation>
         </Message>
         <Message>
             <ID>35921504</ID>
@@ -1187,194 +1187,194 @@
         <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(6): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(12): </Dynamic>
             <Dynamic>spi_slave</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd</Navigation>
-            <Navigation>6</Navigation>
+            <Navigation>12</Navigation>
         </Message>
         <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(18): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(28): </Dynamic>
             <Dynamic>magic</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd</Navigation>
-            <Navigation>18</Navigation>
+            <Navigation>28</Navigation>
         </Message>
         <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd(6): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd(15): </Dynamic>
             <Dynamic>add_const</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd</Navigation>
-            <Navigation>6</Navigation>
+            <Navigation>15</Navigation>
         </Message>
         <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd(16): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd(25): </Dynamic>
             <Dynamic>magic</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd</Navigation>
-            <Navigation>16</Navigation>
+            <Navigation>25</Navigation>
         </Message>
         <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd(6): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd(12): </Dynamic>
             <Dynamic>complex_mul</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd</Navigation>
-            <Navigation>6</Navigation>
+            <Navigation>12</Navigation>
         </Message>
         <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd(13): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd(19): </Dynamic>
             <Dynamic>magic</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd</Navigation>
+            <Navigation>19</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd(12): </Dynamic>
+            <Dynamic>decim</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd</Navigation>
+            <Navigation>12</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd(26): </Dynamic>
+            <Dynamic>magic</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd</Navigation>
+            <Navigation>26</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd(12): </Dynamic>
+            <Dynamic>fir_channel</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd</Navigation>
+            <Navigation>12</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd(25): </Dynamic>
+            <Dynamic>magic</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd</Navigation>
+            <Navigation>25</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd(13): </Dynamic>
+            <Dynamic>fir_serial</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd</Navigation>
             <Navigation>13</Navigation>
         </Message>
         <Message>
-            <ID>35921012</ID>
-            <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd(6): </Dynamic>
-            <Dynamic>decim</Dynamic>
-            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd</Navigation>
-            <Navigation>6</Navigation>
-        </Message>
-        <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd(20): </Dynamic>
-            <Dynamic>magic</Dynamic>
-            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd</Navigation>
-            <Navigation>20</Navigation>
-        </Message>
-        <Message>
-            <ID>35921012</ID>
-            <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd(6): </Dynamic>
-            <Dynamic>fir_channel</Dynamic>
-            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd</Navigation>
-            <Navigation>6</Navigation>
-        </Message>
-        <Message>
-            <ID>35921010</ID>
-            <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd(19): </Dynamic>
-            <Dynamic>magic</Dynamic>
-            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd</Navigation>
-            <Navigation>19</Navigation>
-        </Message>
-        <Message>
-            <ID>35921012</ID>
-            <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd(6): </Dynamic>
-            <Dynamic>fir_serial</Dynamic>
-            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd</Navigation>
-            <Navigation>6</Navigation>
-        </Message>
-        <Message>
-            <ID>35921010</ID>
-            <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd(19): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd(26): </Dynamic>
             <Dynamic>magic</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd</Navigation>
-            <Navigation>19</Navigation>
+            <Navigation>26</Navigation>
         </Message>
         <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd(6): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd(12): </Dynamic>
             <Dynamic>freq_demod</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd</Navigation>
-            <Navigation>6</Navigation>
+            <Navigation>12</Navigation>
         </Message>
         <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd(14): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd(20): </Dynamic>
             <Dynamic>magic</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd</Navigation>
-            <Navigation>14</Navigation>
+            <Navigation>20</Navigation>
         </Message>
         <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd(6): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd(12): </Dynamic>
             <Dynamic>iq_des</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd</Navigation>
-            <Navigation>6</Navigation>
+            <Navigation>12</Navigation>
         </Message>
         <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd(17): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd(23): </Dynamic>
             <Dynamic>magic</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd</Navigation>
-            <Navigation>17</Navigation>
+            <Navigation>23</Navigation>
         </Message>
         <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd(6): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd(15): </Dynamic>
             <Dynamic>local_osc</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd</Navigation>
-            <Navigation>6</Navigation>
+            <Navigation>15</Navigation>
         </Message>
         <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd(18): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd(27): </Dynamic>
             <Dynamic>magic</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd</Navigation>
-            <Navigation>18</Navigation>
+            <Navigation>27</Navigation>
         </Message>
         <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd(7): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd(14): </Dynamic>
             <Dynamic>mag_est</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd</Navigation>
-            <Navigation>7</Navigation>
-        </Message>
-        <Message>
-            <ID>35921010</ID>
-            <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd(17): </Dynamic>
-            <Dynamic>magic</Dynamic>
-            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd</Navigation>
-            <Navigation>17</Navigation>
-        </Message>
-        <Message>
-            <ID>35921012</ID>
-            <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd(6): </Dynamic>
-            <Dynamic>am_modulator</Dynamic>
-            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd</Navigation>
-            <Navigation>6</Navigation>
-        </Message>
-        <Message>
-            <ID>35921010</ID>
-            <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd(14): </Dynamic>
-            <Dynamic>magic</Dynamic>
-            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd</Navigation>
             <Navigation>14</Navigation>
         </Message>
         <Message>
+            <ID>35921010</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd(24): </Dynamic>
+            <Dynamic>magic</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd</Navigation>
+            <Navigation>24</Navigation>
+        </Message>
+        <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(6): </Dynamic>
-            <Dynamic>ctrl_regs</Dynamic>
-            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd</Navigation>
-            <Navigation>6</Navigation>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd(12): </Dynamic>
+            <Dynamic>am_modulator</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd</Navigation>
+            <Navigation>12</Navigation>
         </Message>
         <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(20): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd(20): </Dynamic>
+            <Dynamic>magic</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd</Navigation>
+            <Navigation>20</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(12): </Dynamic>
+            <Dynamic>ctrl_regs</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd</Navigation>
+            <Navigation>12</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(26): </Dynamic>
             <Dynamic>magic</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd</Navigation>
-            <Navigation>20</Navigation>
+            <Navigation>26</Navigation>
         </Message>
         <Message>
             <ID>35921012</ID>
@@ -1395,82 +1395,82 @@
         <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd(12): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd(19): </Dynamic>
             <Dynamic>dither_source</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd</Navigation>
+            <Navigation>19</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd(28): </Dynamic>
+            <Dynamic>magic</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd</Navigation>
+            <Navigation>28</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(12): </Dynamic>
+            <Dynamic>fm_modulator</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd</Navigation>
             <Navigation>12</Navigation>
         </Message>
         <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd(21): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(23): </Dynamic>
             <Dynamic>magic</Dynamic>
-            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd</Navigation>
-            <Navigation>21</Navigation>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd</Navigation>
+            <Navigation>23</Navigation>
         </Message>
         <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(6): </Dynamic>
-            <Dynamic>fm_modulator</Dynamic>
-            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd</Navigation>
-            <Navigation>6</Navigation>
-        </Message>
-        <Message>
-            <ID>35921010</ID>
-            <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(17): </Dynamic>
-            <Dynamic>magic</Dynamic>
-            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd</Navigation>
-            <Navigation>17</Navigation>
-        </Message>
-        <Message>
-            <ID>35921012</ID>
-            <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd(6): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd(14): </Dynamic>
             <Dynamic>iq_balancer_16</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd</Navigation>
-            <Navigation>6</Navigation>
+            <Navigation>14</Navigation>
         </Message>
         <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd(17): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd(25): </Dynamic>
             <Dynamic>magic</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd</Navigation>
-            <Navigation>17</Navigation>
+            <Navigation>25</Navigation>
         </Message>
         <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd(6): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd(12): </Dynamic>
             <Dynamic>iq_offset</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd</Navigation>
-            <Navigation>6</Navigation>
+            <Navigation>12</Navigation>
         </Message>
         <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd(17): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd(23): </Dynamic>
             <Dynamic>magic</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd</Navigation>
-            <Navigation>17</Navigation>
+            <Navigation>23</Navigation>
         </Message>
         <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(6): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(12): </Dynamic>
             <Dynamic>mod_sel</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd</Navigation>
-            <Navigation>6</Navigation>
+            <Navigation>12</Navigation>
         </Message>
         <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(18): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(24): </Dynamic>
             <Dynamic>magic</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd</Navigation>
-            <Navigation>18</Navigation>
+            <Navigation>24</Navigation>
         </Message>
         <Message>
             <ID>35921012</ID>
@@ -1491,34 +1491,34 @@
         <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd(6): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd(13): </Dynamic>
             <Dynamic>unpack</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd</Navigation>
-            <Navigation>6</Navigation>
+            <Navigation>13</Navigation>
         </Message>
         <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd(16): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd(23): </Dynamic>
             <Dynamic>magic</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd</Navigation>
-            <Navigation>16</Navigation>
+            <Navigation>23</Navigation>
         </Message>
         <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd(6): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd(12): </Dynamic>
             <Dynamic>zero_insert</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd</Navigation>
-            <Navigation>6</Navigation>
+            <Navigation>12</Navigation>
         </Message>
         <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd(14): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd(20): </Dynamic>
             <Dynamic>magic</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd</Navigation>
-            <Navigation>14</Navigation>
+            <Navigation>20</Navigation>
         </Message>
         <Message>
             <ID>35921504</ID>
@@ -1527,47 +1527,9 @@
             <Dynamic>C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1</Dynamic>
         </Message>
         <Message>
-            <ID>35935034</ID>
+            <ID>35001771</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd(118): </Dynamic>
-            <Dynamic>spi0</Dynamic>
-            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd</Navigation>
-            <Navigation>118</Navigation>
-        </Message>
-        <Message>
-            <ID>35002028</ID>
-            <Severity>16</Severity>
-            <Dynamic>nrst</Dynamic>
-        </Message>
-        <Message>
-            <ID>35002028</ID>
-            <Severity>16</Severity>
-            <Dynamic>spi_ncs</Dynamic>
-        </Message>
-        <Message>
-            <ID>35002028</ID>
-            <Severity>16</Severity>
-            <Dynamic>spi_miso</Dynamic>
-        </Message>
-        <Message>
-            <ID>35002028</ID>
-            <Severity>16</Severity>
-            <Dynamic>spi_mosi</Dynamic>
-        </Message>
-        <Message>
-            <ID>35002028</ID>
-            <Severity>16</Severity>
-            <Dynamic>spi_sck</Dynamic>
-        </Message>
-        <Message>
-            <ID>35002028</ID>
-            <Severity>16</Severity>
-            <Dynamic>io0</Dynamic>
-        </Message>
-        <Message>
-            <ID>35002028</ID>
-            <Severity>16</Severity>
-            <Dynamic>io1</Dynamic>
+            <Dynamic>spi_rw</Dynamic>
         </Message>
         <Message>
             <ID>35002028</ID>
@@ -1582,11 +1544,6 @@
         <Message>
             <ID>35002028</ID>
             <Severity>16</Severity>
-            <Dynamic>io5</Dynamic>
-        </Message>
-        <Message>
-            <ID>35002028</ID>
-            <Severity>16</Severity>
             <Dynamic>io6</Dynamic>
         </Message>
         <Message>
@@ -1595,39 +1552,230 @@
             <Dynamic>io7</Dynamic>
         </Message>
         <Message>
-            <ID>35002028</ID>
+            <ID>35935035</ID>
             <Severity>16</Severity>
-            <Dynamic>nrst</Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(55): </Dynamic>
+            <Dynamic>\spi0/add_16_i2</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd</Navigation>
+            <Navigation>55</Navigation>
         </Message>
         <Message>
-            <ID>35002028</ID>
+            <ID>35001747</ID>
             <Severity>16</Severity>
-            <Dynamic>spi_ncs</Dynamic>
+            <Dynamic>5</Dynamic>
+            <Dynamic>\spi0/add_16_e2</Dynamic>
         </Message>
         <Message>
-            <ID>35002028</ID>
+            <ID>35001747</ID>
             <Severity>16</Severity>
-            <Dynamic>spi_miso</Dynamic>
+            <Dynamic>4</Dynamic>
+            <Dynamic>\spi0/add_16_e2</Dynamic>
         </Message>
         <Message>
-            <ID>35002028</ID>
+            <ID>35001747</ID>
             <Severity>16</Severity>
-            <Dynamic>spi_mosi</Dynamic>
+            <Dynamic>3</Dynamic>
+            <Dynamic>\spi0/add_16_e2</Dynamic>
         </Message>
         <Message>
-            <ID>35002028</ID>
+            <ID>35001747</ID>
             <Severity>16</Severity>
-            <Dynamic>spi_sck</Dynamic>
+            <Dynamic>2</Dynamic>
+            <Dynamic>\spi0/add_16_e2</Dynamic>
         </Message>
         <Message>
-            <ID>35002028</ID>
+            <ID>35001747</ID>
             <Severity>16</Severity>
-            <Dynamic>io0</Dynamic>
+            <Dynamic>1</Dynamic>
+            <Dynamic>\spi0/add_16_e2</Dynamic>
         </Message>
         <Message>
-            <ID>35002028</ID>
+            <ID>35001748</ID>
             <Severity>16</Severity>
-            <Dynamic>io1</Dynamic>
+            <Dynamic>0</Dynamic>
+            <Dynamic>\spi0/add_16_e2</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>16</Severity>
+            <Dynamic>5</Dynamic>
+            <Dynamic>\spi0/add_16_add_12_e2</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>16</Severity>
+            <Dynamic>4</Dynamic>
+            <Dynamic>\spi0/add_16_add_12_e2</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>16</Severity>
+            <Dynamic>3</Dynamic>
+            <Dynamic>\spi0/add_16_add_12_e2</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>16</Severity>
+            <Dynamic>2</Dynamic>
+            <Dynamic>\spi0/add_16_add_12_e2</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>16</Severity>
+            <Dynamic>1</Dynamic>
+            <Dynamic>\spi0/add_16_add_12_e2</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001748</ID>
+            <Severity>16</Severity>
+            <Dynamic>0</Dynamic>
+            <Dynamic>\spi0/add_16_add_12_e2</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>16</Severity>
+            <Dynamic>0</Dynamic>
+            <Dynamic>\spi0/data_tx</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>16</Severity>
+            <Dynamic>1</Dynamic>
+            <Dynamic>\spi0/data_tx</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>16</Severity>
+            <Dynamic>2</Dynamic>
+            <Dynamic>\spi0/data_tx</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>16</Severity>
+            <Dynamic>3</Dynamic>
+            <Dynamic>\spi0/data_tx</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>16</Severity>
+            <Dynamic>4</Dynamic>
+            <Dynamic>\spi0/data_tx</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>16</Severity>
+            <Dynamic>5</Dynamic>
+            <Dynamic>\spi0/data_tx</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>16</Severity>
+            <Dynamic>6</Dynamic>
+            <Dynamic>\spi0/data_tx</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>16</Severity>
+            <Dynamic>7</Dynamic>
+            <Dynamic>\spi0/data_tx</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>16</Severity>
+            <Dynamic>8</Dynamic>
+            <Dynamic>\spi0/data_tx</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>16</Severity>
+            <Dynamic>9</Dynamic>
+            <Dynamic>\spi0/data_tx</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>16</Severity>
+            <Dynamic>10</Dynamic>
+            <Dynamic>\spi0/data_tx</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>16</Severity>
+            <Dynamic>11</Dynamic>
+            <Dynamic>\spi0/data_tx</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>16</Severity>
+            <Dynamic>12</Dynamic>
+            <Dynamic>\spi0/data_tx</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>16</Severity>
+            <Dynamic>13</Dynamic>
+            <Dynamic>\spi0/data_tx</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>16</Severity>
+            <Dynamic>14</Dynamic>
+            <Dynamic>\spi0/data_tx</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>16</Severity>
+            <Dynamic>15</Dynamic>
+            <Dynamic>\spi0/data_tx</Dynamic>
+        </Message>
+        <Message>
+            <ID>35935035</ID>
+            <Severity>16</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(56): </Dynamic>
+            <Dynamic>add_53_i17</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd</Navigation>
+            <Navigation>56</Navigation>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>16</Severity>
+            <Dynamic>5</Dynamic>
+            <Dynamic>add_53_add_12_add_12_add_12_e2</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>16</Severity>
+            <Dynamic>4</Dynamic>
+            <Dynamic>add_53_add_12_add_12_add_12_e2</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>16</Severity>
+            <Dynamic>3</Dynamic>
+            <Dynamic>add_53_add_12_add_12_add_12_e2</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>16</Severity>
+            <Dynamic>2</Dynamic>
+            <Dynamic>add_53_add_12_add_12_add_12_e2</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>16</Severity>
+            <Dynamic>1</Dynamic>
+            <Dynamic>add_53_add_12_add_12_add_12_e2</Dynamic>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>16</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(56): Clock on register add_53_add_12_add_12_add_12_i8 is tied to a constant
+</Dynamic>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>16</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(56): Clock on register add_53_add_12_add_12_add_12_i8 is tied to a constant
+</Dynamic>
         </Message>
         <Message>
             <ID>35002028</ID>
@@ -1642,17 +1790,20 @@
         <Message>
             <ID>35002028</ID>
             <Severity>16</Severity>
-            <Dynamic>io5</Dynamic>
-        </Message>
-        <Message>
-            <ID>35002028</ID>
-            <Severity>16</Severity>
             <Dynamic>io6</Dynamic>
         </Message>
         <Message>
             <ID>35002028</ID>
             <Severity>16</Severity>
             <Dynamic>io7</Dynamic>
+        </Message>
+        <Message>
+            <ID>35935013</ID>
+            <Severity>16</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(87): </Dynamic>
+            <Dynamic>\spi0/miso_o</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd</Navigation>
+            <Navigation>87</Navigation>
         </Message>
         <Message>
             <ID>1027013</ID>

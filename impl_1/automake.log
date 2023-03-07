@@ -84,63 +84,63 @@ INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd(30): anal
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(6): analyzing entity spi_slave. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(18): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(12): analyzing entity spi_slave. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(28): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd(6): analyzing entity add_const. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd(16): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd(15): analyzing entity add_const. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd(25): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd(6): analyzing entity complex_mul. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd(13): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd(12): analyzing entity complex_mul. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd(19): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd(6): analyzing entity decim. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd(20): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd(12): analyzing entity decim. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd(26): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd(6): analyzing entity fir_channel. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd(19): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd(12): analyzing entity fir_channel. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd(25): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd(6): analyzing entity fir_serial. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd(19): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd(13): analyzing entity fir_serial. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd(26): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd(6): analyzing entity freq_demod. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd(14): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd(12): analyzing entity freq_demod. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd(20): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd(6): analyzing entity iq_des. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd(17): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd(12): analyzing entity iq_des. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd(23): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd(6): analyzing entity local_osc. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd(18): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd(15): analyzing entity local_osc. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd(27): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd(7): analyzing entity mag_est. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd(17): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd(14): analyzing entity mag_est. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd(24): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd(6): analyzing entity am_modulator. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd(14): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd(12): analyzing entity am_modulator. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd(20): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(6): analyzing entity ctrl_regs. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(20): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(12): analyzing entity ctrl_regs. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(26): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_adder.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_adder.vhd
 
@@ -149,28 +149,28 @@ INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_adder.vhd(2
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd(12): analyzing entity dither_source. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd(21): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd(19): analyzing entity dither_source. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd(28): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(6): analyzing entity fm_modulator. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(17): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(12): analyzing entity fm_modulator. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(23): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd(6): analyzing entity iq_balancer_16. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd(17): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd(14): analyzing entity iq_balancer_16. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd(25): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd(6): analyzing entity iq_offset. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd(17): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd(12): analyzing entity iq_offset. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd(23): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(6): analyzing entity mod_sel. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(18): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(12): analyzing entity mod_sel. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(24): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd
 
@@ -179,13 +179,13 @@ INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd(20): an
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd(6): analyzing entity unpack. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd(16): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd(13): analyzing entity unpack. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd(23): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd(6): analyzing entity zero_insert. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd(14): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd(12): analyzing entity zero_insert. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd(20): analyzing architecture magic. VHDL-1010
 INFO - The default VHDL library search path is now "C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1". VHDL-1504
 Top module language type = VHDL.
 Top module name (VHDL, mixed language): main_all
@@ -223,7 +223,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-Tue Mar  7 11:48:24 2023
+Tue Mar  7 17:58:55 2023
 
 
 Command Line:  C:\Radiant\ispfpga\bin\nt64\synthesis.exe -f OpenHT_impl_1_lattice.synproj -gui -msgset C:/Users/SP5WWP/Documents/Radiant/OpenHT/promote.xml 
@@ -405,63 +405,63 @@ INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd(30): anal
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(6): analyzing entity spi_slave. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(18): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(12): analyzing entity spi_slave. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(28): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd(6): analyzing entity add_const. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd(16): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd(15): analyzing entity add_const. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd(25): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd(6): analyzing entity complex_mul. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd(13): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd(12): analyzing entity complex_mul. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd(19): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd(6): analyzing entity decim. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd(20): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd(12): analyzing entity decim. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd(26): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd(6): analyzing entity fir_channel. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd(19): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd(12): analyzing entity fir_channel. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd(25): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd(6): analyzing entity fir_serial. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd(19): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd(13): analyzing entity fir_serial. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd(26): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd(6): analyzing entity freq_demod. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd(14): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd(12): analyzing entity freq_demod. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd(20): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd(6): analyzing entity iq_des. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd(17): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd(12): analyzing entity iq_des. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd(23): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd(6): analyzing entity local_osc. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd(18): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd(15): analyzing entity local_osc. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd(27): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd(7): analyzing entity mag_est. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd(17): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd(14): analyzing entity mag_est. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd(24): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd(6): analyzing entity am_modulator. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd(14): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd(12): analyzing entity am_modulator. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd(20): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(6): analyzing entity ctrl_regs. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(20): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(12): analyzing entity ctrl_regs. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(26): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_adder.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_adder.vhd
 
@@ -470,28 +470,28 @@ INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_adder.vhd(2
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd(12): analyzing entity dither_source. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd(21): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd(19): analyzing entity dither_source. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd(28): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(6): analyzing entity fm_modulator. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(17): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(12): analyzing entity fm_modulator. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(23): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd(6): analyzing entity iq_balancer_16. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd(17): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd(14): analyzing entity iq_balancer_16. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd(25): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd(6): analyzing entity iq_offset. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd(17): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd(12): analyzing entity iq_offset. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd(23): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(6): analyzing entity mod_sel. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(18): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(12): analyzing entity mod_sel. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(24): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd
 
@@ -500,13 +500,13 @@ INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd(20): an
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd(6): analyzing entity unpack. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd(16): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd(13): analyzing entity unpack. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd(23): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd
 
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd(6): analyzing entity zero_insert. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd(14): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd(12): analyzing entity zero_insert. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd(20): analyzing architecture magic. VHDL-1010
 INFO - The default VHDL library search path is now "C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1". VHDL-1504
 Top module language type = VHDL.
 Top module name (VHDL, mixed language): main_all
@@ -534,34 +534,56 @@ Top module name (VHDL, mixed language): main_all
                                                          
 
 
-WARNING - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd(118): Removing unused instance spi0. VDB-5034
-WARNING - I/O Port nrst 's net has no driver and is unused.
-WARNING - I/O Port spi_ncs 's net has no driver and is unused.
-WARNING - I/O Port spi_miso 's net has no driver and is unused.
-WARNING - I/O Port spi_mosi 's net has no driver and is unused.
-WARNING - I/O Port spi_sck 's net has no driver and is unused.
-WARNING - I/O Port io0 's net has no driver and is unused.
-WARNING - I/O Port io1 's net has no driver and is unused.
+WARNING - Initial value found on net spi_rw will be ignored due to unrecognized driver type
 WARNING - I/O Port io2 's net has no driver and is unused.
 WARNING - I/O Port io3 's net has no driver and is unused.
-WARNING - I/O Port io5 's net has no driver and is unused.
 WARNING - I/O Port io6 's net has no driver and is unused.
 WARNING - I/O Port io7 's net has no driver and is unused.
 
 
 
-WARNING - I/O Port nrst 's net has no driver and is unused.
-WARNING - I/O Port spi_ncs 's net has no driver and is unused.
-WARNING - I/O Port spi_miso 's net has no driver and is unused.
-WARNING - I/O Port spi_mosi 's net has no driver and is unused.
-WARNING - I/O Port spi_sck 's net has no driver and is unused.
-WARNING - I/O Port io0 's net has no driver and is unused.
-WARNING - I/O Port io1 's net has no driver and is unused.
+WARNING - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(55): Register \spi0/add_16_i2 clock is stuck at Zero. VDB-5035
+WARNING - Bit 5 of Register \spi0/add_16_e2 is stuck at Zero
+WARNING - Bit 4 of Register \spi0/add_16_e2 is stuck at Zero
+WARNING - Bit 3 of Register \spi0/add_16_e2 is stuck at Zero
+WARNING - Bit 2 of Register \spi0/add_16_e2 is stuck at Zero
+WARNING - Bit 1 of Register \spi0/add_16_e2 is stuck at Zero
+WARNING - Bit 0 of Register \spi0/add_16_e2 is stuck at One
+WARNING - Bit 5 of Register \spi0/add_16_add_12_e2 is stuck at Zero
+WARNING - Bit 4 of Register \spi0/add_16_add_12_e2 is stuck at Zero
+WARNING - Bit 3 of Register \spi0/add_16_add_12_e2 is stuck at Zero
+WARNING - Bit 2 of Register \spi0/add_16_add_12_e2 is stuck at Zero
+WARNING - Bit 1 of Register \spi0/add_16_add_12_e2 is stuck at Zero
+WARNING - Bit 0 of Register \spi0/add_16_add_12_e2 is stuck at One
+WARNING - Bit 0 of Register \spi0/data_tx is stuck at Zero
+WARNING - Bit 1 of Register \spi0/data_tx is stuck at Zero
+WARNING - Bit 2 of Register \spi0/data_tx is stuck at Zero
+WARNING - Bit 3 of Register \spi0/data_tx is stuck at Zero
+WARNING - Bit 4 of Register \spi0/data_tx is stuck at Zero
+WARNING - Bit 5 of Register \spi0/data_tx is stuck at Zero
+WARNING - Bit 6 of Register \spi0/data_tx is stuck at Zero
+WARNING - Bit 7 of Register \spi0/data_tx is stuck at Zero
+WARNING - Bit 8 of Register \spi0/data_tx is stuck at Zero
+WARNING - Bit 9 of Register \spi0/data_tx is stuck at Zero
+WARNING - Bit 10 of Register \spi0/data_tx is stuck at Zero
+WARNING - Bit 11 of Register \spi0/data_tx is stuck at Zero
+WARNING - Bit 12 of Register \spi0/data_tx is stuck at Zero
+WARNING - Bit 13 of Register \spi0/data_tx is stuck at Zero
+WARNING - Bit 14 of Register \spi0/data_tx is stuck at Zero
+WARNING - Bit 15 of Register \spi0/data_tx is stuck at Zero
+WARNING - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(56): Register add_53_i17 clock is stuck at Zero. VDB-5035
+WARNING - Bit 5 of Register add_53_add_12_add_12_add_12_e2 is stuck at Zero
+WARNING - Bit 4 of Register add_53_add_12_add_12_add_12_e2 is stuck at Zero
+WARNING - Bit 3 of Register add_53_add_12_add_12_add_12_e2 is stuck at Zero
+WARNING - Bit 2 of Register add_53_add_12_add_12_add_12_e2 is stuck at Zero
+WARNING - Bit 1 of Register add_53_add_12_add_12_add_12_e2 is stuck at Zero
+WARNING - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(56): Clock on register add_53_add_12_add_12_add_12_i8 is tied to a constant&#xA;
+WARNING - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(56): Clock on register add_53_add_12_add_12_add_12_i8 is tied to a constant&#xA;
 WARNING - I/O Port io2 's net has no driver and is unused.
 WARNING - I/O Port io3 's net has no driver and is unused.
-WARNING - I/O Port io5 's net has no driver and is unused.
 WARNING - I/O Port io6 's net has no driver and is unused.
 WARNING - I/O Port io7 's net has no driver and is unused.
+WARNING - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(87): Register \spi0/miso_o is stuck at Zero. VDB-5013
 GSR will not be inferred because no asynchronous signal was found in the netlist.
 Initializing timer
 Starting design annotation....
@@ -613,9 +635,9 @@ WARNING - Removing unused instance GSR_INST. VDB-5034
 Number of register bits => 0 of 32256 (0 % )
 DELAYB => 2
 GSR => 1
-IB => 8
+IB => 12
 IDDRX1 => 2
-LUT4 => 1
+LUT4 => 2
 OB => 7
 ODDRX1 => 2
 PLL => 1
@@ -636,19 +658,19 @@ Top 10 highest fanout non-clock nets:
   Net : VCC_net, loads : 12
   Net : data_rx09_i_c, loads : 1
   Net : data_rx24_i_c, loads : 1
-  Net : spi_miso_c_c, loads : 1
-  Net : io5_c_c, loads : 1
+  Net : io0_c, loads : 1
+  Net : io1_c, loads : 1
   Net : io6_c_c, loads : 1
   Net : io7_c_c, loads : 1
   Net : io4_c, loads : 1
+  Net : io5_c, loads : 1
   Net : ddr_rx0/lscc_gddr_inst/RX_SCLK_CENTERED_STATIC_BYPASS.u_lscc_gddr_rx_sclk_centered_static_bypass/data_i_del_w[0], loads : 1
-  Net : ddr_rx1/lscc_gddr_inst/RX_SCLK_CENTERED_STATIC_BYPASS.u_lscc_gddr_rx_sclk_centered_static_bypass/data_i_del_w[0], loads : 1
 ################### End Clock Report ##################
 
-Peak Memory Usage: 280 MB
+Peak Memory Usage: 282 MB
 
 --------------------------------------------------------------
-Total CPU Time: 2 secs 
+Total CPU Time: 3 secs 
 Total REAL Time: 3 secs 
 --------------------------------------------------------------
 
@@ -663,8 +685,8 @@ Command Line: postsyn -a LIFCL -p LIFCL-40 -t QFN72 -sp 7_High-Performance_1.0V 
 Reading input file 'OpenHT_impl_1.vm' ...
 CPU Time to convert: 0.4375
 REAL Time to convert: 0
-convert PEAK Memory Usage: 108 MB
-convert CURRENT Memory Usage: 104 MB
+convert PEAK Memory Usage: 109 MB
+convert CURRENT Memory Usage: 105 MB
 Reading constraint file 'C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1/OpenHT_impl_1.ldc' ...
 Removing unused logic ...
 INFO - Signal GSR_INST.GSROUT undriven or does not drive anything - clipped
