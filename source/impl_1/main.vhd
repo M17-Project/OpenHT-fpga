@@ -5,7 +5,7 @@ use IEEE.numeric_std.all;
 
 entity main_all is
 	port(
-		-- 32 MHz clock input from the AT86
+		-- 26 MHz clock input from the AT86
 		clk_i 				: in std_logic;
 		-- master reset, low active
 		nrst				: in std_logic;
@@ -16,7 +16,7 @@ entity main_all is
 		clk_rx_i			: in std_logic;
 		data_rx09_i			: in std_logic;
 		data_rx24_i			: in std_logic;
-		-- SPI exposed for the STM32
+		-- SPI slave exposed for the STM32
 		spi_ncs				: in std_logic;
 		spi_miso			: out std_logic;
 		spi_mosi			: in std_logic;
@@ -28,25 +28,29 @@ entity main_all is
 end main_all;
 
 architecture magic of main_all is
-	-- 64 MHz clock
-	signal clk_64			: std_logic;
-	-- "constant" source
-	signal data_r			: std_logic_vector(1 downto 0) := (others => '0');
-	-- dummy
-	signal clk_rx09			: std_logic;
-	signal clk_rx24			: std_logic;
-	signal data_rx09_r		: std_logic_vector(1 downto 0);
-	signal data_rx24_r		: std_logic_vector(1 downto 0);
-	-- SPI data regs
-	signal spi_rx_r			: std_logic_vector(31 downto 0);
+	-- 38, 64 and 152 MHz clocks
+	signal clk_38, clk_64, clk_152	: std_logic;
 	
+	-- "constant" source
+	signal data_r					: std_logic_vector(1 downto 0) := (others => '0');
+	-- dummy
+	signal clk_rx09					: std_logic;
+	signal clk_rx24					: std_logic;
+	signal data_rx09_r				: std_logic_vector(1 downto 0);
+	signal data_rx24_r				: std_logic_vector(1 downto 0);
+	-- SPI data regs
+	signal spi_rx_r					: std_logic_vector(31 downto 0);
+	
+	-- PLL block
 	component pll_osc is
 		port(
-			clki_i  : in std_logic;
-			clkop_o : out std_logic
+			clki_i  : in std_logic;		-- reference input
+			clkop_o : out std_logic;	-- primary output
+			clkos_o : out std_logic		-- secondary output
 		);
 	end component;
 	
+	-- DDR interfaces
 	component ddr_tx is
 		port(
 			clk_i  : in std_logic;
@@ -67,6 +71,7 @@ architecture magic of main_all is
 		);
 	end component;
 	
+	-- SPI slave interface
 	component spi_slave is
 		port(
 			mosi_i	: in std_logic;
@@ -79,9 +84,11 @@ architecture magic of main_all is
 		);
 	end component;
 begin
+	------------------ port maps ------------------
 	pll0: pll_osc port map(
 		clki_i => clk_i,
-		clkop_o => clk_64
+		clkop_o => clk_64,
+		clkos_o => clk_152
 	);
 
 	ddr_tx0: ddr_tx port map(

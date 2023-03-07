@@ -29,6 +29,20 @@
                     <ipxact:direction>out</ipxact:direction>
                 </ipxact:wire>
             </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>clkos_o</ipxact:name>
+                <ipxact:displayName>clkos_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>clkos2_o</ipxact:name>
+                <ipxact:displayName>clkos2_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                </ipxact:wire>
+            </ipxact:port>
         </ipxact:ports>
     </ipxact:model>
     <ipxact:fileSets>
@@ -86,7 +100,7 @@
         </lsccip:deviceInfo>
         <lsccip:generationInfo>
             <lsccip:fileVersion>20180929</lsccip:fileVersion>
-            <lsccip:createdTimestamp>2023 02 22 10:20:53</lsccip:createdTimestamp>
+            <lsccip:createdTimestamp>2023 03 07 11:29:00</lsccip:createdTimestamp>
             <lsccip:radiantBuild>&quot;Lattice Radiant Software&quot; (64-bit) 2022.1.0.52.3</lsccip:radiantBuild>
         </lsccip:generationInfo>
     </ipxact:vendorExtensions>
