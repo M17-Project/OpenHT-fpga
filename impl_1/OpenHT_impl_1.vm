@@ -1,5 +1,5 @@
 // Verilog netlist produced by program LSE :  version Radiant Software (64-bit) 2022.1.0.52.3
-// Netlist written on Wed Feb 22 11:14:33 2023
+// Netlist written on Tue Mar  7 11:48:27 2023
 // Source file index table: 
 // Object locations will have the form @<file_index>(<first_ line>[<left_column>],<last_line>[<right_column>])
 // file 0 "c:/radiant/ip/pmi/pmi_lifcl.v"
@@ -7,139 +7,159 @@
 // file 2 "c:/users/sp5wwp/documents/radiant/openht/ddr_rx/rtl/ddr_rx.v"
 // file 3 "c:/users/sp5wwp/documents/radiant/openht/ddr_tx/rtl/ddr_tx.v"
 // file 4 "c:/users/sp5wwp/documents/radiant/openht/pll_osc/rtl/pll_osc.v"
-// file 5 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd"
-// file 6 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd"
-// file 7 "c:/radiant/cae_library/simulation/verilog/lifcl/acc54.v"
-// file 8 "c:/radiant/cae_library/simulation/verilog/lifcl/adc.v"
-// file 9 "c:/radiant/cae_library/simulation/verilog/lifcl/alureg.v"
-// file 10 "c:/radiant/cae_library/simulation/verilog/lifcl/aon.v"
-// file 11 "c:/radiant/cae_library/simulation/verilog/lifcl/bb_adc.v"
-// file 12 "c:/radiant/cae_library/simulation/verilog/lifcl/bb_cdr.v"
-// file 13 "c:/radiant/cae_library/simulation/verilog/lifcl/bb_i3c_a.v"
-// file 14 "c:/radiant/cae_library/simulation/verilog/lifcl/bb_programn.v"
-// file 15 "c:/radiant/cae_library/simulation/verilog/lifcl/bfd1p3kx.v"
-// file 16 "c:/radiant/cae_library/simulation/verilog/lifcl/bfd1p3lx.v"
-// file 17 "c:/radiant/cae_library/simulation/verilog/lifcl/bnkref18.v"
-// file 18 "c:/radiant/cae_library/simulation/verilog/lifcl/config_ip.v"
-// file 19 "c:/radiant/cae_library/simulation/verilog/lifcl/config_lmmi.v"
-// file 20 "c:/radiant/cae_library/simulation/verilog/lifcl/config_lmmia.v"
-// file 21 "c:/radiant/cae_library/simulation/verilog/lifcl/ddrdll.v"
-// file 22 "c:/radiant/cae_library/simulation/verilog/lifcl/diffio18.v"
-// file 23 "c:/radiant/cae_library/simulation/verilog/lifcl/dlldel.v"
-// file 24 "c:/radiant/cae_library/simulation/verilog/lifcl/dp16k.v"
-// file 25 "c:/radiant/cae_library/simulation/verilog/lifcl/dphy.v"
-// file 26 "c:/radiant/cae_library/simulation/verilog/lifcl/dpsc512k.v"
-// file 27 "c:/radiant/cae_library/simulation/verilog/lifcl/dqsbuf.v"
-// file 28 "c:/radiant/cae_library/simulation/verilog/lifcl/ebr.v"
-// file 29 "c:/radiant/cae_library/simulation/verilog/lifcl/eclkdiv.v"
-// file 30 "c:/radiant/cae_library/simulation/verilog/lifcl/eclksync.v"
-// file 31 "c:/radiant/cae_library/simulation/verilog/lifcl/fbmux.v"
-// file 32 "c:/radiant/cae_library/simulation/verilog/lifcl/fifo16k.v"
-// file 33 "c:/radiant/cae_library/simulation/verilog/lifcl/i2cfifo.v"
-// file 34 "c:/radiant/cae_library/simulation/verilog/lifcl/ifd1p3bx.v"
-// file 35 "c:/radiant/cae_library/simulation/verilog/lifcl/ifd1p3dx.v"
-// file 36 "c:/radiant/cae_library/simulation/verilog/lifcl/ifd1p3ix.v"
-// file 37 "c:/radiant/cae_library/simulation/verilog/lifcl/ifd1p3jx.v"
-// file 38 "c:/radiant/cae_library/simulation/verilog/lifcl/iologic.v"
-// file 39 "c:/radiant/cae_library/simulation/verilog/lifcl/jtag.v"
-// file 40 "c:/radiant/cae_library/simulation/verilog/lifcl/lram.v"
-// file 41 "c:/radiant/cae_library/simulation/verilog/lifcl/m18x36.v"
-// file 42 "c:/radiant/cae_library/simulation/verilog/lifcl/mipi.v"
-// file 43 "c:/radiant/cae_library/simulation/verilog/lifcl/mult18.v"
-// file 44 "c:/radiant/cae_library/simulation/verilog/lifcl/mult18x18.v"
-// file 45 "c:/radiant/cae_library/simulation/verilog/lifcl/mult18x36.v"
-// file 46 "c:/radiant/cae_library/simulation/verilog/lifcl/mult36.v"
-// file 47 "c:/radiant/cae_library/simulation/verilog/lifcl/mult36x36.v"
-// file 48 "c:/radiant/cae_library/simulation/verilog/lifcl/mult9.v"
-// file 49 "c:/radiant/cae_library/simulation/verilog/lifcl/mult9x9.v"
-// file 50 "c:/radiant/cae_library/simulation/verilog/lifcl/multaddsub18x18.v"
-// file 51 "c:/radiant/cae_library/simulation/verilog/lifcl/multaddsub18x18wide.v"
-// file 52 "c:/radiant/cae_library/simulation/verilog/lifcl/multaddsub18x36.v"
-// file 53 "c:/radiant/cae_library/simulation/verilog/lifcl/multaddsub36x36.v"
-// file 54 "c:/radiant/cae_library/simulation/verilog/lifcl/multaddsub9x9wide.v"
-// file 55 "c:/radiant/cae_library/simulation/verilog/lifcl/multiboot.v"
-// file 56 "c:/radiant/cae_library/simulation/verilog/lifcl/multpreadd18x18.v"
-// file 57 "c:/radiant/cae_library/simulation/verilog/lifcl/multpreadd9x9.v"
-// file 58 "c:/radiant/cae_library/simulation/verilog/lifcl/ofd1p3bx.v"
-// file 59 "c:/radiant/cae_library/simulation/verilog/lifcl/ofd1p3dx.v"
-// file 60 "c:/radiant/cae_library/simulation/verilog/lifcl/ofd1p3ix.v"
-// file 61 "c:/radiant/cae_library/simulation/verilog/lifcl/ofd1p3jx.v"
-// file 62 "c:/radiant/cae_library/simulation/verilog/lifcl/osc.v"
-// file 63 "c:/radiant/cae_library/simulation/verilog/lifcl/osca.v"
-// file 64 "c:/radiant/cae_library/simulation/verilog/lifcl/oscd.v"
-// file 65 "c:/radiant/cae_library/simulation/verilog/lifcl/pcie.v"
-// file 66 "c:/radiant/cae_library/simulation/verilog/lifcl/pdp16k.v"
-// file 67 "c:/radiant/cae_library/simulation/verilog/lifcl/pdpsc16k.v"
-// file 68 "c:/radiant/cae_library/simulation/verilog/lifcl/pdpsc512k.v"
-// file 69 "c:/radiant/cae_library/simulation/verilog/lifcl/pll.v"
-// file 70 "c:/radiant/cae_library/simulation/verilog/lifcl/plla.v"
-// file 71 "c:/radiant/cae_library/simulation/verilog/lifcl/pllrefcs.v"
-// file 72 "c:/radiant/cae_library/simulation/verilog/lifcl/pmu.v"
-// file 73 "c:/radiant/cae_library/simulation/verilog/lifcl/preadd9.v"
-// file 74 "c:/radiant/cae_library/simulation/verilog/lifcl/refmux.v"
-// file 75 "c:/radiant/cae_library/simulation/verilog/lifcl/reg18.v"
-// file 76 "c:/radiant/cae_library/simulation/verilog/lifcl/sedc.v"
-// file 77 "c:/radiant/cae_library/simulation/verilog/lifcl/seio18.v"
-// file 78 "c:/radiant/cae_library/simulation/verilog/lifcl/seio33.v"
-// file 79 "c:/radiant/cae_library/simulation/verilog/lifcl/sgmiicdr.v"
-// file 80 "c:/radiant/cae_library/simulation/verilog/lifcl/siologic.v"
-// file 81 "c:/radiant/cae_library/simulation/verilog/lifcl/sp16k.v"
-// file 82 "c:/radiant/cae_library/simulation/verilog/lifcl/sp512k.v"
-// file 83 "c:/radiant/cae_library/simulation/verilog/lifcl/tsalla.v"
-// file 84 "c:/radiant/cae_library/simulation/verilog/lifcl/usb23.v"
-// file 85 "c:/radiant/cae_library/simulation/verilog/lifcl/wdt.v"
-// file 86 "c:/radiant/cae_library/simulation/verilog/uaplatform/dpr16x4.v"
-// file 87 "c:/radiant/cae_library/simulation/verilog/uaplatform/fd1p3bx.v"
-// file 88 "c:/radiant/cae_library/simulation/verilog/uaplatform/fd1p3dx.v"
-// file 89 "c:/radiant/cae_library/simulation/verilog/uaplatform/fd1p3ix.v"
-// file 90 "c:/radiant/cae_library/simulation/verilog/uaplatform/fd1p3jx.v"
-// file 91 "c:/radiant/cae_library/simulation/verilog/uaplatform/gsr.v"
-// file 92 "c:/radiant/cae_library/simulation/verilog/uaplatform/ib.v"
-// file 93 "c:/radiant/cae_library/simulation/verilog/uaplatform/ob.v"
-// file 94 "c:/radiant/cae_library/simulation/verilog/uaplatform/obz.v"
-// file 95 "c:/radiant/cae_library/simulation/verilog/uaplatform/pclkdivsp.v"
-// file 96 "c:/radiant/cae_library/simulation/verilog/uaplatform/spr16x4.v"
-// file 97 "c:/radiant/cae_library/simulation/verilog/uaplatform/widefn9.v"
-// file 98 "c:/radiant/ip/avant/fifo/rtl/lscc_fifo.v"
-// file 99 "c:/radiant/ip/avant/fifo_dc/rtl/lscc_fifo_dc.v"
-// file 100 "c:/radiant/ip/avant/ram_dp/rtl/lscc_ram_dp.v"
-// file 101 "c:/radiant/ip/avant/ram_dp_true/rtl/lscc_ram_dp_true.v"
-// file 102 "c:/radiant/ip/avant/ram_dq/rtl/lscc_ram_dq.v"
-// file 103 "c:/radiant/ip/avant/rom/rtl/lscc_rom.v"
-// file 104 "c:/radiant/ip/common/adder/rtl/lscc_adder.v"
-// file 105 "c:/radiant/ip/common/adder_subtractor/rtl/lscc_add_sub.v"
-// file 106 "c:/radiant/ip/common/complex_mult/rtl/lscc_complex_mult.v"
-// file 107 "c:/radiant/ip/common/counter/rtl/lscc_cntr.v"
-// file 108 "c:/radiant/ip/common/distributed_dpram/rtl/lscc_distributed_dpram.v"
-// file 109 "c:/radiant/ip/common/distributed_rom/rtl/lscc_distributed_rom.v"
-// file 110 "c:/radiant/ip/common/distributed_spram/rtl/lscc_distributed_spram.v"
-// file 111 "c:/radiant/ip/common/mult_accumulate/rtl/lscc_mult_accumulate.v"
-// file 112 "c:/radiant/ip/common/mult_add_sub/rtl/lscc_mult_add_sub.v"
-// file 113 "c:/radiant/ip/common/mult_add_sub_sum/rtl/lscc_mult_add_sub_sum.v"
-// file 114 "c:/radiant/ip/common/multiplier/rtl/lscc_multiplier.v"
-// file 115 "c:/radiant/ip/common/ram_shift_reg/rtl/lscc_shift_register.v"
-// file 116 "c:/radiant/ip/common/subtractor/rtl/lscc_subtractor.v"
-// file 117 "c:/radiant/ip/pmi/pmi_add.v"
-// file 118 "c:/radiant/ip/pmi/pmi_addsub.v"
-// file 119 "c:/radiant/ip/pmi/pmi_complex_mult.v"
-// file 120 "c:/radiant/ip/pmi/pmi_counter.v"
-// file 121 "c:/radiant/ip/pmi/pmi_distributed_dpram.v"
-// file 122 "c:/radiant/ip/pmi/pmi_distributed_rom.v"
-// file 123 "c:/radiant/ip/pmi/pmi_distributed_shift_reg.v"
-// file 124 "c:/radiant/ip/pmi/pmi_distributed_spram.v"
-// file 125 "c:/radiant/ip/pmi/pmi_fifo.v"
-// file 126 "c:/radiant/ip/pmi/pmi_fifo_dc.v"
-// file 127 "c:/radiant/ip/pmi/pmi_mac.v"
-// file 128 "c:/radiant/ip/pmi/pmi_mult.v"
-// file 129 "c:/radiant/ip/pmi/pmi_multaddsub.v"
-// file 130 "c:/radiant/ip/pmi/pmi_multaddsubsum.v"
-// file 131 "c:/radiant/ip/pmi/pmi_ram_dp.v"
-// file 132 "c:/radiant/ip/pmi/pmi_ram_dp_be.v"
-// file 133 "c:/radiant/ip/pmi/pmi_ram_dp_true.v"
-// file 134 "c:/radiant/ip/pmi/pmi_ram_dq.v"
-// file 135 "c:/radiant/ip/pmi/pmi_ram_dq_be.v"
-// file 136 "c:/radiant/ip/pmi/pmi_rom.v"
-// file 137 "c:/radiant/ip/pmi/pmi_sub.v"
+// file 5 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd"
+// file 6 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd"
+// file 7 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd"
+// file 8 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd"
+// file 9 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd"
+// file 10 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd"
+// file 11 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_adder.vhd"
+// file 12 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd"
+// file 13 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd"
+// file 14 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd"
+// file 15 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd"
+// file 16 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd"
+// file 17 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd"
+// file 18 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd"
+// file 19 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd"
+// file 20 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd"
+// file 21 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd"
+// file 22 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd"
+// file 23 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd"
+// file 24 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd"
+// file 25 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd"
+// file 26 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd"
+// file 27 "c:/radiant/cae_library/simulation/verilog/lifcl/acc54.v"
+// file 28 "c:/radiant/cae_library/simulation/verilog/lifcl/adc.v"
+// file 29 "c:/radiant/cae_library/simulation/verilog/lifcl/alureg.v"
+// file 30 "c:/radiant/cae_library/simulation/verilog/lifcl/aon.v"
+// file 31 "c:/radiant/cae_library/simulation/verilog/lifcl/bb_adc.v"
+// file 32 "c:/radiant/cae_library/simulation/verilog/lifcl/bb_cdr.v"
+// file 33 "c:/radiant/cae_library/simulation/verilog/lifcl/bb_i3c_a.v"
+// file 34 "c:/radiant/cae_library/simulation/verilog/lifcl/bb_programn.v"
+// file 35 "c:/radiant/cae_library/simulation/verilog/lifcl/bfd1p3kx.v"
+// file 36 "c:/radiant/cae_library/simulation/verilog/lifcl/bfd1p3lx.v"
+// file 37 "c:/radiant/cae_library/simulation/verilog/lifcl/bnkref18.v"
+// file 38 "c:/radiant/cae_library/simulation/verilog/lifcl/config_ip.v"
+// file 39 "c:/radiant/cae_library/simulation/verilog/lifcl/config_lmmi.v"
+// file 40 "c:/radiant/cae_library/simulation/verilog/lifcl/config_lmmia.v"
+// file 41 "c:/radiant/cae_library/simulation/verilog/lifcl/ddrdll.v"
+// file 42 "c:/radiant/cae_library/simulation/verilog/lifcl/diffio18.v"
+// file 43 "c:/radiant/cae_library/simulation/verilog/lifcl/dlldel.v"
+// file 44 "c:/radiant/cae_library/simulation/verilog/lifcl/dp16k.v"
+// file 45 "c:/radiant/cae_library/simulation/verilog/lifcl/dphy.v"
+// file 46 "c:/radiant/cae_library/simulation/verilog/lifcl/dpsc512k.v"
+// file 47 "c:/radiant/cae_library/simulation/verilog/lifcl/dqsbuf.v"
+// file 48 "c:/radiant/cae_library/simulation/verilog/lifcl/ebr.v"
+// file 49 "c:/radiant/cae_library/simulation/verilog/lifcl/eclkdiv.v"
+// file 50 "c:/radiant/cae_library/simulation/verilog/lifcl/eclksync.v"
+// file 51 "c:/radiant/cae_library/simulation/verilog/lifcl/fbmux.v"
+// file 52 "c:/radiant/cae_library/simulation/verilog/lifcl/fifo16k.v"
+// file 53 "c:/radiant/cae_library/simulation/verilog/lifcl/i2cfifo.v"
+// file 54 "c:/radiant/cae_library/simulation/verilog/lifcl/ifd1p3bx.v"
+// file 55 "c:/radiant/cae_library/simulation/verilog/lifcl/ifd1p3dx.v"
+// file 56 "c:/radiant/cae_library/simulation/verilog/lifcl/ifd1p3ix.v"
+// file 57 "c:/radiant/cae_library/simulation/verilog/lifcl/ifd1p3jx.v"
+// file 58 "c:/radiant/cae_library/simulation/verilog/lifcl/iologic.v"
+// file 59 "c:/radiant/cae_library/simulation/verilog/lifcl/jtag.v"
+// file 60 "c:/radiant/cae_library/simulation/verilog/lifcl/lram.v"
+// file 61 "c:/radiant/cae_library/simulation/verilog/lifcl/m18x36.v"
+// file 62 "c:/radiant/cae_library/simulation/verilog/lifcl/mipi.v"
+// file 63 "c:/radiant/cae_library/simulation/verilog/lifcl/mult18.v"
+// file 64 "c:/radiant/cae_library/simulation/verilog/lifcl/mult18x18.v"
+// file 65 "c:/radiant/cae_library/simulation/verilog/lifcl/mult18x36.v"
+// file 66 "c:/radiant/cae_library/simulation/verilog/lifcl/mult36.v"
+// file 67 "c:/radiant/cae_library/simulation/verilog/lifcl/mult36x36.v"
+// file 68 "c:/radiant/cae_library/simulation/verilog/lifcl/mult9.v"
+// file 69 "c:/radiant/cae_library/simulation/verilog/lifcl/mult9x9.v"
+// file 70 "c:/radiant/cae_library/simulation/verilog/lifcl/multaddsub18x18.v"
+// file 71 "c:/radiant/cae_library/simulation/verilog/lifcl/multaddsub18x18wide.v"
+// file 72 "c:/radiant/cae_library/simulation/verilog/lifcl/multaddsub18x36.v"
+// file 73 "c:/radiant/cae_library/simulation/verilog/lifcl/multaddsub36x36.v"
+// file 74 "c:/radiant/cae_library/simulation/verilog/lifcl/multaddsub9x9wide.v"
+// file 75 "c:/radiant/cae_library/simulation/verilog/lifcl/multiboot.v"
+// file 76 "c:/radiant/cae_library/simulation/verilog/lifcl/multpreadd18x18.v"
+// file 77 "c:/radiant/cae_library/simulation/verilog/lifcl/multpreadd9x9.v"
+// file 78 "c:/radiant/cae_library/simulation/verilog/lifcl/ofd1p3bx.v"
+// file 79 "c:/radiant/cae_library/simulation/verilog/lifcl/ofd1p3dx.v"
+// file 80 "c:/radiant/cae_library/simulation/verilog/lifcl/ofd1p3ix.v"
+// file 81 "c:/radiant/cae_library/simulation/verilog/lifcl/ofd1p3jx.v"
+// file 82 "c:/radiant/cae_library/simulation/verilog/lifcl/osc.v"
+// file 83 "c:/radiant/cae_library/simulation/verilog/lifcl/osca.v"
+// file 84 "c:/radiant/cae_library/simulation/verilog/lifcl/oscd.v"
+// file 85 "c:/radiant/cae_library/simulation/verilog/lifcl/pcie.v"
+// file 86 "c:/radiant/cae_library/simulation/verilog/lifcl/pdp16k.v"
+// file 87 "c:/radiant/cae_library/simulation/verilog/lifcl/pdpsc16k.v"
+// file 88 "c:/radiant/cae_library/simulation/verilog/lifcl/pdpsc512k.v"
+// file 89 "c:/radiant/cae_library/simulation/verilog/lifcl/pll.v"
+// file 90 "c:/radiant/cae_library/simulation/verilog/lifcl/plla.v"
+// file 91 "c:/radiant/cae_library/simulation/verilog/lifcl/pllrefcs.v"
+// file 92 "c:/radiant/cae_library/simulation/verilog/lifcl/pmu.v"
+// file 93 "c:/radiant/cae_library/simulation/verilog/lifcl/preadd9.v"
+// file 94 "c:/radiant/cae_library/simulation/verilog/lifcl/refmux.v"
+// file 95 "c:/radiant/cae_library/simulation/verilog/lifcl/reg18.v"
+// file 96 "c:/radiant/cae_library/simulation/verilog/lifcl/sedc.v"
+// file 97 "c:/radiant/cae_library/simulation/verilog/lifcl/seio18.v"
+// file 98 "c:/radiant/cae_library/simulation/verilog/lifcl/seio33.v"
+// file 99 "c:/radiant/cae_library/simulation/verilog/lifcl/sgmiicdr.v"
+// file 100 "c:/radiant/cae_library/simulation/verilog/lifcl/siologic.v"
+// file 101 "c:/radiant/cae_library/simulation/verilog/lifcl/sp16k.v"
+// file 102 "c:/radiant/cae_library/simulation/verilog/lifcl/sp512k.v"
+// file 103 "c:/radiant/cae_library/simulation/verilog/lifcl/tsalla.v"
+// file 104 "c:/radiant/cae_library/simulation/verilog/lifcl/usb23.v"
+// file 105 "c:/radiant/cae_library/simulation/verilog/lifcl/wdt.v"
+// file 106 "c:/radiant/cae_library/simulation/verilog/uaplatform/dpr16x4.v"
+// file 107 "c:/radiant/cae_library/simulation/verilog/uaplatform/fd1p3bx.v"
+// file 108 "c:/radiant/cae_library/simulation/verilog/uaplatform/fd1p3dx.v"
+// file 109 "c:/radiant/cae_library/simulation/verilog/uaplatform/fd1p3ix.v"
+// file 110 "c:/radiant/cae_library/simulation/verilog/uaplatform/fd1p3jx.v"
+// file 111 "c:/radiant/cae_library/simulation/verilog/uaplatform/gsr.v"
+// file 112 "c:/radiant/cae_library/simulation/verilog/uaplatform/ib.v"
+// file 113 "c:/radiant/cae_library/simulation/verilog/uaplatform/ob.v"
+// file 114 "c:/radiant/cae_library/simulation/verilog/uaplatform/obz.v"
+// file 115 "c:/radiant/cae_library/simulation/verilog/uaplatform/pclkdivsp.v"
+// file 116 "c:/radiant/cae_library/simulation/verilog/uaplatform/spr16x4.v"
+// file 117 "c:/radiant/cae_library/simulation/verilog/uaplatform/widefn9.v"
+// file 118 "c:/radiant/ip/avant/fifo/rtl/lscc_fifo.v"
+// file 119 "c:/radiant/ip/avant/fifo_dc/rtl/lscc_fifo_dc.v"
+// file 120 "c:/radiant/ip/avant/ram_dp/rtl/lscc_ram_dp.v"
+// file 121 "c:/radiant/ip/avant/ram_dp_true/rtl/lscc_ram_dp_true.v"
+// file 122 "c:/radiant/ip/avant/ram_dq/rtl/lscc_ram_dq.v"
+// file 123 "c:/radiant/ip/avant/rom/rtl/lscc_rom.v"
+// file 124 "c:/radiant/ip/common/adder/rtl/lscc_adder.v"
+// file 125 "c:/radiant/ip/common/adder_subtractor/rtl/lscc_add_sub.v"
+// file 126 "c:/radiant/ip/common/complex_mult/rtl/lscc_complex_mult.v"
+// file 127 "c:/radiant/ip/common/counter/rtl/lscc_cntr.v"
+// file 128 "c:/radiant/ip/common/distributed_dpram/rtl/lscc_distributed_dpram.v"
+// file 129 "c:/radiant/ip/common/distributed_rom/rtl/lscc_distributed_rom.v"
+// file 130 "c:/radiant/ip/common/distributed_spram/rtl/lscc_distributed_spram.v"
+// file 131 "c:/radiant/ip/common/mult_accumulate/rtl/lscc_mult_accumulate.v"
+// file 132 "c:/radiant/ip/common/mult_add_sub/rtl/lscc_mult_add_sub.v"
+// file 133 "c:/radiant/ip/common/mult_add_sub_sum/rtl/lscc_mult_add_sub_sum.v"
+// file 134 "c:/radiant/ip/common/multiplier/rtl/lscc_multiplier.v"
+// file 135 "c:/radiant/ip/common/ram_shift_reg/rtl/lscc_shift_register.v"
+// file 136 "c:/radiant/ip/common/subtractor/rtl/lscc_subtractor.v"
+// file 137 "c:/radiant/ip/pmi/pmi_add.v"
+// file 138 "c:/radiant/ip/pmi/pmi_addsub.v"
+// file 139 "c:/radiant/ip/pmi/pmi_complex_mult.v"
+// file 140 "c:/radiant/ip/pmi/pmi_counter.v"
+// file 141 "c:/radiant/ip/pmi/pmi_distributed_dpram.v"
+// file 142 "c:/radiant/ip/pmi/pmi_distributed_rom.v"
+// file 143 "c:/radiant/ip/pmi/pmi_distributed_shift_reg.v"
+// file 144 "c:/radiant/ip/pmi/pmi_distributed_spram.v"
+// file 145 "c:/radiant/ip/pmi/pmi_fifo.v"
+// file 146 "c:/radiant/ip/pmi/pmi_fifo_dc.v"
+// file 147 "c:/radiant/ip/pmi/pmi_mac.v"
+// file 148 "c:/radiant/ip/pmi/pmi_mult.v"
+// file 149 "c:/radiant/ip/pmi/pmi_multaddsub.v"
+// file 150 "c:/radiant/ip/pmi/pmi_multaddsubsum.v"
+// file 151 "c:/radiant/ip/pmi/pmi_ram_dp.v"
+// file 152 "c:/radiant/ip/pmi/pmi_ram_dp_be.v"
+// file 153 "c:/radiant/ip/pmi/pmi_ram_dp_true.v"
+// file 154 "c:/radiant/ip/pmi/pmi_ram_dq.v"
+// file 155 "c:/radiant/ip/pmi/pmi_ram_dq_be.v"
+// file 156 "c:/radiant/ip/pmi/pmi_rom.v"
+// file 157 "c:/radiant/ip/pmi/pmi_sub.v"
 
 //
 // Verilog Description of module main_all
@@ -151,47 +171,49 @@ module main_all (input clk_i, input nrst, output clk_tx_o, output data_tx_o,
             input io1, input io2, input io3, output io4, output io5, 
             output io6, output io7);
     
-    (* is_clock=1, lineinfo="@5(16[3],16[11])" *) wire clk_rx_i_c;
-    (* is_clock=1, lineinfo="@5(32[9],32[15])" *) wire clk_64;
+    (* is_clock=1, lineinfo="@21(16[3],16[11])" *) wire clk_rx_i_c;
+    (* is_clock=1, lineinfo="@21(32[17],32[23])" *) wire clk_64;
     
     wire GND_net, VCC_net, clk_i_c, clk_tx_o_c, data_tx_o_c, data_rx09_i_c, 
         data_rx24_i_c, spi_miso_c_c, io5_c_c, io6_c_c, io7_c_c, io4_c;
-    (* lineinfo="@5(38[9],38[20])" *) wire [1:0]data_rx09_r;
-    (* lineinfo="@5(39[9],39[20])" *) wire [1:0]data_rx24_r;
+    (* lineinfo="@21(39[9],39[20])" *) wire [1:0]data_rx09_r;
+    (* lineinfo="@21(40[9],40[20])" *) wire [1:0]data_rx24_r;
     
     VHI i2 (.Z(VCC_net));
-    (* lineinfo="@5(95[11],95[17])" *) ddr_rx_U2 ddr_rx0 (GND_net, clk_rx_i_c, 
+    (* lineinfo="@21(102[11],102[17])" *) ddr_rx_U2 ddr_rx0 (GND_net, clk_rx_i_c, 
             data_rx09_r[0], data_rx09_i_c);
-    (* lineinfo="@5(26[18],26[21])" *) OB io7_pad (.I(io7_c_c), .O(io7));
-    (* lineinfo="@5(21[3],21[11])" *) OB spi_miso_pad (.I(spi_miso_c_c), .O(spi_miso));
-    (* lineinfo="@5(26[13],26[16])" *) OB io6_pad (.I(io6_c_c), .O(io6));
-    (* lut_function="(A+(B+(C)))", lineinfo="@5(121[9],121[65])" *) LUT4 i2_3_lut (.A(data_rx09_r[0]), 
+    (* lineinfo="@21(26[18],26[21])" *) OB io7_pad (.I(io7_c_c), .O(io7));
+    (* lineinfo="@21(21[3],21[11])" *) OB spi_miso_pad (.I(spi_miso_c_c), 
+            .O(spi_miso));
+    (* lineinfo="@21(26[13],26[16])" *) OB io6_pad (.I(io6_c_c), .O(io6));
+    (* lut_function="(A+(B+(C)))", lineinfo="@21(128[9],128[65])" *) LUT4 i2_3_lut (.A(data_rx09_r[0]), 
             .B(clk_rx_i_c), .C(data_rx24_r[1]), .Z(io4_c));
     defparam i2_3_lut.INIT = "0xfefe";
-    (* lineinfo="@5(26[8],26[11])" *) OB io5_pad (.I(io5_c_c), .O(io5));
+    (* lineinfo="@21(26[8],26[11])" *) OB io5_pad (.I(io5_c_c), .O(io5));
     PUR PUR_INST (VCC_net);
     defparam PUR_INST.RST_PULSE = "1";
-    (* lineinfo="@5(14[3],14[12])" *) OB data_tx_o_pad (.I(data_tx_o_c), .O(data_tx_o));
-    (* lineinfo="@5(13[3],13[11])" *) OB clk_tx_o_pad (.I(clk_tx_o_c), .O(clk_tx_o));
-    (* lineinfo="@5(103[11],103[17])" *) ddr_rx ddr_rx1 (GND_net, clk_rx_i_c, 
+    (* lineinfo="@21(14[3],14[12])" *) OB data_tx_o_pad (.I(data_tx_o_c), 
+            .O(data_tx_o));
+    (* lineinfo="@21(13[3],13[11])" *) OB clk_tx_o_pad (.I(clk_tx_o_c), .O(clk_tx_o));
+    (* lineinfo="@21(110[11],110[17])" *) ddr_rx ddr_rx1 (GND_net, clk_rx_i_c, 
             data_rx24_r[1], data_rx24_i_c);
     VLO i1 (.Z(GND_net));
     GSR GSR_INST (.GSR_N(VCC_net));
     defparam GSR_INST.SYNCMODE = "ASYNC";
-    (* lineinfo="@5(25[18],25[21])" *) IB io7_c_pad (.I(io3), .O(io7_c_c));
-    (* lineinfo="@5(25[13],25[16])" *) IB io6_c_pad (.I(io2), .O(io6_c_c));
-    (* lineinfo="@5(25[8],25[11])" *) IB io5_c_pad (.I(io1), .O(io5_c_c));
-    (* lineinfo="@5(25[3],25[6])" *) IB spi_miso_c_pad (.I(io0), .O(spi_miso_c_c));
-    (* lineinfo="@5(26[3],26[6])" *) OB io4_pad (.I(io4_c), .O(io4));
-    (* lineinfo="@5(18[3],18[14])" *) IB data_rx24_i_pad (.I(data_rx24_i), 
+    (* lineinfo="@21(25[18],25[21])" *) IB io7_c_pad (.I(io3), .O(io7_c_c));
+    (* lineinfo="@21(25[13],25[16])" *) IB io6_c_pad (.I(io2), .O(io6_c_c));
+    (* lineinfo="@21(25[8],25[11])" *) IB io5_c_pad (.I(io1), .O(io5_c_c));
+    (* lineinfo="@21(25[3],25[6])" *) IB spi_miso_c_pad (.I(io0), .O(spi_miso_c_c));
+    (* lineinfo="@21(26[3],26[6])" *) OB io4_pad (.I(io4_c), .O(io4));
+    (* lineinfo="@21(18[3],18[14])" *) IB data_rx24_i_pad (.I(data_rx24_i), 
             .O(data_rx24_i_c));
-    (* lineinfo="@5(17[3],17[14])" *) IB data_rx09_i_pad (.I(data_rx09_i), 
+    (* lineinfo="@21(17[3],17[14])" *) IB data_rx09_i_pad (.I(data_rx09_i), 
             .O(data_rx09_i_c));
-    (* lineinfo="@5(87[11],87[17])" *) ddr_tx ddr_tx0 (GND_net, clk_64, 
+    (* lineinfo="@21(94[11],94[17])" *) ddr_tx ddr_tx0 (GND_net, clk_64, 
             data_tx_o_c, VCC_net, clk_tx_o_c);
-    (* lineinfo="@5(16[3],16[11])" *) IB clk_rx_i_pad (.I(clk_rx_i), .O(clk_rx_i_c));
-    (* lineinfo="@5(9[3],9[8])" *) IB clk_i_pad (.I(clk_i), .O(clk_i_c));
-    (* lineinfo="@5(82[8],82[15])" *) pll_osc pll0 (GND_net, VCC_net, clk_64, 
+    (* lineinfo="@21(16[3],16[11])" *) IB clk_rx_i_pad (.I(clk_rx_i), .O(clk_rx_i_c));
+    (* lineinfo="@21(9[3],9[8])" *) IB clk_i_pad (.I(clk_i), .O(clk_i_c));
+    (* lineinfo="@21(88[8],88[15])" *) pll_osc pll0 (GND_net, VCC_net, clk_64, 
             clk_i_c);
     
 endmodule
@@ -203,7 +225,7 @@ endmodule
 module ddr_rx_U2 (input GND_net, input clk_rx_i_c, output \data_rx09_r[0] , 
             input data_rx09_i_c);
     
-    (* is_clock=1, lineinfo="@5(16[3],16[11])" *) wire clk_rx_i_c;
+    (* is_clock=1, lineinfo="@21(16[3],16[11])" *) wire clk_rx_i_c;
     
     (* lineinfo="@2(128[36],175[33])" *) \ddr_rx_ipgen_lscc_gddr(INTERFACE_TYPE="RECEIVE",IO_TYPE="LVDS",BUS_WIDTH=1,GEARING=1,OUT_WIDTH=1,CLK_FREQ=128.0,DATA_PATH_DELAY="BYPASS",CLOCK_PATH_DELAY="FIXED",DATA_DELAY_ADJUSTMENT="DEFAULT",DATA_FINE_DELAY_VALUE="0",DATA_COARSE_DELAY_VALUE="0NS",CLOCK_DATA_RELATION="CENTERED",FVCO=900.0,CLKI_FREQ=25.0,CLKOP_FREQ_ACTUAL=150.0,CLKOS_EN=1,CLKOP_BYPASS=1,CLKOS2_BYPASS=1,CLKOS3_BYPASS=1,CLKOS4_BYPASS=1,CLKOS5_BYPASS=1,PLL_RST=1,LOCK_EN=1,FBCLK_DIVIDER_ACTUAL_STR="6",DIVOP_ACTUAL_STR="5",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000000110",DELA="5",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b0100",CSET="24P",CRIPPLE="3P",IPP_CTRL="0b0100",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K")_U1 lscc_gddr_inst (GND_net, 
             clk_rx_i_c, \data_rx09_r[0] , data_rx09_i_c);
@@ -217,7 +239,7 @@ endmodule
 module \ddr_rx_ipgen_lscc_gddr(INTERFACE_TYPE="RECEIVE",IO_TYPE="LVDS",BUS_WIDTH=1,GEARING=1,OUT_WIDTH=1,CLK_FREQ=128.0,DATA_PATH_DELAY="BYPASS",CLOCK_PATH_DELAY="FIXED",DATA_DELAY_ADJUSTMENT="DEFAULT",DATA_FINE_DELAY_VALUE="0",DATA_COARSE_DELAY_VALUE="0NS",CLOCK_DATA_RELATION="CENTERED",FVCO=900.0,CLKI_FREQ=25.0,CLKOP_FREQ_ACTUAL=150.0,CLKOS_EN=1,CLKOP_BYPASS=1,CLKOS2_BYPASS=1,CLKOS3_BYPASS=1,CLKOS4_BYPASS=1,CLKOS5_BYPASS=1,PLL_RST=1,LOCK_EN=1,FBCLK_DIVIDER_ACTUAL_STR="6",DIVOP_ACTUAL_STR="5",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000000110",DELA="5",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b0100",CSET="24P",CRIPPLE="3P",IPP_CTRL="0b0100",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K")_U1 (input GND_net, 
             input clk_rx_i_c, output \data_rx09_r[0] , input data_rx09_i_c);
     
-    (* is_clock=1, lineinfo="@5(16[3],16[11])" *) wire clk_rx_i_c;
+    (* is_clock=1, lineinfo="@21(16[3],16[11])" *) wire clk_rx_i_c;
     
     (* lineinfo="@2(9648[76],9652[45])" *) \ddr_rx_ipgen_lscc_gddr_rx_sclk_centered_static_bypass(BUS_WIDTH=1)_U0 \RX_SCLK_CENTERED_STATIC_BYPASS.u_lscc_gddr_rx_sclk_centered_static_bypass  (GND_net, 
             clk_rx_i_c, \data_rx09_r[0] , data_rx09_i_c);
@@ -231,7 +253,7 @@ endmodule
 module \ddr_rx_ipgen_lscc_gddr_rx_sclk_centered_static_bypass(BUS_WIDTH=1)_U0 (input GND_net, 
             input clk_rx_i_c, output \data_rx09_r[0] , input data_rx09_i_c);
     
-    (* is_clock=1, lineinfo="@5(16[3],16[11])" *) wire clk_rx_i_c;
+    (* is_clock=1, lineinfo="@21(16[3],16[11])" *) wire clk_rx_i_c;
     (* lineinfo="@2(554[30],554[42])" *) wire [0:0]data_i_del_w;
     
     (* syn_instantiated=1, LSE_LINE_FILE_ID=155, LSE_LCOL=76, LSE_RCOL=45, LSE_LLINE=9648, LSE_RLINE=9652, lineinfo="@2(9648[76],9652[45])" *) IDDRX1 \Data[0].u_IDDRX1  (.D(data_i_del_w[0]), 
@@ -252,7 +274,7 @@ endmodule
 module ddr_rx (input GND_net, input clk_rx_i_c, output \data_rx24_r[1] , 
             input data_rx24_i_c);
     
-    (* is_clock=1, lineinfo="@5(16[3],16[11])" *) wire clk_rx_i_c;
+    (* is_clock=1, lineinfo="@21(16[3],16[11])" *) wire clk_rx_i_c;
     
     (* lineinfo="@2(128[36],175[33])" *) \ddr_rx_ipgen_lscc_gddr(INTERFACE_TYPE="RECEIVE",IO_TYPE="LVDS",BUS_WIDTH=1,GEARING=1,OUT_WIDTH=1,CLK_FREQ=128.0,DATA_PATH_DELAY="BYPASS",CLOCK_PATH_DELAY="FIXED",DATA_DELAY_ADJUSTMENT="DEFAULT",DATA_FINE_DELAY_VALUE="0",DATA_COARSE_DELAY_VALUE="0NS",CLOCK_DATA_RELATION="CENTERED",FVCO=900.0,CLKI_FREQ=25.0,CLKOP_FREQ_ACTUAL=150.0,CLKOS_EN=1,CLKOP_BYPASS=1,CLKOS2_BYPASS=1,CLKOS3_BYPASS=1,CLKOS4_BYPASS=1,CLKOS5_BYPASS=1,PLL_RST=1,LOCK_EN=1,FBCLK_DIVIDER_ACTUAL_STR="6",DIVOP_ACTUAL_STR="5",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000000110",DELA="5",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b0100",CSET="24P",CRIPPLE="3P",IPP_CTRL="0b0100",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K") lscc_gddr_inst (GND_net, 
             clk_rx_i_c, \data_rx24_r[1] , data_rx24_i_c);
@@ -266,7 +288,7 @@ endmodule
 module \ddr_rx_ipgen_lscc_gddr(INTERFACE_TYPE="RECEIVE",IO_TYPE="LVDS",BUS_WIDTH=1,GEARING=1,OUT_WIDTH=1,CLK_FREQ=128.0,DATA_PATH_DELAY="BYPASS",CLOCK_PATH_DELAY="FIXED",DATA_DELAY_ADJUSTMENT="DEFAULT",DATA_FINE_DELAY_VALUE="0",DATA_COARSE_DELAY_VALUE="0NS",CLOCK_DATA_RELATION="CENTERED",FVCO=900.0,CLKI_FREQ=25.0,CLKOP_FREQ_ACTUAL=150.0,CLKOS_EN=1,CLKOP_BYPASS=1,CLKOS2_BYPASS=1,CLKOS3_BYPASS=1,CLKOS4_BYPASS=1,CLKOS5_BYPASS=1,PLL_RST=1,LOCK_EN=1,FBCLK_DIVIDER_ACTUAL_STR="6",DIVOP_ACTUAL_STR="5",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000000110",DELA="5",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b0100",CSET="24P",CRIPPLE="3P",IPP_CTRL="0b0100",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K") (input GND_net, 
             input clk_rx_i_c, output \data_rx24_r[1] , input data_rx24_i_c);
     
-    (* is_clock=1, lineinfo="@5(16[3],16[11])" *) wire clk_rx_i_c;
+    (* is_clock=1, lineinfo="@21(16[3],16[11])" *) wire clk_rx_i_c;
     
     (* lineinfo="@2(9648[76],9652[45])" *) \ddr_rx_ipgen_lscc_gddr_rx_sclk_centered_static_bypass(BUS_WIDTH=1) \RX_SCLK_CENTERED_STATIC_BYPASS.u_lscc_gddr_rx_sclk_centered_static_bypass  (GND_net, 
             clk_rx_i_c, \data_rx24_r[1] , data_rx24_i_c);
@@ -280,7 +302,7 @@ endmodule
 module \ddr_rx_ipgen_lscc_gddr_rx_sclk_centered_static_bypass(BUS_WIDTH=1) (input GND_net, 
             input clk_rx_i_c, output \data_rx24_r[1] , input data_rx24_i_c);
     
-    (* is_clock=1, lineinfo="@5(16[3],16[11])" *) wire clk_rx_i_c;
+    (* is_clock=1, lineinfo="@21(16[3],16[11])" *) wire clk_rx_i_c;
     (* lineinfo="@2(554[30],554[42])" *) wire [0:0]data_i_del_w;
     
     (* syn_instantiated=1, LSE_LINE_FILE_ID=155, LSE_LCOL=76, LSE_RCOL=45, LSE_LLINE=9648, LSE_RLINE=9652, lineinfo="@2(9648[76],9652[45])" *) IDDRX1 \Data[0].u_IDDRX1  (.D(data_i_del_w[0]), 
@@ -301,7 +323,7 @@ endmodule
 module ddr_tx (input GND_net, input clk_64, output data_tx_o_c, input VCC_net, 
             output clk_tx_o_c);
     
-    (* is_clock=1, lineinfo="@5(32[9],32[15])" *) wire clk_64;
+    (* is_clock=1, lineinfo="@21(32[17],32[23])" *) wire clk_64;
     
     (* lineinfo="@3(128[36],175[33])" *) \ddr_tx_ipgen_lscc_gddr(INTERFACE_TYPE="TRANSMIT",IO_TYPE="LVDS",BUS_WIDTH=1,GEARING=1,IN_WIDTH=1,CLK_FREQ=128.0,DATA_PATH_DELAY="BYPASS",CLOCK_PATH_DELAY="FIXED",DATA_DELAY_ADJUSTMENT="DEFAULT",DATA_FINE_DELAY_VALUE="0",DATA_COARSE_DELAY_VALUE="0NS",CLOCK_DATA_RELATION="ALIGNED",FVCO=900.0,CLKI_FREQ=25.0,CLKOP_FREQ_ACTUAL=150.0,CLKOS_EN=1,CLKOP_BYPASS=1,CLKOS2_BYPASS=1,CLKOS3_BYPASS=1,CLKOS4_BYPASS=1,CLKOS5_BYPASS=1,PLL_RST=1,LOCK_EN=1,FBCLK_DIVIDER_ACTUAL_STR="6",DIVOP_ACTUAL_STR="5",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000000110",DELA="5",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b0100",CSET="24P",CRIPPLE="3P",IPP_CTRL="0b0100",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K") lscc_gddr_inst (GND_net, 
             clk_64, data_tx_o_c, VCC_net, clk_tx_o_c);
@@ -315,7 +337,7 @@ endmodule
 module \ddr_tx_ipgen_lscc_gddr(INTERFACE_TYPE="TRANSMIT",IO_TYPE="LVDS",BUS_WIDTH=1,GEARING=1,IN_WIDTH=1,CLK_FREQ=128.0,DATA_PATH_DELAY="BYPASS",CLOCK_PATH_DELAY="FIXED",DATA_DELAY_ADJUSTMENT="DEFAULT",DATA_FINE_DELAY_VALUE="0",DATA_COARSE_DELAY_VALUE="0NS",CLOCK_DATA_RELATION="ALIGNED",FVCO=900.0,CLKI_FREQ=25.0,CLKOP_FREQ_ACTUAL=150.0,CLKOS_EN=1,CLKOP_BYPASS=1,CLKOS2_BYPASS=1,CLKOS3_BYPASS=1,CLKOS4_BYPASS=1,CLKOS5_BYPASS=1,PLL_RST=1,LOCK_EN=1,FBCLK_DIVIDER_ACTUAL_STR="6",DIVOP_ACTUAL_STR="5",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000000110",DELA="5",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b0100",CSET="24P",CRIPPLE="3P",IPP_CTRL="0b0100",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K") (input GND_net, 
             input clk_64, output data_tx_o_c, input VCC_net, output clk_tx_o_c);
     
-    (* is_clock=1, lineinfo="@5(32[9],32[15])" *) wire clk_64;
+    (* is_clock=1, lineinfo="@21(32[17],32[23])" *) wire clk_64;
     
     (* lineinfo="@3(9891[124],9895[91])" *) \ddr_tx_ipgen_lscc_gddr_tx_sclk_aligned_static_bypass(BUS_WIDTH=1) \TX_SCLK_ALIGNED_STATIC_BYPASS.u_lscc_gddr_tx_sclk_aligned_static_bypass  (GND_net, 
             clk_64, data_tx_o_c, VCC_net, clk_tx_o_c);
@@ -329,7 +351,7 @@ endmodule
 module \ddr_tx_ipgen_lscc_gddr_tx_sclk_aligned_static_bypass(BUS_WIDTH=1) (input GND_net, 
             input clk_64, output data_tx_o_c, input VCC_net, output clk_tx_o_c);
     
-    (* is_clock=1, lineinfo="@5(32[9],32[15])" *) wire clk_64;
+    (* is_clock=1, lineinfo="@21(32[17],32[23])" *) wire clk_64;
     
     (* syn_instantiated=1, LSE_LINE_FILE_ID=156, LSE_LCOL=124, LSE_RCOL=91, LSE_LLINE=9891, LSE_RLINE=9895, lineinfo="@3(9891[124],9895[91])" *) ODDRX1 \Data[0].u_data_ODDRX1  (.D0(GND_net), 
             .D1(GND_net), .SCLK(clk_64), .RST(GND_net), .Q(data_tx_o_c));
@@ -346,25 +368,25 @@ endmodule
 
 module pll_osc (input GND_net, input VCC_net, output clk_64, input clk_i_c);
     
-    (* is_clock=1, lineinfo="@5(32[9],32[15])" *) wire clk_64;
+    (* is_clock=1, lineinfo="@21(32[17],32[23])" *) wire clk_64;
     
-    (* lineinfo="@4(105[36],147[33])" *) \pll_osc_ipgen_lscc_pll(FVCO=1600.0,CLKI_FREQ=32.0,CLKOP_FREQ_ACTUAL=64.0,FRAC_N_EN=1,FBK_MODE="INTCLKOP",FBCLK_DIVIDER_ACTUAL_STR="50",DIVOP_ACTUAL_STR="24",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000110010",DELA="24",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b1100",CSET="8P",CRIPPLE="1P",IPP_CTRL="0b0110",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K") lscc_pll_inst (GND_net, 
+    (* lineinfo="@4(109[36],151[33])" *) \pll_osc_ipgen_lscc_pll(FVCO=1216.0,CLKI_FREQ=26.0,CLKOP_FREQ_ACTUAL=152.0,CLKOS_FREQ_ACTUAL=64.0,CLKOS2_FREQ_ACTUAL=38.0,CLKOS_EN=1,CLKOS2_EN=1,FRAC_N_EN=1,FBK_MODE="INTCLKOP",FBCLK_DIVIDER_ACTUAL_STR="46",DIVOP_ACTUAL_STR="7",DIVOS_ACTUAL_STR="18",DIVOS2_ACTUAL_STR="31",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000101110",SSC_F_CODE_STR="0b110001001111000",DELA="7",DELB="18",DELC="31",DELD="7",DELE="7",DELF="7",IPI_CMP="0b1100",CSET="8P",CRIPPLE="1P",IPP_CTRL="0b0110",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K") lscc_pll_inst (GND_net, 
             VCC_net, clk_64, clk_i_c);
     
 endmodule
 
 //
-// Verilog Description of module \pll_osc_ipgen_lscc_pll(FVCO=1600.0,CLKI_FREQ=32.0,CLKOP_FREQ_ACTUAL=64.0,FRAC_N_EN=1,FBK_MODE="INTCLKOP",FBCLK_DIVIDER_ACTUAL_STR="50",DIVOP_ACTUAL_STR="24",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000110010",DELA="24",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b1100",CSET="8P",CRIPPLE="1P",IPP_CTRL="0b0110",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K") 
+// Verilog Description of module \pll_osc_ipgen_lscc_pll(FVCO=1216.0,CLKI_FREQ=26.0,CLKOP_FREQ_ACTUAL=152.0,CLKOS_FREQ_ACTUAL=64.0,CLKOS2_FREQ_ACTUAL=38.0,CLKOS_EN=1,CLKOS2_EN=1,FRAC_N_EN=1,FBK_MODE="INTCLKOP",FBCLK_DIVIDER_ACTUAL_STR="46",DIVOP_ACTUAL_STR="7",DIVOS_ACTUAL_STR="18",DIVOS2_ACTUAL_STR="31",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000101110",SSC_F_CODE_STR="0b110001001111000",DELA="7",DELB="18",DELC="31",DELD="7",DELE="7",DELF="7",IPI_CMP="0b1100",CSET="8P",CRIPPLE="1P",IPP_CTRL="0b0110",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K") 
 //
 
-module \pll_osc_ipgen_lscc_pll(FVCO=1600.0,CLKI_FREQ=32.0,CLKOP_FREQ_ACTUAL=64.0,FRAC_N_EN=1,FBK_MODE="INTCLKOP",FBCLK_DIVIDER_ACTUAL_STR="50",DIVOP_ACTUAL_STR="24",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000110010",DELA="24",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b1100",CSET="8P",CRIPPLE="1P",IPP_CTRL="0b0110",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K") (input GND_net, 
+module \pll_osc_ipgen_lscc_pll(FVCO=1216.0,CLKI_FREQ=26.0,CLKOP_FREQ_ACTUAL=152.0,CLKOS_FREQ_ACTUAL=64.0,CLKOS2_FREQ_ACTUAL=38.0,CLKOS_EN=1,CLKOS2_EN=1,FRAC_N_EN=1,FBK_MODE="INTCLKOP",FBCLK_DIVIDER_ACTUAL_STR="46",DIVOP_ACTUAL_STR="7",DIVOS_ACTUAL_STR="18",DIVOS2_ACTUAL_STR="31",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000101110",SSC_F_CODE_STR="0b110001001111000",DELA="7",DELB="18",DELC="31",DELD="7",DELE="7",DELF="7",IPI_CMP="0b1100",CSET="8P",CRIPPLE="1P",IPP_CTRL="0b0110",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K") (input GND_net, 
             input VCC_net, output clk_64, input clk_i_c);
     
-    (* is_clock=1, lineinfo="@5(32[9],32[15])" *) wire clk_64;
+    (* is_clock=1, lineinfo="@21(32[17],32[23])" *) wire clk_64;
     
     wire fbclk_w;
     
-    (* syn_instantiated=1, LSE_LINE_FILE_ID=154, LSE_LCOL=36, LSE_RCOL=33, LSE_LLINE=105, LSE_RLINE=147, lineinfo="@4(105[36],147[33])" *) PLL \gen_no_refclk_mon.u_PLL  (.INTFBKOP(fbclk_w), 
+    (* syn_instantiated=1, LSE_LINE_FILE_ID=154, LSE_LCOL=36, LSE_RCOL=33, LSE_LLINE=109, LSE_RLINE=151, lineinfo="@4(109[36],151[33])" *) PLL \gen_no_refclk_mon.u_PLL  (.INTFBKOP(fbclk_w), 
             .DIR(GND_net), .DIRSEL({GND_net, GND_net, GND_net}), .LOADREG(GND_net), 
             .DYNROTATE(GND_net), .LMMICLK(GND_net), .LMMIRESET_N(VCC_net), 
             .LMMIREQUEST(GND_net), .LMMIWRRD_N(GND_net), .LMMIOFFSET({GND_net, 
@@ -388,24 +410,24 @@ module \pll_osc_ipgen_lscc_pll(FVCO=1600.0,CLKI_FREQ=32.0,CLKOP_FREQ_ACTUAL=64.0
     defparam \gen_no_refclk_mon.u_PLL .CRIPPLE = "1P";
     defparam \gen_no_refclk_mon.u_PLL .CSET = "8P";
     defparam \gen_no_refclk_mon.u_PLL .DELAY_CTRL = "200PS";
-    defparam \gen_no_refclk_mon.u_PLL .DELA = "24";
-    defparam \gen_no_refclk_mon.u_PLL .DELB = "7";
-    defparam \gen_no_refclk_mon.u_PLL .DELC = "7";
+    defparam \gen_no_refclk_mon.u_PLL .DELA = "7";
+    defparam \gen_no_refclk_mon.u_PLL .DELB = "18";
+    defparam \gen_no_refclk_mon.u_PLL .DELC = "31";
     defparam \gen_no_refclk_mon.u_PLL .DELD = "7";
     defparam \gen_no_refclk_mon.u_PLL .DELE = "7";
     defparam \gen_no_refclk_mon.u_PLL .DELF = "7";
     defparam \gen_no_refclk_mon.u_PLL .DIRECTION = "DISABLED";
-    defparam \gen_no_refclk_mon.u_PLL .DIVA = "24";
-    defparam \gen_no_refclk_mon.u_PLL .DIVB = "7";
-    defparam \gen_no_refclk_mon.u_PLL .DIVC = "7";
+    defparam \gen_no_refclk_mon.u_PLL .DIVA = "7";
+    defparam \gen_no_refclk_mon.u_PLL .DIVB = "18";
+    defparam \gen_no_refclk_mon.u_PLL .DIVC = "31";
     defparam \gen_no_refclk_mon.u_PLL .DIVD = "7";
     defparam \gen_no_refclk_mon.u_PLL .DIVE = "7";
     defparam \gen_no_refclk_mon.u_PLL .DIVF = "7";
     defparam \gen_no_refclk_mon.u_PLL .DYN_SEL = "0b000";
     defparam \gen_no_refclk_mon.u_PLL .DYN_SOURCE = "STATIC";
     defparam \gen_no_refclk_mon.u_PLL .ENCLK_CLKOP = "ENABLED";
-    defparam \gen_no_refclk_mon.u_PLL .ENCLK_CLKOS = "DISABLED";
-    defparam \gen_no_refclk_mon.u_PLL .ENCLK_CLKOS2 = "DISABLED";
+    defparam \gen_no_refclk_mon.u_PLL .ENCLK_CLKOS = "ENABLED";
+    defparam \gen_no_refclk_mon.u_PLL .ENCLK_CLKOS2 = "ENABLED";
     defparam \gen_no_refclk_mon.u_PLL .ENCLK_CLKOS3 = "DISABLED";
     defparam \gen_no_refclk_mon.u_PLL .ENCLK_CLKOS4 = "DISABLED";
     defparam \gen_no_refclk_mon.u_PLL .ENCLK_CLKOS5 = "DISABLED";
@@ -417,7 +439,7 @@ module \pll_osc_ipgen_lscc_pll(FVCO=1600.0,CLKI_FREQ=32.0,CLKOP_FREQ_ACTUAL=64.0
     defparam \gen_no_refclk_mon.u_PLL .FBK_IF_TIMING_CTL = "0b00";
     defparam \gen_no_refclk_mon.u_PLL .FBK_INTEGER_MODE = "DISABLED";
     defparam \gen_no_refclk_mon.u_PLL .FBK_MASK = "0b00010000";
-    defparam \gen_no_refclk_mon.u_PLL .FBK_MMD_DIG = "50";
+    defparam \gen_no_refclk_mon.u_PLL .FBK_MMD_DIG = "46";
     defparam \gen_no_refclk_mon.u_PLL .FBK_MMD_PULS_CTL = "0b0110";
     defparam \gen_no_refclk_mon.u_PLL .FBK_MODE = "0b00";
     defparam \gen_no_refclk_mon.u_PLL .FBK_PI_BYPASS = "NOT_BYPASSED";
@@ -471,8 +493,8 @@ module \pll_osc_ipgen_lscc_pll(FVCO=1600.0,CLKI_FREQ=32.0,CLKOP_FREQ_ACTUAL=64.0
     defparam \gen_no_refclk_mon.u_PLL .SSC_EN_CENTER_IN = "DOWN_TRIANGLE";
     defparam \gen_no_refclk_mon.u_PLL .SSC_EN_SDM = "ENABLED";
     defparam \gen_no_refclk_mon.u_PLL .SSC_EN_SSC = "DISABLED";
-    defparam \gen_no_refclk_mon.u_PLL .SSC_F_CODE = "0b000000000000000";
-    defparam \gen_no_refclk_mon.u_PLL .SSC_N_CODE = "0b000110010";
+    defparam \gen_no_refclk_mon.u_PLL .SSC_F_CODE = "0b110001001111000";
+    defparam \gen_no_refclk_mon.u_PLL .SSC_N_CODE = "0b000101110";
     defparam \gen_no_refclk_mon.u_PLL .SSC_ORDER = "SDM_ORDER2";
     defparam \gen_no_refclk_mon.u_PLL .SSC_PI_BYPASS = "NOT_BYPASSED";
     defparam \gen_no_refclk_mon.u_PLL .SSC_REG_WEIGHTING_SEL = "0b000";
@@ -491,7 +513,7 @@ module \pll_osc_ipgen_lscc_pll(FVCO=1600.0,CLKI_FREQ=32.0,CLKOP_FREQ_ACTUAL=64.0
     defparam \gen_no_refclk_mon.u_PLL .V2I_PP_RES = "9K";
     defparam \gen_no_refclk_mon.u_PLL .CLKMUX_FB = "CMUX_CLKOP";
     defparam \gen_no_refclk_mon.u_PLL .SEL_FBK = "DIVA";
-    defparam \gen_no_refclk_mon.u_PLL .DIV_DEL = "0b0011000";
+    defparam \gen_no_refclk_mon.u_PLL .DIV_DEL = "0b0000111";
     defparam \gen_no_refclk_mon.u_PLL .PHASE_SEL_DEL = "0b000";
     defparam \gen_no_refclk_mon.u_PLL .PHASE_SEL_DEL_P1 = "0b000";
     defparam \gen_no_refclk_mon.u_PLL .EXTERNAL_DIVIDE_FACTOR = "0";

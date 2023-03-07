@@ -10,7 +10,7 @@ Removing unused logic ...
 INFO - Signal GSR_INST.GSROUT undriven or does not drive anything - clipped
 Starting design annotation....
 WARNING - No master clock for
-	generated clock	create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 2 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOP }] .
+	generated clock	create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOP }] .
  
 Constraint Summary:
    Total number of constraints: 7

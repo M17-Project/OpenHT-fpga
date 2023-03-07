@@ -6,7 +6,7 @@ set_hierarchy_separator /
 ##Original File: C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_rx/constraints/ddr_rx.ldc
 #create_clock -name {clk_i} -period 7.8125 [get_pins {ddr_tx0/clk_i }]
 ##Original File: C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_rx/constraints/ddr_rx.ldc
-#create_clock -name {clki_i} -period 31.25 [get_pins {pll0/clki_i }]
+#create_clock -name {clki_i} -period 38.462 [get_pins {pll0/clki_i }]
 ##Original File: C:/Users/SP5WWP/Documents/Radiant/OpenHT/pll_osc/constraints/pll_osc.ldc
 #For PLL
 ##Original File: C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_rx/constraints/ddr_rx.ldc

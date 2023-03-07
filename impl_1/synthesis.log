@@ -5,7 +5,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-Wed Feb 22 11:14:30 2023
+Tue Mar  7 11:48:24 2023
 
 
 Command Line:  C:\Radiant\ispfpga\bin\nt64\synthesis.exe -f OpenHT_impl_1_lattice.synproj -gui -msgset C:/Users/SP5WWP/Documents/Radiant/OpenHT/promote.xml 
@@ -85,6 +85,46 @@ VHDL library = work
 VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/main.vhd
 VHDL library = work
 VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/spi_slave.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/add_const.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/complex_mul.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/decim.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/fir_channel.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/fir_serial.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/freq_demod.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/iq_deserializer.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/local_osc.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/mag_est.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/AM_modulator.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/ctrl_regs.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/dither_adder.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/dither_source.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/FM_modulator.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/iq_balancer.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/iq_offset.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/mod_sel.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/sincos.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/unpack.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/zero_insert.vhd
 The -r option is OFF. [ Remove LOC Properties is OFF. ]
 Compile design.
 Compile Design Begin
@@ -148,6 +188,106 @@ Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_s
 
 INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(6): analyzing entity spi_slave. VHDL-1012
 INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(18): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd
+
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd(6): analyzing entity add_const. VHDL-1012
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd(16): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd
+
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd(6): analyzing entity complex_mul. VHDL-1012
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd(13): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd
+
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd(6): analyzing entity decim. VHDL-1012
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd(20): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd
+
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd(6): analyzing entity fir_channel. VHDL-1012
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd(19): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd
+
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd(6): analyzing entity fir_serial. VHDL-1012
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd(19): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd
+
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd(6): analyzing entity freq_demod. VHDL-1012
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd(14): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd
+
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd(6): analyzing entity iq_des. VHDL-1012
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd(17): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd
+
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd(6): analyzing entity local_osc. VHDL-1012
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd(18): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd
+
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd(7): analyzing entity mag_est. VHDL-1012
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd(17): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd
+
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd(6): analyzing entity am_modulator. VHDL-1012
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd(14): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd
+
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(6): analyzing entity ctrl_regs. VHDL-1012
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(20): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_adder.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_adder.vhd
+
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_adder.vhd(12): analyzing entity dither_adder. VHDL-1012
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_adder.vhd(20): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd
+
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd(12): analyzing entity dither_source. VHDL-1012
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd(21): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd
+
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(6): analyzing entity fm_modulator. VHDL-1012
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(17): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd
+
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd(6): analyzing entity iq_balancer_16. VHDL-1012
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd(17): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd
+
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd(6): analyzing entity iq_offset. VHDL-1012
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd(17): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd
+
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(6): analyzing entity mod_sel. VHDL-1012
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(18): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd
+
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd(12): analyzing entity sincos_16. VHDL-1012
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd(20): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd
+
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd(6): analyzing entity unpack. VHDL-1012
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd(16): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd
+
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd(6): analyzing entity zero_insert. VHDL-1012
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd(14): analyzing architecture magic. VHDL-1010
 INFO - synthesis: The default VHDL library search path is now "C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1". VHDL-1504
 Top module language type = VHDL.
 Top module name (VHDL, mixed language): main_all
@@ -175,7 +315,7 @@ Top module name (VHDL, mixed language): main_all
                                                          
 
 
-WARNING - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd(111): Removing unused instance spi0. VDB-5034
+WARNING - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd(118): Removing unused instance spi0. VDB-5034
 WARNING - synthesis: I/O Port nrst 's net has no driver and is unused.
 WARNING - synthesis: I/O Port spi_ncs 's net has no driver and is unused.
 WARNING - synthesis: I/O Port spi_miso 's net has no driver and is unused.
@@ -206,38 +346,38 @@ WARNING - synthesis: I/O Port io7 's net has no driver and is unused.
 GSR will not be inferred because no asynchronous signal was found in the netlist.
 Starting design annotation....
 WARNING - synthesis: No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP'.
-WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 2 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
+WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -divide_by 13 -multiply_by 76 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
 WARNING - synthesis: No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK'.
-WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 2 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
+WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -divide_by 13 -multiply_by 76 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
 WARNING - synthesis: No master clock for
-	generated clock	create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 2 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP }] .
+	generated clock	create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP }] .
 
 Starting full timing analysis...
 Starting design annotation....
 WARNING - synthesis: No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP'.
-WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 2 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
+WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -divide_by 13 -multiply_by 76 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
 WARNING - synthesis: No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK'.
-WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 2 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
+WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -divide_by 13 -multiply_by 76 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
 WARNING - synthesis: No master clock for
-	generated clock	create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 2 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP }] .
+	generated clock	create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP }] .
 
 Starting full timing analysis...
 Starting design annotation....
 WARNING - synthesis: No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP'.
-WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 2 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
+WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -divide_by 13 -multiply_by 76 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
 WARNING - synthesis: No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK'.
-WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 2 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
+WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -divide_by 13 -multiply_by 76 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
 WARNING - synthesis: No master clock for
-	generated clock	create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 2 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP }] .
+	generated clock	create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP }] .
 
 Starting full timing analysis...
 Starting design annotation....
 WARNING - synthesis: No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP'.
-WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 2 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
+WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -divide_by 13 -multiply_by 76 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
 WARNING - synthesis: No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK'.
-WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 2 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
+WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -divide_by 13 -multiply_by 76 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
 WARNING - synthesis: No master clock for
-	generated clock	create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 2 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP }] .
+	generated clock	create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP }] .
 
 Starting full timing analysis...
 WARNING - synthesis: Removing unused instance GSR_INST. VDB-5034
@@ -278,9 +418,9 @@ Top 10 highest fanout non-clock nets:
   Net : ddr_rx1/lscc_gddr_inst/RX_SCLK_CENTERED_STATIC_BYPASS.u_lscc_gddr_rx_sclk_centered_static_bypass/data_i_del_w[0], loads : 1
 ################### End Clock Report ##################
 
-Peak Memory Usage: 262 MB
+Peak Memory Usage: 280 MB
 
 --------------------------------------------------------------
-Total CPU Time: 3 secs 
+Total CPU Time: 2 secs 
 Total REAL Time: 3 secs 
 --------------------------------------------------------------

@@ -1,152 +1,685 @@
 
-map -i "OpenHT_impl_1_syn.udb" -pdc "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/impl_1.pdc" -o "OpenHT_impl_1_map.udb" -mp "OpenHT_impl_1.mrp" -hierrpt     
-map:  version Radiant Software (64-bit) 2022.1.0.52.3
+"C:/Radiant/tcltk/windows/bin/tclsh" "OpenHT_impl_1_synthesize.tcl"
+
+cpe -f OpenHT_impl_1.cprj pll_osc.cprj ddr_rx.cprj ddr_tx.cprj -a LIFCL -o OpenHT_impl_1_cpe.ldc
+Top module name (Verilog): pll_osc
+INFO - C:/Users/SP5WWP/Documents/Radiant/OpenHT/pll_osc/rtl/pll_osc.v(11): compiling module pll_osc. VERI-1018
+INFO - C:/Users/SP5WWP/Documents/Radiant/OpenHT/pll_osc/rtl/pll_osc.v(196): compiling module pll_osc_ipgen_lscc_pll(FVCO=1216.0,CLKI_FREQ=26.0,CLKOP_FREQ_ACTUAL=152.0,CLKOS_FREQ_ACTUAL=64.0,CLKOS2_FREQ_ACTUAL=38.0,CLKOS_EN=1,CLKOS2_EN=1,FRAC_N_EN=1,FBK_MODE=&quot;INTCLKOP&quot;,FBCLK_DIVIDER_ACTUAL_STR=&quot;46&quot;,DIVOP_ACTUAL_STR=&quot;7&quot;,DIVOS_ACTUAL_STR=&quot;18&quot;,DIVOS2_ACTUAL_STR=&quot;31&quot;,DIVOS3_ACTUAL_STR=&quot;7&quot;,DIVOS4_ACTUAL_STR=&quot;7&quot;,DIVOS5_AC   ....   001001111000&quot;,DELA=&quot;7&quot;,DELB=&quot;18&quot;,DELC=&quot;31&quot;,DELD=&quot;7&quot;,DELE=&quot;7&quot;,DELF=&quot;7&quot;,IPI_CMP=&quot;0b1100&quot;,CSET=&quot;8P&quot;,CRIPPLE=&quot;1P&quot;,IPP_CTRL=&quot;0b0110&quot;,BW_CTL_BIAS=&quot;0b1111&quot;,V2I_PP_RES=&quot;9K&quot;). VERI-1018
+INFO - C:/Radiant/ispfpga/../cae_library/synthesis/verilog/lifcl.v(10022): compiling module PLL(BW_CTL_BIAS=&quot;0b1111&quot;,CRIPPLE=&quot;1P&quot;,CSET=&quot;8P&quot;,DELA=&quot;7&quot;,DELB=&quot;18&quot;,DELC=&quot;31&quot;,DELD=&quot;7&quot;,DELE=&quot;7&quot;,DELF=&quot;7&quot;,DIVA=&quot;7&quot;,DIVB=&quot;18&quot;,DIVC=&quot;31&quot;,DIVD=&quot;7&quot;,DIVE=&quot;7&quot;,DIVF=&quot;7&quot;,ENCLK_CLKOP=&quot;ENABLED&quot;,ENCLK_CLKOS=&quot;ENABLED&quot;,ENCLK_CLKOS2=&quot;ENABLED&quot;,V2I_1V_EN=&quot;ENABLED&quot;,FBK_MASK=&quot;0b00010000&quot;,FBK_MMD_DIG=&quot;46&quot;,FBK_MMD_PULS_CTL=&quot;0b0110&quot;,IPI_CMP=&quot;0b11   ....   I_KVCO_SEL=&quot;60&quot;,V2I_PP_ICTRL=&quot;0b11111&quot;,V2I_PP_RES=&quot;9K&quot;,DIV_DEL=72&apos;b01100000110001000110000001100000011000000110000001100010011000100110001,SIM_FLOAT_PRECISION=&quot;0.1&quot;). VERI-1018
+Last elaborated design is pll_osc()
+Source compile complete.
+SDC Initialization for pll_osc finished.
+SDC Distribution for pll_osc finished.
+Top module name (Verilog): ddr_rx
+INFO - C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_rx/rtl/ddr_rx.v(11): compiling module ddr_rx. VERI-1018
+INFO - C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_rx/rtl/ddr_rx.v(9449): compiling module ddr_rx_ipgen_lscc_gddr(INTERFACE_TYPE=&quot;RECEIVE&quot;,IO_TYPE=&quot;LVDS&quot;,BUS_WIDTH=1,GEARING=1,OUT_WIDTH=1,CLK_FREQ=128.0,DATA_PATH_DELAY=&quot;BYPASS&quot;,CLOCK_PATH_DELAY=&quot;FIXED&quot;,DATA_DELAY_ADJUSTMENT=&quot;DEFAULT&quot;,DATA_FINE_DELAY_VALUE=&quot;0&quot;,DATA_COARSE_DELAY_VALUE=&quot;0NS&quot;,CLOCK_DATA_RELATION=&quot;CENTERED&quot;,FVCO=900.0,CLKI_FREQ=25.0,CLKOP_FREQ_ACTUAL=   ....   =&quot;0b000000110&quot;,DELA=&quot;5&quot;,DELB=&quot;7&quot;,DELC=&quot;7&quot;,DELD=&quot;7&quot;,DELE=&quot;7&quot;,DELF=&quot;7&quot;,IPI_CMP=&quot;0b0100&quot;,CSET=&quot;24P&quot;,CRIPPLE=&quot;3P&quot;,IPP_CTRL=&quot;0b0100&quot;,BW_CTL_BIAS=&quot;0b1111&quot;,V2I_PP_RES=&quot;9K&quot;). VERI-1018
+INFO - C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_rx/rtl/ddr_rx.v(526): compiling module ddr_rx_ipgen_lscc_gddr_rx_sclk_centered_static_bypass(BUS_WIDTH=1). VERI-1018
+INFO - C:/Radiant/ispfpga/../cae_library/synthesis/verilog/lifcl.v(1553): compiling module DELAYB(DEL_MODE=&quot;SCLK_CENTERED&quot;). VERI-1018
+INFO - C:/Radiant/ispfpga/../cae_library/synthesis/verilog/lifcl.v(4042): compiling module IDDRX1(GSR=&quot;DISABLED&quot;). VERI-1018
+Last elaborated design is ddr_rx()
+Source compile complete.
+SDC Initialization for ddr_rx finished.
+SDC Distribution for ddr_rx finished.
+Top module name (Verilog): ddr_tx
+INFO - C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_tx/rtl/ddr_tx.v(11): compiling module ddr_tx. VERI-1018
+INFO - C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_tx/rtl/ddr_tx.v(9449): compiling module ddr_tx_ipgen_lscc_gddr(INTERFACE_TYPE=&quot;TRANSMIT&quot;,IO_TYPE=&quot;LVDS&quot;,BUS_WIDTH=1,GEARING=1,IN_WIDTH=1,CLK_FREQ=128.0,DATA_PATH_DELAY=&quot;BYPASS&quot;,CLOCK_PATH_DELAY=&quot;FIXED&quot;,DATA_DELAY_ADJUSTMENT=&quot;DEFAULT&quot;,DATA_FINE_DELAY_VALUE=&quot;0&quot;,DATA_COARSE_DELAY_VALUE=&quot;0NS&quot;,CLOCK_DATA_RELATION=&quot;ALIGNED&quot;,FVCO=900.0,CLKI_FREQ=25.0,CLKOP_FREQ_ACTUAL=1   ....   =&quot;0b000000110&quot;,DELA=&quot;5&quot;,DELB=&quot;7&quot;,DELC=&quot;7&quot;,DELD=&quot;7&quot;,DELE=&quot;7&quot;,DELF=&quot;7&quot;,IPI_CMP=&quot;0b0100&quot;,CSET=&quot;24P&quot;,CRIPPLE=&quot;3P&quot;,IPP_CTRL=&quot;0b0100&quot;,BW_CTL_BIAS=&quot;0b1111&quot;,V2I_PP_RES=&quot;9K&quot;). VERI-1018
+INFO - C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_tx/rtl/ddr_tx.v(3718): compiling module ddr_tx_ipgen_lscc_gddr_tx_sclk_aligned_static_bypass(BUS_WIDTH=1). VERI-1018
+INFO - C:/Radiant/ispfpga/../cae_library/synthesis/verilog/lifcl.v(5893): compiling module ODDRX1. VERI-1018
+Last elaborated design is ddr_tx()
+Source compile complete.
+SDC Initialization for ddr_tx finished.
+SDC Distribution for ddr_tx finished.
+INFO - Setting main_all as top module.
+Analyzing Verilog file c:/radiant/ip/pmi/pmi_lifcl.v. VERI-1482
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(1): analyzing included file c:/radiant/ip/pmi/pmi_addsub.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_addsub.v(40): analyzing included file c:/radiant/ip/pmi/../common/adder_subtractor/rtl/lscc_add_sub.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(2): analyzing included file c:/radiant/ip/pmi/pmi_add.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_add.v(50): analyzing included file c:/radiant/ip/pmi/../common/adder/rtl/lscc_adder.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(3): analyzing included file c:/radiant/ip/pmi/pmi_complex_mult.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_complex_mult.v(52): analyzing included file c:/radiant/ip/pmi/../common/complex_mult/rtl/lscc_complex_mult.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(4): analyzing included file c:/radiant/ip/pmi/pmi_counter.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_counter.v(39): analyzing included file c:/radiant/ip/pmi/../common/counter/rtl/lscc_cntr.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(5): analyzing included file c:/radiant/ip/pmi/pmi_distributed_dpram.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_distributed_dpram.v(43): analyzing included file c:/radiant/ip/pmi/../common/distributed_dpram/rtl/lscc_distributed_dpram.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(6): analyzing included file c:/radiant/ip/pmi/pmi_distributed_spram.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_distributed_spram.v(42): analyzing included file c:/radiant/ip/pmi/../common/distributed_spram/rtl/lscc_distributed_spram.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(7): analyzing included file c:/radiant/ip/pmi/pmi_distributed_rom.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_distributed_rom.v(42): analyzing included file c:/radiant/ip/pmi/../common/distributed_rom/rtl/lscc_distributed_rom.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(8): analyzing included file c:/radiant/ip/pmi/pmi_distributed_shift_reg.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_distributed_shift_reg.v(41): analyzing included file c:/radiant/ip/pmi/../common/ram_shift_reg/rtl/lscc_shift_register.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(9): analyzing included file c:/radiant/ip/pmi/pmi_fifo.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_fifo.v(44): analyzing included file c:/radiant/ip/pmi/../avant/fifo/rtl/lscc_fifo.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(10): analyzing included file c:/radiant/ip/pmi/pmi_fifo_dc.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_fifo_dc.v(47): analyzing included file c:/radiant/ip/pmi/../avant/fifo_dc/rtl/lscc_fifo_dc.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(11): analyzing included file c:/radiant/ip/pmi/pmi_mac.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_mac.v(52): analyzing included file c:/radiant/ip/pmi/../common/mult_accumulate/rtl/lscc_mult_accumulate.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(12): analyzing included file c:/radiant/ip/pmi/pmi_multaddsubsum.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_multaddsubsum.v(53): analyzing included file c:/radiant/ip/pmi/../common/mult_add_sub_sum/rtl/lscc_mult_add_sub_sum.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(13): analyzing included file c:/radiant/ip/pmi/pmi_multaddsub.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_multaddsub.v(52): analyzing included file c:/radiant/ip/pmi/../common/mult_add_sub/rtl/lscc_mult_add_sub.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(14): analyzing included file c:/radiant/ip/pmi/pmi_mult.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_mult.v(51): analyzing included file c:/radiant/ip/pmi/../common/multiplier/rtl/lscc_multiplier.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(15): analyzing included file c:/radiant/ip/pmi/pmi_ram_dp.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_ram_dp.v(48): analyzing included file c:/radiant/ip/pmi/../avant/ram_dp/rtl/lscc_ram_dp.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(16): analyzing included file c:/radiant/ip/pmi/pmi_ram_dp_be.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_ram_dp_be.v(49): analyzing included file c:/radiant/ip/pmi/../avant/ram_dp/rtl/lscc_ram_dp.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(17): analyzing included file c:/radiant/ip/pmi/pmi_ram_dp_true.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_ram_dp_true.v(49): analyzing included file c:/radiant/ip/pmi/../avant/ram_dp_true/rtl/lscc_ram_dp_true.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(18): analyzing included file c:/radiant/ip/pmi/pmi_ram_dq.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_ram_dq.v(45): analyzing included file c:/radiant/ip/pmi/../avant/ram_dq/rtl/lscc_ram_dq.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(19): analyzing included file c:/radiant/ip/pmi/pmi_ram_dq_be.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_ram_dq_be.v(45): analyzing included file c:/radiant/ip/pmi/../avant/ram_dq/rtl/lscc_ram_dq.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(20): analyzing included file c:/radiant/ip/pmi/pmi_rom.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_rom.v(45): analyzing included file c:/radiant/ip/pmi/../avant/rom/rtl/lscc_rom.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(21): analyzing included file c:/radiant/ip/pmi/pmi_sub.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_sub.v(50): analyzing included file c:/radiant/ip/pmi/../common/subtractor/rtl/lscc_subtractor.v. VERI-1328
+Analyzing Verilog file pll_osc.v. VERI-1482
+Analyzing Verilog file ddr_rx.v. VERI-1482
+Analyzing Verilog file ddr_tx.v. VERI-1482
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd(6): analyzing entity main_all. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd(30): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(6): analyzing entity spi_slave. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(18): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd(6): analyzing entity add_const. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd(16): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd(6): analyzing entity complex_mul. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd(13): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd(6): analyzing entity decim. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd(20): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd(6): analyzing entity fir_channel. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd(19): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd(6): analyzing entity fir_serial. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd(19): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd(6): analyzing entity freq_demod. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd(14): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd(6): analyzing entity iq_des. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd(17): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd(6): analyzing entity local_osc. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd(18): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd(7): analyzing entity mag_est. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd(17): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd(6): analyzing entity am_modulator. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd(14): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(6): analyzing entity ctrl_regs. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(20): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_adder.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_adder.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_adder.vhd(12): analyzing entity dither_adder. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_adder.vhd(20): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd(12): analyzing entity dither_source. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd(21): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(6): analyzing entity fm_modulator. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(17): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd(6): analyzing entity iq_balancer_16. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd(17): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd(6): analyzing entity iq_offset. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd(17): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(6): analyzing entity mod_sel. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(18): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd(12): analyzing entity sincos_16. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd(20): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd(6): analyzing entity unpack. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd(16): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd(6): analyzing entity zero_insert. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd(14): analyzing architecture magic. VHDL-1010
+INFO - The default VHDL library search path is now "C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1". VHDL-1504
+Top module language type = VHDL.
+Top module name (VHDL, mixed language): main_all
+Source compile complete.
+SDC Initialization for main_all finished.
+SDC Distribution for main_all finished.
+Starting IP constraint check for ddr_rx.
+Starting IP constraint check for ##=================================================================================================================##.
+Starting IP constraint check for ##=================================================================================================================##.
+Starting IP constraint check for ldc_set_port -iobuf {IO_TYPE=LVDS} [get_ports clk_i].
+Starting IP constraint check for ldc_set_port -iobuf {IO_TYPE=LVDS} [get_ports {data_i[0]}].
+WARNING - Constraint create_clock -name {clk_i} -period 7.8125 [get_ports clk_i] was removed because it is defined at a clock input pin of the IP. User constraints should ensure the corresponding top-level port is correctly constraint at the top-level. If kept, it may cause incorrect slack calculation..
+Starting IP constraint check for ##=================================================================================================================##.
+Starting IP constraint check for ##=================================================================================================================##.
+Starting IP constraint check for ldc_set_port -iobuf {IO_TYPE=LVDS} [get_ports clk_i].
+Starting IP constraint check for ldc_set_port -iobuf {IO_TYPE=LVDS} [get_ports {data_i[0]}].
+WARNING - Constraint create_clock -name {clk_i} -period 7.8125 [get_ports clk_i] was removed because it is defined at a clock input pin of the IP. User constraints should ensure the corresponding top-level port is correctly constraint at the top-level. If kept, it may cause incorrect slack calculation..
+Starting IP constraint check for ddr_tx.
+Starting IP constraint check for ##=================================================================================================================##.
+Starting IP constraint check for ##=================================================================================================================##.
+Starting IP constraint check for ldc_set_port -iobuf {IO_TYPE=LVDS} [get_ports clk_o].
+Starting IP constraint check for ldc_set_port -iobuf {IO_TYPE=LVDS} [get_ports {data_o[0]}].
+WARNING - Constraint create_clock -name {clk_i} -period 7.8125 [get_ports clk_i] was removed because it is defined at a clock input pin of the IP. User constraints should ensure the corresponding top-level port is correctly constraint at the top-level. If kept, it may cause incorrect slack calculation..
+Starting IP constraint check for pll_osc.
+WARNING - Constraint create_clock -name {clki_i} -period 38.462 [get_ports clki_i] was removed because it is defined at a clock input pin of the IP. User constraints should ensure the corresponding top-level port is correctly constraint at the top-level. If kept, it may cause incorrect slack calculation..
+Writing output files.
+CPE Completed. OpenHT_impl_1_cpe.ldc and CPEReport.txt produced.
+
+
+synthesis -f OpenHT_impl_1_lattice.synproj
+synthesis:  version Radiant Software (64-bit) 2022.1.0.52.3
 
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
 Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-
-Command line:   map -i OpenHT_impl_1_syn.udb -pdc C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/impl_1.pdc -o OpenHT_impl_1_map.udb -mp OpenHT_impl_1.mrp -hierrpt -gui 
-
-Loading device for application GENERIC from file 'je5d30.nph' in environment: C:/Radiant/ispfpga.
-Package Status:                     Final          Version 39.
+Tue Mar  7 11:48:24 2023
 
 
+Command Line:  C:\Radiant\ispfpga\bin\nt64\synthesis.exe -f OpenHT_impl_1_lattice.synproj -gui -msgset C:/Users/SP5WWP/Documents/Radiant/OpenHT/promote.xml 
 
-   Remove unused logic
-
-   Do not produce over sized UDBs.
-
-Design:  main_all
-Family:  LIFCL
-Device:  LIFCL-40
-Package: QFN72
-Performance Grade:  7_High-Performance_1.0V
-
-Running general design DRC...
-
-WARNING - Top module port 'nrst' does not connect to anything.
-WARNING - Top module port 'spi_ncs' does not connect to anything.
-WARNING - Top module port 'spi_mosi' does not connect to anything.
-WARNING - Top module port 'spi_sck' does not connect to anything.
-Removing unused logic...
-
-Optimizing...
+INFO - synthesis: Lattice Synthesis Engine Launched.
+Synthesis options:
+The -a option is LIFCL.
+The -t option is QFN72.
+The -sp option is 7_High-Performance_1.0V.
+The -p option is LIFCL-40.
+                                                          
 
 
+##########################################################
 
 
-Design Summary:
-   Number of registers:           0 out of 32373 (0%)
-      Number of SLICE         registers:    0 out of 32256 (0%)
-      Number of PIO Input     registers:    0 out of    39 (0%)
-      Number of PIO Output    registers:    0 out of    39 (0%)
-      Number of PIO Tri-State registers:    0 out of    39 (0%)
-   Number of LUT4s:               2 out of 32256 (<1%)
-      Number used as logic LUT4s:                          2
-      Number used as distributed RAM:                      0 (6 per 16X4 RAM)
-      Number used as ripple logic:                         0 (2 per CCU2)
-   Number of PIOs used/reserved:   23 out of    39 (51%)
-      Number of PIOs reserved:      3 (per sysConfig and/or prohibit constraint)
-      Number of PIOs used:         20
-        Number of PIOs used for single ended IO:        10
-        Number of PIO pairs used for differential IO:    5
+### Lattice Family     : LIFCL
 
-        Number allocated to regular speed PIOs:     2 out of   17 (12%)
-        Number allocated to high speed PIOs:       18 out of   22 (82%)
-   Number of Dedicated IO used for ADC/PCIE/DPHY:    0 out of   10 (0%)
-   Number of IDDR/ODDR/TDDR functions used:      4 out of   100 (4%)
-      Number of IDDR functions:                2
-                IDDRX1:           2
-      Number of ODDR functions:                2
-                ODDRX1:           2
-      Number of TDDR functions:                0
-   Number of IOs using at least one DDR function: 4 (4 differential)
-      Number of IOs using IDDR only:           2 (2 differential)
-      Number of IOs using ODDR only:           2 (2 differential)
-      Number of IOs using ODDR/TDDR:           0 (0 differential)
-      Number of IOs using IDDR/ODDR/TDDR:      0 (0 differential)
-   Number of Block RAMs:          0 out of 84 (0%)
-   Number of Large RAMs:          0 out of 2 (0%)
-   Number of Logical DSP Functions:
-      Number of Pre-Adders (9+9):    0 out of 112 (0%)
-      Number of Multipliers (18x18): 0 out of 56 (0%)
-         Number of 9X9:        0 (1 18x18 = 2   9x9)
-         Number of 18x18:      0 (1 18x18 = 1 18x18)
-         Number of 18x36:      0 (2 18x18 = 1 18x36)
-         Number of 36x36:      0 (4 18x18 = 1 36x36)
-      Number of 54-bit Accumulators: 0 out of 28 (0%)
-      Number of 18-bit Registers:    0 out of 112 (0%)
-   Number of Physical DSP Components:
-      Number of PREADD9:             0 out of 112 (0%)
-      Number of MULT9:               0 out of 112 (0%)
-      Number of MULT18:              0 out of 56 (0%)
-      Number of MULT18X36:           0 out of 28 (0%)
-      Number of MULT36:              0 out of 14 (0%)
-      Number of ACC54:               0 out of 28 (0%)
-      Number of REG18:               0 out of 112 (0%)
-   Number of ALUREGs:             0 out of 1 (0%)
-   Number of PLLs:                1 out of 3 (33%)
-   Number of DDRDLLs:             0 out of 2 (0%)
-   Number of DLLDELs:             0 out of 10 (0%)
-   Number of DQSs:                0 out of 4 (0%)
-   Number of DCSs:                0 out of 1 (0%)
-   Number of DCCs:                0 out of 62 (0%)
-   Number of PCLKDIVs:            0 out of 1 (0%)
-   Number of ECLKDIVs:            0 out of 12 (0%)
-   Number of ECLKSYNCs:           0 out of 12 (0%)
-   Number of ADC Blocks:          0 out of 1 (0%)
-   Number of SGMIICDRs:           0 out of 2 (0%)
-   Number of PMUs:                0 out of 1 (0%)
-   Number of BNKREF18s:           0 out of 3 (0%)
-   Number of BNKREF33s:           0 out of 5 (0%)
-   Number of PCIEs:               0 out of 1 (0%)
-   Number of I2CFIFOs:            0 out of 1 (0%)
-   Number of DPHYs:               0 out of 2 (0%)
-   Number of Oscillators:         0 out of 1 (0%)
-   Number of GSR:                 0 out of 1 (0%)
-   Number of Cryptographic Block: 0 out of 1 (0%)
-   Number of Config IP:           0 out of 1 (0%)
-                 TSALL:           0 out of 1 (0%)
-   Number of JTAG:                0 out of 1 (0%)
-   Number of SED:                 0 out of 1 (0%)
-   Number of Clocks:  3
-      Net clk_rx_i_c: 2 loads, 2 rising, 0 falling (Driver: Port clk_rx_i)
-      Net clk_64: 2 loads, 2 rising, 0 falling (Driver: Pin pll0.lscc_pll_inst.gen_no_refclk_mon.u_PLL.PLL_inst/CLKOP)
-      Net clk_i_c: 1 loads, 1 rising, 0 falling (Driver: Port clk_i)
-   Number of Clock Enables:  0
-   Number of LSRs:  1
-      Net VCC_net: 2 loads, 0 SLICEs
-   Top 10 highest fanout non-clock nets:
-      Net VCC_net: 13 loads
-      Net clk_tx_o_c: 1 loads
-      Net data_rx09_i_c: 1 loads
-      Net data_rx09_r[0]: 1 loads
-      Net data_rx24_i_c: 1 loads
-      Net data_rx24_r[1]: 1 loads
-      Net data_tx_o_c: 1 loads
-      Net io4_c: 1 loads
-      Net io7_c_c: 1 loads
-      Net pll0.lscc_pll_inst.fbclk_w: 1 loads
-Running physical design DRC...
 
-WARNING - Top module port 'nrst' does not connect to anything.
-WARNING - Top module port 'spi_ncs' does not connect to anything.
-WARNING - Top module port 'spi_mosi' does not connect to anything.
-WARNING - Top module port 'spi_sck' does not connect to anything.
+### Device             : LIFCL-40
+
+
+### Package            : QFN72
+
+
+### Performance Grade  : 7_High-Performance_1.0V
+
+
+                                                         
+
+
+INFO - User-Selected Strategy Settings
+Optimization goal = Timing
+Top-level module name = main_all.
+Target frequency = 200.000000 MHz.
+Maximum fanout = 1000.
+Timing path count = 3
+BRAM utilization = 100.000000 %
+DSP usage = true
+DSP utilization = 100.000000 %
+fsm_encoding_style = auto
+resolve_mixed_drivers = 0
+fix_gated_clocks = 1
+
+
+Mux style = Auto
+Use Carry Chain = true
+carry_chain_length = 0
+Loop Limit = 1950.
+Use IO Insertion = TRUE
+Use IO Reg = AUTO
+
+Resource Sharing = TRUE
+Propagate Constants = TRUE
+Remove Duplicate Registers = TRUE
+force_gsr = yes
+Output HDL file name = OpenHT_impl_1.vm.
+ROM style = auto
+RAM style = auto
+The -comp option is FALSE.
+The -syn option is FALSE.
+-sdc option: SDC file input is OpenHT_impl_1_cpe.ldc.
+Hardtimer checking is enabled (default). The -dt option is not used.
+-path C:/Radiant/ispfpga/je5d00/data (searchpath added)
+-path C:/Users/SP5WWP/Documents/Radiant/OpenHT (searchpath added)
+-path C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_rx (searchpath added)
+-path C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_tx (searchpath added)
+-path C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1 (searchpath added)
+-path C:/Users/SP5WWP/Documents/Radiant/OpenHT/pll_osc (searchpath added)
+Mixed language design
+Verilog design file = C:/Radiant/ip/pmi/pmi_lifcl.v
+Verilog design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/pll_osc/rtl/pll_osc.v
+Verilog design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_rx/rtl/ddr_rx.v
+Verilog design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_tx/rtl/ddr_tx.v
+VHDL library = pmi
+VHDL design file = C:/Radiant/ip/pmi/pmi_lifcl.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/main.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/spi_slave.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/add_const.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/complex_mul.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/decim.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/fir_channel.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/fir_serial.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/freq_demod.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/iq_deserializer.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/local_osc.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/mag_est.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/AM_modulator.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/ctrl_regs.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/dither_adder.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/dither_source.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/FM_modulator.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/iq_balancer.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/iq_offset.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/mod_sel.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/sincos.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/unpack.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/zero_insert.vhd
+The -r option is OFF. [ Remove LOC Properties is OFF. ]
+Compile design.
+Compile Design Begin
+Analyzing Verilog file c:/radiant/ip/pmi/pmi_lifcl.v. VERI-1482
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(1): analyzing included file c:/radiant/ip/pmi/pmi_addsub.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_addsub.v(40): analyzing included file c:/radiant/ip/pmi/../common/adder_subtractor/rtl/lscc_add_sub.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(2): analyzing included file c:/radiant/ip/pmi/pmi_add.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_add.v(50): analyzing included file c:/radiant/ip/pmi/../common/adder/rtl/lscc_adder.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(3): analyzing included file c:/radiant/ip/pmi/pmi_complex_mult.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_complex_mult.v(52): analyzing included file c:/radiant/ip/pmi/../common/complex_mult/rtl/lscc_complex_mult.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(4): analyzing included file c:/radiant/ip/pmi/pmi_counter.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_counter.v(39): analyzing included file c:/radiant/ip/pmi/../common/counter/rtl/lscc_cntr.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(5): analyzing included file c:/radiant/ip/pmi/pmi_distributed_dpram.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_distributed_dpram.v(43): analyzing included file c:/radiant/ip/pmi/../common/distributed_dpram/rtl/lscc_distributed_dpram.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(6): analyzing included file c:/radiant/ip/pmi/pmi_distributed_spram.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_distributed_spram.v(42): analyzing included file c:/radiant/ip/pmi/../common/distributed_spram/rtl/lscc_distributed_spram.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(7): analyzing included file c:/radiant/ip/pmi/pmi_distributed_rom.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_distributed_rom.v(42): analyzing included file c:/radiant/ip/pmi/../common/distributed_rom/rtl/lscc_distributed_rom.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(8): analyzing included file c:/radiant/ip/pmi/pmi_distributed_shift_reg.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_distributed_shift_reg.v(41): analyzing included file c:/radiant/ip/pmi/../common/ram_shift_reg/rtl/lscc_shift_register.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(9): analyzing included file c:/radiant/ip/pmi/pmi_fifo.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_fifo.v(44): analyzing included file c:/radiant/ip/pmi/../avant/fifo/rtl/lscc_fifo.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(10): analyzing included file c:/radiant/ip/pmi/pmi_fifo_dc.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_fifo_dc.v(47): analyzing included file c:/radiant/ip/pmi/../avant/fifo_dc/rtl/lscc_fifo_dc.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(11): analyzing included file c:/radiant/ip/pmi/pmi_mac.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_mac.v(52): analyzing included file c:/radiant/ip/pmi/../common/mult_accumulate/rtl/lscc_mult_accumulate.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(12): analyzing included file c:/radiant/ip/pmi/pmi_multaddsubsum.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_multaddsubsum.v(53): analyzing included file c:/radiant/ip/pmi/../common/mult_add_sub_sum/rtl/lscc_mult_add_sub_sum.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(13): analyzing included file c:/radiant/ip/pmi/pmi_multaddsub.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_multaddsub.v(52): analyzing included file c:/radiant/ip/pmi/../common/mult_add_sub/rtl/lscc_mult_add_sub.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(14): analyzing included file c:/radiant/ip/pmi/pmi_mult.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_mult.v(51): analyzing included file c:/radiant/ip/pmi/../common/multiplier/rtl/lscc_multiplier.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(15): analyzing included file c:/radiant/ip/pmi/pmi_ram_dp.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_ram_dp.v(48): analyzing included file c:/radiant/ip/pmi/../avant/ram_dp/rtl/lscc_ram_dp.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(16): analyzing included file c:/radiant/ip/pmi/pmi_ram_dp_be.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_ram_dp_be.v(49): analyzing included file c:/radiant/ip/pmi/../avant/ram_dp/rtl/lscc_ram_dp.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(17): analyzing included file c:/radiant/ip/pmi/pmi_ram_dp_true.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_ram_dp_true.v(49): analyzing included file c:/radiant/ip/pmi/../avant/ram_dp_true/rtl/lscc_ram_dp_true.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(18): analyzing included file c:/radiant/ip/pmi/pmi_ram_dq.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_ram_dq.v(45): analyzing included file c:/radiant/ip/pmi/../avant/ram_dq/rtl/lscc_ram_dq.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(19): analyzing included file c:/radiant/ip/pmi/pmi_ram_dq_be.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_ram_dq_be.v(45): analyzing included file c:/radiant/ip/pmi/../avant/ram_dq/rtl/lscc_ram_dq.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(20): analyzing included file c:/radiant/ip/pmi/pmi_rom.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_rom.v(45): analyzing included file c:/radiant/ip/pmi/../avant/rom/rtl/lscc_rom.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_lifcl.v(21): analyzing included file c:/radiant/ip/pmi/pmi_sub.v. VERI-1328
+INFO - c:/radiant/ip/pmi/pmi_sub.v(50): analyzing included file c:/radiant/ip/pmi/../common/subtractor/rtl/lscc_subtractor.v. VERI-1328
+Analyzing Verilog file c:/users/sp5wwp/documents/radiant/openht/pll_osc/rtl/pll_osc.v. VERI-1482
+Analyzing Verilog file c:/users/sp5wwp/documents/radiant/openht/ddr_rx/rtl/ddr_rx.v. VERI-1482
+Analyzing Verilog file c:/users/sp5wwp/documents/radiant/openht/ddr_tx/rtl/ddr_tx.v. VERI-1482
+Analyzing VHDL file c:/radiant/ip/pmi/pmi_lifcl.vhd. VHDL-1481
+Analyzing VHDL file c:/radiant/ip/pmi/pmi_lifcl.vhd
+
+INFO - c:/radiant/ip/pmi/pmi_lifcl.vhd(4): analyzing package components. VHDL-1014
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd(6): analyzing entity main_all. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd(30): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(6): analyzing entity spi_slave. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(18): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd(6): analyzing entity add_const. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd(16): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd(6): analyzing entity complex_mul. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd(13): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd(6): analyzing entity decim. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd(20): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd(6): analyzing entity fir_channel. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd(19): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd(6): analyzing entity fir_serial. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd(19): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd(6): analyzing entity freq_demod. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd(14): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd(6): analyzing entity iq_des. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd(17): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd(6): analyzing entity local_osc. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd(18): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd(7): analyzing entity mag_est. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd(17): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd(6): analyzing entity am_modulator. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd(14): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(6): analyzing entity ctrl_regs. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(20): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_adder.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_adder.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_adder.vhd(12): analyzing entity dither_adder. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_adder.vhd(20): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd(12): analyzing entity dither_source. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd(21): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(6): analyzing entity fm_modulator. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(17): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd(6): analyzing entity iq_balancer_16. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd(17): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd(6): analyzing entity iq_offset. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd(17): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(6): analyzing entity mod_sel. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(18): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd(12): analyzing entity sincos_16. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd(20): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd(6): analyzing entity unpack. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd(16): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd(6): analyzing entity zero_insert. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd(14): analyzing architecture magic. VHDL-1010
+INFO - The default VHDL library search path is now "C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1". VHDL-1504
+Top module language type = VHDL.
+Top module name (VHDL, mixed language): main_all
+                                                         
+
+
+### Number of Logic Cells: 32256
+
+
+### Number of RAM Blocks: 84
+
+
+### Number of DSP Blocks: 462
+
+
+### Number of PLLs: 3
+
+
+### Number of IO Pins: 185
+
+
+##########################################################
+
+
+                                                         
+
+
+WARNING - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd(118): Removing unused instance spi0. VDB-5034
+WARNING - I/O Port nrst 's net has no driver and is unused.
+WARNING - I/O Port spi_ncs 's net has no driver and is unused.
+WARNING - I/O Port spi_miso 's net has no driver and is unused.
+WARNING - I/O Port spi_mosi 's net has no driver and is unused.
+WARNING - I/O Port spi_sck 's net has no driver and is unused.
+WARNING - I/O Port io0 's net has no driver and is unused.
+WARNING - I/O Port io1 's net has no driver and is unused.
+WARNING - I/O Port io2 's net has no driver and is unused.
+WARNING - I/O Port io3 's net has no driver and is unused.
+WARNING - I/O Port io5 's net has no driver and is unused.
+WARNING - I/O Port io6 's net has no driver and is unused.
+WARNING - I/O Port io7 's net has no driver and is unused.
+
+
+
+WARNING - I/O Port nrst 's net has no driver and is unused.
+WARNING - I/O Port spi_ncs 's net has no driver and is unused.
+WARNING - I/O Port spi_miso 's net has no driver and is unused.
+WARNING - I/O Port spi_mosi 's net has no driver and is unused.
+WARNING - I/O Port spi_sck 's net has no driver and is unused.
+WARNING - I/O Port io0 's net has no driver and is unused.
+WARNING - I/O Port io1 's net has no driver and is unused.
+WARNING - I/O Port io2 's net has no driver and is unused.
+WARNING - I/O Port io3 's net has no driver and is unused.
+WARNING - I/O Port io5 's net has no driver and is unused.
+WARNING - I/O Port io6 's net has no driver and is unused.
+WARNING - I/O Port io7 's net has no driver and is unused.
+GSR will not be inferred because no asynchronous signal was found in the netlist.
+Initializing timer
+Starting design annotation....
+WARNING - No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP'.
+WARNING - Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -divide_by 13 -multiply_by 76 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
+WARNING - No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK'.
+WARNING - Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -divide_by 13 -multiply_by 76 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
+WARNING - No master clock for
+	generated clock	create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP }] .
+
+Starting full timing analysis...
+Worst slack in design 2147483647
+Initializing timer
+Starting design annotation....
+WARNING - No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP'.
+WARNING - Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -divide_by 13 -multiply_by 76 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
+WARNING - No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK'.
+WARNING - Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -divide_by 13 -multiply_by 76 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
+WARNING - No master clock for
+	generated clock	create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP }] .
+
+Starting full timing analysis...
+Worst slack in design 2147483647
+Initializing timer
+Starting design annotation....
+WARNING - No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP'.
+WARNING - Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -divide_by 13 -multiply_by 76 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
+WARNING - No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK'.
+WARNING - Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -divide_by 13 -multiply_by 76 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
+WARNING - No master clock for
+	generated clock	create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP }] .
+
+Starting full timing analysis...
+Worst slack in design 2147483647
+Initializing timer
+Starting design annotation....
+WARNING - No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP'.
+WARNING - Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -divide_by 13 -multiply_by 76 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
+WARNING - No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK'.
+WARNING - Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -divide_by 13 -multiply_by 76 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
+WARNING - No master clock for
+	generated clock	create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP }] .
+
+Starting full timing analysis...
+Worst slack in design 2147483647
+WARNING - Removing unused instance GSR_INST. VDB-5034
+
+################### Begin Area Report (main_all)######################
+Number of register bits => 0 of 32256 (0 % )
+DELAYB => 2
+GSR => 1
+IB => 8
+IDDRX1 => 2
+LUT4 => 1
+OB => 7
+ODDRX1 => 2
+PLL => 1
+################### End Area Report ##################
+Number of odd-length carry chains : 0
+Number of even-length carry chains : 0
+
+################### Begin Clock Report ######################
+Clock Nets
+Number of Clocks: 3
+  Net : clk_rx_i_c, loads : 3
+  Net : clk_i_c, loads : 1
+  Net : pll0/lscc_pll_inst/clk_64, loads : 2
+Clock Enable Nets
+Number of Clock Enables: 0
+Highest fanout non-clock nets
+Top 10 highest fanout non-clock nets:
+  Net : VCC_net, loads : 12
+  Net : data_rx09_i_c, loads : 1
+  Net : data_rx24_i_c, loads : 1
+  Net : spi_miso_c_c, loads : 1
+  Net : io5_c_c, loads : 1
+  Net : io6_c_c, loads : 1
+  Net : io7_c_c, loads : 1
+  Net : io4_c, loads : 1
+  Net : ddr_rx0/lscc_gddr_inst/RX_SCLK_CENTERED_STATIC_BYPASS.u_lscc_gddr_rx_sclk_centered_static_bypass/data_i_del_w[0], loads : 1
+  Net : ddr_rx1/lscc_gddr_inst/RX_SCLK_CENTERED_STATIC_BYPASS.u_lscc_gddr_rx_sclk_centered_static_bypass/data_i_del_w[0], loads : 1
+################### End Clock Report ##################
+
+Peak Memory Usage: 280 MB
+
+--------------------------------------------------------------
+Total CPU Time: 2 secs 
+Total REAL Time: 3 secs 
+--------------------------------------------------------------
+
+
+postsyn -a LIFCL -p LIFCL-40 -t QFN72 -sp 7_High-Performance_1.0V -oc Industrial -top -w -o OpenHT_impl_1_syn.udb OpenHT_impl_1.vm -ldc C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1/OpenHT_impl_1.ldc
+POSTSYN: Post Synthesis Process Radiant Software (64-bit) 2022.1.0.52.3
+Command Line: postsyn -a LIFCL -p LIFCL-40 -t QFN72 -sp 7_High-Performance_1.0V -oc Industrial -top -w -o OpenHT_impl_1_syn.udb -ldc C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1/OpenHT_impl_1.ldc -gui -msgset C:/Users/SP5WWP/Documents/Radiant/OpenHT/promote.xml OpenHT_impl_1.vm 
+   Architecture:     LIFCL
+   Device:           LIFCL-40
+   Package:          QFN72
+   Performance:      7_High-Performance_1.0V
+Reading input file 'OpenHT_impl_1.vm' ...
+CPU Time to convert: 0.4375
+REAL Time to convert: 0
+convert PEAK Memory Usage: 108 MB
+convert CURRENT Memory Usage: 104 MB
+Reading constraint file 'C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1/OpenHT_impl_1.ldc' ...
+Removing unused logic ...
+INFO - Signal GSR_INST.GSROUT undriven or does not drive anything - clipped
+Starting design annotation....
+WARNING - No master clock for
+	generated clock	create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOP }] .
  
-
-   Number of warnings:  8
-   Number of errors:    0
-
 Constraint Summary:
-   Total number of constraints: 27
+   Total number of constraints: 7
    Total number of constraints dropped: 0
-
-
-Total CPU Time: 2 secs  
-Total REAL Time: 3 secs  
-Peak Memory Usage: 311 MB
+   Total number of constraints duplicated: 1
+ 
+Writing output file 'OpenHT_impl_1_syn.udb'.
+POSTSYN finished successfully.
+Total CPU Time: 0 secs 
+Total REAL Time: 0 secs 
+Peak Memory Usage: 133 MB
 
