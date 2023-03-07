@@ -1,5 +1,12 @@
---magnitude estimator
---mag=sqrt(i^2+q^2)
+-------------------------------------------------------------
+-- I/Q magnitude (modulus) estimator
+--
+-- |z| = sqrt(i^2 + q^2)
+--
+-- Wojciech Kaczmarski, SP5WWP
+-- M17 Project
+-- March 2023
+-------------------------------------------------------------
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;

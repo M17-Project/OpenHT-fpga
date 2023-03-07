@@ -1,9 +1,16 @@
 -------------------------------------------------------------
--- Dither source
+-- Dither source for an NCO in FM mode
+--
+-- x[0] = seed
+-- x[n+1] = (m * x[n] + p) mod 0xFFFF
+-- (p = 7)
+--
+-- This approach gives uniform probability density
+-- of the generated numbers sequence
 --
 -- Wojciech Kaczmarski, SP5WWP
 -- M17 Project
--- February 2023
+-- March 2023
 -------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
@@ -36,6 +43,6 @@ begin
 		end if;
 	end process;
 
-	out_o <= signed(tmp1(15) & tmp1(15) & tmp1(15) & tmp1(15) & tmp1(15) & tmp1(15) & tmp1(15) & tmp1(15) & tmp1(15 downto 8)) when ena='1' else
+	out_o <= resize(signed(tmp1(15 downto 8)), 16) when ena='1' else
 		(others => '0');
 end architecture;

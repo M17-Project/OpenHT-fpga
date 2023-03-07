@@ -1,4 +1,10 @@
---modulation source selector
+-------------------------------------------------------------
+-- Modulation source selector (multiplexer)
+--
+-- Wojciech Kaczmarski, SP5WWP
+-- M17 Project
+-- March 2023
+-------------------------------------------------------------
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
@@ -11,7 +17,7 @@ entity mod_sel is
 		fm_i_i		: in std_logic_vector(15 downto 0);		-- FM I data in
 		fm_q_i		: in std_logic_vector(15 downto 0);		-- FM Q data in
 		i_o			: out std_logic_vector(15 downto 0);	-- I data out
-		q_o			: out std_logic_vector(15 downto 0)	-- Q data out
+		q_o			: out std_logic_vector(15 downto 0)		-- Q data out
 	);
 end mod_sel;
 

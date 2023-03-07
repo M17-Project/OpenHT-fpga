@@ -39,7 +39,9 @@ architecture magic of main_all is
 	signal data_rx09_r				: std_logic_vector(1 downto 0);
 	signal data_rx24_r				: std_logic_vector(1 downto 0);
 	-- SPI data regs
-	signal spi_rx_r					: std_logic_vector(31 downto 0);
+	signal spi_rw					: std_logic := '0';										-- SPI R/W flag
+	signal spi_rx_r, spi_tx_r		: std_logic_vector(15 downto 0) := (others => '0');
+	signal spi_addr_r				: std_logic_vector(14 downto 0) := (others => '0');
 	
 	-- PLL block
 	component pll_osc is
@@ -74,13 +76,17 @@ architecture magic of main_all is
 	-- SPI slave interface
 	component spi_slave is
 		port(
-			mosi_i	: in std_logic;
-			sck_i	: in std_logic;
-			ncs_i	: in std_logic;
-			data_o	: out std_logic_vector(31 downto 0);
-			nrst	: in std_logic;
-			ena		: in std_logic;
-			clk_i	: in std_logic
+			miso_o	: out std_logic;						-- serial data out
+			mosi_i	: in std_logic;							-- serial data in
+			sck_i	: in std_logic;							-- clock
+			ncs_i	: in std_logic;							-- slave select signal
+			data_o	: out std_logic_vector(15 downto 0);	-- received data register
+			addr_o	: out std_logic_vector(14 downto 0);	-- address (for data read)
+			data_i	: in std_logic_vector(15 downto 0);		-- input data register
+			nrst	: in std_logic;							-- reset
+			ena		: in std_logic;							-- enable
+			rw		: inout std_logic;						-- read/write flag, r=0, w=1
+			clk_i	: in std_logic							-- fast clock
 		);
 	end component;
 begin
@@ -115,20 +121,23 @@ begin
 		data_o => data_rx24_r
 	);
 	
-	spi0: spi_slave port map(
+	spi0: spi_slave port map(		
+		miso_o => spi_miso,
 		mosi_i => spi_mosi,
 		sck_i => spi_sck,
 		ncs_i => spi_ncs,
 		data_o => spi_rx_r,
+		addr_o => spi_addr_r,
+		data_i => spi_tx_r,
 		nrst => nrst,
 		ena => '1',
+		rw => spi_rw,
 		clk_i => clk_i
 	);
 
 	io4 <= clk_rx09 or clk_rx24 or data_rx09_r(0) or data_rx24_r(1); -- just some random combinatorial logic to keep the synthesizer happy
 
-	spi_miso <= io0;
-	io5 <= io1;
+	io5 <= io1 and io0;
 	io6 <= io2;
 	io7 <= io3;
 	

@@ -1,4 +1,10 @@
---zero insert block
+-------------------------------------------------------------
+-- "Zero word" flag generator
+--
+-- Wojciech Kaczmarski, SP5WWP
+-- M17 Project
+-- March 2023
+-------------------------------------------------------------
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
@@ -6,8 +12,8 @@ use IEEE.numeric_std.all;
 entity zero_insert is
 	port(
 		clk_i	: in std_logic; -- 64MHz clock in
-		rst_i	: in std_logic;	-- reset in (output zero words when '1')
-		s_o 	: out std_logic -- zero word out ('1' = send zero words)
+		runup_i	: in std_logic; -- set to '1' to send initial zero words to the transceiver
+		s_o 	: out std_logic -- zero word out ('1' = allow to send zero words)
 	);
 end zero_insert;
 
@@ -23,7 +29,7 @@ begin
 				counter := 0;
 			else
 				if counter<16 then
-					s_o <= '0' or rst_i;
+					s_o <= '0' or runup_i;
 				else
 					s_o <= '1';
 				end if;

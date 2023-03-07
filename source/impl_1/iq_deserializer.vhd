@@ -1,11 +1,17 @@
--- IQ deserializer for the AT86RF215
+-------------------------------------------------------------
+-- I/Q stream deserializer for the AT86RF215
+--
+-- Wojciech Kaczmarski, SP5WWP
+-- M17 Project
+-- March 2023
+-------------------------------------------------------------
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
 entity iq_des is
 	port(
-		clk_i		: in std_logic;						-- fast clock
+		clk_i		: in std_logic;						-- fast clock (>2* DDR clock)
 		ddr_clk_i	: in std_logic;						-- DDR clock
 		data_i		: in std_logic_vector(1 downto 0);
 		rst			: in std_logic;

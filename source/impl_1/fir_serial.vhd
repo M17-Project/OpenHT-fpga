@@ -1,8 +1,15 @@
---serial FIR filter
+-------------------------------------------------------------
+-- Generic serial FIR filter
+--
+-- Wojciech Kaczmarski, SP5WWP
+-- M17 Project
+-- March 2023
+-------------------------------------------------------------
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
+-- TODO: expand the data length from 13 to 16 bits
 entity fir_serial is
 	generic(
 		TAPS_NUM : integer := 31

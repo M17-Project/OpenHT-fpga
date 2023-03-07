@@ -1,5 +1,5 @@
 -------------------------------------------------------------
--- Dither adder
+-- Dither adder for NCO's phase accumulator
 --
 -- Wojciech Kaczmarski, SP5WWP
 -- M17 Project
