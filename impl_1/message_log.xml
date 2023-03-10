@@ -791,6 +791,22 @@
             <Navigation>20</Navigation>
         </Message>
         <Message>
+            <ID>35921012</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(12): </Dynamic>
+            <Dynamic>dpd</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd</Navigation>
+            <Navigation>12</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(26): </Dynamic>
+            <Dynamic>magic</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd</Navigation>
+            <Navigation>26</Navigation>
+        </Message>
+        <Message>
             <ID>35921504</ID>
             <Severity>1</Severity>
             <Dynamic></Dynamic>
@@ -1519,6 +1535,22 @@
             <Dynamic>magic</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd</Navigation>
             <Navigation>20</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(12): </Dynamic>
+            <Dynamic>dpd</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd</Navigation>
+            <Navigation>12</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(26): </Dynamic>
+            <Dynamic>magic</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd</Navigation>
+            <Navigation>26</Navigation>
         </Message>
         <Message>
             <ID>35921504</ID>

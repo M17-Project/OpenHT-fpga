@@ -186,6 +186,11 @@ Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_
 
 INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd(12): analyzing entity zero_insert. VHDL-1012
 INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd(20): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(12): analyzing entity dpd. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(26): analyzing architecture magic. VHDL-1010
 INFO - The default VHDL library search path is now "C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1". VHDL-1504
 Top module language type = VHDL.
 Top module name (VHDL, mixed language): main_all
@@ -223,7 +228,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-Tue Mar  7 17:58:55 2023
+Fri Mar 10 09:57:06 2023
 
 
 Command Line:  C:\Radiant\ispfpga\bin\nt64\synthesis.exe -f OpenHT_impl_1_lattice.synproj -gui -msgset C:/Users/SP5WWP/Documents/Radiant/OpenHT/promote.xml 
@@ -344,6 +349,8 @@ VHDL library = work
 VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/unpack.vhd
 VHDL library = work
 VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/zero_insert.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/dpd.vhd
 The -r option is OFF. [ Remove LOC Properties is OFF. ]
 Compile design.
 Compile Design Begin
@@ -507,6 +514,11 @@ Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_
 
 INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd(12): analyzing entity zero_insert. VHDL-1012
 INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd(20): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(12): analyzing entity dpd. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(26): analyzing architecture magic. VHDL-1010
 INFO - The default VHDL library search path is now "C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1". VHDL-1504
 Top module language type = VHDL.
 Top module name (VHDL, mixed language): main_all
@@ -667,7 +679,7 @@ Top 10 highest fanout non-clock nets:
   Net : ddr_rx0/lscc_gddr_inst/RX_SCLK_CENTERED_STATIC_BYPASS.u_lscc_gddr_rx_sclk_centered_static_bypass/data_i_del_w[0], loads : 1
 ################### End Clock Report ##################
 
-Peak Memory Usage: 282 MB
+Peak Memory Usage: 289 MB
 
 --------------------------------------------------------------
 Total CPU Time: 3 secs 
@@ -683,8 +695,8 @@ Command Line: postsyn -a LIFCL -p LIFCL-40 -t QFN72 -sp 7_High-Performance_1.0V 
    Package:          QFN72
    Performance:      7_High-Performance_1.0V
 Reading input file 'OpenHT_impl_1.vm' ...
-CPU Time to convert: 0.4375
-REAL Time to convert: 0
+CPU Time to convert: 0.453125
+REAL Time to convert: 1
 convert PEAK Memory Usage: 109 MB
 convert CURRENT Memory Usage: 105 MB
 Reading constraint file 'C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1/OpenHT_impl_1.ldc' ...

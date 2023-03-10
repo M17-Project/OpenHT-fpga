@@ -65,6 +65,7 @@
 "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/sincos.vhd"
 "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/unpack.vhd"
 "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/zero_insert.vhd"
+"C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/dpd.vhd"
 -ver "C:/Users/SP5WWP/Documents/Radiant/OpenHT/pll_osc/rtl/pll_osc.v"
 "C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_rx/rtl/ddr_rx.v"
 "C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_tx/rtl/ddr_tx.v"
