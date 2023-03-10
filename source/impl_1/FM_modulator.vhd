@@ -58,7 +58,7 @@ begin
 		if rising_edge(clk_i) then
 			if nrst='1' then
 				if counter=30-1 then
-					phase <= std_logic_vector(unsigned(phase) + resize(unsigned(mod_i), 21)); -- update phase accumulator
+					phase <= std_logic_vector(unsigned(phase) + unsigned(mod_i(15) & mod_i(15) & mod_i(15) & mod_i(15) & mod_i(15) & mod_i)); -- update phase accumulator
 					counter := 0;
 					i_o <= raw_i;
 					q_o <= raw_q;

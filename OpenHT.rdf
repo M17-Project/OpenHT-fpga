@@ -2,7 +2,7 @@
 <RadiantProject version="4.2" radiant="2022.1.0.52.3" title="OpenHT" device="LIFCL-40-7SG72I" performance_grade="7_High-Performance_1.0V" default_implementation="impl_1">
     <Options/>
     <Implementation title="impl_1" dir="impl_1" description="impl_1" synthesis="lse" default_strategy="Strategy1">
-        <Options def_top="zero_insert" top="main_all"/>
+        <Options def_top="dpd" top="main_all"/>
         <Source name="source/impl_1/main.vhd" type="VHDL" type_short="VHDL">
             <Options top_module="main_all"/>
         </Source>
@@ -67,6 +67,9 @@
             <Options/>
         </Source>
         <Source name="source/impl_1/zero_insert.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="source/impl_1/dpd.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
         <Source name="pll_osc/pll_osc.ipx" type="IPX_Module" type_short="IPX">
