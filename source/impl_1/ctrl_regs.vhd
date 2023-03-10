@@ -1,6 +1,21 @@
 -------------------------------------------------------------
 -- Control registers
 --
+-- The register map is as follows:
+--
+--  15             0
+-- |----------------|
+-- |                | START = 0x0000
+-- |  RW_REGS_NUM   |
+-- |    R/W regs    | 
+-- |                | END = RW_REGS_NUM-1
+-- |----------------|
+-- |                | START = RW_REGS_NUM
+-- |   R_REGS_NUM   | 
+-- |     R regs     | 
+-- |                | END = RW_REGS_NUM+R_REGS_NUM-1
+-- |----------------|
+--
 -- Wojciech Kaczmarski, SP5WWP
 -- M17 Project
 -- March 2023
@@ -8,66 +23,72 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
+use work.regs_pkg.all;
 
 entity ctrl_regs is
+	generic(
+		RW_REGS_NUM	: integer := 16;
+		R_REGS_NUM	: integer := 4
+	);
 	port(
-		clk_i		: in std_logic;							-- clock in
-		rst			: in std_logic;							-- reset
-		d_i			: in std_logic_vector(31 downto 0);		-- data in
-		ib_o		: out std_logic_vector(15 downto 0);	-- I balance out
-		qb_o		: out std_logic_vector(15 downto 0);	-- Q balance out
-		ai_o		: out std_logic_vector(15 downto 0);	-- I offset out
-		aq_o		: out std_logic_vector(15 downto 0);	-- Q offset out
-		mod_o		: out std_logic_vector(15 downto 0);	-- modulation register
-		ctrl_o		: out std_logic_vector(15 downto 0)		-- control register
+		clk_i		: in std_logic;											-- clock in
+		nrst		: in std_logic;											-- reset
+		addr_i		: in std_logic_vector(14 downto 0);						-- address in
+		data_i		: in std_logic_vector(15 downto 0);						-- data in
+		data_o		: out std_logic_vector(15 downto 0) := (others => '0');	-- data out
+		rw_i		: in std_logic;											-- read/write flag, r:0 w:1
+		latch_i		: in std_logic;											-- latch signal (rising edge)
+		-- registers
+		regs_rw		: inout t_rw_regs := (others => (others => '0'));
+		regs_r		: in t_r_regs
 	);
 end ctrl_regs;
 
 architecture magic of ctrl_regs is
-	signal addr : std_logic_vector(15 downto 0) := (others => '0');
-	signal v  : std_logic_vector(15 downto 0) := (others => '0');
-	
-	type config_regs is array(integer range 0 to 6) of std_logic_vector(15 downto 0);
-	constant init : config_regs := (x"0000", x"3C80", x"4000", x"0200", x"FF40", x"3127", x"0002");
-	signal config : config_regs := (others => (others => '0'));
-begin
-	addr <= d_i(31 downto 16);
-	v <= d_i(15 downto 0);
-	
+	type rw_regs is array(0 to RW_REGS_NUM-1) of std_logic_vector(15 downto 0);
+	-- default values for the RW registers
+	constant init_rw : rw_regs := (
+		x"0000", x"0000", x"0000", x"0017", -- 0x0000 .. 0x0003
+		x"0000", x"0000", x"0000", x"0000", -- 0x0004 .. 0x0007
+		x"0000", x"0000", x"0000", x"0000", -- 0x0008 .. 0x000B
+		x"0000", x"0000", x"0000", x"0000"  -- 0x000C .. 0x000F
+	);
+
+	signal write_pend : std_logic := '0';
+	signal p_latch, pp_latch : std_logic := '0';
+begin	
 	process(clk_i)
 	begin
 		if rising_edge(clk_i) then
-			if rst='0' then
-				if addr=x"0001" then
-					config(1) <= v;
+			p_latch <= latch_i;
+			pp_latch <= p_latch;
+			
+			if nrst='1' then
+				-- check if READ or WRITE
+				if rw_i='0' then -- if READ
+					-- check where to read from
+					if unsigned(addr_i)<RW_REGS_NUM then
+						data_o <= regs_rw(to_integer(unsigned(addr_i)));
+					else
+						data_o <= regs_r(to_integer(unsigned(addr_i)-RW_REGS_NUM));
+					end if;
+				else -- if WRITE, set the flag and wait for rising edge of the nCS
+					write_pend <= '1';
 				end if;
-				if addr=x"0002" then
-					config(2) <= v;
+
+				-- latch input rising edge and write pending flag set
+				if pp_latch='0' and p_latch='1' and write_pend='1' then
+					-- only WRITE if the address points to a writable register
+					if unsigned(addr_i)<RW_REGS_NUM then
+						regs_rw(to_integer(unsigned(addr_i))) <= data_i;
+					end if;
+					write_pend <= '0'; -- clear the write pending flag
 				end if;
-				if addr=x"0003" then
-					config(3) <= v;
-				end if;
-				if addr=x"0004" then
-					config(4) <= v;
-				end if;
-				if addr=x"0005" then
-					config(5) <= v;
-				end if;
-				if addr=x"0006" then
-					config(6) <= v;
-				end if;
-			else
-				for i in 1 to 6 loop
-					config(i) <= init(i);
+			else -- reset all RW registers to their default values
+				for i in 0 to RW_REGS_NUM-1 loop
+					regs_rw(i) <= init_rw(i);
 				end loop;
 			end if;
 		end if;
 	end process;
-	
-	ib_o	<= config(1);
-	qb_o	<= config(2);
-	ai_o	<= config(3);
-	aq_o	<= config(4);
-	mod_o	<= config(5);
-	ctrl_o	<= config(6);
 end magic;
