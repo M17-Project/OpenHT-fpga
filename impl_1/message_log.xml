@@ -439,20 +439,36 @@
             <Navigation>50</Navigation>
         </Message>
         <Message>
+            <ID>35921014</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/regs_pkg.vhd(5): </Dynamic>
+            <Dynamic>regs_pkg</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/regs_pkg.vhd</Navigation>
+            <Navigation>5</Navigation>
+        </Message>
+        <Message>
+            <ID>35921013</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/regs_pkg.vhd(10): </Dynamic>
+            <Dynamic>regs_pkg</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/regs_pkg.vhd</Navigation>
+            <Navigation>10</Navigation>
+        </Message>
+        <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd(6): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd(7): </Dynamic>
             <Dynamic>main_all</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd</Navigation>
-            <Navigation>6</Navigation>
+            <Navigation>7</Navigation>
         </Message>
         <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd(30): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd(31): </Dynamic>
             <Dynamic>magic</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd</Navigation>
-            <Navigation>30</Navigation>
+            <Navigation>31</Navigation>
         </Message>
         <Message>
             <ID>35921012</ID>
@@ -633,18 +649,18 @@
         <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(12): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(28): </Dynamic>
             <Dynamic>ctrl_regs</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd</Navigation>
-            <Navigation>12</Navigation>
+            <Navigation>28</Navigation>
         </Message>
         <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(26): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(47): </Dynamic>
             <Dynamic>magic</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd</Navigation>
-            <Navigation>26</Navigation>
+            <Navigation>47</Navigation>
         </Message>
         <Message>
             <ID>35921012</ID>
@@ -1185,20 +1201,36 @@
             <Navigation>4</Navigation>
         </Message>
         <Message>
+            <ID>35921014</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/regs_pkg.vhd(5): </Dynamic>
+            <Dynamic>regs_pkg</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/regs_pkg.vhd</Navigation>
+            <Navigation>5</Navigation>
+        </Message>
+        <Message>
+            <ID>35921013</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/regs_pkg.vhd(10): </Dynamic>
+            <Dynamic>regs_pkg</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/regs_pkg.vhd</Navigation>
+            <Navigation>10</Navigation>
+        </Message>
+        <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd(6): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd(7): </Dynamic>
             <Dynamic>main_all</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd</Navigation>
-            <Navigation>6</Navigation>
+            <Navigation>7</Navigation>
         </Message>
         <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd(30): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd(31): </Dynamic>
             <Dynamic>magic</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd</Navigation>
-            <Navigation>30</Navigation>
+            <Navigation>31</Navigation>
         </Message>
         <Message>
             <ID>35921012</ID>
@@ -1379,18 +1411,18 @@
         <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(12): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(28): </Dynamic>
             <Dynamic>ctrl_regs</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd</Navigation>
-            <Navigation>12</Navigation>
+            <Navigation>28</Navigation>
         </Message>
         <Message>
             <ID>35921010</ID>
             <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(26): </Dynamic>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(47): </Dynamic>
             <Dynamic>magic</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd</Navigation>
-            <Navigation>26</Navigation>
+            <Navigation>47</Navigation>
         </Message>
         <Message>
             <ID>35921012</ID>

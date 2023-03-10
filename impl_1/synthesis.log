@@ -5,7 +5,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-Fri Mar 10 09:57:06 2023
+Fri Mar 10 19:14:19 2023
 
 
 Command Line:  C:\Radiant\ispfpga\bin\nt64\synthesis.exe -f OpenHT_impl_1_lattice.synproj -gui -msgset C:/Users/SP5WWP/Documents/Radiant/OpenHT/promote.xml 
@@ -127,6 +127,8 @@ VHDL library = work
 VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/zero_insert.vhd
 VHDL library = work
 VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/dpd.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/regs_pkg.vhd
 The -r option is OFF. [ Remove LOC Properties is OFF. ]
 Compile design.
 Compile Design Begin
@@ -180,11 +182,16 @@ Analyzing VHDL file c:/radiant/ip/pmi/pmi_lifcl.vhd. VHDL-1481
 Analyzing VHDL file c:/radiant/ip/pmi/pmi_lifcl.vhd
 
 INFO - synthesis: c:/radiant/ip/pmi/pmi_lifcl.vhd(4): analyzing package components. VHDL-1014
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/regs_pkg.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/regs_pkg.vhd
+
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/regs_pkg.vhd(5): analyzing package regs_pkg. VHDL-1014
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/regs_pkg.vhd(10): analyzing package body regs_pkg. VHDL-1013
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd
 
-INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd(6): analyzing entity main_all. VHDL-1012
-INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd(30): analyzing architecture magic. VHDL-1010
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd(7): analyzing entity main_all. VHDL-1012
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd(31): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd
 
@@ -243,8 +250,8 @@ INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modu
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd
 
-INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(12): analyzing entity ctrl_regs. VHDL-1012
-INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(26): analyzing architecture magic. VHDL-1010
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(28): analyzing entity ctrl_regs. VHDL-1012
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(47): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_adder.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_adder.vhd
 
@@ -449,7 +456,7 @@ Top 10 highest fanout non-clock nets:
   Net : ddr_rx0/lscc_gddr_inst/RX_SCLK_CENTERED_STATIC_BYPASS.u_lscc_gddr_rx_sclk_centered_static_bypass/data_i_del_w[0], loads : 1
 ################### End Clock Report ##################
 
-Peak Memory Usage: 289 MB
+Peak Memory Usage: 291 MB
 
 --------------------------------------------------------------
 Total CPU Time: 3 secs 
