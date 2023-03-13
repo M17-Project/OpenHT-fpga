@@ -10,10 +10,13 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
 entity fm_modulator is
+	generic(
+		DIV : integer := 95							-- set to satisfy clk_i/DIV=400k
+	);
 	port(
 		nrst	: in std_logic;						-- reset
 		clk_i	: in std_logic;						-- main clock
-		mod_i	: in std_logic_vector(15 downto 0);	-- modulation in
+		mod_i	: in std_logic_vector(15 downto 0);	-- modulation in, freq_codeword=hex(round(f/400e3*1024*1024*2))
 		dith_i	: in signed(15 downto 0);			-- phase dither input
 		i_o		: out std_logic_vector(15 downto 0);-- I data out
 		q_o		: out std_logic_vector(15 downto 0)	-- Q data out
@@ -53,12 +56,12 @@ begin
 	);
 
 	process(clk_i)
-		variable counter : integer range 0 to 30 := 0;
+		variable counter : integer range 0 to DIV := 0;
 	begin
 		if rising_edge(clk_i) then
 			if nrst='1' then
-				if counter=30-1 then
-					phase <= std_logic_vector(unsigned(phase) + unsigned(mod_i(15) & mod_i(15) & mod_i(15) & mod_i(15) & mod_i(15) & mod_i)); -- update phase accumulator
+				if counter=DIV-1 then
+					phase <= std_logic_vector(unsigned(phase) + unsigned(resize(signed(mod_i), 21))); -- update phase accumulator
 					counter := 0;
 					i_o <= raw_i;
 					q_o <= raw_q;
