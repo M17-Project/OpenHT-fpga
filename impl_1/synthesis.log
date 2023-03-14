@@ -5,7 +5,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-Fri Mar 10 19:14:19 2023
+Tue Mar 14 13:12:14 2023
 
 
 Command Line:  C:\Radiant\ispfpga\bin\nt64\synthesis.exe -f OpenHT_impl_1_lattice.synproj -gui -msgset C:/Users/SP5WWP/Documents/Radiant/OpenHT/promote.xml 
@@ -129,6 +129,8 @@ VHDL library = work
 VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/dpd.vhd
 VHDL library = work
 VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/regs_pkg.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/c_16qam_map.vhd
 The -r option is OFF. [ Remove LOC Properties is OFF. ]
 Compile design.
 Compile Design Begin
@@ -266,7 +268,7 @@ Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_mo
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd
 
 INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(12): analyzing entity fm_modulator. VHDL-1012
-INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(23): analyzing architecture magic. VHDL-1010
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(26): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd
 
@@ -302,6 +304,11 @@ Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.v
 
 INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(12): analyzing entity dpd. VHDL-1012
 INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(26): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/c_16qam_map.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/c_16qam_map.vhd
+
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/c_16qam_map.vhd(12): analyzing entity qam_16. VHDL-1012
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/c_16qam_map.vhd(19): analyzing architecture magic. VHDL-1010
 INFO - synthesis: The default VHDL library search path is now "C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1". VHDL-1504
 Top module language type = VHDL.
 Top module name (VHDL, mixed language): main_all
@@ -456,7 +463,7 @@ Top 10 highest fanout non-clock nets:
   Net : ddr_rx0/lscc_gddr_inst/RX_SCLK_CENTERED_STATIC_BYPASS.u_lscc_gddr_rx_sclk_centered_static_bypass/data_i_del_w[0], loads : 1
 ################### End Clock Report ##################
 
-Peak Memory Usage: 291 MB
+Peak Memory Usage: 294 MB
 
 --------------------------------------------------------------
 Total CPU Time: 3 secs 

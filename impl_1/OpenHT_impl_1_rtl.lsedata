@@ -1,8 +1,8 @@
 <top name = "main_all"  library = "work"  arch = "RTL"  entry = "VHDL">
 
 <clocks>
-    <clockitem name = "clk_i"  type = "port" />
     <clockitem name = "clk_rx_i"  type = "port" />
+    <clockitem name = "clk_i"  type = "port" />
     <clockitem name = "clk_64"  type = "net" />
 </clocks>
 
