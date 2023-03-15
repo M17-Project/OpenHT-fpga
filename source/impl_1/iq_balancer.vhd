@@ -17,8 +17,8 @@ entity iq_balancer_16 is
 		q_i		: in std_logic_vector(15 downto 0);			-- Q data in
 		ib_i	: in std_logic_vector(15 downto 0);			-- I balance in, 0x4000 = "+1.0"
 		qb_i	: in std_logic_vector(15 downto 0);			-- Q balance in, 0x4000 = "+1.0"
-		i_o		: out std_logic_vector(15 downto 0);		-- I data in
-		q_o		: out std_logic_vector(15 downto 0)			-- Q data in
+		i_o		: out std_logic_vector(15 downto 0);		-- I data out
+		q_o		: out std_logic_vector(15 downto 0)			-- Q data out
 	);
 end iq_balancer_16;
 
