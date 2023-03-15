@@ -14,7 +14,7 @@ use IEEE.numeric_std.all;
 
 entity add_const is
 	generic(
-		CONST_VAL : integer := 16#7FFF#
+		CONST_VAL : integer := 16#8000#
 	);
 	port(
 		data_i		: in signed(15 downto 0);								-- data in

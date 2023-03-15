@@ -40,41 +40,6 @@ if (a)
 <BODY>
 
 <DIV id="content" onclick="hideTocList()"><PRE>
-<A name="pn230222123335"></A><B><U><big>pn230222123335</big></U></B>
-#Start recording tcl command: 2/22/2023 10:17:21
-#Project Location: C:/Users/SP5WWP/Documents/Radiant/OpenHT; Project name: OpenHT
-prj_create -name "OpenHT" -impl "impl_1" -dev LIFCL-40-7SG72I -performance "7_High-Performance_1.0V" -synthesis "lse"
-prj_add_source "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/impl_1.sdc" "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/impl_1.pdc"
-prj_save 
-prj_add_source "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/main.vhd"
-prj_add_source "C:/Users/SP5WWP/Documents/Radiant/OpenHT/pll_osc/pll_osc.ipx"
-prj_add_source "C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_rx/ddr_rx.ipx"
-prj_add_source "C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_tx/ddr_tx.ipx"
-prj_run Synthesis -impl impl_1
-prj_run Synthesis -impl impl_1
-prj_run Synthesis -impl impl_1
-prj_run Synthesis -impl impl_1
-prj_run Synthesis -impl impl_1
-prj_run Synthesis -impl impl_1
-prj_run Synthesis -impl impl_1
-prj_add_source "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/spi_slave.vhd"
-prj_run Synthesis -impl impl_1
-prj_run Synthesis -impl impl_1
-prj_run Synthesis -impl impl_1
-prj_run Synthesis -impl impl_1
-prj_run Synthesis -impl impl_1
-prj_run Map -impl impl_1
-prj_run Export -impl impl_1
-prj_set_impl_opt -impl "impl_1" "top" "main_all"
-prj_run Synthesis -impl impl_1
-prj_run Synthesis -impl impl_1
-prj_run Synthesis -impl impl_1
-prj_run Map -impl impl_1
-prj_archive -includeAll "C:/Users/SP5WWP/Documents/Radiant/OpenHT.zip"
-#Stop recording: 2/22/2023 12:33:35
-
-
-
 <A name="pn230222193043"></A><B><U><big>pn230222193043</big></U></B>
 #Start recording tcl command: 2/22/2023 19:20:31
 #Project Location: C:/Users/SP5WWP/Documents/Radiant/OpenHT; Project name: OpenHT
@@ -170,11 +135,20 @@ prj_run Synthesis -impl impl_1
 
 
 
+<A name="pn230314131316"></A><B><U><big>pn230314131316</big></U></B>
+#Start recording tcl command: 3/14/2023 13:11:21
+#Project Location: C:/Users/SP5WWP/Documents/Radiant/OpenHT; Project name: OpenHT
+prj_open "C:/Users/SP5WWP/Documents/Radiant/OpenHT/OpenHT.rdf"
+prj_add_source "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/regs_pkg.vhd" "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/c_16qam_map.vhd"
+prj_run Synthesis -impl impl_1
+#Stop recording: 3/14/2023 13:13:16
+
+
+
 </PRE></DIV>
 
 <DIV id="toc" class="radiant"><span onmousemove="showTocList()">Contents</span>
 <UL id="toc_list">
-<LI><A href=#pn230222123335>pn230222123335</A></LI>
 <LI><A href=#pn230222193043>pn230222193043</A></LI>
 <LI><A href=#pn230222214034>pn230222214034</A></LI>
 <LI><A href=#pn230307081124>pn230307081124</A></LI>
@@ -184,6 +158,7 @@ prj_run Synthesis -impl impl_1
 <LI><A href=#pn230307175931>pn230307175931</A></LI>
 <LI><A href=#pn230310095752>pn230310095752</A></LI>
 <LI><A href=#pn230310191446>pn230310191446</A></LI>
+<LI><A href=#pn230314131316>pn230314131316</A></LI>
 </UL>
 </DIV>
 
