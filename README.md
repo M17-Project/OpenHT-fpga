@@ -26,14 +26,14 @@ Other:
 Automatic gain control (AGC) is done by the RF transceiver chip.
 
 ## Block diagram
-<img src="https://github.com/M17-Project/OpenHT-fpga/blob/main/docs/OpenHT-fpga.drawio.png" width="700">
+<img src="https://github.com/M17-Project/OpenHT-fpga/blob/main/docs/OpenHT-fpga.drawio.png" width="800">
 
 ## Register map
 The register map is listed in `/docs/OpenHT_reg_map.pdf`.
 
 ## Gallery
 Transmitting M17...<br>
-<img src="https://github.com/M17-Project/OpenHT-fpga/blob/main/docs/4FSK_M17_test.png" width="700">
+<img src="https://github.com/M17-Project/OpenHT-fpga/blob/main/docs/4FSK_M17_test.png" width="800">
 
 ... and 16QAM (unfiltered, "staircase" baseband)<br>
-<img src="https://github.com/M17-Project/OpenHT-fpga/blob/main/docs/16QAM_test.png" width="700">
+<img src="https://github.com/M17-Project/OpenHT-fpga/blob/main/docs/16QAM_test.png" width="800">
