@@ -175,7 +175,7 @@ Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_s
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd
 
 INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(12): analyzing entity mod_sel. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(24): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(25): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd
 
@@ -238,7 +238,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-Tue Mar 14 13:12:14 2023
+Wed Mar 15 13:10:24 2023
 
 
 Command Line:  C:\Radiant\ispfpga\bin\nt64\synthesis.exe -f OpenHT_impl_1_lattice.synproj -gui -msgset C:/Users/SP5WWP/Documents/Radiant/OpenHT/promote.xml 
@@ -517,7 +517,7 @@ Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_s
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd
 
 INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(12): analyzing entity mod_sel. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(24): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(25): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd
 
@@ -703,11 +703,11 @@ Top 10 highest fanout non-clock nets:
   Net : ddr_rx0/lscc_gddr_inst/RX_SCLK_CENTERED_STATIC_BYPASS.u_lscc_gddr_rx_sclk_centered_static_bypass/data_i_del_w[0], loads : 1
 ################### End Clock Report ##################
 
-Peak Memory Usage: 294 MB
+Peak Memory Usage: 295 MB
 
 --------------------------------------------------------------
 Total CPU Time: 3 secs 
-Total REAL Time: 3 secs 
+Total REAL Time: 4 secs 
 --------------------------------------------------------------
 
 
@@ -719,8 +719,8 @@ Command Line: postsyn -a LIFCL -p LIFCL-40 -t QFN72 -sp 7_High-Performance_1.0V 
    Package:          QFN72
    Performance:      7_High-Performance_1.0V
 Reading input file 'OpenHT_impl_1.vm' ...
-CPU Time to convert: 0.421875
-REAL Time to convert: 1
+CPU Time to convert: 0.453125
+REAL Time to convert: 0
 convert PEAK Memory Usage: 108 MB
 convert CURRENT Memory Usage: 104 MB
 Reading constraint file 'C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1/OpenHT_impl_1.ldc' ...
