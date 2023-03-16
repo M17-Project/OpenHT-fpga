@@ -22,10 +22,10 @@ begin
 	-- the sample rate is set to 400k, so 9 out of 10 samples
 	-- has to be 'zero words'
 	process(clk_i)
-		variable counter : integer range 0 to 10*32 := 0;
+		variable counter : integer range 0 to 10*16 := 0;
 	begin
 		if rising_edge(clk_i) then
-			if counter=10*32-1 then
+			if counter=10*16-1 then
 				counter := 0;
 			else
 				if counter<16 then

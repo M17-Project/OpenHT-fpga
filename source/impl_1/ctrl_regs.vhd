@@ -26,10 +26,6 @@ use IEEE.numeric_std.all;
 use work.regs_pkg.all;
 
 entity ctrl_regs is
-	generic(
-		RW_REGS_NUM	: integer := 16;
-		R_REGS_NUM	: integer := 4
-	);
 	port(
 		clk_i		: in std_logic;											-- clock in
 		nrst		: in std_logic;											-- reset
@@ -49,9 +45,9 @@ architecture magic of ctrl_regs is
 	-- default values for the RW registers
 	constant init_rw : rw_regs := (
 		x"0000", x"0000", x"0000", x"0017", -- 0x0000 .. 0x0003
-		x"0000", x"0000", x"0000", x"0000", -- 0x0004 .. 0x0007
+		x"4000", x"4000", x"4000", x"0000", -- 0x0004 .. 0x0007
 		x"0000", x"0000", x"0000", x"0000", -- 0x0008 .. 0x000B
-		x"0000", x"0000", x"0000", x"0000"  -- 0x000C .. 0x000F
+		x"0000"-- x"0000", x"0000", x"0000"  -- 0x000C .. 0x000F
 	);
 
 	signal write_pend : std_logic := '0';

@@ -1,0 +1,7 @@
+#Start recording tcl command: 3/15/2023 13:09:19
+#Project Location: C:/Users/SP5WWP/Documents/Radiant/OpenHT; Project name: OpenHT
+prj_open "C:/Users/SP5WWP/Documents/Radiant/OpenHT/OpenHT.rdf"
+prj_run Synthesis -impl impl_1
+prj_save 
+prj_close
+#Stop recording: 3/15/2023 13:14:18

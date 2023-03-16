@@ -3,7 +3,7 @@
 --
 -- Wojciech Kaczmarski, SP5WWP
 -- M17 Project
--- February 2023
+-- March 2023
 -------------------------------------------------
 library IEEE;
 use IEEE.std_logic_1164.all;
@@ -11,7 +11,7 @@ use IEEE.numeric_std.all;
 
 entity dpd is
 	port(
-		-- p1*x + p2*|x|^2 + p3*x^3
+		-- p1*x + p2*sgn(x)*x^2 + p3*x^3
 		-- 0x4000 is "+1.00"
 		p1 : in signed(15 downto 0);
 		p2 : in signed(15 downto 0);

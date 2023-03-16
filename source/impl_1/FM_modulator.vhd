@@ -16,7 +16,7 @@ entity fm_modulator is
 	port(
 		nrst	: in std_logic;						-- reset
 		clk_i	: in std_logic;						-- main clock
-		mod_i	: in std_logic_vector(15 downto 0);	-- modulation in, freq_codeword=hex(round(f/400e3*1024*1024*2))
+		mod_i	: in std_logic_vector(15 downto 0);	-- modulation in
 		dith_i	: in signed(15 downto 0);			-- phase dither input
 		i_o		: out std_logic_vector(15 downto 0);-- I data out
 		q_o		: out std_logic_vector(15 downto 0)	-- Q data out

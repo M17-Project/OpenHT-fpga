@@ -14,8 +14,8 @@ entity unpack is
 	port(
 		clk_i	: in std_logic;
 		zero	: in std_logic;						-- send zero words if high
-		i_i		: in std_logic_vector(12 downto 0); -- 13-bit signed, sign at the MSB
-		q_i		: in std_logic_vector(12 downto 0); -- 13-bit signed, sign at the MSB
+		i_i		: in std_logic_vector(15 downto 0); -- 16-bit signed, sign at the MSB
+		q_i		: in std_logic_vector(15 downto 0); -- 16-bit signed, sign at the MSB
 		data_o	: out std_logic_vector(1 downto 0)
 	);
 end unpack;
@@ -31,7 +31,7 @@ begin
 		
 			if bit_cnt=30 then
 				if zero='0' then
-					tx_reg <= "10" & i_i & "0" & "01" & q_i & "0";
+					tx_reg <= "10" & i_i(15 downto 3) & "0" & "01" & q_i(15 downto 3) & "0";
 				else
 					tx_reg <= (others => '0');
 				end if;
