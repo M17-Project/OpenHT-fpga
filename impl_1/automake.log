@@ -80,7 +80,7 @@ Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/regs_
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/regs_pkg.vhd
 
 INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/regs_pkg.vhd(5): analyzing package regs_pkg. VHDL-1014
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/regs_pkg.vhd(10): analyzing package body regs_pkg. VHDL-1013
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/regs_pkg.vhd(13): analyzing package body regs_pkg. VHDL-1013
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd
 
@@ -111,11 +111,6 @@ Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_c
 
 INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd(12): analyzing entity fir_channel. VHDL-1012
 INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd(25): analyzing architecture magic. VHDL-1010
-Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd. VHDL-1481
-Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd
-
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd(13): analyzing entity fir_serial. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd(26): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd
 
@@ -145,7 +140,7 @@ Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd
 
 INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(28): analyzing entity ctrl_regs. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(47): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(43): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_adder.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_adder.vhd
 
@@ -201,6 +196,26 @@ Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/c_16q
 
 INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/c_16qam_map.vhd(12): analyzing entity qam_16. VHDL-1012
 INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/c_16qam_map.vhd(19): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/clk_div.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/clk_div.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/clk_div.vhd(12): analyzing entity clk_div_block. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/clk_div.vhd(22): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/delay_block.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/delay_block.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/delay_block.vhd(12): analyzing entity delay_block. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/delay_block.vhd(24): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_hilbert.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_hilbert.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_hilbert.vhd(12): analyzing entity fir_hilbert. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_hilbert.vhd(25): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sideband_selector.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sideband_selector.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sideband_selector.vhd(12): analyzing entity sideband_sel. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sideband_selector.vhd(20): analyzing architecture magic. VHDL-1010
 INFO - The default VHDL library search path is now "C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1". VHDL-1504
 Top module language type = VHDL.
 Top module name (VHDL, mixed language): main_all
@@ -238,7 +253,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-Wed Mar 15 13:10:24 2023
+Thu Mar 16 16:34:50 2023
 
 
 Command Line:  C:\Radiant\ispfpga\bin\nt64\synthesis.exe -f OpenHT_impl_1_lattice.synproj -gui -msgset C:/Users/SP5WWP/Documents/Radiant/OpenHT/promote.xml 
@@ -328,8 +343,6 @@ VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/decim.
 VHDL library = work
 VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/fir_channel.vhd
 VHDL library = work
-VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/fir_serial.vhd
-VHDL library = work
 VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/freq_demod.vhd
 VHDL library = work
 VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/iq_deserializer.vhd
@@ -365,6 +378,14 @@ VHDL library = work
 VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/regs_pkg.vhd
 VHDL library = work
 VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/c_16qam_map.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/clk_div.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/delay_block.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/fir_hilbert.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/sideband_selector.vhd
 The -r option is OFF. [ Remove LOC Properties is OFF. ]
 Compile design.
 Compile Design Begin
@@ -422,7 +443,7 @@ Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/regs_
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/regs_pkg.vhd
 
 INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/regs_pkg.vhd(5): analyzing package regs_pkg. VHDL-1014
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/regs_pkg.vhd(10): analyzing package body regs_pkg. VHDL-1013
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/regs_pkg.vhd(13): analyzing package body regs_pkg. VHDL-1013
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd
 
@@ -453,11 +474,6 @@ Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_c
 
 INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd(12): analyzing entity fir_channel. VHDL-1012
 INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd(25): analyzing architecture magic. VHDL-1010
-Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd. VHDL-1481
-Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd
-
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd(13): analyzing entity fir_serial. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_serial.vhd(26): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd
 
@@ -487,7 +503,7 @@ Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd
 
 INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(28): analyzing entity ctrl_regs. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(47): analyzing architecture magic. VHDL-1010
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(43): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_adder.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_adder.vhd
 
@@ -543,6 +559,26 @@ Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/c_16q
 
 INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/c_16qam_map.vhd(12): analyzing entity qam_16. VHDL-1012
 INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/c_16qam_map.vhd(19): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/clk_div.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/clk_div.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/clk_div.vhd(12): analyzing entity clk_div_block. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/clk_div.vhd(22): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/delay_block.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/delay_block.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/delay_block.vhd(12): analyzing entity delay_block. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/delay_block.vhd(24): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_hilbert.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_hilbert.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_hilbert.vhd(12): analyzing entity fir_hilbert. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_hilbert.vhd(25): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sideband_selector.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sideband_selector.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sideband_selector.vhd(12): analyzing entity sideband_sel. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sideband_selector.vhd(20): analyzing architecture magic. VHDL-1010
 INFO - The default VHDL library search path is now "C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1". VHDL-1504
 Top module language type = VHDL.
 Top module name (VHDL, mixed language): main_all
@@ -703,11 +739,11 @@ Top 10 highest fanout non-clock nets:
   Net : ddr_rx0/lscc_gddr_inst/RX_SCLK_CENTERED_STATIC_BYPASS.u_lscc_gddr_rx_sclk_centered_static_bypass/data_i_del_w[0], loads : 1
 ################### End Clock Report ##################
 
-Peak Memory Usage: 295 MB
+Peak Memory Usage: 294 MB
 
 --------------------------------------------------------------
 Total CPU Time: 3 secs 
-Total REAL Time: 4 secs 
+Total REAL Time: 3 secs 
 --------------------------------------------------------------
 
 
@@ -722,7 +758,7 @@ Reading input file 'OpenHT_impl_1.vm' ...
 CPU Time to convert: 0.453125
 REAL Time to convert: 0
 convert PEAK Memory Usage: 108 MB
-convert CURRENT Memory Usage: 104 MB
+convert CURRENT Memory Usage: 101 MB
 Reading constraint file 'C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1/OpenHT_impl_1.ldc' ...
 Removing unused logic ...
 INFO - Signal GSR_INST.GSROUT undriven or does not drive anything - clipped
