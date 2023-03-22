@@ -53,13 +53,15 @@ begin
 				if (pp_sck='0' and p_sck='1' and ncs_i='0') then
 					data_rx <= data_rx(30 downto 0) & mosi_i;
 					cnt := cnt + 1;
+					if cnt=16 then
+						addr_o <= data_rx(13 downto 0) & mosi_i;
+					end if;
 				end if;
 
 				-- falling edge of SCK
 				if (pp_sck='1' and p_sck='0' and ncs_i='0') then
 					-- check if WRITE bit is set
 					if cnt=16 then
-						addr_o <= data_rx(14 downto 0);
 						if data_rx(15)='1' then
 							rw <= '1';
 						else
