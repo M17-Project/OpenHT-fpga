@@ -14,7 +14,7 @@ run_engine_newmsg cpe -f "OpenHT_impl_1.cprj" "pll_osc.cprj" "ddr_rx.cprj" "ddr_
 # synthesize top design
 file delete -force -- OpenHT_impl_1.vm OpenHT_impl_1.ldc
 run_engine_newmsg synthesis -f "OpenHT_impl_1_lattice.synproj"
-run_postsyn [list -a LIFCL -p LIFCL-40 -t QFN72 -sp 7_High-Performance_1.0V -oc Industrial -top -w -o OpenHT_impl_1_syn.udb OpenHT_impl_1.vm] "C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1/OpenHT_impl_1.ldc"
+run_postsyn [list -a LIFCL -p LIFCL-40 -t QFN72 -sp 7_High-Performance_1.0V -oc Commercial -top -w -o OpenHT_impl_1_syn.udb OpenHT_impl_1.vm] "C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1/OpenHT_impl_1.ldc"
 
 } out]} {
    runtime_log $out

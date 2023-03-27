@@ -5,7 +5,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-Thu Mar 16 16:34:50 2023
+Mon Mar 27 10:49:00 2023
 
 
 Command Line:  C:\Radiant\ispfpga\bin\nt64\synthesis.exe -f OpenHT_impl_1_lattice.synproj -gui -msgset C:/Users/SP5WWP/Documents/Radiant/OpenHT/promote.xml 
@@ -94,6 +94,10 @@ VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/decim.
 VHDL library = work
 VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/fir_channel.vhd
 VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/fir_hilbert.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/fir_rrc.vhd
+VHDL library = work
 VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/freq_demod.vhd
 VHDL library = work
 VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/iq_deserializer.vhd
@@ -133,8 +137,6 @@ VHDL library = work
 VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/clk_div.vhd
 VHDL library = work
 VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/delay_block.vhd
-VHDL library = work
-VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/fir_hilbert.vhd
 VHDL library = work
 VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/sideband_selector.vhd
 The -r option is OFF. [ Remove LOC Properties is OFF. ]
@@ -200,6 +202,8 @@ Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.
 
 INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd(7): analyzing entity main_all. VHDL-1012
 INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd(31): analyzing architecture magic. VHDL-1010
+WARNING - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd(98): actual for formal port rstn_i is neither a static name nor a globally static expression. VHDL-1443
+WARNING - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd(137): actual for formal port nrst is neither a static name nor a globally static expression. VHDL-1443
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd
 
@@ -225,6 +229,16 @@ Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_c
 
 INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd(12): analyzing entity fir_channel. VHDL-1012
 INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd(25): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_hilbert.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_hilbert.vhd
+
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_hilbert.vhd(12): analyzing entity fir_hilbert. VHDL-1012
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_hilbert.vhd(25): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_rrc.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_rrc.vhd
+
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_rrc.vhd(12): analyzing entity fir_rrc. VHDL-1012
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_rrc.vhd(25): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd
 
@@ -320,11 +334,6 @@ Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/delay
 
 INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/delay_block.vhd(12): analyzing entity delay_block. VHDL-1012
 INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/delay_block.vhd(24): analyzing architecture magic. VHDL-1010
-Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_hilbert.vhd. VHDL-1481
-Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_hilbert.vhd
-
-INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_hilbert.vhd(12): analyzing entity fir_hilbert. VHDL-1012
-INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_hilbert.vhd(25): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sideband_selector.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sideband_selector.vhd
 
@@ -357,11 +366,11 @@ Top module name (VHDL, mixed language): main_all
                                                          
 
 
+WARNING - synthesis: Initial value found on net gnd will be ignored due to unrecognized driver type
+WARNING - synthesis: Initial value found on net pwr will be ignored due to unrecognized driver type
 WARNING - synthesis: Initial value found on net spi_rw will be ignored due to unrecognized driver type
 WARNING - synthesis: I/O Port io2 's net has no driver and is unused.
-WARNING - synthesis: I/O Port io3 's net has no driver and is unused.
 WARNING - synthesis: I/O Port io6 's net has no driver and is unused.
-WARNING - synthesis: I/O Port io7 's net has no driver and is unused.
 
 
 
@@ -394,97 +403,100 @@ WARNING - synthesis: Bit 12 of Register \spi0/data_tx is stuck at Zero
 WARNING - synthesis: Bit 13 of Register \spi0/data_tx is stuck at Zero
 WARNING - synthesis: Bit 14 of Register \spi0/data_tx is stuck at Zero
 WARNING - synthesis: Bit 15 of Register \spi0/data_tx is stuck at Zero
-WARNING - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(56): Register add_53_i17 clock is stuck at Zero. VDB-5035
-WARNING - synthesis: Bit 5 of Register add_53_add_12_add_12_add_12_e2 is stuck at Zero
-WARNING - synthesis: Bit 4 of Register add_53_add_12_add_12_add_12_e2 is stuck at Zero
-WARNING - synthesis: Bit 3 of Register add_53_add_12_add_12_add_12_e2 is stuck at Zero
-WARNING - synthesis: Bit 2 of Register add_53_add_12_add_12_add_12_e2 is stuck at Zero
-WARNING - synthesis: Bit 1 of Register add_53_add_12_add_12_add_12_e2 is stuck at Zero
-WARNING - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(56): Clock on register add_53_add_12_add_12_add_12_i8 is tied to a constant
+WARNING - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(59): Register add_55_i2 clock is stuck at Zero. VDB-5035
+WARNING - synthesis: Bit 5 of Register add_55_add_12_add_12_add_12_e2 is stuck at Zero
+WARNING - synthesis: Bit 4 of Register add_55_add_12_add_12_add_12_e2 is stuck at Zero
+WARNING - synthesis: Bit 3 of Register add_55_add_12_add_12_add_12_e2 is stuck at Zero
+WARNING - synthesis: Bit 2 of Register add_55_add_12_add_12_add_12_e2 is stuck at Zero
+WARNING - synthesis: Bit 1 of Register add_55_add_12_add_12_add_12_e2 is stuck at Zero
+WARNING - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(59): Clock on register add_55_add_12_add_12_add_12_i8 is tied to a constant
 
-WARNING - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(56): Clock on register add_53_add_12_add_12_add_12_i8 is tied to a constant
+WARNING - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(59): Clock on register add_55_add_12_add_12_add_12_i8 is tied to a constant
 
 WARNING - synthesis: I/O Port io2 's net has no driver and is unused.
-WARNING - synthesis: I/O Port io3 's net has no driver and is unused.
 WARNING - synthesis: I/O Port io6 's net has no driver and is unused.
-WARNING - synthesis: I/O Port io7 's net has no driver and is unused.
-WARNING - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(87): Register \spi0/miso_o is stuck at Zero. VDB-5013
+WARNING - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(89): Register \spi0/miso_o is stuck at Zero. VDB-5013
 GSR will not be inferred because no asynchronous signal was found in the netlist.
+WARNING - synthesis: Initial value found on instance \spi0/rw will be ignored.
 Starting design annotation....
-WARNING - synthesis: No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP'.
-WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -divide_by 13 -multiply_by 76 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
+WARNING - synthesis: No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOS'.
+WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOS' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -divide_by 13 -multiply_by 32 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOS}]'.
 WARNING - synthesis: No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK'.
-WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -divide_by 13 -multiply_by 76 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
-WARNING - synthesis: No master clock for
-	generated clock	create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP }] .
+WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -divide_by 13 -multiply_by 32 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOS}]'.
+WARNING - synthesis: The preferred point for defining clocks is top level ports and driver pins. Pad delays will not be taken into consideration if clocks are defined on nets.
+
+Starting full timing analysis...
+WARNING - synthesis: External Feedback path not found for pll clock \pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOS.
+Starting design annotation....
+WARNING - synthesis: No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOS'.
+WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOS' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -divide_by 13 -multiply_by 32 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOS}]'.
+WARNING - synthesis: No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK'.
+WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -divide_by 13 -multiply_by 32 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOS}]'.
+WARNING - synthesis: The preferred point for defining clocks is top level ports and driver pins. Pad delays will not be taken into consideration if clocks are defined on nets.
+
+Starting full timing analysis...
+WARNING - synthesis: External Feedback path not found for pll clock \pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOS.
+Starting design annotation....
+WARNING - synthesis: No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOS'.
+WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOS' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -divide_by 13 -multiply_by 32 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOS}]'.
+WARNING - synthesis: No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK'.
+WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -divide_by 13 -multiply_by 32 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOS}]'.
+WARNING - synthesis: The preferred point for defining clocks is top level ports and driver pins. Pad delays will not be taken into consideration if clocks are defined on nets.
 
 Starting full timing analysis...
 Starting design annotation....
-WARNING - synthesis: No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP'.
-WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -divide_by 13 -multiply_by 76 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
+WARNING - synthesis: No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOS'.
+WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOS' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -divide_by 13 -multiply_by 32 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOS}]'.
 WARNING - synthesis: No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK'.
-WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -divide_by 13 -multiply_by 76 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
-WARNING - synthesis: No master clock for
-	generated clock	create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP }] .
+WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -divide_by 13 -multiply_by 32 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOS}]'.
+WARNING - synthesis: The preferred point for defining clocks is top level ports and driver pins. Pad delays will not be taken into consideration if clocks are defined on nets.
 
 Starting full timing analysis...
-Starting design annotation....
-WARNING - synthesis: No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP'.
-WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -divide_by 13 -multiply_by 76 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
-WARNING - synthesis: No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK'.
-WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -divide_by 13 -multiply_by 76 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
-WARNING - synthesis: No master clock for
-	generated clock	create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP }] .
-
-Starting full timing analysis...
-Starting design annotation....
-WARNING - synthesis: No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP'.
-WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -divide_by 13 -multiply_by 76 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
-WARNING - synthesis: No pin matched '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK'.
-WARNING - synthesis: Can't resolve object '\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK' in constraint 'create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -divide_by 13 -multiply_by 76 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP}]'.
-WARNING - synthesis: No master clock for
-	generated clock	create_generated_clock -name {clk_64} -source [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {\pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOP }] .
-
-Starting full timing analysis...
+WARNING - synthesis: External Feedback path not found for pll clock \pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL/CLKOS.
 WARNING - synthesis: Removing unused instance GSR_INST. VDB-5034
 
 ################### Begin Area Report (main_all)######################
-Number of register bits => 0 of 32256 (0 % )
+Number of register bits => 27 of 32256 (0 % )
+CCU2 => 4
 DELAYB => 2
+FD1P3DX => 26
+FD1P3JX => 1
 GSR => 1
-IB => 12
+IB => 11
 IDDRX1 => 2
-LUT4 => 2
+LUT4 => 29
 OB => 7
 ODDRX1 => 2
 PLL => 1
 ################### End Area Report ##################
 Number of odd-length carry chains : 0
-Number of even-length carry chains : 0
+Number of even-length carry chains : 1
 
 ################### Begin Clock Report ######################
 Clock Nets
 Number of Clocks: 3
+  Net : clk_i_c, loads : 28
   Net : clk_rx_i_c, loads : 3
-  Net : clk_i_c, loads : 1
   Net : pll0/lscc_pll_inst/clk_64, loads : 2
 Clock Enable Nets
-Number of Clock Enables: 0
+Number of Clock Enables: 2
+  Net : spi0/clk_i_c_enable_1, loads : 17
+  Net : VCC_net, loads : 5
 Highest fanout non-clock nets
 Top 10 highest fanout non-clock nets:
-  Net : VCC_net, loads : 12
-  Net : data_rx09_i_c, loads : 1
-  Net : data_rx24_i_c, loads : 1
-  Net : io0_c, loads : 1
-  Net : io1_c, loads : 1
-  Net : io6_c_c, loads : 1
-  Net : io7_c_c, loads : 1
-  Net : io4_c, loads : 1
-  Net : io5_c, loads : 1
-  Net : ddr_rx0/lscc_gddr_inst/RX_SCLK_CENTERED_STATIC_BYPASS.u_lscc_gddr_rx_sclk_centered_static_bypass/data_i_del_w[0], loads : 1
+  Net : VCC_net, loads : 65
+  Net : spi0/n52, loads : 17
+  Net : spi0/clk_i_c_enable_1, loads : 17
+  Net : rst_c, loads : 12
+  Net : spi0/p_ncs, loads : 8
+  Net : spi0/pp_ncs, loads : 7
+  Net : spi_ncs_c, loads : 3
+  Net : spi0/p_sck, loads : 3
+  Net : spi0/cnt_5__N_123[1], loads : 2
+  Net : spi0/cnt_5__N_123[2], loads : 2
 ################### End Clock Report ##################
 
-Peak Memory Usage: 294 MB
+Peak Memory Usage: 302 MB
 
 --------------------------------------------------------------
 Total CPU Time: 3 secs 

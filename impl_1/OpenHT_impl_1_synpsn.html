@@ -41,7 +41,7 @@ if (a)
 
 <DIV id="content" onclick="hideTocList()"><PRE>
 POSTSYN: Post Synthesis Process Radiant Software (64-bit) 2022.1.0.52.3
-Command Line: postsyn -a LIFCL -p LIFCL-40 -t QFN72 -sp 7_High-Performance_1.0V -oc Industrial -top -w -o OpenHT_impl_1_syn.udb -ldc C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1/OpenHT_impl_1.ldc -gui -msgset C:/Users/SP5WWP/Documents/Radiant/OpenHT/promote.xml OpenHT_impl_1.vm 
+Command Line: postsyn -a LIFCL -p LIFCL-40 -t QFN72 -sp 7_High-Performance_1.0V -oc Commercial -top -w -o OpenHT_impl_1_syn.udb -ldc C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1/OpenHT_impl_1.ldc -gui -msgset C:/Users/SP5WWP/Documents/Radiant/OpenHT/promote.xml OpenHT_impl_1.vm 
    Architecture:     LIFCL
    Device:           LIFCL-40
    Package:          QFN72
@@ -52,7 +52,7 @@ Removing unused logic ...
 INFO - Signal GSR_INST.GSROUT undriven or does not drive anything - clipped
 Starting design annotation....
 WARNING - No master clock for
-	generated clock	create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOP }] .
+	generated clock	create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 32 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS }] .
  
 Constraint Summary:
    Total number of constraints: 7
@@ -63,7 +63,7 @@ Writing output file 'OpenHT_impl_1_syn.udb'.
 POSTSYN finished successfully.
 Total CPU Time: 0 secs 
 Total REAL Time: 0 secs 
-Peak Memory Usage: 132 MB
+Peak Memory Usage: 133 MB
 
 
 </PRE></DIV>
