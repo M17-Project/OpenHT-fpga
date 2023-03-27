@@ -77,8 +77,8 @@ set PHIF "0"
 set PLL_REFCLK_FROM_PIN 0
 set IO_TYPE "LVDS"
 set DYN_PORTS_EN 0
-set PLL_RST 0
-set LOCK_EN 0
+set PLL_RST 1
+set LOCK_EN 1
 set PLL_LOCK_STICKY 0
 set LMMI_EN 0
 set APB_EN 0

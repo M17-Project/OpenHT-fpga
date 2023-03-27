@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RadiantProject version="4.2" radiant="2022.1.0.52.3" title="OpenHT" device="LIFCL-40-7SG72I" performance_grade="7_High-Performance_1.0V" default_implementation="impl_1">
+<RadiantProject version="4.2" radiant="2022.1.0.52.3" title="OpenHT" device="LIFCL-40-7SG72C" performance_grade="7_High-Performance_1.0V" default_implementation="impl_1">
     <Options/>
     <Implementation title="impl_1" dir="impl_1" description="impl_1" synthesis="lse" default_strategy="Strategy1">
         <Options def_top="sideband_sel" top="main_all"/>
@@ -19,6 +19,12 @@
             <Options/>
         </Source>
         <Source name="source/impl_1/fir_channel.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="source/impl_1/fir_hilbert.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="source/impl_1/fir_rrc.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
         <Source name="source/impl_1/freq_demod.vhd" type="VHDL" type_short="VHDL">
@@ -79,9 +85,6 @@
             <Options/>
         </Source>
         <Source name="source/impl_1/delay_block.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
-        </Source>
-        <Source name="source/impl_1/fir_hilbert.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
         <Source name="source/impl_1/sideband_selector.vhd" type="VHDL" type_short="VHDL">
