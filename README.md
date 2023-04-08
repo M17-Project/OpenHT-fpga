@@ -25,7 +25,7 @@ OpenHT FPGA design - a complete Lattice Radiant project for the **LIFCL-40-7SG72
 
 ### Supported modes<br>
 Analog: FM, AM, SSB, OOK (CW)<br>
-Digital: M17, FreeDV, crude "4FSK", SSTV, 16QAM, OFDM, AFSK, APRS
+Digital: M17, FreeDV, crude "4FSK", SSTV, 16QAM, BPSK/QPSK/DQPSK, OFDM, AFSK, APRS
 
 **Note:** automatic gain control (AGC) is done by the RF transceiver chip.
 
