@@ -5,7 +5,7 @@ OpenHT FPGA design - a complete Lattice Radiant project for the **LIFCL-40-7SG72
 ### Generic modulators:
 - [x] frequency modulator
 - [x] amplitude modulator
-- [ ] phase modulator
+- [x] phase modulator
 - [x] single sideband (SSB)
 - [x] 16QAM (Gray-coded)
 - [ ] 32APSK
@@ -36,8 +36,12 @@ Digital: M17, FreeDV, crude "4FSK", SSTV, 16QAM, OFDM, AFSK, APRS
 The register map is listed in `/docs/OpenHT_reg_map.pdf`.
 
 ## Gallery
-Transmitting M17...<br>
+Transmitting M17<br>
 <img src="https://github.com/M17-Project/OpenHT-fpga/blob/main/docs/4FSK_M17_test.png" width="800">
 
-... and 16QAM (unfiltered, "staircase" baseband)<br>
+16QAM (unfiltered, "staircase" baseband)<br>
 <img src="https://github.com/M17-Project/OpenHT-fpga/blob/main/docs/16QAM_test.png" width="800">
+
+BPSK/QPSK<br>
+<img src="https://github.com/M17-Project/OpenHT-fpga/blob/main/docs/BPSK_test.png" width="800">
+<img src="https://github.com/M17-Project/OpenHT-fpga/blob/main/docs/QPSK_test.png" width="800">
