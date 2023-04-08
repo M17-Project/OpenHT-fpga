@@ -1,5 +1,5 @@
 // Verilog netlist produced by program LSE 
-// Netlist written on Mon Mar 27 10:48:58 2023
+// Netlist written on Sat Apr  8 19:48:02 2023
 // Source file index table: 
 // Object locations will have the form @<file_index>(<first_ line>[<left_column>],<last_line>[<right_column>])
 // file 0 "c:/radiant/ip/avant/fifo/rtl/lscc_fifo.v"

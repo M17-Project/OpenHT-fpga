@@ -1,5 +1,5 @@
-// Verilog netlist produced by program LSE :  version Radiant Software (64-bit) 2022.1.0.52.3
-// Netlist written on Mon Mar 27 10:49:03 2023
+// Verilog netlist produced by program LSE :  version Radiant Software (64-bit) 2022.1.1.289.4
+// Netlist written on Sat Apr  8 19:48:08 2023
 // Source file index table: 
 // Object locations will have the form @<file_index>(<first_ line>[<left_column>],<last_line>[<right_column>])
 // file 0 "c:/radiant/ip/pmi/pmi_lifcl.v"
@@ -9,164 +9,165 @@
 // file 4 "c:/users/sp5wwp/documents/radiant/openht/pll_osc/rtl/pll_osc.v"
 // file 5 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd"
 // file 6 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd"
-// file 7 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd"
-// file 8 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/c_16qam_map.vhd"
-// file 9 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/clk_div.vhd"
-// file 10 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd"
-// file 11 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd"
-// file 12 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd"
-// file 13 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/delay_block.vhd"
-// file 14 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_adder.vhd"
-// file 15 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd"
-// file 16 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd"
-// file 17 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd"
-// file 18 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_hilbert.vhd"
-// file 19 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_rrc.vhd"
-// file 20 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd"
-// file 21 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd"
-// file 22 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd"
-// file 23 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd"
-// file 24 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd"
-// file 25 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd"
-// file 26 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd"
-// file 27 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd"
-// file 28 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/regs_pkg.vhd"
-// file 29 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sideband_selector.vhd"
-// file 30 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd"
-// file 31 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd"
-// file 32 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd"
-// file 33 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd"
-// file 34 "c:/radiant/cae_library/simulation/verilog/lifcl/acc54.v"
-// file 35 "c:/radiant/cae_library/simulation/verilog/lifcl/adc.v"
-// file 36 "c:/radiant/cae_library/simulation/verilog/lifcl/alureg.v"
-// file 37 "c:/radiant/cae_library/simulation/verilog/lifcl/aon.v"
-// file 38 "c:/radiant/cae_library/simulation/verilog/lifcl/bb_adc.v"
-// file 39 "c:/radiant/cae_library/simulation/verilog/lifcl/bb_cdr.v"
-// file 40 "c:/radiant/cae_library/simulation/verilog/lifcl/bb_i3c_a.v"
-// file 41 "c:/radiant/cae_library/simulation/verilog/lifcl/bb_programn.v"
-// file 42 "c:/radiant/cae_library/simulation/verilog/lifcl/bfd1p3kx.v"
-// file 43 "c:/radiant/cae_library/simulation/verilog/lifcl/bfd1p3lx.v"
-// file 44 "c:/radiant/cae_library/simulation/verilog/lifcl/bnkref18.v"
-// file 45 "c:/radiant/cae_library/simulation/verilog/lifcl/config_ip.v"
-// file 46 "c:/radiant/cae_library/simulation/verilog/lifcl/config_lmmi.v"
-// file 47 "c:/radiant/cae_library/simulation/verilog/lifcl/config_lmmia.v"
-// file 48 "c:/radiant/cae_library/simulation/verilog/lifcl/ddrdll.v"
-// file 49 "c:/radiant/cae_library/simulation/verilog/lifcl/diffio18.v"
-// file 50 "c:/radiant/cae_library/simulation/verilog/lifcl/dlldel.v"
-// file 51 "c:/radiant/cae_library/simulation/verilog/lifcl/dp16k.v"
-// file 52 "c:/radiant/cae_library/simulation/verilog/lifcl/dphy.v"
-// file 53 "c:/radiant/cae_library/simulation/verilog/lifcl/dpsc512k.v"
-// file 54 "c:/radiant/cae_library/simulation/verilog/lifcl/dqsbuf.v"
-// file 55 "c:/radiant/cae_library/simulation/verilog/lifcl/ebr.v"
-// file 56 "c:/radiant/cae_library/simulation/verilog/lifcl/eclkdiv.v"
-// file 57 "c:/radiant/cae_library/simulation/verilog/lifcl/eclksync.v"
-// file 58 "c:/radiant/cae_library/simulation/verilog/lifcl/fbmux.v"
-// file 59 "c:/radiant/cae_library/simulation/verilog/lifcl/fifo16k.v"
-// file 60 "c:/radiant/cae_library/simulation/verilog/lifcl/i2cfifo.v"
-// file 61 "c:/radiant/cae_library/simulation/verilog/lifcl/ifd1p3bx.v"
-// file 62 "c:/radiant/cae_library/simulation/verilog/lifcl/ifd1p3dx.v"
-// file 63 "c:/radiant/cae_library/simulation/verilog/lifcl/ifd1p3ix.v"
-// file 64 "c:/radiant/cae_library/simulation/verilog/lifcl/ifd1p3jx.v"
-// file 65 "c:/radiant/cae_library/simulation/verilog/lifcl/iologic.v"
-// file 66 "c:/radiant/cae_library/simulation/verilog/lifcl/jtag.v"
-// file 67 "c:/radiant/cae_library/simulation/verilog/lifcl/lram.v"
-// file 68 "c:/radiant/cae_library/simulation/verilog/lifcl/m18x36.v"
-// file 69 "c:/radiant/cae_library/simulation/verilog/lifcl/mipi.v"
-// file 70 "c:/radiant/cae_library/simulation/verilog/lifcl/mult18.v"
-// file 71 "c:/radiant/cae_library/simulation/verilog/lifcl/mult18x18.v"
-// file 72 "c:/radiant/cae_library/simulation/verilog/lifcl/mult18x36.v"
-// file 73 "c:/radiant/cae_library/simulation/verilog/lifcl/mult36.v"
-// file 74 "c:/radiant/cae_library/simulation/verilog/lifcl/mult36x36.v"
-// file 75 "c:/radiant/cae_library/simulation/verilog/lifcl/mult9.v"
-// file 76 "c:/radiant/cae_library/simulation/verilog/lifcl/mult9x9.v"
-// file 77 "c:/radiant/cae_library/simulation/verilog/lifcl/multaddsub18x18.v"
-// file 78 "c:/radiant/cae_library/simulation/verilog/lifcl/multaddsub18x18wide.v"
-// file 79 "c:/radiant/cae_library/simulation/verilog/lifcl/multaddsub18x36.v"
-// file 80 "c:/radiant/cae_library/simulation/verilog/lifcl/multaddsub36x36.v"
-// file 81 "c:/radiant/cae_library/simulation/verilog/lifcl/multaddsub9x9wide.v"
-// file 82 "c:/radiant/cae_library/simulation/verilog/lifcl/multiboot.v"
-// file 83 "c:/radiant/cae_library/simulation/verilog/lifcl/multpreadd18x18.v"
-// file 84 "c:/radiant/cae_library/simulation/verilog/lifcl/multpreadd9x9.v"
-// file 85 "c:/radiant/cae_library/simulation/verilog/lifcl/ofd1p3bx.v"
-// file 86 "c:/radiant/cae_library/simulation/verilog/lifcl/ofd1p3dx.v"
-// file 87 "c:/radiant/cae_library/simulation/verilog/lifcl/ofd1p3ix.v"
-// file 88 "c:/radiant/cae_library/simulation/verilog/lifcl/ofd1p3jx.v"
-// file 89 "c:/radiant/cae_library/simulation/verilog/lifcl/osc.v"
-// file 90 "c:/radiant/cae_library/simulation/verilog/lifcl/osca.v"
-// file 91 "c:/radiant/cae_library/simulation/verilog/lifcl/oscd.v"
-// file 92 "c:/radiant/cae_library/simulation/verilog/lifcl/pcie.v"
-// file 93 "c:/radiant/cae_library/simulation/verilog/lifcl/pdp16k.v"
-// file 94 "c:/radiant/cae_library/simulation/verilog/lifcl/pdpsc16k.v"
-// file 95 "c:/radiant/cae_library/simulation/verilog/lifcl/pdpsc512k.v"
-// file 96 "c:/radiant/cae_library/simulation/verilog/lifcl/pll.v"
-// file 97 "c:/radiant/cae_library/simulation/verilog/lifcl/plla.v"
-// file 98 "c:/radiant/cae_library/simulation/verilog/lifcl/pllrefcs.v"
-// file 99 "c:/radiant/cae_library/simulation/verilog/lifcl/pmu.v"
-// file 100 "c:/radiant/cae_library/simulation/verilog/lifcl/preadd9.v"
-// file 101 "c:/radiant/cae_library/simulation/verilog/lifcl/refmux.v"
-// file 102 "c:/radiant/cae_library/simulation/verilog/lifcl/reg18.v"
-// file 103 "c:/radiant/cae_library/simulation/verilog/lifcl/sedc.v"
-// file 104 "c:/radiant/cae_library/simulation/verilog/lifcl/seio18.v"
-// file 105 "c:/radiant/cae_library/simulation/verilog/lifcl/seio33.v"
-// file 106 "c:/radiant/cae_library/simulation/verilog/lifcl/sgmiicdr.v"
-// file 107 "c:/radiant/cae_library/simulation/verilog/lifcl/siologic.v"
-// file 108 "c:/radiant/cae_library/simulation/verilog/lifcl/sp16k.v"
-// file 109 "c:/radiant/cae_library/simulation/verilog/lifcl/sp512k.v"
-// file 110 "c:/radiant/cae_library/simulation/verilog/lifcl/tsalla.v"
-// file 111 "c:/radiant/cae_library/simulation/verilog/lifcl/usb23.v"
-// file 112 "c:/radiant/cae_library/simulation/verilog/lifcl/wdt.v"
-// file 113 "c:/radiant/cae_library/simulation/verilog/uaplatform/dpr16x4.v"
-// file 114 "c:/radiant/cae_library/simulation/verilog/uaplatform/fd1p3bx.v"
-// file 115 "c:/radiant/cae_library/simulation/verilog/uaplatform/fd1p3dx.v"
-// file 116 "c:/radiant/cae_library/simulation/verilog/uaplatform/fd1p3ix.v"
-// file 117 "c:/radiant/cae_library/simulation/verilog/uaplatform/fd1p3jx.v"
-// file 118 "c:/radiant/cae_library/simulation/verilog/uaplatform/gsr.v"
-// file 119 "c:/radiant/cae_library/simulation/verilog/uaplatform/ib.v"
-// file 120 "c:/radiant/cae_library/simulation/verilog/uaplatform/ob.v"
-// file 121 "c:/radiant/cae_library/simulation/verilog/uaplatform/obz.v"
-// file 122 "c:/radiant/cae_library/simulation/verilog/uaplatform/pclkdivsp.v"
-// file 123 "c:/radiant/cae_library/simulation/verilog/uaplatform/spr16x4.v"
-// file 124 "c:/radiant/cae_library/simulation/verilog/uaplatform/widefn9.v"
-// file 125 "c:/radiant/ip/avant/fifo/rtl/lscc_fifo.v"
-// file 126 "c:/radiant/ip/avant/fifo_dc/rtl/lscc_fifo_dc.v"
-// file 127 "c:/radiant/ip/avant/ram_dp/rtl/lscc_ram_dp.v"
-// file 128 "c:/radiant/ip/avant/ram_dp_true/rtl/lscc_ram_dp_true.v"
-// file 129 "c:/radiant/ip/avant/ram_dq/rtl/lscc_ram_dq.v"
-// file 130 "c:/radiant/ip/avant/rom/rtl/lscc_rom.v"
-// file 131 "c:/radiant/ip/common/adder/rtl/lscc_adder.v"
-// file 132 "c:/radiant/ip/common/adder_subtractor/rtl/lscc_add_sub.v"
-// file 133 "c:/radiant/ip/common/complex_mult/rtl/lscc_complex_mult.v"
-// file 134 "c:/radiant/ip/common/counter/rtl/lscc_cntr.v"
-// file 135 "c:/radiant/ip/common/distributed_dpram/rtl/lscc_distributed_dpram.v"
-// file 136 "c:/radiant/ip/common/distributed_rom/rtl/lscc_distributed_rom.v"
-// file 137 "c:/radiant/ip/common/distributed_spram/rtl/lscc_distributed_spram.v"
-// file 138 "c:/radiant/ip/common/mult_accumulate/rtl/lscc_mult_accumulate.v"
-// file 139 "c:/radiant/ip/common/mult_add_sub/rtl/lscc_mult_add_sub.v"
-// file 140 "c:/radiant/ip/common/mult_add_sub_sum/rtl/lscc_mult_add_sub_sum.v"
-// file 141 "c:/radiant/ip/common/multiplier/rtl/lscc_multiplier.v"
-// file 142 "c:/radiant/ip/common/ram_shift_reg/rtl/lscc_shift_register.v"
-// file 143 "c:/radiant/ip/common/subtractor/rtl/lscc_subtractor.v"
-// file 144 "c:/radiant/ip/pmi/pmi_add.v"
-// file 145 "c:/radiant/ip/pmi/pmi_addsub.v"
-// file 146 "c:/radiant/ip/pmi/pmi_complex_mult.v"
-// file 147 "c:/radiant/ip/pmi/pmi_counter.v"
-// file 148 "c:/radiant/ip/pmi/pmi_distributed_dpram.v"
-// file 149 "c:/radiant/ip/pmi/pmi_distributed_rom.v"
-// file 150 "c:/radiant/ip/pmi/pmi_distributed_shift_reg.v"
-// file 151 "c:/radiant/ip/pmi/pmi_distributed_spram.v"
-// file 152 "c:/radiant/ip/pmi/pmi_fifo.v"
-// file 153 "c:/radiant/ip/pmi/pmi_fifo_dc.v"
-// file 154 "c:/radiant/ip/pmi/pmi_mac.v"
-// file 155 "c:/radiant/ip/pmi/pmi_mult.v"
-// file 156 "c:/radiant/ip/pmi/pmi_multaddsub.v"
-// file 157 "c:/radiant/ip/pmi/pmi_multaddsubsum.v"
-// file 158 "c:/radiant/ip/pmi/pmi_ram_dp.v"
-// file 159 "c:/radiant/ip/pmi/pmi_ram_dp_be.v"
-// file 160 "c:/radiant/ip/pmi/pmi_ram_dp_true.v"
-// file 161 "c:/radiant/ip/pmi/pmi_ram_dq.v"
-// file 162 "c:/radiant/ip/pmi/pmi_ram_dq_be.v"
-// file 163 "c:/radiant/ip/pmi/pmi_rom.v"
-// file 164 "c:/radiant/ip/pmi/pmi_sub.v"
+// file 7 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/pm_modulator.vhd"
+// file 8 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/add_const.vhd"
+// file 9 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/c_16qam_map.vhd"
+// file 10 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/clk_div.vhd"
+// file 11 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/complex_mul.vhd"
+// file 12 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd"
+// file 13 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/decim.vhd"
+// file 14 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/delay_block.vhd"
+// file 15 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_adder.vhd"
+// file 16 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd"
+// file 17 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd"
+// file 18 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd"
+// file 19 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_hilbert.vhd"
+// file 20 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_rrc.vhd"
+// file 21 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd"
+// file 22 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd"
+// file 23 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_deserializer.vhd"
+// file 24 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_offset.vhd"
+// file 25 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/local_osc.vhd"
+// file 26 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mag_est.vhd"
+// file 27 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/main.vhd"
+// file 28 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd"
+// file 29 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/regs_pkg.vhd"
+// file 30 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sideband_selector.vhd"
+// file 31 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd"
+// file 32 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd"
+// file 33 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/unpack.vhd"
+// file 34 "c:/users/sp5wwp/documents/radiant/openht/source/impl_1/zero_insert.vhd"
+// file 35 "c:/radiant/cae_library/simulation/verilog/lifcl/acc54.v"
+// file 36 "c:/radiant/cae_library/simulation/verilog/lifcl/adc.v"
+// file 37 "c:/radiant/cae_library/simulation/verilog/lifcl/alureg.v"
+// file 38 "c:/radiant/cae_library/simulation/verilog/lifcl/aon.v"
+// file 39 "c:/radiant/cae_library/simulation/verilog/lifcl/bb_adc.v"
+// file 40 "c:/radiant/cae_library/simulation/verilog/lifcl/bb_cdr.v"
+// file 41 "c:/radiant/cae_library/simulation/verilog/lifcl/bb_i3c_a.v"
+// file 42 "c:/radiant/cae_library/simulation/verilog/lifcl/bb_programn.v"
+// file 43 "c:/radiant/cae_library/simulation/verilog/lifcl/bfd1p3kx.v"
+// file 44 "c:/radiant/cae_library/simulation/verilog/lifcl/bfd1p3lx.v"
+// file 45 "c:/radiant/cae_library/simulation/verilog/lifcl/bnkref18.v"
+// file 46 "c:/radiant/cae_library/simulation/verilog/lifcl/config_ip.v"
+// file 47 "c:/radiant/cae_library/simulation/verilog/lifcl/config_lmmi.v"
+// file 48 "c:/radiant/cae_library/simulation/verilog/lifcl/config_lmmia.v"
+// file 49 "c:/radiant/cae_library/simulation/verilog/lifcl/ddrdll.v"
+// file 50 "c:/radiant/cae_library/simulation/verilog/lifcl/diffio18.v"
+// file 51 "c:/radiant/cae_library/simulation/verilog/lifcl/dlldel.v"
+// file 52 "c:/radiant/cae_library/simulation/verilog/lifcl/dp16k.v"
+// file 53 "c:/radiant/cae_library/simulation/verilog/lifcl/dphy.v"
+// file 54 "c:/radiant/cae_library/simulation/verilog/lifcl/dpsc512k.v"
+// file 55 "c:/radiant/cae_library/simulation/verilog/lifcl/dqsbuf.v"
+// file 56 "c:/radiant/cae_library/simulation/verilog/lifcl/ebr.v"
+// file 57 "c:/radiant/cae_library/simulation/verilog/lifcl/eclkdiv.v"
+// file 58 "c:/radiant/cae_library/simulation/verilog/lifcl/eclksync.v"
+// file 59 "c:/radiant/cae_library/simulation/verilog/lifcl/fbmux.v"
+// file 60 "c:/radiant/cae_library/simulation/verilog/lifcl/fifo16k.v"
+// file 61 "c:/radiant/cae_library/simulation/verilog/lifcl/i2cfifo.v"
+// file 62 "c:/radiant/cae_library/simulation/verilog/lifcl/ifd1p3bx.v"
+// file 63 "c:/radiant/cae_library/simulation/verilog/lifcl/ifd1p3dx.v"
+// file 64 "c:/radiant/cae_library/simulation/verilog/lifcl/ifd1p3ix.v"
+// file 65 "c:/radiant/cae_library/simulation/verilog/lifcl/ifd1p3jx.v"
+// file 66 "c:/radiant/cae_library/simulation/verilog/lifcl/iologic.v"
+// file 67 "c:/radiant/cae_library/simulation/verilog/lifcl/jtag.v"
+// file 68 "c:/radiant/cae_library/simulation/verilog/lifcl/lram.v"
+// file 69 "c:/radiant/cae_library/simulation/verilog/lifcl/m18x36.v"
+// file 70 "c:/radiant/cae_library/simulation/verilog/lifcl/mipi.v"
+// file 71 "c:/radiant/cae_library/simulation/verilog/lifcl/mult18.v"
+// file 72 "c:/radiant/cae_library/simulation/verilog/lifcl/mult18x18.v"
+// file 73 "c:/radiant/cae_library/simulation/verilog/lifcl/mult18x36.v"
+// file 74 "c:/radiant/cae_library/simulation/verilog/lifcl/mult36.v"
+// file 75 "c:/radiant/cae_library/simulation/verilog/lifcl/mult36x36.v"
+// file 76 "c:/radiant/cae_library/simulation/verilog/lifcl/mult9.v"
+// file 77 "c:/radiant/cae_library/simulation/verilog/lifcl/mult9x9.v"
+// file 78 "c:/radiant/cae_library/simulation/verilog/lifcl/multaddsub18x18.v"
+// file 79 "c:/radiant/cae_library/simulation/verilog/lifcl/multaddsub18x18wide.v"
+// file 80 "c:/radiant/cae_library/simulation/verilog/lifcl/multaddsub18x36.v"
+// file 81 "c:/radiant/cae_library/simulation/verilog/lifcl/multaddsub36x36.v"
+// file 82 "c:/radiant/cae_library/simulation/verilog/lifcl/multaddsub9x9wide.v"
+// file 83 "c:/radiant/cae_library/simulation/verilog/lifcl/multiboot.v"
+// file 84 "c:/radiant/cae_library/simulation/verilog/lifcl/multpreadd18x18.v"
+// file 85 "c:/radiant/cae_library/simulation/verilog/lifcl/multpreadd9x9.v"
+// file 86 "c:/radiant/cae_library/simulation/verilog/lifcl/ofd1p3bx.v"
+// file 87 "c:/radiant/cae_library/simulation/verilog/lifcl/ofd1p3dx.v"
+// file 88 "c:/radiant/cae_library/simulation/verilog/lifcl/ofd1p3ix.v"
+// file 89 "c:/radiant/cae_library/simulation/verilog/lifcl/ofd1p3jx.v"
+// file 90 "c:/radiant/cae_library/simulation/verilog/lifcl/osc.v"
+// file 91 "c:/radiant/cae_library/simulation/verilog/lifcl/osca.v"
+// file 92 "c:/radiant/cae_library/simulation/verilog/lifcl/oscd.v"
+// file 93 "c:/radiant/cae_library/simulation/verilog/lifcl/pcie.v"
+// file 94 "c:/radiant/cae_library/simulation/verilog/lifcl/pdp16k.v"
+// file 95 "c:/radiant/cae_library/simulation/verilog/lifcl/pdpsc16k.v"
+// file 96 "c:/radiant/cae_library/simulation/verilog/lifcl/pdpsc512k.v"
+// file 97 "c:/radiant/cae_library/simulation/verilog/lifcl/pll.v"
+// file 98 "c:/radiant/cae_library/simulation/verilog/lifcl/plla.v"
+// file 99 "c:/radiant/cae_library/simulation/verilog/lifcl/pllrefcs.v"
+// file 100 "c:/radiant/cae_library/simulation/verilog/lifcl/pmu.v"
+// file 101 "c:/radiant/cae_library/simulation/verilog/lifcl/preadd9.v"
+// file 102 "c:/radiant/cae_library/simulation/verilog/lifcl/refmux.v"
+// file 103 "c:/radiant/cae_library/simulation/verilog/lifcl/reg18.v"
+// file 104 "c:/radiant/cae_library/simulation/verilog/lifcl/sedc.v"
+// file 105 "c:/radiant/cae_library/simulation/verilog/lifcl/seio18.v"
+// file 106 "c:/radiant/cae_library/simulation/verilog/lifcl/seio33.v"
+// file 107 "c:/radiant/cae_library/simulation/verilog/lifcl/sgmiicdr.v"
+// file 108 "c:/radiant/cae_library/simulation/verilog/lifcl/siologic.v"
+// file 109 "c:/radiant/cae_library/simulation/verilog/lifcl/sp16k.v"
+// file 110 "c:/radiant/cae_library/simulation/verilog/lifcl/sp512k.v"
+// file 111 "c:/radiant/cae_library/simulation/verilog/lifcl/tsalla.v"
+// file 112 "c:/radiant/cae_library/simulation/verilog/lifcl/usb23.v"
+// file 113 "c:/radiant/cae_library/simulation/verilog/lifcl/wdt.v"
+// file 114 "c:/radiant/cae_library/simulation/verilog/uaplatform/dpr16x4.v"
+// file 115 "c:/radiant/cae_library/simulation/verilog/uaplatform/fd1p3bx.v"
+// file 116 "c:/radiant/cae_library/simulation/verilog/uaplatform/fd1p3dx.v"
+// file 117 "c:/radiant/cae_library/simulation/verilog/uaplatform/fd1p3ix.v"
+// file 118 "c:/radiant/cae_library/simulation/verilog/uaplatform/fd1p3jx.v"
+// file 119 "c:/radiant/cae_library/simulation/verilog/uaplatform/gsr.v"
+// file 120 "c:/radiant/cae_library/simulation/verilog/uaplatform/ib.v"
+// file 121 "c:/radiant/cae_library/simulation/verilog/uaplatform/ob.v"
+// file 122 "c:/radiant/cae_library/simulation/verilog/uaplatform/obz.v"
+// file 123 "c:/radiant/cae_library/simulation/verilog/uaplatform/pclkdivsp.v"
+// file 124 "c:/radiant/cae_library/simulation/verilog/uaplatform/spr16x4.v"
+// file 125 "c:/radiant/cae_library/simulation/verilog/uaplatform/widefn9.v"
+// file 126 "c:/radiant/ip/avant/fifo/rtl/lscc_fifo.v"
+// file 127 "c:/radiant/ip/avant/fifo_dc/rtl/lscc_fifo_dc.v"
+// file 128 "c:/radiant/ip/avant/ram_dp/rtl/lscc_ram_dp.v"
+// file 129 "c:/radiant/ip/avant/ram_dp_true/rtl/lscc_ram_dp_true.v"
+// file 130 "c:/radiant/ip/avant/ram_dq/rtl/lscc_ram_dq.v"
+// file 131 "c:/radiant/ip/avant/rom/rtl/lscc_rom.v"
+// file 132 "c:/radiant/ip/common/adder/rtl/lscc_adder.v"
+// file 133 "c:/radiant/ip/common/adder_subtractor/rtl/lscc_add_sub.v"
+// file 134 "c:/radiant/ip/common/complex_mult/rtl/lscc_complex_mult.v"
+// file 135 "c:/radiant/ip/common/counter/rtl/lscc_cntr.v"
+// file 136 "c:/radiant/ip/common/distributed_dpram/rtl/lscc_distributed_dpram.v"
+// file 137 "c:/radiant/ip/common/distributed_rom/rtl/lscc_distributed_rom.v"
+// file 138 "c:/radiant/ip/common/distributed_spram/rtl/lscc_distributed_spram.v"
+// file 139 "c:/radiant/ip/common/mult_accumulate/rtl/lscc_mult_accumulate.v"
+// file 140 "c:/radiant/ip/common/mult_add_sub/rtl/lscc_mult_add_sub.v"
+// file 141 "c:/radiant/ip/common/mult_add_sub_sum/rtl/lscc_mult_add_sub_sum.v"
+// file 142 "c:/radiant/ip/common/multiplier/rtl/lscc_multiplier.v"
+// file 143 "c:/radiant/ip/common/ram_shift_reg/rtl/lscc_shift_register.v"
+// file 144 "c:/radiant/ip/common/subtractor/rtl/lscc_subtractor.v"
+// file 145 "c:/radiant/ip/pmi/pmi_add.v"
+// file 146 "c:/radiant/ip/pmi/pmi_addsub.v"
+// file 147 "c:/radiant/ip/pmi/pmi_complex_mult.v"
+// file 148 "c:/radiant/ip/pmi/pmi_counter.v"
+// file 149 "c:/radiant/ip/pmi/pmi_distributed_dpram.v"
+// file 150 "c:/radiant/ip/pmi/pmi_distributed_rom.v"
+// file 151 "c:/radiant/ip/pmi/pmi_distributed_shift_reg.v"
+// file 152 "c:/radiant/ip/pmi/pmi_distributed_spram.v"
+// file 153 "c:/radiant/ip/pmi/pmi_fifo.v"
+// file 154 "c:/radiant/ip/pmi/pmi_fifo_dc.v"
+// file 155 "c:/radiant/ip/pmi/pmi_mac.v"
+// file 156 "c:/radiant/ip/pmi/pmi_mult.v"
+// file 157 "c:/radiant/ip/pmi/pmi_multaddsub.v"
+// file 158 "c:/radiant/ip/pmi/pmi_multaddsubsum.v"
+// file 159 "c:/radiant/ip/pmi/pmi_ram_dp.v"
+// file 160 "c:/radiant/ip/pmi/pmi_ram_dp_be.v"
+// file 161 "c:/radiant/ip/pmi/pmi_ram_dp_true.v"
+// file 162 "c:/radiant/ip/pmi/pmi_ram_dq.v"
+// file 163 "c:/radiant/ip/pmi/pmi_ram_dq_be.v"
+// file 164 "c:/radiant/ip/pmi/pmi_rom.v"
+// file 165 "c:/radiant/ip/pmi/pmi_sub.v"
 
 //
 // Verilog Description of module main_all
@@ -178,59 +179,59 @@ module main_all (input clk_i, input rst, output clk_tx_o, output data_tx_o,
             input io1, input io2, output io3, output io4, output io5, 
             output io6);
     
-    (* is_clock=1, lineinfo="@26(10[3],10[8])" *) wire clk_i_c;
-    (* is_clock=1, lineinfo="@26(17[3],17[11])" *) wire clk_rx_i_c;
-    (* is_clock=1, lineinfo="@26(33[17],33[23])" *) wire clk_64;
+    (* is_clock=1, lineinfo="@27(10[3],10[8])" *) wire clk_i_c;
+    (* is_clock=1, lineinfo="@27(17[3],17[11])" *) wire clk_rx_i_c;
+    (* is_clock=1, lineinfo="@27(33[17],33[23])" *) wire clk_64;
     
     wire GND_net, VCC_net, rst_c, clk_tx_o_c, data_tx_o_c, data_rx09_i_c, 
         data_rx24_i_c, spi_ncs_c, spi_mosi_c, spi_sck_c, io0_c, io1_c, 
         io6_c_c, io4_c, io5_c;
-    (* lineinfo="@26(40[9],40[20])" *) wire [1:0]data_rx09_r;
-    (* lineinfo="@26(41[9],41[20])" *) wire [1:0]data_rx24_r;
+    (* lineinfo="@27(40[9],40[20])" *) wire [1:0]data_rx09_r;
+    (* lineinfo="@27(41[9],41[20])" *) wire [1:0]data_rx24_r;
     
     wire io3_c;
     
     VHI i2 (.Z(VCC_net));
-    (* lineinfo="@26(113[11],113[17])" *) ddr_rx_U2 ddr_rx0 (rst_c, clk_rx_i_c, 
+    (* lineinfo="@27(113[11],113[17])" *) ddr_rx_U2 ddr_rx0 (rst_c, clk_rx_i_c, 
             data_rx09_r[0], data_rx09_i_c);
-    (* lut_function="(A (B))", lineinfo="@26(147[9],147[20])" *) LUT4 io1_I_0_2_lut (.A(io1_c), 
+    (* lut_function="(A (B))", lineinfo="@27(147[9],147[20])" *) LUT4 io1_I_0_2_lut (.A(io1_c), 
             .B(io0_c), .Z(io5_c));
     defparam io1_I_0_2_lut.INIT = "0x8888";
     GSR GSR_INST (.GSR_N(VCC_net));
     defparam GSR_INST.SYNCMODE = "ASYNC";
-    (* lineinfo="@26(26[3],26[6])" *) IB io0_pad (.I(io0), .O(io0_c));
-    (* lineinfo="@26(10[3],10[8])" *) IB clk_i_pad (.I(clk_i), .O(clk_i_c));
-    (* lineinfo="@26(12[3],12[6])" *) IB rst_pad (.I(rst), .O(rst_c));
-    (* lineinfo="@26(22[3],22[11])" *) OB spi_miso_pad (.I(GND_net), .O(spi_miso));
-    (* lineinfo="@26(17[3],17[11])" *) IB clk_rx_i_pad (.I(clk_rx_i), .O(clk_rx_i_c));
-    (* lineinfo="@26(27[18],27[21])" *) OB io6_pad (.I(io6_c_c), .O(io6));
-    (* lineinfo="@26(24[3],24[10])" *) IB spi_sck_pad (.I(spi_sck), .O(spi_sck_c));
-    (* lineinfo="@26(121[11],121[17])" *) ddr_rx ddr_rx1 (rst_c, clk_rx_i_c, 
+    (* lineinfo="@27(26[3],26[6])" *) IB io0_pad (.I(io0), .O(io0_c));
+    (* lineinfo="@27(10[3],10[8])" *) IB clk_i_pad (.I(clk_i), .O(clk_i_c));
+    (* lineinfo="@27(12[3],12[6])" *) IB rst_pad (.I(rst), .O(rst_c));
+    (* lineinfo="@27(22[3],22[11])" *) OB spi_miso_pad (.I(GND_net), .O(spi_miso));
+    (* lineinfo="@27(17[3],17[11])" *) IB clk_rx_i_pad (.I(clk_rx_i), .O(clk_rx_i_c));
+    (* lineinfo="@27(27[18],27[21])" *) OB io6_pad (.I(io6_c_c), .O(io6));
+    (* lineinfo="@27(24[3],24[10])" *) IB spi_sck_pad (.I(spi_sck), .O(spi_sck_c));
+    (* lineinfo="@27(121[11],121[17])" *) ddr_rx ddr_rx1 (rst_c, clk_rx_i_c, 
             data_rx24_r[1], data_rx24_i_c);
-    (* lineinfo="@26(27[13],27[16])" *) OB io5_pad (.I(io5_c), .O(io5));
-    (* lineinfo="@26(26[13],26[16])" *) IB io6_c_pad (.I(io2), .O(io6_c_c));
-    (* lineinfo="@26(15[3],15[12])" *) OB data_tx_o_pad (.I(data_tx_o_c), 
+    (* lineinfo="@27(27[13],27[16])" *) OB io5_pad (.I(io5_c), .O(io5));
+    (* lineinfo="@27(26[13],26[16])" *) IB io6_c_pad (.I(io2), .O(io6_c_c));
+    (* lineinfo="@27(15[3],15[12])" *) OB data_tx_o_pad (.I(data_tx_o_c), 
             .O(data_tx_o));
-    (* lineinfo="@26(27[8],27[11])" *) OB io4_pad (.I(io4_c), .O(io4));
-    (* lineinfo="@26(14[3],14[11])" *) OB clk_tx_o_pad (.I(clk_tx_o_c), .O(clk_tx_o));
-    (* lineinfo="@26(21[3],21[10])" *) IB spi_ncs_pad (.I(spi_ncs), .O(spi_ncs_c));
-    (* lineinfo="@26(26[8],26[11])" *) IB io1_pad (.I(io1), .O(io1_c));
-    (* lut_function="(A+(B+(C)))", lineinfo="@26(146[9],146[65])" *) LUT4 i2_3_lut (.A(data_rx09_r[0]), 
+    (* lineinfo="@27(27[8],27[11])" *) OB io4_pad (.I(io4_c), .O(io4));
+    (* lineinfo="@27(14[3],14[11])" *) OB clk_tx_o_pad (.I(clk_tx_o_c), .O(clk_tx_o));
+    (* lineinfo="@27(21[3],21[10])" *) IB spi_ncs_pad (.I(spi_ncs), .O(spi_ncs_c));
+    (* lineinfo="@27(26[8],26[11])" *) IB io1_pad (.I(io1), .O(io1_c));
+    (* lut_function="(A+(B+(C)))", lineinfo="@27(146[9],146[65])" *) LUT4 i2_3_lut (.A(data_rx09_r[0]), 
             .B(clk_rx_i_c), .C(data_rx24_r[1]), .Z(io4_c));
     defparam i2_3_lut.INIT = "0xfefe";
-    (* lineinfo="@26(27[3],27[6])" *) OB io3_pad (.I(io3_c), .O(io3));
-    (* lineinfo="@26(19[3],19[14])" *) IB data_rx24_i_pad (.I(data_rx24_i), 
+    (* lineinfo="@27(27[3],27[6])" *) OB io3_pad (.I(io3_c), .O(io3));
+    (* lineinfo="@27(19[3],19[14])" *) IB data_rx24_i_pad (.I(data_rx24_i), 
             .O(data_rx24_i_c));
-    (* lineinfo="@26(18[3],18[14])" *) IB data_rx09_i_pad (.I(data_rx09_i), 
+    (* lineinfo="@27(18[3],18[14])" *) IB data_rx09_i_pad (.I(data_rx09_i), 
             .O(data_rx09_i_c));
-    (* lineinfo="@26(23[3],23[11])" *) IB spi_mosi_pad (.I(spi_mosi), .O(spi_mosi_c));
-    (* lineinfo="@26(105[11],105[17])" *) ddr_tx ddr_tx0 (rst_c, clk_64, 
+    (* lineinfo="@27(23[3],23[11])" *) IB spi_mosi_pad (.I(spi_mosi), .O(spi_mosi_c));
+    (* lineinfo="@27(105[11],105[17])" *) ddr_tx ddr_tx0 (rst_c, clk_64, 
             GND_net, VCC_net, data_tx_o_c, clk_tx_o_c);
-    (* lineinfo="@26(129[8],129[17])" *) spi_slave spi0 (VCC_net, clk_i_c, 
+    (* lineinfo="@27(129[8],129[17])" *) spi_slave spi0 (VCC_net, clk_i_c, 
             GND_net, spi_ncs_c, spi_sck_c, io3_c, rst_c, spi_mosi_c);
     PUR PUR_INST (VCC_net);
     defparam PUR_INST.RST_PULSE = "1";
-    (* lineinfo="@26(97[8],97[15])" *) pll_osc pll0 (GND_net, VCC_net, clk_64, 
+    (* lineinfo="@27(97[8],97[15])" *) pll_osc pll0 (GND_net, VCC_net, clk_64, 
             rst_c, clk_i_c);
     VLO i1 (.Z(GND_net));
     
@@ -243,7 +244,7 @@ endmodule
 module ddr_rx_U2 (input rst_c, input clk_rx_i_c, output \data_rx09_r[0] , 
             input data_rx09_i_c);
     
-    (* is_clock=1, lineinfo="@26(17[3],17[11])" *) wire clk_rx_i_c;
+    (* is_clock=1, lineinfo="@27(17[3],17[11])" *) wire clk_rx_i_c;
     
     (* lineinfo="@2(128[36],175[33])" *) \ddr_rx_ipgen_lscc_gddr(INTERFACE_TYPE="RECEIVE",IO_TYPE="LVDS",BUS_WIDTH=1,GEARING=1,OUT_WIDTH=1,CLK_FREQ=128.0,DATA_PATH_DELAY="BYPASS",CLOCK_PATH_DELAY="FIXED",DATA_DELAY_ADJUSTMENT="DEFAULT",DATA_FINE_DELAY_VALUE="0",DATA_COARSE_DELAY_VALUE="0NS",CLOCK_DATA_RELATION="CENTERED",FVCO=900.0,CLKI_FREQ=25.0,CLKOP_FREQ_ACTUAL=150.0,CLKOS_EN=1,CLKOP_BYPASS=1,CLKOS2_BYPASS=1,CLKOS3_BYPASS=1,CLKOS4_BYPASS=1,CLKOS5_BYPASS=1,PLL_RST=1,LOCK_EN=1,FBCLK_DIVIDER_ACTUAL_STR="6",DIVOP_ACTUAL_STR="5",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000000110",DELA="5",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b0100",CSET="24P",CRIPPLE="3P",IPP_CTRL="0b0100",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K")_U1 lscc_gddr_inst (rst_c, 
             clk_rx_i_c, \data_rx09_r[0] , data_rx09_i_c);
@@ -257,7 +258,7 @@ endmodule
 module \ddr_rx_ipgen_lscc_gddr(INTERFACE_TYPE="RECEIVE",IO_TYPE="LVDS",BUS_WIDTH=1,GEARING=1,OUT_WIDTH=1,CLK_FREQ=128.0,DATA_PATH_DELAY="BYPASS",CLOCK_PATH_DELAY="FIXED",DATA_DELAY_ADJUSTMENT="DEFAULT",DATA_FINE_DELAY_VALUE="0",DATA_COARSE_DELAY_VALUE="0NS",CLOCK_DATA_RELATION="CENTERED",FVCO=900.0,CLKI_FREQ=25.0,CLKOP_FREQ_ACTUAL=150.0,CLKOS_EN=1,CLKOP_BYPASS=1,CLKOS2_BYPASS=1,CLKOS3_BYPASS=1,CLKOS4_BYPASS=1,CLKOS5_BYPASS=1,PLL_RST=1,LOCK_EN=1,FBCLK_DIVIDER_ACTUAL_STR="6",DIVOP_ACTUAL_STR="5",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000000110",DELA="5",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b0100",CSET="24P",CRIPPLE="3P",IPP_CTRL="0b0100",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K")_U1 (input rst_c, 
             input clk_rx_i_c, output \data_rx09_r[0] , input data_rx09_i_c);
     
-    (* is_clock=1, lineinfo="@26(17[3],17[11])" *) wire clk_rx_i_c;
+    (* is_clock=1, lineinfo="@27(17[3],17[11])" *) wire clk_rx_i_c;
     
     (* lineinfo="@2(9648[76],9652[45])" *) \ddr_rx_ipgen_lscc_gddr_rx_sclk_centered_static_bypass(BUS_WIDTH=1)_U0 \RX_SCLK_CENTERED_STATIC_BYPASS.u_lscc_gddr_rx_sclk_centered_static_bypass  (rst_c, 
             clk_rx_i_c, \data_rx09_r[0] , data_rx09_i_c);
@@ -271,7 +272,7 @@ endmodule
 module \ddr_rx_ipgen_lscc_gddr_rx_sclk_centered_static_bypass(BUS_WIDTH=1)_U0 (input rst_c, 
             input clk_rx_i_c, output \data_rx09_r[0] , input data_rx09_i_c);
     
-    (* is_clock=1, lineinfo="@26(17[3],17[11])" *) wire clk_rx_i_c;
+    (* is_clock=1, lineinfo="@27(17[3],17[11])" *) wire clk_rx_i_c;
     (* lineinfo="@2(554[30],554[42])" *) wire [0:0]data_i_del_w;
     
     (* syn_instantiated=1, LSE_LINE_FILE_ID=155, LSE_LCOL=76, LSE_RCOL=45, LSE_LLINE=9648, LSE_RLINE=9652, lineinfo="@2(9648[76],9652[45])" *) IDDRX1 \Data[0].u_IDDRX1  (.D(data_i_del_w[0]), 
@@ -292,7 +293,7 @@ endmodule
 module ddr_rx (input rst_c, input clk_rx_i_c, output \data_rx24_r[1] , 
             input data_rx24_i_c);
     
-    (* is_clock=1, lineinfo="@26(17[3],17[11])" *) wire clk_rx_i_c;
+    (* is_clock=1, lineinfo="@27(17[3],17[11])" *) wire clk_rx_i_c;
     
     (* lineinfo="@2(128[36],175[33])" *) \ddr_rx_ipgen_lscc_gddr(INTERFACE_TYPE="RECEIVE",IO_TYPE="LVDS",BUS_WIDTH=1,GEARING=1,OUT_WIDTH=1,CLK_FREQ=128.0,DATA_PATH_DELAY="BYPASS",CLOCK_PATH_DELAY="FIXED",DATA_DELAY_ADJUSTMENT="DEFAULT",DATA_FINE_DELAY_VALUE="0",DATA_COARSE_DELAY_VALUE="0NS",CLOCK_DATA_RELATION="CENTERED",FVCO=900.0,CLKI_FREQ=25.0,CLKOP_FREQ_ACTUAL=150.0,CLKOS_EN=1,CLKOP_BYPASS=1,CLKOS2_BYPASS=1,CLKOS3_BYPASS=1,CLKOS4_BYPASS=1,CLKOS5_BYPASS=1,PLL_RST=1,LOCK_EN=1,FBCLK_DIVIDER_ACTUAL_STR="6",DIVOP_ACTUAL_STR="5",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000000110",DELA="5",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b0100",CSET="24P",CRIPPLE="3P",IPP_CTRL="0b0100",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K") lscc_gddr_inst (rst_c, 
             clk_rx_i_c, \data_rx24_r[1] , data_rx24_i_c);
@@ -306,7 +307,7 @@ endmodule
 module \ddr_rx_ipgen_lscc_gddr(INTERFACE_TYPE="RECEIVE",IO_TYPE="LVDS",BUS_WIDTH=1,GEARING=1,OUT_WIDTH=1,CLK_FREQ=128.0,DATA_PATH_DELAY="BYPASS",CLOCK_PATH_DELAY="FIXED",DATA_DELAY_ADJUSTMENT="DEFAULT",DATA_FINE_DELAY_VALUE="0",DATA_COARSE_DELAY_VALUE="0NS",CLOCK_DATA_RELATION="CENTERED",FVCO=900.0,CLKI_FREQ=25.0,CLKOP_FREQ_ACTUAL=150.0,CLKOS_EN=1,CLKOP_BYPASS=1,CLKOS2_BYPASS=1,CLKOS3_BYPASS=1,CLKOS4_BYPASS=1,CLKOS5_BYPASS=1,PLL_RST=1,LOCK_EN=1,FBCLK_DIVIDER_ACTUAL_STR="6",DIVOP_ACTUAL_STR="5",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000000110",DELA="5",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b0100",CSET="24P",CRIPPLE="3P",IPP_CTRL="0b0100",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K") (input rst_c, 
             input clk_rx_i_c, output \data_rx24_r[1] , input data_rx24_i_c);
     
-    (* is_clock=1, lineinfo="@26(17[3],17[11])" *) wire clk_rx_i_c;
+    (* is_clock=1, lineinfo="@27(17[3],17[11])" *) wire clk_rx_i_c;
     
     (* lineinfo="@2(9648[76],9652[45])" *) \ddr_rx_ipgen_lscc_gddr_rx_sclk_centered_static_bypass(BUS_WIDTH=1) \RX_SCLK_CENTERED_STATIC_BYPASS.u_lscc_gddr_rx_sclk_centered_static_bypass  (rst_c, 
             clk_rx_i_c, \data_rx24_r[1] , data_rx24_i_c);
@@ -320,7 +321,7 @@ endmodule
 module \ddr_rx_ipgen_lscc_gddr_rx_sclk_centered_static_bypass(BUS_WIDTH=1) (input rst_c, 
             input clk_rx_i_c, output \data_rx24_r[1] , input data_rx24_i_c);
     
-    (* is_clock=1, lineinfo="@26(17[3],17[11])" *) wire clk_rx_i_c;
+    (* is_clock=1, lineinfo="@27(17[3],17[11])" *) wire clk_rx_i_c;
     (* lineinfo="@2(554[30],554[42])" *) wire [0:0]data_i_del_w;
     
     (* syn_instantiated=1, LSE_LINE_FILE_ID=155, LSE_LCOL=76, LSE_RCOL=45, LSE_LLINE=9648, LSE_RLINE=9652, lineinfo="@2(9648[76],9652[45])" *) IDDRX1 \Data[0].u_IDDRX1  (.D(data_i_del_w[0]), 
@@ -341,7 +342,7 @@ endmodule
 module ddr_tx (input rst_c, input clk_64, input GND_net, input VCC_net, 
             output data_tx_o_c, output clk_tx_o_c);
     
-    (* is_clock=1, lineinfo="@26(33[17],33[23])" *) wire clk_64;
+    (* is_clock=1, lineinfo="@27(33[17],33[23])" *) wire clk_64;
     
     (* lineinfo="@3(128[36],175[33])" *) \ddr_tx_ipgen_lscc_gddr(INTERFACE_TYPE="TRANSMIT",IO_TYPE="LVDS",BUS_WIDTH=1,GEARING=1,IN_WIDTH=1,CLK_FREQ=128.0,DATA_PATH_DELAY="BYPASS",CLOCK_PATH_DELAY="FIXED",DATA_DELAY_ADJUSTMENT="DEFAULT",DATA_FINE_DELAY_VALUE="0",DATA_COARSE_DELAY_VALUE="0NS",CLOCK_DATA_RELATION="ALIGNED",FVCO=900.0,CLKI_FREQ=25.0,CLKOP_FREQ_ACTUAL=150.0,CLKOS_EN=1,CLKOP_BYPASS=1,CLKOS2_BYPASS=1,CLKOS3_BYPASS=1,CLKOS4_BYPASS=1,CLKOS5_BYPASS=1,PLL_RST=1,LOCK_EN=1,FBCLK_DIVIDER_ACTUAL_STR="6",DIVOP_ACTUAL_STR="5",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000000110",DELA="5",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b0100",CSET="24P",CRIPPLE="3P",IPP_CTRL="0b0100",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K") lscc_gddr_inst (rst_c, 
             clk_64, GND_net, VCC_net, data_tx_o_c, clk_tx_o_c);
@@ -356,7 +357,7 @@ module \ddr_tx_ipgen_lscc_gddr(INTERFACE_TYPE="TRANSMIT",IO_TYPE="LVDS",BUS_WIDT
             input clk_64, input GND_net, input VCC_net, output data_tx_o_c, 
             output clk_tx_o_c);
     
-    (* is_clock=1, lineinfo="@26(33[17],33[23])" *) wire clk_64;
+    (* is_clock=1, lineinfo="@27(33[17],33[23])" *) wire clk_64;
     
     (* lineinfo="@3(9891[124],9895[91])" *) \ddr_tx_ipgen_lscc_gddr_tx_sclk_aligned_static_bypass(BUS_WIDTH=1) \TX_SCLK_ALIGNED_STATIC_BYPASS.u_lscc_gddr_tx_sclk_aligned_static_bypass  (rst_c, 
             clk_64, GND_net, VCC_net, data_tx_o_c, clk_tx_o_c);
@@ -371,7 +372,7 @@ module \ddr_tx_ipgen_lscc_gddr_tx_sclk_aligned_static_bypass(BUS_WIDTH=1) (input
             input clk_64, input GND_net, input VCC_net, output data_tx_o_c, 
             output clk_tx_o_c);
     
-    (* is_clock=1, lineinfo="@26(33[17],33[23])" *) wire clk_64;
+    (* is_clock=1, lineinfo="@27(33[17],33[23])" *) wire clk_64;
     
     (* syn_instantiated=1, LSE_LINE_FILE_ID=156, LSE_LCOL=124, LSE_RCOL=91, LSE_LLINE=9891, LSE_RLINE=9895, lineinfo="@3(9891[124],9895[91])" *) ODDRX1 \Data[0].u_data_ODDRX1  (.D0(VCC_net), 
             .D1(GND_net), .SCLK(clk_64), .RST(rst_c), .Q(data_tx_o_c));
@@ -389,7 +390,7 @@ endmodule
 module spi_slave (input VCC_net, input clk_i_c, input GND_net, input spi_ncs_c, 
             input spi_sck_c, output io3_c, input rst_c, input spi_mosi_c);
     
-    (* is_clock=1, lineinfo="@26(10[3],10[8])" *) wire clk_i_c;
+    (* is_clock=1, lineinfo="@27(10[3],10[8])" *) wire clk_i_c;
     
     wire n868;
     wire [5:0]n42;
@@ -398,199 +399,199 @@ module spi_slave (input VCC_net, input clk_i_c, input GND_net, input spi_ncs_c,
     wire [5:0]cnt_5__N_123;
     
     wire n522;
-    (* lineinfo="@31(31[9],31[16])" *) wire [31:0]data_rx;
+    (* lineinfo="@32(31[9],31[16])" *) wire [31:0]data_rx;
     
     wire n514, n510, n496, n508, n52, clk_i_c_enable_1, n498, 
         n506, n524, n512, pp_sck, p_sck, n500, n516, n492, p_ncs, 
         pp_ncs;
-    (* lineinfo="@31(35[12],35[15])" *) wire [5:0]cnt;
+    (* lineinfo="@32(35[12],35[15])" *) wire [5:0]cnt;
     
     wire rw_N_194, n502, n520, n16, n17, n504, n870, n518;
     
-    (* lineinfo="@31(53[5],59[12])" *) CCU2 add_55_add_12_add_12_add_12_add_5_add_5_3 (.A1(n42[2]), 
+    (* lineinfo="@32(53[5],59[12])" *) CCU2 add_55_add_12_add_12_add_12_add_5_add_5_3 (.A1(n42[2]), 
             .B1(VCC_net), .C1(VCC_net), .D1(VCC_net), .A0(n42[1]), .B0(VCC_net), 
             .C0(VCC_net), .D0(VCC_net), .CIN(n868), .COUT(n869), .S1(cnt_5__N_123[2]), 
             .S0(cnt_5__N_123[1]));
     defparam add_55_add_12_add_12_add_12_add_5_add_5_3.INJECT = "NO";
     defparam add_55_add_12_add_12_add_12_add_5_add_5_3.INIT0 = "0xAAAA";
     defparam add_55_add_12_add_12_add_12_add_5_add_5_3.INIT1 = "0xAAAA";
-    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@31(37[3],89[10])" *) FD1P3DX data_rx_i6 (.D(n522), 
+    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@32(37[3],89[10])" *) FD1P3DX data_rx_i6 (.D(n522), 
             .CK(clk_i_c), .SP(VCC_net), .CD(GND_net), .Q(data_rx[6]));
     defparam data_rx_i6.GSR = "ENABLED";
-    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@31(37[3],89[10])" *) FD1P3DX data_rx_i11 (.D(n514), 
+    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@32(37[3],89[10])" *) FD1P3DX data_rx_i11 (.D(n514), 
             .CK(clk_i_c), .SP(VCC_net), .CD(GND_net), .Q(data_rx[11]));
     defparam data_rx_i11.GSR = "ENABLED";
-    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@31(37[3],89[10])" *) FD1P3DX data_rx_i10 (.D(n510), 
+    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@32(37[3],89[10])" *) FD1P3DX data_rx_i10 (.D(n510), 
             .CK(clk_i_c), .SP(VCC_net), .CD(GND_net), .Q(data_rx[10]));
     defparam data_rx_i10.GSR = "ENABLED";
-    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@31(37[3],89[10])" *) FD1P3DX data_rx_i5 (.D(n496), 
+    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@32(37[3],89[10])" *) FD1P3DX data_rx_i5 (.D(n496), 
             .CK(clk_i_c), .SP(VCC_net), .CD(GND_net), .Q(data_rx[5]));
     defparam data_rx_i5.GSR = "ENABLED";
-    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@31(37[3],89[10])" *) FD1P3DX data_rx_i9 (.D(n508), 
+    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@32(37[3],89[10])" *) FD1P3DX data_rx_i9 (.D(n508), 
             .CK(clk_i_c), .SP(VCC_net), .CD(GND_net), .Q(data_rx[9]));
     defparam data_rx_i9.GSR = "ENABLED";
-    (* lut_function="(A (B (C+!(D))+!B !(C+(D)))+!A (B (C)))", lineinfo="@31(37[3],89[10])" *) LUT4 i205_4_lut (.A(data_rx[1]), 
+    (* lut_function="(A (B (C+!(D))+!B !(C+(D)))+!A (B (C)))", lineinfo="@32(37[3],89[10])" *) LUT4 i205_4_lut (.A(data_rx[1]), 
             .B(data_rx[0]), .C(n52), .D(clk_i_c_enable_1), .Z(n498));
     defparam i205_4_lut.INIT = "0xc0ca";
-    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@31(37[3],89[10])" *) FD1P3DX data_rx_i4 (.D(n506), 
+    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@32(37[3],89[10])" *) FD1P3DX data_rx_i4 (.D(n506), 
             .CK(clk_i_c), .SP(VCC_net), .CD(GND_net), .Q(data_rx[4]));
     defparam data_rx_i4.GSR = "ENABLED";
-    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@31(37[3],89[10])" *) FD1P3DX data_rx_i0 (.D(n524), 
+    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@32(37[3],89[10])" *) FD1P3DX data_rx_i0 (.D(n524), 
             .CK(clk_i_c), .SP(VCC_net), .CD(GND_net), .Q(data_rx[0]));
     defparam data_rx_i0.GSR = "ENABLED";
-    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@31(37[3],89[10])" *) FD1P3DX data_rx_i3 (.D(n512), 
+    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@32(37[3],89[10])" *) FD1P3DX data_rx_i3 (.D(n512), 
             .CK(clk_i_c), .SP(VCC_net), .CD(GND_net), .Q(data_rx[3]));
     defparam data_rx_i3.GSR = "ENABLED";
     (* lut_function="(!(A+(B+!(C))))" *) LUT4 i2_3_lut (.A(pp_sck), .B(spi_ncs_c), 
             .C(p_sck), .Z(n52));
     defparam i2_3_lut.INIT = "0x1010";
-    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@31(37[3],89[10])" *) FD1P3DX data_rx_i2 (.D(n500), 
+    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@32(37[3],89[10])" *) FD1P3DX data_rx_i2 (.D(n500), 
             .CK(clk_i_c), .SP(VCC_net), .CD(GND_net), .Q(data_rx[2]));
     defparam data_rx_i2.GSR = "ENABLED";
-    (* lut_function="(A (B (C+!(D))+!B !(C+(D)))+!A (B (C)))", lineinfo="@31(37[3],89[10])" *) LUT4 i229_4_lut (.A(data_rx[6]), 
+    (* lut_function="(A (B (C+!(D))+!B !(C+(D)))+!A (B (C)))", lineinfo="@32(37[3],89[10])" *) LUT4 i229_4_lut (.A(data_rx[6]), 
             .B(data_rx[5]), .C(n52), .D(clk_i_c_enable_1), .Z(n522));
     defparam i229_4_lut.INIT = "0xc0ca";
-    (* lut_function="(A (B (C+!(D))+!B !(C+(D)))+!A (B (C)))", lineinfo="@31(37[3],89[10])" *) LUT4 i223_4_lut (.A(data_rx[15]), 
+    (* lut_function="(A (B (C+!(D))+!B !(C+(D)))+!A (B (C)))", lineinfo="@32(37[3],89[10])" *) LUT4 i223_4_lut (.A(data_rx[15]), 
             .B(data_rx[14]), .C(n52), .D(clk_i_c_enable_1), .Z(n516));
     defparam i223_4_lut.INIT = "0xc0ca";
-    (* lut_function="(A (B (C+!(D))+!B !(C+(D)))+!A (B (C)))", lineinfo="@31(37[3],89[10])" *) LUT4 i203_4_lut (.A(data_rx[5]), 
+    (* lut_function="(A (B (C+!(D))+!B !(C+(D)))+!A (B (C)))", lineinfo="@32(37[3],89[10])" *) LUT4 i203_4_lut (.A(data_rx[5]), 
             .B(data_rx[4]), .C(n52), .D(clk_i_c_enable_1), .Z(n496));
     defparam i203_4_lut.INIT = "0xc0ca";
-    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@31(37[3],89[10])" *) FD1P3DX data_rx_i1 (.D(n498), 
+    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@32(37[3],89[10])" *) FD1P3DX data_rx_i1 (.D(n498), 
             .CK(clk_i_c), .SP(VCC_net), .CD(GND_net), .Q(data_rx[1]));
     defparam data_rx_i1.GSR = "ENABLED";
-    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@31(37[3],89[10])" *) FD1P3DX data_rx_i8 (.D(n492), 
+    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@32(37[3],89[10])" *) FD1P3DX data_rx_i8 (.D(n492), 
             .CK(clk_i_c), .SP(VCC_net), .CD(GND_net), .Q(data_rx[8]));
     defparam data_rx_i8.GSR = "ENABLED";
-    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@31(37[3],89[10])" *) FD1P3DX pp_ncs_c (.D(p_ncs), 
+    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@32(37[3],89[10])" *) FD1P3DX pp_ncs_c (.D(p_ncs), 
             .CK(clk_i_c), .SP(VCC_net), .CD(GND_net), .Q(pp_ncs));
     defparam pp_ncs_c.GSR = "ENABLED";
-    (* lut_function="(A (B (C+!(D))+!B !(C+(D)))+!A (B (C)))", lineinfo="@31(37[3],89[10])" *) LUT4 i207_4_lut (.A(data_rx[2]), 
+    (* lut_function="(A (B (C+!(D))+!B !(C+(D)))+!A (B (C)))", lineinfo="@32(37[3],89[10])" *) LUT4 i207_4_lut (.A(data_rx[2]), 
             .B(data_rx[1]), .C(n52), .D(clk_i_c_enable_1), .Z(n500));
     defparam i207_4_lut.INIT = "0xc0ca";
-    (* lut_function="(A (B (C+!(D))+!B !(C+(D)))+!A (B (C)))", lineinfo="@31(37[3],89[10])" *) LUT4 i217_4_lut (.A(data_rx[10]), 
+    (* lut_function="(A (B (C+!(D))+!B !(C+(D)))+!A (B (C)))", lineinfo="@32(37[3],89[10])" *) LUT4 i217_4_lut (.A(data_rx[10]), 
             .B(data_rx[9]), .C(n52), .D(clk_i_c_enable_1), .Z(n510));
     defparam i217_4_lut.INIT = "0xc0ca";
-    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@31(37[3],89[10])" *) FD1P3DX p_sck_c (.D(spi_sck_c), 
+    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@32(37[3],89[10])" *) FD1P3DX p_sck_c (.D(spi_sck_c), 
             .CK(clk_i_c), .SP(VCC_net), .CD(GND_net), .Q(p_sck));
     defparam p_sck_c.GSR = "ENABLED";
-    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@31(37[3],89[10])" *) FD1P3DX pp_sck_c (.D(p_sck), 
+    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@32(37[3],89[10])" *) FD1P3DX pp_sck_c (.D(p_sck), 
             .CK(clk_i_c), .SP(VCC_net), .CD(GND_net), .Q(pp_sck));
     defparam pp_sck_c.GSR = "ENABLED";
-    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@31(37[3],89[10])" *) FD1P3DX cnt_i0 (.D(cnt_5__N_123[0]), 
+    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@32(37[3],89[10])" *) FD1P3DX cnt_i0 (.D(cnt_5__N_123[0]), 
             .CK(clk_i_c), .SP(VCC_net), .CD(GND_net), .Q(cnt[0]));
     defparam cnt_i0.GSR = "ENABLED";
-    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@31(37[3],89[10])" *) FD1P3JX rw (.D(GND_net), 
+    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@32(37[3],89[10])" *) FD1P3JX rw (.D(GND_net), 
             .CK(clk_i_c), .SP(clk_i_c_enable_1), .PD(rw_N_194), .Q(io3_c));
     defparam rw.GSR = "ENABLED";
-    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@31(37[3],89[10])" *) FD1P3DX p_ncs_c (.D(spi_ncs_c), 
+    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@32(37[3],89[10])" *) FD1P3DX p_ncs_c (.D(spi_ncs_c), 
             .CK(clk_i_c), .SP(VCC_net), .CD(GND_net), .Q(p_ncs));
     defparam p_ncs_c.GSR = "ENABLED";
-    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@31(37[3],89[10])" *) FD1P3DX data_rx_i7 (.D(n502), 
+    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@32(37[3],89[10])" *) FD1P3DX data_rx_i7 (.D(n502), 
             .CK(clk_i_c), .SP(VCC_net), .CD(GND_net), .Q(data_rx[7]));
     defparam data_rx_i7.GSR = "ENABLED";
-    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@31(37[3],89[10])" *) FD1P3DX data_rx_i13 (.D(n520), 
+    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@32(37[3],89[10])" *) FD1P3DX data_rx_i13 (.D(n520), 
             .CK(clk_i_c), .SP(VCC_net), .CD(GND_net), .Q(data_rx[13]));
     defparam data_rx_i13.GSR = "ENABLED";
-    (* lut_function="(A (B (C+!(D))+!B !(C+(D)))+!A (B (C)))", lineinfo="@31(37[3],89[10])" *) LUT4 i221_4_lut (.A(data_rx[11]), 
+    (* lut_function="(A (B (C+!(D))+!B !(C+(D)))+!A (B (C)))", lineinfo="@32(37[3],89[10])" *) LUT4 i221_4_lut (.A(data_rx[11]), 
             .B(data_rx[10]), .C(n52), .D(clk_i_c_enable_1), .Z(n514));
     defparam i221_4_lut.INIT = "0xc0ca";
-    (* lut_function="(A (B (C+!(D))+!B !(C+(D)))+!A (B (C)))", lineinfo="@31(37[3],89[10])" *) LUT4 i227_4_lut (.A(data_rx[13]), 
+    (* lut_function="(A (B (C+!(D))+!B !(C+(D)))+!A (B (C)))", lineinfo="@32(37[3],89[10])" *) LUT4 i227_4_lut (.A(data_rx[13]), 
             .B(data_rx[12]), .C(n52), .D(clk_i_c_enable_1), .Z(n520));
     defparam i227_4_lut.INIT = "0xc0ca";
-    (* lut_function="(A (B (C+!(D))+!B !(C+(D)))+!A (B (C)))", lineinfo="@31(37[3],89[10])" *) LUT4 i219_4_lut (.A(data_rx[3]), 
+    (* lut_function="(A (B (C+!(D))+!B !(C+(D)))+!A (B (C)))", lineinfo="@32(37[3],89[10])" *) LUT4 i219_4_lut (.A(data_rx[3]), 
             .B(data_rx[2]), .C(n52), .D(clk_i_c_enable_1), .Z(n512));
     defparam i219_4_lut.INIT = "0xc0ca";
-    (* lut_function="(A (B (C+!(D))+!B !(C+(D)))+!A (B (C)))", lineinfo="@31(37[3],89[10])" *) LUT4 i209_4_lut (.A(data_rx[7]), 
+    (* lut_function="(A (B (C+!(D))+!B !(C+(D)))+!A (B (C)))", lineinfo="@32(37[3],89[10])" *) LUT4 i209_4_lut (.A(data_rx[7]), 
             .B(data_rx[6]), .C(n52), .D(clk_i_c_enable_1), .Z(n502));
     defparam i209_4_lut.INIT = "0xc0ca";
-    (* lut_function="(!(A (B+!(C (D)))+!A (B+!(D))))", lineinfo="@31(45[8],45[46])" *) LUT4 i376_2_lut_4_lut (.A(pp_ncs), 
+    (* lut_function="(!(A (B+!(C (D)))+!A (B+!(D))))", lineinfo="@32(45[8],45[46])" *) LUT4 i376_2_lut_4_lut (.A(pp_ncs), 
             .B(rst_c), .C(p_ncs), .D(cnt[0]), .Z(n42[0]));
     defparam i376_2_lut_4_lut.INIT = "0x3100";
-    (* lut_function="(A (B (C+!(D))+!B !(C+(D)))+!A (B (C)))", lineinfo="@31(37[3],89[10])" *) LUT4 i231_4_lut (.A(data_rx[0]), 
+    (* lut_function="(A (B (C+!(D))+!B !(C+(D)))+!A (B (C)))", lineinfo="@32(37[3],89[10])" *) LUT4 i231_4_lut (.A(data_rx[0]), 
             .B(spi_mosi_c), .C(n52), .D(clk_i_c_enable_1), .Z(n524));
     defparam i231_4_lut.INIT = "0xc0ca";
     (* lut_function="(!((B+(C+!(D)))+!A))" *) LUT4 i6_4_lut (.A(data_rx[15]), 
             .B(spi_ncs_c), .C(p_sck), .D(pp_sck), .Z(n16));
     defparam i6_4_lut.INIT = "0x0200";
-    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@31(37[3],89[10])" *) FD1P3DX data_rx_i15 (.D(n516), 
+    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@32(37[3],89[10])" *) FD1P3DX data_rx_i15 (.D(n516), 
             .CK(clk_i_c), .SP(VCC_net), .CD(GND_net), .Q(data_rx[15]));
     defparam data_rx_i15.GSR = "ENABLED";
     (* lut_function="(!((B+(C+(D)))+!A))" *) LUT4 i7_4_lut (.A(cnt_5__N_123[4]), 
             .B(cnt_5__N_123[1]), .C(cnt_5__N_123[2]), .D(cnt_5__N_123[5]), 
             .Z(n17));
     defparam i7_4_lut.INIT = "0x0002";
-    (* lut_function="(!(A (B+!(C (D)))+!A (B+!(D))))", lineinfo="@31(45[8],45[46])" *) LUT4 i393_2_lut_4_lut (.A(pp_ncs), 
+    (* lut_function="(!(A (B+!(C (D)))+!A (B+!(D))))", lineinfo="@32(45[8],45[46])" *) LUT4 i393_2_lut_4_lut (.A(pp_ncs), 
             .B(rst_c), .C(p_ncs), .D(cnt[4]), .Z(n42[4]));
     defparam i393_2_lut_4_lut.INIT = "0x3100";
-    (* lut_function="(A (B (C+!(D))+!B !(C+(D)))+!A (B (C)))", lineinfo="@31(37[3],89[10])" *) LUT4 i211_4_lut (.A(data_rx[14]), 
+    (* lut_function="(A (B (C+!(D))+!B !(C+(D)))+!A (B (C)))", lineinfo="@32(37[3],89[10])" *) LUT4 i211_4_lut (.A(data_rx[14]), 
             .B(data_rx[13]), .C(n52), .D(clk_i_c_enable_1), .Z(n504));
     defparam i211_4_lut.INIT = "0xc0ca";
-    (* lut_function="(!(A (B+!(C (D)))+!A (B+!(D))))", lineinfo="@31(45[8],45[46])" *) LUT4 i394_2_lut_4_lut (.A(pp_ncs), 
+    (* lut_function="(!(A (B+!(C (D)))+!A (B+!(D))))", lineinfo="@32(45[8],45[46])" *) LUT4 i394_2_lut_4_lut (.A(pp_ncs), 
             .B(rst_c), .C(p_ncs), .D(cnt[3]), .Z(n42[3]));
     defparam i394_2_lut_4_lut.INIT = "0x3100";
-    (* lineinfo="@31(53[5],59[12])" *) CCU2 add_55_add_12_add_12_add_12_add_5_add_5_7 (.A1(VCC_net), 
+    (* lineinfo="@32(53[5],59[12])" *) CCU2 add_55_add_12_add_12_add_12_add_5_add_5_7 (.A1(VCC_net), 
             .B1(VCC_net), .C1(VCC_net), .D1(VCC_net), .A0(n42[5]), .B0(VCC_net), 
             .C0(VCC_net), .D0(VCC_net), .CIN(n870), .S0(cnt_5__N_123[5]));
     defparam add_55_add_12_add_12_add_12_add_5_add_5_7.INJECT = "NO";
     defparam add_55_add_12_add_12_add_12_add_5_add_5_7.INIT0 = "0xAAAA";
     defparam add_55_add_12_add_12_add_12_add_5_add_5_7.INIT1 = "0x0000";
-    (* lut_function="(!(A (B+!(C (D)))+!A (B+!(D))))", lineinfo="@31(45[8],45[46])" *) LUT4 i392_2_lut_4_lut (.A(pp_ncs), 
+    (* lut_function="(!(A (B+!(C (D)))+!A (B+!(D))))", lineinfo="@32(45[8],45[46])" *) LUT4 i392_2_lut_4_lut (.A(pp_ncs), 
             .B(rst_c), .C(p_ncs), .D(cnt[5]), .Z(n42[5]));
     defparam i392_2_lut_4_lut.INIT = "0x3100";
-    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@31(37[3],89[10])" *) FD1P3DX data_rx_i12 (.D(n518), 
+    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@32(37[3],89[10])" *) FD1P3DX data_rx_i12 (.D(n518), 
             .CK(clk_i_c), .SP(VCC_net), .CD(GND_net), .Q(data_rx[12]));
     defparam data_rx_i12.GSR = "ENABLED";
-    (* lut_function="(A (B (C+!(D))+!B !(C+(D)))+!A (B (C)))", lineinfo="@31(37[3],89[10])" *) LUT4 i225_4_lut (.A(data_rx[12]), 
+    (* lut_function="(A (B (C+!(D))+!B !(C+(D)))+!A (B (C)))", lineinfo="@32(37[3],89[10])" *) LUT4 i225_4_lut (.A(data_rx[12]), 
             .B(data_rx[11]), .C(n52), .D(clk_i_c_enable_1), .Z(n518));
     defparam i225_4_lut.INIT = "0xc0ca";
-    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@31(37[3],89[10])" *) FD1P3DX data_rx_i14 (.D(n504), 
+    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@32(37[3],89[10])" *) FD1P3DX data_rx_i14 (.D(n504), 
             .CK(clk_i_c), .SP(VCC_net), .CD(GND_net), .Q(data_rx[14]));
     defparam data_rx_i14.GSR = "ENABLED";
-    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@31(37[3],89[10])" *) FD1P3DX cnt_i1 (.D(cnt_5__N_123[1]), 
+    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@32(37[3],89[10])" *) FD1P3DX cnt_i1 (.D(cnt_5__N_123[1]), 
             .CK(clk_i_c), .SP(VCC_net), .CD(GND_net), .Q(cnt[1]));
     defparam cnt_i1.GSR = "ENABLED";
-    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@31(37[3],89[10])" *) FD1P3DX cnt_i2 (.D(cnt_5__N_123[2]), 
+    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@32(37[3],89[10])" *) FD1P3DX cnt_i2 (.D(cnt_5__N_123[2]), 
             .CK(clk_i_c), .SP(VCC_net), .CD(GND_net), .Q(cnt[2]));
     defparam cnt_i2.GSR = "ENABLED";
-    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@31(37[3],89[10])" *) FD1P3DX cnt_i3 (.D(cnt_5__N_123[3]), 
+    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@32(37[3],89[10])" *) FD1P3DX cnt_i3 (.D(cnt_5__N_123[3]), 
             .CK(clk_i_c), .SP(VCC_net), .CD(GND_net), .Q(cnt[3]));
     defparam cnt_i3.GSR = "ENABLED";
-    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@31(37[3],89[10])" *) FD1P3DX cnt_i4 (.D(cnt_5__N_123[4]), 
+    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@32(37[3],89[10])" *) FD1P3DX cnt_i4 (.D(cnt_5__N_123[4]), 
             .CK(clk_i_c), .SP(VCC_net), .CD(GND_net), .Q(cnt[4]));
     defparam cnt_i4.GSR = "ENABLED";
-    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@31(37[3],89[10])" *) FD1P3DX cnt_i5 (.D(cnt_5__N_123[5]), 
+    (* lse_init_val=0, LSE_LINE_FILE_ID=158, LSE_LCOL=8, LSE_RCOL=17, LSE_LLINE=129, LSE_RLINE=129, lineinfo="@32(37[3],89[10])" *) FD1P3DX cnt_i5 (.D(cnt_5__N_123[5]), 
             .CK(clk_i_c), .SP(VCC_net), .CD(GND_net), .Q(cnt[5]));
     defparam cnt_i5.GSR = "ENABLED";
-    (* lut_function="(A (B (C+!(D))+!B !(C+(D)))+!A (B (C)))", lineinfo="@31(37[3],89[10])" *) LUT4 i213_4_lut (.A(data_rx[4]), 
+    (* lut_function="(A (B (C+!(D))+!B !(C+(D)))+!A (B (C)))", lineinfo="@32(37[3],89[10])" *) LUT4 i213_4_lut (.A(data_rx[4]), 
             .B(data_rx[3]), .C(n52), .D(clk_i_c_enable_1), .Z(n506));
     defparam i213_4_lut.INIT = "0xc0ca";
     (* lut_function="(!((B+((D)+!C))+!A))" *) LUT4 i9_4_lut (.A(n17), .B(cnt_5__N_123[0]), 
             .C(n16), .D(cnt_5__N_123[3]), .Z(rw_N_194));
     defparam i9_4_lut.INIT = "0x0020";
-    (* lut_function="(!(A (B+!(C (D)))+!A (B+!(D))))", lineinfo="@31(45[8],45[46])" *) LUT4 i395_2_lut_4_lut (.A(pp_ncs), 
+    (* lut_function="(!(A (B+!(C (D)))+!A (B+!(D))))", lineinfo="@32(45[8],45[46])" *) LUT4 i395_2_lut_4_lut (.A(pp_ncs), 
             .B(rst_c), .C(p_ncs), .D(cnt[2]), .Z(n42[2]));
     defparam i395_2_lut_4_lut.INIT = "0x3100";
-    (* lut_function="(!(A (B+!(C (D)))+!A (B+!(D))))", lineinfo="@31(45[8],45[46])" *) LUT4 i396_2_lut_4_lut (.A(pp_ncs), 
+    (* lut_function="(!(A (B+!(C (D)))+!A (B+!(D))))", lineinfo="@32(45[8],45[46])" *) LUT4 i396_2_lut_4_lut (.A(pp_ncs), 
             .B(rst_c), .C(p_ncs), .D(cnt[1]), .Z(n42[1]));
     defparam i396_2_lut_4_lut.INIT = "0x3100";
-    (* lut_function="(A (B+!(C))+!A (B))", lineinfo="@31(45[8],45[46])" *) LUT4 miso_o_I_4_3_lut_rep_23 (.A(pp_ncs), 
+    (* lut_function="(A (B+!(C))+!A (B))", lineinfo="@32(45[8],45[46])" *) LUT4 miso_o_I_4_3_lut_rep_23 (.A(pp_ncs), 
             .B(rst_c), .C(p_ncs), .Z(clk_i_c_enable_1));
     defparam miso_o_I_4_3_lut_rep_23.INIT = "0xcece";
-    (* lineinfo="@31(53[5],59[12])" *) CCU2 add_55_add_12_add_12_add_12_add_5_add_5_5 (.A1(n42[4]), 
+    (* lineinfo="@32(53[5],59[12])" *) CCU2 add_55_add_12_add_12_add_12_add_5_add_5_5 (.A1(n42[4]), 
             .B1(VCC_net), .C1(VCC_net), .D1(VCC_net), .A0(n42[3]), .B0(VCC_net), 
             .C0(VCC_net), .D0(VCC_net), .CIN(n869), .COUT(n870), .S1(cnt_5__N_123[4]), 
             .S0(cnt_5__N_123[3]));
     defparam add_55_add_12_add_12_add_12_add_5_add_5_5.INJECT = "NO";
     defparam add_55_add_12_add_12_add_12_add_5_add_5_5.INIT0 = "0xAAAA";
     defparam add_55_add_12_add_12_add_12_add_5_add_5_5.INIT1 = "0xAAAA";
-    (* lut_function="(A (B (C+!(D))+!B !(C+(D)))+!A (B (C)))", lineinfo="@31(37[3],89[10])" *) LUT4 i215_4_lut (.A(data_rx[9]), 
+    (* lut_function="(A (B (C+!(D))+!B !(C+(D)))+!A (B (C)))", lineinfo="@32(37[3],89[10])" *) LUT4 i215_4_lut (.A(data_rx[9]), 
             .B(data_rx[8]), .C(n52), .D(clk_i_c_enable_1), .Z(n508));
     defparam i215_4_lut.INIT = "0xc0ca";
-    (* lut_function="(A (B (C+!(D))+!B !(C+(D)))+!A (B (C)))", lineinfo="@31(37[3],89[10])" *) LUT4 i199_4_lut (.A(data_rx[8]), 
+    (* lut_function="(A (B (C+!(D))+!B !(C+(D)))+!A (B (C)))", lineinfo="@32(37[3],89[10])" *) LUT4 i199_4_lut (.A(data_rx[8]), 
             .B(data_rx[7]), .C(n52), .D(clk_i_c_enable_1), .Z(n492));
     defparam i199_4_lut.INIT = "0xc0ca";
-    (* lineinfo="@31(53[5],59[12])" *) CCU2 add_55_add_12_add_12_add_12_add_5_add_5_cin (.A1(n42[0]), 
+    (* lineinfo="@32(53[5],59[12])" *) CCU2 add_55_add_12_add_12_add_12_add_5_add_5_cin (.A1(n42[0]), 
             .B1(n52), .C1(VCC_net), .D1(VCC_net), .A0(VCC_net), .B0(VCC_net), 
             .C0(VCC_net), .D0(VCC_net), .CIN(VCC_net), .COUT(n868), 
             .S1(cnt_5__N_123[0]));
@@ -607,8 +608,8 @@ endmodule
 module pll_osc (input GND_net, input VCC_net, output clk_64, input rst_c, 
             input clk_i_c);
     
-    (* is_clock=1, lineinfo="@26(33[17],33[23])" *) wire clk_64;
-    (* is_clock=1, lineinfo="@26(10[3],10[8])" *) wire clk_i_c;
+    (* is_clock=1, lineinfo="@27(33[17],33[23])" *) wire clk_64;
+    (* is_clock=1, lineinfo="@27(10[3],10[8])" *) wire clk_i_c;
     
     (* lineinfo="@4(113[36],155[33])" *) \pll_osc_ipgen_lscc_pll(FVCO=1216.0,CLKI_FREQ=26.0,CLKOP_FREQ_ACTUAL=152.0,CLKOS_FREQ_ACTUAL=64.0,CLKOS2_FREQ_ACTUAL=38.0,CLKOS_EN=1,CLKOS2_EN=1,FRAC_N_EN=1,PLL_RST=1,LOCK_EN=1,FBK_MODE="INTCLKOP",FBCLK_DIVIDER_ACTUAL_STR="46",DIVOP_ACTUAL_STR="7",DIVOS_ACTUAL_STR="18",DIVOS2_ACTUAL_STR="31",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000101110",SSC_F_CODE_STR="0b110001001111000",DELA="7",DELB="18",DELC="31",DELD="7",DELE="7",DELF="7",IPI_CMP="0b1100",CSET="8P",CRIPPLE="1P",IPP_CTRL="0b0110",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K") lscc_pll_inst (GND_net, 
             VCC_net, clk_64, rst_c, clk_i_c);
@@ -622,8 +623,8 @@ endmodule
 module \pll_osc_ipgen_lscc_pll(FVCO=1216.0,CLKI_FREQ=26.0,CLKOP_FREQ_ACTUAL=152.0,CLKOS_FREQ_ACTUAL=64.0,CLKOS2_FREQ_ACTUAL=38.0,CLKOS_EN=1,CLKOS2_EN=1,FRAC_N_EN=1,PLL_RST=1,LOCK_EN=1,FBK_MODE="INTCLKOP",FBCLK_DIVIDER_ACTUAL_STR="46",DIVOP_ACTUAL_STR="7",DIVOS_ACTUAL_STR="18",DIVOS2_ACTUAL_STR="31",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000101110",SSC_F_CODE_STR="0b110001001111000",DELA="7",DELB="18",DELC="31",DELD="7",DELE="7",DELF="7",IPI_CMP="0b1100",CSET="8P",CRIPPLE="1P",IPP_CTRL="0b0110",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K") (input GND_net, 
             input VCC_net, output clk_64, input rst_c, input clk_i_c);
     
-    (* is_clock=1, lineinfo="@26(33[17],33[23])" *) wire clk_64;
-    (* is_clock=1, lineinfo="@26(10[3],10[8])" *) wire clk_i_c;
+    (* is_clock=1, lineinfo="@27(33[17],33[23])" *) wire clk_64;
+    (* is_clock=1, lineinfo="@27(10[3],10[8])" *) wire clk_i_c;
     
     wire fbclk_w;
     

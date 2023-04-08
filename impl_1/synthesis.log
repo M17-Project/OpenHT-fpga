@@ -1,11 +1,11 @@
-synthesis:  version Radiant Software (64-bit) 2022.1.0.52.3
+synthesis:  version Radiant Software (64-bit) 2022.1.1.289.4
 
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
 Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-Mon Mar 27 10:49:00 2023
+Sat Apr  8 19:48:04 2023
 
 
 Command Line:  C:\Radiant\ispfpga\bin\nt64\synthesis.exe -f OpenHT_impl_1_lattice.synproj -gui -msgset C:/Users/SP5WWP/Documents/Radiant/OpenHT/promote.xml 
@@ -108,13 +108,15 @@ VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/mag_es
 VHDL library = work
 VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/AM_modulator.vhd
 VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/FM_modulator.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/PM_modulator.vhd
+VHDL library = work
 VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/ctrl_regs.vhd
 VHDL library = work
 VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/dither_adder.vhd
 VHDL library = work
 VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/dither_source.vhd
-VHDL library = work
-VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/FM_modulator.vhd
 VHDL library = work
 VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/iq_balancer.vhd
 VHDL library = work
@@ -264,6 +266,16 @@ Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_mo
 
 INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd(12): analyzing entity am_modulator. VHDL-1012
 INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd(20): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd
+
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(12): analyzing entity fm_modulator. VHDL-1012
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(26): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/pm_modulator.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/pm_modulator.vhd
+
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/pm_modulator.vhd(12): analyzing entity pm_modulator. VHDL-1012
+INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/pm_modulator.vhd(20): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd
 
@@ -279,11 +291,6 @@ Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dithe
 
 INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd(19): analyzing entity dither_source. VHDL-1012
 INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd(28): analyzing architecture magic. VHDL-1010
-Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd. VHDL-1481
-Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd
-
-INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(12): analyzing entity fm_modulator. VHDL-1012
-INFO - synthesis: c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(26): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd
 
@@ -496,7 +503,7 @@ Top 10 highest fanout non-clock nets:
   Net : spi0/cnt_5__N_123[2], loads : 2
 ################### End Clock Report ##################
 
-Peak Memory Usage: 302 MB
+Peak Memory Usage: 304 MB
 
 --------------------------------------------------------------
 Total CPU Time: 3 secs 

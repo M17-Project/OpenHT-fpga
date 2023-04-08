@@ -681,6 +681,38 @@
         <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(12): </Dynamic>
+            <Dynamic>fm_modulator</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd</Navigation>
+            <Navigation>12</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(26): </Dynamic>
+            <Dynamic>magic</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd</Navigation>
+            <Navigation>26</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/pm_modulator.vhd(12): </Dynamic>
+            <Dynamic>pm_modulator</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/pm_modulator.vhd</Navigation>
+            <Navigation>12</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/pm_modulator.vhd(20): </Dynamic>
+            <Dynamic>magic</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/pm_modulator.vhd</Navigation>
+            <Navigation>20</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>1</Severity>
             <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(28): </Dynamic>
             <Dynamic>ctrl_regs</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd</Navigation>
@@ -725,22 +757,6 @@
             <Dynamic>magic</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd</Navigation>
             <Navigation>28</Navigation>
-        </Message>
-        <Message>
-            <ID>35921012</ID>
-            <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(12): </Dynamic>
-            <Dynamic>fm_modulator</Dynamic>
-            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd</Navigation>
-            <Navigation>12</Navigation>
-        </Message>
-        <Message>
-            <ID>35921010</ID>
-            <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(26): </Dynamic>
-            <Dynamic>magic</Dynamic>
-            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd</Navigation>
-            <Navigation>26</Navigation>
         </Message>
         <Message>
             <ID>35921012</ID>
@@ -1539,6 +1555,38 @@
         <Message>
             <ID>35921012</ID>
             <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(12): </Dynamic>
+            <Dynamic>fm_modulator</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd</Navigation>
+            <Navigation>12</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(26): </Dynamic>
+            <Dynamic>magic</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd</Navigation>
+            <Navigation>26</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/pm_modulator.vhd(12): </Dynamic>
+            <Dynamic>pm_modulator</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/pm_modulator.vhd</Navigation>
+            <Navigation>12</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>1</Severity>
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/pm_modulator.vhd(20): </Dynamic>
+            <Dynamic>magic</Dynamic>
+            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/pm_modulator.vhd</Navigation>
+            <Navigation>20</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>1</Severity>
             <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd(28): </Dynamic>
             <Dynamic>ctrl_regs</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd</Navigation>
@@ -1583,22 +1631,6 @@
             <Dynamic>magic</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd</Navigation>
             <Navigation>28</Navigation>
-        </Message>
-        <Message>
-            <ID>35921012</ID>
-            <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(12): </Dynamic>
-            <Dynamic>fm_modulator</Dynamic>
-            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd</Navigation>
-            <Navigation>12</Navigation>
-        </Message>
-        <Message>
-            <ID>35921010</ID>
-            <Severity>1</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(26): </Dynamic>
-            <Dynamic>magic</Dynamic>
-            <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd</Navigation>
-            <Navigation>26</Navigation>
         </Message>
         <Message>
             <ID>35921012</ID>
@@ -2197,23 +2229,6 @@
             <ID>35811146</ID>
             <Severity>1</Severity>
             <Dynamic>GSR_INST.GSROUT</Dynamic>
-        </Message>
-        <Message>
-            <ID>70001944</ID>
-            <Severity>16</Severity>
-            <Dynamic>create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 32 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS }] </Dynamic>
-        </Message>
-    </Task>
-    <Task name="PAR">
-        <Message>
-            <ID>70001944</ID>
-            <Severity>16</Severity>
-            <Dynamic>create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 32 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS }] </Dynamic>
-        </Message>
-        <Message>
-            <ID>70001944</ID>
-            <Severity>16</Severity>
-            <Dynamic>create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 32 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS }] </Dynamic>
         </Message>
         <Message>
             <ID>70001944</ID>

@@ -148,6 +148,16 @@ Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_mo
 
 INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd(12): analyzing entity am_modulator. VHDL-1012
 INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd(20): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(12): analyzing entity fm_modulator. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(26): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/pm_modulator.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/pm_modulator.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/pm_modulator.vhd(12): analyzing entity pm_modulator. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/pm_modulator.vhd(20): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd
 
@@ -163,11 +173,6 @@ Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dithe
 
 INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd(19): analyzing entity dither_source. VHDL-1012
 INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd(28): analyzing architecture magic. VHDL-1010
-Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd. VHDL-1481
-Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd
-
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(12): analyzing entity fm_modulator. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(26): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd
 
@@ -253,14 +258,14 @@ CPE Completed. OpenHT_impl_1_cpe.ldc and CPEReport.txt produced.
 
 
 synthesis -f OpenHT_impl_1_lattice.synproj
-synthesis:  version Radiant Software (64-bit) 2022.1.0.52.3
+synthesis:  version Radiant Software (64-bit) 2022.1.1.289.4
 
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
 Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-Mon Mar 27 10:49:00 2023
+Sat Apr  8 19:48:04 2023
 
 
 Command Line:  C:\Radiant\ispfpga\bin\nt64\synthesis.exe -f OpenHT_impl_1_lattice.synproj -gui -msgset C:/Users/SP5WWP/Documents/Radiant/OpenHT/promote.xml 
@@ -364,13 +369,15 @@ VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/mag_es
 VHDL library = work
 VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/AM_modulator.vhd
 VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/FM_modulator.vhd
+VHDL library = work
+VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/PM_modulator.vhd
+VHDL library = work
 VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/ctrl_regs.vhd
 VHDL library = work
 VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/dither_adder.vhd
 VHDL library = work
 VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/dither_source.vhd
-VHDL library = work
-VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/FM_modulator.vhd
 VHDL library = work
 VHDL design file = C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/iq_balancer.vhd
 VHDL library = work
@@ -520,6 +527,16 @@ Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_mo
 
 INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd(12): analyzing entity am_modulator. VHDL-1012
 INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/am_modulator.vhd(20): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(12): analyzing entity fm_modulator. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(26): analyzing architecture magic. VHDL-1010
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/pm_modulator.vhd. VHDL-1481
+Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/pm_modulator.vhd
+
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/pm_modulator.vhd(12): analyzing entity pm_modulator. VHDL-1012
+INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/pm_modulator.vhd(20): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/ctrl_regs.vhd
 
@@ -535,11 +552,6 @@ Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dithe
 
 INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd(19): analyzing entity dither_source. VHDL-1012
 INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dither_source.vhd(28): analyzing architecture magic. VHDL-1010
-Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd. VHDL-1481
-Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd
-
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(12): analyzing entity fm_modulator. VHDL-1012
-INFO - c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(26): analyzing architecture magic. VHDL-1010
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd. VHDL-1481
 Analyzing VHDL file c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd
 
@@ -758,7 +770,7 @@ Top 10 highest fanout non-clock nets:
   Net : spi0/cnt_5__N_123[2], loads : 2
 ################### End Clock Report ##################
 
-Peak Memory Usage: 302 MB
+Peak Memory Usage: 304 MB
 
 --------------------------------------------------------------
 Total CPU Time: 3 secs 
@@ -767,17 +779,17 @@ Total REAL Time: 3 secs
 
 
 postsyn -a LIFCL -p LIFCL-40 -t QFN72 -sp 7_High-Performance_1.0V -oc Commercial -top -w -o OpenHT_impl_1_syn.udb OpenHT_impl_1.vm -ldc C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1/OpenHT_impl_1.ldc
-POSTSYN: Post Synthesis Process Radiant Software (64-bit) 2022.1.0.52.3
+POSTSYN: Post Synthesis Process Radiant Software (64-bit) 2022.1.1.289.4
 Command Line: postsyn -a LIFCL -p LIFCL-40 -t QFN72 -sp 7_High-Performance_1.0V -oc Commercial -top -w -o OpenHT_impl_1_syn.udb -ldc C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1/OpenHT_impl_1.ldc -gui -msgset C:/Users/SP5WWP/Documents/Radiant/OpenHT/promote.xml OpenHT_impl_1.vm 
    Architecture:     LIFCL
    Device:           LIFCL-40
    Package:          QFN72
    Performance:      7_High-Performance_1.0V
 Reading input file 'OpenHT_impl_1.vm' ...
-CPU Time to convert: 0.46875
-REAL Time to convert: 0
+CPU Time to convert: 0.453125
+REAL Time to convert: 1
 convert PEAK Memory Usage: 109 MB
-convert CURRENT Memory Usage: 105 MB
+convert CURRENT Memory Usage: 101 MB
 Reading constraint file 'C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1/OpenHT_impl_1.ldc' ...
 Removing unused logic ...
 INFO - Signal GSR_INST.GSROUT undriven or does not drive anything - clipped
@@ -795,483 +807,4 @@ POSTSYN finished successfully.
 Total CPU Time: 0 secs 
 Total REAL Time: 0 secs 
 Peak Memory Usage: 133 MB
-
-
-map -i "OpenHT_impl_1_syn.udb" -pdc "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/impl_1.pdc" -o "OpenHT_impl_1_map.udb" -mp "OpenHT_impl_1.mrp" -hierrpt     
-map:  version Radiant Software (64-bit) 2022.1.0.52.3
-
-Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
-Copyright (c) 1995 AT&T Corp.   All rights reserved.
-Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
-Copyright (c) 2001 Agere Systems   All rights reserved.
-Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-
-Command line:   map -i OpenHT_impl_1_syn.udb -pdc C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/impl_1.pdc -o OpenHT_impl_1_map.udb -mp OpenHT_impl_1.mrp -hierrpt -gui 
-
-Loading device for application GENERIC from file 'je5d30.nph' in environment: C:/Radiant/ispfpga.
-Package Status:                     Final          Version 39.
-
-
-
-   Remove unused logic
-
-   Do not produce over sized UDBs.
-
-Design:  main_all
-Family:  LIFCL
-Device:  LIFCL-40
-Package: QFN72
-Performance Grade:  7_High-Performance_1.0V
-
-Running general design DRC...
-
-Removing unused logic...
-
-Optimizing...
-
-
-
-
-Design Summary:
-   Number of registers:          27 out of 32373 (<1%)
-      Number of SLICE         registers:   27 out of 32256 (<1%)
-      Number of PIO Input     registers:    0 out of    39 (0%)
-      Number of PIO Output    registers:    0 out of    39 (0%)
-      Number of PIO Tri-State registers:    0 out of    39 (0%)
-   Number of LUT4s:              38 out of 32256 (<1%)
-      Number used as logic LUT4s:                         30
-      Number used as distributed RAM:                      0 (6 per 16X4 RAM)
-      Number used as ripple logic:                         8 (2 per CCU2)
-   Number of PIOs used/reserved:   26 out of    39 (59%)
-      Number of PIOs reserved:      3 (per sysConfig and/or prohibit constraint)
-      Number of PIOs used:         23
-        Number of PIOs used for single ended IO:        13
-        Number of PIO pairs used for differential IO:    5
-
-        Number allocated to regular speed PIOs:    13 out of   17 (76%)
-        Number allocated to high speed PIOs:       10 out of   22 (45%)
-   Number of Dedicated IO used for ADC/PCIE/DPHY:    0 out of   10 (0%)
-   Number of IDDR/ODDR/TDDR functions used:      4 out of   100 (4%)
-      Number of IDDR functions:                2
-                IDDRX1:           2
-      Number of ODDR functions:                2
-                ODDRX1:           2
-      Number of TDDR functions:                0
-   Number of IOs using at least one DDR function: 4 (4 differential)
-      Number of IOs using IDDR only:           2 (2 differential)
-      Number of IOs using ODDR only:           2 (2 differential)
-      Number of IOs using ODDR/TDDR:           0 (0 differential)
-      Number of IOs using IDDR/ODDR/TDDR:      0 (0 differential)
-   Number of Block RAMs:          0 out of 84 (0%)
-   Number of Large RAMs:          0 out of 2 (0%)
-   Number of Logical DSP Functions:
-      Number of Pre-Adders (9+9):    0 out of 112 (0%)
-      Number of Multipliers (18x18): 0 out of 56 (0%)
-         Number of 9X9:        0 (1 18x18 = 2   9x9)
-         Number of 18x18:      0 (1 18x18 = 1 18x18)
-         Number of 18x36:      0 (2 18x18 = 1 18x36)
-         Number of 36x36:      0 (4 18x18 = 1 36x36)
-      Number of 54-bit Accumulators: 0 out of 28 (0%)
-      Number of 18-bit Registers:    0 out of 112 (0%)
-   Number of Physical DSP Components:
-      Number of PREADD9:             0 out of 112 (0%)
-      Number of MULT9:               0 out of 112 (0%)
-      Number of MULT18:              0 out of 56 (0%)
-      Number of MULT18X36:           0 out of 28 (0%)
-      Number of MULT36:              0 out of 14 (0%)
-      Number of ACC54:               0 out of 28 (0%)
-      Number of REG18:               0 out of 112 (0%)
-   Number of ALUREGs:             0 out of 1 (0%)
-   Number of PLLs:                1 out of 3 (33%)
-   Number of DDRDLLs:             0 out of 2 (0%)
-   Number of DLLDELs:             0 out of 10 (0%)
-   Number of DQSs:                0 out of 4 (0%)
-   Number of DCSs:                0 out of 1 (0%)
-   Number of DCCs:                0 out of 62 (0%)
-   Number of PCLKDIVs:            0 out of 1 (0%)
-   Number of ECLKDIVs:            0 out of 12 (0%)
-   Number of ECLKSYNCs:           0 out of 12 (0%)
-   Number of ADC Blocks:          0 out of 1 (0%)
-   Number of SGMIICDRs:           0 out of 2 (0%)
-   Number of PMUs:                0 out of 1 (0%)
-   Number of BNKREF18s:           0 out of 3 (0%)
-   Number of BNKREF33s:           0 out of 5 (0%)
-   Number of PCIEs:               0 out of 1 (0%)
-   Number of I2CFIFOs:            0 out of 1 (0%)
-   Number of DPHYs:               0 out of 2 (0%)
-   Number of Oscillators:         0 out of 1 (0%)
-   Number of GSR:                 0 out of 1 (0%)
-   Number of Cryptographic Block: 0 out of 1 (0%)
-   Number of Config IP:           0 out of 1 (0%)
-                 TSALL:           0 out of 1 (0%)
-   Number of JTAG:                0 out of 1 (0%)
-   Number of SED:                 0 out of 1 (0%)
-   Number of Clocks:  3
-      Net clk_rx_i_c: 2 loads, 2 rising, 0 falling (Driver: Port clk_rx_i)
-      Net clk_64: 2 loads, 2 rising, 0 falling (Driver: Pin pll0.lscc_pll_inst.gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS)
-      Net clk_i_c: 26 loads, 26 rising, 0 falling (Driver: Port clk_i)
-   Number of Clock Enables:  1
-      Net spi0.clk_i_c_enable_1: 1 loads, 1 SLICEs
-   Number of LSRs:  3
-      Net VCC_net: 2 loads, 0 SLICEs
-      Pin rst: 5 loads, 0 SLICEs (Net: rst_c)
-      Net spi0.rw_N_194: 1 loads, 1 SLICEs
-   Top 10 highest fanout non-clock nets:
-      Net spi0.clk_i_c_enable_1: 17 loads
-      Net spi0.n52: 17 loads
-      Net VCC_net: 13 loads
-      Net rst_c: 12 loads
-      Net spi0.p_ncs: 8 loads
-      Net spi0.pp_ncs: 7 loads
-      Net spi0.cnt_5__N_123[1]: 3 loads
-      Net spi0.cnt_5__N_123[2]: 3 loads
-      Net spi0.p_sck: 3 loads
-      Net spi_ncs_c: 3 loads
-Running physical design DRC...
-
- 
-
-   Number of warnings:  0
-   Number of errors:    0
-
-Constraint Summary:
-   Total number of constraints: 26
-   Total number of constraints dropped: 0
-
-
-Total CPU Time: 2 secs  
-Total REAL Time: 2 secs  
-Peak Memory Usage: 312 MB
-
-
-par -f "OpenHT_impl_1.p2t" "OpenHT_impl_1_map.udb" "OpenHT_impl_1.udb"
-
-Lattice Place and Route Report for Design "OpenHT_impl_1_map.udb"
-Mon Mar 27 10:49:06 2023
-
-PAR: Place And Route Radiant Software (64-bit) 2022.1.0.52.3.
-Command Line: par -w -t 1 -cores 1 -exp parPathBased=OFF OpenHT_impl_1_map.udb \
-	OpenHT_impl_1_par.dir/5_1.udb 
-
-Loading OpenHT_impl_1_map.udb ...
-Loading device for application GENERIC from file 'je5d30.nph' in environment: C:/Radiant/ispfpga.
-Package Status:                     Final          Version 39.
-Performance Hardware Data Status:   Final          Version 115.1.
-
-
-
-Design:  main_all
-Family:  LIFCL
-Device:  LIFCL-40
-Package: QFN72
-Performance Grade:   7_High-Performance_1.0V
-
-Device SLICE utilization summary after final SLICE packing:
-   SLICE             39/16128        <1% used
-
-WARNING - No master clock for
-	generated clock	create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 32 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS }] .
-Number of Signals: 84
-Number of Connections: 252
-Device utilization summary:
-
-   VHI                   1/1           100% used
-   DIFFIO18              5/37           13% used
-                         5/11           45% bonded
-   IOLOGIC               4/74            5% used
-   SEIO18               10/74           13% used
-                        10/22           45% bonded
-   SEIO33               13/185           7% used
-                        13/17           76% bonded
-   PLL                   1/3            33% used
-   SLICE                39/16128        <1% used
-     LUT                38/32256        <1% used
-     REG                27/32256        <1% used
-
-
-Pin Constraint Summary:
-   18 out of 18 pins locked (100% locked).
-Starting Placer Phase 0 (HIER). CPU time: 2 secs , REAL time: 3 secs 
-....
-Finished Placer Phase 0 (HIER). CPU time: 2 secs , REAL time: 3 secs 
-
-Starting Placer Phase 1. CPU time: 2 secs , REAL time: 3 secs 
-..  ..
-....................
-
-Placer score = 43399.
-Finished Placer Phase 1. CPU time: 4 secs , REAL time: 5 secs 
-
-Starting Placer Phase 2.
-.
-
-Placer score =  43370
-Finished Placer Phase 2.  CPU time: 4 secs , REAL time: 5 secs 
-
-After final PLC packing legalization, all 0 SLICEs that were not satisfying 1 CLK/CE/LSR per HALF-PLC restriction are all placed into compatible PLCs.
-
------------------- Clock Report ------------------
-
-Global Clock Resources:
-  CLK_PIN    : 2 out of 13 (15%)
-  PLL        : 1 out of 3 (33%)
-  DCS        : 0 out of 1 (0%)
-  DCC        : 0 out of 62 (0%)
-  ECLKDIV    : 0 out of 12 (0%)
-  PCLKDIV    : 0 out of 1 (0%)
-  OSC        : 0 out of 1 (0%)
-  DPHY       : 0 out of 2 (0%)
-  PCIE       : 0 out of 1 (0%)
-
-Global Clocks:
-  PRIMARY "clk_64" from CLKOS on comp "pll0.lscc_pll_inst.gen_no_refclk_mon.u_PLL.PLL_inst" on PLL site "PLL_LLC", clk load = 2, ce load = 0, sr load = 0
-  PRIMARY "clk_i_c" from comp "clk_i" on CLK_PIN site "59 (PT76A)", clk load = 26, ce load = 0, sr load = 0
-  PRIMARY "clk_rx_i_c" from comp "clk_rx_i" on CLK_PIN site "24 (PB58A)", clk load = 2, ce load = 0, sr load = 0
-
-  PRIMARY  : 3 out of 16 (18%)
-
-Edge Clocks:
-
-  No edge clock selected.
-
-
---------------- End of Clock Report ---------------
-
-
-I/O Usage Summary (final):
-   13 out of 185 (7.0%) SEIO33 sites used.
-   13 out of 17 (76.5%) bonded SEIO33 sites used.
-   Number of SEIO33 components: 13; differential: 0
-   Number of Vref pins used: 0
-   5 out of 74 (6.8%) SEIO18 sites used.
-   5 out of 22 (22.7%) bonded SEIO18 sites used.
-   Number of SEIO18 components: 5; differential: 5
-   5 out of 37 (13.5%) DIFFIO18 sites used.
-   5 out of 11 (45.5%) bonded DIFFIO18 sites used.
-   Number of DIFFIO18 components: 5; differential: 5
-
-I/O Bank Usage Summary:
-+----------+----------------+------------+------------+------------+
-| I/O Bank | Usage          | Bank Vccio | Bank Vref1 | Bank Vref2 |
-+----------+----------------+------------+------------+------------+
-| 0        | 7 / 10 ( 70%)  | 3.3V       | -          | -          |
-| 1        | 6 / 7 ( 85%)   | 3.3V       | -          | -          |
-| 3        | 10 / 12 ( 83%) | 1.8V       | -          | -          |
-| 5        | 0 / 10 (  0%)  | -          | -          | -          |
-+----------+----------------+------------+------------+------------+
-
-Total Placer CPU time: 4 secs , REAL time: 5 secs 
-
-Writing design to file OpenHT_impl_1_par.dir/5_1.udb ...
-
-
-Start NBR router at 10:49:11 03/27/23
-
-*****************************************************************
-Info: NBR allows conflicts(one node used by more than one signal)
-      in the earlier iterations. In each iteration, it tries to  
-      solve the conflicts while keeping the critical connections 
-      routed as short as possible. The routing process is said to
-      be completed when no conflicts exist and all connections   
-      are routed.                                                
-Note: NBR uses a different method to calculate timing slacks. The
-      worst slack and total negative slack may not be the same as
-      that in timing report. You should always run the timing    
-      tool to verify your design.                                
-*****************************************************************
-
-Starting routing resource preassignment
-Preassignment Summary:
---------------------------------------------------------------------------------
-30 connections routed with dedicated routing resources
-3 global clock signals routed
-73 connections routed (of 252 total) (28.97%)
----------------------------------------------------------
-Clock routing summary:
-Primary clocks (6 used out of 32 available):
-    Signal "clk_rx_i_c" (0, 16)
-       Clock   loads: 2     out of     2 routed (100.00%)
-       Data    loads: 0     out of     1 routed (  0.00%)
-    Signal "clk_64" (2, 18)
-       Clock   loads: 2     out of     2 routed (100.00%)
-    Signal "clk_i_c" (9, 25)
-       Clock   loads: 26    out of    26 routed (100.00%)
-Other clocks:
-    Signal "VCC_net"
-       Clock   loads: 2     out of     2 routed (100.00%)
-       Control loads: 2     out of     2 routed (100.00%)
-       Data    loads: 9     out of     9 routed (100.00%)
-    Signal "pll0.lscc_pll_inst.fbclk_w"
-       Clock   loads: 1     out of     1 routed (100.00%)
----------------------------------------------------------
---------------------------------------------------------------------------------
-Completed routing resource preassignment
-WARNING - No master clock for
-	generated clock	create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 32 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS }] .
-    TimerIf::skewscore 0
-
-Start NBR section for initial routing at 10:49:12 03/27/23
-Level 4, iteration 1
-25(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 0 secs 
-
-Info: Initial congestion level at 75.00% usage is 0
-Info: Initial congestion area  at 75.00% usage is 0 (0.00%)
-
-Start NBR section for normal routing at 10:49:12 03/27/23
-Level 4, iteration 1
-20(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 0 secs 
-Level 4, iteration 2
-1(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 0 secs 
-Level 4, iteration 3
-1(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 0 secs 
-Level 4, iteration 4
-0(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 0 secs 
-
-Start NBR section for post-routing at 10:49:12 03/27/23
-
-End NBR router with 0 unrouted connection
-WARNING - No master clock for
-	generated clock	create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 32 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS }] .
-Changing speed to M
-
-Starting full timing analysis...
-Changing speed to 10
-
-NBR Summary
------------
-  Number of unrouted connections : 0 (0.00%)
-  Estimated worst slack<setup> : <n/a>
-  Estimated worst slack<hold > : <n/a>
-  Timing score<setup> : 0
-  Timing score<hold > : 0
-  Number of connections with timing violations<setup> : 0 (0.00%)
-  Number of connections with timing violations<hold > : 0 (0.00%)
------------
-
-
-Total CPU time 2 secs 
-Total REAL time: 2 secs 
-Completely routed.
-End of route.  252 routed (100.00%); 0 unrouted.
-
-Writing design to file OpenHT_impl_1_par.dir/5_1.udb ...
-
-
-PAR_SUMMARY::Run status = Completed
-PAR_SUMMARY::Number of unrouted conns = 0
-PAR_SUMMARY::Worst  slack<setup/<ns>> = <n/a>
-PAR_SUMMARY::Timing score<setup/<ns>> = <n/a>
-PAR_SUMMARY::Worst  slack<hold /<ns>> = <n/a>
-PAR_SUMMARY::Timing score<hold /<ns>> = <n/a>
-PAR_SUMMARY::Number of errors = 0
-
-Total CPU  Time: 7 secs 
-Total REAL Time: 7 secs 
-Peak Memory Usage: 410.29 MB
-
-
-par done!
-
-Note: user must run 'timing' for timing closure signoff.
-
-Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
-Copyright (c) 1995 AT&T Corp.   All rights reserved.
-Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
-Copyright (c) 2001 Agere Systems   All rights reserved.
-Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-
-tmcheck -par "OpenHT_impl_1.par" 
-
-bitgen -w "OpenHT_impl_1.udb" -f "OpenHT_impl_1.t2b" -s "C:/Users/SP5WWP/Documents/Radiant/OpenHT/security_setting/OpenHT.secproj"
-Loading OpenHT_impl_1.udb ...
-Loading device for application GENERIC from file 'je5d30.nph' in environment: C:/Radiant/ispfpga.
-Package Status:                     Final          Version 39.
-Performance Hardware Data Status:   Final          Version 115.1.
-
-
-
-Design:  main_all
-Family:  LIFCL
-Device:  LIFCL-40
-Package: QFN72
-Performance Grade:   7_High-Performance_1.0V
-Successfully loading design udb and device data from disks and to up-layer in CPU time: 1 secs , REAL time: 0 secs 
-
-
-
-BITGEN: Bitstream Generator Radiant Software (64-bit) 2022.1.0.52.3
-Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
-Copyright (c) 1995 AT&T Corp.   All rights reserved.
-Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
-Copyright (c) 2001 Agere Systems   All rights reserved.
-Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-
-
-Running DRC.
-DRC detected 0 errors and 0 warnings.
-
-Preference Summary:
-+---------------------------------+---------------------------------+
-|  Preference                     |  Current Setting                |
-+---------------------------------+---------------------------------+
-|                        DONE_EX  |                           OFF*  |
-+---------------------------------+---------------------------------+
-|                        DONE_OD  |                            ON*  |
-+---------------------------------+---------------------------------+
-|                  CONFIG_SECURE  |                           OFF*  |
-+---------------------------------+---------------------------------+
-|               EARLY_IO_RELEASE  |                           OFF*  |
-+---------------------------------+---------------------------------+
-|                  REGISTER_INIT  |                           ON**  |
-+---------------------------------+---------------------------------+
-|   MASTER_PREAMBLE_TIMER_CYCLES  |                        600000*  |
-+---------------------------------+---------------------------------+
-|                 SLAVE_SPI_PORT  |                      DISABLE**  |
-+---------------------------------+---------------------------------+
-|                 SLAVE_I2C_PORT  |                      DISABLE**  |
-+---------------------------------+---------------------------------+
-|                 SLAVE_I3C_PORT  |                      DISABLE**  |
-+---------------------------------+---------------------------------+
-|                      JTAG_PORT  |                        DISABLE  |
-+---------------------------------+---------------------------------+
-|                      DONE_PORT  |                       ENABLE**  |
-+---------------------------------+---------------------------------+
-|                     INITN_PORT  |                       ENABLE**  |
-+---------------------------------+---------------------------------+
-|                  PROGRAMN_PORT  |                       ENABLE**  |
-+---------------------------------+---------------------------------+
-|                        TRANSFR  |                           OFF*  |
-+---------------------------------+---------------------------------+
-|                MASTER_SPI_PORT  |                      DISABLE**  |
-+---------------------------------+---------------------------------+
-|                     MCCLK_FREQ  |                           3.5*  |
-+---------------------------------+---------------------------------+
-|                COMPRESS_CONFIG  |                           OFF*  |
-+---------------------------------+---------------------------------+
-|            BACKGROUND_RECONFIG  |                           OFF*  |
-+---------------------------------+---------------------------------+
-|                  CONFIG_IOSLEW  |                          SLOW*  |
-+---------------------------------+---------------------------------+
-|                        WAKE_UP  |              ENABLE_DONE_SYNC*  |
-+---------------------------------+---------------------------------+
-|                       BOOTMODE  |                         DUAL**  |
-+---------------------------------+---------------------------------+
-|         CONFIGIO_VOLTAGE_BANK0  |                NOT_SPECIFIED**  |
-+---------------------------------+---------------------------------+
-|         CONFIGIO_VOLTAGE_BANK1  |                 NOT_SPECIFIED*  |
-+---------------------------------+---------------------------------+
- *  Default setting.
- ** The specified setting matches the default setting.
-
-
-Creating bit map...
- 
-Bitstream Status: Final           Version 9.8.
- 
-Saving bit stream in "C:\Users\SP5WWP\Documents\Radiant\OpenHT\impl_1\OpenHT_impl_1.bit".
-Bitstream generation complete!
-
-Total CPU Time: 9 secs 
-Total REAL Time: 9 secs 
-Peak Memory Usage: 522 MB
 
