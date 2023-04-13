@@ -58,6 +58,7 @@
 "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/AM_modulator.vhd"
 "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/FM_modulator.vhd"
 "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/PM_modulator.vhd"
+"C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/CTCSS_encoder.vhd"
 "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/ctrl_regs.vhd"
 "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/dither_adder.vhd"
 "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/dither_source.vhd"
