@@ -20,12 +20,59 @@ entity ctcss_encoder is
 end ctcss_encoder;
 
 architecture magic of ctcss_encoder is
-	type ctcss_f is array(0 to 2) of std_logic_vector(20 downto 0);
+	type ctcss_f is array(0 to 50) of std_logic_vector(20 downto 0);
 	
-	constant ctcss_lut : ctcss_f := ( -- TODO: fill this with all 50 values
-        '0' & x"00000",	-- no CTCSS
-		'0' & x"0029B",	-- 127.3
-		'0' & x"0042B"	-- 203.5
+	constant ctcss_lut : ctcss_f := (
+		'0' & x"00000",	-- no CTCSS
+		'0' & x"0016B", -- 69.3
+		'0' & x"00178", -- 71.9
+		'0' & x"00186", -- 74.4
+		'0' & x"00193", -- 77.0
+		'0' & x"001A1", -- 79.7
+		'0' & x"001B0", -- 82.5
+		'0' & x"001BF", -- 85.4
+		'0' & x"001CF", -- 88.5
+		'0' & x"001DF", -- 91.5
+		'0' & x"001F1", -- 94.8
+		'0' & x"001FE", -- 97.4
+		'0' & x"0020C", -- 100.0
+		'0' & x"0021E", -- 103.5
+		'0' & x"00232", -- 107.2
+		'0' & x"00245", -- 110.9
+		'0' & x"00259", -- 114.8
+		'0' & x"0026E", -- 118.8
+		'0' & x"00284", -- 123.0
+		'0' & x"0029B", -- 127.3
+		'0' & x"002B3", -- 131.8
+		'0' & x"002CB", -- 136.5
+		'0' & x"002E4", -- 141.3
+		'0' & x"002FE", -- 146.2
+		'0' & x"00319", -- 151.4
+		'0' & x"00335", -- 156.7
+		'0' & x"00345", -- 159.8
+		'0' & x"00352", -- 162.2
+		'0' & x"00363", -- 165.5
+		'0' & x"00370", -- 167.9
+		'0' & x"00382", -- 171.3
+		'0' & x"0038F", -- 173.8
+		'0' & x"003A1", -- 177.3
+		'0' & x"003AF", -- 179.9
+		'0' & x"003C2", -- 183.5
+		'0' & x"003D0", -- 186.2
+		'0' & x"003E3", -- 189.9
+		'0' & x"003F2", -- 192.8
+		'0' & x"00406", -- 196.6
+		'0' & x"00415", -- 199.5
+		'0' & x"0042A", -- 203.5
+		'0' & x"0043A", -- 206.5
+		'0' & x"00450", -- 210.7
+		'0' & x"00477", -- 218.1
+		'0' & x"0049F", -- 225.7
+		'0' & x"004B1", -- 229.1
+		'0' & x"004C8", -- 233.6
+		'0' & x"004F3", -- 241.8
+		'0' & x"00520", -- 250.3
+		'0' & x"00534"  -- 254.1
 	);
 
 	component sincos_16 is
@@ -36,8 +83,8 @@ architecture magic of ctcss_encoder is
 		);
 	end component;
 	
-	signal raw_r				: std_logic_vector(15 downto 0) := (others => '0');
-	signal phase				: std_logic_vector(20 downto 0) := (others => '0');
+	signal raw_r			: std_logic_vector(15 downto 0) := (others => '0');
+	signal phase			: std_logic_vector(20 downto 0) := (others => '0');
 	signal p_trig_i, pp_trig_i	: std_logic := '0';
 begin
 	-- sincos LUT
