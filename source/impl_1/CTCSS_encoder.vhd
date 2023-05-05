@@ -103,8 +103,13 @@ begin
 			pp_trig_i <= p_trig_i;
 			
 			if nrst='1' then
-				if pp_trig_i='0' and p_trig_i='1' and unsigned(ctcss_i)<=50 then
-					phase <= std_logic_vector(unsigned(phase) + unsigned(ctcss_lut(to_integer(unsigned(ctcss_i))))); -- update phase accumulator
+				if pp_trig_i='0' and p_trig_i='1' then
+					if unsigned(ctcss_i)<=50 then
+						phase <= std_logic_vector(unsigned(phase) + unsigned(ctcss_lut(to_integer(unsigned(ctcss_i))))); -- update phase accumulator
+					else
+						phase <= (others => '0');
+					end if;
+					
 					ctcss_o <= std_logic_vector(resize(signed(raw_r(15 downto 4)), 16));
 				end if;
 			else
