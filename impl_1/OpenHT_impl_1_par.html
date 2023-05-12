@@ -42,7 +42,7 @@ if (a)
 <DIV id="content" onclick="hideTocList()"><PRE>
 <A name="Par"></A>Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
 
-Mon Mar 27 10:49:06 2023
+Fri May 12 16:12:51 2023
 
 Command Line: par -w -n 1 -t 1 -s 1 -cores 1 -exp parPathBased=OFF \
 	OpenHT_impl_1_map.udb OpenHT_impl_1.udb 
@@ -52,19 +52,19 @@ Command Line: par -w -n 1 -t 1 -s 1 -cores 1 -exp parPathBased=OFF \
 Level/       Number       Worst        Timing       Worst        Timing       Run          Run
 Cost [udb]   Unrouted     Slack        Score        Slack(hold)  Score(hold)  Time         Status
 ----------   --------     -----        ------       -----------  -----------  ----         ------
-5_1   *      0            -            0            -            0            07           Completed
+5_1   *      0            -            0            -            0            57           Completed
 * : Design saved.
 
-Total (real) run time for 1-seed: 7 secs 
+Total (real) run time for 1-seed: 58 secs 
 
 par done!
 
 Lattice Place and Route Report for Design &quot;OpenHT_impl_1_map.udb&quot;
-Mon Mar 27 10:49:06 2023
+Fri May 12 16:12:51 2023
 
 
 <A name="par_best"></A><B><U><big>Best Par Run</big></U></B>
-PAR: Place And Route Radiant Software (64-bit) 2022.1.0.52.3.
+PAR: Place And Route Radiant Software (64-bit) 2022.1.1.289.4.
 Command Line: par -w -t 1 -cores 1 -exp parPathBased=OFF OpenHT_impl_1_map.udb \
 	OpenHT_impl_1_par.dir/5_1.udb 
 
@@ -76,53 +76,104 @@ Performance Hardware Data Status:   Final          Version 115.1.
 
 
 Design:  main_all
-Family:  LIFCL
+Family:  je5d00
 Device:  LIFCL-40
 Package: QFN72
 Performance Grade:   7_High-Performance_1.0V
+WARNING - par: Unable to find the instance/port &apos;io0&apos; in the constraint &apos;ldc_set_location -site {44} [get_ports io0]&apos;
+
+WARNING - par: In the constraint &apos;ldc_set_location -site {44} [get_ports io0]&apos;, the locate object is not specified
+
+WARNING - par: Unable to find the instance/port &apos;io1&apos; in the constraint &apos;ldc_set_location -site {42} [get_ports io1]&apos;
+
+WARNING - par: In the constraint &apos;ldc_set_location -site {42} [get_ports io1]&apos;, the locate object is not specified
+
+WARNING - par: Unable to find the instance/port &apos;io2&apos; in the constraint &apos;ldc_set_location -site {51} [get_ports io2]&apos;
+
+WARNING - par: In the constraint &apos;ldc_set_location -site {51} [get_ports io2]&apos;, the locate object is not specified
+
+WARNING - par: Top module port &apos;io0&apos; does not connect to anything.
+WARNING - par: Top module port &apos;io1&apos; does not connect to anything.
+WARNING - par: Top module port &apos;io2&apos; does not connect to anything.
 
 Device SLICE utilization summary after final SLICE packing:
-   SLICE             39/16128        &lt;1% used
+   SLICE          11013/16128        68% used
+
+WARNING - par: Unable to find the instance/port &apos;io0&apos; in the constraint &apos;ldc_set_location -site {44} [get_ports io0]&apos;
+
+WARNING - par: In the constraint &apos;ldc_set_location -site {44} [get_ports io0]&apos;, the locate object is not specified
+
+WARNING - par: Unable to find the instance/port &apos;io1&apos; in the constraint &apos;ldc_set_location -site {42} [get_ports io1]&apos;
+
+WARNING - par: In the constraint &apos;ldc_set_location -site {42} [get_ports io1]&apos;, the locate object is not specified
+
+WARNING - par: Unable to find the instance/port &apos;io2&apos; in the constraint &apos;ldc_set_location -site {51} [get_ports io2]&apos;
+
+WARNING - par: In the constraint &apos;ldc_set_location -site {51} [get_ports io2]&apos;, the locate object is not specified
 
 WARNING - par: No master clock for
+	generated clock	create_generated_clock -name {clk_152} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOP }] .
+WARNING - par: No master clock for
 	generated clock	create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 32 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS }] .
-Number of Signals: 84
-Number of Connections: 252
+WARNING - par: No master clock for
+	generated clock	create_generated_clock -name {clk_38} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 19 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS2 }] .
+WARNING - par: Unable to find the instance/port &apos;io0&apos; in the constraint &apos;ldc_set_location -site {44} [get_ports io0]&apos;
+
+WARNING - par: In the constraint &apos;ldc_set_location -site {44} [get_ports io0]&apos;, the locate object is not specified
+
+WARNING - par: Unable to find the instance/port &apos;io1&apos; in the constraint &apos;ldc_set_location -site {42} [get_ports io1]&apos;
+
+WARNING - par: In the constraint &apos;ldc_set_location -site {42} [get_ports io1]&apos;, the locate object is not specified
+
+WARNING - par: Unable to find the instance/port &apos;io2&apos; in the constraint &apos;ldc_set_location -site {51} [get_ports io2]&apos;
+
+WARNING - par: In the constraint &apos;ldc_set_location -site {51} [get_ports io2]&apos;, the locate object is not specified
+
+Number of Signals: 19214
+Number of Connections: 56246
 
 <A name="par_dus"></A><B><U><big>Device utilization summary:</big></U></B>
 
    VHI                   1/1           100% used
+   MULT9                62/112          55% used
+   MULT18               31/56           55% used
+   MULT18X36             6/28           21% used
+   REG18                56/112          50% used
+   ACC54                 6/28           21% used
+   PREADD9              62/112          55% used
    DIFFIO18              5/37           13% used
                          5/11           45% bonded
    IOLOGIC               4/74            5% used
    SEIO18               10/74           13% used
                         10/22           45% bonded
-   SEIO33               13/185           7% used
-                        13/17           76% bonded
-   PLL                   1/3            33% used
-   SLICE                39/16128        &lt;1% used
-     LUT                38/32256        &lt;1% used
-     REG                27/32256        &lt;1% used
+   SEIO33               10/39           25% used
+                        10/17           58% bonded
+   PLL                   2/3            66% used
+   SLICE             11013/16128        68% used
+     LUT              9348/32256        28% used
+     REG              4876/32256        15% used
 
 
 Pin Constraint Summary:
-   18 out of 18 pins locked (100% locked).
-Starting Placer Phase 0 (HIER). CPU time: 2 secs , REAL time: 3 secs 
-....
-Finished Placer Phase 0 (HIER). CPU time: 2 secs , REAL time: 3 secs 
+   15 out of 15 pins locked (100% locked).
 
-Starting Placer Phase 1. CPU time: 2 secs , REAL time: 3 secs 
+Starting Placer Phase 0 (HIER). CPU time: 8 secs , REAL time: 9 secs 
+...........
+Finished Placer Phase 0 (HIER). CPU time: 12 secs , REAL time: 13 secs 
+
+
+Starting Placer Phase 1. CPU time: 13 secs , REAL time: 13 secs 
 ..  ..
-....................
+.....................
 
-Placer score = 43399.
-Finished Placer Phase 1. CPU time: 4 secs , REAL time: 5 secs 
+Placer score = 4264697.
+Finished Placer Phase 1. CPU time: 21 secs , REAL time: 21 secs 
 
 Starting Placer Phase 2.
 .
 
-Placer score =  43370
-Finished Placer Phase 2.  CPU time: 4 secs , REAL time: 5 secs 
+Placer score =  4017416
+Finished Placer Phase 2.  CPU time: 23 secs , REAL time: 23 secs 
 
 After final PLC packing legalization, all 0 SLICEs that were not satisfying 1 CLK/CE/LSR per HALF-PLC restriction are all placed into compatible PLCs.
 
@@ -131,7 +182,7 @@ After final PLC packing legalization, all 0 SLICEs that were not satisfying 1 CL
 
 Global Clock Resources:
   CLK_PIN    : 2 out of 13 (15%)
-  PLL        : 1 out of 3 (33%)
+  PLL        : 2 out of 3 (66%)
   DCS        : 0 out of 1 (0%)
   DCC        : 0 out of 62 (0%)
   ECLKDIV    : 0 out of 12 (0%)
@@ -141,11 +192,18 @@ Global Clock Resources:
   PCIE       : 0 out of 1 (0%)
 
 Global Clocks:
-  PRIMARY &quot;clk_64&quot; from CLKOS on comp &quot;pll0.lscc_pll_inst.gen_no_refclk_mon.u_PLL.PLL_inst&quot; on PLL site &quot;PLL_LLC&quot;, clk load = 2, ce load = 0, sr load = 0
-  PRIMARY &quot;clk_i_c&quot; from comp &quot;clk_i&quot; on CLK_PIN site &quot;59 (PT76A)&quot;, clk load = 26, ce load = 0, sr load = 0
-  PRIMARY &quot;clk_rx_i_c&quot; from comp &quot;clk_rx_i&quot; on CLK_PIN site &quot;24 (PB58A)&quot;, clk load = 2, ce load = 0, sr load = 0
+  PRIMARY &quot;clk_i_c&quot; from comp &quot;clk_i&quot; on CLK_PIN site &quot;59 (PT76A)&quot;, clk load = 559, ce load = 0, sr load = 0
+  PRIMARY &quot;clk_152&quot; from CLKOP on comp &quot;pll0.lscc_pll_inst.gen_no_refclk_mon.u_PLL.PLL_inst&quot; on PLL site &quot;PLL_ULC&quot;, clk load = 92, ce load = 0, sr load = 0
+  PRIMARY &quot;clk_64&quot; from CLKOS on comp &quot;pll0.lscc_pll_inst.gen_no_refclk_mon.u_PLL.PLL_inst&quot; on PLL site &quot;PLL_ULC&quot;, clk load = 51, ce load = 0, sr load = 0
+  PRIMARY &quot;clk_38&quot; from CLKOS2 on comp &quot;pll0.lscc_pll_inst.gen_no_refclk_mon.u_PLL.PLL_inst&quot; on PLL site &quot;PLL_ULC&quot;, clk load = 4243, ce load = 0, sr load = 0
+  PRIMARY &quot;clk_rx09_c&quot; from comp &quot;clk_rx_i&quot; on CLK_PIN site &quot;24 (PB58A)&quot;, clk load = 2, ce load = 0, sr load = 0
+  PRIMARY &quot;clk_38_enable_4031&quot; from F0 on comp &quot;lo0.SLICE_7534&quot; on site &quot;R38C49A&quot;, clk load = 0, ce load = 1000, sr load = 0
+  PRIMARY &quot;clk_38_enable_3965&quot; from F0 on comp &quot;lo0.SLICE_7544&quot; on site &quot;R38C50A&quot;, clk load = 0, ce load = 922, sr load = 0
+  PRIMARY &quot;hilbert0.clk_38_enable_3917&quot; from F0 on comp &quot;hilbert0.SLICE_9910&quot; on site &quot;R20C49A&quot;, clk load = 0, ce load = 844, sr load = 0
+  PRIMARY &quot;clk_38_enable_4032&quot; from F0 on comp &quot;lo0.SLICE_7549&quot; on site &quot;R20C50A&quot;, clk load = 0, ce load = 662, sr load = 0
+  PRIMARY &quot;hilbert0.clk_38_enable_3623&quot; from F0 on comp &quot;hilbert0.SLICE_10136&quot; on site &quot;R54C47A&quot;, clk load = 0, ce load = 453, sr load = 0
 
-  PRIMARY  : 3 out of 16 (18%)
+  PRIMARY  : 10 out of 16 (62%)
 
 Edge Clocks:
 
@@ -156,9 +214,9 @@ Edge Clocks:
 
 
 I/O Usage Summary (final):
-   13 out of 185 (7.0%) SEIO33 sites used.
-   13 out of 17 (76.5%) bonded SEIO33 sites used.
-   Number of SEIO33 components: 13; differential: 0
+   10 out of 39 (25.6%) SEIO33 sites used.
+   10 out of 17 (58.8%) bonded SEIO33 sites used.
+   Number of SEIO33 components: 10; differential: 0
    Number of Vref pins used: 0
    5 out of 74 (6.8%) SEIO18 sites used.
    5 out of 22 (22.7%) bonded SEIO18 sites used.
@@ -171,18 +229,30 @@ I/O Bank Usage Summary:
 +----------+----------------+------------+------------+------------+
 | I/O Bank | Usage          | Bank Vccio | Bank Vref1 | Bank Vref2 |
 +----------+----------------+------------+------------+------------+
-| 0        | 7 / 10 ( 70%)  | 3.3V       | -          | -          |
-| 1        | 6 / 7 ( 85%)   | 3.3V       | -          | -          |
+| 0        | 6 / 10 ( 60%)  | 3.3V       | -          | -          |
+| 1        | 4 / 7 ( 57%)   | 3.3V       | -          | -          |
 | 3        | 10 / 12 ( 83%) | 1.8V       | -          | -          |
 | 5        | 0 / 10 (  0%)  | -          | -          | -          |
 +----------+----------------+------------+------------+------------+
 
-Total Placer CPU time: 4 secs , REAL time: 5 secs 
+Total Placer CPU time: 23 secs , REAL time: 24 secs 
 
 Writing design to file OpenHT_impl_1_par.dir/5_1.udb ...
 
+WARNING - par: Unable to find the instance/port &apos;io0&apos; in the constraint &apos;ldc_set_location -site {44} [get_ports io0]&apos;
 
-Start NBR router at 10:49:11 03/27/23
+WARNING - par: In the constraint &apos;ldc_set_location -site {44} [get_ports io0]&apos;, the locate object is not specified
+
+WARNING - par: Unable to find the instance/port &apos;io1&apos; in the constraint &apos;ldc_set_location -site {42} [get_ports io1]&apos;
+
+WARNING - par: In the constraint &apos;ldc_set_location -site {42} [get_ports io1]&apos;, the locate object is not specified
+
+WARNING - par: Unable to find the instance/port &apos;io2&apos; in the constraint &apos;ldc_set_location -site {51} [get_ports io2]&apos;
+
+WARNING - par: In the constraint &apos;ldc_set_location -site {51} [get_ports io2]&apos;, the locate object is not specified
+
+
+Start NBR router at 16:13:16 05/12/23
 
 *****************************************************************
 Info: NBR allows conflicts(one node used by more than one signal)
@@ -200,54 +270,92 @@ Note: NBR uses a different method to calculate timing slacks. The
 Starting routing resource preassignment
 Preassignment Summary:
 --------------------------------------------------------------------------------
-30 connections routed with dedicated routing resources
-3 global clock signals routed
-73 connections routed (of 252 total) (28.97%)
+7736 connections routed with dedicated routing resources
+10 global clock signals routed
+17386 connections routed (of 56246 total) (30.91%)
 ---------------------------------------------------------
 Clock routing summary:
-Primary clocks (6 used out of 32 available):
-    Signal &quot;clk_rx_i_c&quot; (0, 16)
+Primary clocks (20 used out of 32 available):
+    Signal &quot;clk_rx09_c&quot; (2, 18)
        Clock   loads: 2     out of     2 routed (100.00%)
        Data    loads: 0     out of     1 routed (  0.00%)
-    Signal &quot;clk_64&quot; (2, 18)
-       Clock   loads: 2     out of     2 routed (100.00%)
-    Signal &quot;clk_i_c&quot; (9, 25)
-       Clock   loads: 26    out of    26 routed (100.00%)
+    Signal &quot;clk_152&quot; (7, 23)
+       Clock   loads: 92    out of    92 routed (100.00%)
+    Signal &quot;clk_38&quot; (6, 22)
+       Clock   loads: 4243  out of  4243 routed (100.00%)
+    Signal &quot;clk_38_enable_4032&quot; (9, 25)
+       Control loads: 662   out of   662 routed (100.00%)
+       Data    loads: 0     out of   337 routed (  0.00%)
+    Signal &quot;clk_i_c&quot; (0, 16)
+       Clock   loads: 559   out of   559 routed (100.00%)
+    Signal &quot;clk_38_enable_4031&quot; (3, 19)
+       Control loads: 1000  out of  1000 routed (100.00%)
+    Signal &quot;clk_38_enable_3965&quot; (10, 26)
+       Control loads: 922   out of   922 routed (100.00%)
+    Signal &quot;clk_64&quot; (11, 27)
+       Clock   loads: 51    out of    51 routed (100.00%)
+    Signal &quot;hilbert0.clk_38_enable_3917&quot; (5, 21)
+       Control loads: 844   out of   844 routed (100.00%)
+       Data    loads: 0     out of   156 routed (  0.00%)
+    Signal &quot;hilbert0.clk_38_enable_3623&quot; (4, 20)
+       Control loads: 453   out of   453 routed (100.00%)
 Other clocks:
     Signal &quot;VCC_net&quot;
-       Clock   loads: 2     out of     2 routed (100.00%)
-       Control loads: 2     out of     2 routed (100.00%)
-       Data    loads: 9     out of     9 routed (100.00%)
+       Clock   loads: 4     out of     4 routed (100.00%)
+       Control loads: 101   out of   101 routed (100.00%)
+       Data    loads: 718   out of   718 routed (100.00%)
+    Signal &quot;pll1.lscc_pll_inst.fbclk_w&quot;
+       Clock   loads: 1     out of     1 routed (100.00%)
     Signal &quot;pll0.lscc_pll_inst.fbclk_w&quot;
        Clock   loads: 1     out of     1 routed (100.00%)
 ---------------------------------------------------------
 --------------------------------------------------------------------------------
 Completed routing resource preassignment
 WARNING - par: No master clock for
+	generated clock	create_generated_clock -name {clk_152} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOP }] .
+WARNING - par: No master clock for
 	generated clock	create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 32 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS }] .
+WARNING - par: No master clock for
+	generated clock	create_generated_clock -name {clk_38} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 19 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS2 }] .
 
-Start NBR section for initial routing at 10:49:12 03/27/23
+Start NBR section for initial routing at 16:13:22 05/12/23
 Level 4, iteration 1
-25(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 0 secs 
+7288(0.42%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 14 secs 
 
 Info: Initial congestion level at 75.00% usage is 0
 Info: Initial congestion area  at 75.00% usage is 0 (0.00%)
 
-Start NBR section for normal routing at 10:49:12 03/27/23
+Start NBR section for normal routing at 16:13:29 05/12/23
 Level 4, iteration 1
-20(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 0 secs 
+5675(0.32%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 17 secs 
 Level 4, iteration 2
-1(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 0 secs 
+2306(0.13%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 19 secs 
 Level 4, iteration 3
-1(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 0 secs 
+1452(0.08%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 20 secs 
 Level 4, iteration 4
-0(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 0 secs 
+945(0.05%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 21 secs 
+Level 4, iteration 5
+338(0.02%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 22 secs 
+Level 4, iteration 6
+96(0.01%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 23 secs 
+Level 4, iteration 7
+35(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 23 secs 
+Level 4, iteration 8
+13(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 23 secs 
+Level 4, iteration 9
+4(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 24 secs 
+Level 4, iteration 10
+0(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 24 secs 
 
-Start NBR section for post-routing at 10:49:12 03/27/23
+Start NBR section for post-routing at 16:13:39 05/12/23
 
 End NBR router with 0 unrouted connection
 WARNING - par: No master clock for
+	generated clock	create_generated_clock -name {clk_152} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOP }] .
+WARNING - par: No master clock for
 	generated clock	create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 32 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS }] .
+WARNING - par: No master clock for
+	generated clock	create_generated_clock -name {clk_38} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 19 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS2 }] .
 
 Starting full timing analysis...
 
@@ -264,10 +372,10 @@ Starting full timing analysis...
 -----------
 
 
-Total CPU time 2 secs 
-Total REAL time: 2 secs 
+Total CPU time 31 secs 
+Total REAL time: 32 secs 
 Completely routed.
-End of route.  252 routed (100.00%); 0 unrouted.
+End of route.  56246 routed (100.00%); 0 unrouted.
 
 Writing design to file OpenHT_impl_1_par.dir/5_1.udb ...
 
@@ -283,9 +391,9 @@ PAR_SUMMARY::Worst  slack&lt;hold /&lt;ns&gt;&gt; = &lt;n/a&gt;
 PAR_SUMMARY::Timing score&lt;hold /&lt;ns&gt;&gt; = &lt;n/a&gt;
 PAR_SUMMARY::Number of errors = 0
 
-Total CPU  Time: 7 secs 
-Total REAL Time: 7 secs 
-Peak Memory Usage: 410.29 MB
+Total CPU  Time: 58 secs 
+Total REAL Time: 58 secs 
+Peak Memory Usage: 784.61 MB
 
 
 par done!

@@ -40,6 +40,7 @@
 -path "C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_rx"
 -path "C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_tx"
 -path "C:/Users/SP5WWP/Documents/Radiant/OpenHT/pll_osc"
+-path "C:/Users/SP5WWP/Documents/Radiant/OpenHT/pll_samp"
 -path "C:/Radiant/ispfpga/je5d00/data" "C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1" "C:/Users/SP5WWP/Documents/Radiant/OpenHT"
 -ver "C:/Radiant/ip/pmi/pmi_lifcl.v"
 -lib pmi -vhd "C:/Radiant/ip/pmi/pmi_lifcl.vhd"
@@ -75,6 +76,7 @@
 "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/delay_block.vhd"
 "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/sideband_selector.vhd"
 -ver "C:/Users/SP5WWP/Documents/Radiant/OpenHT/pll_osc/rtl/pll_osc.v"
+"C:/Users/SP5WWP/Documents/Radiant/OpenHT/pll_samp/rtl/pll_samp.v"
 "C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_rx/rtl/ddr_rx.v"
 "C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_tx/rtl/ddr_tx.v"
 

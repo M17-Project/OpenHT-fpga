@@ -1,5 +1,5 @@
 // Verilog netlist produced by program LSE 
-// Netlist written on Fri May 12 16:03:45 2023
+// Netlist written on Fri May 12 16:03:43 2023
 // Source file index table: 
 // Object locations will have the form @<file_index>(<first_ line>[<left_column>],<last_line>[<right_column>])
 // file 0 "c:/radiant/ip/avant/fifo/rtl/lscc_fifo.v"
@@ -135,18 +135,17 @@
 // file 130 "c:/radiant/cae_library/simulation/verilog/uaplatform/widefn9.v"
 
 //
-// Verilog Description of module ddr_rx
+// Verilog Description of module pll_samp
 // module wrapper written out since it is a black-box. 
 //
 
 //
 
-module ddr_rx (rst_i, data_i, clk_i, data_o, sclk_o);
-    input rst_i;
-    input [0:0]data_i;
-    input clk_i;
-    output [1:0]data_o;
-    output sclk_o;
+module pll_samp (clki_i, rstn_i, clkop_o, lock_o);
+    input clki_i;
+    input rstn_i;
+    output clkop_o;
+    output lock_o;
     
     
     

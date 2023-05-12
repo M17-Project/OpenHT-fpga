@@ -3,28 +3,54 @@ Report for cell main_all
    Instance path: main_all
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  LUT4	         38        100.0
-                               LUTGATE	         30        100.0
-                                LUTCCU	          8        100.0
-                                 IOBUF	         18        100.0
-                                PFUREG	         27        100.0
+                                MULT18	      31.00        100.0
+                                  LUT4	       9348        100.0
+                               LUTGATE	       8194        100.0
+                                LUTRAM	         96        100.0
+                                LUTCCU	       1058        100.0
+                                 IOBUF	         15        100.0
+                                PFUREG	       4876        100.0
+                                 ACC54	          6        100.0
 SUB MODULES
                                   cell	      count    LUT4 Usage(%)
+                           complex_mul	          1         0.0
+                         ctcss_encoder	          1        10.5
+                             ctrl_regs	          1         3.4
                                 ddr_rx	          1         0.0
-                             ddr_rx_U2	          1         0.0
+                             ddr_rx_U6	          1         0.0
                                 ddr_tx	          1         0.0
+                                 decim	          1         0.1
+                              decim_U5	          1         0.1
+                           delay_block	          1         0.2
+                         dither_source	          1         0.0
+                                   dpd	          1         2.9
+                           fir_channel	          1        13.1
+                        fir_channel_U4	          1        13.1
+                           fir_hilbert	          1        13.2
+                          fm_modulator	          1        17.0
+                        iq_balancer_16	          1         0.9
+                                iq_des	          1         0.8
+                             iq_offset	          1         0.6
+                             local_osc	          1         1.2
+                               mag_est	          1         1.4
+                               mod_sel	          1         1.9
                                pll_osc	          1         0.0
-                             spi_slave	          1        92.1
+                              pll_samp	          1         0.0
+                          pm_modulator	          1        15.6
+                          sideband_sel	          1         0.4
+                             spi_slave	          1         0.8
+                                unpack	          1         0.3
+                           zero_insert	          1         0.2
 ---------------------------------------------------
-Report for cell ddr_rx_U2
+Report for cell ddr_rx_U6
    Instance path: main_all/ddr_rx0
                      Cell usage:
                                   cell	      count    Res Usage(%)
 SUB MODULES
                                   cell	      count    LUT4 Usage(%)
-ddr_rx_ipgen_lscc_gddr(INTERFACE_TYPE="RECEIVE",IO_TYPE="LVDS",BUS_WIDTH=1,GEARING=1,OUT_WIDTH=1,CLK_FREQ=128.0,DATA_PATH_DELAY="BYPASS",CLOCK_PATH_DELAY="FIXED",DATA_DELAY_ADJUSTMENT="DEFAULT",DATA_FINE_DELAY_VALUE="0",DATA_COARSE_DELAY_VALUE="0NS",CLOCK_DATA_RELATION="CENTERED",FVCO=900.0,CLKI_FREQ=25.0,CLKOP_FREQ_ACTUAL=150.0,CLKOS_EN=1,CLKOP_BYPASS=1,CLKOS2_BYPASS=1,CLKOS3_BYPASS=1,CLKOS4_BYPASS=1,CLKOS5_BYPASS=1,PLL_RST=1,LOCK_EN=1,FBCLK_DIVIDER_ACTUAL_STR="6",DIVOP_ACTUAL_STR="5",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000000110",DELA="5",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b0100",CSET="24P",CRIPPLE="3P",IPP_CTRL="0b0100",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K")_U1	          1         0.0
+ddr_rx_ipgen_lscc_gddr(INTERFACE_TYPE="RECEIVE",IO_TYPE="LVDS",BUS_WIDTH=1,GEARING=1,OUT_WIDTH=1,CLK_FREQ=128.0,DATA_PATH_DELAY="BYPASS",CLOCK_PATH_DELAY="FIXED",DATA_DELAY_ADJUSTMENT="DEFAULT",DATA_FINE_DELAY_VALUE="0",DATA_COARSE_DELAY_VALUE="0NS",CLOCK_DATA_RELATION="CENTERED",FVCO=900.0,CLKI_FREQ=25.0,CLKOP_FREQ_ACTUAL=150.0,CLKOS_EN=1,CLKOP_BYPASS=1,CLKOS2_BYPASS=1,CLKOS3_BYPASS=1,CLKOS4_BYPASS=1,CLKOS5_BYPASS=1,PLL_RST=1,LOCK_EN=1,FBCLK_DIVIDER_ACTUAL_STR="6",DIVOP_ACTUAL_STR="5",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000000110",DELA="5",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b0100",CSET="24P",CRIPPLE="3P",IPP_CTRL="0b0100",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K")_U2	          1         0.0
 ---------------------------------------------------
-Report for cell ddr_rx_ipgen_lscc_gddr(INTERFACE_TYPE="RECEIVE",IO_TYPE="LVDS",BUS_WIDTH=1,GEARING=1,OUT_WIDTH=1,CLK_FREQ=128.0,DATA_PATH_DELAY="BYPASS",CLOCK_PATH_DELAY="FIXED",DATA_DELAY_ADJUSTMENT="DEFAULT",DATA_FINE_DELAY_VALUE="0",DATA_COARSE_DELAY_VALUE="0NS",CLOCK_DATA_RELATION="CENTERED",FVCO=900.0,CLKI_FREQ=25.0,CLKOP_FREQ_ACTUAL=150.0,CLKOS_EN=1,CLKOP_BYPASS=1,CLKOS2_BYPASS=1,CLKOS3_BYPASS=1,CLKOS4_BYPASS=1,CLKOS5_BYPASS=1,PLL_RST=1,LOCK_EN=1,FBCLK_DIVIDER_ACTUAL_STR="6",DIVOP_ACTUAL_STR="5",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000000110",DELA="5",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b0100",CSET="24P",CRIPPLE="3P",IPP_CTRL="0b0100",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K")_U1
+Report for cell ddr_rx_ipgen_lscc_gddr(INTERFACE_TYPE="RECEIVE",IO_TYPE="LVDS",BUS_WIDTH=1,GEARING=1,OUT_WIDTH=1,CLK_FREQ=128.0,DATA_PATH_DELAY="BYPASS",CLOCK_PATH_DELAY="FIXED",DATA_DELAY_ADJUSTMENT="DEFAULT",DATA_FINE_DELAY_VALUE="0",DATA_COARSE_DELAY_VALUE="0NS",CLOCK_DATA_RELATION="CENTERED",FVCO=900.0,CLKI_FREQ=25.0,CLKOP_FREQ_ACTUAL=150.0,CLKOS_EN=1,CLKOP_BYPASS=1,CLKOS2_BYPASS=1,CLKOS3_BYPASS=1,CLKOS4_BYPASS=1,CLKOS5_BYPASS=1,PLL_RST=1,LOCK_EN=1,FBCLK_DIVIDER_ACTUAL_STR="6",DIVOP_ACTUAL_STR="5",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000000110",DELA="5",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b0100",CSET="24P",CRIPPLE="3P",IPP_CTRL="0b0100",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K")_U2
    Instance path: main_all/ddr_rx0/lscc_gddr_inst
                      Cell usage:
                                   cell	      count    Res Usage(%)
@@ -36,6 +62,62 @@ Report for cell ddr_rx_ipgen_lscc_gddr_rx_sclk_centered_static_bypass(BUS_WIDTH=
    Instance path: main_all/ddr_rx0/lscc_gddr_inst/RX_SCLK_CENTERED_STATIC_BYPASS.u_lscc_gddr_rx_sclk_centered_static_bypass
                      Cell usage:
                                   cell	      count    Res Usage(%)
+---------------------------------------------------
+Report for cell complex_mul
+   Instance path: main_all/mix0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                MULT18	       4.00        12.9
+                                 ACC54	          2        33.3
+---------------------------------------------------
+Report for cell pll_samp
+   Instance path: main_all/pll1
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+pll_samp_ipgen_lscc_pll(FVCO=921.6,CLKI_FREQ=28.0,CLKOP_FREQ_ACTUAL=7.2,FRAC_N_EN=1,PLL_RST=1,LOCK_EN=1,FBK_MODE="INTCLKOP",FBCLK_DIVIDER_ACTUAL_STR="32",DIVOP_ACTUAL_STR="127",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000100000",SSC_F_CODE_STR="0b111010100001000",DELA="127",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b1100",CSET="8P",CRIPPLE="1P",IPP_CTRL="0b0110",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K")	          1         0.0
+---------------------------------------------------
+Report for cell pll_samp_ipgen_lscc_pll(FVCO=921.6,CLKI_FREQ=28.0,CLKOP_FREQ_ACTUAL=7.2,FRAC_N_EN=1,PLL_RST=1,LOCK_EN=1,FBK_MODE="INTCLKOP",FBCLK_DIVIDER_ACTUAL_STR="32",DIVOP_ACTUAL_STR="127",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000100000",SSC_F_CODE_STR="0b111010100001000",DELA="127",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b1100",CSET="8P",CRIPPLE="1P",IPP_CTRL="0b0110",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K")
+   Instance path: main_all/pll1/lscc_pll_inst
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+---------------------------------------------------
+Report for cell mag_est
+   Instance path: main_all/am_demod0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                MULT18	       3.00         9.7
+                                  LUT4	        128         1.4
+                               LUTGATE	         86         1.0
+                                LUTCCU	         42         4.0
+                                PFUREG	         81         1.7
+                                 ACC54	          1        16.7
+---------------------------------------------------
+Report for cell ctrl_regs
+   Instance path: main_all/ctrl_regs0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	        322         3.4
+                               LUTGATE	        322         3.9
+                                PFUREG	        227         4.7
+---------------------------------------------------
+Report for cell delay_block
+   Instance path: main_all/delay_block0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         22         0.2
+                               LUTGATE	         14         0.2
+                                LUTCCU	          8         0.8
+                                PFUREG	          8         0.2
+---------------------------------------------------
+Report for cell local_osc
+   Instance path: main_all/lo0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	        111         1.2
+                               LUTGATE	        111         1.4
+                                PFUREG	         15         0.3
 ---------------------------------------------------
 Report for cell ddr_rx
    Instance path: main_all/ddr_rx1
@@ -55,6 +137,135 @@ ddr_rx_ipgen_lscc_gddr_rx_sclk_centered_static_bypass(BUS_WIDTH=1)	          1  
 ---------------------------------------------------
 Report for cell ddr_rx_ipgen_lscc_gddr_rx_sclk_centered_static_bypass(BUS_WIDTH=1)
    Instance path: main_all/ddr_rx1/lscc_gddr_inst/RX_SCLK_CENTERED_STATIC_BYPASS.u_lscc_gddr_rx_sclk_centered_static_bypass
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+---------------------------------------------------
+Report for cell fir_channel_U4
+   Instance path: main_all/i_fir_ser0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                MULT18	       1.00         3.2
+                                  LUT4	       1225        13.1
+                               LUTGATE	       1183        14.4
+                                LUTCCU	         42         4.0
+                                PFUREG	       1369        28.1
+---------------------------------------------------
+Report for cell iq_des
+   Instance path: main_all/iq_des0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         79         0.8
+                               LUTGATE	         79         1.0
+                                PFUREG	         80         1.6
+---------------------------------------------------
+Report for cell mod_sel
+   Instance path: main_all/tx_mod_sel0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	        182         1.9
+                               LUTGATE	        146         1.8
+                                LUTCCU	         36         3.4
+---------------------------------------------------
+Report for cell fir_channel
+   Instance path: main_all/q_fir_ser0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                MULT18	       1.00         3.2
+                                  LUT4	       1222        13.1
+                               LUTGATE	       1180        14.4
+                                LUTCCU	         42         4.0
+                                PFUREG	       1374        28.2
+---------------------------------------------------
+Report for cell unpack
+   Instance path: main_all/unpack0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         32         0.3
+                               LUTGATE	         32         0.4
+                                PFUREG	         43         0.9
+---------------------------------------------------
+Report for cell decim
+   Instance path: main_all/decim1
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         11         0.1
+                               LUTGATE	         11         0.1
+                                PFUREG	         27         0.6
+---------------------------------------------------
+Report for cell sideband_sel
+   Instance path: main_all/sb_sel0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         34         0.4
+                               LUTGATE	         16         0.2
+                                LUTCCU	         18         1.7
+---------------------------------------------------
+Report for cell dither_source
+   Instance path: main_all/dither_source0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                MULT18	       1.00         3.2
+                                PFUREG	         32         0.7
+                                 ACC54	          1        16.7
+---------------------------------------------------
+Report for cell zero_insert
+   Instance path: main_all/zero_insert0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         21         0.2
+                               LUTGATE	         11         0.1
+                                LUTCCU	         10         0.9
+                                PFUREG	          9         0.2
+---------------------------------------------------
+Report for cell dpd
+   Instance path: main_all/dpd0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                MULT18	      18.00        58.1
+                                  LUT4	        274         2.9
+                               LUTGATE	         34         0.4
+                                LUTCCU	        240        22.7
+                                 ACC54	          2        33.3
+---------------------------------------------------
+Report for cell spi_slave
+   Instance path: main_all/spi_slave0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         72         0.8
+                               LUTGATE	         64         0.8
+                                LUTCCU	          8         0.8
+                                PFUREG	         72         1.5
+---------------------------------------------------
+Report for cell ctcss_encoder
+   Instance path: main_all/ctcss_enc0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	        977        10.5
+                               LUTGATE	        881        10.8
+                                LUTCCU	         96         9.1
+                                PFUREG	         21         0.4
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+                          sincos_16_U3	          1        10.2
+---------------------------------------------------
+Report for cell sincos_16_U3
+   Instance path: main_all/ctcss_enc0/sincos_lut0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	        955        10.2
+                               LUTGATE	        881        10.8
+                                LUTCCU	         74         7.0
+---------------------------------------------------
+Report for cell pll_osc
+   Instance path: main_all/pll0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+pll_osc_ipgen_lscc_pll(FVCO=1216.0,CLKI_FREQ=26.0,CLKOP_FREQ_ACTUAL=152.0,CLKOS_FREQ_ACTUAL=64.0,CLKOS2_FREQ_ACTUAL=38.0,CLKOS_EN=1,CLKOS2_EN=1,FRAC_N_EN=1,PLL_RST=1,LOCK_EN=1,FBK_MODE="INTCLKOP",FBCLK_DIVIDER_ACTUAL_STR="46",DIVOP_ACTUAL_STR="7",DIVOS_ACTUAL_STR="18",DIVOS2_ACTUAL_STR="31",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000101110",SSC_F_CODE_STR="0b110001001111000",DELA="7",DELB="18",DELC="31",DELD="7",DELE="7",DELF="7",IPI_CMP="0b1100",CSET="8P",CRIPPLE="1P",IPP_CTRL="0b0110",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K")	          1         0.0
+---------------------------------------------------
+Report for cell pll_osc_ipgen_lscc_pll(FVCO=1216.0,CLKI_FREQ=26.0,CLKOP_FREQ_ACTUAL=152.0,CLKOS_FREQ_ACTUAL=64.0,CLKOS2_FREQ_ACTUAL=38.0,CLKOS_EN=1,CLKOS2_EN=1,FRAC_N_EN=1,PLL_RST=1,LOCK_EN=1,FBK_MODE="INTCLKOP",FBCLK_DIVIDER_ACTUAL_STR="46",DIVOP_ACTUAL_STR="7",DIVOS_ACTUAL_STR="18",DIVOS2_ACTUAL_STR="31",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000101110",SSC_F_CODE_STR="0b110001001111000",DELA="7",DELB="18",DELC="31",DELD="7",DELE="7",DELF="7",IPI_CMP="0b1100",CSET="8P",CRIPPLE="1P",IPP_CTRL="0b0110",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K")
+   Instance path: main_all/pll0/lscc_pll_inst
                      Cell usage:
                                   cell	      count    Res Usage(%)
 ---------------------------------------------------
@@ -79,24 +290,85 @@ Report for cell ddr_tx_ipgen_lscc_gddr_tx_sclk_aligned_static_bypass(BUS_WIDTH=1
                      Cell usage:
                                   cell	      count    Res Usage(%)
 ---------------------------------------------------
-Report for cell spi_slave
-   Instance path: main_all/spi0
+Report for cell decim_U5
+   Instance path: main_all/decim0
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  LUT4	         35        92.1
-                               LUTGATE	         27        90.0
-                                LUTCCU	          8        100.0
-                                PFUREG	         27        100.0
+                                  LUT4	          9         0.1
+                               LUTGATE	          9         0.1
+                                PFUREG	         43         0.9
 ---------------------------------------------------
-Report for cell pll_osc
-   Instance path: main_all/pll0
+Report for cell pm_modulator
+   Instance path: main_all/pm_mod0
                      Cell usage:
                                   cell	      count    Res Usage(%)
+                                  LUT4	       1458        15.6
+                               LUTGATE	       1330        16.2
+                                LUTCCU	        128        12.1
 SUB MODULES
                                   cell	      count    LUT4 Usage(%)
-pll_osc_ipgen_lscc_pll(FVCO=1216.0,CLKI_FREQ=26.0,CLKOP_FREQ_ACTUAL=152.0,CLKOS_FREQ_ACTUAL=64.0,CLKOS2_FREQ_ACTUAL=38.0,CLKOS_EN=1,CLKOS2_EN=1,FRAC_N_EN=1,PLL_RST=1,LOCK_EN=1,FBK_MODE="INTCLKOP",FBCLK_DIVIDER_ACTUAL_STR="46",DIVOP_ACTUAL_STR="7",DIVOS_ACTUAL_STR="18",DIVOS2_ACTUAL_STR="31",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000101110",SSC_F_CODE_STR="0b110001001111000",DELA="7",DELB="18",DELC="31",DELD="7",DELE="7",DELF="7",IPI_CMP="0b1100",CSET="8P",CRIPPLE="1P",IPP_CTRL="0b0110",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K")	          1         0.0
+                             sincos_16	          1        15.6
 ---------------------------------------------------
-Report for cell pll_osc_ipgen_lscc_pll(FVCO=1216.0,CLKI_FREQ=26.0,CLKOP_FREQ_ACTUAL=152.0,CLKOS_FREQ_ACTUAL=64.0,CLKOS2_FREQ_ACTUAL=38.0,CLKOS_EN=1,CLKOS2_EN=1,FRAC_N_EN=1,PLL_RST=1,LOCK_EN=1,FBK_MODE="INTCLKOP",FBCLK_DIVIDER_ACTUAL_STR="46",DIVOP_ACTUAL_STR="7",DIVOS_ACTUAL_STR="18",DIVOS2_ACTUAL_STR="31",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000101110",SSC_F_CODE_STR="0b110001001111000",DELA="7",DELB="18",DELC="31",DELD="7",DELE="7",DELF="7",IPI_CMP="0b1100",CSET="8P",CRIPPLE="1P",IPP_CTRL="0b0110",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K")
-   Instance path: main_all/pll0/lscc_pll_inst
+Report for cell sincos_16
+   Instance path: main_all/pm_mod0/sincos_lut0
                      Cell usage:
                                   cell	      count    Res Usage(%)
+                                  LUT4	       1458        15.6
+                               LUTGATE	       1330        16.2
+                                LUTCCU	        128        12.1
+---------------------------------------------------
+Report for cell iq_offset
+   Instance path: main_all/iq_offset0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         60         0.6
+                               LUTGATE	         24         0.3
+                                LUTCCU	         36         3.4
+---------------------------------------------------
+Report for cell iq_balancer_16
+   Instance path: main_all/iq_bal0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                MULT18	       2.00         6.5
+                                  LUT4	         80         0.9
+                               LUTGATE	          4         0.0
+                                LUTCCU	         76         7.2
+---------------------------------------------------
+Report for cell fir_hilbert
+   Instance path: main_all/hilbert0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                MULT18	       1.00         3.2
+                                  LUT4	       1234        13.2
+                               LUTGATE	       1192        14.5
+                                LUTCCU	         42         4.0
+                                PFUREG	       1387        28.4
+---------------------------------------------------
+Report for cell fm_modulator
+   Instance path: main_all/freq_mod0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	       1591        17.0
+                               LUTGATE	       1375        16.8
+                                LUTCCU	        216        20.4
+                                 IOBUF	          1         6.7
+                                PFUREG	         60         1.2
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+                          dither_adder	          1         0.2
+                          sincos_16_U1	          1        15.2
+---------------------------------------------------
+Report for cell sincos_16_U1
+   Instance path: main_all/freq_mod0/sincos_lut0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	       1422        15.2
+                               LUTGATE	       1294        15.8
+                                LUTCCU	        128        12.1
+---------------------------------------------------
+Report for cell dither_adder
+   Instance path: main_all/freq_mod0/phase_dither0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         22         0.2
+                                LUTCCU	         22         2.1

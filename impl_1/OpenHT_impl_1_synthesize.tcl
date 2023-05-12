@@ -10,7 +10,7 @@ set para(prj_dir) "C:/Users/SP5WWP/Documents/Radiant/OpenHT"
 # synthesize VMs
 # propgate constraints
 file delete -force -- OpenHT_impl_1_cpe.ldc
-run_engine_newmsg cpe -f "OpenHT_impl_1.cprj" "pll_osc.cprj" "ddr_rx.cprj" "ddr_tx.cprj" -a "LIFCL"  -o OpenHT_impl_1_cpe.ldc
+run_engine_newmsg cpe -f "OpenHT_impl_1.cprj" "pll_osc.cprj" "pll_samp.cprj" "ddr_rx.cprj" "ddr_tx.cprj" -a "LIFCL"  -o OpenHT_impl_1_cpe.ldc
 # synthesize top design
 file delete -force -- OpenHT_impl_1.vm OpenHT_impl_1.ldc
 run_engine_newmsg synthesis -f "OpenHT_impl_1_lattice.synproj"

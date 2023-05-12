@@ -48,7 +48,7 @@ Performance Grade:      7_High-Performance_1.0V
 PACKAGE:          QFN72
 Package Status:                     Final          Version 39
 
-Mon Mar 27 10:49:11 2023
+Fri May 12 16:13:15 2023
 
 Pinout by Port Name:
 +-------------+----------+--------------+-------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -60,9 +60,6 @@ Pinout by Port Name:
 | data_rx09_i | 27/3     | LVDS_IN      | PB68A | DRIVE:NA SLEWRATE:NA GLITCHFILTER:OFF HYSTERESIS:NA TERMINATION:OFF OPENDRAIN:OFF IO_TYPE:LVDS DIFFRESISTOR:100 DIFFDRIVE:NA PULLMODE:NONE CLAMP:ON VREF:OFF        |
 | data_rx24_i | 22/3     | LVDS_IN      | PB54A | DRIVE:NA SLEWRATE:NA GLITCHFILTER:OFF HYSTERESIS:NA TERMINATION:OFF OPENDRAIN:OFF IO_TYPE:LVDS DIFFRESISTOR:100 DIFFDRIVE:NA PULLMODE:NONE CLAMP:ON VREF:OFF        |
 | data_tx_o   | 30/3     | LVDS_OUT     | PB72A | DRIVE:NA SLEWRATE:NA GLITCHFILTER:OFF HYSTERESIS:NA TERMINATION:OFF OPENDRAIN:OFF IO_TYPE:LVDS DIFFRESISTOR:OFF DIFFDRIVE:3.5 PULLMODE:NONE CLAMP:ON VREF:OFF       |
-| io0         | 44/1     | LVCMOS33_IN  | PR11B | DRIVE:NA SLEWRATE:NA GLITCHFILTER:ON HYSTERESIS:ON TERMINATION:OFF OPENDRAIN:OFF IO_TYPE:LVCMOS33 DIFFRESISTOR:OFF DIFFDRIVE:NA PULLMODE:DOWN CLAMP:ON VREF:OFF     |
-| io1         | 42/1     | LVCMOS33_IN  | PR11A | DRIVE:NA SLEWRATE:NA GLITCHFILTER:ON HYSTERESIS:ON TERMINATION:OFF OPENDRAIN:OFF IO_TYPE:LVCMOS33 DIFFRESISTOR:OFF DIFFDRIVE:NA PULLMODE:DOWN CLAMP:ON VREF:OFF     |
-| io2         | 51/0     | LVCMOS33_IN  | PT80A | DRIVE:NA SLEWRATE:NA GLITCHFILTER:ON HYSTERESIS:ON TERMINATION:OFF OPENDRAIN:OFF IO_TYPE:LVCMOS33 DIFFRESISTOR:OFF DIFFDRIVE:NA PULLMODE:DOWN CLAMP:ON VREF:OFF     |
 | io3         | 52/0     | LVCMOS33_OUT | PT82A | DRIVE:8mA SLEWRATE:MED GLITCHFILTER:OFF HYSTERESIS:NA TERMINATION:OFF OPENDRAIN:OFF IO_TYPE:LVCMOS33 DIFFRESISTOR:OFF DIFFDRIVE:NA PULLMODE:NONE CLAMP:OFF VREF:OFF |
 | io4         | 55/0     | LVCMOS33_OUT | PT80B | DRIVE:8mA SLEWRATE:MED GLITCHFILTER:OFF HYSTERESIS:NA TERMINATION:OFF OPENDRAIN:OFF IO_TYPE:LVCMOS33 DIFFRESISTOR:OFF DIFFDRIVE:NA PULLMODE:NONE CLAMP:OFF VREF:OFF |
 | io5         | 56/0     | LVCMOS33_OUT | PT78A | DRIVE:8mA SLEWRATE:MED GLITCHFILTER:OFF HYSTERESIS:NA TERMINATION:OFF OPENDRAIN:OFF IO_TYPE:LVCMOS33 DIFFRESISTOR:OFF DIFFDRIVE:NA PULLMODE:NONE CLAMP:OFF VREF:OFF |
@@ -121,13 +118,13 @@ Vccio by Bank:
 | 36/3           |     unused, PULL:DOWN |            |              | PB84A       | LRC_GPLL0T_IN/ATB_FORCE/BDQ76                       |
 | 37/3           |     unused, PULL:DOWN |            |              | PB84B       | LRC_GPLL0C_IN/VREF3_2/ATB_SENSE/BDQ76               |
 | 41/1           | spi_sck               | LOCATED    | LVCMOS33_IN  | PR13A       | TCK/SCLK/PMU_EXT_CLK/S9_IN                          |
-| 42/1           | io1                   | LOCATED    | LVCMOS33_IN  | PR11A       | SD3/SDA/USER_SDA/S4_IN                              |
+| 42/1           |     unused, PULL:DOWN |            |              | PR11A       | SD3/SDA/USER_SDA/S4_IN                              |
 | 43/1           |     unused, PULL:DOWN |            |              | PR13B       | PMU_WAKEUPN/SD11/S4_OUT                             |
-| 44/1           | io0                   | LOCATED    | LVCMOS33_IN  | PR11B       | SD2/SCL/USER_SCL/S3_IN                              |
+| 44/1           |     unused, PULL:DOWN |            |              | PR11B       | SD2/SCL/USER_SCL/S3_IN                              |
 | 45/1           | spi_miso              | LOCATED    | LVCMOS33_OUT | PR10B       | TDO/SSO/SD1/S3_OUT                                  |
 | 46/1           | spi_mosi              | LOCATED    | LVCMOS33_IN  | PR8B        | TDI/SSI/SD0/S5_OUT                                  |
 | 48/1           | spi_ncs               | LOCATED    | LVCMOS33_IN  | PR6B        | TMS/SCSN/S5_IN                                      |
-| 51/0           | io2                   | LOCATED    | LVCMOS33_IN  | PT80A       | MISO/MD1/SD5/S2_IN/OSC_HI                           |
+| 51/0           |     unused, PULL:DOWN |            |              | PT80A       | MISO/MD1/SD5/S2_IN/OSC_HI                           |
 | 52/0           | io3                   | LOCATED    | LVCMOS33_OUT | PT82A       | MD3/SD7/S6_IN/OSC_BURST                             |
 | 53/0           | rst                   | LOCATED    | LVCMOS33_IN  | PT82B       | MCSNO/MSDO/S6_OUT                                   |
 | 55/0           | io4                   | LOCATED    | LVCMOS33_OUT | PT80B       | MD2/SD6/S2_OUT                                      |
@@ -331,9 +328,6 @@ ldc_set_location -site {33} [ get_ports {clk_tx_o} ]
 ldc_set_location -site {27} [ get_ports {data_rx09_i} ]
 ldc_set_location -site {22} [ get_ports {data_rx24_i} ]
 ldc_set_location -site {30} [ get_ports {data_tx_o} ]
-ldc_set_location -site {44} [ get_ports {io0} ]
-ldc_set_location -site {42} [ get_ports {io1} ]
-ldc_set_location -site {51} [ get_ports {io2} ]
 ldc_set_location -site {52} [ get_ports {io3} ]
 ldc_set_location -site {55} [ get_ports {io4} ]
 ldc_set_location -site {56} [ get_ports {io5} ]
@@ -345,8 +339,11 @@ ldc_set_location -site {48} [ get_ports {spi_ncs} ]
 ldc_set_location -site {41} [ get_ports {spi_sck} ]
 
 #PLL
-ldc_set_location -site {PLL_LLC} [ get_cells {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst} ]
-# ldc_set_location -site {PLL_LLC} [ get_cells {pll0.lscc_pll_inst.gen_no_refclk_mon.u_PLL.PLL_inst} ]
+ldc_set_location -site {PLL_LLC} [ get_cells {pll1/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst} ]
+# ldc_set_location -site {PLL_LLC} [ get_cells {pll1.lscc_pll_inst.gen_no_refclk_mon.u_PLL.PLL_inst} ]
+#PLL
+ldc_set_location -site {PLL_ULC} [ get_cells {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst} ]
+# ldc_set_location -site {PLL_ULC} [ get_cells {pll0.lscc_pll_inst.gen_no_refclk_mon.u_PLL.PLL_inst} ]
 
 
 
@@ -354,7 +351,7 @@ ldc_set_location -site {PLL_LLC} [ get_cells {pll0/lscc_pll_inst/gen_no_refclk_m
 
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
 
-Mon Mar 27 10:49:11 2023
+Fri May 12 16:13:15 2023
 
 
 
