@@ -632,7 +632,7 @@ begin
 	--);
 	
 	qam_mod0: qam_16 port map(
-		data_i => regs_rw(9), --std_logic_vector(raw_rand(3 downto 0))
+		data_i => regs_rw(9)(3 downto 0), --std_logic_vector(raw_rand(3 downto 0))
 		i_o => i_qam_tx,
 		q_o => q_qam_tx
 	);
