@@ -44,232 +44,6 @@
             <Navigation>bitgen: In the constraint 'ldc_set_location -site {51} [get_ports io2]', the locate object is not specified</Navigation>
         </Message>
     </Task>
-    <Task name="PAR">
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io0</Dynamic>
-            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io1</Dynamic>
-            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io2</Dynamic>
-            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>io0</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>io1</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>io2</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io0</Dynamic>
-            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io1</Dynamic>
-            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io2</Dynamic>
-            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
-        </Message>
-        <Message>
-            <ID>70001944</ID>
-            <Severity>16</Severity>
-            <Dynamic>create_generated_clock -name {clk_152} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOP }] </Dynamic>
-        </Message>
-        <Message>
-            <ID>70001944</ID>
-            <Severity>16</Severity>
-            <Dynamic>create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 32 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS }] </Dynamic>
-        </Message>
-        <Message>
-            <ID>70001944</ID>
-            <Severity>16</Severity>
-            <Dynamic>create_generated_clock -name {clk_38} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 19 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS2 }] </Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io0</Dynamic>
-            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io1</Dynamic>
-            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io2</Dynamic>
-            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io0</Dynamic>
-            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io1</Dynamic>
-            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io2</Dynamic>
-            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
-        </Message>
-        <Message>
-            <ID>70001944</ID>
-            <Severity>16</Severity>
-            <Dynamic>create_generated_clock -name {clk_152} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOP }] </Dynamic>
-        </Message>
-        <Message>
-            <ID>70001944</ID>
-            <Severity>16</Severity>
-            <Dynamic>create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 32 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS }] </Dynamic>
-        </Message>
-        <Message>
-            <ID>70001944</ID>
-            <Severity>16</Severity>
-            <Dynamic>create_generated_clock -name {clk_38} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 19 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS2 }] </Dynamic>
-        </Message>
-        <Message>
-            <ID>70001944</ID>
-            <Severity>16</Severity>
-            <Dynamic>create_generated_clock -name {clk_152} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOP }] </Dynamic>
-        </Message>
-        <Message>
-            <ID>70001944</ID>
-            <Severity>16</Severity>
-            <Dynamic>create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 32 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS }] </Dynamic>
-        </Message>
-        <Message>
-            <ID>70001944</ID>
-            <Severity>16</Severity>
-            <Dynamic>create_generated_clock -name {clk_38} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 19 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS2 }] </Dynamic>
-        </Message>
-    </Task>
-    <Task name="Map">
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>io0</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>io1</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>io2</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>io0</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>io1</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>io2</Dynamic>
-        </Message>
-    </Task>
     <Task name="Synthesis">
         <Message>
             <ID>35901018</ID>
@@ -5614,6 +5388,232 @@
         <Message>
             <ID>35811149</ID>
             <Severity>1</Severity>
+        </Message>
+        <Message>
+            <ID>70001944</ID>
+            <Severity>16</Severity>
+            <Dynamic>create_generated_clock -name {clk_152} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOP }] </Dynamic>
+        </Message>
+        <Message>
+            <ID>70001944</ID>
+            <Severity>16</Severity>
+            <Dynamic>create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 32 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS }] </Dynamic>
+        </Message>
+        <Message>
+            <ID>70001944</ID>
+            <Severity>16</Severity>
+            <Dynamic>create_generated_clock -name {clk_38} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 19 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS2 }] </Dynamic>
+        </Message>
+    </Task>
+    <Task name="Map">
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>io0</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>io1</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>io2</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>io0</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>io1</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>io2</Dynamic>
+        </Message>
+    </Task>
+    <Task name="PAR">
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io0</Dynamic>
+            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io1</Dynamic>
+            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io2</Dynamic>
+            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>io0</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>io1</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>io2</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io0</Dynamic>
+            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io1</Dynamic>
+            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io2</Dynamic>
+            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
+        </Message>
+        <Message>
+            <ID>70001944</ID>
+            <Severity>16</Severity>
+            <Dynamic>create_generated_clock -name {clk_152} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOP }] </Dynamic>
+        </Message>
+        <Message>
+            <ID>70001944</ID>
+            <Severity>16</Severity>
+            <Dynamic>create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 32 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS }] </Dynamic>
+        </Message>
+        <Message>
+            <ID>70001944</ID>
+            <Severity>16</Severity>
+            <Dynamic>create_generated_clock -name {clk_38} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 19 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS2 }] </Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io0</Dynamic>
+            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io1</Dynamic>
+            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io2</Dynamic>
+            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io0</Dynamic>
+            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io1</Dynamic>
+            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io2</Dynamic>
+            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
+        </Message>
+        <Message>
+            <ID>70001944</ID>
+            <Severity>16</Severity>
+            <Dynamic>create_generated_clock -name {clk_152} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOP }] </Dynamic>
+        </Message>
+        <Message>
+            <ID>70001944</ID>
+            <Severity>16</Severity>
+            <Dynamic>create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 32 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS }] </Dynamic>
+        </Message>
+        <Message>
+            <ID>70001944</ID>
+            <Severity>16</Severity>
+            <Dynamic>create_generated_clock -name {clk_38} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 19 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS2 }] </Dynamic>
         </Message>
         <Message>
             <ID>70001944</ID>

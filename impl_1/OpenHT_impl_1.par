@@ -1,6 +1,6 @@
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
 
-Fri May 12 16:12:51 2023
+Fri May 12 19:00:51 2023
 
 Command Line: par -w -n 1 -t 1 -s 1 -cores 1 -exp parPathBased=OFF \
 	OpenHT_impl_1_map.udb OpenHT_impl_1.udb 
@@ -9,16 +9,16 @@ Command Line: par -w -n 1 -t 1 -s 1 -cores 1 -exp parPathBased=OFF \
 Level/       Number       Worst        Timing       Worst        Timing       Run          Run
 Cost [udb]   Unrouted     Slack        Score        Slack(hold)  Score(hold)  Time         Status
 ----------   --------     -----        ------       -----------  -----------  ----         ------
-5_1   *      0            -            0            -            0            57           Completed
+5_1   *      0            -            0            -            0            59           Completed
 
 * : Design saved.
 
-Total (real) run time for 1-seed: 58 secs 
+Total (real) run time for 1-seed: 1 mins 
 
 par done!
 
 Lattice Place and Route Report for Design "OpenHT_impl_1_map.udb"
-Fri May 12 16:12:51 2023
+Fri May 12 19:00:51 2023
 
 PAR: Place And Route Radiant Software (64-bit) 2022.1.1.289.4.
 Command Line: par -w -t 1 -cores 1 -exp parPathBased=OFF OpenHT_impl_1_map.udb \
@@ -112,23 +112,23 @@ Device utilization summary:
 Pin Constraint Summary:
    15 out of 15 pins locked (100% locked).
 
-Starting Placer Phase 0 (HIER). CPU time: 8 secs , REAL time: 9 secs 
+Starting Placer Phase 0 (HIER). CPU time: 9 secs , REAL time: 9 secs 
 ...........
-Finished Placer Phase 0 (HIER). CPU time: 12 secs , REAL time: 13 secs 
+Finished Placer Phase 0 (HIER). CPU time: 13 secs , REAL time: 14 secs 
 
 
-Starting Placer Phase 1. CPU time: 13 secs , REAL time: 13 secs 
+Starting Placer Phase 1. CPU time: 13 secs , REAL time: 14 secs 
 ..  ..
 .....................
 
 Placer score = 4264697.
-Finished Placer Phase 1. CPU time: 21 secs , REAL time: 21 secs 
+Finished Placer Phase 1. CPU time: 21 secs , REAL time: 22 secs 
 
 Starting Placer Phase 2.
 .
 
 Placer score =  4017416
-Finished Placer Phase 2.  CPU time: 23 secs , REAL time: 23 secs 
+Finished Placer Phase 2.  CPU time: 23 secs , REAL time: 24 secs 
 
 After final PLC packing legalization, all 0 SLICEs that were not satisfying 1 CLK/CE/LSR per HALF-PLC restriction are all placed into compatible PLCs.
 
@@ -189,7 +189,7 @@ I/O Bank Usage Summary:
 | 5        | 0 / 10 (  0%)  | -          | -          | -          |
 +----------+----------------+------------+------------+------------+
 
-Total Placer CPU time: 23 secs , REAL time: 24 secs 
+Total Placer CPU time: 24 secs , REAL time: 24 secs 
 
 Writing design to file OpenHT_impl_1_par.dir/5_1.udb ...
 
@@ -206,7 +206,7 @@ WARNING - par: Unable to find the instance/port 'io2' in the constraint 'ldc_set
 WARNING - par: In the constraint 'ldc_set_location -site {51} [get_ports io2]', the locate object is not specified
 
 
-Start NBR router at 16:13:16 05/12/23
+Start NBR router at 19:01:17 05/12/23
 
 *****************************************************************
 Info: NBR allows conflicts(one node used by more than one signal)
@@ -272,36 +272,36 @@ WARNING - par: No master clock for
 WARNING - par: No master clock for
 	generated clock	create_generated_clock -name {clk_38} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 19 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS2 }] .
 
-Start NBR section for initial routing at 16:13:22 05/12/23
+Start NBR section for initial routing at 19:01:23 05/12/23
 Level 4, iteration 1
 7288(0.42%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 14 secs 
 
 Info: Initial congestion level at 75.00% usage is 0
 Info: Initial congestion area  at 75.00% usage is 0 (0.00%)
 
-Start NBR section for normal routing at 16:13:29 05/12/23
+Start NBR section for normal routing at 19:01:30 05/12/23
 Level 4, iteration 1
 5675(0.32%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 17 secs 
 Level 4, iteration 2
 2306(0.13%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 19 secs 
 Level 4, iteration 3
-1452(0.08%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 20 secs 
+1452(0.08%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 21 secs 
 Level 4, iteration 4
-945(0.05%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 21 secs 
+945(0.05%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 22 secs 
 Level 4, iteration 5
-338(0.02%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 22 secs 
+338(0.02%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 23 secs 
 Level 4, iteration 6
 96(0.01%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 23 secs 
 Level 4, iteration 7
-35(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 23 secs 
+35(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 24 secs 
 Level 4, iteration 8
-13(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 23 secs 
+13(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 24 secs 
 Level 4, iteration 9
 4(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 24 secs 
 Level 4, iteration 10
 0(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 24 secs 
 
-Start NBR section for post-routing at 16:13:39 05/12/23
+Start NBR section for post-routing at 19:01:40 05/12/23
 
 End NBR router with 0 unrouted connection
 WARNING - par: No master clock for
@@ -325,8 +325,8 @@ NBR Summary
 -----------
 
 
-Total CPU time 31 secs 
-Total REAL time: 32 secs 
+Total CPU time 32 secs 
+Total REAL time: 33 secs 
 Completely routed.
 End of route.  56246 routed (100.00%); 0 unrouted.
 
@@ -344,9 +344,9 @@ PAR_SUMMARY::Worst  slack<hold /<ns>> = <n/a>
 PAR_SUMMARY::Timing score<hold /<ns>> = <n/a>
 PAR_SUMMARY::Number of errors = 0
 
-Total CPU  Time: 58 secs 
-Total REAL Time: 58 secs 
-Peak Memory Usage: 784.61 MB
+Total CPU  Time: 59 secs 
+Total REAL Time: 1 mins 
+Peak Memory Usage: 783.48 MB
 
 
 par done!

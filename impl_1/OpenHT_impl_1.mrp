@@ -6,7 +6,7 @@ Package: QFN72
 Performance Grade:  7_High-Performance_1.0V
 
 Mapper:    version Radiant Software (64-bit) 2022.1.1.289.4
-Mapped on: Fri May 12 16:12:48 2023
+Mapped on: Fri May 12 19:00:48 2023
 
 Design Information
 ------------------
@@ -178,19 +178,19 @@ Design Summary (cont)
       Pin rst: 220 loads, 198 SLICEs (Net: rst_c)
       Net am_demod0.clk_38_enable_1685: 5 loads, 5 SLICEs
       Net i_data_o_15__N_1870: 9 loads, 9 SLICEs
-      Net ctrl_regs0.n10556: 1 loads, 1 SLICEs
+      Net ctrl_regs0.n10560: 1 loads, 1 SLICEs
       Net regs_rw[1][1]: 51 loads, 51 SLICEs
-      Net n10769: 4 loads, 4 SLICEs
-      Net n10823: 4 loads, 4 SLICEs
-      Net n10822: 4 loads, 4 SLICEs
-      Net n10770: 4 loads, 4 SLICEs
+      Net n10773: 4 loads, 4 SLICEs
+      Net n10827: 4 loads, 4 SLICEs
+      Net n10826: 4 loads, 4 SLICEs
+      Net n10774: 4 loads, 4 SLICEs
       Net data_rx24_r_1__N_9: 1 loads, 0 SLICEs
       Net i_fir_ser0.clk_38_enable_4026: 1 loads, 1 SLICEs
       Net clk_tx_o_N_16: 2 loads, 0 SLICEs
       Net q_fir_ser0.clk_38_enable_1703: 2 loads, 2 SLICEs
       Net busy: 1 loads, 1 SLICEs
       Net n11_adj_8402: 13 loads, 13 SLICEs
-      Net n42873: 2 loads, 2 SLICEs
+      Net n42877: 2 loads, 2 SLICEs
 
                                     Page 3
 
@@ -200,20 +200,20 @@ Design Summary (cont)
 
 Design Summary (cont)
 ---------------------
-      Net n10472: 4 loads, 4 SLICEs
+      Net n10476: 4 loads, 4 SLICEs
       Net decim1.drdy_o_N_1875: 8 loads, 8 SLICEs
-      Net zero_insert0.n44336: 5 loads, 5 SLICEs
+      Net zero_insert0.n44340: 5 loads, 5 SLICEs
       Net hilbert0.clk_38_enable_2721: 1 loads, 1 SLICEs
-      Net freq_mod0.n2847: 1 loads, 1 SLICEs
+      Net freq_mod0.n2851: 1 loads, 1 SLICEs
    Top 10 highest fanout non-clock nets:
       Net clk_38_enable_4031: 1000 loads
       Net hilbert0.clk_38_enable_3917: 1000 loads
       Net clk_38_enable_4032: 999 loads
       Net clk_38_enable_3965: 922 loads
       Net VCC_net: 823 loads
-      Net hilbert0.n89789: 627 loads
-      Net n89796: 624 loads
-      Net n89798: 624 loads
+      Net hilbert0.n89793: 627 loads
+      Net n89800: 624 loads
+      Net n89802: 624 loads
       Net hilbert0.clk_38_enable_3623: 453 loads
       Net freq_mod0.phased[11]: 354 loads
 
@@ -1010,7 +1010,7 @@ Run Time and Memory Usage
 
    Total CPU Time: 4 secs
    Total REAL Time: 4 secs
-   Peak Memory Usage: 526 MB
+   Peak Memory Usage: 527 MB
 
 
 

@@ -178,33 +178,33 @@ Design Summary:
       Pin rst: 220 loads, 198 SLICEs (Net: rst_c)
       Net am_demod0.clk_38_enable_1685: 5 loads, 5 SLICEs
       Net i_data_o_15__N_1870: 9 loads, 9 SLICEs
-      Net ctrl_regs0.n10556: 1 loads, 1 SLICEs
+      Net ctrl_regs0.n10560: 1 loads, 1 SLICEs
       Net regs_rw[1][1]: 51 loads, 51 SLICEs
-      Net n10769: 4 loads, 4 SLICEs
-      Net n10823: 4 loads, 4 SLICEs
-      Net n10822: 4 loads, 4 SLICEs
-      Net n10770: 4 loads, 4 SLICEs
+      Net n10773: 4 loads, 4 SLICEs
+      Net n10827: 4 loads, 4 SLICEs
+      Net n10826: 4 loads, 4 SLICEs
+      Net n10774: 4 loads, 4 SLICEs
       Net data_rx24_r_1__N_9: 1 loads, 0 SLICEs
       Net i_fir_ser0.clk_38_enable_4026: 1 loads, 1 SLICEs
       Net clk_tx_o_N_16: 2 loads, 0 SLICEs
       Net q_fir_ser0.clk_38_enable_1703: 2 loads, 2 SLICEs
       Net busy: 1 loads, 1 SLICEs
       Net n11_adj_8402: 13 loads, 13 SLICEs
-      Net n42873: 2 loads, 2 SLICEs
-      Net n10472: 4 loads, 4 SLICEs
+      Net n42877: 2 loads, 2 SLICEs
+      Net n10476: 4 loads, 4 SLICEs
       Net decim1.drdy_o_N_1875: 8 loads, 8 SLICEs
-      Net zero_insert0.n44336: 5 loads, 5 SLICEs
+      Net zero_insert0.n44340: 5 loads, 5 SLICEs
       Net hilbert0.clk_38_enable_2721: 1 loads, 1 SLICEs
-      Net freq_mod0.n2847: 1 loads, 1 SLICEs
+      Net freq_mod0.n2851: 1 loads, 1 SLICEs
    Top 10 highest fanout non-clock nets:
       Net clk_38_enable_4031: 1000 loads
       Net hilbert0.clk_38_enable_3917: 1000 loads
       Net clk_38_enable_4032: 999 loads
       Net clk_38_enable_3965: 922 loads
       Net VCC_net: 823 loads
-      Net hilbert0.n89789: 627 loads
-      Net n89796: 624 loads
-      Net n89798: 624 loads
+      Net hilbert0.n89793: 627 loads
+      Net n89800: 624 loads
+      Net n89802: 624 loads
       Net hilbert0.clk_38_enable_3623: 453 loads
       Net freq_mod0.phased[11]: 354 loads
 Running physical design DRC...
@@ -224,13 +224,13 @@ Constraint Summary:
 
 Total CPU Time: 4 secs  
 Total REAL Time: 4 secs  
-Peak Memory Usage: 526 MB
+Peak Memory Usage: 527 MB
 
 
 par -f "OpenHT_impl_1.p2t" "OpenHT_impl_1_map.udb" "OpenHT_impl_1.udb"
 
 Lattice Place and Route Report for Design "OpenHT_impl_1_map.udb"
-Fri May 12 16:12:51 2023
+Fri May 12 19:00:51 2023
 
 PAR: Place And Route Radiant Software (64-bit) 2022.1.1.289.4.
 Command Line: par -w -t 1 -cores 1 -exp parPathBased=OFF OpenHT_impl_1_map.udb \
@@ -324,23 +324,23 @@ Device utilization summary:
 Pin Constraint Summary:
    15 out of 15 pins locked (100% locked).
 
-Starting Placer Phase 0 (HIER). CPU time: 8 secs , REAL time: 9 secs 
+Starting Placer Phase 0 (HIER). CPU time: 9 secs , REAL time: 9 secs 
 ...........
-Finished Placer Phase 0 (HIER). CPU time: 12 secs , REAL time: 13 secs 
+Finished Placer Phase 0 (HIER). CPU time: 13 secs , REAL time: 14 secs 
 
 
-Starting Placer Phase 1. CPU time: 13 secs , REAL time: 13 secs 
+Starting Placer Phase 1. CPU time: 13 secs , REAL time: 14 secs 
 ..  ..
 .....................
 
 Placer score = 4264697.
-Finished Placer Phase 1. CPU time: 21 secs , REAL time: 21 secs 
+Finished Placer Phase 1. CPU time: 21 secs , REAL time: 22 secs 
 
 Starting Placer Phase 2.
 .
 
 Placer score =  4017416
-Finished Placer Phase 2.  CPU time: 23 secs , REAL time: 23 secs 
+Finished Placer Phase 2.  CPU time: 23 secs , REAL time: 24 secs 
 
 After final PLC packing legalization, all 0 SLICEs that were not satisfying 1 CLK/CE/LSR per HALF-PLC restriction are all placed into compatible PLCs.
 
@@ -401,7 +401,7 @@ I/O Bank Usage Summary:
 | 5        | 0 / 10 (  0%)  | -          | -          | -          |
 +----------+----------------+------------+------------+------------+
 
-Total Placer CPU time: 23 secs , REAL time: 24 secs 
+Total Placer CPU time: 24 secs , REAL time: 24 secs 
 
 Writing design to file OpenHT_impl_1_par.dir/5_1.udb ...
 
@@ -418,7 +418,7 @@ WARNING - Unable to find the instance/port 'io2' in the constraint 'ldc_set_loca
 WARNING - In the constraint 'ldc_set_location -site {51} [get_ports io2]', the locate object is not specified
 
 
-Start NBR router at 16:13:16 05/12/23
+Start NBR router at 19:01:17 05/12/23
 
 *****************************************************************
 Info: NBR allows conflicts(one node used by more than one signal)
@@ -485,36 +485,36 @@ WARNING - No master clock for
 	generated clock	create_generated_clock -name {clk_38} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 19 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS2 }] .
     TimerIf::skewscore 0
 
-Start NBR section for initial routing at 16:13:22 05/12/23
+Start NBR section for initial routing at 19:01:23 05/12/23
 Level 4, iteration 1
 7288(0.42%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 14 secs 
 
 Info: Initial congestion level at 75.00% usage is 0
 Info: Initial congestion area  at 75.00% usage is 0 (0.00%)
 
-Start NBR section for normal routing at 16:13:29 05/12/23
+Start NBR section for normal routing at 19:01:30 05/12/23
 Level 4, iteration 1
 5675(0.32%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 17 secs 
 Level 4, iteration 2
 2306(0.13%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 19 secs 
 Level 4, iteration 3
-1452(0.08%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 20 secs 
+1452(0.08%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 21 secs 
 Level 4, iteration 4
-945(0.05%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 21 secs 
+945(0.05%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 22 secs 
 Level 4, iteration 5
-338(0.02%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 22 secs 
+338(0.02%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 23 secs 
 Level 4, iteration 6
 96(0.01%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 23 secs 
 Level 4, iteration 7
-35(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 23 secs 
+35(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 24 secs 
 Level 4, iteration 8
-13(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 23 secs 
+13(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 24 secs 
 Level 4, iteration 9
 4(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 24 secs 
 Level 4, iteration 10
 0(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 24 secs 
 
-Start NBR section for post-routing at 16:13:39 05/12/23
+Start NBR section for post-routing at 19:01:40 05/12/23
 
 End NBR router with 0 unrouted connection
 WARNING - No master clock for
@@ -540,8 +540,8 @@ NBR Summary
 -----------
 
 
-Total CPU time 31 secs 
-Total REAL time: 32 secs 
+Total CPU time 32 secs 
+Total REAL time: 33 secs 
 Completely routed.
 End of route.  56246 routed (100.00%); 0 unrouted.
 
@@ -556,9 +556,9 @@ PAR_SUMMARY::Worst  slack<hold /<ns>> = <n/a>
 PAR_SUMMARY::Timing score<hold /<ns>> = <n/a>
 PAR_SUMMARY::Number of errors = 0
 
-Total CPU  Time: 58 secs 
-Total REAL Time: 58 secs 
-Peak Memory Usage: 784.61 MB
+Total CPU  Time: 59 secs 
+Total REAL Time: 1 mins 
+Peak Memory Usage: 783.48 MB
 
 
 par done!
@@ -674,7 +674,7 @@ Bitstream Status: Final           Version 9.8.
 Saving bit stream in "C:\Users\SP5WWP\Documents\Radiant\OpenHT\impl_1\OpenHT_impl_1.bit".
 Bitstream generation complete!
 
-Total CPU Time: 13 secs 
+Total CPU Time: 14 secs 
 Total REAL Time: 14 secs 
 Peak Memory Usage: 702 MB
 

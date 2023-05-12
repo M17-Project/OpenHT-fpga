@@ -5,7 +5,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-Fri May 12 16:03:48 2023
+Fri May 12 18:59:11 2023
 
 
 Command Line:  C:\Radiant\ispfpga\bin\nt64\synthesis.exe -f OpenHT_impl_1_lattice.synproj -gui -msgset C:/Users/SP5WWP/Documents/Radiant/OpenHT/promote.xml 
@@ -4573,14 +4573,14 @@ Top 10 highest fanout non-clock nets:
   Net : lo0/clk_38_enable_4031, loads : 1003
   Net : hilbert0/clk_38_enable_3917, loads : 1000
   Net : lo0/clk_38_enable_3965, loads : 922
-  Net : hilbert0/n89789, loads : 627
-  Net : lo0/n89796, loads : 626
-  Net : lo0/n89798, loads : 625
+  Net : hilbert0/n89793, loads : 627
+  Net : lo0/n89800, loads : 626
+  Net : lo0/n89802, loads : 625
   Net : hilbert0/clk_38_enable_3623, loads : 453
   Net : freq_mod0/phase_dither0/phased[11], loads : 345
 ################### End Clock Report ##################
 
-Peak Memory Usage: 604 MB
+Peak Memory Usage: 607 MB
 
 --------------------------------------------------------------
 Total CPU Time: 44 secs 
