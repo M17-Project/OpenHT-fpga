@@ -1,12 +1,12 @@
 -------------------------------------------------------------
 -- Local oscillator (complex)
 --
--- Frequency = f_clk/DIV
+-- Frequency = f_trig/DIV
 -- Update LUTs for DIV!=10
 --
 -- Wojciech Kaczmarski, SP5WWP
 -- M17 Project
--- March 2023
+-- May 2023
 -------------------------------------------------------------
 library IEEE;
 use IEEE.std_logic_1164.all;
@@ -14,7 +14,7 @@ use IEEE.numeric_std.all;
 
 entity local_osc is
 	generic(
-		DIV			: integer := 10
+		DIV		: integer := 10
 	);
 	port(
 		clk_i	: in std_logic;

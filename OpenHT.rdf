@@ -99,6 +99,9 @@
         <Source name="pll_osc/pll_osc.ipx" type="IPX_Module" type_short="IPX">
             <Options/>
         </Source>
+        <Source name="pll_samp/pll_samp.ipx" type="IPX_Module" type_short="IPX">
+            <Options/>
+        </Source>
         <Source name="ddr_rx/ddr_rx.ipx" type="IPX_Module" type_short="IPX">
             <Options/>
         </Source>
