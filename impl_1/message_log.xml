@@ -1,5 +1,199 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <BaliMessageLog>
+    <Task name="PAR">
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io0</Dynamic>
+            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io1</Dynamic>
+            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io2</Dynamic>
+            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>io0</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>io1</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>io2</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io0</Dynamic>
+            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io1</Dynamic>
+            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io2</Dynamic>
+            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
+        </Message>
+        <Message>
+            <ID>70001944</ID>
+            <Severity>16</Severity>
+            <Dynamic>create_generated_clock -name {clk_152} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOP }] </Dynamic>
+        </Message>
+        <Message>
+            <ID>70001944</ID>
+            <Severity>16</Severity>
+            <Dynamic>create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 32 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS }] </Dynamic>
+        </Message>
+        <Message>
+            <ID>70001944</ID>
+            <Severity>16</Severity>
+            <Dynamic>create_generated_clock -name {clk_38} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 19 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS2 }] </Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io0</Dynamic>
+            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io1</Dynamic>
+            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io2</Dynamic>
+            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io0</Dynamic>
+            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io1</Dynamic>
+            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io2</Dynamic>
+            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
+        </Message>
+        <Message>
+            <ID>70001944</ID>
+            <Severity>16</Severity>
+            <Dynamic>create_generated_clock -name {clk_152} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOP }] </Dynamic>
+        </Message>
+        <Message>
+            <ID>70001944</ID>
+            <Severity>16</Severity>
+            <Dynamic>create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 32 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS }] </Dynamic>
+        </Message>
+        <Message>
+            <ID>70001944</ID>
+            <Severity>16</Severity>
+            <Dynamic>create_generated_clock -name {clk_38} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 19 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS2 }] </Dynamic>
+        </Message>
+        <Message>
+            <ID>70001944</ID>
+            <Severity>16</Severity>
+            <Dynamic>create_generated_clock -name {clk_152} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOP }] </Dynamic>
+        </Message>
+        <Message>
+            <ID>70001944</ID>
+            <Severity>16</Severity>
+            <Dynamic>create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 32 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS }] </Dynamic>
+        </Message>
+        <Message>
+            <ID>70001944</ID>
+            <Severity>16</Severity>
+            <Dynamic>create_generated_clock -name {clk_38} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 19 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS2 }] </Dynamic>
+        </Message>
+    </Task>
     <Task name="Export">
         <Message>
             <ID>1009991</ID>
@@ -42,6 +236,38 @@
             <Dynamic>bitgen: In the constraint 'ldc_set_location -site {51} [get_ports io2]', the locate object is not specified</Dynamic>
             <Navigation>WARNING</Navigation>
             <Navigation>bitgen: In the constraint 'ldc_set_location -site {51} [get_ports io2]', the locate object is not specified</Navigation>
+        </Message>
+    </Task>
+    <Task name="Map">
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>io0</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>io1</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>io2</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>io0</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>io1</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>io2</Dynamic>
         </Message>
     </Task>
     <Task name="Synthesis">
@@ -172,7 +398,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(1): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_addsub.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -180,7 +406,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_addsub.v(40): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/adder_subtractor/rtl/lscc_add_sub.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_addsub.v</Navigation>
@@ -188,7 +414,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(2): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_add.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -196,7 +422,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_add.v(50): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/adder/rtl/lscc_adder.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_add.v</Navigation>
@@ -204,7 +430,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(3): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_complex_mult.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -212,7 +438,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_complex_mult.v(52): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/complex_mult/rtl/lscc_complex_mult.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_complex_mult.v</Navigation>
@@ -220,7 +446,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(4): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_counter.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -228,7 +454,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_counter.v(39): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/counter/rtl/lscc_cntr.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_counter.v</Navigation>
@@ -236,7 +462,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(5): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_distributed_dpram.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -244,7 +470,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_distributed_dpram.v(43): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/distributed_dpram/rtl/lscc_distributed_dpram.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_distributed_dpram.v</Navigation>
@@ -252,7 +478,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(6): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_distributed_spram.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -260,7 +486,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_distributed_spram.v(42): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/distributed_spram/rtl/lscc_distributed_spram.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_distributed_spram.v</Navigation>
@@ -268,7 +494,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(7): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_distributed_rom.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -276,7 +502,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_distributed_rom.v(42): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/distributed_rom/rtl/lscc_distributed_rom.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_distributed_rom.v</Navigation>
@@ -284,7 +510,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(8): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_distributed_shift_reg.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -292,7 +518,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_distributed_shift_reg.v(41): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/ram_shift_reg/rtl/lscc_shift_register.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_distributed_shift_reg.v</Navigation>
@@ -300,7 +526,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(9): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_fifo.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -308,7 +534,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_fifo.v(44): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../avant/fifo/rtl/lscc_fifo.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_fifo.v</Navigation>
@@ -316,7 +542,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(10): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_fifo_dc.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -324,7 +550,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_fifo_dc.v(47): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../avant/fifo_dc/rtl/lscc_fifo_dc.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_fifo_dc.v</Navigation>
@@ -332,7 +558,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(11): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_mac.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -340,7 +566,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_mac.v(52): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/mult_accumulate/rtl/lscc_mult_accumulate.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_mac.v</Navigation>
@@ -348,7 +574,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(12): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_multaddsubsum.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -356,7 +582,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_multaddsubsum.v(53): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/mult_add_sub_sum/rtl/lscc_mult_add_sub_sum.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_multaddsubsum.v</Navigation>
@@ -364,7 +590,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(13): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_multaddsub.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -372,7 +598,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_multaddsub.v(52): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/mult_add_sub/rtl/lscc_mult_add_sub.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_multaddsub.v</Navigation>
@@ -380,7 +606,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(14): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_mult.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -388,7 +614,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_mult.v(51): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/multiplier/rtl/lscc_multiplier.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_mult.v</Navigation>
@@ -396,7 +622,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(15): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dp.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -404,7 +630,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dp.v(48): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../avant/ram_dp/rtl/lscc_ram_dp.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_ram_dp.v</Navigation>
@@ -412,7 +638,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(16): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dp_be.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -420,7 +646,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dp_be.v(49): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../avant/ram_dp/rtl/lscc_ram_dp.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_ram_dp_be.v</Navigation>
@@ -428,7 +654,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(17): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dp_true.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -436,7 +662,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dp_true.v(49): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../avant/ram_dp_true/rtl/lscc_ram_dp_true.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_ram_dp_true.v</Navigation>
@@ -444,7 +670,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(18): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dq.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -452,7 +678,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dq.v(45): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../avant/ram_dq/rtl/lscc_ram_dq.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_ram_dq.v</Navigation>
@@ -460,7 +686,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(19): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dq_be.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -468,7 +694,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dq_be.v(45): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../avant/ram_dq/rtl/lscc_ram_dq.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_ram_dq_be.v</Navigation>
@@ -476,7 +702,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(20): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_rom.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -484,7 +710,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_rom.v(45): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../avant/rom/rtl/lscc_rom.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_rom.v</Navigation>
@@ -492,7 +718,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(21): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_sub.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -500,7 +726,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_sub.v(50): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/subtractor/rtl/lscc_subtractor.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_sub.v</Navigation>
@@ -1124,7 +1350,7 @@
         </Message>
         <Message>
             <ID>35921504</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic></Dynamic>
             <Dynamic>C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1</Dynamic>
         </Message>
@@ -1164,7 +1390,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(1): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_addsub.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1172,7 +1398,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_addsub.v(40): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/adder_subtractor/rtl/lscc_add_sub.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_addsub.v</Navigation>
@@ -1180,7 +1406,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(2): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_add.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1188,7 +1414,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_add.v(50): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/adder/rtl/lscc_adder.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_add.v</Navigation>
@@ -1196,7 +1422,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(3): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_complex_mult.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1204,7 +1430,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_complex_mult.v(52): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/complex_mult/rtl/lscc_complex_mult.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_complex_mult.v</Navigation>
@@ -1212,7 +1438,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(4): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_counter.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1220,7 +1446,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_counter.v(39): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/counter/rtl/lscc_cntr.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_counter.v</Navigation>
@@ -1228,7 +1454,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(5): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_distributed_dpram.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1236,7 +1462,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_distributed_dpram.v(43): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/distributed_dpram/rtl/lscc_distributed_dpram.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_distributed_dpram.v</Navigation>
@@ -1244,7 +1470,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(6): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_distributed_spram.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1252,7 +1478,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_distributed_spram.v(42): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/distributed_spram/rtl/lscc_distributed_spram.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_distributed_spram.v</Navigation>
@@ -1260,7 +1486,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(7): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_distributed_rom.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1268,7 +1494,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_distributed_rom.v(42): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/distributed_rom/rtl/lscc_distributed_rom.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_distributed_rom.v</Navigation>
@@ -1276,7 +1502,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(8): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_distributed_shift_reg.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1284,7 +1510,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_distributed_shift_reg.v(41): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/ram_shift_reg/rtl/lscc_shift_register.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_distributed_shift_reg.v</Navigation>
@@ -1292,7 +1518,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(9): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_fifo.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1300,7 +1526,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_fifo.v(44): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../avant/fifo/rtl/lscc_fifo.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_fifo.v</Navigation>
@@ -1308,7 +1534,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(10): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_fifo_dc.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1316,7 +1542,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_fifo_dc.v(47): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../avant/fifo_dc/rtl/lscc_fifo_dc.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_fifo_dc.v</Navigation>
@@ -1324,7 +1550,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(11): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_mac.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1332,7 +1558,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_mac.v(52): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/mult_accumulate/rtl/lscc_mult_accumulate.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_mac.v</Navigation>
@@ -1340,7 +1566,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(12): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_multaddsubsum.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1348,7 +1574,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_multaddsubsum.v(53): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/mult_add_sub_sum/rtl/lscc_mult_add_sub_sum.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_multaddsubsum.v</Navigation>
@@ -1356,7 +1582,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(13): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_multaddsub.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1364,7 +1590,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_multaddsub.v(52): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/mult_add_sub/rtl/lscc_mult_add_sub.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_multaddsub.v</Navigation>
@@ -1372,7 +1598,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(14): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_mult.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1380,7 +1606,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_mult.v(51): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/multiplier/rtl/lscc_multiplier.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_mult.v</Navigation>
@@ -1388,7 +1614,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(15): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dp.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1396,7 +1622,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dp.v(48): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../avant/ram_dp/rtl/lscc_ram_dp.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_ram_dp.v</Navigation>
@@ -1404,7 +1630,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(16): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dp_be.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1412,7 +1638,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dp_be.v(49): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../avant/ram_dp/rtl/lscc_ram_dp.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_ram_dp_be.v</Navigation>
@@ -1420,7 +1646,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(17): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dp_true.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1428,7 +1654,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dp_true.v(49): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../avant/ram_dp_true/rtl/lscc_ram_dp_true.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_ram_dp_true.v</Navigation>
@@ -1436,7 +1662,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(18): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dq.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1444,7 +1670,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dq.v(45): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../avant/ram_dq/rtl/lscc_ram_dq.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_ram_dq.v</Navigation>
@@ -1452,7 +1678,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(19): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dq_be.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1460,7 +1686,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dq_be.v(45): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../avant/ram_dq/rtl/lscc_ram_dq.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_ram_dq_be.v</Navigation>
@@ -1468,7 +1694,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(20): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_rom.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1476,7 +1702,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_rom.v(45): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../avant/rom/rtl/lscc_rom.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_rom.v</Navigation>
@@ -1484,7 +1710,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(21): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_sub.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1492,7 +1718,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_sub.v(50): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/subtractor/rtl/lscc_subtractor.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_sub.v</Navigation>
@@ -2124,7 +2350,7 @@
         </Message>
         <Message>
             <ID>35921504</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic></Dynamic>
             <Dynamic>C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1</Dynamic>
         </Message>
@@ -2638,7 +2864,7 @@
         </Message>
         <Message>
             <ID>35931038</ID>
-            <Severity>16</Severity>
+            <Severity>2</Severity>
             <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd(27): </Dynamic>
             <Dynamic>taps_original_ramnet</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd</Navigation>
@@ -2646,7 +2872,7 @@
         </Message>
         <Message>
             <ID>35931038</ID>
-            <Severity>16</Severity>
+            <Severity>2</Severity>
             <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_hilbert.vhd(27): </Dynamic>
             <Dynamic>taps_original_ramnet</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_hilbert.vhd</Navigation>
@@ -2666,11 +2892,6 @@
             <ID>35002028</ID>
             <Severity>16</Severity>
             <Dynamic>io2</Dynamic>
-        </Message>
-        <Message>
-            <ID>35002028</ID>
-            <Severity>16</Severity>
-            <Dynamic>io3</Dynamic>
         </Message>
         <Message>
             <ID>35002028</ID>
@@ -3125,55 +3346,55 @@
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>8</Dynamic>
-            <Dynamic>sub_831_e1</Dynamic>
+            <Dynamic>sub_833_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>7</Dynamic>
-            <Dynamic>sub_831_e1</Dynamic>
+            <Dynamic>sub_833_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>6</Dynamic>
-            <Dynamic>sub_831_e1</Dynamic>
+            <Dynamic>sub_833_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>5</Dynamic>
-            <Dynamic>sub_831_e1</Dynamic>
+            <Dynamic>sub_833_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>4</Dynamic>
-            <Dynamic>sub_831_e1</Dynamic>
+            <Dynamic>sub_833_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>3</Dynamic>
-            <Dynamic>sub_831_e1</Dynamic>
+            <Dynamic>sub_833_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>2</Dynamic>
-            <Dynamic>sub_831_e1</Dynamic>
+            <Dynamic>sub_833_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>1</Dynamic>
-            <Dynamic>sub_831_e1</Dynamic>
+            <Dynamic>sub_833_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>0</Dynamic>
-            <Dynamic>sub_831_e1</Dynamic>
+            <Dynamic>sub_833_e1</Dynamic>
         </Message>
         <Message>
             <ID>35935035</ID>
@@ -3211,7 +3432,7 @@
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(41): </Dynamic>
-            <Dynamic>add_766_i2</Dynamic>
+            <Dynamic>add_768_i2</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd</Navigation>
             <Navigation>41</Navigation>
         </Message>
@@ -3219,265 +3440,265 @@
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>43</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>42</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>41</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>40</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>39</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>38</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>37</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>36</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>35</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>34</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>33</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>32</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>31</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>30</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>29</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>28</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>27</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>26</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>25</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>24</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>23</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>22</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>21</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>20</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>19</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>18</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>17</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>16</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>15</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>14</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>13</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>12</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>11</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>10</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>9</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>8</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>7</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>6</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>5</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>4</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>3</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>2</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
             <Severity>16</Severity>
             <Dynamic>1</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>0</Dynamic>
-            <Dynamic>add_766_e1</Dynamic>
+            <Dynamic>add_768_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001747</ID>
@@ -3561,7 +3782,7 @@
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic>C:/Radiant/ispfpga/vhdl_packages/numeric_std.vhd(1308): </Dynamic>
-            <Dynamic>add_413_i2</Dynamic>
+            <Dynamic>add_415_i2</Dynamic>
             <Navigation>C:/Radiant/ispfpga/vhdl_packages/numeric_std.vhd</Navigation>
             <Navigation>1308</Navigation>
         </Message>
@@ -3569,91 +3790,91 @@
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>14</Dynamic>
-            <Dynamic>add_413_e2</Dynamic>
+            <Dynamic>add_415_e2</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>13</Dynamic>
-            <Dynamic>add_413_e2</Dynamic>
+            <Dynamic>add_415_e2</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>12</Dynamic>
-            <Dynamic>add_413_e2</Dynamic>
+            <Dynamic>add_415_e2</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>11</Dynamic>
-            <Dynamic>add_413_e2</Dynamic>
+            <Dynamic>add_415_e2</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>10</Dynamic>
-            <Dynamic>add_413_e2</Dynamic>
+            <Dynamic>add_415_e2</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>9</Dynamic>
-            <Dynamic>add_413_e2</Dynamic>
+            <Dynamic>add_415_e2</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>8</Dynamic>
-            <Dynamic>add_413_e2</Dynamic>
+            <Dynamic>add_415_e2</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>7</Dynamic>
-            <Dynamic>add_413_e2</Dynamic>
+            <Dynamic>add_415_e2</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>6</Dynamic>
-            <Dynamic>add_413_e2</Dynamic>
+            <Dynamic>add_415_e2</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>5</Dynamic>
-            <Dynamic>add_413_e2</Dynamic>
+            <Dynamic>add_415_e2</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>4</Dynamic>
-            <Dynamic>add_413_e2</Dynamic>
+            <Dynamic>add_415_e2</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>3</Dynamic>
-            <Dynamic>add_413_e2</Dynamic>
+            <Dynamic>add_415_e2</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>2</Dynamic>
-            <Dynamic>add_413_e2</Dynamic>
+            <Dynamic>add_415_e2</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>1</Dynamic>
-            <Dynamic>add_413_e2</Dynamic>
+            <Dynamic>add_415_e2</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>0</Dynamic>
-            <Dynamic>add_413_e2</Dynamic>
+            <Dynamic>add_415_e2</Dynamic>
         </Message>
         <Message>
             <ID>35935035</ID>
@@ -3787,97 +4008,97 @@
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>14</Dynamic>
-            <Dynamic>add_412_e2</Dynamic>
+            <Dynamic>add_414_e2</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>13</Dynamic>
-            <Dynamic>add_412_e2</Dynamic>
+            <Dynamic>add_414_e2</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>12</Dynamic>
-            <Dynamic>add_412_e2</Dynamic>
+            <Dynamic>add_414_e2</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>11</Dynamic>
-            <Dynamic>add_412_e2</Dynamic>
+            <Dynamic>add_414_e2</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>10</Dynamic>
-            <Dynamic>add_412_e2</Dynamic>
+            <Dynamic>add_414_e2</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>9</Dynamic>
-            <Dynamic>add_412_e2</Dynamic>
+            <Dynamic>add_414_e2</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>8</Dynamic>
-            <Dynamic>add_412_e2</Dynamic>
+            <Dynamic>add_414_e2</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>7</Dynamic>
-            <Dynamic>add_412_e2</Dynamic>
+            <Dynamic>add_414_e2</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>6</Dynamic>
-            <Dynamic>add_412_e2</Dynamic>
+            <Dynamic>add_414_e2</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>5</Dynamic>
-            <Dynamic>add_412_e2</Dynamic>
+            <Dynamic>add_414_e2</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>4</Dynamic>
-            <Dynamic>add_412_e2</Dynamic>
+            <Dynamic>add_414_e2</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>3</Dynamic>
-            <Dynamic>add_412_e2</Dynamic>
+            <Dynamic>add_414_e2</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>2</Dynamic>
-            <Dynamic>add_412_e2</Dynamic>
+            <Dynamic>add_414_e2</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>1</Dynamic>
-            <Dynamic>add_412_e2</Dynamic>
+            <Dynamic>add_414_e2</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>0</Dynamic>
-            <Dynamic>add_412_e2</Dynamic>
+            <Dynamic>add_414_e2</Dynamic>
         </Message>
         <Message>
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sideband_selector.vhd(22): </Dynamic>
-            <Dynamic>add_768_i2</Dynamic>
+            <Dynamic>add_770_i2</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sideband_selector.vhd</Navigation>
             <Navigation>22</Navigation>
         </Message>
@@ -3885,13 +4106,13 @@
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>0</Dynamic>
-            <Dynamic>add_768_e1</Dynamic>
+            <Dynamic>add_770_e1</Dynamic>
         </Message>
         <Message>
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(50): </Dynamic>
-            <Dynamic>add_767_i2</Dynamic>
+            <Dynamic>add_769_i2</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd</Navigation>
             <Navigation>50</Navigation>
         </Message>
@@ -3899,7 +4120,7 @@
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>0</Dynamic>
-            <Dynamic>add_767_e1</Dynamic>
+            <Dynamic>add_769_e1</Dynamic>
         </Message>
         <Message>
             <ID>35935035</ID>
@@ -3927,55 +4148,55 @@
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>8</Dynamic>
-            <Dynamic>sub_833_e1</Dynamic>
+            <Dynamic>sub_835_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>7</Dynamic>
-            <Dynamic>sub_833_e1</Dynamic>
+            <Dynamic>sub_835_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>6</Dynamic>
-            <Dynamic>sub_833_e1</Dynamic>
+            <Dynamic>sub_835_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>5</Dynamic>
-            <Dynamic>sub_833_e1</Dynamic>
+            <Dynamic>sub_835_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>4</Dynamic>
-            <Dynamic>sub_833_e1</Dynamic>
+            <Dynamic>sub_835_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>3</Dynamic>
-            <Dynamic>sub_833_e1</Dynamic>
+            <Dynamic>sub_835_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>2</Dynamic>
-            <Dynamic>sub_833_e1</Dynamic>
+            <Dynamic>sub_835_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>1</Dynamic>
-            <Dynamic>sub_833_e1</Dynamic>
+            <Dynamic>sub_835_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
             <Severity>16</Severity>
             <Dynamic>0</Dynamic>
-            <Dynamic>sub_833_e1</Dynamic>
+            <Dynamic>sub_835_e1</Dynamic>
         </Message>
         <Message>
             <ID>35001748</ID>
@@ -4099,7 +4320,7 @@
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd(50): </Dynamic>
-            <Dynamic>add_896_i17</Dynamic>
+            <Dynamic>add_898_i17</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd</Navigation>
             <Navigation>50</Navigation>
         </Message>
@@ -4107,7 +4328,7 @@
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd(45): </Dynamic>
-            <Dynamic>add_911_i17</Dynamic>
+            <Dynamic>add_913_i17</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd</Navigation>
             <Navigation>45</Navigation>
         </Message>
@@ -4301,7 +4522,7 @@
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd(105): </Dynamic>
-            <Dynamic>add_1025_rep_17_i17</Dynamic>
+            <Dynamic>add_1027_rep_17_i17</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd</Navigation>
             <Navigation>105</Navigation>
         </Message>
@@ -4309,7 +4530,7 @@
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(52): </Dynamic>
-            <Dynamic>add_1946_i2</Dynamic>
+            <Dynamic>add_1948_i2</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd</Navigation>
             <Navigation>52</Navigation>
         </Message>
@@ -4317,25 +4538,25 @@
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>add_1305_i17</Dynamic>
+            <Dynamic>add_1307_i17</Dynamic>
         </Message>
         <Message>
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>add_1305_i2</Dynamic>
+            <Dynamic>add_1307_i2</Dynamic>
         </Message>
         <Message>
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>sub_1073_add_2_i2</Dynamic>
+            <Dynamic>sub_1075_add_2_i2</Dynamic>
         </Message>
         <Message>
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(43): </Dynamic>
-            <Dynamic>add_1918_i17</Dynamic>
+            <Dynamic>add_1920_i17</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd</Navigation>
             <Navigation>43</Navigation>
         </Message>
@@ -4343,13 +4564,13 @@
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>sub_1073_add_2_i17</Dynamic>
+            <Dynamic>sub_1075_add_2_i17</Dynamic>
         </Message>
         <Message>
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd(44): </Dynamic>
-            <Dynamic>add_2030_i17</Dynamic>
+            <Dynamic>add_2032_i17</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd</Navigation>
             <Navigation>44</Navigation>
         </Message>
@@ -4357,55 +4578,55 @@
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>add_2031_i17</Dynamic>
+            <Dynamic>add_2033_i17</Dynamic>
         </Message>
         <Message>
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>add_2031_i2</Dynamic>
+            <Dynamic>add_2033_i2</Dynamic>
         </Message>
         <Message>
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>add_2044_i17</Dynamic>
+            <Dynamic>add_2046_i17</Dynamic>
         </Message>
         <Message>
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>add_2044_i2</Dynamic>
+            <Dynamic>add_2046_i2</Dynamic>
         </Message>
         <Message>
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>add_2041_i17</Dynamic>
+            <Dynamic>add_2043_i17</Dynamic>
         </Message>
         <Message>
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>add_2041_i2</Dynamic>
+            <Dynamic>add_2043_i2</Dynamic>
         </Message>
         <Message>
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>sub_1069_add_2_i17</Dynamic>
+            <Dynamic>sub_1071_add_2_i17</Dynamic>
         </Message>
         <Message>
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>sub_1069_add_2_i2</Dynamic>
+            <Dynamic>sub_1071_add_2_i2</Dynamic>
         </Message>
         <Message>
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd(36): </Dynamic>
-            <Dynamic>add_1044_i2</Dynamic>
+            <Dynamic>add_1046_i2</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd</Navigation>
             <Navigation>36</Navigation>
         </Message>
@@ -4413,7 +4634,7 @@
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd(40): </Dynamic>
-            <Dynamic>add_1048_i2</Dynamic>
+            <Dynamic>add_1050_i2</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd</Navigation>
             <Navigation>40</Navigation>
         </Message>
@@ -4421,7 +4642,7 @@
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(59): </Dynamic>
-            <Dynamic>add_1040_i2</Dynamic>
+            <Dynamic>add_1042_i2</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd</Navigation>
             <Navigation>59</Navigation>
         </Message>
@@ -4429,7 +4650,7 @@
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(70): </Dynamic>
-            <Dynamic>add_1031_rep_11_i17</Dynamic>
+            <Dynamic>add_1033_rep_11_i17</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd</Navigation>
             <Navigation>70</Navigation>
         </Message>
@@ -4437,7 +4658,7 @@
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(49): </Dynamic>
-            <Dynamic>add_1034_rep_24_i2</Dynamic>
+            <Dynamic>add_1036_rep_24_i2</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd</Navigation>
             <Navigation>49</Navigation>
         </Message>
@@ -4445,102 +4666,102 @@
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>sub_1073_add_2_add_12_i2</Dynamic>
+            <Dynamic>sub_1075_add_2_add_12_i2</Dynamic>
         </Message>
         <Message>
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>sub_1073_add_2_add_12_i17</Dynamic>
+            <Dynamic>sub_1075_add_2_add_12_i17</Dynamic>
         </Message>
         <Message>
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>add_1305_add_12_i17</Dynamic>
+            <Dynamic>add_1307_add_12_i17</Dynamic>
         </Message>
         <Message>
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>add_1305_add_12_i2</Dynamic>
+            <Dynamic>add_1307_add_12_i2</Dynamic>
         </Message>
         <Message>
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>add_2031_add_12_i17</Dynamic>
+            <Dynamic>add_2033_add_12_i17</Dynamic>
         </Message>
         <Message>
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>add_2031_add_12_i2</Dynamic>
+            <Dynamic>add_2033_add_12_i2</Dynamic>
         </Message>
         <Message>
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>sub_1069_add_2_add_12_i2</Dynamic>
+            <Dynamic>sub_1071_add_2_add_12_i2</Dynamic>
         </Message>
         <Message>
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>sub_1069_add_2_add_12_i17</Dynamic>
+            <Dynamic>sub_1071_add_2_add_12_i17</Dynamic>
         </Message>
         <Message>
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>add_2031_add_12_add_12_i17</Dynamic>
+            <Dynamic>add_2033_add_12_add_12_i17</Dynamic>
         </Message>
         <Message>
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>add_2031_add_12_add_12_i2</Dynamic>
+            <Dynamic>add_2033_add_12_add_12_i2</Dynamic>
         </Message>
         <Message>
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>sub_1069_add_2_add_12_add_12_i17</Dynamic>
+            <Dynamic>sub_1071_add_2_add_12_add_12_i17</Dynamic>
         </Message>
         <Message>
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>sub_1069_add_2_add_12_add_12_i2</Dynamic>
+            <Dynamic>sub_1071_add_2_add_12_add_12_i2</Dynamic>
         </Message>
         <Message>
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>sub_1073_add_2_add_12_add_12_i2</Dynamic>
+            <Dynamic>sub_1075_add_2_add_12_add_12_i2</Dynamic>
         </Message>
         <Message>
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>add_1305_add_12_add_12_i17</Dynamic>
+            <Dynamic>add_1307_add_12_add_12_i17</Dynamic>
         </Message>
         <Message>
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>add_1305_add_12_add_12_i2</Dynamic>
+            <Dynamic>add_1307_add_12_add_12_i2</Dynamic>
         </Message>
         <Message>
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>sub_1073_add_2_add_12_add_12_i17</Dynamic>
+            <Dynamic>sub_1075_add_2_add_12_add_12_i17</Dynamic>
         </Message>
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sideband_selector.vhd(22): Clock on register add_768_add_12_add_12_add_12_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sideband_selector.vhd(22): Clock on register add_770_add_12_add_12_add_12_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
@@ -4558,7 +4779,7 @@
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(52): Clock on register add_1913_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(52): Clock on register add_1915_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
@@ -4570,25 +4791,25 @@
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd(45): Clock on register add_2032_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd(45): Clock on register add_2034_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd(105): Clock on register add_1028_rep_13_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd(105): Clock on register add_1030_rep_13_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>Clock on register add_1305_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>Clock on register add_1307_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd(44): Clock on register add_2030_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd(44): Clock on register add_2032_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
@@ -4601,24 +4822,24 @@
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>add_1305_add_12_add_12_add_12_i2</Dynamic>
+            <Dynamic>add_1307_add_12_add_12_add_12_i2</Dynamic>
         </Message>
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(70): Clock on register add_1031_rep_11_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(70): Clock on register add_1033_rep_11_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>C:/Radiant/ispfpga/vhdl_packages/numeric_std.vhd(1308): Clock on register add_2033_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>C:/Radiant/ispfpga/vhdl_packages/numeric_std.vhd(1308): Clock on register add_2035_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(52): Clock on register add_1946_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(52): Clock on register add_1948_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
@@ -4668,13 +4889,13 @@
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd(36): Clock on register add_1044_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd(36): Clock on register add_1046_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(50): Clock on register add_1006_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(50): Clock on register add_1008_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
@@ -4694,7 +4915,7 @@
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd(50): Clock on register add_2035_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd(50): Clock on register add_2037_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
@@ -4728,7 +4949,7 @@
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>C:/Radiant/ispfpga/vhdl_packages/numeric_std.vhd(1308): Clock on register add_2034_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>C:/Radiant/ispfpga/vhdl_packages/numeric_std.vhd(1308): Clock on register add_2036_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
@@ -4746,13 +4967,13 @@
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd(40): Clock on register add_1048_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd(40): Clock on register add_1050_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>Clock on register sub_1073_add_2_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>Clock on register sub_1075_add_2_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
@@ -4765,7 +4986,7 @@
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>add_2031_add_12_add_12_add_12_i2</Dynamic>
+            <Dynamic>add_2033_add_12_add_12_add_12_i2</Dynamic>
         </Message>
         <Message>
             <ID>1009991</ID>
@@ -4776,7 +4997,7 @@
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>Clock on register add_2031_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>Clock on register add_2033_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
@@ -4800,7 +5021,7 @@
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(43): Clock on register add_1920_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(43): Clock on register add_1922_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
@@ -4812,31 +5033,31 @@
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(49): Clock on register add_1034_rep_24_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(49): Clock on register add_1036_rep_24_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(70): Clock on register add_1031_rep_10_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(70): Clock on register add_1033_rep_10_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(49): Clock on register add_1034_rep_25_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(49): Clock on register add_1036_rep_25_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>sub_1073_add_2_add_12_add_12_add_12_i2</Dynamic>
+            <Dynamic>sub_1075_add_2_add_12_add_12_add_12_i2</Dynamic>
         </Message>
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(41): Clock on register add_999_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(41): Clock on register add_1001_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
@@ -4866,7 +5087,7 @@
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd(105): Clock on register add_1025_rep_17_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd(105): Clock on register add_1027_rep_17_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
@@ -4890,25 +5111,25 @@
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd(105): Clock on register add_1025_rep_16_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd(105): Clock on register add_1027_rep_16_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(59): Clock on register add_1040_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(59): Clock on register add_1042_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd(105): Clock on register add_1028_rep_12_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd(105): Clock on register add_1030_rep_12_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(43): Clock on register add_1918_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(43): Clock on register add_1920_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
@@ -4933,7 +5154,7 @@
             <ID>35935035</ID>
             <Severity>16</Severity>
             <Dynamic></Dynamic>
-            <Dynamic>sub_1069_add_2_add_12_add_12_add_12_i2</Dynamic>
+            <Dynamic>sub_1071_add_2_add_12_add_12_add_12_i2</Dynamic>
         </Message>
         <Message>
             <ID>1009991</ID>
@@ -4944,7 +5165,7 @@
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>Clock on register sub_1069_add_2_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>Clock on register sub_1071_add_2_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
@@ -4962,7 +5183,7 @@
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>Clock on register sub_1069_add_2_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>Clock on register sub_1071_add_2_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
@@ -4992,25 +5213,25 @@
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(43): Clock on register add_1918_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(43): Clock on register add_1920_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd(105): Clock on register add_1028_rep_12_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd(105): Clock on register add_1030_rep_12_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(59): Clock on register add_1040_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/spi_slave.vhd(59): Clock on register add_1042_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd(105): Clock on register add_1025_rep_16_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd(105): Clock on register add_1027_rep_16_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
@@ -5034,7 +5255,7 @@
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd(105): Clock on register add_1025_rep_17_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/sincos.vhd(105): Clock on register add_1027_rep_17_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
@@ -5064,25 +5285,25 @@
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(41): Clock on register add_999_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(41): Clock on register add_1001_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(49): Clock on register add_1034_rep_25_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(49): Clock on register add_1036_rep_25_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(70): Clock on register add_1031_rep_10_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fm_modulator.vhd(70): Clock on register add_1033_rep_10_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(49): Clock on register add_1034_rep_24_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/mod_sel.vhd(49): Clock on register add_1036_rep_24_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
@@ -5094,7 +5315,7 @@
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(43): Clock on register add_1920_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(43): Clock on register add_1922_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
@@ -5118,7 +5339,7 @@
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>Clock on register add_2031_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>Clock on register add_2033_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
@@ -5136,13 +5357,13 @@
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>Clock on register sub_1073_add_2_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>Clock on register sub_1075_add_2_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd(40): Clock on register add_1048_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/iq_balancer.vhd(40): Clock on register add_1050_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
@@ -5160,7 +5381,7 @@
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>C:/Radiant/ispfpga/vhdl_packages/numeric_std.vhd(1308): Clock on register add_2034_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>C:/Radiant/ispfpga/vhdl_packages/numeric_std.vhd(1308): Clock on register add_2036_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
@@ -5178,7 +5399,7 @@
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd(50): Clock on register add_2035_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/freq_demod.vhd(50): Clock on register add_2037_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
@@ -5190,7 +5411,7 @@
         <Message>
             <ID>1009991</ID>
             <Severity>16</Severity>
-            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(50): Clock on register add_1006_add_12_add_12_add_12_i8 is tied to a constant
+            <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/dpd.vhd(50): Clock on register add_1008_add_12_add_12_add_12_i8 is tied to a constant
 </Dynamic>
         </Message>
         <Message>
@@ -5388,232 +5609,6 @@
         <Message>
             <ID>35811149</ID>
             <Severity>1</Severity>
-        </Message>
-        <Message>
-            <ID>70001944</ID>
-            <Severity>16</Severity>
-            <Dynamic>create_generated_clock -name {clk_152} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOP }] </Dynamic>
-        </Message>
-        <Message>
-            <ID>70001944</ID>
-            <Severity>16</Severity>
-            <Dynamic>create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 32 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS }] </Dynamic>
-        </Message>
-        <Message>
-            <ID>70001944</ID>
-            <Severity>16</Severity>
-            <Dynamic>create_generated_clock -name {clk_38} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 19 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS2 }] </Dynamic>
-        </Message>
-    </Task>
-    <Task name="Map">
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>io0</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>io1</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>io2</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>io0</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>io1</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>io2</Dynamic>
-        </Message>
-    </Task>
-    <Task name="PAR">
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io0</Dynamic>
-            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io1</Dynamic>
-            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io2</Dynamic>
-            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>io0</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>io1</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>io2</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io0</Dynamic>
-            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io1</Dynamic>
-            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io2</Dynamic>
-            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
-        </Message>
-        <Message>
-            <ID>70001944</ID>
-            <Severity>16</Severity>
-            <Dynamic>create_generated_clock -name {clk_152} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOP }] </Dynamic>
-        </Message>
-        <Message>
-            <ID>70001944</ID>
-            <Severity>16</Severity>
-            <Dynamic>create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 32 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS }] </Dynamic>
-        </Message>
-        <Message>
-            <ID>70001944</ID>
-            <Severity>16</Severity>
-            <Dynamic>create_generated_clock -name {clk_38} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 19 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS2 }] </Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io0</Dynamic>
-            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io1</Dynamic>
-            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io2</Dynamic>
-            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io0</Dynamic>
-            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io1</Dynamic>
-            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io2</Dynamic>
-            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
-        </Message>
-        <Message>
-            <ID>70001944</ID>
-            <Severity>16</Severity>
-            <Dynamic>create_generated_clock -name {clk_152} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOP }] </Dynamic>
-        </Message>
-        <Message>
-            <ID>70001944</ID>
-            <Severity>16</Severity>
-            <Dynamic>create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 32 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS }] </Dynamic>
-        </Message>
-        <Message>
-            <ID>70001944</ID>
-            <Severity>16</Severity>
-            <Dynamic>create_generated_clock -name {clk_38} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 19 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS2 }] </Dynamic>
         </Message>
         <Message>
             <ID>70001944</ID>
