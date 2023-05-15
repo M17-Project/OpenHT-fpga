@@ -49,3 +49,7 @@ SSB (USB) - FreeDV (baseband via SPI)<br>
 BPSK/QPSK (unfiltered, "staircase" baseband)<br>
 <img src="https://github.com/M17-Project/OpenHT-fpga/blob/main/docs/BPSK_test.png" width="800">
 <img src="https://github.com/M17-Project/OpenHT-fpga/blob/main/docs/QPSK_test.png" width="800">
+
+### Reception
+M17<br>
+<img src="https://github.com/M17-Project/OpenHT-fpga/blob/main/docs/4FSK_M17_test_RX.png" width="800">
