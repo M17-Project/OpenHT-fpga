@@ -742,9 +742,23 @@ begin
 	
 	-- additional connections
 	regs_r(0) <= x"4854";
-	--regs_r(1) <= 
-	regs_r(2) <= std_logic_vector(fm_demod_raw); -- TODO: change this according to the reg map
-	regs_r(3) <= std_logic_vector(am_demod_raw); -- TODO: change this according to the reg map
+	--regs_r(1) <= ;
+	with regs_rw(0)(4 downto 2) select
+		regs_r(2) <= std_logic_vector(fm_demod_raw)	when "000", -- frequency demodulator
+		std_logic_vector(am_demod_raw)				when "001", -- amplitude ----//-----
+		(others => '0')								when "010", -- SSB (placeholder)
+		(others => '0')								when others;
+	--regs_r(3) <= ;
 	regs_r(4) <= std_logic_vector(flt_id_r);
 	regs_r(5) <= std_logic_vector(flt_qd_r);
+	
+	-- I/Os
+	with regs_rw(0)(11 downto 9) select -- TODO: set this to match with the register map
+    io3 <= '0'		when "000",
+       drdyd		when "001",
+	   zero_word	when "010",
+       '1'			when others;
+	--io4 <= ;
+	--io5 <= ;
+	--io6 <= ;
 end magic;
