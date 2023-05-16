@@ -3,5 +3,6 @@
 -ver "C:/Users/SP5WWP/Documents/Radiant/OpenHT/pll_osc/rtl/pll_osc.v"
 -sdc "C:/Users/SP5WWP/Documents/Radiant/OpenHT/pll_osc/constraints/pll_osc.ldc"
 -path "C:/Users/SP5WWP/Documents/Radiant/OpenHT/pll_osc" "C:/Users/SP5WWP/Documents/Radiant/OpenHT"
+-vh2008
 -top pll_osc
 -a "LIFCL"

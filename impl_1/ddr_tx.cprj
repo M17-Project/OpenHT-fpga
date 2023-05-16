@@ -3,5 +3,6 @@
 -ver "C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_tx/rtl/ddr_tx.v"
 -sdc "C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_tx/constraints/ddr_tx.ldc"
 -path "C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_tx" "C:/Users/SP5WWP/Documents/Radiant/OpenHT"
+-vh2008
 -top ddr_tx
 -a "LIFCL"
