@@ -280,6 +280,18 @@ architecture magic of main_all is
 		);
 	end component;
 	
+	-- received signal strength (RSSI) estimator
+	component rssi_est is
+		generic(
+			NUM		: integer := 2**9
+		);
+		port(
+			clk_i	: in std_logic;
+			r_i		: in signed(15 downto 0);
+			r_o		: out unsigned(15 downto 0)
+		);
+	end component;
+	
 	-- polynomial digital predistortion block
 	component dpd is
 		port(
@@ -523,6 +535,12 @@ begin
 		data_o => flt_q,
 		trig_i => drdy,
 		drdy_o => flt_q_rdy
+	);
+	
+	rssi0: rssi_est port map(
+		clk_i => flt_i_rdy,
+		r_i => flt_i,
+		std_logic_vector(r_o) => regs_r(3)
 	);
 	
 	decim0: decim port map(

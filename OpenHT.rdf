@@ -18,6 +18,9 @@
         <Source name="source/impl_1/decim.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
+        <Source name="source/impl_1/rssi_est.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
         <Source name="source/impl_1/fir_channel.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
