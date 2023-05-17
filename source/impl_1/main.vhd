@@ -60,6 +60,8 @@ architecture magic of main_all is
 	signal fm_demod_slv				: std_logic_vector(15 downto 0) := (others => '0');
 	signal flt_i_rdy, flt_q_rdy		: std_logic := '0';
 	signal am_demod_rdy				: std_logic := '0';
+	signal rssi_rdy					: std_logic := '0';
+	signal rssi_r					: unsigned(15 downto 0) := (others => '0');
 	-- IQ - TX
 	signal zero_word				: std_logic := '0';
 	signal i_fm_tx, q_fm_tx			: std_logic_vector(15 downto 0) := (others => '0');
@@ -256,6 +258,19 @@ architecture magic of main_all is
 		--);
 	--end component;
 	
+	component fir_rssi is
+		generic(
+			TAPS_NUM : integer := 81
+		);
+		port(
+			clk_i		: in std_logic;					-- fast clock in
+			data_i		: in signed(15 downto 0);		-- data in
+			data_o		: out signed(15 downto 0);		-- data out
+			trig_i		: in std_logic;					-- trigger in
+			drdy_o		: out std_logic := '0'			-- data ready out
+		);
+	end component;
+	
 	-- delay block
 	component delay_block is
 		generic(
@@ -283,12 +298,13 @@ architecture magic of main_all is
 	-- received signal strength (RSSI) estimator
 	component rssi_est is
 		generic(
-			NUM		: integer := 2**9
+			NUM		: integer := 2**8
 		);
 		port(
 			clk_i	: in std_logic;
 			r_i		: in signed(15 downto 0);
-			r_o		: out unsigned(15 downto 0)
+			r_o		: out unsigned(15 downto 0);
+			rdy		: out std_logic
 		);
 	end component;
 	
@@ -540,7 +556,16 @@ begin
 	rssi0: rssi_est port map(
 		clk_i => flt_i_rdy,
 		r_i => flt_i,
-		std_logic_vector(r_o) => regs_r(3)
+		std_logic_vector(r_o) => rssi_r,
+		rdy => rssi_rdy
+	);
+	
+	rssi_fir0: fir_rssi port map(
+		clk_i => clk_38,
+		data_i => signed('0' & rssi_r(14 downto 0)),
+		std_logic_vector(data_o) => regs_r(3),
+		trig_i => rssi_rdy
+		--drdy_o => 
 	);
 	
 	decim0: decim port map(
@@ -775,6 +800,8 @@ begin
     io3 <= '0'		when "000",
        drdyd		when "001",
 	   zero_word	when "010",
+	   flt_i_rdy	when "011",
+	   drdy			when "100",
        '1'			when others;
 	--io4 <= ;
 	--io5 <= ;

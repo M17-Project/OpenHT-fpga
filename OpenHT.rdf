@@ -30,6 +30,9 @@
         <Source name="source/impl_1/fir_rrc.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
+        <Source name="source/impl_1/fir_rssi.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
         <Source name="source/impl_1/freq_demod.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
