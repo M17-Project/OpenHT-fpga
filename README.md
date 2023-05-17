@@ -21,13 +21,14 @@ OpenHT FPGA design - a complete Lattice Radiant project for the **LIFCL-40-7SG72
 ### Other:
 - [x] I/Q raw sample access over SPI
 - [x] optional phase dither for the frequency/phase modulator
+- [x] Received Signal Strength Indicator (RSSI) estimation
 - [ ] symbol recovery, clock sync
 
 ### Supported modes<br>
 Analog: FM, AM, SSB, OOK (CW)<br>
 Digital: M17, FreeDV, crude "4FSK", SSTV, 16QAM, BPSK/QPSK/DQPSK, OFDM, AFSK, APRS
 
-**Note:** automatic gain control (AGC) is done by the RF transceiver chip.
+**Note:** automatic gain control (AGC) is done by the RF transceiver chip. Not all modes are yet implemented in the firmware.
 
 ## Block diagram
 <img src="https://github.com/M17-Project/OpenHT-fpga/blob/main/docs/OpenHT-fpga.drawio.png" width="800">
@@ -43,10 +44,10 @@ M17 (baseband via SPI)<br>
 SSB (USB) - FreeDV (baseband via SPI)<br>
 <img src="https://github.com/M17-Project/OpenHT-fpga/blob/main/docs/USB_FreeDV_test.png" width="800">
 
-16QAM (unfiltered, "staircase" baseband)<br>
+16QAM (unfiltered, internally generated, pseudorandom "staircase" baseband)<br>
 <img src="https://github.com/M17-Project/OpenHT-fpga/blob/main/docs/16QAM_test.png" width="800">
 
-BPSK/QPSK (unfiltered, "staircase" baseband)<br>
+BPSK/QPSK (unfiltered, internally generated, pseudorandom "staircase" baseband)<br>
 <img src="https://github.com/M17-Project/OpenHT-fpga/blob/main/docs/BPSK_test.png" width="800">
 <img src="https://github.com/M17-Project/OpenHT-fpga/blob/main/docs/QPSK_test.png" width="800">
 
