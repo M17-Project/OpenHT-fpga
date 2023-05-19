@@ -1,7 +1,7 @@
 -a "LIFCL"
 -p LIFCL-40
 -t QFN72
--sp "7_High-Performance_1.0V"
+-sp "9_High-Performance_1.0V"
 -frequency 200
 -optimization_goal Timing
 -bram_utilization 100
