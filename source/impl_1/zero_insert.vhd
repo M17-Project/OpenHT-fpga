@@ -3,7 +3,7 @@
 --
 -- Wojciech Kaczmarski, SP5WWP
 -- M17 Project
--- March 2023
+-- May 2023
 -------------------------------------------------------------
 library IEEE;
 use IEEE.std_logic_1164.all;
@@ -12,7 +12,7 @@ use IEEE.numeric_std.all;
 entity zero_insert is
 	port(
 		clk_i	: in std_logic; -- 64MHz clock in
-		runup_i	: in std_logic; -- set to '1' to send initial zero words to the transceiver
+		runup_i	: in std_logic; -- set to '0' to send initial zero words to the transceiver
 		s_o 	: out std_logic -- zero word out ('1' = allow to send zero words)
 	);
 end zero_insert;
@@ -29,7 +29,7 @@ begin
 				counter := 0;
 			else
 				if counter<16 then
-					s_o <= '0' or runup_i;
+					s_o <= '0' or not runup_i;
 				else
 					s_o <= '1';
 				end if;

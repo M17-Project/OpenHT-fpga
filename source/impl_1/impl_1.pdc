@@ -10,7 +10,7 @@ ldc_set_location -site {52} [get_ports io3]
 ldc_set_location -site {57} [get_ports io6]
 ldc_set_sysconfig {JTAG_PORT=DISABLE BOOTMODE=DUAL CONFIGIO_VOLTAGE_BANK0=NOT_SPECIFIED DONE_PORT=ENABLE INITN_PORT=ENABLE SLAVE_SPI_PORT=DISABLE}
 ldc_set_vcc -bank 3 -derate 0
-ldc_set_location -site {53} [get_ports rst]
+ldc_set_location -site {53} [get_ports nrst]
 ldc_set_location -site {55} [get_ports io4]
 ldc_set_location -site {56} [get_ports io5]
 ldc_set_location -site {24} [get_ports clk_rx_i]

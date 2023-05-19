@@ -9,7 +9,7 @@ entity main_all is
 		-- 26 MHz clock input from the AT86
 		clk_i 				: in std_logic;
 		-- master reset, high active
-		rst					: in std_logic;
+		nrst				: in std_logic;
 		-- baseband TX (DDR)
 		clk_tx_o			: out std_logic;
 		data_tx_o			: out std_logic;
@@ -477,7 +477,7 @@ architecture magic of main_all is
 begin
 	------------------------------------- port maps -------------------------------------
 	pll0: pll_osc port map(
-		rstn_i => not rst,
+		rstn_i => nrst,
 		clki_i => clk_i,
 		clkop_o => clk_152,
 		clkos_o => clk_64,
@@ -486,7 +486,7 @@ begin
 	);
 	
 	pll1: pll_samp port map(
-		rstn_i => not rst,
+		rstn_i => nrst,
 		clki_i => clk_i,
 		clkop_o => clk_7M2,
 		lock_o => regs_r(1)(1)
@@ -604,7 +604,7 @@ begin
 	);
 	
 	ctcss_enc0: ctcss_encoder port map(
-		nrst => not rst,
+		nrst => nrst,
 		trig_i => zero_word,
 		clk_i => clk_i,
 		ctcss_i => regs_rw(1)(7 downto 2),
@@ -613,7 +613,7 @@ begin
 	ctcss_fm_tx <= std_logic_vector(signed(regs_rw(9)) + signed(ctcss_r));
 	
 	freq_mod0: fm_modulator port map(
-		nrst => not rst,
+		nrst => nrst,
 		clk_i => clk_38,
 		mod_i => ctcss_fm_tx,
 		dith_i => fm_dith_r,
@@ -736,7 +736,7 @@ begin
 	-- DDR TX queue
 	zero_insert0: zero_insert port map(
 		clk_i => clk_64,
-		runup_i => rst,
+		runup_i => nrst,
 		s_o => zero_word
 	);
 	
@@ -765,7 +765,7 @@ begin
 		data_o => spi_rx_r,
 		addr_o => spi_addr_r,
 		data_i => spi_tx_r,
-		nrst => not rst,
+		nrst => nrst,
 		ena => '1',
 		rw => spi_rw,
 		clk_i => clk_i
@@ -773,7 +773,7 @@ begin
 	
 	ctrl_regs0: ctrl_regs port map(
 		clk_i => clk_i,
-		nrst => not rst,
+		nrst => nrst,
 		addr_i => spi_addr_r,
 		data_i => spi_rx_r,
 		data_o => spi_tx_r,
