@@ -1,6 +1,6 @@
 
 Lattice Place and Route Report for Design "OpenHT_impl_1_map.udb"
-Fri May 19 13:59:48 2023
+Sat May 20 20:06:04 2023
 
 PAR: Place And Route Radiant Software (64-bit) 2022.1.1.289.4.
 Command Line: par -w -t 1 -cores 1 -exp parPathBased=OFF OpenHT_impl_1_map.udb \
@@ -99,18 +99,18 @@ Starting Placer Phase 0 (HIER). CPU time: 11 secs , REAL time: 12 secs
 Finished Placer Phase 0 (HIER). CPU time: 17 secs , REAL time: 18 secs 
 
 
-Starting Placer Phase 1. CPU time: 17 secs , REAL time: 18 secs 
+Starting Placer Phase 1. CPU time: 18 secs , REAL time: 18 secs 
 ..  ..
 ......................
 
 Placer score = 5315864.
-Finished Placer Phase 1. CPU time: 29 secs , REAL time: 30 secs 
+Finished Placer Phase 1. CPU time: 30 secs , REAL time: 30 secs 
 
 Starting Placer Phase 2.
 .
 
 Placer score =  5015965
-Finished Placer Phase 2.  CPU time: 32 secs , REAL time: 32 secs 
+Finished Placer Phase 2.  CPU time: 33 secs , REAL time: 33 secs 
 
 After final PLC packing legalization, all 0 SLICEs that were not satisfying 1 CLK/CE/LSR per HALF-PLC restriction are all placed into compatible PLCs.
 
@@ -174,7 +174,7 @@ I/O Bank Usage Summary:
 | 5        | 0 / 10 (  0%)  | -          | -          | -          |
 +----------+----------------+------------+------------+------------+
 
-Total Placer CPU time: 32 secs , REAL time: 33 secs 
+Total Placer CPU time: 33 secs , REAL time: 33 secs 
 
 Writing design to file OpenHT_impl_1_par.dir/5_1.udb ...
 
@@ -191,7 +191,7 @@ WARNING - par: Unable to find the instance/port 'io2' in the constraint 'ldc_set
 WARNING - par: In the constraint 'ldc_set_location -site {51} [get_ports io2]', the locate object is not specified
 
 
-Start NBR router at 14:00:22 05/19/23
+Start NBR router at 20:06:39 05/20/23
 
 *****************************************************************
 Info: NBR allows conflicts(one node used by more than one signal)
@@ -266,52 +266,52 @@ WARNING - par: No master clock for
 WARNING - par: No master clock for
 	generated clock	create_generated_clock -name {clk_38} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 19 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS2 }] .
 
-Start NBR section for initial routing at 14:00:30 05/19/23
+Start NBR section for initial routing at 20:06:47 05/20/23
 Level 4, iteration 1
 13730(0.78%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 17 secs 
 
 Info: Initial congestion level at 75.00% usage is 0
 Info: Initial congestion area  at 75.00% usage is 3 (0.07%)
 
-Start NBR section for normal routing at 14:00:39 05/19/23
+Start NBR section for normal routing at 20:06:55 05/20/23
 Level 4, iteration 1
-10780(0.61%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 22 secs 
+10780(0.61%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 21 secs 
 Level 4, iteration 2
-5447(0.31%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 26 secs 
+5447(0.31%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 25 secs 
 Level 4, iteration 3
 3432(0.20%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 28 secs 
 Level 4, iteration 4
-2270(0.13%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 30 secs 
+2270(0.13%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 29 secs 
 Level 4, iteration 5
-1512(0.09%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 32 secs 
+1512(0.09%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 31 secs 
 Level 4, iteration 6
-803(0.05%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 33 secs 
+803(0.05%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 32 secs 
 Level 4, iteration 7
-379(0.02%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 34 secs 
+379(0.02%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 33 secs 
 Level 4, iteration 8
-165(0.01%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 35 secs 
+165(0.01%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 34 secs 
 Level 4, iteration 9
 75(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 35 secs 
 Level 4, iteration 10
-30(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 36 secs 
+30(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 35 secs 
 Level 4, iteration 11
 28(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 36 secs 
 Level 4, iteration 12
-10(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 37 secs 
+10(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 36 secs 
 Level 4, iteration 13
-6(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 37 secs 
+6(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 36 secs 
 Level 4, iteration 14
-3(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 37 secs 
+3(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 36 secs 
 Level 4, iteration 15
-3(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 38 secs 
+3(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 37 secs 
 Level 4, iteration 16
-3(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 38 secs 
+3(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 37 secs 
 Level 4, iteration 17
-2(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 39 secs 
+2(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 38 secs 
 Level 4, iteration 18
-0(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 39 secs 
+0(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 38 secs 
 
-Start NBR section for post-routing at 14:01:01 05/19/23
+Start NBR section for post-routing at 20:07:16 05/20/23
 
 End NBR router with 0 unrouted connection
 WARNING - par: No master clock for
@@ -335,7 +335,7 @@ NBR Summary
 -----------
 
 
-Total CPU time 49 secs 
+Total CPU time 48 secs 
 Total REAL time: 49 secs 
 Completely routed.
 End of route.  70668 routed (100.00%); 0 unrouted.
@@ -355,8 +355,8 @@ PAR_SUMMARY::Timing score<hold /<ns>> = <n/a>
 PAR_SUMMARY::Number of errors = 0
 
 Total CPU  Time: 1 mins 25 secs 
-Total REAL Time: 1 mins 26 secs 
-Peak Memory Usage: 877.21 MB
+Total REAL Time: 1 mins 25 secs 
+Peak Memory Usage: 876.30 MB
 
 
 par done!

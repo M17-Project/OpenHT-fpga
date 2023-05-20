@@ -5,7 +5,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-Fri May 19 13:48:17 2023
+Sat May 20 20:04:54 2023
 
 
 Command Line:  C:\Radiant\ispfpga\bin\nt64\synthesis.exe -f OpenHT_impl_1_lattice.synproj -gui -msgset C:/Users/SP5WWP/Documents/Radiant/OpenHT/promote.xml 
@@ -13,7 +13,7 @@ Command Line:  C:\Radiant\ispfpga\bin\nt64\synthesis.exe -f OpenHT_impl_1_lattic
 Synthesis options:
 The -a option is LIFCL.
 The -t option is QFN72.
-The -sp option is 7_High-Performance_1.0V.
+The -sp option is 9_High-Performance_1.0V.
 The -p option is LIFCL-40.
                                                           
 
@@ -30,7 +30,7 @@ The -p option is LIFCL-40.
 ### Package            : QFN72
 
 
-### Performance Grade  : 7_High-Performance_1.0V
+### Performance Grade  : 9_High-Performance_1.0V
 
 
                                                          
@@ -5287,9 +5287,9 @@ Top 10 highest fanout non-clock nets:
   Net : rssi_fir0/n104122, loads : 583
 ################### End Clock Report ##################
 
-Peak Memory Usage: 639 MB
+Peak Memory Usage: 642 MB
 
 --------------------------------------------------------------
-Total CPU Time: 1 mins 1 secs 
-Total REAL Time: 1 mins 1 secs 
+Total CPU Time: 59 secs 
+Total REAL Time: 1 mins 
 --------------------------------------------------------------

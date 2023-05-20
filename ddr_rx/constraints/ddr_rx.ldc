@@ -1,7 +1,7 @@
 set architecture "LIFCL"
 set device "LIFCL-40"
 set package "QFN72"
-set speed "7_High-Performance_1.0V"
+set speed "9_High-Performance_1.0V"
 set WRAPPER_INST "lscc_gddr_inst"
 set INTERFACE_TYPE "RECEIVE"
 set IO_TYPE "LVDS"
