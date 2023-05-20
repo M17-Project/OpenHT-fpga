@@ -1,0 +1,104 @@
+[INFO] Using Python version : 3.7.4 (default, Nov 21 2019, 13:51:44) [MSC v.1923 64 bit (AMD64)]
+[DEBUG] bypass_bw_factor =  0
+[DEBUG] Total process time :  0.19776059999999873
+[INFO] Done Parameter Optimization.
+Best Param : {'M_DIV': 1, 'N_DIV': 43.42857142857143, 'O_DIV': {'CLKOP': 8, 'CLKOS': 19, 'CLKOS2': 32}, 'BWFAC': 6.71673217325452, 'fbk_div': 43.42857142857143, 'm_div': 1, 'ipp_ctrl': 6, 'bw_ctrl_bias': 15, 'ipp_sel': 15, 'ipi_cmp': 12, 'cset': 8, 'v2i_pp_res': 9.0, 'cripple': 1, 'PEAK': 0.19857315994039754, 'BW_3DB': 4.168693834703387, 'BW_OPL': 3.3113112148259396, 'PM_3DB': 79.0469022554458}
+
+ Analog Parameters : 
+ - CSET        	: 8P		 - CRIPPLE     	: 1P		 - IPI_CMP     	: 0b1100
+ - V2I_PP_RES  	: 9K		 - IPP_SEL     	: 0b1111		 -             	    
+ - IPP_CTRL    	: 0b0110		 - BW_CTL_BIAS   : 0b1111		 -             	    
+
+[DEBUG] bypass_bw_factor =  0
+[DEBUG] Total process time :  0.19667489999999965
+[INFO] Done Parameter Optimization.
+Best Param : {'M_DIV': 1, 'N_DIV': 43.42857142857143, 'O_DIV': {'CLKOP': 8, 'CLKOS': 19, 'CLKOS2': 32}, 'BWFAC': 6.71673217325452, 'fbk_div': 43.42857142857143, 'm_div': 1, 'ipp_ctrl': 6, 'bw_ctrl_bias': 15, 'ipp_sel': 15, 'ipi_cmp': 12, 'cset': 8, 'v2i_pp_res': 9.0, 'cripple': 1, 'PEAK': 0.19857315994039754, 'BW_3DB': 4.168693834703387, 'BW_OPL': 3.3113112148259396, 'PM_3DB': 79.0469022554458}
+
+ Analog Parameters : 
+ - CSET        	: 8P		 - CRIPPLE     	: 1P		 - IPI_CMP     	: 0b1100
+ - V2I_PP_RES  	: 9K		 - IPP_SEL     	: 0b1111		 -             	    
+ - IPP_CTRL    	: 0b0110		 - BW_CTL_BIAS   : 0b1111		 -             	    
+
+[INFO] Using Python version : 3.7.4 (default, Nov 21 2019, 13:51:44) [MSC v.1923 64 bit (AMD64)]
+[INFO] Using Python version : 3.7.4 (default, Nov 21 2019, 13:51:44) [MSC v.1923 64 bit (AMD64)]
+[DEBUG] bypass_bw_factor =  0
+[DEBUG] Total process time :  0.19692369999998505
+[INFO] Done Parameter Optimization.
+Best Param : {'M_DIV': 1, 'N_DIV': 46.76923076923077, 'O_DIV': {'CLKOP': 8, 'CLKOS': 19, 'CLKOS2': 32}, 'BWFAC': 6.838696778927925, 'fbk_div': 46.76923076923077, 'm_div': 1, 'ipp_ctrl': 6, 'bw_ctrl_bias': 15, 'ipp_sel': 15, 'ipi_cmp': 12, 'cset': 8, 'v2i_pp_res': 9.0, 'cripple': 1, 'PEAK': 0.21400950021798867, 'BW_3DB': 3.8018939632056497, 'BW_OPL': 3.0199517204020436, 'PM_3DB': 79.92938010931552}
+
+ Analog Parameters : 
+ - CSET        	: 8P		 - CRIPPLE     	: 1P		 - IPI_CMP     	: 0b1100
+ - V2I_PP_RES  	: 9K		 - IPP_SEL     	: 0b1111		 -             	    
+ - IPP_CTRL    	: 0b0110		 - BW_CTL_BIAS   : 0b1111		 -             	    
+
+WARNING: missing driver HDL files.
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\pll_osc\rtl\pll_osc_bb.v 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\pll_osc\pll_osc.cfg 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\pll_osc\misc\pll_osc_tmpl.v 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\pll_osc\misc\pll_osc_tmpl.vhd 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\pll_osc\rtl\pll_osc.v 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\pll_osc\constraints\pll_osc.ldc 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\pll_osc\testbench\dut_params.v 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\pll_osc\testbench\dut_inst.v 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\pll_osc\design.xml 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\pll_osc\component.xml 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\pll_osc\pll_osc.ipx 
+[INFO] Using Python version : 3.7.4 (default, Nov 21 2019, 13:51:44) [MSC v.1923 64 bit (AMD64)]
+[INFO] Using Python version : 3.7.4 (default, Nov 21 2019, 13:51:44) [MSC v.1923 64 bit (AMD64)]
+[DEBUG] bypass_bw_factor =  0
+[DEBUG] Total process time :  0.184768900000023
+[INFO] Done Parameter Optimization.
+Best Param : {'M_DIV': 1, 'N_DIV': 32.91428571428571, 'O_DIV': {'CLKOP': 128}, 'BWFAC': 4.865842320498202, 'fbk_div': 32.91428571428571, 'm_div': 1, 'ipp_ctrl': 6, 'bw_ctrl_bias': 15, 'ipp_sel': 15, 'ipi_cmp': 12, 'cset': 8, 'v2i_pp_res': 9.0, 'cripple': 1, 'PEAK': 0.15014101341746058, 'BW_3DB': 5.754399373371627, 'BW_OPL': 4.3651583224017, 'PM_3DB': 75.86678721493638}
+
+ Analog Parameters : 
+ - CSET        	: 8P		 - CRIPPLE     	: 1P		 - IPI_CMP     	: 0b1100
+ - V2I_PP_RES  	: 9K		 - IPP_SEL     	: 0b1111		 -             	    
+ - IPP_CTRL    	: 0b0110		 - BW_CTL_BIAS   : 0b1111		 -             	    
+
+WARNING: missing driver HDL files.
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\pll_samp\rtl\pll_samp_bb.v 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\pll_samp\pll_samp.cfg 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\pll_samp\misc\pll_samp_tmpl.v 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\pll_samp\misc\pll_samp_tmpl.vhd 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\pll_samp\rtl\pll_samp.v 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\pll_samp\constraints\pll_samp.ldc 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\pll_samp\testbench\dut_params.v 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\pll_samp\testbench\dut_inst.v 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\pll_samp\design.xml 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\pll_samp\component.xml 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\pll_samp\pll_samp.ipx 
+[INFO] Using Python version : 3.7.4 (default, Nov 21 2019, 13:51:44) [MSC v.1923 64 bit (AMD64)]
+Error: ext_calc_gearing_value_range() missing 1 required positional argument: 'interface_type' in SettingInstance: GEARING_INPUT
+Error: ext_calc_gearing_value_range() missing 1 required positional argument: 'interface_type' in SettingInstance: GEARING_INPUT
+Error: ext_calc_gearing_value_range() missing 1 required positional argument: 'interface_type' in SettingInstance: GEARING_INPUT
+WARNING: missing driver HDL files.
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\ddr_rx\rtl\ddr_rx_bb.v 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\ddr_rx\ddr_rx.cfg 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\ddr_rx\misc\ddr_rx_tmpl.v 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\ddr_rx\misc\ddr_rx_tmpl.vhd 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\ddr_rx\rtl\ddr_rx.v 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\ddr_rx\constraints\ddr_rx.ldc 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\ddr_rx\testbench\dut_params.v 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\ddr_rx\testbench\dut_inst.v 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\ddr_rx\design.xml 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\ddr_rx\component.xml 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\ddr_rx\ddr_rx.ipx 
+[INFO] Using Python version : 3.7.4 (default, Nov 21 2019, 13:51:44) [MSC v.1923 64 bit (AMD64)]
+Error: ext_calc_gearing_value_range() missing 1 required positional argument: 'interface_type' in SettingInstance: GEARING_INPUT
+Error: ext_calc_gearing_value_range() missing 1 required positional argument: 'interface_type' in SettingInstance: GEARING_INPUT
+Error: ext_calc_gearing_value_range() missing 1 required positional argument: 'interface_type' in SettingInstance: GEARING_INPUT
+WARNING: missing driver HDL files.
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\ddr_tx\rtl\ddr_tx_bb.v 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\ddr_tx\ddr_tx.cfg 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\ddr_tx\misc\ddr_tx_tmpl.v 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\ddr_tx\misc\ddr_tx_tmpl.vhd 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\ddr_tx\rtl\ddr_tx.v 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\ddr_tx\constraints\ddr_tx.ldc 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\ddr_tx\testbench\dut_params.v 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\ddr_tx\testbench\dut_inst.v 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\ddr_tx\design.xml 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\ddr_tx\component.xml 
+Writing C:\Users\SP5WWP\Documents\Radiant\OpenHT\ddr_tx\ddr_tx.ipx 
+[INFO] Using Python version : 3.7.4 (default, Nov 21 2019, 13:51:44) [MSC v.1923 64 bit (AMD64)]
+Error: ext_calc_gearing_value_range() missing 1 required positional argument: 'interface_type' in SettingInstance: GEARING_INPUT
+Error: ext_calc_gearing_value_range() missing 1 required positional argument: 'interface_type' in SettingInstance: GEARING_INPUT

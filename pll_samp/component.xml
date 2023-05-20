@@ -96,11 +96,11 @@
             <lsccip:architecture>LIFCL</lsccip:architecture>
             <lsccip:device>LIFCL-40</lsccip:device>
             <lsccip:package>QFN72</lsccip:package>
-            <lsccip:performanceGrade>7_High-Performance_1.0V</lsccip:performanceGrade>
+            <lsccip:performanceGrade>9_High-Performance_1.0V</lsccip:performanceGrade>
         </lsccip:deviceInfo>
         <lsccip:generationInfo>
             <lsccip:fileVersion>20180929</lsccip:fileVersion>
-            <lsccip:createdTimestamp>2023 05 12 14:02:21</lsccip:createdTimestamp>
+            <lsccip:createdTimestamp>2023 05 20 20:04:00</lsccip:createdTimestamp>
             <lsccip:radiantBuild>&quot;Lattice Radiant Software&quot; (64-bit) 2022.1.1.289.4</lsccip:radiantBuild>
         </lsccip:generationInfo>
     </ipxact:vendorExtensions>
