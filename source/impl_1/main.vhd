@@ -792,8 +792,8 @@ begin
 		(others => '0')								when "010", -- SSB (placeholder)
 		(others => '0')								when others;
 	--regs_r(3) <= ;
-	regs_r(4) <= std_logic_vector(flt_id_r);
-	regs_r(5) <= std_logic_vector(flt_qd_r);
+	regs_r(4) <= i_r & "000"; --std_logic_vector(flt_id_r);
+	regs_r(5) <= q_r & "000"; --std_logic_vector(flt_qd_r);
 	
 	-- I/Os
 	with regs_rw(0)(11 downto 9) select -- TODO: set this to match with the register map
