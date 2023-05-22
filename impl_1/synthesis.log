@@ -5,7 +5,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-Sat May 20 20:04:54 2023
+Mon May 22 10:20:15 2023
 
 
 Command Line:  C:\Radiant\ispfpga\bin\nt64\synthesis.exe -f OpenHT_impl_1_lattice.synproj -gui -msgset C:/Users/SP5WWP/Documents/Radiant/OpenHT/promote.xml 
@@ -5236,7 +5236,7 @@ GSR => 1
 IB => 8
 IDDRX1 => 2
 INV => 1
-LUT4 => 6108
+LUT4 => 6091
 MULT18X18 => 17
 MULT18X36 => 4
 MULTADDSUB18X18 => 3
@@ -5245,7 +5245,7 @@ MULTADDSUB18X36 => 2
 OB => 7
 ODDRX1 => 2
 PLL => 2
-WIDEFN9 => 2566
+WIDEFN9 => 2572
 ################### End Area Report ##################
 Number of odd-length carry chains : 39
 Number of even-length carry chains : 59
@@ -5265,7 +5265,7 @@ Number of Clock Enables: 43
 Top 10 highest fanout Clock Enables:
   Net : rssi_fir0/clk_38_enable_4017, loads : 1000
   Net : hilbert0/clk_38_enable_2820, loads : 1000
-  Net : hilbert0/clk_38_enable_2771, loads : 457
+  Net : hilbert0/clk_38_enable_2771, loads : 456
   Net : rssi_fir0/clk_38_enable_3984, loads : 362
   Net : VCC_net, loads : 87
   Net : rssi0/flt_i_rdy_enable_16, loads : 50
@@ -5280,16 +5280,16 @@ Top 10 highest fanout non-clock nets:
   Net : lo0/clk_38_enable_5226, loads : 1000
   Net : rssi_fir0/clk_38_enable_4017, loads : 1000
   Net : hilbert0/clk_38_enable_2820, loads : 1000
-  Net : lo0/clk_38_enable_5177, loads : 940
-  Net : lo0/n104139, loads : 632
-  Net : lo0/n104137, loads : 630
-  Net : hilbert0/n104118, loads : 627
-  Net : rssi_fir0/n104122, loads : 583
+  Net : lo0/clk_38_enable_5177, loads : 943
+  Net : lo0/n104147, loads : 632
+  Net : lo0/n104139, loads : 630
+  Net : hilbert0/n104130, loads : 627
+  Net : rssi_fir0/n104136, loads : 583
 ################### End Clock Report ##################
 
-Peak Memory Usage: 642 MB
+Peak Memory Usage: 644 MB
 
 --------------------------------------------------------------
-Total CPU Time: 59 secs 
-Total REAL Time: 1 mins 
+Total CPU Time: 1 mins 1 secs 
+Total REAL Time: 1 mins 1 secs 
 --------------------------------------------------------------

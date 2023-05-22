@@ -1,6 +1,6 @@
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
 
-Sat May 20 20:06:04 2023
+Mon May 22 10:21:27 2023
 
 Command Line: par -w -n 1 -t 1 -s 1 -cores 1 -exp parPathBased=OFF \
 	OpenHT_impl_1_map.udb OpenHT_impl_1.udb 
@@ -9,7 +9,7 @@ Command Line: par -w -n 1 -t 1 -s 1 -cores 1 -exp parPathBased=OFF \
 Level/       Number       Worst        Timing       Worst        Timing       Run          Run
 Cost [udb]   Unrouted     Slack        Score        Slack(hold)  Score(hold)  Time         Status
 ----------   --------     -----        ------       -----------  -----------  ----         ------
-5_1   *      0            -            0            -            0            01:24        Completed
+5_1   *      0            -            0            -            0            01:23        Completed
 
 * : Design saved.
 
@@ -18,7 +18,7 @@ Total (real) run time for 1-seed: 1 mins 25 secs
 par done!
 
 Lattice Place and Route Report for Design "OpenHT_impl_1_map.udb"
-Sat May 20 20:06:04 2023
+Mon May 22 10:21:27 2023
 
 PAR: Place And Route Radiant Software (64-bit) 2022.1.1.289.4.
 Command Line: par -w -t 1 -cores 1 -exp parPathBased=OFF OpenHT_impl_1_map.udb \
@@ -85,8 +85,8 @@ WARNING - par: Unable to find the instance/port 'io2' in the constraint 'ldc_set
 
 WARNING - par: In the constraint 'ldc_set_location -site {51} [get_ports io2]', the locate object is not specified
 
-Number of Signals: 24965
-Number of Connections: 70668
+Number of Signals: 24956
+Number of Connections: 70650
 Device utilization summary:
 
    VHI                   1/1           100% used
@@ -105,30 +105,30 @@ Device utilization summary:
                         10/17           58% bonded
    PLL                   2/3            66% used
    SLICE             12095/16128        74% used
-     LUT             13219/32256        40% used
+     LUT             13216/32256        40% used
      REG              6338/32256        19% used
 
 
 Pin Constraint Summary:
    15 out of 15 pins locked (100% locked).
 
-Starting Placer Phase 0 (HIER). CPU time: 11 secs , REAL time: 12 secs 
-............
-Finished Placer Phase 0 (HIER). CPU time: 17 secs , REAL time: 18 secs 
+Starting Placer Phase 0 (HIER). CPU time: 12 secs , REAL time: 12 secs 
+.............
+Finished Placer Phase 0 (HIER). CPU time: 18 secs , REAL time: 18 secs 
 
 
-Starting Placer Phase 1. CPU time: 18 secs , REAL time: 18 secs 
+Starting Placer Phase 1. CPU time: 18 secs , REAL time: 19 secs 
 ..  ..
 ......................
 
-Placer score = 5315864.
+Placer score = 5068068.
 Finished Placer Phase 1. CPU time: 30 secs , REAL time: 30 secs 
 
 Starting Placer Phase 2.
 .
 
-Placer score =  5015965
-Finished Placer Phase 2.  CPU time: 33 secs , REAL time: 33 secs 
+Placer score =  4766725
+Finished Placer Phase 2.  CPU time: 32 secs , REAL time: 32 secs 
 
 After final PLC packing legalization, all 0 SLICEs that were not satisfying 1 CLK/CE/LSR per HALF-PLC restriction are all placed into compatible PLCs.
 
@@ -146,19 +146,19 @@ Global Clock Resources:
   PCIE       : 0 out of 1 (0%)
 
 Global Clocks:
-  PRIMARY "clk_i_c" from comp "clk_i" on CLK_PIN site "59 (PT76A)", clk load = 489, ce load = 0, sr load = 0
+  PRIMARY "clk_i_c" from comp "clk_i" on CLK_PIN site "59 (PT76A)", clk load = 488, ce load = 0, sr load = 0
   PRIMARY "clk_152" from CLKOP on comp "pll0.lscc_pll_inst.gen_no_refclk_mon.u_PLL.PLL_inst" on PLL site "PLL_ULC", clk load = 80, ce load = 0, sr load = 0
   PRIMARY "clk_64" from CLKOS on comp "pll0.lscc_pll_inst.gen_no_refclk_mon.u_PLL.PLL_inst" on PLL site "PLL_ULC", clk load = 50, ce load = 0, sr load = 0
-  PRIMARY "clk_38" from CLKOS2 on comp "pll0.lscc_pll_inst.gen_no_refclk_mon.u_PLL.PLL_inst" on PLL site "PLL_ULC", clk load = 4046, ce load = 0, sr load = 0
-  PRIMARY "drdyd" from Q0 on comp "decim0.SLICE_6572" on site "R38C49A", clk load = 61, ce load = 0, sr load = 0
-  PRIMARY "busy" from Q0 on comp "i_fir_ser0.busy_c.SLICE_4003" on site "R38C50A", clk load = 56, ce load = 0, sr load = 0
+  PRIMARY "clk_38" from CLKOS2 on comp "pll0.lscc_pll_inst.gen_no_refclk_mon.u_PLL.PLL_inst" on PLL site "PLL_ULC", clk load = 4047, ce load = 0, sr load = 0
+  PRIMARY "drdyd" from Q0 on comp "decim0.SLICE_6575" on site "R38C49A", clk load = 58, ce load = 0, sr load = 0
+  PRIMARY "busy" from Q0 on comp "i_fir_ser0.busy_c.SLICE_4021" on site "R38C50A", clk load = 56, ce load = 0, sr load = 0
   PRIMARY "clk_rx09_c" from comp "clk_rx_i" on CLK_PIN site "24 (PB58A)", clk load = 2, ce load = 0, sr load = 0
-  PRIMARY "rssi_fir0.clk_38_enable_4017" from F1 on comp "rssi_fir0.SLICE_5380" on site "R20C49A", clk load = 0, ce load = 854, sr load = 0
-  PRIMARY "clk_38_enable_5226" from F0 on comp "lo0.SLICE_10146" on site "R20C50A", clk load = 0, ce load = 695, sr load = 0
-  PRIMARY "clk_38_enable_5177" from F0 on comp "lo0.SLICE_10163" on site "R54C47A", clk load = 0, ce load = 645, sr load = 0
-  PRIMARY "clk_38_enable_5227" from F1 on comp "i_fir_ser0.SLICE_4711" on site "R54C48A", clk load = 0, ce load = 468, sr load = 0
-  PRIMARY "hilbert0.clk_38_enable_2820" from F1 on comp "hilbert0.SLICE_8245" on site "R54C49A", clk load = 0, ce load = 443, sr load = 0
-  PRIMARY "rssi_fir0.clk_38_enable_3984" from F0 on comp "rssi_fir0.SLICE_10556" on site "R54C50A", clk load = 0, ce load = 362, sr load = 0
+  PRIMARY "rssi_fir0.clk_38_enable_4017" from F1 on comp "rssi_fir0.SLICE_5383" on site "R20C49A", clk load = 0, ce load = 854, sr load = 0
+  PRIMARY "clk_38_enable_5226" from F0 on comp "lo0.SLICE_9843" on site "R20C50A", clk load = 0, ce load = 697, sr load = 0
+  PRIMARY "clk_38_enable_5177" from F0 on comp "lo0.SLICE_9861" on site "R54C47A", clk load = 0, ce load = 647, sr load = 0
+  PRIMARY "clk_38_enable_5227" from F1 on comp "i_fir_ser0.SLICE_4020" on site "R54C48A", clk load = 0, ce load = 467, sr load = 0
+  PRIMARY "hilbert0.clk_38_enable_2820" from F1 on comp "hilbert0.SLICE_8285" on site "R54C49A", clk load = 0, ce load = 443, sr load = 0
+  PRIMARY "rssi_fir0.clk_38_enable_3984" from F0 on comp "rssi_fir0.SLICE_10551" on site "R54C50A", clk load = 0, ce load = 362, sr load = 0
 
   PRIMARY  : 13 out of 16 (81%)
 
@@ -192,7 +192,7 @@ I/O Bank Usage Summary:
 | 5        | 0 / 10 (  0%)  | -          | -          | -          |
 +----------+----------------+------------+------------+------------+
 
-Total Placer CPU time: 33 secs , REAL time: 33 secs 
+Total Placer CPU time: 32 secs , REAL time: 33 secs 
 
 Writing design to file OpenHT_impl_1_par.dir/5_1.udb ...
 
@@ -209,7 +209,7 @@ WARNING - par: Unable to find the instance/port 'io2' in the constraint 'ldc_set
 WARNING - par: In the constraint 'ldc_set_location -site {51} [get_ports io2]', the locate object is not specified
 
 
-Start NBR router at 20:06:39 05/20/23
+Start NBR router at 10:22:01 05/22/23
 
 *****************************************************************
 Info: NBR allows conflicts(one node used by more than one signal)
@@ -229,7 +229,7 @@ Preassignment Summary:
 --------------------------------------------------------------------------------
 8835 connections routed with dedicated routing resources
 13 global clock signals routed
-17992 connections routed (of 70668 total) (25.46%)
+17992 connections routed (of 70650 total) (25.47%)
 ---------------------------------------------------------
 Clock routing summary:
 Primary clocks (26 used out of 32 available):
@@ -237,24 +237,24 @@ Primary clocks (26 used out of 32 available):
        Clock   loads: 2     out of     2 routed (100.00%)
        Data    loads: 0     out of     1 routed (  0.00%)
     Signal "clk_i_c" (0, 16)
-       Clock   loads: 489   out of   489 routed (100.00%)
+       Clock   loads: 488   out of   488 routed (100.00%)
     Signal "clk_38" (6, 22)
-       Clock   loads: 4046  out of  4046 routed (100.00%)
+       Clock   loads: 4047  out of  4047 routed (100.00%)
     Signal "drdyd" (3, 19)
-       Clock   loads: 61    out of    61 routed (100.00%)
+       Clock   loads: 58    out of    58 routed (100.00%)
        Data    loads: 0     out of     3 routed (  0.00%)
     Signal "clk_38_enable_5227" (1, 17)
-       Control loads: 468   out of   468 routed (100.00%)
-       Data    loads: 0     out of   335 routed (  0.00%)
+       Control loads: 467   out of   467 routed (100.00%)
+       Data    loads: 0     out of   336 routed (  0.00%)
     Signal "clk_152" (7, 23)
        Clock   loads: 80    out of    80 routed (100.00%)
     Signal "clk_38_enable_5177" (4, 20)
-       Control loads: 645   out of   645 routed (100.00%)
+       Control loads: 647   out of   647 routed (100.00%)
     Signal "busy" (10, 26)
        Clock   loads: 56    out of    56 routed (100.00%)
        Data    loads: 0     out of    76 routed (  0.00%)
     Signal "clk_38_enable_5226" (9, 25)
-       Control loads: 695   out of   695 routed (100.00%)
+       Control loads: 697   out of   697 routed (100.00%)
     Signal "rssi_fir0.clk_38_enable_4017" (5, 21)
        Control loads: 854   out of   854 routed (100.00%)
        Data    loads: 0     out of   146 routed (  0.00%)
@@ -264,7 +264,7 @@ Primary clocks (26 used out of 32 available):
        Clock   loads: 50    out of    50 routed (100.00%)
     Signal "hilbert0.clk_38_enable_2820" (8, 24)
        Control loads: 443   out of   443 routed (100.00%)
-       Data    loads: 0     out of   159 routed (  0.00%)
+       Data    loads: 0     out of   158 routed (  0.00%)
 Other clocks:
     Signal "VCC_net"
        Clock   loads: 4     out of     4 routed (100.00%)
@@ -284,52 +284,42 @@ WARNING - par: No master clock for
 WARNING - par: No master clock for
 	generated clock	create_generated_clock -name {clk_38} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 19 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS2 }] .
 
-Start NBR section for initial routing at 20:06:47 05/20/23
+Start NBR section for initial routing at 10:22:09 05/22/23
 Level 4, iteration 1
-13730(0.78%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 17 secs 
+13684(0.78%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 18 secs 
 
 Info: Initial congestion level at 75.00% usage is 0
-Info: Initial congestion area  at 75.00% usage is 3 (0.07%)
+Info: Initial congestion area  at 75.00% usage is 5 (0.11%)
 
-Start NBR section for normal routing at 20:06:55 05/20/23
+Start NBR section for normal routing at 10:22:18 05/22/23
 Level 4, iteration 1
-10780(0.61%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 21 secs 
+10695(0.61%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 22 secs 
 Level 4, iteration 2
-5447(0.31%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 25 secs 
+5244(0.30%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 27 secs 
 Level 4, iteration 3
-3432(0.20%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 28 secs 
+3017(0.17%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 29 secs 
 Level 4, iteration 4
-2270(0.13%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 29 secs 
+2037(0.12%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 31 secs 
 Level 4, iteration 5
-1512(0.09%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 31 secs 
+1078(0.06%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 33 secs 
 Level 4, iteration 6
-803(0.05%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 32 secs 
+591(0.03%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 34 secs 
 Level 4, iteration 7
-379(0.02%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 33 secs 
+290(0.02%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 35 secs 
 Level 4, iteration 8
-165(0.01%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 34 secs 
+141(0.01%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 36 secs 
 Level 4, iteration 9
-75(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 35 secs 
+78(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 37 secs 
 Level 4, iteration 10
-30(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 35 secs 
+34(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 37 secs 
 Level 4, iteration 11
-28(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 36 secs 
+10(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 37 secs 
 Level 4, iteration 12
-10(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 36 secs 
+1(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 38 secs 
 Level 4, iteration 13
-6(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 36 secs 
-Level 4, iteration 14
-3(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 36 secs 
-Level 4, iteration 15
-3(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 37 secs 
-Level 4, iteration 16
-3(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 37 secs 
-Level 4, iteration 17
-2(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 38 secs 
-Level 4, iteration 18
 0(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 38 secs 
 
-Start NBR section for post-routing at 20:07:16 05/20/23
+Start NBR section for post-routing at 10:22:38 05/22/23
 
 End NBR router with 0 unrouted connection
 WARNING - par: No master clock for
@@ -356,7 +346,7 @@ NBR Summary
 Total CPU time 48 secs 
 Total REAL time: 49 secs 
 Completely routed.
-End of route.  70668 routed (100.00%); 0 unrouted.
+End of route.  70650 routed (100.00%); 0 unrouted.
 
 Writing design to file OpenHT_impl_1_par.dir/5_1.udb ...
 
@@ -372,9 +362,9 @@ PAR_SUMMARY::Worst  slack<hold /<ns>> = <n/a>
 PAR_SUMMARY::Timing score<hold /<ns>> = <n/a>
 PAR_SUMMARY::Number of errors = 0
 
-Total CPU  Time: 1 mins 25 secs 
+Total CPU  Time: 1 mins 24 secs 
 Total REAL Time: 1 mins 25 secs 
-Peak Memory Usage: 876.30 MB
+Peak Memory Usage: 874.63 MB
 
 
 par done!

@@ -48,7 +48,7 @@ Package: QFN72
 Performance Grade:  9_High-Performance_1.0V
 
 Mapper:    version Radiant Software (64-bit) 2022.1.1.289.4
-Mapped on: Sat May 20 20:06:00 2023
+Mapped on: Mon May 22 10:21:23 2023
 
 
 <A name="mrp_di"></A><B><U><big>Design Information</big></U></B>
@@ -63,8 +63,8 @@ Command line:   map -i OpenHT_impl_1_syn.udb -pdc
       Number of PIO Input     registers:    0 out of    39 (0%)
       Number of PIO Output    registers:    0 out of    39 (0%)
       Number of PIO Tri-State registers:    0 out of    39 (0%)
-   Number of LUT4s:            13219 out of 32256 (41%)
-      Number used as logic LUT4s:                       11191
+   Number of LUT4s:            13216 out of 32256 (41%)
+      Number used as logic LUT4s:                       11188
       Number used as distributed RAM:                     96 (6 per 16X4 RAM)
       Number used as ripple logic:                      1932 (2 per CCU2)
    Number of PIOs used/reserved:   23 out of    39 (51%)
@@ -163,50 +163,50 @@ Command line:   map -i OpenHT_impl_1_syn.udb -pdc
       Net am_demod0.clk_38_enable_2852: 8 loads, 8 SLICEs
       Net am_demod0.clk_38_enable_2867: 16 loads, 16 SLICEs
       Net ctrl_regs0.clk_i_c_enable_186: 1 loads, 1 SLICEs
+      Net ctrl_regs0.clk_i_c_enable_65: 16 loads, 16 SLICEs
       Net ctrl_regs0.clk_i_c_enable_125: 16 loads, 16 SLICEs
       Net ctrl_regs0.clk_i_c_enable_110: 16 loads, 16 SLICEs
       Net ctrl_regs0.clk_i_c_enable_95: 16 loads, 16 SLICEs
-      Net ctrl_regs0.clk_i_c_enable_65: 16 loads, 16 SLICEs
       Net ctrl_regs0.clk_i_c_enable_80: 16 loads, 16 SLICEs
       Net ctrl_regs0.clk_i_c_enable_140: 16 loads, 16 SLICEs
       Net ctrl_regs0.clk_i_c_enable_170: 16 loads, 16 SLICEs
       Net clk_i_c_enable_155: 16 loads, 16 SLICEs
       Net delay_block0.clk_i_c_enable_39: 6 loads, 6 SLICEs
-      Net clk_38_enable_5227: 666 loads, 661 SLICEs
+      Net clk_38_enable_5227: 663 loads, 658 SLICEs
       Net clk_152_enable_58: 30 loads, 26 SLICEs
-      Net clk_38_enable_5177: 926 loads, 926 SLICEs
+      Net clk_38_enable_5177: 929 loads, 929 SLICEs
       Net clk_152_enable_3: 1 loads, 1 SLICEs
+      Net clk_38_enable_5226: 1000 loads, 1000 SLICEs
       Net iq_des0.clk_152_enable_33: 30 loads, 30 SLICEs
       Net iq_des0.clk_152_enable_4: 1 loads, 1 SLICEs
       Net i_fir_ser0.clk_38_enable_1266: 16 loads, 16 SLICEs
-      Net clk_38_enable_5226: 1000 loads, 1000 SLICEs
       Net tmp2_23__N_3939: 32 loads, 32 SLICEs
       Net rssi_fir0.clk_38_enable_4017: 854 loads, 854 SLICEs
       Net rssi_fir0.clk_38_enable_2882: 16 loads, 16 SLICEs
       Net rssi_fir0.clk_38_enable_3984: 362 loads, 362 SLICEs
       Net i_data_o_15__N_3592: 40 loads, 32 SLICEs
       Net q_fir_ser0.clk_38_enable_4032: 16 loads, 16 SLICEs
-      Net clk_i_c_enable_34: 11 loads, 11 SLICEs
       Net clk_i_c_enable_50: 12 loads, 12 SLICEs
+      Net clk_i_c_enable_34: 11 loads, 11 SLICEs
       Net decim1.clk_i_c_enable_1: 1 loads, 1 SLICEs
       Net decim1.drdy_o_N_3597: 16 loads, 16 SLICEs
       Net zero_insert0.clk_64_enable_1: 1 loads, 1 SLICEs
       Net freq_mod0.clk_38_enable_2849: 32 loads, 32 SLICEs
-      Net rssi0.flt_i_rdy_enable_2: 1 loads, 1 SLICEs
-      Net rssi0.flt_i_rdy_enable_16: 15 loads, 15 SLICEs
-      Net hilbert0.clk_38_enable_2820: 840 loads, 840 SLICEs
-      Net hilbert0.clk_38_enable_1605: 16 loads, 16 SLICEs
-      Net hilbert0.clk_38_enable_2771: 457 loads, 457 SLICEs
       Net spi_slave0.clk_i_c_enable_201: 15 loads, 15 SLICEs
       Net spi_slave0.clk_i_c_enable_185: 16 loads, 16 SLICEs
       Net spi_slave0.clk_i_c_enable_215: 15 loads, 15 SLICEs
+      Net hilbert0.clk_38_enable_2820: 841 loads, 841 SLICEs
+      Net hilbert0.clk_38_enable_1605: 16 loads, 16 SLICEs
+      Net hilbert0.clk_38_enable_2771: 456 loads, 456 SLICEs
+      Net rssi0.flt_i_rdy_enable_2: 1 loads, 1 SLICEs
+      Net rssi0.flt_i_rdy_enable_16: 15 loads, 15 SLICEs
    Number of LSRs:  28
       Net VCC_net: 73 loads, 0 SLICEs
       Net data_rx09_r_1__N_1: 1 loads, 0 SLICEs
       Pin nrst: 239 loads, 219 SLICEs (Net: nrst_c)
-      Net n104228: 2 loads, 0 SLICEs
+      Net n104239: 2 loads, 0 SLICEs
       Net am_demod0.clk_38_enable_2867: 5 loads, 5 SLICEs
-      Net ctrl_regs0.n82662: 1 loads, 1 SLICEs
+      Net ctrl_regs0.n82697: 1 loads, 1 SLICEs
       Net regs_rw[1][1]: 51 loads, 51 SLICEs
       Net n11726: 4 loads, 4 SLICEs
       Net n11674: 4 loads, 4 SLICEs
@@ -218,29 +218,29 @@ Command line:   map -i OpenHT_impl_1_syn.udb -pdc
 
       Net rssi_fir0.clk_38_enable_2882: 1 loads, 1 SLICEs
       Net i_data_o_15__N_3592: 9 loads, 9 SLICEs
-      Net busy_adj_10979: 1 loads, 1 SLICEs
+      Net busy_adj_10982: 1 loads, 1 SLICEs
       Net n11: 13 loads, 13 SLICEs
       Net n44793: 2 loads, 2 SLICEs
       Net q_fir_ser0.clk_38_enable_4032: 2 loads, 2 SLICEs
       Net decim1.drdy_o_N_3597: 8 loads, 8 SLICEs
-      Net zero_insert0.n46516: 5 loads, 5 SLICEs
-      Net freq_mod0.n83501: 1 loads, 1 SLICEs
+      Net zero_insert0.n46504: 5 loads, 5 SLICEs
+      Net freq_mod0.n83520: 1 loads, 1 SLICEs
       Net freq_mod0.n2452: 4 loads, 4 SLICEs
-      Net fm_demod0.n46515: 16 loads, 16 SLICEs
-      Net rssi0.n83634: 1 loads, 1 SLICEs
-      Net rssi0.flt_i_rdy_enable_16: 23 loads, 23 SLICEs
+      Net fm_demod0.n46503: 16 loads, 16 SLICEs
       Net hilbert0.clk_38_enable_1605: 1 loads, 1 SLICEs
+      Net rssi0.n83633: 1 loads, 1 SLICEs
+      Net rssi0.flt_i_rdy_enable_16: 23 loads, 23 SLICEs
    Top 10 highest fanout non-clock nets:
-      Net clk_38_enable_5227: 1001 loads
       Net clk_38_enable_5226: 1000 loads
       Net rssi_fir0.clk_38_enable_4017: 1000 loads
+      Net clk_38_enable_5227: 999 loads
       Net hilbert0.clk_38_enable_2820: 999 loads
-      Net clk_38_enable_5177: 926 loads
+      Net clk_38_enable_5177: 929 loads
       Net VCC_net: 907 loads
-      Net n104139: 632 loads
-      Net n104137: 630 loads
-      Net hilbert0.n104118: 625 loads
-      Net rssi_fir0.n104122: 583 loads
+      Net n104147: 631 loads
+      Net n104139: 629 loads
+      Net hilbert0.n104130: 625 loads
+      Net rssi_fir0.n104136: 583 loads
 
 
 
@@ -308,7 +308,7 @@ WARNING - map: Top module port &apos;io2&apos; does not connect to anything.
 
 Block GSR_INST undriven or does not drive anything - clipped.
 Block i2 was optimized away.
-Block regs_rw_1__1__I_0_2_1_lut_rep_13121 was optimized away.
+Block regs_rw_1__1__I_0_2_1_lut_rep_13122 was optimized away.
 
 
 
@@ -326,7 +326,7 @@ PLL 1:                                 Pin/Node Value
   Output Clock(S4):                             NONE
   Output Clock(S5):                             NONE
   Feedback Signal:                     NODE     pll1.lscc_pll_inst.fbclk_w
-  Reset Signal:                        NODE     n104228
+  Reset Signal:                        NODE     n104239
   Standby Signal:                      NODE     GND_net
   PLL LOCK signal:                     NODE     regs_r[1][1]
   PLL Internal LOCK Signal:                     NONE
@@ -366,7 +366,7 @@ PLL 2:                                 Pin/Node Value
   Output Clock(S4):                             NONE
   Output Clock(S5):                             NONE
   Feedback Signal:                     NODE     pll0.lscc_pll_inst.fbclk_w
-  Reset Signal:                        NODE     n104228
+  Reset Signal:                        NODE     n104239
   Standby Signal:                      NODE     GND_net
   PLL LOCK signal:                     NODE     regs_r[1][0]
   PLL Internal LOCK Signal:                     NONE
@@ -595,6 +595,74 @@ Instance Name: iq_bal0/q_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_0
          Type: REG18_CORE
 Instance Name: iq_bal0/q_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_1
          Type: REG18_CORE
+Instance Name: fm_demod0/m_i_32__I_0_sub_7_sub_7_sub_7_sub_7.PREADD9_L0
+         Type: PREADD9_CORE
+Instance Name: fm_demod0/m_i_32__I_0_sub_7_sub_7_sub_7_sub_7.PREADD9_H0
+         Type: PREADD9_CORE
+Instance Name: fm_demod0/m_i_32__I_0_sub_7_sub_7_sub_7_sub_7.MULT9_L0
+         Type: MULT9_CORE
+Instance Name: fm_demod0/m_i_32__I_0_sub_7_sub_7_sub_7_sub_7.MULT9_H0
+         Type: MULT9_CORE
+Instance Name: fm_demod0/m_i_32__I_0_sub_7_sub_7_sub_7_sub_7.MULT18_0
+         Type: MULT18_CORE
+Instance Name: fm_demod0/m_i_32__I_0_sub_7_sub_7_sub_7_sub_7.REG18_L0_0
+         Type: REG18_CORE
+Instance Name: fm_demod0/m_i_32__I_0_sub_7_sub_7_sub_7_sub_7.REG18_L0_1
+         Type: REG18_CORE
+Instance Name: fm_demod0/m_i_32__I_0_sub_7_sub_7_sub_7_sub_7.ACC54_0
+         Type: ACC54_CORE
+Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12.MULT9_L0
+         Type: MULT9_CORE
+Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12.MULT9_H0
+         Type: MULT9_CORE
+Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12.MULT9_L1
+         Type: MULT9_CORE
+Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12.MULT9_H1
+         Type: MULT9_CORE
+Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12.PREADD9_L0
+         Type: PREADD9_CORE
+Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12.PREADD9_H0
+         Type: PREADD9_CORE
+Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12.PREADD9_L1
+         Type: PREADD9_CORE
+Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12.PREADD9_H1
+         Type: PREADD9_CORE
+Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12.MULT18_0
+         Type: MULT18_CORE
+Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12.MULT18_1
+         Type: MULT18_CORE
+Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12.REG18_L0_0
+         Type: REG18_CORE
+
+Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12.REG18_L0_1
+         Type: REG18_CORE
+Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12.REG18_L1_0
+         Type: REG18_CORE
+Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12.REG18_L1_1
+         Type: REG18_CORE
+Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12.ACC54_0
+         Type: ACC54_CORE
+Instance Name:
+     fm_demod0/dly_i_0__15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_L0
+         Type: PREADD9_CORE
+Instance Name:
+     fm_demod0/dly_i_0__15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_H0
+         Type: PREADD9_CORE
+Instance Name:
+     fm_demod0/dly_i_0__15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_L0
+         Type: MULT9_CORE
+Instance Name:
+     fm_demod0/dly_i_0__15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_H0
+         Type: MULT9_CORE
+Instance Name:
+     fm_demod0/dly_i_0__15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.MULT18_0
+         Type: MULT18_CORE
+Instance Name:
+     fm_demod0/dly_i_0__15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_0
+         Type: REG18_CORE
+Instance Name:
+     fm_demod0/dly_i_0__15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_1
+         Type: REG18_CORE
 Instance Name: dpd0/mult_2222_mult_7_mult_7.PREADD9_L0
          Type: PREADD9_CORE
 Instance Name: dpd0/mult_2222_mult_7_mult_7.PREADD9_H0
@@ -623,6 +691,7 @@ Instance Name: dpd0/mult_2225_mult_7_mult_7.REG18_L0_0
          Type: REG18_CORE
 Instance Name: dpd0/mult_2225_mult_7_mult_7.REG18_L0_1
          Type: REG18_CORE
+
 Instance Name: dpd0/i_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_L0
          Type: PREADD9_CORE
 Instance Name: dpd0/i_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_H0
@@ -633,7 +702,6 @@ Instance Name: dpd0/i_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_H0
          Type: MULT9_CORE
 Instance Name: dpd0/i_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT18_0
          Type: MULT18_CORE
-
 Instance Name: dpd0/i_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_0
          Type: REG18_CORE
 Instance Name: dpd0/i_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_1
@@ -681,6 +749,7 @@ Instance Name: dpd0/q_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3
          Type: PREADD9_CORE
 Instance Name:
      dpd0/q_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3.MULT9_L0
+
          Type: MULT9_CORE
 Instance Name:
      dpd0/q_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3.MULT9_H0
@@ -691,7 +760,6 @@ Instance Name:
 Instance Name: dpd0/q_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3
      .REG18_L0_0
          Type: REG18_CORE
-
 Instance Name: dpd0/q_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3
      .REG18_L0_1
          Type: REG18_CORE
@@ -739,6 +807,7 @@ Instance Name: dpd0/qmul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
          Type: REG18_CORE
 Instance Name: dpd0/imul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_L0
          Type: PREADD9_CORE
+
 Instance Name: dpd0/imul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_H0
          Type: PREADD9_CORE
 Instance Name: dpd0/imul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_L1
@@ -749,7 +818,6 @@ Instance Name: dpd0/imul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_L0
          Type: MULT9_CORE
 Instance Name: dpd0/imul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_H0
          Type: MULT9_CORE
-
 Instance Name: dpd0/imul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_L1
          Type: MULT9_CORE
 Instance Name: dpd0/imul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_H1
@@ -797,6 +865,7 @@ Instance Name: dpd0/add_2223_add_12.REG18_L1_0
          Type: REG18_CORE
 Instance Name: dpd0/add_2223_add_12.ACC54_0
          Type: ACC54_CORE
+
 Instance Name: dpd0/imul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
      3.PREADD9_L0
          Type: PREADD9_CORE
@@ -807,7 +876,6 @@ Instance Name: dpd0/imul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
      3.PREADD9_L1
          Type: PREADD9_CORE
 Instance Name: dpd0/imul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
-
      3.PREADD9_H1
          Type: PREADD9_CORE
 Instance Name: dpd0/imul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
@@ -855,6 +923,7 @@ Instance Name: dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_H0
 Instance Name: dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_L1
          Type: MULT9_CORE
 Instance Name: dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_H1
+
          Type: MULT9_CORE
 Instance Name: dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT18_0
          Type: MULT18_CORE
@@ -865,7 +934,6 @@ Instance Name:
          Type: MULT18X36_CORE
 Instance Name: dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_0
          Type: REG18_CORE
-
 Instance Name: dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_1
          Type: REG18_CORE
 Instance Name: dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L1_0
@@ -902,74 +970,6 @@ Instance Name: dpd0/add_2226_add_12.ACC54_0
          Type: ACC54_CORE
 Instance Name: pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst
          Type: PLL_CORE
-Instance Name: fm_demod0/m_i_32__I_0_sub_7_sub_7_sub_7_sub_7.PREADD9_L0
-         Type: PREADD9_CORE
-Instance Name: fm_demod0/m_i_32__I_0_sub_7_sub_7_sub_7_sub_7.PREADD9_H0
-         Type: PREADD9_CORE
-Instance Name: fm_demod0/m_i_32__I_0_sub_7_sub_7_sub_7_sub_7.MULT9_L0
-         Type: MULT9_CORE
-Instance Name: fm_demod0/m_i_32__I_0_sub_7_sub_7_sub_7_sub_7.MULT9_H0
-         Type: MULT9_CORE
-Instance Name: fm_demod0/m_i_32__I_0_sub_7_sub_7_sub_7_sub_7.MULT18_0
-         Type: MULT18_CORE
-Instance Name: fm_demod0/m_i_32__I_0_sub_7_sub_7_sub_7_sub_7.REG18_L0_0
-         Type: REG18_CORE
-Instance Name: fm_demod0/m_i_32__I_0_sub_7_sub_7_sub_7_sub_7.REG18_L0_1
-         Type: REG18_CORE
-Instance Name: fm_demod0/m_i_32__I_0_sub_7_sub_7_sub_7_sub_7.ACC54_0
-         Type: ACC54_CORE
-Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12.MULT9_L0
-         Type: MULT9_CORE
-Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12.MULT9_H0
-         Type: MULT9_CORE
-Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12.MULT9_L1
-
-         Type: MULT9_CORE
-Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12.MULT9_H1
-         Type: MULT9_CORE
-Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12.PREADD9_L0
-         Type: PREADD9_CORE
-Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12.PREADD9_H0
-         Type: PREADD9_CORE
-Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12.PREADD9_L1
-         Type: PREADD9_CORE
-Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12.PREADD9_H1
-         Type: PREADD9_CORE
-Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12.MULT18_0
-         Type: MULT18_CORE
-Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12.MULT18_1
-         Type: MULT18_CORE
-Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12.REG18_L0_0
-         Type: REG18_CORE
-Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12.REG18_L0_1
-         Type: REG18_CORE
-Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12.REG18_L1_0
-         Type: REG18_CORE
-Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12.REG18_L1_1
-         Type: REG18_CORE
-Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12.ACC54_0
-         Type: ACC54_CORE
-Instance Name:
-     fm_demod0/dly_i_0__15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_L0
-         Type: PREADD9_CORE
-Instance Name:
-     fm_demod0/dly_i_0__15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_H0
-         Type: PREADD9_CORE
-Instance Name:
-     fm_demod0/dly_i_0__15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_L0
-         Type: MULT9_CORE
-Instance Name:
-     fm_demod0/dly_i_0__15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_H0
-         Type: MULT9_CORE
-Instance Name:
-     fm_demod0/dly_i_0__15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.MULT18_0
-         Type: MULT18_CORE
-Instance Name:
-     fm_demod0/dly_i_0__15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_0
-         Type: REG18_CORE
-Instance Name:
-     fm_demod0/dly_i_0__15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_1
-         Type: REG18_CORE
 Instance Name: hilbert0/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3
      .PREADD9_L0
          Type: PREADD9_CORE

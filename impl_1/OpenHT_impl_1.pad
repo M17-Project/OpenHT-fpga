@@ -6,7 +6,7 @@ Performance Grade:      9_High-Performance_1.0V
 PACKAGE:          QFN72
 Package Status:                     Final          Version 39
 
-Sat May 20 20:06:38 2023
+Mon May 22 10:22:00 2023
 
 Pinout by Port Name:
 +-------------+----------+--------------+-------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -308,5 +308,5 @@ ldc_set_location -site {PLL_ULC} [ get_cells {pll0/lscc_pll_inst/gen_no_refclk_m
 
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
 
-Sat May 20 20:06:38 2023
+Mon May 22 10:22:00 2023
 

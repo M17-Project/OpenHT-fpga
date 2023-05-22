@@ -1,275 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <BaliMessageLog>
-    <Task name="Export">
-        <Message>
-            <ID>1009991</ID>
-            <Severity>16</Severity>
-            <Dynamic>bitgen: Unable to find the instance/port 'io0' in the constraint 'ldc_set_location -site {44} [get_ports io0]'</Dynamic>
-            <Navigation>WARNING</Navigation>
-            <Navigation>bitgen: Unable to find the instance/port 'io0' in the constraint 'ldc_set_location -site {44} [get_ports io0]'</Navigation>
-        </Message>
-        <Message>
-            <ID>1009991</ID>
-            <Severity>16</Severity>
-            <Dynamic>bitgen: In the constraint 'ldc_set_location -site {44} [get_ports io0]', the locate object is not specified</Dynamic>
-            <Navigation>WARNING</Navigation>
-            <Navigation>bitgen: In the constraint 'ldc_set_location -site {44} [get_ports io0]', the locate object is not specified</Navigation>
-        </Message>
-        <Message>
-            <ID>1009991</ID>
-            <Severity>16</Severity>
-            <Dynamic>bitgen: Unable to find the instance/port 'io1' in the constraint 'ldc_set_location -site {42} [get_ports io1]'</Dynamic>
-            <Navigation>WARNING</Navigation>
-            <Navigation>bitgen: Unable to find the instance/port 'io1' in the constraint 'ldc_set_location -site {42} [get_ports io1]'</Navigation>
-        </Message>
-        <Message>
-            <ID>1009991</ID>
-            <Severity>16</Severity>
-            <Dynamic>bitgen: In the constraint 'ldc_set_location -site {42} [get_ports io1]', the locate object is not specified</Dynamic>
-            <Navigation>WARNING</Navigation>
-            <Navigation>bitgen: In the constraint 'ldc_set_location -site {42} [get_ports io1]', the locate object is not specified</Navigation>
-        </Message>
-        <Message>
-            <ID>1009991</ID>
-            <Severity>16</Severity>
-            <Dynamic>bitgen: Unable to find the instance/port 'io2' in the constraint 'ldc_set_location -site {51} [get_ports io2]'</Dynamic>
-            <Navigation>WARNING</Navigation>
-            <Navigation>bitgen: Unable to find the instance/port 'io2' in the constraint 'ldc_set_location -site {51} [get_ports io2]'</Navigation>
-        </Message>
-        <Message>
-            <ID>1009991</ID>
-            <Severity>16</Severity>
-            <Dynamic>bitgen: In the constraint 'ldc_set_location -site {51} [get_ports io2]', the locate object is not specified</Dynamic>
-            <Navigation>WARNING</Navigation>
-            <Navigation>bitgen: In the constraint 'ldc_set_location -site {51} [get_ports io2]', the locate object is not specified</Navigation>
-        </Message>
-    </Task>
-    <Task name="PAR">
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io0</Dynamic>
-            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io1</Dynamic>
-            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io2</Dynamic>
-            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>io0</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>io1</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>io2</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io0</Dynamic>
-            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io1</Dynamic>
-            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io2</Dynamic>
-            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
-        </Message>
-        <Message>
-            <ID>70001944</ID>
-            <Severity>16</Severity>
-            <Dynamic>create_generated_clock -name {clk_152} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOP }] </Dynamic>
-        </Message>
-        <Message>
-            <ID>70001944</ID>
-            <Severity>16</Severity>
-            <Dynamic>create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 32 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS }] </Dynamic>
-        </Message>
-        <Message>
-            <ID>70001944</ID>
-            <Severity>16</Severity>
-            <Dynamic>create_generated_clock -name {clk_38} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 19 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS2 }] </Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io0</Dynamic>
-            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io1</Dynamic>
-            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io2</Dynamic>
-            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io0</Dynamic>
-            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io1</Dynamic>
-            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001032</ID>
-            <Severity>16</Severity>
-            <Dynamic>io2</Dynamic>
-            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
-        </Message>
-        <Message>
-            <ID>77001031</ID>
-            <Severity>16</Severity>
-            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
-        </Message>
-        <Message>
-            <ID>70001944</ID>
-            <Severity>16</Severity>
-            <Dynamic>create_generated_clock -name {clk_152} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOP }] </Dynamic>
-        </Message>
-        <Message>
-            <ID>70001944</ID>
-            <Severity>16</Severity>
-            <Dynamic>create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 32 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS }] </Dynamic>
-        </Message>
-        <Message>
-            <ID>70001944</ID>
-            <Severity>16</Severity>
-            <Dynamic>create_generated_clock -name {clk_38} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 19 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS2 }] </Dynamic>
-        </Message>
-        <Message>
-            <ID>70001944</ID>
-            <Severity>16</Severity>
-            <Dynamic>create_generated_clock -name {clk_152} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOP }] </Dynamic>
-        </Message>
-        <Message>
-            <ID>70001944</ID>
-            <Severity>16</Severity>
-            <Dynamic>create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 32 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS }] </Dynamic>
-        </Message>
-        <Message>
-            <ID>70001944</ID>
-            <Severity>16</Severity>
-            <Dynamic>create_generated_clock -name {clk_38} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 19 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS2 }] </Dynamic>
-        </Message>
-    </Task>
-    <Task name="Map">
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>io0</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>io1</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>io2</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>io0</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>io1</Dynamic>
-        </Message>
-        <Message>
-            <ID>71003020</ID>
-            <Severity>16</Severity>
-            <Dynamic>io2</Dynamic>
-        </Message>
-    </Task>
     <Task name="Synthesis">
         <Message>
             <ID>35901018</ID>
@@ -398,7 +128,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(1): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_addsub.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -406,7 +136,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_addsub.v(40): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/adder_subtractor/rtl/lscc_add_sub.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_addsub.v</Navigation>
@@ -414,7 +144,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(2): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_add.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -422,7 +152,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_add.v(50): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/adder/rtl/lscc_adder.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_add.v</Navigation>
@@ -430,7 +160,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(3): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_complex_mult.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -438,7 +168,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_complex_mult.v(52): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/complex_mult/rtl/lscc_complex_mult.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_complex_mult.v</Navigation>
@@ -446,7 +176,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(4): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_counter.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -454,7 +184,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_counter.v(39): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/counter/rtl/lscc_cntr.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_counter.v</Navigation>
@@ -462,7 +192,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(5): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_distributed_dpram.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -470,7 +200,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_distributed_dpram.v(43): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/distributed_dpram/rtl/lscc_distributed_dpram.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_distributed_dpram.v</Navigation>
@@ -478,7 +208,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(6): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_distributed_spram.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -486,7 +216,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_distributed_spram.v(42): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/distributed_spram/rtl/lscc_distributed_spram.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_distributed_spram.v</Navigation>
@@ -494,7 +224,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(7): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_distributed_rom.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -502,7 +232,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_distributed_rom.v(42): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/distributed_rom/rtl/lscc_distributed_rom.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_distributed_rom.v</Navigation>
@@ -510,7 +240,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(8): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_distributed_shift_reg.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -518,7 +248,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_distributed_shift_reg.v(41): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/ram_shift_reg/rtl/lscc_shift_register.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_distributed_shift_reg.v</Navigation>
@@ -526,7 +256,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(9): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_fifo.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -534,7 +264,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_fifo.v(44): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../avant/fifo/rtl/lscc_fifo.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_fifo.v</Navigation>
@@ -542,7 +272,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(10): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_fifo_dc.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -550,7 +280,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_fifo_dc.v(47): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../avant/fifo_dc/rtl/lscc_fifo_dc.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_fifo_dc.v</Navigation>
@@ -558,7 +288,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(11): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_mac.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -566,7 +296,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_mac.v(52): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/mult_accumulate/rtl/lscc_mult_accumulate.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_mac.v</Navigation>
@@ -574,7 +304,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(12): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_multaddsubsum.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -582,7 +312,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_multaddsubsum.v(53): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/mult_add_sub_sum/rtl/lscc_mult_add_sub_sum.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_multaddsubsum.v</Navigation>
@@ -590,7 +320,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(13): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_multaddsub.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -598,7 +328,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_multaddsub.v(52): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/mult_add_sub/rtl/lscc_mult_add_sub.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_multaddsub.v</Navigation>
@@ -606,7 +336,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(14): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_mult.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -614,7 +344,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_mult.v(51): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/multiplier/rtl/lscc_multiplier.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_mult.v</Navigation>
@@ -622,7 +352,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(15): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dp.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -630,7 +360,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dp.v(48): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../avant/ram_dp/rtl/lscc_ram_dp.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_ram_dp.v</Navigation>
@@ -638,7 +368,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(16): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dp_be.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -646,7 +376,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dp_be.v(49): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../avant/ram_dp/rtl/lscc_ram_dp.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_ram_dp_be.v</Navigation>
@@ -654,7 +384,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(17): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dp_true.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -662,7 +392,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dp_true.v(49): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../avant/ram_dp_true/rtl/lscc_ram_dp_true.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_ram_dp_true.v</Navigation>
@@ -670,7 +400,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(18): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dq.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -678,7 +408,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dq.v(45): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../avant/ram_dq/rtl/lscc_ram_dq.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_ram_dq.v</Navigation>
@@ -686,7 +416,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(19): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dq_be.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -694,7 +424,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dq_be.v(45): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../avant/ram_dq/rtl/lscc_ram_dq.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_ram_dq_be.v</Navigation>
@@ -702,7 +432,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(20): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_rom.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -710,7 +440,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_rom.v(45): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../avant/rom/rtl/lscc_rom.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_rom.v</Navigation>
@@ -718,7 +448,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(21): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_sub.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -726,7 +456,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_sub.v(50): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/subtractor/rtl/lscc_subtractor.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_sub.v</Navigation>
@@ -1262,7 +992,7 @@
         </Message>
         <Message>
             <ID>35921504</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic></Dynamic>
             <Dynamic>C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1</Dynamic>
         </Message>
@@ -1302,7 +1032,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(1): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_addsub.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1310,7 +1040,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_addsub.v(40): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/adder_subtractor/rtl/lscc_add_sub.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_addsub.v</Navigation>
@@ -1318,7 +1048,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(2): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_add.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1326,7 +1056,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_add.v(50): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/adder/rtl/lscc_adder.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_add.v</Navigation>
@@ -1334,7 +1064,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(3): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_complex_mult.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1342,7 +1072,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_complex_mult.v(52): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/complex_mult/rtl/lscc_complex_mult.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_complex_mult.v</Navigation>
@@ -1350,7 +1080,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(4): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_counter.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1358,7 +1088,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_counter.v(39): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/counter/rtl/lscc_cntr.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_counter.v</Navigation>
@@ -1366,7 +1096,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(5): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_distributed_dpram.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1374,7 +1104,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_distributed_dpram.v(43): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/distributed_dpram/rtl/lscc_distributed_dpram.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_distributed_dpram.v</Navigation>
@@ -1382,7 +1112,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(6): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_distributed_spram.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1390,7 +1120,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_distributed_spram.v(42): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/distributed_spram/rtl/lscc_distributed_spram.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_distributed_spram.v</Navigation>
@@ -1398,7 +1128,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(7): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_distributed_rom.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1406,7 +1136,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_distributed_rom.v(42): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/distributed_rom/rtl/lscc_distributed_rom.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_distributed_rom.v</Navigation>
@@ -1414,7 +1144,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(8): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_distributed_shift_reg.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1422,7 +1152,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_distributed_shift_reg.v(41): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/ram_shift_reg/rtl/lscc_shift_register.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_distributed_shift_reg.v</Navigation>
@@ -1430,7 +1160,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(9): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_fifo.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1438,7 +1168,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_fifo.v(44): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../avant/fifo/rtl/lscc_fifo.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_fifo.v</Navigation>
@@ -1446,7 +1176,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(10): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_fifo_dc.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1454,7 +1184,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_fifo_dc.v(47): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../avant/fifo_dc/rtl/lscc_fifo_dc.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_fifo_dc.v</Navigation>
@@ -1462,7 +1192,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(11): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_mac.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1470,7 +1200,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_mac.v(52): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/mult_accumulate/rtl/lscc_mult_accumulate.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_mac.v</Navigation>
@@ -1478,7 +1208,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(12): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_multaddsubsum.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1486,7 +1216,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_multaddsubsum.v(53): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/mult_add_sub_sum/rtl/lscc_mult_add_sub_sum.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_multaddsubsum.v</Navigation>
@@ -1494,7 +1224,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(13): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_multaddsub.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1502,7 +1232,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_multaddsub.v(52): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/mult_add_sub/rtl/lscc_mult_add_sub.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_multaddsub.v</Navigation>
@@ -1510,7 +1240,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(14): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_mult.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1518,7 +1248,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_mult.v(51): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/multiplier/rtl/lscc_multiplier.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_mult.v</Navigation>
@@ -1526,7 +1256,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(15): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dp.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1534,7 +1264,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dp.v(48): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../avant/ram_dp/rtl/lscc_ram_dp.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_ram_dp.v</Navigation>
@@ -1542,7 +1272,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(16): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dp_be.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1550,7 +1280,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dp_be.v(49): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../avant/ram_dp/rtl/lscc_ram_dp.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_ram_dp_be.v</Navigation>
@@ -1558,7 +1288,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(17): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dp_true.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1566,7 +1296,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dp_true.v(49): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../avant/ram_dp_true/rtl/lscc_ram_dp_true.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_ram_dp_true.v</Navigation>
@@ -1574,7 +1304,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(18): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dq.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1582,7 +1312,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dq.v(45): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../avant/ram_dq/rtl/lscc_ram_dq.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_ram_dq.v</Navigation>
@@ -1590,7 +1320,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(19): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dq_be.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1598,7 +1328,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_ram_dq_be.v(45): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../avant/ram_dq/rtl/lscc_ram_dq.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_ram_dq_be.v</Navigation>
@@ -1606,7 +1336,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(20): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_rom.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1614,7 +1344,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_rom.v(45): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../avant/rom/rtl/lscc_rom.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_rom.v</Navigation>
@@ -1622,7 +1352,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_lifcl.v(21): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/pmi_sub.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_lifcl.v</Navigation>
@@ -1630,7 +1360,7 @@
         </Message>
         <Message>
             <ID>35901328</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic>c:/radiant/ip/pmi/pmi_sub.v(50): </Dynamic>
             <Dynamic>c:/radiant/ip/pmi/../common/subtractor/rtl/lscc_subtractor.v</Dynamic>
             <Navigation>c:/radiant/ip/pmi/pmi_sub.v</Navigation>
@@ -2174,7 +1904,7 @@
         </Message>
         <Message>
             <ID>35921504</ID>
-            <Severity>1</Severity>
+            <Severity>4</Severity>
             <Dynamic></Dynamic>
             <Dynamic>C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1</Dynamic>
         </Message>
@@ -2688,7 +2418,7 @@
         </Message>
         <Message>
             <ID>35931038</ID>
-            <Severity>16</Severity>
+            <Severity>2</Severity>
             <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd(27): </Dynamic>
             <Dynamic>taps_original_ramnet</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_channel.vhd</Navigation>
@@ -2696,7 +2426,7 @@
         </Message>
         <Message>
             <ID>35931038</ID>
-            <Severity>16</Severity>
+            <Severity>2</Severity>
             <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_rssi.vhd(34): </Dynamic>
             <Dynamic>taps_original_ramnet</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_rssi.vhd</Navigation>
@@ -2704,7 +2434,7 @@
         </Message>
         <Message>
             <ID>35931038</ID>
-            <Severity>16</Severity>
+            <Severity>2</Severity>
             <Dynamic>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_hilbert.vhd(27): </Dynamic>
             <Dynamic>taps_original_ramnet</Dynamic>
             <Navigation>c:/users/sp5wwp/documents/radiant/openht/source/impl_1/fir_hilbert.vhd</Navigation>
@@ -5570,6 +5300,276 @@
             <ID>70001944</ID>
             <Severity>16</Severity>
             <Dynamic>create_generated_clock -name {clk_38} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 19 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS2 }] </Dynamic>
+        </Message>
+    </Task>
+    <Task name="Map">
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>io0</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>io1</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>io2</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>io0</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>io1</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>io2</Dynamic>
+        </Message>
+    </Task>
+    <Task name="PAR">
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io0</Dynamic>
+            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io1</Dynamic>
+            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io2</Dynamic>
+            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>io0</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>io1</Dynamic>
+        </Message>
+        <Message>
+            <ID>71003020</ID>
+            <Severity>16</Severity>
+            <Dynamic>io2</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io0</Dynamic>
+            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io1</Dynamic>
+            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io2</Dynamic>
+            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
+        </Message>
+        <Message>
+            <ID>70001944</ID>
+            <Severity>16</Severity>
+            <Dynamic>create_generated_clock -name {clk_152} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOP }] </Dynamic>
+        </Message>
+        <Message>
+            <ID>70001944</ID>
+            <Severity>16</Severity>
+            <Dynamic>create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 32 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS }] </Dynamic>
+        </Message>
+        <Message>
+            <ID>70001944</ID>
+            <Severity>16</Severity>
+            <Dynamic>create_generated_clock -name {clk_38} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 19 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS2 }] </Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io0</Dynamic>
+            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io1</Dynamic>
+            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io2</Dynamic>
+            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io0</Dynamic>
+            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {44} [get_ports io0]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io1</Dynamic>
+            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {42} [get_ports io1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001032</ID>
+            <Severity>16</Severity>
+            <Dynamic>io2</Dynamic>
+            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
+        </Message>
+        <Message>
+            <ID>77001031</ID>
+            <Severity>16</Severity>
+            <Dynamic>ldc_set_location -site {51} [get_ports io2]</Dynamic>
+        </Message>
+        <Message>
+            <ID>70001944</ID>
+            <Severity>16</Severity>
+            <Dynamic>create_generated_clock -name {clk_152} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOP }] </Dynamic>
+        </Message>
+        <Message>
+            <ID>70001944</ID>
+            <Severity>16</Severity>
+            <Dynamic>create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 32 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS }] </Dynamic>
+        </Message>
+        <Message>
+            <ID>70001944</ID>
+            <Severity>16</Severity>
+            <Dynamic>create_generated_clock -name {clk_38} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 19 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS2 }] </Dynamic>
+        </Message>
+        <Message>
+            <ID>70001944</ID>
+            <Severity>16</Severity>
+            <Dynamic>create_generated_clock -name {clk_152} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 76 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOP }] </Dynamic>
+        </Message>
+        <Message>
+            <ID>70001944</ID>
+            <Severity>16</Severity>
+            <Dynamic>create_generated_clock -name {clk_64} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 32 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS }] </Dynamic>
+        </Message>
+        <Message>
+            <ID>70001944</ID>
+            <Severity>16</Severity>
+            <Dynamic>create_generated_clock -name {clk_38} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 19 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS2 }] </Dynamic>
+        </Message>
+    </Task>
+    <Task name="Export">
+        <Message>
+            <ID>1009991</ID>
+            <Severity>16</Severity>
+            <Dynamic>bitgen: Unable to find the instance/port 'io0' in the constraint 'ldc_set_location -site {44} [get_ports io0]'</Dynamic>
+            <Navigation>WARNING</Navigation>
+            <Navigation>bitgen: Unable to find the instance/port 'io0' in the constraint 'ldc_set_location -site {44} [get_ports io0]'</Navigation>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>16</Severity>
+            <Dynamic>bitgen: In the constraint 'ldc_set_location -site {44} [get_ports io0]', the locate object is not specified</Dynamic>
+            <Navigation>WARNING</Navigation>
+            <Navigation>bitgen: In the constraint 'ldc_set_location -site {44} [get_ports io0]', the locate object is not specified</Navigation>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>16</Severity>
+            <Dynamic>bitgen: Unable to find the instance/port 'io1' in the constraint 'ldc_set_location -site {42} [get_ports io1]'</Dynamic>
+            <Navigation>WARNING</Navigation>
+            <Navigation>bitgen: Unable to find the instance/port 'io1' in the constraint 'ldc_set_location -site {42} [get_ports io1]'</Navigation>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>16</Severity>
+            <Dynamic>bitgen: In the constraint 'ldc_set_location -site {42} [get_ports io1]', the locate object is not specified</Dynamic>
+            <Navigation>WARNING</Navigation>
+            <Navigation>bitgen: In the constraint 'ldc_set_location -site {42} [get_ports io1]', the locate object is not specified</Navigation>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>16</Severity>
+            <Dynamic>bitgen: Unable to find the instance/port 'io2' in the constraint 'ldc_set_location -site {51} [get_ports io2]'</Dynamic>
+            <Navigation>WARNING</Navigation>
+            <Navigation>bitgen: Unable to find the instance/port 'io2' in the constraint 'ldc_set_location -site {51} [get_ports io2]'</Navigation>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>16</Severity>
+            <Dynamic>bitgen: In the constraint 'ldc_set_location -site {51} [get_ports io2]', the locate object is not specified</Dynamic>
+            <Navigation>WARNING</Navigation>
+            <Navigation>bitgen: In the constraint 'ldc_set_location -site {51} [get_ports io2]', the locate object is not specified</Navigation>
         </Message>
     </Task>
 </BaliMessageLog>
