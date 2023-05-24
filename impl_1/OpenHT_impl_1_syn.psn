@@ -33,6 +33,6 @@ Constraint Summary:
  
 Writing output file 'OpenHT_impl_1_syn.udb'.
 POSTSYN finished successfully.
-Total CPU Time: 5 secs 
-Total REAL Time: 6 secs 
-Peak Memory Usage: 291 MB
+Total CPU Time: 4 secs 
+Total REAL Time: 5 secs 
+Peak Memory Usage: 279 MB
