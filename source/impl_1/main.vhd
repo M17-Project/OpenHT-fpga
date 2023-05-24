@@ -374,6 +374,7 @@ architecture magic of main_all is
 			clk_i	: in std_logic;							-- main clock
 			mod_i	: in std_logic_vector(15 downto 0);		-- modulation in
 			dith_i	: in signed(15 downto 0);				-- phase dither input
+			nw_i	: in std_logic;							-- narrow/wide selector
 			i_o		: out std_logic_vector(15 downto 0);	-- I data out
 			q_o		: out std_logic_vector(15 downto 0)		-- Q data out
 		);
@@ -617,6 +618,7 @@ begin
 		clk_i => clk_38,
 		mod_i => ctcss_fm_tx,
 		dith_i => fm_dith_r,
+		nw_i => regs_rw(1)(8),
 		i_o => i_fm_tx,
 		q_o => q_fm_tx
 	);

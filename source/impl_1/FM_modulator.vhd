@@ -3,7 +3,7 @@
 --
 -- Wojciech Kaczmarski, SP5WWP
 -- M17 Project
--- March 2023
+-- May 2023
 -------------------------------------------------------------
 library IEEE;
 use IEEE.std_logic_1164.all;
@@ -18,6 +18,7 @@ entity fm_modulator is
 		clk_i	: in std_logic;						-- main clock
 		mod_i	: in std_logic_vector(15 downto 0);	-- modulation in
 		dith_i	: in signed(15 downto 0);			-- phase dither input
+		nw_i	: in std_logic;						-- narrow/wide selector, N=0, W=1
 		i_o		: out std_logic_vector(15 downto 0);-- I data out
 		q_o		: out std_logic_vector(15 downto 0)	-- Q data out
 	);
@@ -61,7 +62,11 @@ begin
 		if rising_edge(clk_i) then
 			if nrst='1' then
 				if counter=DIV-1 then
-					phase <= std_logic_vector(unsigned(phase) + unsigned(resize(signed(mod_i), 21))); -- update phase accumulator
+					if nw_i='0' then -- narrow FM
+						phase <= std_logic_vector(unsigned(phase) + unsigned(resize(signed(mod_i), 21))); -- update phase accumulator
+					else -- wide FM
+						phase <= std_logic_vector(unsigned(phase) + unsigned(resize(signed(mod_i & '0'), 21))); -- update phase accumulator
+					end if;
 					counter := 0;
 					i_o <= raw_i;
 					q_o <= raw_q;
