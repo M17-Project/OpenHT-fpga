@@ -46,7 +46,8 @@ architecture magic of main_all is
 	signal spi_rx_r, spi_tx_r		: std_logic_vector(15 downto 0) := (others => '0');
 	signal spi_addr_r				: std_logic_vector(14 downto 0) := (others => '0');
 	-- IQ - RX
-	signal i_r, q_r					: std_logic_vector(12 downto 0) := (others => '0');
+	signal i_r, q_r					: std_logic_vector(12 downto 0) := (others => '0');		-- raw 13-bit I/Q samples from the deserializer
+	signal mi_r, mq_r				: signed(15 downto 0) := (others => '0');				-- ^ this, but resized to 16 bits (equivalent to a gain of 8)
 	signal i_d, q_d					: signed(12 downto 0) := (others => '0');
 	signal i_raw, q_raw				: signed(12 downto 0) := (others => '0');
 	signal drdy, drdyd				: std_logic := '0';
@@ -529,9 +530,11 @@ begin
 		q_o => lo_mix_q
 	);
 	
+	mi_r <= signed(i_r & '0' & '0' & '0');  -- somehow concatenating with "000" didn't work here
+	mq_r <= signed(q_r & '0' & '0' & '0');
 	mix0: complex_mul port map(
-		a_re => signed(i_r & '0' & '0' & '0'), -- somehow concatenating with "000" didn't work here
-		a_im => signed(q_r & '0' & '0' & '0'),
+		a_re => mi_r(14 downto 0) & '0', -- a gain of 2
+		a_im => mq_r(14 downto 0) & '0',
 		b_re => lo_mix_i,
 		b_im => lo_mix_q,
 		c_re => mix_i_o,
@@ -794,8 +797,10 @@ begin
 		(others => '0')								when "010", -- SSB (placeholder)
 		(others => '0')								when others;
 	--regs_r(3) <= ;
-	regs_r(4) <= i_r & "000"; --std_logic_vector(flt_id_r);
-	regs_r(5) <= q_r & "000"; --std_logic_vector(flt_qd_r);
+	regs_r(4) <= i_r & "000";
+	regs_r(5) <= q_r & "000";
+	regs_r(6) <= std_logic_vector(flt_id_r);
+	regs_r(7) <= std_logic_vector(flt_qd_r);
 	
 	-- I/Os
 	with regs_rw(0)(11 downto 9) select -- TODO: set this to match with the register map

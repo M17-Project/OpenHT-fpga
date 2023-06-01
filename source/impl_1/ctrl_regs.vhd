@@ -18,7 +18,7 @@
 --
 -- Wojciech Kaczmarski, SP5WWP
 -- M17 Project
--- March 2023
+-- June 2023
 -------------------------------------------------------------
 library IEEE;
 use IEEE.std_logic_1164.all;

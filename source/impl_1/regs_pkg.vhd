@@ -4,7 +4,7 @@ use IEEE.numeric_std.all;
 
 package regs_pkg is
 	constant RW_REGS_NUM	: integer := 13;
-	constant R_REGS_NUM		: integer := 6;
+	constant R_REGS_NUM		: integer := 8;
 
 	type t_rw_regs is array(0 to RW_REGS_NUM-1) of std_logic_vector(15 downto 0);
 	type t_r_regs is array(0 to R_REGS_NUM-1) of std_logic_vector(15 downto 0);
