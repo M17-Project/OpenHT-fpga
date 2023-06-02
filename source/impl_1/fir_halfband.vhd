@@ -1,5 +1,5 @@
 -------------------------------------------------------------
--- Serial FIR channel filter
+-- Serial FIR halfband filter
 --
 -- Wojciech Kaczmarski, SP5WWP
 -- M17 Project
@@ -10,7 +10,7 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 use IEEE.math_real.all;
 
-entity fir_channel_12_5 is
+entity fir_halfband is
 	generic(
 		TAPS_NUM	: integer := 81;
 		SAMP_WIDTH	: integer := 16
@@ -22,32 +22,32 @@ entity fir_channel_12_5 is
 		trig_i		: in std_logic;											-- trigger in
 		drdy_o		: out std_logic := '0'									-- data ready out
 	);
-end fir_channel_12_5;
+end fir_halfband;
 
-architecture magic of fir_channel_12_5 is
+architecture magic of fir_halfband is
 	type arr_sig_t is array(integer range 0 to TAPS_NUM-1) of signed(SAMP_WIDTH-1 downto 0);
 	constant taps : arr_sig_t := (
-		x"FF10", x"0248", x"0199", x"00D0",
-		x"FFA2", x"FE9F", x"FE85", x"FF92",
-		x"012D", x"0230", x"01B3", x"FFCD",
-		x"FDB3", x"FCFD", x"FE78", x"0164",
-		x"03C3", x"03AA", x"00BC", x"FCBB",
-		x"FA87", x"FC23", x"0101", x"05FC",
-		x"0747", x"0334", x"FBDA", x"F639",
-		x"F704", x"FF07", x"09BA", x"0F77",
-		x"0A65", x"FB3E", x"EA93", x"E51E",
-		x"F4AF", x"19A0", x"48F2", x"7092",
-		x"7FFF", x"7092", x"48F2", x"19A0",
-		x"F4AF", x"E51E", x"EA93", x"FB3E",
-		x"0A65", x"0F77", x"09BA", x"FF07",
-		x"F704", x"F639", x"FBDA", x"0334",
-		x"0747", x"05FC", x"0101", x"FC23",
-		x"FA87", x"FCBB", x"00BC", x"03AA",
-		x"03C3", x"0164", x"FE78", x"FCFD",
-		x"FDB3", x"FFCD", x"01B3", x"0230",
-		x"012D", x"FF92", x"FE85", x"FE9F",
-		x"FFA2", x"00D0", x"0199", x"0248",
-		x"FF10"
+		x"0000", x"FE68", x"0000", x"00B3",
+		x"0000", x"FF26", x"0000", x"0107",
+		x"0000", x"FEC5", x"0000", x"0175",
+		x"0000", x"FE47", x"0000", x"0207",
+		x"0000", x"FD9F", x"0000", x"02CB",
+		x"0000", x"FCB7", x"0000", x"03E1",
+		x"0000", x"FB63", x"0000", x"058C",
+		x"0000", x"F936", x"0000", x"088B",
+		x"0000", x"F4C3", x"0000", x"1002",
+		x"0000", x"E503", x"0000", x"516D",
+		x"7FFF", x"516D", x"0000", x"E503",
+		x"0000", x"1002", x"0000", x"F4C3",
+		x"0000", x"088B", x"0000", x"F936",
+		x"0000", x"058C", x"0000", x"FB63",
+		x"0000", x"03E1", x"0000", x"FCB7",
+		x"0000", x"02CB", x"0000", x"FD9F",
+		x"0000", x"0207", x"0000", x"FE47",
+		x"0000", x"0175", x"0000", x"FEC5",
+		x"0000", x"0107", x"0000", x"FF26",
+		x"0000", x"00B3", x"0000", x"FE68",
+		x"0000"
 	);
 	
 	signal dline : arr_sig_t := (others => (others => '0'));

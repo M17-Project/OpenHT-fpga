@@ -181,23 +181,23 @@ architecture magic of main_all is
 	end component;
 	
 	-- clock divider
-	component clk_div_block is
-		generic(
-			DIV		: integer := 40
-		);
-		port(
-			clk_i	: in std_logic;							-- fast clock in
-			clk_o	: inout std_logic						-- slow clock out
-		);
-	end component;
+	--component clk_div_block is
+		--generic(
+			--DIV		: integer := 40
+		--);
+		--port(
+			--clk_i	: in std_logic;							-- fast clock in
+			--clk_o	: inout std_logic						-- slow clock out
+		--);
+	--end component;
 	
 	-- 16-bit add const block
-	component add_const is
-		port(
-			data_i		: in signed(15 downto 0);			-- data in
-			data_o		: out std_logic_vector(15 downto 0)	-- data out
-		);
-	end component;
+	--component add_const is
+		--port(
+			--data_i		: in signed(15 downto 0);			-- data in
+			--data_o		: out std_logic_vector(15 downto 0)	-- data out
+		--);
+	--end component;
 	
 	-- local oscillator (40kHz, complex sincos)
 	component local_osc is
@@ -220,14 +220,20 @@ architecture magic of main_all is
 		);
 	end component;
 	
-	-- channel FIR filter
-	component fir_channel is
+	-- channel filter
+	component channel_filter is
+		generic(
+			SAMP_WIDTH	: integer := 16
+		);
 		port(
-			clk_i		: in std_logic;						-- fast clock in
-			data_i		: in signed(15 downto 0);			-- data in
-			data_o		: out signed(15 downto 0);			-- data out
-			trig_i		: in std_logic;						-- trigger in
-			drdy_o		: out std_logic						-- data ready out
+			clk_i		: in std_logic;							-- 38MHz clock in
+			--ch_width	: in std_logic_vector(1 downto 0);		-- channel width selector
+			i_i			: in signed(SAMP_WIDTH-1 downto 0);		-- I in
+			q_i			: in signed(SAMP_WIDTH-1 downto 0);		-- Q in
+			i_o			: out signed(SAMP_WIDTH-1 downto 0);	-- I out
+			q_o			: out signed(SAMP_WIDTH-1 downto 0);	-- Q out
+			trig_i		: in std_logic;							-- trigger in
+			drdy_o		: out std_logic							-- data ready out
 		);
 	end component;
 	
@@ -541,25 +547,24 @@ begin
 		c_im => mix_q_o
 	);
 	
-	i_fir_ser0: fir_channel port map(
-		clk_i => clk_38,
-		data_i => mix_i_o,
-		data_o => flt_i,
-		trig_i => drdy,
-		drdy_o => flt_i_rdy
-	);
-	
-	q_fir_ser0: fir_channel port map(
-		clk_i => clk_38,
-		data_i => mix_q_o,
-		data_o => flt_q,
-		trig_i => drdy,
-		drdy_o => flt_q_rdy
+	channel_flt0: channel_filter
+	generic map(
+		SAMP_WIDTH => 16
+	)
+	port map(
+		clk_i		=> clk_38,
+		--ch_width	=> ,
+		i_i			=> mix_i_o,
+		q_i			=> mix_q_o,
+		i_o			=> flt_id_r,
+		q_o			=> flt_qd_r,
+		trig_i		=> drdy,
+		drdy_o		=> drdyd
 	);
 	
 	rssi0: rssi_est port map(
-		clk_i => flt_i_rdy,
-		r_i => flt_i,
+		clk_i => drdyd,
+		r_i => flt_id_r,
 		std_logic_vector(r_o) => rssi_r,
 		rdy => rssi_rdy
 	);
@@ -570,16 +575,6 @@ begin
 		std_logic_vector(data_o) => regs_r(3),
 		trig_i => rssi_rdy
 		--drdy_o => 
-	);
-	
-	decim0: decim port map(
-		clk_i => clk_i,
-		i_data_i => flt_i,
-		q_data_i => flt_q,
-		i_data_o => flt_id_r,
-		q_data_o => flt_qd_r,
-		trig_i => flt_i_rdy and flt_q_rdy,
-		drdy_o => drdyd
 	);
 	
 	am_demod0: mag_est port map(
@@ -593,8 +588,8 @@ begin
 	
 	fm_demod0: freq_demod port map(
 		clk_i => drdyd,
-		i_i => flt_id_r,
-		q_i => flt_qd_r,
+		i_i => flt_id_r(14 downto 0) & '0',
+		q_i => flt_qd_r(14 downto 0) & '0',
 		demod_o => fm_demod_raw
 	);
 	
@@ -635,7 +630,7 @@ begin
 	
 	-- single sideband modulator
 	-- TODO: it's a sampler, actually
-	decim1: decim port map(
+	decim0: decim port map(
 		clk_i => clk_i,
 		i_data_i => signed(regs_rw(9)), -- I branch is the input signal
 		q_data_i => signed(regs_rw(9)), -- Q branch is the Hilbert-transformed input signal
