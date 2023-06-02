@@ -789,7 +789,7 @@ begin
 	);
 	
 	-- additional connections
-	regs_r(0) <= x"4854";
+	regs_r(0) <= x"0001"; -- revision number 0.1
 	--regs_r(1) <= ;
 	with regs_rw(0)(4 downto 2) select
 		regs_r(2) <= std_logic_vector(fm_demod_raw)	when "000", -- frequency demodulator
