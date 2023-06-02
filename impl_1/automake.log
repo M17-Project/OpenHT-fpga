@@ -38,15 +38,15 @@ Optimizing...
 
 
 Design Summary:
-   Number of registers:        6333 out of 32373 (20%)
-      Number of SLICE         registers: 6333 out of 32256 (20%)
+   Number of registers:        14228 out of 32373 (44%)
+      Number of SLICE         registers: 14228 out of 32256 (44%)
       Number of PIO Input     registers:    0 out of    39 (0%)
       Number of PIO Output    registers:    0 out of    39 (0%)
       Number of PIO Tri-State registers:    0 out of    39 (0%)
-   Number of LUT4s:            13302 out of 32256 (41%)
-      Number used as logic LUT4s:                       11218
+   Number of LUT4s:            20075 out of 32256 (62%)
+      Number used as logic LUT4s:                       17755
       Number used as distributed RAM:                     96 (6 per 16X4 RAM)
-      Number used as ripple logic:                      1988 (2 per CCU2)
+      Number used as ripple logic:                      2224 (2 per CCU2)
    Number of PIOs used/reserved:   23 out of    39 (51%)
       Number of PIOs reserved:      3 (per sysConfig and/or prohibit constraint)
       Number of PIOs used:         20
@@ -71,31 +71,31 @@ Design Summary:
    Number of Large RAMs:          0 out of 2 (0%)
    Number of Logical DSP Functions:
       Number of Pre-Adders (9+9):    0 out of 112 (0%)
-      Number of Multipliers (18x18): 36 out of 56 (64%)
+      Number of Multipliers (18x18): 44 out of 56 (78%)
          Number of 9X9:        0 (1 18x18 = 2   9x9)
-         Number of 18x18:     24 (1 18x18 = 1 18x18)
+         Number of 18x18:     32 (1 18x18 = 1 18x18)
          Number of 18x36:      6 (2 18x18 = 1 18x36)
          Number of 36x36:      0 (4 18x18 = 1 36x36)
-      Number of 54-bit Accumulators: 5 out of 28 (17%)
+      Number of 54-bit Accumulators: 6 out of 28 (21%)
       Number of 18-bit Registers:    0 out of 112 (0%)
    Number of Physical DSP Components:
-      Number of PREADD9:             72 out of 112 (64%)
+      Number of PREADD9:             88 out of 112 (78%)
          Used PREADD9:               0
-         Bypassed PREADD9:           72
-      Number of MULT9:               72 out of 112 (64%)
-         Used MULT9:                 72
+         Bypassed PREADD9:           88
+      Number of MULT9:               88 out of 112 (78%)
+         Used MULT9:                 88
          Bypassed MULT9:             0
-      Number of MULT18:              36 out of 56 (64%)
-         Used MULT18:                36
+      Number of MULT18:              44 out of 56 (78%)
+         Used MULT18:                44
          Disabled MULT18:            0
       Number of MULT18X36:           6 out of 28 (21%)
          Used MULT18X36:             6
          Disabled MULT18X36:         0
       Number of MULT36:              0 out of 14 (0%)
-      Number of ACC54:               5 out of 28 (17%)
-      Number of REG18:               66 out of 112 (58%)
+      Number of ACC54:               6 out of 28 (21%)
+      Number of REG18:               82 out of 112 (73%)
          Used REG18:                 0
-         Bypassed REG18:             66
+         Bypassed REG18:             82
    Number of ALUREGs:             0 out of 1 (0%)
    Number of PLLs:                2 out of 3 (66%)
    Number of DDRDLLs:             0 out of 2 (0%)
@@ -122,100 +122,131 @@ Design Summary:
    Number of JTAG:                0 out of 1 (0%)
    Number of SED:                 0 out of 1 (0%)
    Number of PCSs:                0 out of 1 (0%)
-   Number of Clocks:  7
+   Number of Clocks:  6
       Net clk_rx09_c: 2 loads, 2 rising, 0 falling (Driver: Port clk_rx_i)
-      Net clk_i_c: 559 loads, 559 rising, 0 falling (Driver: Port clk_i)
-      Net clk_38: 5525 loads, 5525 rising, 0 falling (Driver: Pin pll0.lscc_pll_inst.gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS2)
-      Net drdyd: 92 loads, 92 rising, 0 falling (Driver: Pin decim0.drdy_o.ff_inst/Q)
-      Net busy: 59 loads, 0 rising, 59 falling (Driver: Pin i_fir_ser0.busy_c.ff_inst/Q)
+      Net clk_i_c: 503 loads, 503 rising, 0 falling (Driver: Port clk_i)
+      Net drdyd: 147 loads, 147 rising, 0 falling (Driver: Pin channel_flt0.i101847_2_lut/Z)
+      Net clk_38: 13409 loads, 13409 rising, 0 falling (Driver: Pin pll0.lscc_pll_inst.gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS2)
       Net clk_152: 80 loads, 80 rising, 0 falling (Driver: Pin pll0.lscc_pll_inst.gen_no_refclk_mon.u_PLL.PLL_inst/CLKOP)
       Net clk_64: 51 loads, 51 rising, 0 falling (Driver: Pin pll0.lscc_pll_inst.gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS)
-   Number of Clock Enables:  45
-      Net VCC_net: 30 loads, 0 SLICEs
-      Net am_demod0.busy: 4 loads, 4 SLICEs
-      Net am_demod0.sum_sq_31__N_3712: 1 loads, 1 SLICEs
-      Net am_demod0.clk_38_enable_2826: 8 loads, 8 SLICEs
-      Net am_demod0.clk_38_enable_2841: 16 loads, 16 SLICEs
-      Net ctrl_regs0.clk_i_c_enable_171: 1 loads, 1 SLICEs
-      Net ctrl_regs0.clk_i_c_enable_110: 16 loads, 16 SLICEs
-      Net ctrl_regs0.clk_i_c_enable_125: 16 loads, 16 SLICEs
-      Net ctrl_regs0.clk_i_c_enable_65: 16 loads, 16 SLICEs
-      Net ctrl_regs0.clk_i_c_enable_80: 16 loads, 16 SLICEs
-      Net ctrl_regs0.clk_i_c_enable_95: 16 loads, 16 SLICEs
-      Net ctrl_regs0.clk_i_c_enable_187: 16 loads, 16 SLICEs
-      Net ctrl_regs0.clk_i_c_enable_155: 16 loads, 16 SLICEs
-      Net clk_i_c_enable_140: 16 loads, 16 SLICEs
-      Net delay_block0.clk_i_c_enable_50: 6 loads, 6 SLICEs
+   Number of Clock Enables:  66
+      Net VCC_net: 38 loads, 0 SLICEs
+      Net miso_o_N_8876: 1 loads, 1 SLICEs
+      Net channel_flt0.clk_38_enable_6500: 717 loads, 717 SLICEs
+      Net channel_flt0.q_fir_hb2.clk_38_enable_4218: 15 loads, 15 SLICEs
+      Net channel_flt0.clk_38_enable_6484: 1000 loads, 1000 SLICEs
+      Net channel_flt0.clk_38_enable_12494: 716 loads, 716 SLICEs
+      Net channel_flt0.clk_38_enable_8827: 716 loads, 716 SLICEs
+      Net channel_flt0.q_fir_hb1.clk_38_enable_6514: 15 loads, 15 SLICEs
+      Net channel_flt0.clk_38_enable_8811: 1000 loads, 1000 SLICEs
+      Net channel_flt0.clk_38_enable_12493: 717 loads, 717 SLICEs
+      Net clk_38_enable_12524: 703 loads, 698 SLICEs
+      Net channel_flt0.q_fir_hb0.clk_38_enable_8841: 15 loads, 15 SLICEs
+      Net clk_38_enable_12492: 896 loads, 896 SLICEs
+      Net clk_38_enable_12523: 993 loads, 993 SLICEs
+      Net channel_flt0.clk_38_enable_4204: 650 loads, 650 SLICEs
+      Net clk_38_enable_1921: 20 loads, 16 SLICEs
+      Net channel_flt0.i_data_o_15__N_1871: 34 loads, 30 SLICEs
+      Net channel_flt0.clk_38_enable_4172: 782 loads, 782 SLICEs
+      Net channel_flt0.clk_38_enable_4188: 1000 loads, 1000 SLICEs
+      Net channel_flt0.i_fir_hb2.clk_38_enable_5366: 15 loads, 15 SLICEs
+      Net channel_flt0.i_fir_hb1.clk_38_enable_7693: 15 loads, 15 SLICEs
+      Net channel_flt0.i_fir_hb0.clk_38_enable_10069: 15 loads, 15 SLICEs
+      Net clk_38_enable_3070: 20 loads, 16 SLICEs
+      Net channel_flt0.decim1.clk_38_enable_526: 1 loads, 1 SLICEs
+      Net channel_flt0.decim1.drdy_o_N_1874: 30 loads, 30 SLICEs
+      Net channel_flt0.decim0.clk_38_enable_353: 1 loads, 1 SLICEs
+      Net channel_flt0.decim0.drdy_o_N_1874: 30 loads, 30 SLICEs
+      Net ctrl_regs0.clk_i_c_enable_184: 1 loads, 1 SLICEs
+      Net ctrl_regs0.clk_i_c_enable_123: 16 loads, 16 SLICEs
+      Net ctrl_regs0.clk_i_c_enable_138: 16 loads, 16 SLICEs
+      Net ctrl_regs0.clk_i_c_enable_153: 16 loads, 16 SLICEs
+      Net ctrl_regs0.clk_i_c_enable_78: 16 loads, 16 SLICEs
+      Net ctrl_regs0.clk_i_c_enable_93: 16 loads, 16 SLICEs
+      Net ctrl_regs0.clk_i_c_enable_108: 16 loads, 16 SLICEs
+      Net ctrl_regs0.clk_i_c_enable_200: 16 loads, 16 SLICEs
+      Net ctrl_regs0.clk_i_c_enable_168: 16 loads, 16 SLICEs
       Net clk_152_enable_4: 1 loads, 1 SLICEs
-      Net clk_38_enable_5264: 661 loads, 657 SLICEs
+      Net delay_block0.clk_i_c_enable_18: 6 loads, 6 SLICEs
+      Net hilbert0.clk_38_enable_12508: 846 loads, 846 SLICEs
+      Net hilbert0.clk_38_enable_11299: 16 loads, 16 SLICEs
+      Net hilbert0.clk_38_enable_12450: 451 loads, 451 SLICEs
       Net iq_des0.clk_152_enable_34: 30 loads, 30 SLICEs
       Net iq_des0.clk_152_enable_58: 26 loads, 26 SLICEs
       Net iq_des0.clk_152_enable_5: 1 loads, 1 SLICEs
-      Net clk_38_enable_5263: 999 loads, 999 SLICEs
-      Net clk_38_enable_5215: 946 loads, 946 SLICEs
-      Net i_fir_ser0.clk_38_enable_1209: 16 loads, 16 SLICEs
-      Net spi_slave0.clk_i_c_enable_201: 15 loads, 15 SLICEs
-      Net spi_slave0.clk_i_c_enable_170: 16 loads, 16 SLICEs
-      Net spi_slave0.clk_i_c_enable_215: 15 loads, 15 SLICEs
-      Net tmp2_23__N_3942: 32 loads, 32 SLICEs
-      Net rssi_fir0.clk_38_enable_3990: 856 loads, 856 SLICEs
-      Net rssi_fir0.clk_38_enable_2856: 16 loads, 16 SLICEs
-      Net rssi_fir0.clk_38_enable_3958: 360 loads, 360 SLICEs
-      Net i_data_o_15__N_3595: 40 loads, 32 SLICEs
-      Net q_fir_ser0.clk_38_enable_4006: 16 loads, 16 SLICEs
-      Net clk_i_c_enable_45: 12 loads, 12 SLICEs
-      Net clk_i_c_enable_34: 11 loads, 11 SLICEs
-      Net decim1.clk_i_c_enable_1: 1 loads, 1 SLICEs
-      Net decim1.drdy_o_N_3600: 16 loads, 16 SLICEs
+      Net tmp2_23__N_5510: 32 loads, 32 SLICEs
+      Net am_demod0.busy: 4 loads, 4 SLICEs
+      Net am_demod0.clk_38_enable_7651: 32 loads, 32 SLICEs
+      Net am_demod0.sum_sq_31__N_5280: 1 loads, 1 SLICEs
+      Net am_demod0.clk_38_enable_1903: 8 loads, 8 SLICEs
+      Net am_demod0.clk_38_enable_1665: 16 loads, 16 SLICEs
       Net zero_insert0.clk_64_enable_1: 1 loads, 1 SLICEs
-      Net hilbert0.clk_38_enable_2794: 839 loads, 839 SLICEs
-      Net hilbert0.clk_38_enable_1579: 16 loads, 16 SLICEs
-      Net hilbert0.clk_38_enable_2745: 458 loads, 458 SLICEs
-      Net freq_mod0.clk_38_enable_1556: 12 loads, 12 SLICEs
-      Net freq_mod0.clk_38_enable_1564: 1 loads, 1 SLICEs
-      Net freq_mod0.clk_38_enable_2823: 32 loads, 32 SLICEs
-      Net rssi0.flt_i_rdy_enable_2: 1 loads, 1 SLICEs
-      Net rssi0.flt_i_rdy_enable_16: 15 loads, 15 SLICEs
-   Number of LSRs:  28
-      Net VCC_net: 77 loads, 0 SLICEs
+      Net rssi_fir0.clk_38_enable_12671: 853 loads, 853 SLICEs
+      Net rssi_fir0.clk_38_enable_1684: 16 loads, 16 SLICEs
+      Net rssi_fir0.clk_38_enable_12639: 363 loads, 363 SLICEs
+      Net clk_i_c_enable_63: 12 loads, 12 SLICEs
+      Net clk_i_c_enable_52: 11 loads, 11 SLICEs
+      Net decim0.clk_i_c_enable_1: 1 loads, 1 SLICEs
+      Net decim0.drdy_o_N_5891: 16 loads, 16 SLICEs
+      Net rssi0.drdyd_enable_2: 1 loads, 1 SLICEs
+      Net rssi0.drdyd_enable_16: 15 loads, 15 SLICEs
+      Net freq_mod0.clk_38_enable_1900: 12 loads, 12 SLICEs
+      Net freq_mod0.clk_38_enable_12526: 1 loads, 1 SLICEs
+      Net freq_mod0.clk_38_enable_11270: 32 loads, 32 SLICEs
+      Net spi_slave0.clk_i_c_enable_214: 15 loads, 15 SLICEs
+      Net spi_slave0.clk_i_c_enable_183: 16 loads, 16 SLICEs
+      Net spi_slave0.clk_i_c_enable_215: 15 loads, 15 SLICEs
+   Number of LSRs:  39
+      Net VCC_net: 94 loads, 0 SLICEs
       Net data_rx09_r_1__N_1: 1 loads, 0 SLICEs
       Pin nrst: 220 loads, 200 SLICEs (Net: nrst_c)
-      Net n103687: 2 loads, 0 SLICEs
-      Net am_demod0.clk_38_enable_2841: 5 loads, 5 SLICEs
-      Net ctrl_regs0.n82392: 1 loads, 1 SLICEs
+      Net n142000: 2 loads, 0 SLICEs
+      Net channel_flt0.q_fir_hb2.clk_38_enable_4218: 2 loads, 2 SLICEs
+      Net channel_flt0.busy_adj_15185: 1 loads, 1 SLICEs
+      Net channel_flt0.q_fir_hb1.clk_38_enable_6514: 2 loads, 2 SLICEs
+      Net channel_flt0.busy_adj_15189: 1 loads, 1 SLICEs
+      Net channel_flt0.q_fir_hb0.clk_38_enable_8841: 2 loads, 2 SLICEs
+      Net channel_flt0.busy_adj_15199: 1 loads, 1 SLICEs
+      Net clk_38_enable_1921: 1 loads, 1 SLICEs
+      Net channel_flt0.i_data_o_15__N_1871: 3 loads, 3 SLICEs
+      Net channel_flt0.i_fir_hb2.clk_38_enable_5366: 1 loads, 1 SLICEs
+      Net channel_flt0.i_fir_hb1.clk_38_enable_7693: 1 loads, 1 SLICEs
+      Net channel_flt0.i_fir_hb0.clk_38_enable_10069: 1 loads, 1 SLICEs
+      Net clk_38_enable_3070: 1 loads, 1 SLICEs
+      Net channel_flt0.decim1.drdy_o_N_1874: 2 loads, 2 SLICEs
+      Net channel_flt0.decim0.drdy_o_N_1874: 2 loads, 2 SLICEs
+      Net ctrl_regs0.n115444: 1 loads, 1 SLICEs
       Net regs_rw[1][1]: 51 loads, 51 SLICEs
-      Net n12022: 4 loads, 4 SLICEs
-      Net n12021: 4 loads, 4 SLICEs
-      Net n12075: 4 loads, 4 SLICEs
-      Net n12074: 4 loads, 4 SLICEs
       Net data_rx24_r_1__N_7: 1 loads, 0 SLICEs
-      Net i_fir_ser0.clk_38_enable_1209: 1 loads, 1 SLICEs
-      Net clk_tx_o_N_14: 2 loads, 0 SLICEs
-      Net rssi_fir0.clk_38_enable_2856: 1 loads, 1 SLICEs
+      Net n14318: 4 loads, 4 SLICEs
+      Net n14266: 4 loads, 4 SLICEs
+      Net n14265: 4 loads, 4 SLICEs
+      Net n14319: 4 loads, 4 SLICEs
+      Net hilbert0.clk_38_enable_11299: 1 loads, 1 SLICEs
+      Net clk_tx_o_N_13: 2 loads, 0 SLICEs
+      Net am_demod0.clk_38_enable_1665: 5 loads, 5 SLICEs
       Net n11: 13 loads, 13 SLICEs
-      Net n45771: 2 loads, 2 SLICEs
-      Net i_data_o_15__N_3595: 9 loads, 9 SLICEs
-      Net busy_adj_10935: 1 loads, 1 SLICEs
-      Net q_fir_ser0.clk_38_enable_4006: 1 loads, 1 SLICEs
-      Net decim1.drdy_o_N_3600: 8 loads, 8 SLICEs
-      Net zero_insert0.n47506: 5 loads, 5 SLICEs
-      Net fm_demod0.n47504: 16 loads, 16 SLICEs
-      Net hilbert0.clk_38_enable_1579: 1 loads, 1 SLICEs
-      Net freq_mod0.n83210: 1 loads, 1 SLICEs
-      Net freq_mod0.n2483: 4 loads, 4 SLICEs
-      Net rssi0.n83364: 1 loads, 1 SLICEs
-      Net rssi0.flt_i_rdy_enable_16: 23 loads, 23 SLICEs
+      Net n57111: 2 loads, 2 SLICEs
+      Net zero_insert0.n60411: 5 loads, 5 SLICEs
+      Net rssi_fir0.clk_38_enable_1684: 1 loads, 1 SLICEs
+      Net decim0.drdy_o_N_5891: 8 loads, 8 SLICEs
+      Net rssi0.drdyd_enable_16: 23 loads, 23 SLICEs
+      Net rssi0.n116941: 1 loads, 1 SLICEs
+      Net fm_demod0.n60409: 16 loads, 16 SLICEs
+      Net freq_mod0.n116770: 1 loads, 1 SLICEs
+      Net freq_mod0.n3478: 4 loads, 4 SLICEs
+      Net spi_slave0.rw_N_8891: 1 loads, 1 SLICEs
    Top 10 highest fanout non-clock nets:
-      Net rssi_fir0.clk_38_enable_3990: 1000 loads
-      Net clk_38_enable_5263: 999 loads
-      Net hilbert0.clk_38_enable_2794: 999 loads
-      Net clk_38_enable_5264: 995 loads
-      Net VCC_net: 987 loads
-      Net clk_38_enable_5215: 946 loads
-      Net n103597: 631 loads
-      Net hilbert0.n103584: 627 loads
-      Net n103589: 627 loads
-      Net rssi_fir0.n103577: 582 loads
+      Net VCC_net: 1200 loads
+      Net channel_flt0.clk_38_enable_4188: 1000 loads
+      Net channel_flt0.clk_38_enable_6484: 1000 loads
+      Net channel_flt0.clk_38_enable_8811: 1000 loads
+      Net clk_38_enable_12524: 1000 loads
+      Net hilbert0.clk_38_enable_12508: 1000 loads
+      Net rssi_fir0.clk_38_enable_12671: 1000 loads
+      Net channel_flt0.clk_38_enable_4204: 997 loads
+      Net channel_flt0.clk_38_enable_6500: 997 loads
+      Net channel_flt0.clk_38_enable_8827: 997 loads
 Running physical design DRC...
 
 WARNING - Top module port 'io0' does not connect to anything.
@@ -231,15 +262,15 @@ Constraint Summary:
    Total number of constraints dropped: 0
 
 
-Total CPU Time: 4 secs  
-Total REAL Time: 5 secs  
-Peak Memory Usage: 598 MB
+Total CPU Time: 6 secs  
+Total REAL Time: 7 secs  
+Peak Memory Usage: 804 MB
 
 
 par -f "OpenHT_impl_1.p2t" "OpenHT_impl_1_map.udb" "OpenHT_impl_1.udb"
 
 Lattice Place and Route Report for Design "OpenHT_impl_1_map.udb"
-Thu Jun  1 16:11:09 2023
+Fri Jun  2 17:17:21 2023
 
 PAR: Place And Route Radiant Software (64-bit) 2022.1.1.289.4.
 Command Line: par -w -t 1 -cores 1 -exp parPathBased=OFF OpenHT_impl_1_map.udb \
@@ -274,7 +305,7 @@ WARNING - Top module port 'io1' does not connect to anything.
 WARNING - Top module port 'io2' does not connect to anything.
 
 Device SLICE utilization summary after final SLICE packing:
-   SLICE          12095/16128        74% used
+   SLICE          15965/16128        98% used
 
 WARNING - Unable to find the instance/port 'io0' in the constraint 'ldc_set_location -site {44} [get_ports io0]'
 
@@ -306,17 +337,17 @@ WARNING - Unable to find the instance/port 'io2' in the constraint 'ldc_set_loca
 
 WARNING - In the constraint 'ldc_set_location -site {51} [get_ports io2]', the locate object is not specified
 
-Number of Signals: 25426
-Number of Connections: 71050
+Number of Signals: 39437
+Number of Connections: 110903
 Device utilization summary:
 
    VHI                   1/1           100% used
-   MULT9                72/112          64% used
-   MULT18               36/56           64% used
+   MULT9                88/112          78% used
+   MULT18               44/56           78% used
    MULT18X36             6/28           21% used
-   REG18                66/112          58% used
-   ACC54                 5/28           17% used
-   PREADD9              72/112          64% used
+   REG18                82/112          73% used
+   ACC54                 6/28           21% used
+   PREADD9              88/112          78% used
    DIFFIO18              5/37           13% used
                          5/11           45% bonded
    IOLOGIC               4/74            5% used
@@ -325,31 +356,31 @@ Device utilization summary:
    SEIO33               10/39           25% used
                         10/17           58% bonded
    PLL                   2/3            66% used
-   SLICE             12095/16128        74% used
-     LUT             13302/32256        41% used
-     REG              6333/32256        19% used
+   SLICE             15965/16128        98% used
+     LUT             20075/32256        62% used
+     REG             14228/32256        44% used
 
 
 Pin Constraint Summary:
    15 out of 15 pins locked (100% locked).
 
-Starting Placer Phase 0 (HIER). CPU time: 11 secs , REAL time: 12 secs 
+Starting Placer Phase 0 (HIER). CPU time: 19 secs , REAL time: 20 secs 
 .............
-Finished Placer Phase 0 (HIER). CPU time: 18 secs , REAL time: 19 secs 
+Finished Placer Phase 0 (HIER). CPU time: 30 secs , REAL time: 31 secs 
 
 
-Starting Placer Phase 1. CPU time: 18 secs , REAL time: 19 secs 
+Starting Placer Phase 1. CPU time: 31 secs , REAL time: 32 secs 
 ..  ..
-......................
+....................
 
-Placer score = 5193977.
-Finished Placer Phase 1. CPU time: 30 secs , REAL time: 31 secs 
+Placer score = 8511471.
+Finished Placer Phase 1. CPU time: 51 secs , REAL time: 51 secs 
 
 Starting Placer Phase 2.
 .
 
-Placer score =  4903144
-Finished Placer Phase 2.  CPU time: 32 secs , REAL time: 33 secs 
+Placer score =  8206358
+Finished Placer Phase 2.  CPU time: 54 secs , REAL time: 54 secs 
 
 After final PLC packing legalization, all 0 SLICEs that were not satisfying 1 CLK/CE/LSR per HALF-PLC restriction are all placed into compatible PLCs.
 
@@ -367,21 +398,24 @@ Global Clock Resources:
   PCIE       : 0 out of 1 (0%)
 
 Global Clocks:
-  PRIMARY "clk_i_c" from comp "clk_i" on CLK_PIN site "59 (PT76A)", clk load = 488, ce load = 0, sr load = 0
-  PRIMARY "clk_152" from CLKOP on comp "pll0.lscc_pll_inst.gen_no_refclk_mon.u_PLL.PLL_inst" on PLL site "PLL_ULC", clk load = 67, ce load = 0, sr load = 0
-  PRIMARY "clk_64" from CLKOS on comp "pll0.lscc_pll_inst.gen_no_refclk_mon.u_PLL.PLL_inst" on PLL site "PLL_ULC", clk load = 50, ce load = 0, sr load = 0
-  PRIMARY "clk_38" from CLKOS2 on comp "pll0.lscc_pll_inst.gen_no_refclk_mon.u_PLL.PLL_inst" on PLL site "PLL_ULC", clk load = 3984, ce load = 0, sr load = 0
-  PRIMARY "drdyd" from Q0 on comp "decim0.SLICE_6709" on site "R38C49A", clk load = 58, ce load = 0, sr load = 0
-  PRIMARY "busy" from Q0 on comp "i_fir_ser0.busy_c.SLICE_4042" on site "R38C50A", clk load = 56, ce load = 0, sr load = 0
+  PRIMARY "clk_i_c" from comp "clk_i" on CLK_PIN site "59 (PT76A)", clk load = 327, ce load = 0, sr load = 0
+  PRIMARY "clk_152" from CLKOP on comp "pll0.lscc_pll_inst.gen_no_refclk_mon.u_PLL.PLL_inst" on PLL site "PLL_ULC", clk load = 45, ce load = 0, sr load = 0
+  PRIMARY "clk_64" from CLKOS on comp "pll0.lscc_pll_inst.gen_no_refclk_mon.u_PLL.PLL_inst" on PLL site "PLL_ULC", clk load = 43, ce load = 0, sr load = 0
+  PRIMARY "clk_38" from CLKOS2 on comp "pll0.lscc_pll_inst.gen_no_refclk_mon.u_PLL.PLL_inst" on PLL site "PLL_ULC", clk load = 7140, ce load = 0, sr load = 0
+  PRIMARY "drdyd" from F0 on comp "SLICE_18205" on site "R38C49A", clk load = 102, ce load = 0, sr load = 0
   PRIMARY "clk_rx09_c" from comp "clk_rx_i" on CLK_PIN site "24 (PB58A)", clk load = 2, ce load = 0, sr load = 0
-  PRIMARY "rssi_fir0.clk_38_enable_3990" from F1 on comp "rssi_fir0.SLICE_5474" on site "R20C49A", clk load = 0, ce load = 856, sr load = 0
-  PRIMARY "clk_38_enable_5263" from F0 on comp "lo0.SLICE_9952" on site "R20C50A", clk load = 0, ce load = 678, sr load = 0
-  PRIMARY "clk_38_enable_5215" from F0 on comp "lo0.SLICE_9971" on site "R54C47A", clk load = 0, ce load = 634, sr load = 0
-  PRIMARY "clk_38_enable_5264" from F1 on comp "i_fir_ser0.SLICE_4041" on site "R54C48A", clk load = 0, ce load = 446, sr load = 0
-  PRIMARY "hilbert0.clk_38_enable_2794" from F1 on comp "hilbert0.SLICE_8297" on site "R54C49A", clk load = 0, ce load = 442, sr load = 0
-  PRIMARY "rssi_fir0.clk_38_enable_3958" from F0 on comp "rssi_fir0.SLICE_10652" on site "R54C50A", clk load = 0, ce load = 360, sr load = 0
+  PRIMARY "clk_38_enable_12523" from F1 on comp "unpack0.SLICE_19581" on site "R38C50A", clk load = 0, ce load = 539, sr load = 0
+  PRIMARY "channel_flt0.clk_38_enable_8811" from F0 on comp "channel_flt0.i_fir_hb1.SLICE_21352" on site "R20C49A", clk load = 0, ce load = 529, sr load = 0
+  PRIMARY "channel_flt0.clk_38_enable_4188" from F0 on comp "channel_flt0.i_fir_ch0.SLICE_21934" on site "R20C50A", clk load = 0, ce load = 514, sr load = 0
+  PRIMARY "channel_flt0.clk_38_enable_6484" from F0 on comp "channel_flt0.i_fir_hb2.SLICE_21060" on site "R54C47A", clk load = 0, ce load = 510, sr load = 0
+  PRIMARY "clk_38_enable_12492" from F0 on comp "lo0.SLICE_22987" on site "R54C48A", clk load = 0, ce load = 477, sr load = 0
+  PRIMARY "rssi_fir0.clk_38_enable_12671" from F1 on comp "rssi_fir0.SLICE_18345" on site "R54C49A", clk load = 0, ce load = 429, sr load = 0
+  PRIMARY "hilbert0.clk_38_enable_12508" from F1 on comp "hilbert0.SLICE_16818" on site "R54C50A", clk load = 0, ce load = 425, sr load = 0
+  PRIMARY "channel_flt0.clk_38_enable_4172" from F1 on comp "channel_flt0.i_fir_ch0.SLICE_21645" on site "R54C51A", clk load = 0, ce load = 404, sr load = 0
+  PRIMARY "clk_38_enable_12524" from F1 on comp "channel_flt0.q_fir_hb0.SLICE_8717" on site "R54C52A", clk load = 0, ce load = 387, sr load = 0
+  PRIMARY "channel_flt0.clk_38_enable_12493" from F0 on comp "channel_flt0.i_fir_hb1.SLICE_21351" on site "R26C2A", clk load = 0, ce load = 377, sr load = 0
 
-  PRIMARY  : 13 out of 16 (81%)
+  PRIMARY  : 16 out of 16 (100%)
 
 Edge Clocks:
 
@@ -413,7 +447,7 @@ I/O Bank Usage Summary:
 | 5        | 0 / 10 (  0%)  | -          | -          | -          |
 +----------+----------------+------------+------------+------------+
 
-Total Placer CPU time: 33 secs , REAL time: 34 secs 
+Total Placer CPU time: 55 secs , REAL time: 55 secs 
 
 Writing design to file OpenHT_impl_1_par.dir/5_1.udb ...
 
@@ -430,7 +464,7 @@ WARNING - Unable to find the instance/port 'io2' in the constraint 'ldc_set_loca
 WARNING - In the constraint 'ldc_set_location -site {51} [get_ports io2]', the locate object is not specified
 
 
-Start NBR router at 16:11:44 06/01/23
+Start NBR router at 17:18:19 06/02/23
 
 *****************************************************************
 Info: NBR allows conflicts(one node used by more than one signal)
@@ -448,49 +482,54 @@ Note: NBR uses a different method to calculate timing slacks. The
 Starting routing resource preassignment
 Preassignment Summary:
 --------------------------------------------------------------------------------
-9155 connections routed with dedicated routing resources
-13 global clock signals routed
-18262 connections routed (of 71050 total) (25.70%)
+11164 connections routed with dedicated routing resources
+16 global clock signals routed
+24613 connections routed (of 110903 total) (22.19%)
 ---------------------------------------------------------
 Clock routing summary:
-Primary clocks (26 used out of 32 available):
-    Signal "clk_rx09_c" (2, 18)
+Primary clocks (32 used out of 32 available):
+    Signal "clk_rx09_c" (0, 16)
        Clock   loads: 2     out of     2 routed (100.00%)
        Data    loads: 0     out of     1 routed (  0.00%)
-    Signal "clk_i_c" (0, 16)
-       Clock   loads: 488   out of   488 routed (100.00%)
-    Signal "clk_38" (6, 22)
-       Clock   loads: 3984  out of  3984 routed (100.00%)
+    Signal "clk_i_c" (12, 28)
+       Clock   loads: 327   out of   327 routed (100.00%)
     Signal "drdyd" (3, 19)
-       Clock   loads: 58    out of    58 routed (100.00%)
-       Data    loads: 0     out of     3 routed (  0.00%)
-    Signal "clk_38_enable_5264" (1, 17)
-       Control loads: 446   out of   446 routed (100.00%)
-       Data    loads: 0     out of   334 routed (  0.00%)
-    Signal "busy" (10, 26)
-       Clock   loads: 56    out of    56 routed (100.00%)
-       Data    loads: 0     out of    43 routed (  0.00%)
+       Clock   loads: 102   out of   102 routed (100.00%)
+       Data    loads: 1     out of     2 routed ( 50.00%)
+    Signal "clk_38" (6, 22)
+       Clock   loads: 7140  out of  7140 routed (100.00%)
+    Signal "channel_flt0.clk_38_enable_6484" (4, 20)
+       Control loads: 510   out of   510 routed (100.00%)
+    Signal "channel_flt0.clk_38_enable_8811" (5, 21)
+       Control loads: 529   out of   529 routed (100.00%)
+    Signal "channel_flt0.clk_38_enable_12493" (8, 24)
+       Control loads: 377   out of   377 routed (100.00%)
+    Signal "clk_38_enable_12524" (11, 27)
+       Control loads: 387   out of   387 routed (100.00%)
+       Data    loads: 0     out of   297 routed (  0.00%)
+    Signal "clk_38_enable_12492" (1, 17)
+       Control loads: 477   out of   477 routed (100.00%)
+    Signal "clk_38_enable_12523" (14, 30)
+       Control loads: 539   out of   539 routed (100.00%)
+    Signal "channel_flt0.clk_38_enable_4172" (13, 29)
+       Control loads: 404   out of   404 routed (100.00%)
+    Signal "channel_flt0.clk_38_enable_4188" (9, 25)
+       Control loads: 514   out of   514 routed (100.00%)
+    Signal "hilbert0.clk_38_enable_12508" (15, 31)
+       Control loads: 425   out of   425 routed (100.00%)
+       Data    loads: 0     out of   154 routed (  0.00%)
     Signal "clk_152" (7, 23)
-       Clock   loads: 67    out of    67 routed (100.00%)
-    Signal "clk_38_enable_5263" (9, 25)
-       Control loads: 678   out of   678 routed (100.00%)
-    Signal "clk_38_enable_5215" (4, 20)
-       Control loads: 634   out of   634 routed (100.00%)
-    Signal "rssi_fir0.clk_38_enable_3990" (5, 21)
-       Control loads: 856   out of   856 routed (100.00%)
-       Data    loads: 0     out of   144 routed (  0.00%)
-    Signal "rssi_fir0.clk_38_enable_3958" (13, 29)
-       Control loads: 360   out of   360 routed (100.00%)
-    Signal "clk_64" (11, 27)
-       Clock   loads: 50    out of    50 routed (100.00%)
-    Signal "hilbert0.clk_38_enable_2794" (8, 24)
-       Control loads: 442   out of   442 routed (100.00%)
-       Data    loads: 0     out of   160 routed (  0.00%)
+       Clock   loads: 45    out of    45 routed (100.00%)
+    Signal "clk_64" (2, 18)
+       Clock   loads: 43    out of    43 routed (100.00%)
+    Signal "rssi_fir0.clk_38_enable_12671" (10, 26)
+       Control loads: 429   out of   429 routed (100.00%)
+       Data    loads: 0     out of   147 routed (  0.00%)
 Other clocks:
     Signal "VCC_net"
        Clock   loads: 4     out of     4 routed (100.00%)
-       Control loads: 107   out of   107 routed (100.00%)
-       Data    loads: 876   out of   876 routed (100.00%)
+       Control loads: 132   out of   132 routed (100.00%)
+       Data    loads: 1064  out of  1064 routed (100.00%)
     Signal "pll1.lscc_pll_inst.fbclk_w"
        Clock   loads: 1     out of     1 routed (100.00%)
     Signal "pll0.lscc_pll_inst.fbclk_w"
@@ -506,54 +545,68 @@ WARNING - No master clock for
 	generated clock	create_generated_clock -name {clk_38} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 19 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS2 }] .
     TimerIf::skewscore 0
 
-Start NBR section for initial routing at 16:11:52 06/01/23
+Start NBR section for initial routing at 17:18:28 06/02/23
 Level 4, iteration 1
-13595(0.78%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 18 secs 
+24864(1.42%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 25 secs 
 
 Info: Initial congestion level at 75.00% usage is 0
-Info: Initial congestion area  at 75.00% usage is 0 (0.00%)
+Info: Initial congestion area  at 75.00% usage is 62 (1.35%)
 
-Start NBR section for normal routing at 16:12:01 06/01/23
+Start NBR section for normal routing at 17:18:42 06/02/23
 Level 4, iteration 1
-10606(0.60%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 23 secs 
+18935(1.08%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 31 secs 
 Level 4, iteration 2
-4938(0.28%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 27 secs 
+10938(0.62%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 37 secs 
 Level 4, iteration 3
-2925(0.17%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 29 secs 
+7642(0.44%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 41 secs 
 Level 4, iteration 4
-1983(0.11%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 31 secs 
+5388(0.31%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 44 secs 
 Level 4, iteration 5
-1306(0.07%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 33 secs 
+3570(0.20%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 47 secs 
 Level 4, iteration 6
-618(0.04%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 34 secs 
+2535(0.14%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 49 secs 
 Level 4, iteration 7
-348(0.02%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 35 secs 
+1823(0.10%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 52 secs 
 Level 4, iteration 8
-124(0.01%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 36 secs 
+1207(0.07%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 54 secs 
 Level 4, iteration 9
-55(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 37 secs 
+782(0.04%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 56 secs 
 Level 4, iteration 10
-45(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 37 secs 
+524(0.03%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 58 secs 
 Level 4, iteration 11
-22(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 38 secs 
+391(0.02%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 59 secs 
 Level 4, iteration 12
-12(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 38 secs 
+279(0.02%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 1 mins 
 Level 4, iteration 13
-5(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 38 secs 
+150(0.01%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 1 mins 2 secs 
 Level 4, iteration 14
-3(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 39 secs 
+81(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 1 mins 2 secs 
 Level 4, iteration 15
-3(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 39 secs 
+40(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 1 mins 3 secs 
 Level 4, iteration 16
-3(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 39 secs 
+26(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 1 mins 3 secs 
 Level 4, iteration 17
-2(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 40 secs 
+18(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 1 mins 4 secs 
 Level 4, iteration 18
-2(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 40 secs 
+9(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 1 mins 4 secs 
 Level 4, iteration 19
-0(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 41 secs 
+5(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 1 mins 5 secs 
+Level 4, iteration 20
+3(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 1 mins 5 secs 
+Level 4, iteration 21
+5(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 1 mins 6 secs 
+Level 4, iteration 22
+5(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 1 mins 6 secs 
+Level 4, iteration 23
+6(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 1 mins 6 secs 
+Level 4, iteration 24
+2(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 1 mins 7 secs 
+Level 4, iteration 25
+1(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 1 mins 7 secs 
+Level 4, iteration 26
+0(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 0 (nbr) score; real time: 1 mins 7 secs 
 
-Start NBR section for post-routing at 16:12:24 06/01/23
+Start NBR section for post-routing at 17:19:25 06/02/23
 
 End NBR router with 0 unrouted connection
 WARNING - No master clock for
@@ -579,10 +632,10 @@ NBR Summary
 -----------
 
 
-Total CPU time 51 secs 
-Total REAL time: 52 secs 
+Total CPU time 1 mins 22 secs 
+Total REAL time: 1 mins 23 secs 
 Completely routed.
-End of route.  71050 routed (100.00%); 0 unrouted.
+End of route.  110903 routed (100.00%); 0 unrouted.
 
 Writing design to file OpenHT_impl_1_par.dir/5_1.udb ...
 
@@ -595,9 +648,9 @@ PAR_SUMMARY::Worst  slack<hold /<ns>> = <n/a>
 PAR_SUMMARY::Timing score<hold /<ns>> = <n/a>
 PAR_SUMMARY::Number of errors = 0
 
-Total CPU  Time: 1 mins 27 secs 
-Total REAL Time: 1 mins 29 secs 
-Peak Memory Usage: 880.50 MB
+Total CPU  Time: 2 mins 22 secs 
+Total REAL Time: 2 mins 23 secs 
+Peak Memory Usage: 1096.73 MB
 
 
 par done!
@@ -637,7 +690,7 @@ WARNING - bitgen: Unable to find the instance/port 'io2' in the constraint 'ldc_
 
 WARNING - bitgen: In the constraint 'ldc_set_location -site {51} [get_ports io2]', the locate object is not specified
 
-Successfully loading design udb and device data from disks and to up-layer in CPU time: 3 secs , REAL time: 3 secs 
+Successfully loading design udb and device data from disks and to up-layer in CPU time: 4 secs , REAL time: 4 secs 
 
 
 
@@ -713,7 +766,7 @@ Bitstream Status: Final           Version 9.8.
 Saving bit stream in "C:\Users\SP5WWP\Documents\Radiant\OpenHT\impl_1\OpenHT_impl_1.bit".
 Bitstream generation complete!
 
-Total CPU Time: 15 secs 
-Total REAL Time: 15 secs 
-Peak Memory Usage: 735 MB
+Total CPU Time: 18 secs 
+Total REAL Time: 19 secs 
+Peak Memory Usage: 834 MB
 

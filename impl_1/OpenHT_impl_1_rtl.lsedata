@@ -2,17 +2,16 @@
 
 <clocks>
     <clockitem name = "clk_i"  type = "port" />
+    <clockitem name = "clk_64"  type = "net" />
     <clockitem name = "clk_152"  type = "net" />
     <clockitem name = "clk_38"  type = "net" />
     <clockitem name = "clk_rx_i"  type = "port" />
-    <clockitem name = "clk_64"  type = "net" />
     <clockitem name = "drdyd"  type = "net" />
-    <clockitem name = "flt_i_rdy"  type = "net" />
 </clocks>
 
 <!--
     //=============================================================
-    //  Number of Clocks processed: 7
+    //  Number of Clocks processed: 6
     //
     //  If a clock cannot be found in the top level pins section,
     //  that means it is an internal clock.

@@ -54,6 +54,8 @@
 "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/fir_hilbert.vhd"
 "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/fir_rrc.vhd"
 "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/fir_rssi.vhd"
+"C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/fir_halfband.vhd"
+"C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/channel_filter.vhd"
 "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/freq_demod.vhd"
 "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/iq_deserializer.vhd"
 "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/local_osc.vhd"
