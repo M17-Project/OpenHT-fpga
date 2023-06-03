@@ -47,7 +47,6 @@ architecture magic of main_all is
 	signal spi_addr_r				: std_logic_vector(14 downto 0) := (others => '0');
 	-- IQ - RX
 	signal i_r, q_r					: std_logic_vector(12 downto 0) := (others => '0');		-- raw 13-bit I/Q samples from the deserializer
-	signal mi_r, mq_r				: signed(15 downto 0) := (others => '0');				-- ^ this, but resized to 16 bits (equivalent to a gain of 8)
 	signal i_d, q_d					: signed(12 downto 0) := (others => '0');
 	signal i_raw, q_raw				: signed(12 downto 0) := (others => '0');
 	signal drdy, drdyd				: std_logic := '0';
@@ -63,6 +62,7 @@ architecture magic of main_all is
 	signal am_demod_rdy				: std_logic := '0';
 	signal rssi_rdy					: std_logic := '0';
 	signal rssi_r					: unsigned(15 downto 0) := (others => '0');
+	--signal mag_sq_r					: std_logic_vector(31 downto 0) := (others => '0');
 	-- IQ - TX
 	signal zero_word				: std_logic := '0';
 	signal i_fm_tx, q_fm_tx			: std_logic_vector(15 downto 0) := (others => '0');
@@ -227,7 +227,7 @@ architecture magic of main_all is
 		);
 		port(
 			clk_i		: in std_logic;							-- 38MHz clock in
-			--ch_width	: in std_logic_vector(1 downto 0);		-- channel width selector
+			ch_width	: in std_logic_vector(1 downto 0);		-- channel width selector
 			i_i			: in signed(SAMP_WIDTH-1 downto 0);		-- I in
 			q_i			: in signed(SAMP_WIDTH-1 downto 0);		-- Q in
 			i_o			: out signed(SAMP_WIDTH-1 downto 0);	-- I out
@@ -536,11 +536,9 @@ begin
 		q_o => lo_mix_q
 	);
 	
-	mi_r <= signed(i_r & '0' & '0' & '0');  -- somehow concatenating with "000" didn't work here
-	mq_r <= signed(q_r & '0' & '0' & '0');
 	mix0: complex_mul port map(
-		a_re => mi_r(14 downto 0) & '0', -- a gain of 2
-		a_im => mq_r(14 downto 0) & '0',
+		a_re => signed(i_r(11 downto 0) & '0' & '0' & '0' & '0'), -- a gain of 2
+		a_im => signed(q_r(11 downto 0) & '0' & '0' & '0' & '0'), -- somehow concatenating with "0000" didn't work here
 		b_re => lo_mix_i,
 		b_im => lo_mix_q,
 		c_re => mix_i_o,
@@ -553,7 +551,7 @@ begin
 	)
 	port map(
 		clk_i		=> clk_38,
-		--ch_width	=> ,
+		ch_width	=> regs_rw(1)(10 downto 9),
 		i_i			=> mix_i_o,
 		q_i			=> mix_q_o,
 		i_o			=> flt_id_r,
@@ -562,9 +560,10 @@ begin
 		drdy_o		=> drdyd
 	);
 	
+	--mag_sq_r <= std_logic_vector(flt_id_r*flt_id_r + flt_qd_r*flt_qd_r);
 	rssi0: rssi_est port map(
 		clk_i => drdyd,
-		r_i => flt_id_r,
+		r_i => flt_id_r, --mag_sq_r(31 downto 16),
 		std_logic_vector(r_o) => rssi_r,
 		rdy => rssi_rdy
 	);

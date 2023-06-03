@@ -16,7 +16,7 @@ entity channel_filter is
 	);
 	port(
 		clk_i		: in std_logic;											-- 38MHz clock in
-		--ch_width	: in std_logic_vector(1 downto 0);						-- channel width selector
+		ch_width	: in std_logic_vector(1 downto 0);						-- channel width selector
 		i_i			: in signed(SAMP_WIDTH-1 downto 0);						-- I in
 		q_i			: in signed(SAMP_WIDTH-1 downto 0);						-- Q in
 		i_o			: out signed(SAMP_WIDTH-1 downto 0) := (others => '0');	-- I out
@@ -55,7 +55,35 @@ architecture magic of channel_filter is
 		);
 	end component;
 	
+	component fir_channel_6_25 is
+		generic(
+			TAPS_NUM	: integer := 81;
+			SAMP_WIDTH	: integer := 16
+		);
+		port(
+			clk_i		: in std_logic;							-- fast clock in
+			data_i		: in signed(SAMP_WIDTH-1 downto 0);		-- data in
+			data_o		: out signed(SAMP_WIDTH-1 downto 0);	-- data out
+			trig_i		: in std_logic;							-- trigger in
+			drdy_o		: out std_logic							-- data ready out
+		);
+	end component;
+	
 	component fir_channel_12_5 is
+		generic(
+			TAPS_NUM	: integer := 81;
+			SAMP_WIDTH	: integer := 16
+		);
+		port(
+			clk_i		: in std_logic;							-- fast clock in
+			data_i		: in signed(SAMP_WIDTH-1 downto 0);		-- data in
+			data_o		: out signed(SAMP_WIDTH-1 downto 0);	-- data out
+			trig_i		: in std_logic;							-- trigger in
+			drdy_o		: out std_logic							-- data ready out
+		);
+	end component;
+	
+	component fir_channel_25 is
 		generic(
 			TAPS_NUM	: integer := 81;
 			SAMP_WIDTH	: integer := 16
@@ -73,9 +101,16 @@ architecture magic of channel_filter is
 	signal q_flt0, q_flt1, q_flt2			: signed(SAMP_WIDTH-1 downto 0) := (others => '0');
 	signal i_dec0, i_dec1, i_dec2			: signed(SAMP_WIDTH-1 downto 0) := (others => '0');
 	signal q_dec0, q_dec1, q_dec2			: signed(SAMP_WIDTH-1 downto 0) := (others => '0');
-	signal i_rdy0, i_rdy1, i_rdy2, i_rdy3	: std_logic := '0';
-	signal q_rdy0, q_rdy1, q_rdy2, q_rdy3	: std_logic := '0';
+	
+	signal i_rdy0, i_rdy1, i_rdy2			: std_logic := '0';
+	signal q_rdy0, q_rdy1, q_rdy2			: std_logic := '0';
+	signal i_rdy3_0, i_rdy3_1, i_rdy3_2		: std_logic := '0';
+	signal q_rdy3_0, q_rdy3_1, q_rdy3_2		: std_logic := '0';
+	
 	signal rdy_d0, rdy_d1, rdy_d2			: std_logic := '0';
+	
+	signal i_o0, i_o1, i_o2					: signed(SAMP_WIDTH-1 downto 0) := (others => '0');
+	signal q_o0, q_o1, q_o2					: signed(SAMP_WIDTH-1 downto 0) := (others => '0');
 begin
 	---------------------------- STAGE 1 ----------------------------
 	i_fir_hb0: fir_halfband
@@ -180,23 +215,76 @@ begin
 	);
 	
 	---------------------------- STAGE 4 ----------------------------
-	i_fir_ch0: fir_channel_12_5
+	i_fir_ch0: fir_channel_6_25
 	port map(
 		clk_i		=> clk_i,
 		data_i		=> i_dec2,
-		data_o		=> i_o,
+		data_o		=> i_o0,
 		trig_i		=> rdy_d2,
-		drdy_o		=> i_rdy3
+		drdy_o		=> i_rdy3_0
 	);
 	
 	q_fir_ch0: fir_channel_12_5
 	port map(
 		clk_i		=> clk_i,
 		data_i		=> q_dec2,
-		data_o		=> q_o,
+		data_o		=> q_o0,
 		trig_i		=> rdy_d2,
-		drdy_o		=> q_rdy3
+		drdy_o		=> q_rdy3_0
 	);
 	
-	drdy_o <= i_rdy3 and q_rdy3;
+	i_fir_ch1: fir_channel_12_5
+	port map(
+		clk_i		=> clk_i,
+		data_i		=> i_dec2,
+		data_o		=> i_o1,
+		trig_i		=> rdy_d2,
+		drdy_o		=> i_rdy3_1
+	);
+	
+	q_fir_ch1: fir_channel_12_5
+	port map(
+		clk_i		=> clk_i,
+		data_i		=> q_dec2,
+		data_o		=> q_o1,
+		trig_i		=> rdy_d2,
+		drdy_o		=> q_rdy3_1
+	);
+	
+	i_fir_ch2: fir_channel_25
+	port map(
+		clk_i		=> clk_i,
+		data_i		=> i_dec2,
+		data_o		=> i_o2,
+		trig_i		=> rdy_d2,
+		drdy_o		=> i_rdy3_2
+	);
+	
+	q_fir_ch2: fir_channel_25
+	port map(
+		clk_i		=> clk_i,
+		data_i		=> q_dec2,
+		data_o		=> q_o2,
+		trig_i		=> rdy_d2,
+		drdy_o		=> q_rdy3_2
+	);
+	
+	-- select the right signals
+	with ch_width select
+    drdy_o <= i_rdy3_0 and q_rdy3_0	when "00",
+       i_rdy3_1 and q_rdy3_1		when "01",
+	   i_rdy3_2 and q_rdy3_2		when "10",
+       '0'							when others;
+	   
+	with ch_width select
+    i_o <= i_o0			when "00",
+       i_o1				when "01",
+	   i_o2				when "10",
+       (others => '0')	when others;
+	   
+	with ch_width select
+    q_o <= q_o0			when "00",
+       q_o1				when "01",
+	   q_o2				when "10",
+       (others => '0')	when others;
 end magic;

@@ -44,7 +44,7 @@ architecture magic of ctrl_regs is
 	type rw_regs is array(0 to RW_REGS_NUM-1) of std_logic_vector(15 downto 0);
 	-- default values for the RW registers
 	constant init_rw : rw_regs := (
-		x"0000", x"0000", x"0000", x"0000", -- 0x0000 .. 0x0003
+		x"0000", x"0200", x"0000", x"0000", -- 0x0000 .. 0x0003
 		x"4000", x"4000", x"4000", x"0000", -- 0x0004 .. 0x0007
 		x"0000", x"0000", x"0000", x"0000", -- 0x0008 .. 0x000B
 		x"0000"-- x"0000", x"0000", x"0000"  -- 0x000C .. 0x000F
