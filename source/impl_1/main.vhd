@@ -44,7 +44,7 @@ architecture magic of main_all is
 	-- SPI data regs
 	signal spi_rw					: std_logic := '0';										-- SPI R/W flag
 	signal spi_rx_r, spi_tx_r		: std_logic_vector(15 downto 0) := (others => '0');
-	signal spi_addr_r				: std_logic_vector(14 downto 0) := (others => '0');
+	signal spi_addr_r				: std_logic_vector(13 downto 0) := (others => '0');
 	-- IQ - RX
 	signal i_r, q_r					: std_logic_vector(12 downto 0) := (others => '0');		-- raw 13-bit I/Q samples from the deserializer
 	signal i_d, q_d					: signed(12 downto 0) := (others => '0');
@@ -87,6 +87,7 @@ architecture magic of main_all is
 	signal reg_rw					: std_logic := '0';
 	signal regs_rw					: t_rw_regs := (others => (others => '0'));
 	signal regs_r					: t_r_regs := (others => (others => '0'));
+	signal regs_latch				: std_logic := '0';
 	
 	----------------------------- low level building blocks -----------------------------
 	-- main PLL block
@@ -431,7 +432,7 @@ architecture magic of main_all is
 		port(
 			clk_i		: in std_logic;							-- clock in
 			nrst		: in std_logic;							-- reset
-			addr_i		: in std_logic_vector(14 downto 0);		-- address in
+			addr_i		: in std_logic_vector(13 downto 0);		-- address in
 			data_i		: in std_logic_vector(15 downto 0);		-- data in
 			data_o		: out std_logic_vector(15 downto 0);	-- data out
 			rw_i		: in std_logic;							-- read/write flag, r:0 w:1
@@ -468,17 +469,21 @@ architecture magic of main_all is
 	------------------------------------ interfaces -------------------------------------
 	-- SPI slave interface
 	component spi_slave is
+		generic(
+			MAX_ADDR : natural := RW_REGS_NUM + R_REGS_NUM - 1
+		);
 		port(
 			miso_o	: out std_logic;						-- serial data out
 			mosi_i	: in std_logic;							-- serial data in
 			sck_i	: in std_logic;							-- clock
 			ncs_i	: in std_logic;							-- slave select signal
 			data_o	: out std_logic_vector(15 downto 0);	-- received data register
-			addr_o	: out std_logic_vector(14 downto 0);	-- address (for data read)
+			addr_o	: out std_logic_vector(13 downto 0);	-- address (for data read)
 			data_i	: in std_logic_vector(15 downto 0);		-- input data register
 			nrst	: in std_logic;							-- reset
 			ena		: in std_logic;							-- enable
 			rw		: inout std_logic;						-- read/write flag, r=0, w=1
+			ld      : out std_logic;						-- load signal for a FIFO (positive pulse after word end)
 			clk_i	: in std_logic							-- fast clock
 		);
 	end component;
@@ -767,6 +772,7 @@ begin
 		nrst => nrst,
 		ena => '1',
 		rw => spi_rw,
+		ld => regs_latch,
 		clk_i => clk_i
 	);
 	
@@ -777,7 +783,7 @@ begin
 		data_i => spi_rx_r,
 		data_o => spi_tx_r,
 		rw_i => spi_rw,
-		latch_i => spi_ncs,
+		latch_i => regs_latch,
 		regs_rw => regs_rw,
 		regs_r => regs_r
 	);

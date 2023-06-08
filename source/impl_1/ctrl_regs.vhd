@@ -29,7 +29,7 @@ entity ctrl_regs is
 	port(
 		clk_i		: in std_logic;											-- clock in
 		nrst		: in std_logic;											-- reset
-		addr_i		: in std_logic_vector(14 downto 0);						-- address in
+		addr_i		: in std_logic_vector(13 downto 0);						-- address in
 		data_i		: in std_logic_vector(15 downto 0);						-- data in
 		data_o		: out std_logic_vector(15 downto 0) := (others => '0');	-- data out
 		rw_i		: in std_logic;											-- read/write flag, r:0 w:1
