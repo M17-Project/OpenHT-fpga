@@ -6,7 +6,7 @@ Package: QFN72
 Performance Grade:  9_High-Performance_1.0V
 
 Mapper:    version Radiant Software (64-bit) 2022.1.1.289.4
-Mapped on: Sat Jun  3 14:00:13 2023
+Mapped on: Thu Jun  8 18:26:14 2023
 
 Design Information
 ------------------
@@ -18,15 +18,15 @@ Command line:   map -i OpenHT_impl_1_syn.udb -pdc
 Design Summary
 --------------
 
-   Number of registers:        14464 out of 32373 (45%)
-      Number of SLICE         registers: 14464 out of 32256 (45%)
+   Number of registers:        14487 out of 32373 (45%)
+      Number of SLICE         registers: 14487 out of 32256 (45%)
       Number of PIO Input     registers:    0 out of    39 (0%)
       Number of PIO Output    registers:    0 out of    39 (0%)
       Number of PIO Tri-State registers:    0 out of    39 (0%)
-   Number of LUT4s:            23513 out of 32256 (73%)
-      Number used as logic LUT4s:                       21049
+   Number of LUT4s:            23594 out of 32256 (73%)
+      Number used as logic LUT4s:                       21114
       Number used as distributed RAM:                     96 (6 per 16X4 RAM)
-      Number used as ripple logic:                      2368 (2 per CCU2)
+      Number used as ripple logic:                      2384 (2 per CCU2)
    Number of PIOs used/reserved:   23 out of    39 (51%)
       Number of PIOs reserved:      3 (per sysConfig and/or prohibit constraint)
       Number of PIOs used:         20
@@ -112,19 +112,19 @@ Design Summary (cont)
    Number of PCSs:                0 out of 1 (0%)
    Number of Clocks:  6
       Net clk_rx09_c: 2 loads, 2 rising, 0 falling (Driver: Port clk_rx_i)
-      Net clk_i_c: 503 loads, 503 rising, 0 falling (Driver: Port clk_i)
-      Net clk_38: 13596 loads, 13596 rising, 0 falling (Driver: Pin
+      Net clk_i_c: 527 loads, 527 rising, 0 falling (Driver: Port clk_i)
+      Net clk_38: 13591 loads, 13591 rising, 0 falling (Driver: Pin
      pll0.lscc_pll_inst.gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS2)
       Net drdyd: 147 loads, 147 rising, 0 falling (Driver: Pin
      channel_flt0.ch_width_1__I_0_i3.slicemux_inst/Z)
-      Net clk_152: 80 loads, 80 rising, 0 falling (Driver: Pin
-     pll0.lscc_pll_inst.gen_no_refclk_mon.u_PLL.PLL_inst/CLKOP)
       Net clk_64: 51 loads, 51 rising, 0 falling (Driver: Pin
      pll0.lscc_pll_inst.gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS)
-   Number of Clock Enables:  69
+      Net clk_152: 80 loads, 80 rising, 0 falling (Driver: Pin
+     pll0.lscc_pll_inst.gen_no_refclk_mon.u_PLL.PLL_inst/CLKOP)
+   Number of Clock Enables:  72
       Net VCC_net: 34 loads, 0 SLICEs
-      Net channel_flt0.clk_38_enable_6594: 717 loads, 717 SLICEs
-      Net channel_flt0.clk_38_enable_6578: 1000 loads, 1000 SLICEs
+      Net clk_i_c_enable_196: 1 loads, 1 SLICEs
+      Net channel_flt0.clk_38_enable_6580: 717 loads, 717 SLICEs
 
                                     Page 2
 
@@ -134,62 +134,62 @@ Design Summary (cont)
 
 Design Summary (cont)
 ---------------------
-      Net channel_flt0.clk_38_enable_12688: 716 loads, 716 SLICEs
-      Net channel_flt0.clk_38_enable_4298: 15 loads, 15 SLICEs
-      Net channel_flt0.clk_38_enable_12689: 713 loads, 713 SLICEs
-      Net channel_flt0.q_fir_hb1.clk_38_enable_6608: 15 loads, 15 SLICEs
-      Net channel_flt0.clk_38_enable_8874: 1000 loads, 1000 SLICEs
-      Net channel_flt0.clk_38_enable_8858: 720 loads, 720 SLICEs
-      Net clk_38_enable_12690: 710 loads, 705 SLICEs
-      Net channel_flt0.q_fir_hb0.clk_38_enable_8904: 15 loads, 15 SLICEs
-      Net clk_38_enable_11253: 888 loads, 888 SLICEs
-      Net clk_38_enable_11301: 999 loads, 999 SLICEs
-      Net channel_flt0.clk_38_enable_4284: 227 loads, 227 SLICEs
-      Net channel_flt0.q_fir_ch2.clk_38_enable_1926: 16 loads, 16 SLICEs
-      Net channel_flt0.clk_38_enable_4249: 1000 loads, 1000 SLICEs
-      Net channel_flt0.q_fir_ch0.clk_38_enable_1985: 16 loads, 16 SLICEs
+      Net channel_flt0.q_fir_hb2.clk_38_enable_4265: 15 loads, 15 SLICEs
+      Net channel_flt0.clk_38_enable_6529: 1000 loads, 1000 SLICEs
+      Net channel_flt0.clk_38_enable_12687: 716 loads, 716 SLICEs
+      Net channel_flt0.clk_38_enable_8876: 712 loads, 712 SLICEs
+      Net channel_flt0.q_fir_hb1.clk_38_enable_6594: 15 loads, 15 SLICEs
+      Net channel_flt0.clk_38_enable_12689: 721 loads, 721 SLICEs
+      Net channel_flt0.clk_38_enable_8860: 1000 loads, 1000 SLICEs
+      Net clk_38_enable_11305: 710 loads, 705 SLICEs
+      Net channel_flt0.q_fir_hb0.clk_38_enable_8890: 15 loads, 15 SLICEs
+      Net clk_38_enable_12690: 886 loads, 886 SLICEs
+      Net clk_38_enable_11304: 997 loads, 997 SLICEs
+      Net channel_flt0.clk_38_enable_4251: 227 loads, 227 SLICEs
+      Net channel_flt0.q_fir_ch2.clk_38_enable_1923: 16 loads, 16 SLICEs
+      Net channel_flt0.clk_38_enable_4216: 1000 loads, 1000 SLICEs
+      Net channel_flt0.q_fir_ch0.clk_38_enable_1968: 16 loads, 16 SLICEs
       Net channel_flt0.i_data_o_15__N_1874: 34 loads, 30 SLICEs
-      Net channel_flt0.clk_38_enable_4281: 1000 loads, 1000 SLICEs
-      Net channel_flt0.clk_38_enable_4105: 208 loads, 208 SLICEs
-      Net channel_flt0.i_fir_hb2.clk_38_enable_5460: 15 loads, 15 SLICEs
-      Net channel_flt0.i_fir_hb1.clk_38_enable_7756: 15 loads, 15 SLICEs
-      Net channel_flt0.i_fir_hb0.clk_38_enable_10118: 15 loads, 15 SLICEs
-      Net channel_flt0.i_fir_ch2.clk_38_enable_1941: 16 loads, 16 SLICEs
-      Net channel_flt0.i_fir_ch1.clk_38_enable_1970: 16 loads, 16 SLICEs
-      Net channel_flt0.i_fir_ch0.clk_38_enable_3144: 16 loads, 16 SLICEs
-      Net channel_flt0.decim1.clk_38_enable_522: 1 loads, 1 SLICEs
+      Net channel_flt0.clk_38_enable_4248: 1000 loads, 1000 SLICEs
+      Net channel_flt0.clk_38_enable_4072: 208 loads, 208 SLICEs
+      Net channel_flt0.i_fir_hb2.clk_38_enable_5427: 15 loads, 15 SLICEs
+      Net channel_flt0.i_fir_hb1.clk_38_enable_7742: 15 loads, 15 SLICEs
+      Net channel_flt0.i_fir_hb0.clk_38_enable_10104: 15 loads, 15 SLICEs
+      Net channel_flt0.i_fir_ch2.clk_38_enable_1938: 16 loads, 16 SLICEs
+      Net channel_flt0.i_fir_ch1.clk_38_enable_1953: 16 loads, 16 SLICEs
+      Net channel_flt0.i_fir_ch0.clk_38_enable_3117: 16 loads, 16 SLICEs
+      Net channel_flt0.decim1.clk_38_enable_525: 1 loads, 1 SLICEs
       Net channel_flt0.decim1.drdy_o_N_1877: 30 loads, 30 SLICEs
-      Net channel_flt0.decim0.clk_38_enable_351: 1 loads, 1 SLICEs
+      Net channel_flt0.decim0.clk_38_enable_355: 1 loads, 1 SLICEs
       Net channel_flt0.decim0.drdy_o_N_1877: 30 loads, 30 SLICEs
-      Net ctrl_regs0.clk_i_c_enable_103: 16 loads, 16 SLICEs
-      Net ctrl_regs0.clk_i_c_enable_73: 16 loads, 16 SLICEs
-      Net ctrl_regs0.clk_i_c_enable_133: 16 loads, 16 SLICEs
-      Net ctrl_regs0.clk_i_c_enable_208: 1 loads, 1 SLICEs
-      Net ctrl_regs0.clk_i_c_enable_88: 16 loads, 16 SLICEs
-      Net ctrl_regs0.clk_i_c_enable_118: 16 loads, 16 SLICEs
-      Net ctrl_regs0.clk_i_c_enable_193: 16 loads, 16 SLICEs
-      Net ctrl_regs0.clk_i_c_enable_163: 16 loads, 16 SLICEs
-      Net clk_i_c_enable_148: 16 loads, 16 SLICEs
-      Net delay_block0.clk_i_c_enable_18: 6 loads, 6 SLICEs
+      Net ctrl_regs0.clk_i_c_enable_120: 16 loads, 16 SLICEs
+      Net ctrl_regs0.clk_i_c_enable_75: 16 loads, 16 SLICEs
+      Net ctrl_regs0.clk_i_c_enable_90: 16 loads, 16 SLICEs
+      Net ctrl_regs0.clk_i_c_enable_166: 1 loads, 1 SLICEs
+      Net ctrl_regs0.clk_i_c_enable_165: 16 loads, 16 SLICEs
+      Net ctrl_regs0.clk_i_c_enable_135: 16 loads, 16 SLICEs
+      Net ctrl_regs0.clk_i_c_enable_105: 16 loads, 16 SLICEs
+      Net ctrl_regs0.clk_i_c_enable_181: 16 loads, 16 SLICEs
+      Net ctrl_regs0.clk_i_c_enable_150: 16 loads, 16 SLICEs
+      Net delay_block0.clk_i_c_enable_20: 6 loads, 6 SLICEs
+      Net tmp2_23__N_8653: 32 loads, 32 SLICEs
+      Net hilbert0.clk_38_enable_12524: 847 loads, 847 SLICEs
+      Net hilbert0.clk_38_enable_11321: 16 loads, 16 SLICEs
+      Net hilbert0.clk_38_enable_12475: 450 loads, 450 SLICEs
+      Net am_demod0.busy: 4 loads, 4 SLICEs
+      Net am_demod0.n163992: 1 loads, 0 SLICEs
+      Net am_demod0.sum_sq_31__N_8423: 1 loads, 1 SLICEs
+      Net am_demod0.clk_38_enable_1905: 8 loads, 8 SLICEs
+      Net am_demod0.clk_38_enable_1675: 16 loads, 16 SLICEs
+      Net zero_insert0.clk_64_enable_1: 1 loads, 1 SLICEs
+      Net rssi_fir0.clk_38_enable_12688: 857 loads, 857 SLICEs
+      Net rssi_fir0.clk_38_enable_1691: 16 loads, 16 SLICEs
+      Net rssi_fir0.clk_38_enable_12637: 359 loads, 359 SLICEs
       Net iq_des0.clk_152_enable_58: 26 loads, 26 SLICEs
       Net iq_des0.clk_152_enable_34: 30 loads, 30 SLICEs
       Net iq_des0.clk_152_enable_5: 1 loads, 1 SLICEs
       Net clk_152_enable_4: 1 loads, 1 SLICEs
-      Net hilbert0.clk_38_enable_12551: 834 loads, 834 SLICEs
-      Net hilbert0.clk_38_enable_11347: 16 loads, 16 SLICEs
-      Net hilbert0.clk_38_enable_12502: 463 loads, 463 SLICEs
-      Net tmp2_23__N_8653: 32 loads, 32 SLICEs
-      Net am_demod0.busy: 4 loads, 4 SLICEs
-      Net am_demod0.n161454: 1 loads, 0 SLICEs
-      Net am_demod0.sum_sq_31__N_8423: 1 loads, 1 SLICEs
-      Net am_demod0.clk_38_enable_1908: 8 loads, 8 SLICEs
-      Net am_demod0.clk_38_enable_1661: 16 loads, 16 SLICEs
-      Net zero_insert0.clk_64_enable_1: 1 loads, 1 SLICEs
-      Net rssi_fir0.clk_38_enable_12687: 856 loads, 856 SLICEs
-      Net rssi_fir0.clk_38_enable_1681: 16 loads, 16 SLICEs
-      Net rssi_fir0.clk_38_enable_12654: 360 loads, 360 SLICEs
-      Net clk_i_c_enable_47: 11 loads, 11 SLICEs
-      Net clk_i_c_enable_58: 12 loads, 12 SLICEs
+      Net clk_i_c_enable_231: 11 loads, 11 SLICEs
       Net decim0.clk_i_c_enable_1: 1 loads, 1 SLICEs
 
                                     Page 3
@@ -201,62 +201,62 @@ Design Summary (cont)
 Design Summary (cont)
 ---------------------
       Net decim0.drdy_o_N_9034: 16 loads, 16 SLICEs
-      Net freq_mod0.clk_38_enable_1905: 12 loads, 12 SLICEs
+      Net clk_i_c_enable_60: 12 loads, 12 SLICEs
+      Net freq_mod0.clk_38_enable_6552: 12 loads, 12 SLICEs
       Net freq_mod0.clk_38_enable_12685: 1 loads, 1 SLICEs
-      Net freq_mod0.clk_38_enable_12146: 32 loads, 32 SLICEs
-      Net rssi0.drdyd_enable_16: 1 loads, 1 SLICEs
-      Net rssi0.drdyd_enable_15: 15 loads, 15 SLICEs
-      Net spi_slave0.clk_i_c_enable_215: 15 loads, 15 SLICEs
-      Net spi_slave0.clk_i_c_enable_178: 16 loads, 16 SLICEs
-      Net spi_slave0.clk_i_c_enable_214: 15 loads, 15 SLICEs
-   Number of LSRs:  41
+      Net freq_mod0.clk_38_enable_11306: 32 loads, 32 SLICEs
+      Net rssi0.drdyd_enable_2: 1 loads, 1 SLICEs
+      Net rssi0.drdyd_enable_16: 15 loads, 15 SLICEs
+      Net spi_slave0.clk_i_c_enable_209: 28 loads, 28 SLICEs
+      Net spi_slave0.clk_i_c_enable_211: 15 loads, 15 SLICEs
+      Net spi_slave0.clk_i_c_enable_210: 1 loads, 1 SLICEs
+      Net spi_slave0.clk_i_c_enable_13: 1 loads, 1 SLICEs
+      Net spi_slave0.clk_i_c_enable_35: 16 loads, 16 SLICEs
+   Number of LSRs:  44
       Net VCC_net: 99 loads, 0 SLICEs
       Net data_rx09_r_1__N_1: 1 loads, 0 SLICEs
       Pin nrst: 220 loads, 200 SLICEs (Net: nrst_c)
-      Net n161507: 2 loads, 0 SLICEs
-      Net channel_flt0.clk_38_enable_4298: 2 loads, 2 SLICEs
-      Net channel_flt0.busy_adj_19611: 1 loads, 1 SLICEs
-      Net channel_flt0.q_fir_hb1.clk_38_enable_6608: 2 loads, 2 SLICEs
-      Net channel_flt0.busy_adj_19615: 1 loads, 1 SLICEs
-      Net channel_flt0.q_fir_hb0.clk_38_enable_8904: 2 loads, 2 SLICEs
-      Net channel_flt0.busy_adj_19627: 1 loads, 1 SLICEs
-      Net channel_flt0.q_fir_ch2.clk_38_enable_1926: 1 loads, 1 SLICEs
-      Net channel_flt0.q_fir_ch0.clk_38_enable_1985: 1 loads, 1 SLICEs
+      Net n164071: 3 loads, 3 SLICEs
+      Net n164070: 2 loads, 0 SLICEs
+      Net channel_flt0.q_fir_hb2.clk_38_enable_4265: 2 loads, 2 SLICEs
+      Net channel_flt0.busy_adj_19640: 1 loads, 1 SLICEs
+      Net channel_flt0.q_fir_hb1.clk_38_enable_6594: 2 loads, 2 SLICEs
+      Net channel_flt0.busy_adj_19644: 1 loads, 1 SLICEs
+      Net channel_flt0.q_fir_hb0.clk_38_enable_8890: 2 loads, 2 SLICEs
+      Net channel_flt0.busy_adj_19654: 1 loads, 1 SLICEs
+      Net channel_flt0.q_fir_ch2.clk_38_enable_1923: 1 loads, 1 SLICEs
+      Net channel_flt0.q_fir_ch0.clk_38_enable_1968: 1 loads, 1 SLICEs
       Net channel_flt0.i_data_o_15__N_1874: 3 loads, 3 SLICEs
-      Net channel_flt0.i_fir_hb2.clk_38_enable_5460: 1 loads, 1 SLICEs
-      Net channel_flt0.i_fir_hb1.clk_38_enable_7756: 1 loads, 1 SLICEs
-      Net channel_flt0.i_fir_hb0.clk_38_enable_10118: 1 loads, 1 SLICEs
-      Net channel_flt0.i_fir_ch2.clk_38_enable_1941: 1 loads, 1 SLICEs
-      Net channel_flt0.i_fir_ch1.clk_38_enable_1970: 1 loads, 1 SLICEs
-      Net channel_flt0.i_fir_ch0.clk_38_enable_3144: 1 loads, 1 SLICEs
+      Net channel_flt0.i_fir_hb2.clk_38_enable_5427: 1 loads, 1 SLICEs
+      Net channel_flt0.i_fir_hb1.clk_38_enable_7742: 1 loads, 1 SLICEs
+      Net channel_flt0.i_fir_hb0.clk_38_enable_10104: 1 loads, 1 SLICEs
+      Net channel_flt0.i_fir_ch2.clk_38_enable_1938: 1 loads, 1 SLICEs
+      Net channel_flt0.i_fir_ch1.clk_38_enable_1953: 1 loads, 1 SLICEs
+      Net channel_flt0.i_fir_ch0.clk_38_enable_3117: 1 loads, 1 SLICEs
       Net channel_flt0.decim1.drdy_o_N_1877: 2 loads, 2 SLICEs
       Net channel_flt0.decim0.drdy_o_N_1877: 2 loads, 2 SLICEs
-      Net ctrl_regs0.n132549: 1 loads, 1 SLICEs
+      Net ctrl_regs0.n134888: 1 loads, 1 SLICEs
       Net regs_rw[1][1]: 51 loads, 51 SLICEs
-      Net n16379: 4 loads, 4 SLICEs
-      Net n16327: 4 loads, 4 SLICEs
-      Net n16380: 4 loads, 4 SLICEs
-      Net n16326: 4 loads, 4 SLICEs
+      Net n16517: 4 loads, 4 SLICEs
+      Net n16465: 4 loads, 4 SLICEs
+      Net n16518: 4 loads, 4 SLICEs
+      Net n16464: 4 loads, 4 SLICEs
       Net data_rx24_r_1__N_7: 1 loads, 0 SLICEs
-      Net hilbert0.clk_38_enable_11347: 1 loads, 1 SLICEs
       Net clk_tx_o_N_13: 2 loads, 0 SLICEs
-      Net am_demod0.clk_38_enable_1661: 5 loads, 5 SLICEs
+      Net hilbert0.clk_38_enable_11321: 1 loads, 1 SLICEs
+      Net am_demod0.clk_38_enable_1675: 5 loads, 5 SLICEs
       Net n11: 13 loads, 13 SLICEs
-      Net zero_insert0.n67693: 5 loads, 5 SLICEs
-      Net rssi_fir0.clk_38_enable_1681: 1 loads, 1 SLICEs
+      Net zero_insert0.n67954: 5 loads, 5 SLICEs
+      Net rssi_fir0.clk_38_enable_1691: 1 loads, 1 SLICEs
+      Net fm_demod0.n67952: 16 loads, 16 SLICEs
       Net decim0.drdy_o_N_9034: 8 loads, 8 SLICEs
-      Net unpack0.n134183: 2 loads, 2 SLICEs
-      Net freq_mod0.n134107: 1 loads, 1 SLICEs
-      Net freq_mod0.n3969: 4 loads, 4 SLICEs
-      Net rssi0.n134195: 1 loads, 1 SLICEs
-      Net rssi0.drdyd_enable_15: 23 loads, 23 SLICEs
-      Net fm_demod0.n67691: 16 loads, 16 SLICEs
-   Top 10 highest fanout non-clock nets:
-      Net VCC_net: 1275 loads
-      Net channel_flt0.clk_38_enable_4249: 1000 loads
-      Net channel_flt0.clk_38_enable_4281: 1000 loads
-      Net channel_flt0.clk_38_enable_6578: 1000 loads
-      Net channel_flt0.clk_38_enable_8874: 1000 loads
+      Net unpack0.n136425: 2 loads, 2 SLICEs
+      Net freq_mod0.n136435: 1 loads, 1 SLICEs
+      Net freq_mod0.n3975: 4 loads, 4 SLICEs
+      Net rssi0.n136557: 1 loads, 1 SLICEs
+      Net rssi0.drdyd_enable_16: 23 loads, 23 SLICEs
+      Net spi_slave0.n75009: 1 loads, 1 SLICEs
+      Net spi_slave0.ld_N_12059: 4 loads, 4 SLICEs
 
                                     Page 4
 
@@ -266,11 +266,17 @@ Design Summary (cont)
 
 Design Summary (cont)
 ---------------------
-      Net clk_38_enable_12690: 1000 loads
-      Net hilbert0.clk_38_enable_12551: 1000 loads
-      Net rssi_fir0.clk_38_enable_12687: 1000 loads
-      Net clk_38_enable_11301: 999 loads
-      Net channel_flt0.clk_38_enable_12689: 998 loads
+   Top 10 highest fanout non-clock nets:
+      Net VCC_net: 1275 loads
+      Net clk_38_enable_11305: 1001 loads
+      Net channel_flt0.clk_38_enable_4216: 1000 loads
+      Net channel_flt0.clk_38_enable_4248: 1000 loads
+      Net channel_flt0.clk_38_enable_6529: 1000 loads
+      Net channel_flt0.clk_38_enable_8860: 1000 loads
+      Net hilbert0.clk_38_enable_12524: 1000 loads
+      Net rssi_fir0.clk_38_enable_12688: 1000 loads
+      Net channel_flt0.clk_38_enable_8876: 997 loads
+      Net clk_38_enable_11304: 997 loads
 
 
 
@@ -317,12 +323,6 @@ IO (PIO) Attributes
 +---------------------+-----------+-----------+-------+-------+-----------+
 | spi_mosi            | INPUT     |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| spi_ncs             | INPUT     |           |       |       |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| data_rx24_i         | INPUT     | LVDS      |       | I     |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
-| data_rx09_i         | INPUT     | LVDS      |       | I     |           |
-+---------------------+-----------+-----------+-------+-------+-----------+
 
                                     Page 5
 
@@ -332,6 +332,12 @@ IO (PIO) Attributes
 
 IO (PIO) Attributes (cont)
 --------------------------
+| spi_ncs             | INPUT     |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| data_rx24_i         | INPUT     | LVDS      |       | I     |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| data_rx09_i         | INPUT     | LVDS      |       | I     |           |
++---------------------+-----------+-----------+-------+-------+-----------+
 | clk_rx_i            | INPUT     | LVDS      |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 
@@ -340,7 +346,7 @@ Removed logic
 
 Block GSR_INST undriven or does not drive anything - clipped.
 Block i2 was optimized away.
-Block regs_rw_1__1__I_0_2_1_lut_rep_16873 was optimized away.
+Block regs_rw_1__1__I_0_2_1_lut_rep_16924 was optimized away.
 
 PLL/DLL Summary
 ---------------
@@ -356,7 +362,7 @@ PLL 1:                                 Pin/Node Value
   Output Clock(S4):                             NONE
   Output Clock(S5):                             NONE
   Feedback Signal:                     NODE     pll1.lscc_pll_inst.fbclk_w
-  Reset Signal:                        NODE     n161507
+  Reset Signal:                        NODE     n164070
   Standby Signal:                      NODE     GND_net
   PLL LOCK signal:                     NODE     regs_r[1][1]
   PLL Internal LOCK Signal:                     NONE
@@ -383,12 +389,6 @@ PLL 1:                                 Pin/Node Value
   CLKOS2 Trim Setting:                          0000
   CLKOS3 Trim Setting:                          0000
   CLKOS4 Trim Setting:                          0000
-  CLKOS5 Trim Setting:                          0000
-PLL 2:                                 Pin/Node Value
-  PLL Instance Name:                            pll0/lscc_pll_inst/gen_no_refclk
-       _mon.u_PLL.PLL_inst
-  Input Reference Clock:               PIN      clk_i_c
-  Output Clock(P):                     NODE     clk_152
 
                                     Page 6
 
@@ -398,13 +398,19 @@ PLL 2:                                 Pin/Node Value
 
 PLL/DLL Summary (cont)
 ----------------------
+  CLKOS5 Trim Setting:                          0000
+PLL 2:                                 Pin/Node Value
+  PLL Instance Name:                            pll0/lscc_pll_inst/gen_no_refclk
+       _mon.u_PLL.PLL_inst
+  Input Reference Clock:               PIN      clk_i_c
+  Output Clock(P):                     NODE     clk_152
   Output Clock(S):                     NODE     clk_64
   Output Clock(S2):                    NODE     clk_38
   Output Clock(S3):                             NONE
   Output Clock(S4):                             NONE
   Output Clock(S5):                             NONE
   Feedback Signal:                     NODE     pll0.lscc_pll_inst.fbclk_w
-  Reset Signal:                        NODE     n161507
+  Reset Signal:                        NODE     n164070
   Standby Signal:                      NODE     GND_net
   PLL LOCK signal:                     NODE     regs_r[1][0]
   PLL Internal LOCK Signal:                     NONE
@@ -449,12 +455,6 @@ Instance Name: channel_flt0/q_fir_hb2/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
          Type: MULT9_CORE
 Instance Name: channel_flt0/q_fir_hb2/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
      _mult_7_mult_3.MULT9_H0
-         Type: MULT9_CORE
-Instance Name: channel_flt0/q_fir_hb2/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
-     _mult_7_mult_3.MULT18_0
-         Type: MULT18_CORE
-Instance Name: channel_flt0/q_fir_hb2/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
-     _mult_7_mult_3.REG18_L0_0
 
                                     Page 7
 
@@ -464,6 +464,12 @@ Instance Name: channel_flt0/q_fir_hb2/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
 
 ASIC Components (cont)
 ----------------------
+         Type: MULT9_CORE
+Instance Name: channel_flt0/q_fir_hb2/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
+     _mult_7_mult_3.MULT18_0
+         Type: MULT18_CORE
+Instance Name: channel_flt0/q_fir_hb2/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
+     _mult_7_mult_3.REG18_L0_0
          Type: REG18_CORE
 Instance Name: channel_flt0/q_fir_hb2/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
      _mult_7_mult_3.REG18_L0_1
@@ -515,12 +521,6 @@ Instance Name: channel_flt0/q_fir_ch2/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
          Type: PREADD9_CORE
 Instance Name: channel_flt0/q_fir_ch2/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
      _mult_7_mult_3.PREADD9_H0
-         Type: PREADD9_CORE
-Instance Name: channel_flt0/q_fir_ch2/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
-     _mult_7_mult_3.MULT9_L0
-         Type: MULT9_CORE
-Instance Name: channel_flt0/q_fir_ch2/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
-     _mult_7_mult_3.MULT9_H0
 
                                     Page 8
 
@@ -530,6 +530,12 @@ Instance Name: channel_flt0/q_fir_ch2/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
 
 ASIC Components (cont)
 ----------------------
+         Type: PREADD9_CORE
+Instance Name: channel_flt0/q_fir_ch2/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
+     _mult_7_mult_3.MULT9_L0
+         Type: MULT9_CORE
+Instance Name: channel_flt0/q_fir_ch2/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
+     _mult_7_mult_3.MULT9_H0
          Type: MULT9_CORE
 Instance Name: channel_flt0/q_fir_ch2/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
      _mult_7_mult_3.MULT18_0
@@ -540,25 +546,25 @@ Instance Name: channel_flt0/q_fir_ch2/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
 Instance Name: channel_flt0/q_fir_ch2/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
      _mult_7_mult_3.REG18_L0_1
          Type: REG18_CORE
-Instance Name: channel_flt0/q_fir_ch0/mult_2600_mult_7_mult_7_mult_7_mult_7_mult
+Instance Name: channel_flt0/q_fir_ch0/mult_2625_mult_7_mult_7_mult_7_mult_7_mult
      _7.PREADD9_L0
          Type: PREADD9_CORE
-Instance Name: channel_flt0/q_fir_ch0/mult_2600_mult_7_mult_7_mult_7_mult_7_mult
+Instance Name: channel_flt0/q_fir_ch0/mult_2625_mult_7_mult_7_mult_7_mult_7_mult
      _7.PREADD9_H0
          Type: PREADD9_CORE
-Instance Name: channel_flt0/q_fir_ch0/mult_2600_mult_7_mult_7_mult_7_mult_7_mult
+Instance Name: channel_flt0/q_fir_ch0/mult_2625_mult_7_mult_7_mult_7_mult_7_mult
      _7.MULT9_L0
          Type: MULT9_CORE
-Instance Name: channel_flt0/q_fir_ch0/mult_2600_mult_7_mult_7_mult_7_mult_7_mult
+Instance Name: channel_flt0/q_fir_ch0/mult_2625_mult_7_mult_7_mult_7_mult_7_mult
      _7.MULT9_H0
          Type: MULT9_CORE
-Instance Name: channel_flt0/q_fir_ch0/mult_2600_mult_7_mult_7_mult_7_mult_7_mult
+Instance Name: channel_flt0/q_fir_ch0/mult_2625_mult_7_mult_7_mult_7_mult_7_mult
      _7.MULT18_0
          Type: MULT18_CORE
-Instance Name: channel_flt0/q_fir_ch0/mult_2600_mult_7_mult_7_mult_7_mult_7_mult
+Instance Name: channel_flt0/q_fir_ch0/mult_2625_mult_7_mult_7_mult_7_mult_7_mult
      _7.REG18_L0_0
          Type: REG18_CORE
-Instance Name: channel_flt0/q_fir_ch0/mult_2600_mult_7_mult_7_mult_7_mult_7_mult
+Instance Name: channel_flt0/q_fir_ch0/mult_2625_mult_7_mult_7_mult_7_mult_7_mult
      _7.REG18_L0_1
          Type: REG18_CORE
 Instance Name: channel_flt0/q_fir_ch0/mult_95_mult_7_mult_7_mult_7_mult_7_mult_7
@@ -581,12 +587,6 @@ Instance Name: channel_flt0/q_fir_ch0/mult_95_mult_7_mult_7_mult_7_mult_7_mult_7
          Type: REG18_CORE
 Instance Name: channel_flt0/q_fir_ch0/mult_95_mult_7_mult_7_mult_7_mult_7_mult_7
      _mult_7_mult_3.REG18_L0_1
-         Type: REG18_CORE
-Instance Name: channel_flt0/i_fir_hb2/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
-     _mult_7_mult_3.PREADD9_L0
-         Type: PREADD9_CORE
-Instance Name: channel_flt0/i_fir_hb2/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
-     _mult_7_mult_3.PREADD9_H0
 
                                     Page 9
 
@@ -596,6 +596,12 @@ Instance Name: channel_flt0/i_fir_hb2/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
 
 ASIC Components (cont)
 ----------------------
+         Type: REG18_CORE
+Instance Name: channel_flt0/i_fir_hb2/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
+     _mult_7_mult_3.PREADD9_L0
+         Type: PREADD9_CORE
+Instance Name: channel_flt0/i_fir_hb2/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
+     _mult_7_mult_3.PREADD9_H0
          Type: PREADD9_CORE
 Instance Name: channel_flt0/i_fir_hb2/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
      _mult_7_mult_3.MULT9_L0
@@ -647,12 +653,6 @@ Instance Name: channel_flt0/i_fir_hb0/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
          Type: MULT9_CORE
 Instance Name: channel_flt0/i_fir_hb0/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
      _mult_7_mult_3.MULT18_0
-         Type: MULT18_CORE
-Instance Name: channel_flt0/i_fir_hb0/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
-     _mult_7_mult_3.REG18_L0_0
-         Type: REG18_CORE
-Instance Name: channel_flt0/i_fir_hb0/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
-     _mult_7_mult_3.REG18_L0_1
 
                                    Page 10
 
@@ -662,6 +662,12 @@ Instance Name: channel_flt0/i_fir_hb0/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
 
 ASIC Components (cont)
 ----------------------
+         Type: MULT18_CORE
+Instance Name: channel_flt0/i_fir_hb0/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
+     _mult_7_mult_3.REG18_L0_0
+         Type: REG18_CORE
+Instance Name: channel_flt0/i_fir_hb0/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
+     _mult_7_mult_3.REG18_L0_1
          Type: REG18_CORE
 Instance Name: channel_flt0/i_fir_ch2/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
      _mult_7_mult_3.PREADD9_L0
@@ -684,25 +690,25 @@ Instance Name: channel_flt0/i_fir_ch2/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
 Instance Name: channel_flt0/i_fir_ch2/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7
      _mult_7_mult_3.REG18_L0_1
          Type: REG18_CORE
-Instance Name: channel_flt0/i_fir_ch1/mult_2601_mult_7_mult_7_mult_7_mult_7_mult
+Instance Name: channel_flt0/i_fir_ch1/mult_2626_mult_7_mult_7_mult_7_mult_7_mult
      _7.PREADD9_L0
          Type: PREADD9_CORE
-Instance Name: channel_flt0/i_fir_ch1/mult_2601_mult_7_mult_7_mult_7_mult_7_mult
+Instance Name: channel_flt0/i_fir_ch1/mult_2626_mult_7_mult_7_mult_7_mult_7_mult
      _7.PREADD9_H0
          Type: PREADD9_CORE
-Instance Name: channel_flt0/i_fir_ch1/mult_2601_mult_7_mult_7_mult_7_mult_7_mult
+Instance Name: channel_flt0/i_fir_ch1/mult_2626_mult_7_mult_7_mult_7_mult_7_mult
      _7.MULT9_L0
          Type: MULT9_CORE
-Instance Name: channel_flt0/i_fir_ch1/mult_2601_mult_7_mult_7_mult_7_mult_7_mult
+Instance Name: channel_flt0/i_fir_ch1/mult_2626_mult_7_mult_7_mult_7_mult_7_mult
      _7.MULT9_H0
          Type: MULT9_CORE
-Instance Name: channel_flt0/i_fir_ch1/mult_2601_mult_7_mult_7_mult_7_mult_7_mult
+Instance Name: channel_flt0/i_fir_ch1/mult_2626_mult_7_mult_7_mult_7_mult_7_mult
      _7.MULT18_0
          Type: MULT18_CORE
-Instance Name: channel_flt0/i_fir_ch1/mult_2601_mult_7_mult_7_mult_7_mult_7_mult
+Instance Name: channel_flt0/i_fir_ch1/mult_2626_mult_7_mult_7_mult_7_mult_7_mult
      _7.REG18_L0_0
          Type: REG18_CORE
-Instance Name: channel_flt0/i_fir_ch1/mult_2601_mult_7_mult_7_mult_7_mult_7_mult
+Instance Name: channel_flt0/i_fir_ch1/mult_2626_mult_7_mult_7_mult_7_mult_7_mult
      _7.REG18_L0_1
          Type: REG18_CORE
 Instance Name: channel_flt0/i_fir_ch1/mult_95_mult_7_mult_7_mult_7_mult_7_mult_7
@@ -713,12 +719,6 @@ Instance Name: channel_flt0/i_fir_ch1/mult_95_mult_7_mult_7_mult_7_mult_7_mult_7
          Type: PREADD9_CORE
 Instance Name: channel_flt0/i_fir_ch1/mult_95_mult_7_mult_7_mult_7_mult_7_mult_7
      _mult_7_mult_3.MULT9_L0
-         Type: MULT9_CORE
-Instance Name: channel_flt0/i_fir_ch1/mult_95_mult_7_mult_7_mult_7_mult_7_mult_7
-     _mult_7_mult_3.MULT9_H0
-         Type: MULT9_CORE
-Instance Name: channel_flt0/i_fir_ch1/mult_95_mult_7_mult_7_mult_7_mult_7_mult_7
-     _mult_7_mult_3.MULT18_0
 
                                    Page 11
 
@@ -728,6 +728,12 @@ Instance Name: channel_flt0/i_fir_ch1/mult_95_mult_7_mult_7_mult_7_mult_7_mult_7
 
 ASIC Components (cont)
 ----------------------
+         Type: MULT9_CORE
+Instance Name: channel_flt0/i_fir_ch1/mult_95_mult_7_mult_7_mult_7_mult_7_mult_7
+     _mult_7_mult_3.MULT9_H0
+         Type: MULT9_CORE
+Instance Name: channel_flt0/i_fir_ch1/mult_95_mult_7_mult_7_mult_7_mult_7_mult_7
+     _mult_7_mult_3.MULT18_0
          Type: MULT18_CORE
 Instance Name: channel_flt0/i_fir_ch1/mult_95_mult_7_mult_7_mult_7_mult_7_mult_7
      _mult_7_mult_3.REG18_L0_0
@@ -755,114 +761,6 @@ Instance Name: channel_flt0/i_fir_ch0/mult_95_mult_7_mult_7_mult_7_mult_7_mult_7
          Type: REG18_CORE
 Instance Name: channel_flt0/i_fir_ch0/mult_95_mult_7_mult_7_mult_7_mult_7_mult_7
      _mult_7_mult_3.REG18_L0_1
-         Type: REG18_CORE
-Instance Name:
-     mix0/mult_2592_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3.PREADD9_L0
-         Type: PREADD9_CORE
-Instance Name:
-     mix0/mult_2592_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3.PREADD9_H0
-         Type: PREADD9_CORE
-Instance Name:
-     mix0/mult_2592_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3.MULT9_L0
-         Type: MULT9_CORE
-Instance Name:
-     mix0/mult_2592_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3.MULT9_H0
-         Type: MULT9_CORE
-Instance Name:
-     mix0/mult_2592_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3.MULT18_0
-         Type: MULT18_CORE
-Instance Name:
-     mix0/mult_2592_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3.REG18_L0_0
-         Type: REG18_CORE
-Instance Name:
-     mix0/mult_2592_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3.REG18_L0_1
-         Type: REG18_CORE
-Instance Name:
-     mix0/mult_2594_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_L0
-         Type: PREADD9_CORE
-Instance Name:
-     mix0/mult_2594_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_H0
-         Type: PREADD9_CORE
-Instance Name: mix0/mult_2594_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_L0
-         Type: MULT9_CORE
-
-                                   Page 12
-
-
-
-
-
-ASIC Components (cont)
-----------------------
-Instance Name: mix0/mult_2594_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_H0
-         Type: MULT9_CORE
-Instance Name: mix0/mult_2594_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7.MULT18_0
-         Type: MULT18_CORE
-Instance Name:
-     mix0/mult_2594_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_0
-         Type: REG18_CORE
-Instance Name:
-     mix0/mult_2594_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_1
-         Type: REG18_CORE
-Instance Name: mix0/mult_2593_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_L0
-         Type: PREADD9_CORE
-Instance Name: mix0/mult_2593_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_H0
-         Type: PREADD9_CORE
-Instance Name: mix0/mult_2593_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_L0
-         Type: MULT9_CORE
-Instance Name: mix0/mult_2593_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_H0
-         Type: MULT9_CORE
-Instance Name: mix0/mult_2593_mult_7_mult_7_mult_7_mult_7_mult_7.MULT18_0
-         Type: MULT18_CORE
-Instance Name: mix0/mult_2593_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_0
-         Type: REG18_CORE
-Instance Name: mix0/mult_2593_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_1
-         Type: REG18_CORE
-Instance Name: mix0/dline[80]_res1_e3.PREADD9_L0
-         Type: PREADD9_CORE
-Instance Name: mix0/dline[80]_res1_e3.PREADD9_H0
-         Type: PREADD9_CORE
-Instance Name: mix0/dline[80]_res1_e3.MULT9_L0
-         Type: MULT9_CORE
-Instance Name: mix0/dline[80]_res1_e3.MULT9_H0
-         Type: MULT9_CORE
-Instance Name: mix0/dline[80]_res1_e3.MULT18_0
-         Type: MULT18_CORE
-Instance Name: mix0/dline[80]_res1_e3.REG18_L0_0
-         Type: REG18_CORE
-Instance Name: mix0/dline[80]_res1_e3.REG18_L0_1
-         Type: REG18_CORE
-Instance Name: mix0/dline[80]_res1_e3.ACC54_0
-         Type: ACC54_CORE
-Instance Name: hilbert0/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3
-     .PREADD9_L0
-         Type: PREADD9_CORE
-Instance Name: hilbert0/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3
-     .PREADD9_H0
-         Type: PREADD9_CORE
-Instance Name:
-     hilbert0/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3.MULT9_L0
-         Type: MULT9_CORE
-Instance Name:
-     hilbert0/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3.MULT9_H0
-         Type: MULT9_CORE
-Instance Name:
-     hilbert0/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3.MULT18_0
-         Type: MULT18_CORE
-Instance Name: hilbert0/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3
-     .REG18_L0_0
-
-                                   Page 13
-
-
-
-
-
-ASIC Components (cont)
-----------------------
-         Type: REG18_CORE
-Instance Name: hilbert0/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3
-     .REG18_L0_1
          Type: REG18_CORE
 Instance Name: dither_source0/add_21_add_12_add_12_add_12_add_12_add_12_add_12_a
      dd_5.PREADD9_L0
@@ -887,7 +785,37 @@ Instance Name: dither_source0/add_21_add_12_add_12_add_12_add_12_add_12_add_12_a
          Type: REG18_CORE
 Instance Name: dither_source0/add_21_add_12_add_12_add_12_add_12_add_12_add_12_a
      dd_5.ACC54_0
+
+                                   Page 12
+
+
+
+
+
+ASIC Components (cont)
+----------------------
          Type: ACC54_CORE
+Instance Name: hilbert0/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3
+     .PREADD9_L0
+         Type: PREADD9_CORE
+Instance Name: hilbert0/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3
+     .PREADD9_H0
+         Type: PREADD9_CORE
+Instance Name:
+     hilbert0/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3.MULT9_L0
+         Type: MULT9_CORE
+Instance Name:
+     hilbert0/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3.MULT9_H0
+         Type: MULT9_CORE
+Instance Name:
+     hilbert0/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3.MULT18_0
+         Type: MULT18_CORE
+Instance Name: hilbert0/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3
+     .REG18_L0_0
+         Type: REG18_CORE
+Instance Name: hilbert0/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3
+     .REG18_L0_1
+         Type: REG18_CORE
 Instance Name: am_demod0/mult_36_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_L0
          Type: PREADD9_CORE
 Instance Name: am_demod0/mult_36_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_H0
@@ -917,8 +845,14 @@ Instance Name:
 Instance Name:
      am_demod0/mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3.MULT18_0
          Type: MULT18_CORE
+Instance Name: am_demod0/mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3
+     .REG18_L0_0
+         Type: REG18_CORE
+Instance Name: am_demod0/mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3
+     .REG18_L0_1
+         Type: REG18_CORE
 
-                                   Page 14
+                                   Page 13
 
 
 
@@ -926,27 +860,21 @@ Instance Name:
 
 ASIC Components (cont)
 ----------------------
-Instance Name: am_demod0/mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3
-     .REG18_L0_0
-         Type: REG18_CORE
-Instance Name: am_demod0/mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3
-     .REG18_L0_1
-         Type: REG18_CORE
-Instance Name: am_demod0/add_3880_e1.PREADD9_L0
+Instance Name: am_demod0/add_3938_e1.PREADD9_L0
          Type: PREADD9_CORE
-Instance Name: am_demod0/add_3880_e1.PREADD9_H0
+Instance Name: am_demod0/add_3938_e1.PREADD9_H0
          Type: PREADD9_CORE
-Instance Name: am_demod0/add_3880_e1.MULT9_L0
+Instance Name: am_demod0/add_3938_e1.MULT9_L0
          Type: MULT9_CORE
-Instance Name: am_demod0/add_3880_e1.MULT9_H0
+Instance Name: am_demod0/add_3938_e1.MULT9_H0
          Type: MULT9_CORE
-Instance Name: am_demod0/add_3880_e1.MULT18_0
+Instance Name: am_demod0/add_3938_e1.MULT18_0
          Type: MULT18_CORE
-Instance Name: am_demod0/add_3880_e1.REG18_L0_0
+Instance Name: am_demod0/add_3938_e1.REG18_L0_0
          Type: REG18_CORE
-Instance Name: am_demod0/add_3880_e1.REG18_L0_1
+Instance Name: am_demod0/add_3938_e1.REG18_L0_1
          Type: REG18_CORE
-Instance Name: am_demod0/add_3880_e1.ACC54_0
+Instance Name: am_demod0/add_3938_e1.ACC54_0
          Type: ACC54_CORE
 Instance Name: rssi_fir0/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
      3.PREADD9_L0
@@ -969,20 +897,92 @@ Instance Name: rssi_fir0/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
 Instance Name: rssi_fir0/mult_94_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
      3.REG18_L0_1
          Type: REG18_CORE
+Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add
+     _12.MULT9_L0
+         Type: MULT9_CORE
+Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add
+     _12.MULT9_H0
+         Type: MULT9_CORE
+Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add
+     _12.MULT9_L1
+         Type: MULT9_CORE
+Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add
+     _12.MULT9_H1
+         Type: MULT9_CORE
+Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add
+     _12.PREADD9_L0
+         Type: PREADD9_CORE
+Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add
+     _12.PREADD9_H0
+         Type: PREADD9_CORE
+Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add
+     _12.PREADD9_L1
+
+                                   Page 14
+
+
+
+
+
+ASIC Components (cont)
+----------------------
+         Type: PREADD9_CORE
+Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add
+     _12.PREADD9_H1
+         Type: PREADD9_CORE
+Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add
+     _12.MULT18_0
+         Type: MULT18_CORE
+Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add
+     _12.MULT18_1
+         Type: MULT18_CORE
+Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add
+     _12.REG18_L0_0
+         Type: REG18_CORE
+Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add
+     _12.REG18_L0_1
+         Type: REG18_CORE
+Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add
+     _12.REG18_L1_0
+         Type: REG18_CORE
+Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add
+     _12.REG18_L1_1
+         Type: REG18_CORE
+Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add
+     _12.ACC54_0
+         Type: ACC54_CORE
+Instance Name: fm_demod0/mult_2624_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_L0
+         Type: PREADD9_CORE
+Instance Name: fm_demod0/mult_2624_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_H0
+         Type: PREADD9_CORE
+Instance Name: fm_demod0/mult_2624_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_L0
+         Type: MULT9_CORE
+Instance Name: fm_demod0/mult_2624_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_H0
+         Type: MULT9_CORE
+Instance Name: fm_demod0/mult_2624_mult_7_mult_7_mult_7_mult_7_mult_7.MULT18_0
+         Type: MULT18_CORE
+Instance Name: fm_demod0/mult_2624_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_0
+         Type: REG18_CORE
+Instance Name: fm_demod0/mult_2624_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_1
+         Type: REG18_CORE
+Instance Name: fm_demod0/mult_2623_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_L0
+         Type: PREADD9_CORE
+Instance Name: fm_demod0/mult_2623_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_H0
+         Type: PREADD9_CORE
+Instance Name: fm_demod0/mult_2623_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_L0
+         Type: MULT9_CORE
+Instance Name: fm_demod0/mult_2623_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_H0
+         Type: MULT9_CORE
+Instance Name: fm_demod0/mult_2623_mult_7_mult_7_mult_7_mult_7_mult_7.MULT18_0
+         Type: MULT18_CORE
+Instance Name: fm_demod0/mult_2623_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_0
+         Type: REG18_CORE
+Instance Name: fm_demod0/mult_2623_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_1
+         Type: REG18_CORE
 Instance Name: pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst
          Type: PLL_CORE
-Instance Name: iq_bal0/i_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_L0
-         Type: PREADD9_CORE
-Instance Name: iq_bal0/i_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_H0
-         Type: PREADD9_CORE
-Instance Name: iq_bal0/i_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_L0
-         Type: MULT9_CORE
-Instance Name: iq_bal0/i_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_H0
-         Type: MULT9_CORE
-Instance Name: iq_bal0/i_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.MULT18_0
-         Type: MULT18_CORE
-Instance Name: iq_bal0/i_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_0
-         Type: REG18_CORE
+Instance Name:
+     mix0/mult_2619_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_L0
 
                                    Page 15
 
@@ -992,8 +992,82 @@ Instance Name: iq_bal0/i_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_0
 
 ASIC Components (cont)
 ----------------------
-Instance Name: iq_bal0/i_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_1
+         Type: PREADD9_CORE
+Instance Name:
+     mix0/mult_2619_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_H0
+         Type: PREADD9_CORE
+Instance Name: mix0/mult_2619_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_L0
+         Type: MULT9_CORE
+Instance Name: mix0/mult_2619_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_H0
+         Type: MULT9_CORE
+Instance Name: mix0/mult_2619_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7.MULT18_0
+         Type: MULT18_CORE
+Instance Name:
+     mix0/mult_2619_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_0
          Type: REG18_CORE
+Instance Name:
+     mix0/mult_2619_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_1
+         Type: REG18_CORE
+Instance Name: mix0/mult_2618_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_L0
+         Type: PREADD9_CORE
+Instance Name: mix0/mult_2618_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_H0
+         Type: PREADD9_CORE
+Instance Name: mix0/mult_2618_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_L0
+         Type: MULT9_CORE
+Instance Name: mix0/mult_2618_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_H0
+         Type: MULT9_CORE
+Instance Name: mix0/mult_2618_mult_7_mult_7_mult_7_mult_7_mult_7.MULT18_0
+         Type: MULT18_CORE
+Instance Name: mix0/mult_2618_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_0
+         Type: REG18_CORE
+Instance Name: mix0/mult_2618_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_1
+         Type: REG18_CORE
+Instance Name:
+     mix0/mult_2617_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3.PREADD9_L0
+         Type: PREADD9_CORE
+Instance Name:
+     mix0/mult_2617_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3.PREADD9_H0
+         Type: PREADD9_CORE
+Instance Name:
+     mix0/mult_2617_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3.MULT9_L0
+         Type: MULT9_CORE
+Instance Name:
+     mix0/mult_2617_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3.MULT9_H0
+         Type: MULT9_CORE
+Instance Name:
+     mix0/mult_2617_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3.MULT18_0
+         Type: MULT18_CORE
+Instance Name:
+     mix0/mult_2617_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3.REG18_L0_0
+         Type: REG18_CORE
+Instance Name:
+     mix0/mult_2617_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3.REG18_L0_1
+         Type: REG18_CORE
+Instance Name: mix0/dline[80]_res2_e3.PREADD9_L0
+         Type: PREADD9_CORE
+Instance Name: mix0/dline[80]_res2_e3.PREADD9_H0
+         Type: PREADD9_CORE
+Instance Name: mix0/dline[80]_res2_e3.MULT9_L0
+         Type: MULT9_CORE
+
+                                   Page 16
+
+
+
+
+
+ASIC Components (cont)
+----------------------
+Instance Name: mix0/dline[80]_res2_e3.MULT9_H0
+         Type: MULT9_CORE
+Instance Name: mix0/dline[80]_res2_e3.MULT18_0
+         Type: MULT18_CORE
+Instance Name: mix0/dline[80]_res2_e3.REG18_L0_0
+         Type: REG18_CORE
+Instance Name: mix0/dline[80]_res2_e3.REG18_L0_1
+         Type: REG18_CORE
+Instance Name: mix0/dline[80]_res2_e3.ACC54_0
+         Type: ACC54_CORE
 Instance Name: iq_bal0/q_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_L0
          Type: PREADD9_CORE
 Instance Name: iq_bal0/q_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_H0
@@ -1008,19 +1082,56 @@ Instance Name: iq_bal0/q_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_0
          Type: REG18_CORE
 Instance Name: iq_bal0/q_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_1
          Type: REG18_CORE
-Instance Name: dpd0/mult_3890_mult_7_mult_7.PREADD9_L0
+Instance Name: iq_bal0/i_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_L0
          Type: PREADD9_CORE
-Instance Name: dpd0/mult_3890_mult_7_mult_7.PREADD9_H0
+Instance Name: iq_bal0/i_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_H0
          Type: PREADD9_CORE
-Instance Name: dpd0/mult_3890_mult_7_mult_7.MULT9_L0
+Instance Name: iq_bal0/i_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_L0
          Type: MULT9_CORE
-Instance Name: dpd0/mult_3890_mult_7_mult_7.MULT9_H0
+Instance Name: iq_bal0/i_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_H0
          Type: MULT9_CORE
-Instance Name: dpd0/mult_3890_mult_7_mult_7.MULT18_0
+Instance Name: iq_bal0/i_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.MULT18_0
          Type: MULT18_CORE
-Instance Name: dpd0/mult_3890_mult_7_mult_7.REG18_L0_0
+Instance Name: iq_bal0/i_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_0
          Type: REG18_CORE
-Instance Name: dpd0/mult_3890_mult_7_mult_7.REG18_L0_1
+Instance Name: iq_bal0/i_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_1
+         Type: REG18_CORE
+Instance Name: dpd0/mult_3951_mult_7_mult_7.PREADD9_L0
+         Type: PREADD9_CORE
+Instance Name: dpd0/mult_3951_mult_7_mult_7.PREADD9_H0
+         Type: PREADD9_CORE
+Instance Name: dpd0/mult_3951_mult_7_mult_7.MULT9_L0
+         Type: MULT9_CORE
+Instance Name: dpd0/mult_3951_mult_7_mult_7.MULT9_H0
+         Type: MULT9_CORE
+Instance Name: dpd0/mult_3951_mult_7_mult_7.MULT18_0
+         Type: MULT18_CORE
+Instance Name: dpd0/mult_3951_mult_7_mult_7.REG18_L0_0
+         Type: REG18_CORE
+Instance Name: dpd0/mult_3951_mult_7_mult_7.REG18_L0_1
+         Type: REG18_CORE
+Instance Name: dpd0/mult_3948_mult_7_mult_7.PREADD9_L0
+         Type: PREADD9_CORE
+Instance Name: dpd0/mult_3948_mult_7_mult_7.PREADD9_H0
+         Type: PREADD9_CORE
+Instance Name: dpd0/mult_3948_mult_7_mult_7.MULT9_L0
+
+                                   Page 17
+
+
+
+
+
+ASIC Components (cont)
+----------------------
+         Type: MULT9_CORE
+Instance Name: dpd0/mult_3948_mult_7_mult_7.MULT9_H0
+         Type: MULT9_CORE
+Instance Name: dpd0/mult_3948_mult_7_mult_7.MULT18_0
+         Type: MULT18_CORE
+Instance Name: dpd0/mult_3948_mult_7_mult_7.REG18_L0_0
+         Type: REG18_CORE
+Instance Name: dpd0/mult_3948_mult_7_mult_7.REG18_L0_1
          Type: REG18_CORE
 Instance Name: dpd0/q_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3
      .PREADD9_L0
@@ -1043,14 +1154,35 @@ Instance Name: dpd0/q_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3
 Instance Name: dpd0/q_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3
      .REG18_L0_1
          Type: REG18_CORE
-Instance Name: dpd0/i_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3
-     .PREADD9_L0
+Instance Name: dpd0/i_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_L0
          Type: PREADD9_CORE
-Instance Name: dpd0/i_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3
-     .PREADD9_H0
+Instance Name: dpd0/i_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_H0
          Type: PREADD9_CORE
+Instance Name: dpd0/i_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_L0
+         Type: MULT9_CORE
+Instance Name: dpd0/i_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_H0
+         Type: MULT9_CORE
+Instance Name: dpd0/i_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT18_0
+         Type: MULT18_CORE
+Instance Name: dpd0/i_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_0
+         Type: REG18_CORE
+Instance Name: dpd0/i_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_1
+         Type: REG18_CORE
+Instance Name: dpd0/q_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_L0
+         Type: PREADD9_CORE
+Instance Name: dpd0/q_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_H0
+         Type: PREADD9_CORE
+Instance Name: dpd0/q_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_L0
+         Type: MULT9_CORE
+Instance Name: dpd0/q_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_H0
+         Type: MULT9_CORE
+Instance Name: dpd0/q_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT18_0
+         Type: MULT18_CORE
+Instance Name: dpd0/q_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_0
+         Type: REG18_CORE
+Instance Name: dpd0/q_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_1
 
-                                   Page 16
+                                   Page 18
 
 
 
@@ -1058,6 +1190,13 @@ Instance Name: dpd0/i_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3
 
 ASIC Components (cont)
 ----------------------
+         Type: REG18_CORE
+Instance Name: dpd0/i_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3
+     .PREADD9_L0
+         Type: PREADD9_CORE
+Instance Name: dpd0/i_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3
+     .PREADD9_H0
+         Type: PREADD9_CORE
 Instance Name:
      dpd0/i_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3.MULT9_L0
          Type: MULT9_CORE
@@ -1073,257 +1212,6 @@ Instance Name: dpd0/i_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3
 Instance Name: dpd0/i_i_15__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_3
      .REG18_L0_1
          Type: REG18_CORE
-Instance Name: dpd0/mult_3893_mult_7_mult_7.PREADD9_L0
-         Type: PREADD9_CORE
-Instance Name: dpd0/mult_3893_mult_7_mult_7.PREADD9_H0
-         Type: PREADD9_CORE
-Instance Name: dpd0/mult_3893_mult_7_mult_7.MULT9_L0
-         Type: MULT9_CORE
-Instance Name: dpd0/mult_3893_mult_7_mult_7.MULT9_H0
-         Type: MULT9_CORE
-Instance Name: dpd0/mult_3893_mult_7_mult_7.MULT18_0
-         Type: MULT18_CORE
-Instance Name: dpd0/mult_3893_mult_7_mult_7.REG18_L0_0
-         Type: REG18_CORE
-Instance Name: dpd0/mult_3893_mult_7_mult_7.REG18_L0_1
-         Type: REG18_CORE
-Instance Name: dpd0/i_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_L0
-         Type: PREADD9_CORE
-Instance Name: dpd0/i_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_H0
-         Type: PREADD9_CORE
-Instance Name: dpd0/i_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_L0
-         Type: MULT9_CORE
-Instance Name: dpd0/i_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_H0
-         Type: MULT9_CORE
-Instance Name: dpd0/i_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT18_0
-         Type: MULT18_CORE
-Instance Name: dpd0/i_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_0
-         Type: REG18_CORE
-Instance Name: dpd0/i_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_1
-         Type: REG18_CORE
-Instance Name: dpd0/qmul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
-     3.PREADD9_L0
-         Type: PREADD9_CORE
-Instance Name: dpd0/qmul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
-     3.PREADD9_H0
-         Type: PREADD9_CORE
-Instance Name: dpd0/qmul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
-     3.PREADD9_L1
-         Type: PREADD9_CORE
-Instance Name: dpd0/qmul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
-     3.PREADD9_H1
-         Type: PREADD9_CORE
-Instance Name: dpd0/qmul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
-     3.MULT9_L0
-
-                                   Page 17
-
-
-
-
-
-ASIC Components (cont)
-----------------------
-         Type: MULT9_CORE
-Instance Name: dpd0/qmul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
-     3.MULT9_H0
-         Type: MULT9_CORE
-Instance Name: dpd0/qmul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
-     3.MULT9_L1
-         Type: MULT9_CORE
-Instance Name: dpd0/qmul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
-     3.MULT9_H1
-         Type: MULT9_CORE
-Instance Name: dpd0/qmul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
-     3.MULT18_0
-         Type: MULT18_CORE
-Instance Name: dpd0/qmul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
-     3.MULT18_1
-         Type: MULT18_CORE
-Instance Name: dpd0/qmul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
-     3.MULT18X36_0
-         Type: MULT18X36_CORE
-Instance Name: dpd0/qmul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
-     3.REG18_L0_0
-         Type: REG18_CORE
-Instance Name: dpd0/qmul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
-     3.REG18_L0_1
-         Type: REG18_CORE
-Instance Name: dpd0/qmul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
-     3.REG18_L1_0
-         Type: REG18_CORE
-Instance Name: dpd0/imul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
-     3.PREADD9_L0
-         Type: PREADD9_CORE
-Instance Name: dpd0/imul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
-     3.PREADD9_H0
-         Type: PREADD9_CORE
-Instance Name: dpd0/imul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
-     3.PREADD9_L1
-         Type: PREADD9_CORE
-Instance Name: dpd0/imul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
-     3.PREADD9_H1
-         Type: PREADD9_CORE
-Instance Name: dpd0/imul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
-     3.MULT9_L0
-         Type: MULT9_CORE
-Instance Name: dpd0/imul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
-     3.MULT9_H0
-         Type: MULT9_CORE
-Instance Name: dpd0/imul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
-     3.MULT9_L1
-         Type: MULT9_CORE
-Instance Name: dpd0/imul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
-     3.MULT9_H1
-         Type: MULT9_CORE
-Instance Name: dpd0/imul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
-     3.MULT18_0
-         Type: MULT18_CORE
-Instance Name: dpd0/imul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
-     3.MULT18_1
-
-                                   Page 18
-
-
-
-
-
-ASIC Components (cont)
-----------------------
-         Type: MULT18_CORE
-Instance Name: dpd0/imul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
-     3.MULT18X36_0
-         Type: MULT18X36_CORE
-Instance Name: dpd0/imul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
-     3.REG18_L0_0
-         Type: REG18_CORE
-Instance Name: dpd0/imul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
-     3.REG18_L0_1
-         Type: REG18_CORE
-Instance Name: dpd0/imul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
-     3.REG18_L1_0
-         Type: REG18_CORE
-Instance Name: dpd0/q_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_L0
-         Type: PREADD9_CORE
-Instance Name: dpd0/q_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_H0
-         Type: PREADD9_CORE
-Instance Name: dpd0/q_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_L0
-         Type: MULT9_CORE
-Instance Name: dpd0/q_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_H0
-         Type: MULT9_CORE
-Instance Name: dpd0/q_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT18_0
-         Type: MULT18_CORE
-Instance Name: dpd0/q_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_0
-         Type: REG18_CORE
-Instance Name: dpd0/q_i_15__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_1
-         Type: REG18_CORE
-Instance Name: dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_L0
-         Type: PREADD9_CORE
-Instance Name: dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_H0
-         Type: PREADD9_CORE
-Instance Name: dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_L1
-         Type: PREADD9_CORE
-Instance Name: dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_H1
-         Type: PREADD9_CORE
-Instance Name: dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_L0
-         Type: MULT9_CORE
-Instance Name: dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_H0
-         Type: MULT9_CORE
-Instance Name: dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_L1
-         Type: MULT9_CORE
-Instance Name: dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_H1
-         Type: MULT9_CORE
-Instance Name: dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT18_0
-         Type: MULT18_CORE
-Instance Name: dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT18_1
-         Type: MULT18_CORE
-Instance Name:
-     dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT18X36_0
-         Type: MULT18X36_CORE
-Instance Name: dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_0
-         Type: REG18_CORE
-Instance Name: dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_1
-         Type: REG18_CORE
-Instance Name: dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L1_0
-         Type: REG18_CORE
-Instance Name: dpd0/add_3894_add_12.PREADD9_L0
-
-                                   Page 19
-
-
-
-
-
-ASIC Components (cont)
-----------------------
-         Type: PREADD9_CORE
-Instance Name: dpd0/add_3894_add_12.PREADD9_H0
-         Type: PREADD9_CORE
-Instance Name: dpd0/add_3894_add_12.PREADD9_L1
-         Type: PREADD9_CORE
-Instance Name: dpd0/add_3894_add_12.PREADD9_H1
-         Type: PREADD9_CORE
-Instance Name: dpd0/add_3894_add_12.MULT9_L0
-         Type: MULT9_CORE
-Instance Name: dpd0/add_3894_add_12.MULT9_H0
-         Type: MULT9_CORE
-Instance Name: dpd0/add_3894_add_12.MULT9_L1
-         Type: MULT9_CORE
-Instance Name: dpd0/add_3894_add_12.MULT9_H1
-         Type: MULT9_CORE
-Instance Name: dpd0/add_3894_add_12.MULT18_0
-         Type: MULT18_CORE
-Instance Name: dpd0/add_3894_add_12.MULT18_1
-         Type: MULT18_CORE
-Instance Name: dpd0/add_3894_add_12.MULT18X36_0
-         Type: MULT18X36_CORE
-Instance Name: dpd0/add_3894_add_12.REG18_L0_0
-         Type: REG18_CORE
-Instance Name: dpd0/add_3894_add_12.REG18_L0_1
-         Type: REG18_CORE
-Instance Name: dpd0/add_3894_add_12.REG18_L1_0
-         Type: REG18_CORE
-Instance Name: dpd0/add_3894_add_12.ACC54_0
-         Type: ACC54_CORE
-Instance Name: dpd0/add_3891_add_12.PREADD9_L0
-         Type: PREADD9_CORE
-Instance Name: dpd0/add_3891_add_12.PREADD9_H0
-         Type: PREADD9_CORE
-Instance Name: dpd0/add_3891_add_12.PREADD9_L1
-         Type: PREADD9_CORE
-Instance Name: dpd0/add_3891_add_12.PREADD9_H1
-         Type: PREADD9_CORE
-Instance Name: dpd0/add_3891_add_12.MULT9_L0
-         Type: MULT9_CORE
-Instance Name: dpd0/add_3891_add_12.MULT9_H0
-         Type: MULT9_CORE
-Instance Name: dpd0/add_3891_add_12.MULT9_L1
-         Type: MULT9_CORE
-Instance Name: dpd0/add_3891_add_12.MULT9_H1
-         Type: MULT9_CORE
-Instance Name: dpd0/add_3891_add_12.MULT18_0
-         Type: MULT18_CORE
-Instance Name: dpd0/add_3891_add_12.MULT18_1
-         Type: MULT18_CORE
-Instance Name: dpd0/add_3891_add_12.MULT18X36_0
-         Type: MULT18X36_CORE
-Instance Name: dpd0/add_3891_add_12.REG18_L0_0
-         Type: REG18_CORE
-Instance Name: dpd0/add_3891_add_12.REG18_L0_1
-         Type: REG18_CORE
-Instance Name: dpd0/add_3891_add_12.REG18_L1_0
-         Type: REG18_CORE
-
-                                   Page 20
-
-
-
-
-
-ASIC Components (cont)
-----------------------
-Instance Name: dpd0/add_3891_add_12.ACC54_0
-         Type: ACC54_CORE
 Instance Name: dpd0/imul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_L0
          Type: PREADD9_CORE
 Instance Name: dpd0/imul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_H0
@@ -1353,32 +1241,144 @@ Instance Name: dpd0/imul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_1
          Type: REG18_CORE
 Instance Name: dpd0/imul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L1_0
          Type: REG18_CORE
-Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add
-     _12.MULT9_L0
-         Type: MULT9_CORE
-Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add
-     _12.MULT9_H0
-         Type: MULT9_CORE
-Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add
-     _12.MULT9_L1
-         Type: MULT9_CORE
-Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add
-     _12.MULT9_H1
-         Type: MULT9_CORE
-Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add
-     _12.PREADD9_L0
+Instance Name: dpd0/imul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
+     3.PREADD9_L0
          Type: PREADD9_CORE
-Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add
-     _12.PREADD9_H0
+Instance Name: dpd0/imul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
+     3.PREADD9_H0
          Type: PREADD9_CORE
-Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add
-     _12.PREADD9_L1
+
+                                   Page 19
+
+
+
+
+
+ASIC Components (cont)
+----------------------
+Instance Name: dpd0/imul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
+     3.PREADD9_L1
          Type: PREADD9_CORE
-Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add
-     _12.PREADD9_H1
+Instance Name: dpd0/imul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
+     3.PREADD9_H1
          Type: PREADD9_CORE
-Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add
-     _12.MULT18_0
+Instance Name: dpd0/imul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
+     3.MULT9_L0
+         Type: MULT9_CORE
+Instance Name: dpd0/imul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
+     3.MULT9_H0
+         Type: MULT9_CORE
+Instance Name: dpd0/imul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
+     3.MULT9_L1
+         Type: MULT9_CORE
+Instance Name: dpd0/imul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
+     3.MULT9_H1
+         Type: MULT9_CORE
+Instance Name: dpd0/imul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
+     3.MULT18_0
+         Type: MULT18_CORE
+Instance Name: dpd0/imul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
+     3.MULT18_1
+         Type: MULT18_CORE
+Instance Name: dpd0/imul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
+     3.MULT18X36_0
+         Type: MULT18X36_CORE
+Instance Name: dpd0/imul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
+     3.REG18_L0_0
+         Type: REG18_CORE
+Instance Name: dpd0/imul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
+     3.REG18_L0_1
+         Type: REG18_CORE
+Instance Name: dpd0/imul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
+     3.REG18_L1_0
+         Type: REG18_CORE
+Instance Name: dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_L0
+         Type: PREADD9_CORE
+Instance Name: dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_H0
+         Type: PREADD9_CORE
+Instance Name: dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_L1
+         Type: PREADD9_CORE
+Instance Name: dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_H1
+         Type: PREADD9_CORE
+Instance Name: dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_L0
+         Type: MULT9_CORE
+Instance Name: dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_H0
+         Type: MULT9_CORE
+Instance Name: dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_L1
+         Type: MULT9_CORE
+Instance Name: dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_H1
+         Type: MULT9_CORE
+Instance Name: dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT18_0
+         Type: MULT18_CORE
+Instance Name: dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT18_1
+         Type: MULT18_CORE
+Instance Name:
+
+                                   Page 20
+
+
+
+
+
+ASIC Components (cont)
+----------------------
+     dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.MULT18X36_0
+         Type: MULT18X36_CORE
+Instance Name: dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_0
+         Type: REG18_CORE
+Instance Name: dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_1
+         Type: REG18_CORE
+Instance Name: dpd0/qmul_31__I_0_2_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L1_0
+         Type: REG18_CORE
+Instance Name: dpd0/add_3949_add_12.PREADD9_L0
+         Type: PREADD9_CORE
+Instance Name: dpd0/add_3949_add_12.PREADD9_H0
+         Type: PREADD9_CORE
+Instance Name: dpd0/add_3949_add_12.PREADD9_L1
+         Type: PREADD9_CORE
+Instance Name: dpd0/add_3949_add_12.PREADD9_H1
+         Type: PREADD9_CORE
+Instance Name: dpd0/add_3949_add_12.MULT9_L0
+         Type: MULT9_CORE
+Instance Name: dpd0/add_3949_add_12.MULT9_H0
+         Type: MULT9_CORE
+Instance Name: dpd0/add_3949_add_12.MULT9_L1
+         Type: MULT9_CORE
+Instance Name: dpd0/add_3949_add_12.MULT9_H1
+         Type: MULT9_CORE
+Instance Name: dpd0/add_3949_add_12.MULT18_0
+         Type: MULT18_CORE
+Instance Name: dpd0/add_3949_add_12.MULT18_1
+         Type: MULT18_CORE
+Instance Name: dpd0/add_3949_add_12.MULT18X36_0
+         Type: MULT18X36_CORE
+Instance Name: dpd0/add_3949_add_12.REG18_L0_0
+         Type: REG18_CORE
+Instance Name: dpd0/add_3949_add_12.REG18_L0_1
+         Type: REG18_CORE
+Instance Name: dpd0/add_3949_add_12.REG18_L1_0
+         Type: REG18_CORE
+Instance Name: dpd0/add_3949_add_12.ACC54_0
+         Type: ACC54_CORE
+Instance Name: dpd0/qmul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
+     3.PREADD9_L0
+         Type: PREADD9_CORE
+Instance Name: dpd0/qmul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
+     3.PREADD9_H0
+         Type: PREADD9_CORE
+Instance Name: dpd0/qmul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
+     3.PREADD9_L1
+         Type: PREADD9_CORE
+Instance Name: dpd0/qmul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
+     3.PREADD9_H1
+         Type: PREADD9_CORE
+Instance Name: dpd0/qmul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
+     3.MULT9_L0
+         Type: MULT9_CORE
+Instance Name: dpd0/qmul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
+     3.MULT9_H0
+         Type: MULT9_CORE
+Instance Name: dpd0/qmul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
 
                                    Page 21
 
@@ -1388,59 +1388,59 @@ Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add
 
 ASIC Components (cont)
 ----------------------
+     3.MULT9_L1
+         Type: MULT9_CORE
+Instance Name: dpd0/qmul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
+     3.MULT9_H1
+         Type: MULT9_CORE
+Instance Name: dpd0/qmul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
+     3.MULT18_0
          Type: MULT18_CORE
-Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add
-     _12.MULT18_1
+Instance Name: dpd0/qmul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
+     3.MULT18_1
          Type: MULT18_CORE
-Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add
-     _12.REG18_L0_0
+Instance Name: dpd0/qmul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
+     3.MULT18X36_0
+         Type: MULT18X36_CORE
+Instance Name: dpd0/qmul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
+     3.REG18_L0_0
          Type: REG18_CORE
-Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add
-     _12.REG18_L0_1
+Instance Name: dpd0/qmul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
+     3.REG18_L0_1
          Type: REG18_CORE
-Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add
-     _12.REG18_L1_0
+Instance Name: dpd0/qmul_31__I_0_mult_7_mult_7_mult_7_mult_7_mult_7_mult_7_mult_
+     3.REG18_L1_0
          Type: REG18_CORE
-Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add
-     _12.REG18_L1_1
+Instance Name: dpd0/add_3952_add_12.PREADD9_L0
+         Type: PREADD9_CORE
+Instance Name: dpd0/add_3952_add_12.PREADD9_H0
+         Type: PREADD9_CORE
+Instance Name: dpd0/add_3952_add_12.PREADD9_L1
+         Type: PREADD9_CORE
+Instance Name: dpd0/add_3952_add_12.PREADD9_H1
+         Type: PREADD9_CORE
+Instance Name: dpd0/add_3952_add_12.MULT9_L0
+         Type: MULT9_CORE
+Instance Name: dpd0/add_3952_add_12.MULT9_H0
+         Type: MULT9_CORE
+Instance Name: dpd0/add_3952_add_12.MULT9_L1
+         Type: MULT9_CORE
+Instance Name: dpd0/add_3952_add_12.MULT9_H1
+         Type: MULT9_CORE
+Instance Name: dpd0/add_3952_add_12.MULT18_0
+         Type: MULT18_CORE
+Instance Name: dpd0/add_3952_add_12.MULT18_1
+         Type: MULT18_CORE
+Instance Name: dpd0/add_3952_add_12.MULT18X36_0
+         Type: MULT18X36_CORE
+Instance Name: dpd0/add_3952_add_12.REG18_L0_0
          Type: REG18_CORE
-Instance Name: fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add
-     _12.ACC54_0
+Instance Name: dpd0/add_3952_add_12.REG18_L0_1
+         Type: REG18_CORE
+Instance Name: dpd0/add_3952_add_12.REG18_L1_0
+         Type: REG18_CORE
+Instance Name: dpd0/add_3952_add_12.ACC54_0
          Type: ACC54_CORE
-Instance Name: fm_demod0/mult_2599_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_L0
-         Type: PREADD9_CORE
-Instance Name: fm_demod0/mult_2599_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_H0
-         Type: PREADD9_CORE
-Instance Name: fm_demod0/mult_2599_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_L0
-         Type: MULT9_CORE
-Instance Name: fm_demod0/mult_2599_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_H0
-         Type: MULT9_CORE
-Instance Name: fm_demod0/mult_2599_mult_7_mult_7_mult_7_mult_7_mult_7.MULT18_0
-         Type: MULT18_CORE
-Instance Name: fm_demod0/mult_2599_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_0
-         Type: REG18_CORE
-Instance Name: fm_demod0/mult_2599_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_1
-         Type: REG18_CORE
-Instance Name: fm_demod0/mult_2598_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_L0
-         Type: PREADD9_CORE
-Instance Name: fm_demod0/mult_2598_mult_7_mult_7_mult_7_mult_7_mult_7.PREADD9_H0
-         Type: PREADD9_CORE
-Instance Name: fm_demod0/mult_2598_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_L0
-         Type: MULT9_CORE
-Instance Name: fm_demod0/mult_2598_mult_7_mult_7_mult_7_mult_7_mult_7.MULT9_H0
-         Type: MULT9_CORE
-Instance Name: fm_demod0/mult_2598_mult_7_mult_7_mult_7_mult_7_mult_7.MULT18_0
-         Type: MULT18_CORE
-Instance Name: fm_demod0/mult_2598_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_0
-         Type: REG18_CORE
-Instance Name: fm_demod0/mult_2598_mult_7_mult_7_mult_7_mult_7_mult_7.REG18_L0_1
-         Type: REG18_CORE
-
-Constraint Summary
-------------------
-
-   Total number of constraints: 28
-   Total number of constraints dropped: 0
 
 
 
@@ -1452,18 +1452,18 @@ Constraint Summary
 
 
 
+Constraint Summary
+------------------
+
+   Total number of constraints: 28
+   Total number of constraints dropped: 0
+
 Run Time and Memory Usage
 -------------------------
 
    Total CPU Time: 7 secs
-   Total REAL Time: 8 secs
-   Peak Memory Usage: 858 MB
-
-
-
-
-
-
+   Total REAL Time: 7 secs
+   Peak Memory Usage: 860 MB
 
 
 
