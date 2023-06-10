@@ -1,0 +1,24 @@
+## Add these constraints to the active Post-Synthesis Constraint File (*.pdc) if 
+## "Controller Implementation" attribute is set to "Feature-Rich (LUT)"
+
+set_max_delay -from [get_pins -hierarchical */*wp_sync1_r*.ff_inst/Q] -to [get_pins -hierarchical */*wp_sync2_r*.ff_inst/DF] 2
+set_max_delay -from [get_pins -hierarchical */*rp_sync1_r*.ff_inst/Q] -to [get_pins -hierarchical */*rp_sync2_r*.ff_inst/DF] 2
+
+set_multicycle_path -from [get_pins -hierarchical */*rd_grey_sync_r*.ff_inst/Q] 2
+set_multicycle_path -from [get_pins -hierarchical */*wr_grey_sync_r*.ff_inst/Q] 2
+set_multicycle_path -from [get_pins -hierarchical */*rd_addr_r*.ff_inst/Q] -to [get_pins -hierarchical */*rp_sync1_r*.ff_inst/DF] 2
+set_multicycle_path -from [get_pins -hierarchical */*wr_addr_r*.ff_inst/Q] -to [get_pins -hierarchical */*wp_sync1_r*.ff_inst/DF] 2
+
+set_multicycle_path -hold -end -from [get_pins -hierarchical */*rd_grey_sync_r*.ff_inst/Q] 1
+set_multicycle_path -hold -end -from [get_pins -hierarchical */*wr_grey_sync_r*.ff_inst/Q] 1
+set_multicycle_path -hold -end -from [get_pins -hierarchical */*rd_addr_r*.ff_inst/Q] -to [get_pins -hierarchical */*rp_sync1_r*.ff_inst/DF] 1
+set_multicycle_path -hold -end -from [get_pins -hierarchical */*wr_addr_r*.ff_inst/Q] -to [get_pins -hierarchical */*wp_sync1_r*.ff_inst/DF] 1
+
+## "Controller Implementation" attribute is set to "Area-Optimized (HW)"
+set_max_delay -from [get_pins -hierarchical */*.FIFO16K_MODE_inst/FULL]  -to [get_pins -hierarchical {*/*.full_r.ff_inst/LSR}]   4
+set_max_delay -from [get_pins -hierarchical */*.FIFO16K_MODE_inst/ALMOSTFULL]  -to [get_pins -hierarchical {*/*.afull_r.ff_inst/LSR}]  4
+
+set_max_delay -from [get_pins -hierarchical */*.FIFO16K_MODE_inst/EMPTY] -to [get_pins -hierarchical {*/*.empty_sync_r*.ff_inst/LSR}]  4
+set_max_delay -from [get_pins -hierarchical */*.FIFO16K_MODE_inst/EMPTY] -to [get_pins -hierarchical {*/*.empty_r*.ff_inst/LSR}]  4
+set_max_delay -from [get_pins -hierarchical */*.FIFO16K_MODE_inst/ALMOSTEMPTY] -to [get_pins -hierarchical {*/*.aempty_sync_r*.ff_inst/LSR}] 4
+set_max_delay -from [get_pins -hierarchical */*.FIFO16K_MODE_inst/ALMOSTEMPTY] -to [get_pins -hierarchical {*/*.aempty_r*.ff_inst/LSR}] 4

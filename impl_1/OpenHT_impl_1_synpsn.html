@@ -48,17 +48,18 @@ Command Line: postsyn -a LIFCL -p LIFCL-40 -t QFN72 -sp 9_High-Performance_1.0V 
    Performance:      9_High-Performance_1.0V
 Reading input file 'OpenHT_impl_1.vm' ...
 Reading constraint file 'C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1/OpenHT_impl_1.ldc' ...
+WARNING - C:/Users/SP5WWP/Documents/Radiant/OpenHT/impl_1/OpenHT_impl_1.ldc (2) : No pin matched 'fm_demod0/\dly_q[0]_i1/CD fm_demod0/\dly_i[0]_i1/CD fm_demod0/\dly_i[0]_i15/CD fm_demod0/\dly_i[0]_i13/CD fm_demod0/\dly_i[0]_i14/CD fm_demod0/\dly_i[0]_i12/CD fm_demod0/\dly_i[0]_i11/CD fm_demod0/\dly_i[0]_i9/CD fm_demod0/\dly_i[0]_i7/CD fm_demod0/\dly_i[0]_i5/CD fm_demod0/\dly_i[0]_i3/CD fm_demod0/\dly_i[0   ....   i12/CD fm_demod0/\dly_q[0]_i10/CD fm_demod0/\dly_q[0]_i8/CD fm_demod0/\dly_q[0]_i6/CD fm_demod0/\dly_q[0]_i5/CD fm_demod0/\dly_q[0]_i3/CD fm_demod0/\dly_q[0]_i2/CD'.
 Removing unused logic ...
-INFO - Signal dpd0/mult_3951_mult_7_mult_7.net_PREADD9_H0_brso_0 undriven or does not drive anything - clipped
-INFO - Signal dpd0/mult_3951_mult_7_mult_7.net_PREADD9_H0_brso_1 undriven or does not drive anything - clipped
-INFO - Signal dpd0/mult_3951_mult_7_mult_7.net_PREADD9_H0_brso_2 undriven or does not drive anything - clipped
-INFO - Signal dpd0/mult_3951_mult_7_mult_7.net_PREADD9_H0_brso_3 undriven or does not drive anything - clipped
-INFO - Signal dpd0/mult_3951_mult_7_mult_7.net_PREADD9_H0_brso_4 undriven or does not drive anything - clipped
-INFO - Signal dpd0/mult_3951_mult_7_mult_7.net_PREADD9_H0_brso_5 undriven or does not drive anything - clipped
-INFO - Signal dpd0/mult_3951_mult_7_mult_7.net_PREADD9_H0_brso_6 undriven or does not drive anything - clipped
-INFO - Signal dpd0/mult_3951_mult_7_mult_7.net_PREADD9_H0_brso_7 undriven or does not drive anything - clipped
-INFO - Signal dpd0/mult_3951_mult_7_mult_7.net_PREADD9_H0_brso_8 undriven or does not drive anything - clipped
-INFO - Signal dpd0/mult_3951_mult_7_mult_7.net_PREADD9_H0_brsosigned undriven or does not drive anything - clipped
+INFO - Signal fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add_12.net_MULT9_H1_ar_0 undriven or does not drive anything - clipped
+INFO - Signal fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add_12.net_MULT9_H1_ar_1 undriven or does not drive anything - clipped
+INFO - Signal fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add_12.net_MULT9_H1_ar_2 undriven or does not drive anything - clipped
+INFO - Signal fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add_12.net_MULT9_H1_ar_3 undriven or does not drive anything - clipped
+INFO - Signal fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add_12.net_MULT9_H1_ar_4 undriven or does not drive anything - clipped
+INFO - Signal fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add_12.net_MULT9_H1_ar_5 undriven or does not drive anything - clipped
+INFO - Signal fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add_12.net_MULT9_H1_ar_6 undriven or does not drive anything - clipped
+INFO - Signal fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add_12.net_MULT9_H1_ar_7 undriven or does not drive anything - clipped
+INFO - Signal fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add_12.net_MULT9_H1_ar_8 undriven or does not drive anything - clipped
+INFO - Signal fm_demod0/sum_sq_32__I_0_2_add_12_add_12_add_12_add_12_add_12_add_12.net_MULT9_H1_arsigned undriven or does not drive anything - clipped
 INFO - ... More signals are undriven or does not drive anything - clipped
 Starting design annotation....
 WARNING - No master clock for
@@ -69,7 +70,7 @@ WARNING - No master clock for
 	generated clock	create_generated_clock -name {clk_38} -source [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/REFCK}] -multiply_by 19 -divide_by 13 [get_pins {pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS2 }] .
  
 Constraint Summary:
-   Total number of constraints: 9
+   Total number of constraints: 10
    Total number of constraints dropped: 0
    Total number of constraints duplicated: 1
  
@@ -77,7 +78,7 @@ Writing output file 'OpenHT_impl_1_syn.udb'.
 POSTSYN finished successfully.
 Total CPU Time: 8 secs 
 Total REAL Time: 8 secs 
-Peak Memory Usage: 461 MB
+Peak Memory Usage: 464 MB
 
 
 </PRE></DIV>

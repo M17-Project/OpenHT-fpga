@@ -2,6 +2,8 @@
 create_clock -name {clk_i} -period 7.8125 [get_ports clk_i] originating in instance ddr_rx0 was removed because it is defined at a clock input pin of the IP. User constraints should ensure the corresponding top-level port is correctly constrainted at the top-level. If kept it may cause incorrect slack calculation.
 create_clock -name {clk_i} -period 7.8125 [get_ports clk_i] originating in instance ddr_rx1 was removed because it is defined at a clock input pin of the IP. User constraints should ensure the corresponding top-level port is correctly constrainted at the top-level. If kept it may cause incorrect slack calculation.
 create_clock -name {clk_i} -period 7.8125 [get_ports clk_i] originating in instance ddr_tx0 was removed because it is defined at a clock input pin of the IP. User constraints should ensure the corresponding top-level port is correctly constrainted at the top-level. If kept it may cause incorrect slack calculation.
+create_clock -name {rd_clk_i} -period 40 [get_ports rd_clk_i] originating in instance fifo_in was removed because it is defined at a clock input pin of the IP. User constraints should ensure the corresponding top-level port is correctly constrainted at the top-level. If kept it may cause incorrect slack calculation.
+create_clock -name {wr_clk_i} -period 40 [get_ports wr_clk_i] originating in instance fifo_in was removed because it is defined at a clock input pin of the IP. User constraints should ensure the corresponding top-level port is correctly constrainted at the top-level. If kept it may cause incorrect slack calculation.
 create_clock -name {clki_i} -period 38.462 [get_ports clki_i] originating in instance pll0 was removed because it is defined at a clock input pin of the IP. User constraints should ensure the corresponding top-level port is correctly constrainted at the top-level. If kept it may cause incorrect slack calculation.
 create_clock -name {clki_i} -period 35.714 [get_ports clki_i] originating in instance pll1 was removed because it is defined at a clock input pin of the IP. User constraints should ensure the corresponding top-level port is correctly constrainted at the top-level. If kept it may cause incorrect slack calculation.
 #For PLL originating in instance ddr_rx0 was updated to #For PLL and kept.
@@ -27,6 +29,10 @@ ldc_set_port -iobuf {IO_TYPE=LVDS} [get_ports {data_i[0]}] originating in instan
 ldc_set_port -iobuf {IO_TYPE=LVDS} [get_ports clk_o] originating in instance ddr_tx0 was updated to ldc_set_port -iobuf {IO_TYPE=LVDS} [get_ports clk_tx_o] and kept.
 
 ldc_set_port -iobuf {IO_TYPE=LVDS} [get_ports {data_o[0]}] originating in instance ddr_tx0 was updated to ldc_set_port -iobuf {IO_TYPE=LVDS} [get_ports data_tx_o] and kept.
+
+set_false_path -through [get_pins lscc_fifo_dc_inst/rst_i] originating in instance fifo_in was updated to set_false_path -through [get_pins {fifo_in/lscc_fifo_dc_inst/rst_i }] and kept.
+
+set_false_path -through [get_pins lscc_fifo_dc_inst/rp_rst_i] originating in instance fifo_in was updated to set_false_path -through [get_pins {fifo_in/lscc_fifo_dc_inst/rp_rst_i }] and kept.
 
 # IO_TYPE constraint - Refclk originating in instance pll0 was updated to # IO_TYPE constraint - Refclk and kept.
 
