@@ -14,7 +14,7 @@ package regs_pkg is
 	constant RW_REGS_NUM	: integer := 13;
 	constant R_REGS_NUM		: integer := 8;
 	
-	-- offsets
+	-- offsets RW regs
 	constant CR_1			: integer := 0;
 	constant CR_2			: integer := 1;
 	constant I_OFFS_NULL	: integer := 2;
@@ -28,14 +28,15 @@ package regs_pkg is
 	--constant RES_1			: integer := 10;
 	--constant RES_2			: integer := 11;
 	--constant RES_3			: integer := 12;
-	constant SR_1			: integer := 13;
-	constant SR_2			: integer := 14;
-	constant DEMOD			: integer := 15;
-	constant RSSI			: integer := 16;
-	constant I_RAW			: integer := 17;
-	constant Q_RAW			: integer := 18;
-	constant I_FLT			: integer := 19;
-	constant Q_FLT			: integer := 20;
+	-- offsets R regs
+	constant SR_1			: integer := 0;
+	constant SR_2			: integer := 1;
+	constant DEMOD_REG		: integer := 2;
+	constant RSSI_REG		: integer := 3;
+	constant I_RAW_REG		: integer := 4;
+	constant Q_RAW_REG		: integer := 5;
+	constant I_FLT_REG		: integer := 6;
+	constant Q_FLT_REG		: integer := 7;
 
 	-- type definitions
 	type t_rw_regs is array(0 to RW_REGS_NUM-1) of std_logic_vector(15 downto 0);

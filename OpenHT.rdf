@@ -2,7 +2,7 @@
 <RadiantProject version="4.2" radiant="2022.1.1.289.4" title="OpenHT" device="LIFCL-40-9SG72C" performance_grade="9_High-Performance_1.0V" default_implementation="impl_1">
     <Options/>
     <Implementation title="impl_1" dir="impl_1" description="impl_1" synthesis="lse" default_strategy="Strategy1">
-        <Options def_top="clk_div_block" top="main_all"/>
+        <Options def_top="fir_rrc" top="main_all"/>
         <Source name="source/impl_1/main.vhd" type="VHDL" type_short="VHDL">
             <Options top_module="main_all"/>
         </Source>
@@ -118,6 +118,9 @@
             <Options/>
         </Source>
         <Source name="ddr_tx/ddr_tx.ipx" type="IPX_Module" type_short="IPX">
+            <Options/>
+        </Source>
+        <Source name="fifo/fifo.ipx" type="IPX_Module" type_short="IPX">
             <Options/>
         </Source>
         <Source name="source/impl_1/impl_1.pdc" type="Physical Constraints File" type_short="PDC">

@@ -81,6 +81,8 @@ architecture magic of main_all is
 	signal i_offs_tx, q_offs_tx		: std_logic_vector(15 downto 0) := (others => '0');
 	signal fm_dith_r				: signed(15 downto 0) := (others => '0');
 	signal pm_mod					: std_logic_vector(15 downto 0) := (others => '0');
+	signal mod_in_r					: std_logic_vector(15 downto 0) := (others => '0');
+	--signal symb_clk					: std_logic := '0';
 	-- control registers related
 	signal reg_data_wr, reg_data_rd	: std_logic_vector(15 downto 0) := (others => '0');
 	signal reg_addr					: std_logic_vector(14 downto 0) := (others => '0');
@@ -88,6 +90,11 @@ architecture magic of main_all is
 	signal regs_rw					: t_rw_regs := (others => (others => '0'));
 	signal regs_r					: t_r_regs := (others => (others => '0'));
 	signal regs_latch				: std_logic := '0';
+	--FIFOs
+	signal samp_clk					: std_logic := '0';
+	signal fifo_in_data_i			: std_logic_vector(15 downto 0) := (others => '0');
+	signal fifo_in_data_o			: std_logic_vector(15 downto 0) := (others => '0');
+	signal fifo_in_ae				: std_logic := '0';
 	
 	----------------------------- low level building blocks -----------------------------
 	-- main PLL block
@@ -182,15 +189,15 @@ architecture magic of main_all is
 	end component;
 	
 	-- clock divider
-	--component clk_div_block is
-		--generic(
-			--DIV		: integer := 40
-		--);
-		--port(
-			--clk_i	: in std_logic;							-- fast clock in
-			--clk_o	: inout std_logic						-- slow clock out
-		--);
-	--end component;
+	component clk_div_block is
+		generic(
+			DIV		: integer
+		);
+		port(
+			clk_i	: in std_logic;							-- fast clock in
+			clk_o	: inout std_logic						-- slow clock out
+		);
+	end component;
 	
 	-- 16-bit add const block
 	--component add_const is
@@ -487,6 +494,22 @@ architecture magic of main_all is
 			clk_i	: in std_logic							-- fast clock
 		);
 	end component;
+	
+	component fifo is
+		port(
+			rd_clk_i		: in std_logic;
+			rd_en_i			: in std_logic;
+			rp_rst_i		: in std_logic;
+			rst_i			: in std_logic;
+			wr_clk_i		: in std_logic;
+			wr_data_i		: in std_logic_vector(15 downto 0);
+			wr_en_i			: in std_logic;
+			almost_empty_o	: out std_logic;
+			empty_o			: out std_logic;
+			full_o			: out std_logic;
+			rd_data_o		: out std_logic_vector(15 downto 0)
+		);
+	end component;
 begin
 	------------------------------------- port maps -------------------------------------
 	pll0: pll_osc port map(
@@ -495,14 +518,14 @@ begin
 		clkop_o => clk_152,
 		clkos_o => clk_64,
 		clkos2_o => clk_38,
-		lock_o => regs_r(1)(0)
+		lock_o => regs_r(SR_2)(0)
 	);
 	
 	pll1: pll_samp port map(
 		rstn_i => nrst,
 		clki_i => clk_i,
 		clkop_o => clk_7M2,
-		lock_o => regs_r(1)(1)
+		lock_o => regs_r(SR_2)(1)
 	);
 	
 	---------------------------------------- RX -----------------------------------------
@@ -510,7 +533,7 @@ begin
 	ddr_rx0: ddr_rx port map(
 		clk_i => clk_rx_i,
 		data_i => data_rx09_i,
-		rst_i => (regs_rw(1)(0) and not regs_rw(1)(1)) or (not regs_rw(0)(0)), -- check if STATE=RX and the band is correct
+		rst_i => (regs_rw(CR_2)(0) and not regs_rw(CR_2)(1)) or (not regs_rw(CR_1)(0)), -- check if STATE=RX and the band is correct
 		sclk_o => clk_rx09,
 		data_o => data_rx09_r
 	);
@@ -519,7 +542,7 @@ begin
 	ddr_rx1: ddr_rx port map(
 		clk_i => clk_rx_i,
 		data_i => data_rx24_i,
-		rst_i =>  (regs_rw(1)(0) and not regs_rw(1)(1)) or (not regs_rw(0)(1)), -- check if STATE=RX and the band is correct
+		rst_i =>  (regs_rw(CR_2)(0) and not regs_rw(CR_2)(1)) or (not regs_rw(CR_1)(1)), -- check if STATE=RX and the band is correct
 		sclk_o => clk_rx24,
 		data_o => data_rx24_r
 	);
@@ -528,7 +551,7 @@ begin
 		clk_i => clk_152,
 		ddr_clk_i => clk_rx09 or clk_rx24,		-- TODO: check if this actually works!
 		data_i => data_rx09_r or data_rx24_r,	-- ...this too. otherwise add a switch block
-		rst => not regs_rw(1)(1),
+		rst => not regs_rw(CR_2)(1),
 		i_o => i_r,
 		q_o => q_r,
 		drdy => drdy
@@ -556,7 +579,7 @@ begin
 	)
 	port map(
 		clk_i		=> clk_38,
-		ch_width	=> regs_rw(1)(10 downto 9),
+		ch_width	=> regs_rw(CR_2)(10 downto 9),
 		i_i			=> mix_i_o,
 		q_i			=> mix_q_o,
 		i_o			=> flt_id_r,
@@ -576,7 +599,7 @@ begin
 	rssi_fir0: fir_rssi port map(
 		clk_i => clk_38,
 		data_i => signed('0' & rssi_r(14 downto 0)),
-		std_logic_vector(data_o) => regs_r(3),
+		std_logic_vector(data_o) => regs_r(RSSI_REG),
 		trig_i => rssi_rdy
 		--drdy_o => 
 	);
@@ -601,7 +624,7 @@ begin
 	-- frequency modulator
 	dither_source0: dither_source port map(
 		clk_i => clk_i,
-		ena => regs_rw(0)(5),
+		ena => regs_rw(CR_1)(5),
 		trig => zero_word,
 		out_o => fm_dith_r
 	);
@@ -610,24 +633,24 @@ begin
 		nrst => nrst,
 		trig_i => zero_word,
 		clk_i => clk_i,
-		ctcss_i => regs_rw(1)(7 downto 2),
+		ctcss_i => regs_rw(CR_2)(7 downto 2),
 		ctcss_o	=> ctcss_r
 	);
-	ctcss_fm_tx <= std_logic_vector(signed(regs_rw(9)) + signed(ctcss_r));
+	ctcss_fm_tx <= std_logic_vector(signed(mod_in_r) + signed(ctcss_r));
 	
 	freq_mod0: fm_modulator port map(
 		nrst => nrst,
 		clk_i => clk_38,
 		mod_i => ctcss_fm_tx,
 		dith_i => fm_dith_r,
-		nw_i => regs_rw(1)(8),
+		nw_i => regs_rw(CR_2)(8),
 		i_o => i_fm_tx,
 		q_o => q_fm_tx
 	);
 	
 	-- amplitude modulator
 	ampl_mod0: am_modulator port map(
-		mod_i => regs_rw(9),
+		mod_i => mod_in_r,
 		i_o => i_am_tx,
 		q_o => q_am_tx
 	);
@@ -636,8 +659,8 @@ begin
 	-- TODO: it's a sampler, actually
 	decim0: decim port map(
 		clk_i => clk_i,
-		i_data_i => signed(regs_rw(9)), -- I branch is the input signal
-		q_data_i => signed(regs_rw(9)), -- Q branch is the Hilbert-transformed input signal
+		i_data_i => signed(mod_in_r), -- I branch is the input signal
+		q_data_i => signed(mod_in_r), -- Q branch is the Hilbert-transformed input signal
 		i_data_o => ssb_id_r,
 		q_data_o => ssb_qd_r,
 		trig_i => zero_word, -- 400kHz
@@ -645,7 +668,7 @@ begin
 	);
 	
 	sb_sel0: sideband_sel port map(
-		sel => regs_rw(0)(15),
+		sel => regs_rw(CR_1)(15),
 		d_i => ssb_qd_r,
 		d_o => sel_ssb_qd_r
 	);
@@ -666,7 +689,11 @@ begin
 	);
 	
 	-- 16QAM modulator
-	--symb_clk_div0: clk_div_block port map(
+	--symb_clk_div0: clk_div_block
+	--generic map(
+		--DIV => 40
+	--)
+	--port map(
 		--clk_i => zero_word,
 		--clk_o => symb_clk
 	--);
@@ -679,21 +706,21 @@ begin
 	--);
 	
 	qam_mod0: qam_16 port map(
-		data_i => regs_rw(9)(3 downto 0), --std_logic_vector(raw_rand(3 downto 0))
+		data_i => mod_in_r(3 downto 0), --std_logic_vector(raw_rand(3 downto 0))
 		i_o => i_qam_tx,
 		q_o => q_qam_tx
 	);
 	
 	-- phase modulator
 	pm_mod0: pm_modulator port map(
-		mod_i => regs_rw(9), --x"0000",
+		mod_i => mod_in_r, --x"0000",
 		i_o => i_pm_tx,
 		q_o => q_pm_tx
 	);
 	
 	-- modulation selector
 	tx_mod_sel0: mod_sel port map(
-		sel => regs_rw(0)(14 downto 12),
+		sel => regs_rw(CR_1)(14 downto 12),
 		i0_i => i_fm_tx, --FM
 		q0_i => q_fm_tx,
 		i1_i => i_am_tx, --AM
@@ -710,9 +737,9 @@ begin
 
 	-- digital predistortion blocks
 	dpd0: dpd port map(
-		p1 => signed(regs_rw(6)),
-		p2 => signed(regs_rw(7)),
-		p3 => signed(regs_rw(8)),
+		p1 => signed(regs_rw(DPD_1)),
+		p2 => signed(regs_rw(DPD_2)),
+		p3 => signed(regs_rw(DPD_3)),
 		i_i => i_raw_tx,
 		q_i => q_raw_tx,
 		i_o => i_dpd_tx,
@@ -722,8 +749,8 @@ begin
 	iq_bal0: iq_balancer_16 port map(
 		i_i => i_dpd_tx,
 		q_i => q_dpd_tx,
-		ib_i => regs_rw(4),
-		qb_i => regs_rw(5),
+		ib_i => regs_rw(I_GAIN),
+		qb_i => regs_rw(Q_GAIN),
 		i_o => i_bal_tx,
 		q_o	=> q_bal_tx
 	);
@@ -731,8 +758,8 @@ begin
 	iq_offset0: iq_offset port map(
 		i_i => i_bal_tx,
 		q_i => q_bal_tx,
-		ai_i => regs_rw(2),
-		aq_i => regs_rw(3),
+		ai_i => regs_rw(I_OFFS_NULL),
+		aq_i => regs_rw(Q_OFFS_NULL),
 		i_o => i_offs_tx,
 		q_o => q_offs_tx
 	);
@@ -755,7 +782,7 @@ begin
 	ddr_tx0: ddr_tx port map(
 		clk_i => clk_64,
 		data_i => data_tx_r,
-		rst_i => regs_rw(1)(1) or not regs_rw(1)(0),
+		rst_i => regs_rw(CR_2)(1) or not regs_rw(CR_2)(0),
 		clk_o => clk_tx_o,
 		data_o => data_tx_o
 	);
@@ -788,27 +815,55 @@ begin
 		regs_r => regs_r
 	);
 	
+	clk_div_in_samp: clk_div_block
+	generic map(
+		DIV => 400/8
+	)
+	port map(
+		clk_i => zero_word,
+		clk_o => samp_clk
+	);
+
+	mod_in_r <= fifo_in_data_o when regs_rw(CR_2)(11)='1' else regs_rw(MOD_IN);
+	fifo_in_data_i <= reg_data_wr when unsigned(reg_addr)=MOD_IN else (others => '0');
+	
+	-- TODO: finish this
+	fifo_in: fifo port map(
+		rd_clk_i => samp_clk,
+		rd_en_i => '1',
+		rp_rst_i => '0',
+		rst_i => not nrst or (not regs_rw(CR_2)(1) and regs_rw(CR_2)(0)),
+		wr_clk_i => regs_latch,
+		wr_data_i => fifo_in_data_i,
+		wr_en_i => '1',
+		almost_empty_o => fifo_in_ae,
+		--empty_o => ,
+		--full_o => ,
+		rd_data_o => fifo_in_data_o
+	);
+	
 	-- additional connections
-	regs_r(0) <= x"0001"; -- revision number 0.1
-	--regs_r(1) <= ;
-	with regs_rw(0)(4 downto 2) select
-		regs_r(2) <= std_logic_vector(fm_demod_raw)	when "000", -- frequency demodulator
-		std_logic_vector(am_demod_raw)				when "001", -- amplitude ----//-----
-		(others => '0')								when "010", -- SSB (placeholder)
-		(others => '0')								when others;
-	--regs_r(3) <= ;
-	regs_r(4) <= i_r & "000";
-	regs_r(5) <= q_r & "000";
-	regs_r(6) <= std_logic_vector(flt_id_r);
-	regs_r(7) <= std_logic_vector(flt_qd_r);
+	regs_r(SR_1) <= x"0001"; -- revision number 0.1
+	--regs_r(SR_2) <= ;
+	with regs_rw(CR_1)(4 downto 2) select
+		regs_r(DEMOD_REG) <= std_logic_vector(fm_demod_raw)		when "000", -- frequency demodulator
+		std_logic_vector(am_demod_raw)							when "001", -- amplitude ----//-----
+		(others => '0')											when "010", -- SSB (placeholder)
+		(others => '0')											when others;
+	--regs_r(RSSI_REG) <= ;
+	regs_r(I_RAW_REG) <= i_r & "000";
+	regs_r(Q_RAW_REG) <= q_r & "000";
+	regs_r(I_FLT_REG) <= std_logic_vector(flt_id_r);
+	regs_r(Q_FLT_REG) <= std_logic_vector(flt_qd_r);
 	
 	-- I/Os
-	with regs_rw(0)(11 downto 9) select -- TODO: set this to match with the register map
+	with regs_rw(CR_1)(11 downto 9) select -- TODO: set this to match with the register map
     io3 <= '0'		when "000",
        drdyd		when "001",
 	   zero_word	when "010",
 	   flt_i_rdy	when "011",
 	   drdy			when "100",
+	   fifo_in_ae	when "101",
        '1'			when others;
 	--io4 <= ;
 	--io5 <= ;
