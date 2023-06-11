@@ -3,7 +3,7 @@
 --
 -- Wojciech Kaczmarski, SP5WWP
 -- M17 Project
--- March 2023
+-- June 2023
 -------------------------------------------------------------
 library IEEE;
 use IEEE.std_logic_1164.all;
@@ -19,6 +19,6 @@ end am_modulator;
 
 architecture magic of am_modulator is
 begin
-	i_o <= mod_i;
+	i_o <= '0' & mod_i(15 downto 1);
 	q_o <= (others => '0'); --zero
 end magic;
