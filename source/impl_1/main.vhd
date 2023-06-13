@@ -5,6 +5,10 @@ use IEEE.numeric_std.all;
 use work.regs_pkg.all;
 
 entity main_all is
+	generic(
+		REV_MAJOR			: std_logic_vector(7 downto 0) := x"00";
+		REV_MINOR			: std_logic_vector(7 downto 0) := x"01"
+	);
 	port(
 		-- 26 MHz clock input from the AT86
 		clk_i 				: in std_logic;
@@ -843,7 +847,7 @@ begin
 	);
 	
 	-- additional connections
-	regs_r(SR_1) <= x"0001"; -- revision number 0.1
+	regs_r(SR_1) <= REV_MAJOR & REV_MINOR; -- revision number
 	--regs_r(SR_2) <= ;
 	with regs_rw(CR_1)(4 downto 2) select
 		regs_r(DEMOD_REG) <= std_logic_vector(fm_demod_raw)		when "000", -- frequency demodulator
@@ -857,14 +861,14 @@ begin
 	regs_r(Q_FLT_REG) <= std_logic_vector(flt_qd_r);
 	
 	-- I/Os
-	with regs_rw(CR_1)(11 downto 9) select -- TODO: set this to match with the register map
-    io3 <= '0'		when "000",
-       drdyd		when "001",
-	   zero_word	when "010",
-	   flt_i_rdy	when "011",
-	   drdy			when "100",
-	   fifo_in_ae	when "101",
-       '1'			when others;
+	with regs_rw(CR_1)(11 downto 9) select -- TODO: set this to match the register map
+    io3 <= regs_r(SR_2)(0)	when "000",
+       drdyd				when "001",
+	   zero_word			when "010",
+	   flt_i_rdy			when "011",
+	   drdy					when "100",
+	   fifo_in_ae			when "101",
+       '1'					when others;
 	--io4 <= ;
 	--io5 <= ;
 	--io6 <= ;
