@@ -804,7 +804,7 @@ begin
 		ena => '1',
 		rw => spi_rw,
 		ld => regs_latch,
-		clk_i => clk_i
+		clk_i => clk_38
 	);
 	
 	ctrl_regs0: ctrl_regs port map(
