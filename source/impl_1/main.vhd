@@ -1,4 +1,11 @@
---main
+-------------------------------------------------------------
+-- OpenHT's top-level unit
+--
+-- Wojciech Kaczmarski, SP5WWP
+-- Morgan Diepart, ON4MOD
+-- M17 Project
+-- June 2023
+-------------------------------------------------------------
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
