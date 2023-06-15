@@ -14,7 +14,7 @@ entity spi_slave is
         MAX_ADDR : natural := 20
     );
 	port(
-		miso_o	: out std_logic := '0';		                                -- serial data out
+		miso_o	: out std_logic := 'Z';		                                -- serial data out
 		mosi_i	: in std_logic;                                             -- serial data in
 		sck_i	: in std_logic;				                                -- clock
 		ncs_i	: in std_logic;			                                    -- slave select signal
@@ -118,6 +118,7 @@ begin
 
                 -- rising edge of the nCS - data transaction stop
 				if (pp_ncs='0' and p_ncs='1') or nrst='0' then
+					miso_o <= 'Z';
 					addr_inc <= '0'; -- reset the address increment flag
 					ld <= '0'; -- release the ld line
 					rw <= '0'; -- release the RW flag
