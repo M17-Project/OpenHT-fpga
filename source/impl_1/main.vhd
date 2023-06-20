@@ -395,6 +395,9 @@ architecture magic of main_all is
 	
 	-- frequency modulator
 	component fm_modulator is
+		generic(
+			DIV : integer									-- set to satisfy clk_i/DIV=400k
+		);
 		port(
 			nrst	: in std_logic;							-- reset
 			clk_i	: in std_logic;							-- main clock
@@ -473,6 +476,7 @@ architecture magic of main_all is
 	-- modulation selector
 	component mod_sel is
 		port(
+			clk_i		: in std_logic;							-- clock in
 			sel			: in std_logic_vector(2 downto 0);		-- mod selector
 			i0_i, q0_i	: in std_logic_vector(15 downto 0);		-- input 0
 			i1_i, q1_i	: in std_logic_vector(15 downto 0);		-- input 1
@@ -532,12 +536,12 @@ begin
 		lock_o => regs_r(SR_2)(0)
 	);
 	
-	pll1: pll_samp port map(
-		rstn_i => nrst,
-		clki_i => clk_i,
-		clkop_o => clk_7M2,
-		lock_o => regs_r(SR_2)(1)
-	);
+	--pll1: pll_samp port map(
+		--rstn_i => nrst,
+		--clki_i => clk_i,
+		--clkop_o => clk_7M2,
+		--lock_o => regs_r(SR_2)(1)
+	--);
 	
 	---------------------------------------- RX -----------------------------------------
 	-- sub-GHz receiver
@@ -558,100 +562,104 @@ begin
 		data_o => data_rx24_r
 	);
 	
-	iq_des0: iq_des port map(
-		clk_i => clk_152,
-		ddr_clk_i => clk_rx09 or clk_rx24,		-- TODO: check if this actually works!
-		data_i => data_rx09_r or data_rx24_r,	-- ...this too. otherwise add a switch block
-		rst => not regs_rw(CR_2)(1),
-		i_o => i_r,
-		q_o => q_r,
-		drdy => drdy
-	);
+	--iq_des0: iq_des port map(
+		--clk_i => clk_152,
+		--ddr_clk_i => clk_rx09 or clk_rx24,		-- TODO: check if this actually works!
+		--data_i => data_rx09_r or data_rx24_r,	-- ...this too. otherwise add a switch block
+		--rst => not regs_rw(CR_2)(1),
+		--i_o => i_r,
+		--q_o => q_r,
+		--drdy => drdy
+	--);
 	
-	lo0: local_osc port map(
-		clk_i => clk_38,
-		trig_i => drdy,
-		i_o => lo_mix_i,
-		q_o => lo_mix_q
-	);
+	--lo0: local_osc port map(
+		--clk_i => clk_38,
+		--trig_i => drdy,
+		--i_o => lo_mix_i,
+		--q_o => lo_mix_q
+	--);
 	
-	mix0: complex_mul port map(
-		a_re => signed(i_r(11 downto 0) & '0' & '0' & '0' & '0'), -- a gain of 2
-		a_im => signed(q_r(11 downto 0) & '0' & '0' & '0' & '0'), -- somehow concatenating with "0000" didn't work here
-		b_re => lo_mix_i,
-		b_im => lo_mix_q,
-		c_re => mix_i_o,
-		c_im => mix_q_o
-	);
+	--mix0: complex_mul port map(
+		--a_re => signed(i_r(11 downto 0) & '0' & '0' & '0' & '0'), -- a gain of 2
+		--a_im => signed(q_r(11 downto 0) & '0' & '0' & '0' & '0'), -- somehow concatenating with "0000" didn't work here
+		--b_re => lo_mix_i,
+		--b_im => lo_mix_q,
+		--c_re => mix_i_o,
+		--c_im => mix_q_o
+	--);
 	
-	channel_flt0: channel_filter
-	generic map(
-		SAMP_WIDTH => 16
-	)
-	port map(
-		clk_i		=> clk_38,
-		ch_width	=> regs_rw(CR_2)(10 downto 9),
-		i_i			=> mix_i_o,
-		q_i			=> mix_q_o,
-		i_o			=> flt_id_r,
-		q_o			=> flt_qd_r,
-		trig_i		=> drdy,
-		drdy_o		=> drdyd
-	);
+	--channel_flt0: channel_filter
+	--generic map(
+		--SAMP_WIDTH => 16
+	--)
+	--port map(
+		--clk_i		=> clk_38,
+		--ch_width	=> regs_rw(CR_2)(10 downto 9),
+		--i_i			=> mix_i_o,
+		--q_i			=> mix_q_o,
+		--i_o			=> flt_id_r,
+		--q_o			=> flt_qd_r,
+		--trig_i		=> drdy,
+		--drdy_o		=> drdyd
+	--);
 	
-	--mag_sq_r <= std_logic_vector(flt_id_r*flt_id_r + flt_qd_r*flt_qd_r);
-	rssi0: rssi_est port map(
-		clk_i => drdyd,
-		r_i => flt_id_r, --mag_sq_r(31 downto 16),
-		std_logic_vector(r_o) => rssi_r,
-		rdy => rssi_rdy
-	);
+	----mag_sq_r <= std_logic_vector(flt_id_r*flt_id_r + flt_qd_r*flt_qd_r);
+	--rssi0: rssi_est port map(
+		--clk_i => drdyd,
+		--r_i => flt_id_r, --mag_sq_r(31 downto 16),
+		--std_logic_vector(r_o) => rssi_r,
+		--rdy => rssi_rdy
+	--);
 	
-	rssi_fir0: fir_rssi port map(
-		clk_i => clk_38,
-		data_i => signed('0' & rssi_r(14 downto 0)),
-		std_logic_vector(data_o) => regs_r(RSSI_REG),
-		trig_i => rssi_rdy
-		--drdy_o => 
-	);
+	--rssi_fir0: fir_rssi port map(
+		--clk_i => clk_38,
+		--data_i => signed('0' & rssi_r(14 downto 0)),
+		--std_logic_vector(data_o) => regs_r(RSSI_REG),
+		--trig_i => rssi_rdy
+		----drdy_o => 
+	--);
 	
-	am_demod0: mag_est port map(
-		clk_i => clk_38,
-		trig_i => drdyd,
-		i_i => flt_id_r,
-		q_i => flt_qd_r,
-		est_o => am_demod_raw,
-		rdy_o => am_demod_rdy
-	);
+	--am_demod0: mag_est port map(
+		--clk_i => clk_38,
+		--trig_i => drdyd,
+		--i_i => flt_id_r,
+		--q_i => flt_qd_r,
+		--est_o => am_demod_raw,
+		--rdy_o => am_demod_rdy
+	--);
 	
-	fm_demod0: freq_demod port map(
-		clk_i => drdyd,
-		i_i => flt_id_r(14 downto 0) & '0',
-		q_i => flt_qd_r(14 downto 0) & '0',
-		demod_o => fm_demod_raw
-	);
+	--fm_demod0: freq_demod port map(
+		--clk_i => drdyd,
+		--i_i => flt_id_r(14 downto 0) & '0',
+		--q_i => flt_qd_r(14 downto 0) & '0',
+		--demod_o => fm_demod_raw
+	--);
 	
 	---------------------------------------- TX -----------------------------------------
 	-- frequency modulator
-	dither_source0: dither_source port map(
-		clk_i => clk_i,
-		ena => regs_rw(CR_1)(5),
-		trig => zero_word,
-		out_o => fm_dith_r
-	);
+	--dither_source0: dither_source port map(
+		--clk_i => clk_64,
+		--ena => regs_rw(CR_1)(5),
+		--trig => zero_word,
+		--out_o => fm_dith_r
+	--);
 	
 	ctcss_enc0: ctcss_encoder port map(
 		nrst => nrst,
 		trig_i => zero_word,
-		clk_i => clk_i,
+		clk_i => clk_64,
 		ctcss_i => regs_rw(CR_2)(7 downto 2),
 		ctcss_o	=> ctcss_r
 	);
 	ctcss_fm_tx <= std_logic_vector(signed(mod_in_r) + signed(ctcss_r));
 	
-	freq_mod0: fm_modulator port map(
+	freq_mod0: fm_modulator
+	generic map(
+		DIV => 160
+	)
+	port map(
 		nrst => nrst,
-		clk_i => clk_38,
+		clk_i => clk_64,
 		mod_i => ctcss_fm_tx,
 		dith_i => fm_dith_r,
 		nw_i => regs_rw(CR_2)(8),
@@ -660,44 +668,44 @@ begin
 	);
 	
 	-- amplitude modulator
-	ampl_mod0: am_modulator port map(
-		mod_i => mod_in_r,
-		i_o => i_am_tx,
-		q_o => q_am_tx
-	);
+	--ampl_mod0: am_modulator port map(
+		--mod_i => mod_in_r,
+		--i_o => i_am_tx,
+		--q_o => q_am_tx
+	--);
 	
 	-- single sideband modulator
 	-- TODO: it's a sampler, actually
-	decim0: decim port map(
-		clk_i => clk_i,
-		i_data_i => signed(mod_in_r), -- I branch is the input signal
-		q_data_i => signed(mod_in_r), -- Q branch is the Hilbert-transformed input signal
-		i_data_o => ssb_id_r,
-		q_data_o => ssb_qd_r,
-		trig_i => zero_word, -- 400kHz
-		drdy_o => ssb_rdy
-	);
+	--decim0: decim port map(
+		--clk_i => clk_i,
+		--i_data_i => signed(mod_in_r), -- I branch is the input signal
+		--q_data_i => signed(mod_in_r), -- Q branch is the Hilbert-transformed input signal
+		--i_data_o => ssb_id_r,
+		--q_data_o => ssb_qd_r,
+		--trig_i => zero_word, -- 400kHz
+		--drdy_o => ssb_rdy
+	--);
 	
-	sb_sel0: sideband_sel port map(
-		sel => regs_rw(CR_1)(15),
-		d_i => ssb_qd_r,
-		d_o => sel_ssb_qd_r
-	);
+	--sb_sel0: sideband_sel port map(
+		--sel => regs_rw(CR_1)(15),
+		--d_i => ssb_qd_r,
+		--d_o => sel_ssb_qd_r
+	--);
 	
-	delay_block0: delay_block port map(
-		clk_i => clk_i,
-		d_i => ssb_id_r,
-		signed(d_o) => i_ssb_tx,
-		trig_i => ssb_rdy
-	);
+	--delay_block0: delay_block port map(
+		--clk_i => clk_i,
+		--d_i => ssb_id_r,
+		--signed(d_o) => i_ssb_tx,
+		--trig_i => ssb_rdy
+	--);
 	
-	hilbert0: fir_hilbert port map(
-		clk_i => clk_38,
-		data_i => signed(sel_ssb_qd_r),
-		std_logic_vector(data_o) => q_ssb_tx,
-		trig_i => ssb_rdy
-		--drdy_o => ssb_hilb_rdy
-	);
+	--hilbert0: fir_hilbert port map(
+		--clk_i => clk_38,
+		--data_i => signed(sel_ssb_qd_r),
+		--std_logic_vector(data_o) => q_ssb_tx,
+		--trig_i => ssb_rdy
+		----drdy_o => ssb_hilb_rdy
+	--);
 	
 	-- 16QAM modulator
 	--symb_clk_div0: clk_div_block
@@ -716,21 +724,22 @@ begin
 		--out_o => raw_rand
 	--);
 	
-	qam_mod0: qam_16 port map(
-		data_i => mod_in_r(3 downto 0), --std_logic_vector(raw_rand(3 downto 0))
-		i_o => i_qam_tx,
-		q_o => q_qam_tx
-	);
+	--qam_mod0: qam_16 port map(
+		--data_i => mod_in_r(3 downto 0), --std_logic_vector(raw_rand(3 downto 0))
+		--i_o => i_qam_tx,
+		--q_o => q_qam_tx
+	--);
 	
 	-- phase modulator
-	pm_mod0: pm_modulator port map(
-		mod_i => mod_in_r, --x"0000",
-		i_o => i_pm_tx,
-		q_o => q_pm_tx
-	);
+	--pm_mod0: pm_modulator port map(
+		--mod_i => mod_in_r, --x"0000",
+		--i_o => i_pm_tx,
+		--q_o => q_pm_tx
+	--);
 	
 	-- modulation selector
 	tx_mod_sel0: mod_sel port map(
+		clk_i => clk_64,
 		sel => regs_rw(CR_1)(14 downto 12),
 		i0_i => i_fm_tx, --FM
 		q0_i => q_fm_tx,
@@ -747,33 +756,35 @@ begin
 	);
 
 	-- digital predistortion blocks
-	dpd0: dpd port map(
-		p1 => signed(regs_rw(DPD_1)),
-		p2 => signed(regs_rw(DPD_2)),
-		p3 => signed(regs_rw(DPD_3)),
-		i_i => i_raw_tx,
-		q_i => q_raw_tx,
-		i_o => i_dpd_tx,
-		q_o => q_dpd_tx
-	);
+	--dpd0: dpd port map(
+		--p1 => signed(regs_rw(DPD_1)),
+		--p2 => signed(regs_rw(DPD_2)),
+		--p3 => signed(regs_rw(DPD_3)),
+		--i_i => i_raw_tx,
+		--q_i => q_raw_tx,
+		--i_o => i_dpd_tx,
+		--q_o => q_dpd_tx
+	--);
 	
-	iq_bal0: iq_balancer_16 port map(
-		i_i => i_dpd_tx,
-		q_i => q_dpd_tx,
-		ib_i => regs_rw(I_GAIN),
-		qb_i => regs_rw(Q_GAIN),
-		i_o => i_bal_tx,
-		q_o	=> q_bal_tx
-	);
+	--iq_bal0: iq_balancer_16 port map(
+		--i_i => i_dpd_tx,
+		--q_i => q_dpd_tx,
+		--ib_i => regs_rw(I_GAIN),
+		--qb_i => regs_rw(Q_GAIN),
+		--i_o => i_bal_tx,
+		--q_o	=> q_bal_tx
+	--);
 	
-	iq_offset0: iq_offset port map(
-		i_i => i_bal_tx,
-		q_i => q_bal_tx,
-		ai_i => regs_rw(I_OFFS_NULL),
-		aq_i => regs_rw(Q_OFFS_NULL),
-		i_o => i_offs_tx,
-		q_o => q_offs_tx
-	);
+	--iq_offset0: iq_offset port map(
+		--i_i => i_bal_tx,
+		--q_i => q_bal_tx,
+		--ai_i => regs_rw(I_OFFS_NULL),
+		--aq_i => regs_rw(Q_OFFS_NULL),
+		--i_o => i_offs_tx,
+		--q_o => q_offs_tx
+	--);
+	i_offs_tx <= i_raw_tx;
+	q_offs_tx <= q_raw_tx;
 
 	-- DDR TX queue
 	zero_insert0: zero_insert port map(
@@ -811,11 +822,11 @@ begin
 		ena => '1',
 		rw => spi_rw,
 		ld => regs_latch,
-		clk_i => clk_38
+		clk_i => clk_64
 	);
 	
 	ctrl_regs0: ctrl_regs port map(
-		clk_i => clk_i,
+		clk_i => clk_64,
 		nrst => nrst,
 		addr_i => spi_addr_r,
 		data_i => spi_rx_r,
@@ -826,32 +837,33 @@ begin
 		regs_r => regs_r
 	);
 	
-	clk_div_in_samp: clk_div_block
-	generic map(
-		DIV => 400/8
-	)
-	port map(
-		clk_i => zero_word,
-		clk_o => samp_clk
-	);
+	--clk_div_in_samp: clk_div_block
+	--generic map(
+		--DIV => 400/8
+	--)
+	--port map(
+		--clk_i => zero_word,
+		--clk_o => samp_clk
+	--);
 
-	mod_in_r <= fifo_in_data_o when regs_rw(CR_2)(11)='1' else regs_rw(MOD_IN);
-	fifo_in_data_i <= reg_data_wr when unsigned(reg_addr)=MOD_IN else (others => '0');
+	mod_in_r <= regs_rw(MOD_IN) when rising_edge(clk_64);
+	--mod_in_r <= fifo_in_data_o when regs_rw(CR_2)(11)='1' else regs_rw(MOD_IN);
+	--fifo_in_data_i <= reg_data_wr when unsigned(reg_addr)=MOD_IN else (others => '0');
 	
 	-- TODO: finish this
-	fifo_in: fifo port map(
-		rd_clk_i => samp_clk,
-		rd_en_i => '1',
-		rp_rst_i => '0',
-		rst_i => not nrst or (not regs_rw(CR_2)(1) and regs_rw(CR_2)(0)),
-		wr_clk_i => regs_latch,
-		wr_data_i => fifo_in_data_i,
-		wr_en_i => '1',
-		almost_empty_o => fifo_in_ae,
-		--empty_o => ,
-		--full_o => ,
-		rd_data_o => fifo_in_data_o
-	);
+	--fifo_in: fifo port map(
+		--rd_clk_i => samp_clk,
+		--rd_en_i => '1',
+		--rp_rst_i => '0',
+		--rst_i => not nrst or (not regs_rw(CR_2)(1) and regs_rw(CR_2)(0)),
+		--wr_clk_i => regs_latch,
+		--wr_data_i => fifo_in_data_i,
+		--wr_en_i => '1',
+		--almost_empty_o => fifo_in_ae,
+		----empty_o => ,
+		----full_o => ,
+		--rd_data_o => fifo_in_data_o
+	--);
 	
 	-- additional connections
 	regs_r(SR_1) <= REV_MAJOR & REV_MINOR; -- revision number
@@ -876,7 +888,7 @@ begin
 	   drdy					when "100",
 	   fifo_in_ae			when "101",
        '1'					when others;
-	--io4 <= ;
-	--io5 <= ;
-	--io6 <= ;
+	--io4 <= clk_64;
+	--io5 <= clk_i;
+	io6 <= '0';
 end magic;

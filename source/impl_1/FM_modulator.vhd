@@ -3,7 +3,7 @@
 --
 -- Wojciech Kaczmarski, SP5WWP
 -- M17 Project
--- May 2023
+-- June 2023
 -------------------------------------------------------------
 library IEEE;
 use IEEE.std_logic_1164.all;
@@ -11,7 +11,7 @@ use IEEE.numeric_std.all;
 
 entity fm_modulator is
 	generic(
-		DIV : integer := 95							-- set to satisfy clk_i/DIV=400k
+		DIV : integer								-- set to satisfy clk_i/DIV=400k
 	);
 	port(
 		nrst	: in std_logic;						-- reset
