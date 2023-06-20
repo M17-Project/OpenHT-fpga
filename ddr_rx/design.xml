@@ -28,8 +28,8 @@
                     <ipxact:configurableElementValue referenceId="CLOCK_PATH_DELAY">FIXED</ipxact:configurableElementValue>
                     <ipxact:configurableElementValue referenceId="INCLUDE_GDDR_SYNC">False</ipxact:configurableElementValue>
                     <ipxact:configurableElementValue referenceId="TRISTATE_EN">False</ipxact:configurableElementValue>
-                    <ipxact:configurableElementValue referenceId="CLK_FREQ">128.0</ipxact:configurableElementValue>
-                    <ipxact:configurableElementValue referenceId="BANDTWIDTH">256.0</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CLK_FREQ">100.0</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="BANDTWIDTH">200.0</ipxact:configurableElementValue>
                     <ipxact:configurableElementValue referenceId="PLL_ENABLE">False</ipxact:configurableElementValue>
                     <ipxact:configurableElementValue referenceId="gui_refclk_freq">25.0</ipxact:configurableElementValue>
                     <ipxact:configurableElementValue referenceId="gui_clk_op_freq_disp">150</ipxact:configurableElementValue>
