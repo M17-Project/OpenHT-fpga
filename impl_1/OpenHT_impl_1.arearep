@@ -1,492 +1,37 @@
 ----------------------------------------------------------------------
 Report for cell main_all.TECH
-Register bits:  14586 of 32256 (45.219%)
-I/O cells:      15
+Register bits:  519 of 32256 (1.609%)
+I/O cells:      11
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               CCU2      1238          100.0
-                             DELAYB         2          100.0
-                            DPR16X4        16          100.0
-                            FD1P3BX         2          100.0
-                            FD1P3DX     14194          100.0
-                            FD1P3IX       387          100.0
-                            FD1P3JX         3          100.0
+                               CCU2       175          100.0
+                            FD1P3DX       173          100.0
+                            FD1P3IX       341          100.0
+                            FD1P3JX         5          100.0
                                 GSR         1          100.0
-                                 IB         8          100.0
-                             IDDRX1         2          100.0
-                               LUT4      8964          100.0
-                          MULT18X18        29          100.0
-                          MULT18X36         4          100.0
-                    MULTADDSUB18X18         2          100.0
-                MULTADDSUB18X18WIDE         2          100.0
-                    MULTADDSUB18X36         2          100.0
-                                 OB         7          100.0
+                                 IB         5          100.0
+                               LUT4      1745          100.0
+                                 OB         6          100.0
+                                OBZ         1          100.0
                              ODDRX1         2          100.0
-                             PDP16K         1          100.0
-                                PLL         2          100.0
-                            WIDEFN9      6169          100.0
+                                PLL         1          100.0
+                            WIDEFN9       423          100.0
 SUB MODULES
-                     channel_filter         1
-              clk_div_block(div=50)         1
-                        complex_mul         1
                       ctcss_encoder         1
                           ctrl_regs         1
-                             ddr_rx         1
-                         ddr_rx_U13         1
-ddr_rx_ipgen_lscc_gddr(INTERFACE_TYPE="RECEIVE",IO_TYPE="LVDS",BUS_WIDTH=1,GEARING=1,OUT_WIDTH=1,CLK_FREQ=128.0,DATA_PATH_DELAY="BYPASS",CLOCK_PATH_DELAY="FIXED",DATA_DELAY_ADJUSTMENT="DEFAULT",DATA_FINE_DELAY_VALUE="0",DATA_COARSE_DELAY_VALUE="0NS",CLOCK_DATA_RELATION="CENTERED",FVCO=900.0,CLKI_FREQ=25.0,CLKOP_FREQ_ACTUAL=150.0,CLKOS_EN=1,CLKOP_BYPASS=1,CLKOS2_BYPASS=1,CLKOS3_BYPASS=1,CLKOS4_BYPASS=1,CLKOS5_BYPASS=1,PLL_RST=1,LOCK_EN=1,FBCLK_DIVIDER_ACTUAL_STR="6",DIVOP_ACTUAL_STR="5",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000000110",DELA="5",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b0100",CSET="24P",CRIPPLE="3P",IPP_CTRL="0b0100",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K")         1
-ddr_rx_ipgen_lscc_gddr(INTERFACE_TYPE="RECEIVE",IO_TYPE="LVDS",BUS_WIDTH=1,GEARING=1,OUT_WIDTH=1,CLK_FREQ=128.0,DATA_PATH_DELAY="BYPASS",CLOCK_PATH_DELAY="FIXED",DATA_DELAY_ADJUSTMENT="DEFAULT",DATA_FINE_DELAY_VALUE="0",DATA_COARSE_DELAY_VALUE="0NS",CLOCK_DATA_RELATION="CENTERED",FVCO=900.0,CLKI_FREQ=25.0,CLKOP_FREQ_ACTUAL=150.0,CLKOS_EN=1,CLKOP_BYPASS=1,CLKOS2_BYPASS=1,CLKOS3_BYPASS=1,CLKOS4_BYPASS=1,CLKOS5_BYPASS=1,PLL_RST=1,LOCK_EN=1,FBCLK_DIVIDER_ACTUAL_STR="6",DIVOP_ACTUAL_STR="5",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000000110",DELA="5",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b0100",CSET="24P",CRIPPLE="3P",IPP_CTRL="0b0100",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K")_U2         1
-ddr_rx_ipgen_lscc_gddr_rx_sclk_centered_static_bypass(BUS_WIDTH=1)         1
-ddr_rx_ipgen_lscc_gddr_rx_sclk_centered_static_bypass(BUS_WIDTH=1)_U0         1
                              ddr_tx         1
-ddr_tx_ipgen_lscc_gddr(INTERFACE_TYPE="TRANSMIT",IO_TYPE="LVDS",BUS_WIDTH=1,GEARING=1,IN_WIDTH=1,CLK_FREQ=128.0,DATA_PATH_DELAY="BYPASS",CLOCK_PATH_DELAY="FIXED",DATA_DELAY_ADJUSTMENT="DEFAULT",DATA_FINE_DELAY_VALUE="0",DATA_COARSE_DELAY_VALUE="0NS",CLOCK_DATA_RELATION="ALIGNED",FVCO=900.0,CLKI_FREQ=25.0,CLKOP_FREQ_ACTUAL=150.0,CLKOS_EN=1,CLKOP_BYPASS=1,CLKOS2_BYPASS=1,CLKOS3_BYPASS=1,CLKOS4_BYPASS=1,CLKOS5_BYPASS=1,PLL_RST=1,LOCK_EN=1,FBCLK_DIVIDER_ACTUAL_STR="6",DIVOP_ACTUAL_STR="5",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000000110",DELA="5",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b0100",CSET="24P",CRIPPLE="3P",IPP_CTRL="0b0100",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K")         1
+ddr_tx_ipgen_lscc_gddr(INTERFACE_TYPE="TRANSMIT",IO_TYPE="LVDS",BUS_WIDTH=1,GEARING=1,IN_WIDTH=1,CLK_FREQ=100.0,DATA_PATH_DELAY="BYPASS",CLOCK_PATH_DELAY="FIXED",DATA_DELAY_ADJUSTMENT="DEFAULT",DATA_FINE_DELAY_VALUE="0",DATA_COARSE_DELAY_VALUE="0NS",CLOCK_DATA_RELATION="ALIGNED",FVCO=900.0,CLKI_FREQ=25.0,CLKOP_FREQ_ACTUAL=150.0,CLKOS_EN=1,CLKOP_BYPASS=1,CLKOS2_BYPASS=1,CLKOS3_BYPASS=1,CLKOS4_BYPASS=1,CLKOS5_BYPASS=1,PLL_RST=1,LOCK_EN=1,FBCLK_DIVIDER_ACTUAL_STR="6",DIVOP_ACTUAL_STR="5",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000000110",DELA="5",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b0100",CSET="24P",CRIPPLE="3P",IPP_CTRL="0b0100",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K")         1
 ddr_tx_ipgen_lscc_gddr_tx_sclk_aligned_static_bypass(BUS_WIDTH=1)         1
-                              decim         1
-                     decim(decim=2)         1
-                 decim(decim=2)_U11         1
-                 decim(decim=2)_U12         1
-                        delay_block         1
-                       dither_adder         1
-                      dither_source         1
-                                dpd         1
-                               fifo         1
-fifo_ipgen_lscc_fifo_dc(WADDR_DEPTH=32,WADDR_WIDTH=5,WDATA_WIDTH=16,RADDR_DEPTH=32,RADDR_WIDTH=5,RDATA_WIDTH=16,REGMODE="noreg",ENABLE_ALMOST_FULL_FLAG="FALSE",ALMOST_FULL_ASSERT_LVL=31,ALMOST_FULL_DEASSERT_LVL=30,ALMOST_EMPTY_ASSERTION="static-single",ALMOST_EMPTY_ASSERT_LVL=15,ALMOST_EMPTY_DEASSERT_LVL=16)         1
-fifo_ipgen_lscc_fifo_dc_main(WADDR_DEPTH=32,WADDR_WIDTH=5,WDATA_WIDTH=16,RADDR_DEPTH=32,RADDR_WIDTH=5,RDATA_WIDTH=16,REGMODE="noreg",ENABLE_ALMOST_FULL_FLAG="FALSE",ALMOST_FULL_ASSERT_LVL=31,ALMOST_FULL_DEASSERT_LVL=30,ALMOST_EMPTY_ASSERTION="static-single",ALMOST_EMPTY_ASSERT_LVL=15,ALMOST_EMPTY_DEASSERT_LVL=16)         1
-fifo_ipgen_lscc_fifo_mem(FAMILY="LIFCL",WADDR_DEPTH=32,WADDR_WIDTH=5,WDATA_WIDTH=16,RADDR_DEPTH=32,RADDR_WIDTH=5,RDATA_WIDTH=16,REGMODE="noreg",RESETMODE="async",BYTE_ENABLE=0,BYTE_WIDTH=1)         1
-fifo_ipgen_lscc_fifo_mem_core(MEM_SIZE="18,1024",FAMILY="LIFCL",DATA_WIDTH_W=32'b010010,DATA_WIDTH_R=32'b010010,REGMODE="noreg",RESETMODE="async",BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)         1
-fifo_ipgen_lscc_fifo_mem_main(FAMILY="LIFCL",WADDR_DEPTH=32,WADDR_WIDTH=5,WDATA_WIDTH=16,RADDR_DEPTH=32,RADDR_WIDTH=5,RDATA_WIDTH=16,REGMODE="noreg",RESETMODE="async",BYTE_ENABLE=0,BYTE_SIZE=9,BYTE_WIDTH=1)         1
-fifo_ipgen_lscc_soft_fifo_dc(WADDR_DEPTH=32,WADDR_WIDTH=5,WDATA_WIDTH=16,RADDR_DEPTH=32,RADDR_WIDTH=5,RDATA_WIDTH=16,REGMODE="noreg",ENABLE_ALMOST_FULL_FLAG="FALSE",ALMOST_FULL_ASSERT_LVL=31,ALMOST_FULL_DEASSERT_LVL=30,ALMOST_EMPTY_ASSERTION="static-single",ALMOST_EMPTY_ASSERT_LVL=15,ALMOST_EMPTY_DEASSERT_LVL=16)         1
-                   fir_channel_12_5         1
-               fir_channel_12_5_U10         1
-                     fir_channel_25         1
-                  fir_channel_25_U9         1
-                   fir_channel_6_25         1
-                       fir_halfband         1
-                    fir_halfband_U4         1
-                    fir_halfband_U5         1
-                    fir_halfband_U6         1
-                    fir_halfband_U7         1
-                    fir_halfband_U8         1
-                        fir_hilbert         1
-                           fir_rssi         1
-                       fm_modulator         1
-                         freq_demod         1
-                     iq_balancer_16         1
-                             iq_des         1
-                          iq_offset         1
-                          local_osc         1
-                            mag_est         1
+              fm_modulator(div=160)         1
                             mod_sel         1
                             pll_osc         1
 pll_osc_ipgen_lscc_pll(FVCO=1216.0,CLKI_FREQ=26.0,CLKOP_FREQ_ACTUAL=152.0,CLKOS_FREQ_ACTUAL=64.0,CLKOS2_FREQ_ACTUAL=38.0,CLKOS_EN=1,CLKOS2_EN=1,FRAC_N_EN=1,PLL_RST=1,LOCK_EN=1,FBK_MODE="INTCLKOP",FBCLK_DIVIDER_ACTUAL_STR="46",DIVOP_ACTUAL_STR="7",DIVOS_ACTUAL_STR="18",DIVOS2_ACTUAL_STR="31",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000101110",SSC_F_CODE_STR="0b110001001111000",DELA="7",DELB="18",DELC="31",DELD="7",DELE="7",DELF="7",IPI_CMP="0b1100",CSET="8P",CRIPPLE="1P",IPP_CTRL="0b0110",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K")         1
-                           pll_samp         1
-pll_samp_ipgen_lscc_pll(FVCO=921.6,CLKI_FREQ=28.0,CLKOP_FREQ_ACTUAL=7.2,FRAC_N_EN=1,PLL_RST=1,LOCK_EN=1,FBK_MODE="INTCLKOP",FBCLK_DIVIDER_ACTUAL_STR="32",DIVOP_ACTUAL_STR="127",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000100000",SSC_F_CODE_STR="0b111010100001000",DELA="127",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b1100",CSET="8P",CRIPPLE="1P",IPP_CTRL="0b0110",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K")         1
-                       pm_modulator         1
-                           rssi_est         1
-                       sideband_sel         1
                           sincos_16         1
-                       sincos_16_U1         1
-                       sincos_16_U3         1
+                       sincos_16_U0         1
                           spi_slave         1
                              unpack         1
                         zero_insert         1
-                              TOTAL     31100
-----------------------------------------------------------------------
-Report for cell complex_mul.v1
-Instance Path : mix0
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               CCU2        15            1.2
-                            FD1P3DX        16            0.1
-                          MULT18X18         3           10.3
-                    MULTADDSUB18X18         1           50.0
-                              TOTAL        35
-----------------------------------------------------------------------
-Report for cell pll_samp.v1
-Instance Path : pll1
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               LUT4         7            0.1
-                                PLL         1           50.0
-SUB MODULES
-pll_samp_ipgen_lscc_pll(FVCO=921.6,CLKI_FREQ=28.0,CLKOP_FREQ_ACTUAL=7.2,FRAC_N_EN=1,PLL_RST=1,LOCK_EN=1,FBK_MODE="INTCLKOP",FBCLK_DIVIDER_ACTUAL_STR="32",DIVOP_ACTUAL_STR="127",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000100000",SSC_F_CODE_STR="0b111010100001000",DELA="127",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b1100",CSET="8P",CRIPPLE="1P",IPP_CTRL="0b0110",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K")         1
-                              TOTAL         9
-----------------------------------------------------------------------
-Report for cell pll_samp_ipgen_lscc_pll(FVCO=921.6,CLKI_FREQ=28.0,CLKOP_FREQ_ACTUAL=7.2,FRAC_N_EN=1,PLL_RST=1,LOCK_EN=1,FBK_MODE="INTCLKOP",FBCLK_DIVIDER_ACTUAL_STR="32",DIVOP_ACTUAL_STR="127",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000100000",SSC_F_CODE_STR="0b111010100001000",DELA="127",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b1100",CSET="8P",CRIPPLE="1P",IPP_CTRL="0b0110",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K").v1
-Instance Path : pll1.lscc_pll_inst
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               LUT4         7            0.1
-                                PLL         1           50.0
-                              TOTAL         8
-----------------------------------------------------------------------
-Report for cell clk_div_block(div=50).v1
-Instance Path : clk_div_in_samp
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               CCU2        34            2.7
-                            FD1P3DX        65            0.5
-                               LUT4        43            0.5
-                              TOTAL       142
-----------------------------------------------------------------------
-Report for cell ctrl_regs.v1
-Instance Path : ctrl_regs0
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                            FD1P3DX        66            0.5
-                            FD1P3IX       161           41.6
-                            FD1P3JX         1           33.3
-                               LUT4       195            2.2
-                            WIDEFN9        66            1.1
-                              TOTAL       489
-----------------------------------------------------------------------
-Report for cell ddr_rx_U13.v1
-Instance Path : ddr_rx0
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                             DELAYB         1           50.0
-                             IDDRX1         1           50.0
-SUB MODULES
-ddr_rx_ipgen_lscc_gddr(INTERFACE_TYPE="RECEIVE",IO_TYPE="LVDS",BUS_WIDTH=1,GEARING=1,OUT_WIDTH=1,CLK_FREQ=128.0,DATA_PATH_DELAY="BYPASS",CLOCK_PATH_DELAY="FIXED",DATA_DELAY_ADJUSTMENT="DEFAULT",DATA_FINE_DELAY_VALUE="0",DATA_COARSE_DELAY_VALUE="0NS",CLOCK_DATA_RELATION="CENTERED",FVCO=900.0,CLKI_FREQ=25.0,CLKOP_FREQ_ACTUAL=150.0,CLKOS_EN=1,CLKOP_BYPASS=1,CLKOS2_BYPASS=1,CLKOS3_BYPASS=1,CLKOS4_BYPASS=1,CLKOS5_BYPASS=1,PLL_RST=1,LOCK_EN=1,FBCLK_DIVIDER_ACTUAL_STR="6",DIVOP_ACTUAL_STR="5",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000000110",DELA="5",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b0100",CSET="24P",CRIPPLE="3P",IPP_CTRL="0b0100",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K")_U2         1
-ddr_rx_ipgen_lscc_gddr_rx_sclk_centered_static_bypass(BUS_WIDTH=1)_U0         1
-                              TOTAL         4
-----------------------------------------------------------------------
-Report for cell ddr_rx_ipgen_lscc_gddr(INTERFACE_TYPE="RECEIVE",IO_TYPE="LVDS",BUS_WIDTH=1,GEARING=1,OUT_WIDTH=1,CLK_FREQ=128.0,DATA_PATH_DELAY="BYPASS",CLOCK_PATH_DELAY="FIXED",DATA_DELAY_ADJUSTMENT="DEFAULT",DATA_FINE_DELAY_VALUE="0",DATA_COARSE_DELAY_VALUE="0NS",CLOCK_DATA_RELATION="CENTERED",FVCO=900.0,CLKI_FREQ=25.0,CLKOP_FREQ_ACTUAL=150.0,CLKOS_EN=1,CLKOP_BYPASS=1,CLKOS2_BYPASS=1,CLKOS3_BYPASS=1,CLKOS4_BYPASS=1,CLKOS5_BYPASS=1,PLL_RST=1,LOCK_EN=1,FBCLK_DIVIDER_ACTUAL_STR="6",DIVOP_ACTUAL_STR="5",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000000110",DELA="5",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b0100",CSET="24P",CRIPPLE="3P",IPP_CTRL="0b0100",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K")_U2.v1
-Instance Path : ddr_rx0.lscc_gddr_inst
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                             DELAYB         1           50.0
-                             IDDRX1         1           50.0
-SUB MODULES
-ddr_rx_ipgen_lscc_gddr_rx_sclk_centered_static_bypass(BUS_WIDTH=1)_U0         1
-                              TOTAL         3
-----------------------------------------------------------------------
-Report for cell ddr_rx_ipgen_lscc_gddr_rx_sclk_centered_static_bypass(BUS_WIDTH=1)_U0.v1
-Instance Path : ddr_rx0.lscc_gddr_inst.RX_SCLK_CENTERED_STATIC_BYPASS.u_lscc_gddr_rx_sclk_centered_static_bypass
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                             DELAYB         1           50.0
-                             IDDRX1         1           50.0
-                              TOTAL         2
-----------------------------------------------------------------------
-Report for cell dpd.v1
-Instance Path : dpd0
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               CCU2       120            9.7
-                               LUT4        34            0.4
-                          MULT18X18         6           20.7
-                          MULT18X36         4          100.0
-                    MULTADDSUB18X36         2          100.0
-                              TOTAL       166
-----------------------------------------------------------------------
-Report for cell local_osc.v1
-Instance Path : lo0
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                            FD1P3DX        15            0.1
-                               LUT4       105            1.2
-                            WIDEFN9         1            0.0
-                              TOTAL       121
-----------------------------------------------------------------------
-Report for cell iq_des.v1
-Instance Path : iq_des0
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                            FD1P3DX        29            0.2
-                            FD1P3IX        51           13.2
-                               LUT4        75            0.8
-                              TOTAL       155
-----------------------------------------------------------------------
-Report for cell fir_hilbert.v1
-Instance Path : hilbert0
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               CCU2        21            1.7
-                            FD1P3DX      1386            9.8
-                            FD1P3IX         1            0.3
-                               LUT4       344            3.8
-                          MULT18X18         1            3.4
-                            WIDEFN9       428            6.9
-                              TOTAL      2181
-----------------------------------------------------------------------
-Report for cell dither_source.v1
-Instance Path : dither_source0
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                            FD1P3DX        32            0.2
-                               LUT4         1            0.0
-                    MULTADDSUB18X18         1           50.0
-                              TOTAL        34
-----------------------------------------------------------------------
-Report for cell mod_sel.v1
-Instance Path : tx_mod_sel0
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               CCU2        18            1.5
-                               LUT4        72            0.8
-                            WIDEFN9        31            0.5
-                              TOTAL       121
-----------------------------------------------------------------------
-Report for cell spi_slave.v1
-Instance Path : spi_slave0
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               CCU2        12            1.0
-                            FD1P3DX        86            0.6
-                            FD1P3IX         9            2.3
-                            FD1P3JX         1           33.3
-                               LUT4       140            1.6
-                            WIDEFN9         1            0.0
-                              TOTAL       249
-----------------------------------------------------------------------
-Report for cell unpack.v1
-Instance Path : unpack0
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                            FD1P3DX        28            0.2
-                            FD1P3IX        15            3.9
-                               LUT4        38            0.4
-                              TOTAL        81
-----------------------------------------------------------------------
-Report for cell mag_est.v1
-Instance Path : am_demod0
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               CCU2        21            1.7
-                            FD1P3DX        42            0.3
-                            FD1P3IX         7            1.8
-                               LUT4        54            0.6
-                          MULT18X18         1            3.4
-                MULTADDSUB18X18WIDE         1           50.0
-                            WIDEFN9        16            0.3
-                              TOTAL       142
-----------------------------------------------------------------------
-Report for cell zero_insert.v1
-Instance Path : zero_insert0
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               CCU2         5            0.4
-                            FD1P3DX         1            0.0
-                            FD1P3IX         8            2.1
-                               LUT4         6            0.1
-                              TOTAL        20
-----------------------------------------------------------------------
-Report for cell channel_filter.v1
-Instance Path : channel_flt0
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               CCU2       234           18.9
-                            FD1P3DX     10911           76.9
-                            FD1P3IX        23            5.9
-                            FD1P3JX         1           33.3
-                               LUT4      3378           37.7
-                          MULT18X18        13           44.8
-                            WIDEFN9      4427           71.8
-SUB MODULES
-                     decim(decim=2)         1
-                 decim(decim=2)_U11         1
-                 decim(decim=2)_U12         1
-                   fir_channel_12_5         1
-               fir_channel_12_5_U10         1
-                     fir_channel_25         1
-                  fir_channel_25_U9         1
-                   fir_channel_6_25         1
-                       fir_halfband         1
-                    fir_halfband_U4         1
-                    fir_halfband_U5         1
-                    fir_halfband_U6         1
-                    fir_halfband_U7         1
-                    fir_halfband_U8         1
-                              TOTAL     19001
-----------------------------------------------------------------------
-Report for cell fir_halfband.v1
-Instance Path : channel_flt0.q_fir_hb2
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               CCU2        20            1.6
-                            FD1P3DX      1303            9.2
-                            FD1P3IX         2            0.5
-                               LUT4       271            3.0
-                          MULT18X18         1            3.4
-                            WIDEFN9       394            6.4
-                              TOTAL      1991
-----------------------------------------------------------------------
-Report for cell fir_halfband_U4.v1
-Instance Path : channel_flt0.q_fir_hb1
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               CCU2        20            1.6
-                            FD1P3DX      1303            9.2
-                            FD1P3IX         2            0.5
-                               LUT4       263            2.9
-                          MULT18X18         1            3.4
-                            WIDEFN9       395            6.4
-                              TOTAL      1984
-----------------------------------------------------------------------
-Report for cell fir_halfband_U5.v1
-Instance Path : channel_flt0.q_fir_hb0
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               CCU2        20            1.6
-                            FD1P3DX      1368            9.6
-                            FD1P3IX         2            0.5
-                               LUT4       273            3.0
-                          MULT18X18         1            3.4
-                            WIDEFN9       421            6.8
-                              TOTAL      2085
-----------------------------------------------------------------------
-Report for cell fir_channel_25.v1
-Instance Path : channel_flt0.q_fir_ch2
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               CCU2        21            1.7
-                            FD1P3DX        92            0.6
-                            FD1P3IX         1            0.3
-                               LUT4       270            3.0
-                          MULT18X18         1            3.4
-                            WIDEFN9       393            6.4
-                              TOTAL       778
-----------------------------------------------------------------------
-Report for cell fir_channel_12_5.v1
-Instance Path : channel_flt0.q_fir_ch0
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               CCU2        21            1.7
-                            FD1P3DX      1303            9.2
-                            FD1P3IX         1            0.3
-                               LUT4       290            3.2
-                          MULT18X18         2            6.9
-                            WIDEFN9       403            6.5
-                              TOTAL      2020
-----------------------------------------------------------------------
-Report for cell fir_halfband_U6.v1
-Instance Path : channel_flt0.i_fir_hb2
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               CCU2        20            1.6
-                            FD1P3DX      1299            9.2
-                            FD1P3IX         1            0.3
-                               LUT4       333            3.7
-                          MULT18X18         1            3.4
-                            WIDEFN9       398            6.5
-                              TOTAL      2052
-----------------------------------------------------------------------
-Report for cell fir_halfband_U7.v1
-Instance Path : channel_flt0.i_fir_hb1
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               CCU2        20            1.6
-                            FD1P3DX      1299            9.2
-                            FD1P3IX         1            0.3
-                               LUT4       334            3.7
-                          MULT18X18         1            3.4
-                            WIDEFN9       396            6.4
-                              TOTAL      2051
-----------------------------------------------------------------------
-Report for cell fir_halfband_U8.v1
-Instance Path : channel_flt0.i_fir_hb0
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               CCU2        20            1.6
-                            FD1P3DX      1364            9.6
-                            FD1P3IX         1            0.3
-                               LUT4       268            3.0
-                          MULT18X18         1            3.4
-                            WIDEFN9       422            6.8
-                              TOTAL      2076
-----------------------------------------------------------------------
-Report for cell fir_channel_25_U9.v1
-Instance Path : channel_flt0.i_fir_ch2
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               CCU2        21            1.7
-                            FD1P3DX        88            0.6
-                            FD1P3IX         1            0.3
-                               LUT4       272            3.0
-                          MULT18X18         1            3.4
-                            WIDEFN9       393            6.4
-                              TOTAL       776
-----------------------------------------------------------------------
-Report for cell fir_channel_12_5_U10.v1
-Instance Path : channel_flt0.i_fir_ch1
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               CCU2        21            1.7
-                            FD1P3DX        88            0.6
-                            FD1P3IX         1            0.3
-                               LUT4       291            3.2
-                          MULT18X18         2            6.9
-                            WIDEFN9       403            6.5
-                              TOTAL       806
-----------------------------------------------------------------------
-Report for cell fir_channel_6_25.v1
-Instance Path : channel_flt0.i_fir_ch0
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               CCU2        30            2.4
-                            FD1P3DX      1303            9.2
-                            FD1P3IX         1            0.3
-                               LUT4       450            5.0
-                          MULT18X18         1            3.4
-                            WIDEFN9       408            6.6
-                              TOTAL      2193
-----------------------------------------------------------------------
-Report for cell decim(decim=2).v1
-Instance Path : channel_flt0.decim2
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                            FD1P3DX        33            0.2
-                            FD1P3IX         3            0.8
-                            FD1P3JX         1           33.3
-                               LUT4         5            0.1
-                              TOTAL        42
-----------------------------------------------------------------------
-Report for cell decim(decim=2)_U11.v1
-Instance Path : channel_flt0.decim1
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                            FD1P3DX        34            0.2
-                            FD1P3IX         3            0.8
-                               LUT4         5            0.1
-                              TOTAL        42
-----------------------------------------------------------------------
-Report for cell decim(decim=2)_U12.v1
-Instance Path : channel_flt0.decim0
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                            FD1P3DX        34            0.2
-                            FD1P3IX         3            0.8
-                               LUT4         5            0.1
-                              TOTAL        42
-----------------------------------------------------------------------
-Report for cell fir_rssi.v1
-Instance Path : rssi_fir0
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               CCU2        21            1.7
-                            FD1P3DX      1305            9.2
-                            FD1P3IX         1            0.3
-                               LUT4       296            3.3
-                          MULT18X18         1            3.4
-                            WIDEFN9       401            6.5
-                              TOTAL      2025
-----------------------------------------------------------------------
-Report for cell sideband_sel.v1
-Instance Path : sb_sel0
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               CCU2         9            0.7
-                               LUT4        16            0.2
-                              TOTAL        25
-----------------------------------------------------------------------
-Report for cell decim.v1
-Instance Path : decim0
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                            FD1P3DX        19            0.1
-                            FD1P3IX         8            2.1
-                               LUT4         9            0.1
-                              TOTAL        36
+                              TOTAL      2892
 ----------------------------------------------------------------------
 Report for cell ddr_tx.v1
 Instance Path : ddr_tx0
@@ -494,11 +39,11 @@ Instance Path : ddr_tx0
                                cell     count   Res Usage(%)
                              ODDRX1         2          100.0
 SUB MODULES
-ddr_tx_ipgen_lscc_gddr(INTERFACE_TYPE="TRANSMIT",IO_TYPE="LVDS",BUS_WIDTH=1,GEARING=1,IN_WIDTH=1,CLK_FREQ=128.0,DATA_PATH_DELAY="BYPASS",CLOCK_PATH_DELAY="FIXED",DATA_DELAY_ADJUSTMENT="DEFAULT",DATA_FINE_DELAY_VALUE="0",DATA_COARSE_DELAY_VALUE="0NS",CLOCK_DATA_RELATION="ALIGNED",FVCO=900.0,CLKI_FREQ=25.0,CLKOP_FREQ_ACTUAL=150.0,CLKOS_EN=1,CLKOP_BYPASS=1,CLKOS2_BYPASS=1,CLKOS3_BYPASS=1,CLKOS4_BYPASS=1,CLKOS5_BYPASS=1,PLL_RST=1,LOCK_EN=1,FBCLK_DIVIDER_ACTUAL_STR="6",DIVOP_ACTUAL_STR="5",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000000110",DELA="5",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b0100",CSET="24P",CRIPPLE="3P",IPP_CTRL="0b0100",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K")         1
+ddr_tx_ipgen_lscc_gddr(INTERFACE_TYPE="TRANSMIT",IO_TYPE="LVDS",BUS_WIDTH=1,GEARING=1,IN_WIDTH=1,CLK_FREQ=100.0,DATA_PATH_DELAY="BYPASS",CLOCK_PATH_DELAY="FIXED",DATA_DELAY_ADJUSTMENT="DEFAULT",DATA_FINE_DELAY_VALUE="0",DATA_COARSE_DELAY_VALUE="0NS",CLOCK_DATA_RELATION="ALIGNED",FVCO=900.0,CLKI_FREQ=25.0,CLKOP_FREQ_ACTUAL=150.0,CLKOS_EN=1,CLKOP_BYPASS=1,CLKOS2_BYPASS=1,CLKOS3_BYPASS=1,CLKOS4_BYPASS=1,CLKOS5_BYPASS=1,PLL_RST=1,LOCK_EN=1,FBCLK_DIVIDER_ACTUAL_STR="6",DIVOP_ACTUAL_STR="5",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000000110",DELA="5",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b0100",CSET="24P",CRIPPLE="3P",IPP_CTRL="0b0100",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K")         1
 ddr_tx_ipgen_lscc_gddr_tx_sclk_aligned_static_bypass(BUS_WIDTH=1)         1
                               TOTAL         4
 ----------------------------------------------------------------------
-Report for cell ddr_tx_ipgen_lscc_gddr(INTERFACE_TYPE="TRANSMIT",IO_TYPE="LVDS",BUS_WIDTH=1,GEARING=1,IN_WIDTH=1,CLK_FREQ=128.0,DATA_PATH_DELAY="BYPASS",CLOCK_PATH_DELAY="FIXED",DATA_DELAY_ADJUSTMENT="DEFAULT",DATA_FINE_DELAY_VALUE="0",DATA_COARSE_DELAY_VALUE="0NS",CLOCK_DATA_RELATION="ALIGNED",FVCO=900.0,CLKI_FREQ=25.0,CLKOP_FREQ_ACTUAL=150.0,CLKOS_EN=1,CLKOP_BYPASS=1,CLKOS2_BYPASS=1,CLKOS3_BYPASS=1,CLKOS4_BYPASS=1,CLKOS5_BYPASS=1,PLL_RST=1,LOCK_EN=1,FBCLK_DIVIDER_ACTUAL_STR="6",DIVOP_ACTUAL_STR="5",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000000110",DELA="5",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b0100",CSET="24P",CRIPPLE="3P",IPP_CTRL="0b0100",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K").v1
+Report for cell ddr_tx_ipgen_lscc_gddr(INTERFACE_TYPE="TRANSMIT",IO_TYPE="LVDS",BUS_WIDTH=1,GEARING=1,IN_WIDTH=1,CLK_FREQ=100.0,DATA_PATH_DELAY="BYPASS",CLOCK_PATH_DELAY="FIXED",DATA_DELAY_ADJUSTMENT="DEFAULT",DATA_FINE_DELAY_VALUE="0",DATA_COARSE_DELAY_VALUE="0NS",CLOCK_DATA_RELATION="ALIGNED",FVCO=900.0,CLKI_FREQ=25.0,CLKOP_FREQ_ACTUAL=150.0,CLKOS_EN=1,CLKOP_BYPASS=1,CLKOS2_BYPASS=1,CLKOS3_BYPASS=1,CLKOS4_BYPASS=1,CLKOS5_BYPASS=1,PLL_RST=1,LOCK_EN=1,FBCLK_DIVIDER_ACTUAL_STR="6",DIVOP_ACTUAL_STR="5",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000000110",DELA="5",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b0100",CSET="24P",CRIPPLE="3P",IPP_CTRL="0b0100",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K").v1
 Instance Path : ddr_tx0.lscc_gddr_inst
                                   Cell usage:
                                cell     count   Res Usage(%)
@@ -514,239 +59,105 @@ Instance Path : ddr_tx0.lscc_gddr_inst.TX_SCLK_ALIGNED_STATIC_BYPASS.u_lscc_gddr
                              ODDRX1         2          100.0
                               TOTAL         2
 ----------------------------------------------------------------------
-Report for cell delay_block.v1
-Instance Path : delay_block0
+Report for cell fm_modulator(div=160).v1
+Instance Path : freq_mod0
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               CCU2         4            0.3
-                            FD1P3DX         8            0.1
-                               LUT4        14            0.2
-                              TOTAL        26
-----------------------------------------------------------------------
-Report for cell iq_balancer_16.v1
-Instance Path : iq_bal0
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               CCU2        38            3.1
-                               LUT4         4            0.0
-                          MULT18X18         2            6.9
-                              TOTAL        44
-----------------------------------------------------------------------
-Report for cell pm_modulator.v1
-Instance Path : pm_mod0
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               CCU2        64            5.2
-                               LUT4       784            8.7
-                            WIDEFN9       276            4.5
+                               CCU2       101           57.7
+                            FD1P3DX        25           14.5
+                            FD1P3IX        41           12.0
+                               LUT4       889           50.9
+                            WIDEFN9       224           53.0
 SUB MODULES
                           sincos_16         1
-                              TOTAL      1125
+                              TOTAL      1281
 ----------------------------------------------------------------------
 Report for cell sincos_16.v1
-Instance Path : pm_mod0.sincos_lut0
+Instance Path : freq_mod0.sincos_lut0
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               CCU2        64            5.2
-                               LUT4       784            8.7
-                            WIDEFN9       276            4.5
-                              TOTAL      1124
+                               CCU2        60           34.3
+                               LUT4       835           47.9
+                            WIDEFN9       212           50.1
+                              TOTAL      1107
 ----------------------------------------------------------------------
-Report for cell fifo.v1
-Instance Path : fifo_in
+Report for cell unpack.v1
+Instance Path : unpack0
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               CCU2        12            1.0
-                            FD1P3BX         2          100.0
-                            FD1P3DX        47            0.3
-                               LUT4        51            0.6
-                             PDP16K         1          100.0
-                            WIDEFN9         2            0.0
-SUB MODULES
-fifo_ipgen_lscc_fifo_dc(WADDR_DEPTH=32,WADDR_WIDTH=5,WDATA_WIDTH=16,RADDR_DEPTH=32,RADDR_WIDTH=5,RDATA_WIDTH=16,REGMODE="noreg",ENABLE_ALMOST_FULL_FLAG="FALSE",ALMOST_FULL_ASSERT_LVL=31,ALMOST_FULL_DEASSERT_LVL=30,ALMOST_EMPTY_ASSERTION="static-single",ALMOST_EMPTY_ASSERT_LVL=15,ALMOST_EMPTY_DEASSERT_LVL=16)         1
-fifo_ipgen_lscc_fifo_dc_main(WADDR_DEPTH=32,WADDR_WIDTH=5,WDATA_WIDTH=16,RADDR_DEPTH=32,RADDR_WIDTH=5,RDATA_WIDTH=16,REGMODE="noreg",ENABLE_ALMOST_FULL_FLAG="FALSE",ALMOST_FULL_ASSERT_LVL=31,ALMOST_FULL_DEASSERT_LVL=30,ALMOST_EMPTY_ASSERTION="static-single",ALMOST_EMPTY_ASSERT_LVL=15,ALMOST_EMPTY_DEASSERT_LVL=16)         1
-fifo_ipgen_lscc_fifo_mem(FAMILY="LIFCL",WADDR_DEPTH=32,WADDR_WIDTH=5,WDATA_WIDTH=16,RADDR_DEPTH=32,RADDR_WIDTH=5,RDATA_WIDTH=16,REGMODE="noreg",RESETMODE="async",BYTE_ENABLE=0,BYTE_WIDTH=1)         1
-fifo_ipgen_lscc_fifo_mem_core(MEM_SIZE="18,1024",FAMILY="LIFCL",DATA_WIDTH_W=32'b010010,DATA_WIDTH_R=32'b010010,REGMODE="noreg",RESETMODE="async",BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)         1
-fifo_ipgen_lscc_fifo_mem_main(FAMILY="LIFCL",WADDR_DEPTH=32,WADDR_WIDTH=5,WDATA_WIDTH=16,RADDR_DEPTH=32,RADDR_WIDTH=5,RDATA_WIDTH=16,REGMODE="noreg",RESETMODE="async",BYTE_ENABLE=0,BYTE_SIZE=9,BYTE_WIDTH=1)         1
-fifo_ipgen_lscc_soft_fifo_dc(WADDR_DEPTH=32,WADDR_WIDTH=5,WDATA_WIDTH=16,RADDR_DEPTH=32,RADDR_WIDTH=5,RDATA_WIDTH=16,REGMODE="noreg",ENABLE_ALMOST_FULL_FLAG="FALSE",ALMOST_FULL_ASSERT_LVL=31,ALMOST_FULL_DEASSERT_LVL=30,ALMOST_EMPTY_ASSERTION="static-single",ALMOST_EMPTY_ASSERT_LVL=15,ALMOST_EMPTY_DEASSERT_LVL=16)         1
-                              TOTAL       121
+                            FD1P3DX        28           16.2
+                            FD1P3IX        15            4.4
+                               LUT4        35            2.0
+                              TOTAL        78
 ----------------------------------------------------------------------
-Report for cell fifo_ipgen_lscc_fifo_dc(WADDR_DEPTH=32,WADDR_WIDTH=5,WDATA_WIDTH=16,RADDR_DEPTH=32,RADDR_WIDTH=5,RDATA_WIDTH=16,REGMODE="noreg",ENABLE_ALMOST_FULL_FLAG="FALSE",ALMOST_FULL_ASSERT_LVL=31,ALMOST_FULL_DEASSERT_LVL=30,ALMOST_EMPTY_ASSERTION="static-single",ALMOST_EMPTY_ASSERT_LVL=15,ALMOST_EMPTY_DEASSERT_LVL=16).v1
-Instance Path : fifo_in.lscc_fifo_dc_inst
+Report for cell mod_sel.v1
+Instance Path : tx_mod_sel0
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               CCU2        12            1.0
-                            FD1P3BX         2          100.0
-                            FD1P3DX        47            0.3
-                               LUT4        51            0.6
-                             PDP16K         1          100.0
-                            WIDEFN9         2            0.0
-SUB MODULES
-fifo_ipgen_lscc_fifo_dc_main(WADDR_DEPTH=32,WADDR_WIDTH=5,WDATA_WIDTH=16,RADDR_DEPTH=32,RADDR_WIDTH=5,RDATA_WIDTH=16,REGMODE="noreg",ENABLE_ALMOST_FULL_FLAG="FALSE",ALMOST_FULL_ASSERT_LVL=31,ALMOST_FULL_DEASSERT_LVL=30,ALMOST_EMPTY_ASSERTION="static-single",ALMOST_EMPTY_ASSERT_LVL=15,ALMOST_EMPTY_DEASSERT_LVL=16)         1
-fifo_ipgen_lscc_fifo_mem(FAMILY="LIFCL",WADDR_DEPTH=32,WADDR_WIDTH=5,WDATA_WIDTH=16,RADDR_DEPTH=32,RADDR_WIDTH=5,RDATA_WIDTH=16,REGMODE="noreg",RESETMODE="async",BYTE_ENABLE=0,BYTE_WIDTH=1)         1
-fifo_ipgen_lscc_fifo_mem_core(MEM_SIZE="18,1024",FAMILY="LIFCL",DATA_WIDTH_W=32'b010010,DATA_WIDTH_R=32'b010010,REGMODE="noreg",RESETMODE="async",BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)         1
-fifo_ipgen_lscc_fifo_mem_main(FAMILY="LIFCL",WADDR_DEPTH=32,WADDR_WIDTH=5,WDATA_WIDTH=16,RADDR_DEPTH=32,RADDR_WIDTH=5,RDATA_WIDTH=16,REGMODE="noreg",RESETMODE="async",BYTE_ENABLE=0,BYTE_SIZE=9,BYTE_WIDTH=1)         1
-fifo_ipgen_lscc_soft_fifo_dc(WADDR_DEPTH=32,WADDR_WIDTH=5,WDATA_WIDTH=16,RADDR_DEPTH=32,RADDR_WIDTH=5,RDATA_WIDTH=16,REGMODE="noreg",ENABLE_ALMOST_FULL_FLAG="FALSE",ALMOST_FULL_ASSERT_LVL=31,ALMOST_FULL_DEASSERT_LVL=30,ALMOST_EMPTY_ASSERTION="static-single",ALMOST_EMPTY_ASSERT_LVL=15,ALMOST_EMPTY_DEASSERT_LVL=16)         1
-                              TOTAL       120
+                            FD1P3IX        26            7.6
+                               LUT4        13            0.7
+                              TOTAL        39
 ----------------------------------------------------------------------
-Report for cell fifo_ipgen_lscc_fifo_dc_main(WADDR_DEPTH=32,WADDR_WIDTH=5,WDATA_WIDTH=16,RADDR_DEPTH=32,RADDR_WIDTH=5,RDATA_WIDTH=16,REGMODE="noreg",ENABLE_ALMOST_FULL_FLAG="FALSE",ALMOST_FULL_ASSERT_LVL=31,ALMOST_FULL_DEASSERT_LVL=30,ALMOST_EMPTY_ASSERTION="static-single",ALMOST_EMPTY_ASSERT_LVL=15,ALMOST_EMPTY_DEASSERT_LVL=16).v1
-Instance Path : fifo_in.lscc_fifo_dc_inst.fifo_dc0
+Report for cell spi_slave.v1
+Instance Path : spi_slave0
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               CCU2        12            1.0
-                            FD1P3BX         2          100.0
-                            FD1P3DX        47            0.3
-                               LUT4        51            0.6
-                             PDP16K         1          100.0
-                            WIDEFN9         2            0.0
-SUB MODULES
-fifo_ipgen_lscc_fifo_mem(FAMILY="LIFCL",WADDR_DEPTH=32,WADDR_WIDTH=5,WDATA_WIDTH=16,RADDR_DEPTH=32,RADDR_WIDTH=5,RDATA_WIDTH=16,REGMODE="noreg",RESETMODE="async",BYTE_ENABLE=0,BYTE_WIDTH=1)         1
-fifo_ipgen_lscc_fifo_mem_core(MEM_SIZE="18,1024",FAMILY="LIFCL",DATA_WIDTH_W=32'b010010,DATA_WIDTH_R=32'b010010,REGMODE="noreg",RESETMODE="async",BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)         1
-fifo_ipgen_lscc_fifo_mem_main(FAMILY="LIFCL",WADDR_DEPTH=32,WADDR_WIDTH=5,WDATA_WIDTH=16,RADDR_DEPTH=32,RADDR_WIDTH=5,RDATA_WIDTH=16,REGMODE="noreg",RESETMODE="async",BYTE_ENABLE=0,BYTE_SIZE=9,BYTE_WIDTH=1)         1
-fifo_ipgen_lscc_soft_fifo_dc(WADDR_DEPTH=32,WADDR_WIDTH=5,WDATA_WIDTH=16,RADDR_DEPTH=32,RADDR_WIDTH=5,RDATA_WIDTH=16,REGMODE="noreg",ENABLE_ALMOST_FULL_FLAG="FALSE",ALMOST_FULL_ASSERT_LVL=31,ALMOST_FULL_DEASSERT_LVL=30,ALMOST_EMPTY_ASSERTION="static-single",ALMOST_EMPTY_ASSERT_LVL=15,ALMOST_EMPTY_DEASSERT_LVL=16)         1
-                              TOTAL       119
+                               CCU2        12            6.9
+                            FD1P3DX        86           49.7
+                            FD1P3IX        10            2.9
+                            FD1P3JX         1           20.0
+                               LUT4       109            6.2
+                                OBZ         1          100.0
+                              TOTAL       219
 ----------------------------------------------------------------------
-Report for cell fifo_ipgen_lscc_soft_fifo_dc(WADDR_DEPTH=32,WADDR_WIDTH=5,WDATA_WIDTH=16,RADDR_DEPTH=32,RADDR_WIDTH=5,RDATA_WIDTH=16,REGMODE="noreg",ENABLE_ALMOST_FULL_FLAG="FALSE",ALMOST_FULL_ASSERT_LVL=31,ALMOST_FULL_DEASSERT_LVL=30,ALMOST_EMPTY_ASSERTION="static-single",ALMOST_EMPTY_ASSERT_LVL=15,ALMOST_EMPTY_DEASSERT_LVL=16).v1
-Instance Path : fifo_in.lscc_fifo_dc_inst.fifo_dc0._FABRIC.u_fifo
+Report for cell zero_insert.v1
+Instance Path : zero_insert0
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               CCU2        12            1.0
-                            FD1P3BX         2          100.0
-                            FD1P3DX        47            0.3
-                               LUT4        51            0.6
-                             PDP16K         1          100.0
-                            WIDEFN9         2            0.0
-SUB MODULES
-fifo_ipgen_lscc_fifo_mem(FAMILY="LIFCL",WADDR_DEPTH=32,WADDR_WIDTH=5,WDATA_WIDTH=16,RADDR_DEPTH=32,RADDR_WIDTH=5,RDATA_WIDTH=16,REGMODE="noreg",RESETMODE="async",BYTE_ENABLE=0,BYTE_WIDTH=1)         1
-fifo_ipgen_lscc_fifo_mem_core(MEM_SIZE="18,1024",FAMILY="LIFCL",DATA_WIDTH_W=32'b010010,DATA_WIDTH_R=32'b010010,REGMODE="noreg",RESETMODE="async",BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)         1
-fifo_ipgen_lscc_fifo_mem_main(FAMILY="LIFCL",WADDR_DEPTH=32,WADDR_WIDTH=5,WDATA_WIDTH=16,RADDR_DEPTH=32,RADDR_WIDTH=5,RDATA_WIDTH=16,REGMODE="noreg",RESETMODE="async",BYTE_ENABLE=0,BYTE_SIZE=9,BYTE_WIDTH=1)         1
-                              TOTAL       118
-----------------------------------------------------------------------
-Report for cell fifo_ipgen_lscc_fifo_mem(FAMILY="LIFCL",WADDR_DEPTH=32,WADDR_WIDTH=5,WDATA_WIDTH=16,RADDR_DEPTH=32,RADDR_WIDTH=5,RDATA_WIDTH=16,REGMODE="noreg",RESETMODE="async",BYTE_ENABLE=0,BYTE_WIDTH=1).v1
-Instance Path : fifo_in.lscc_fifo_dc_inst.fifo_dc0._FABRIC.u_fifo.EBR.EBR_LIFCL.u_fifo_mem0
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                             PDP16K         1          100.0
-SUB MODULES
-fifo_ipgen_lscc_fifo_mem_core(MEM_SIZE="18,1024",FAMILY="LIFCL",DATA_WIDTH_W=32'b010010,DATA_WIDTH_R=32'b010010,REGMODE="noreg",RESETMODE="async",BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)         1
-fifo_ipgen_lscc_fifo_mem_main(FAMILY="LIFCL",WADDR_DEPTH=32,WADDR_WIDTH=5,WDATA_WIDTH=16,RADDR_DEPTH=32,RADDR_WIDTH=5,RDATA_WIDTH=16,REGMODE="noreg",RESETMODE="async",BYTE_ENABLE=0,BYTE_SIZE=9,BYTE_WIDTH=1)         1
-                              TOTAL         3
-----------------------------------------------------------------------
-Report for cell fifo_ipgen_lscc_fifo_mem_main(FAMILY="LIFCL",WADDR_DEPTH=32,WADDR_WIDTH=5,WDATA_WIDTH=16,RADDR_DEPTH=32,RADDR_WIDTH=5,RDATA_WIDTH=16,REGMODE="noreg",RESETMODE="async",BYTE_ENABLE=0,BYTE_SIZE=9,BYTE_WIDTH=1).v1
-Instance Path : fifo_in.lscc_fifo_dc_inst.fifo_dc0._FABRIC.u_fifo.EBR.EBR_LIFCL.u_fifo_mem0.mem_main
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                             PDP16K         1          100.0
-SUB MODULES
-fifo_ipgen_lscc_fifo_mem_core(MEM_SIZE="18,1024",FAMILY="LIFCL",DATA_WIDTH_W=32'b010010,DATA_WIDTH_R=32'b010010,REGMODE="noreg",RESETMODE="async",BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)         1
-                              TOTAL         2
-----------------------------------------------------------------------
-Report for cell fifo_ipgen_lscc_fifo_mem_core(MEM_SIZE="18,1024",FAMILY="LIFCL",DATA_WIDTH_W=32'b010010,DATA_WIDTH_R=32'b010010,REGMODE="noreg",RESETMODE="async",BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0).v1
-Instance Path : fifo_in.lscc_fifo_dc_inst.fifo_dc0._FABRIC.u_fifo.EBR.EBR_LIFCL.u_fifo_mem0.mem_main.NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                             PDP16K         1          100.0
-                              TOTAL         1
+                               CCU2         5            2.9
+                            FD1P3DX         1            0.6
+                            FD1P3IX         8            2.3
+                               LUT4         6            0.3
+                              TOTAL        20
 ----------------------------------------------------------------------
 Report for cell ctcss_encoder.v1
 Instance Path : ctcss_enc0
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               CCU2        48            3.9
-                            FD1P3IX        21            5.4
-                               LUT4       599            6.7
-                            WIDEFN9       149            2.4
+                               CCU2        48           27.4
+                            FD1P3DX         2            1.2
+                            FD1P3IX        21            6.2
+                               LUT4       599           34.3
+                            WIDEFN9       149           35.2
 SUB MODULES
-                       sincos_16_U3         1
-                              TOTAL       818
+                       sincos_16_U0         1
+                              TOTAL       820
 ----------------------------------------------------------------------
-Report for cell sincos_16_U3.v1
+Report for cell sincos_16_U0.v1
 Instance Path : ctcss_enc0.sincos_lut0
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               CCU2        37            3.0
-                               LUT4       597            6.7
-                            WIDEFN9       149            2.4
+                               CCU2        37           21.1
+                               LUT4       597           34.2
+                            WIDEFN9       149           35.2
                               TOTAL       783
 ----------------------------------------------------------------------
-Report for cell fm_modulator.v1
-Instance Path : freq_mod0
+Report for cell ctrl_regs.v1
+Instance Path : ctrl_regs0
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               CCU2       119            9.6
-                            FD1P3DX        31            0.2
-                            FD1P3IX        30            7.8
-                               LUT4       944           10.5
-                            WIDEFN9       246            4.0
-SUB MODULES
-                       dither_adder         1
-                       sincos_16_U1         1
-                              TOTAL      1372
-----------------------------------------------------------------------
-Report for cell sincos_16_U1.v1
-Instance Path : freq_mod0.sincos_lut0
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               CCU2        64            5.2
-                               LUT4       855            9.5
-                            WIDEFN9       231            3.7
-                              TOTAL      1150
-----------------------------------------------------------------------
-Report for cell dither_adder.v1
-Instance Path : freq_mod0.phase_dither0
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               CCU2        11            0.9
-                            FD1P3IX         1            0.3
-                              TOTAL        12
-----------------------------------------------------------------------
-Report for cell ddr_rx.v1
-Instance Path : ddr_rx1
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                             DELAYB         1           50.0
-                             IDDRX1         1           50.0
-SUB MODULES
-ddr_rx_ipgen_lscc_gddr(INTERFACE_TYPE="RECEIVE",IO_TYPE="LVDS",BUS_WIDTH=1,GEARING=1,OUT_WIDTH=1,CLK_FREQ=128.0,DATA_PATH_DELAY="BYPASS",CLOCK_PATH_DELAY="FIXED",DATA_DELAY_ADJUSTMENT="DEFAULT",DATA_FINE_DELAY_VALUE="0",DATA_COARSE_DELAY_VALUE="0NS",CLOCK_DATA_RELATION="CENTERED",FVCO=900.0,CLKI_FREQ=25.0,CLKOP_FREQ_ACTUAL=150.0,CLKOS_EN=1,CLKOP_BYPASS=1,CLKOS2_BYPASS=1,CLKOS3_BYPASS=1,CLKOS4_BYPASS=1,CLKOS5_BYPASS=1,PLL_RST=1,LOCK_EN=1,FBCLK_DIVIDER_ACTUAL_STR="6",DIVOP_ACTUAL_STR="5",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000000110",DELA="5",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b0100",CSET="24P",CRIPPLE="3P",IPP_CTRL="0b0100",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K")         1
-ddr_rx_ipgen_lscc_gddr_rx_sclk_centered_static_bypass(BUS_WIDTH=1)         1
-                              TOTAL         4
-----------------------------------------------------------------------
-Report for cell ddr_rx_ipgen_lscc_gddr(INTERFACE_TYPE="RECEIVE",IO_TYPE="LVDS",BUS_WIDTH=1,GEARING=1,OUT_WIDTH=1,CLK_FREQ=128.0,DATA_PATH_DELAY="BYPASS",CLOCK_PATH_DELAY="FIXED",DATA_DELAY_ADJUSTMENT="DEFAULT",DATA_FINE_DELAY_VALUE="0",DATA_COARSE_DELAY_VALUE="0NS",CLOCK_DATA_RELATION="CENTERED",FVCO=900.0,CLKI_FREQ=25.0,CLKOP_FREQ_ACTUAL=150.0,CLKOS_EN=1,CLKOP_BYPASS=1,CLKOS2_BYPASS=1,CLKOS3_BYPASS=1,CLKOS4_BYPASS=1,CLKOS5_BYPASS=1,PLL_RST=1,LOCK_EN=1,FBCLK_DIVIDER_ACTUAL_STR="6",DIVOP_ACTUAL_STR="5",DIVOS_ACTUAL_STR="7",DIVOS2_ACTUAL_STR="7",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000000110",DELA="5",DELB="7",DELC="7",DELD="7",DELE="7",DELF="7",IPI_CMP="0b0100",CSET="24P",CRIPPLE="3P",IPP_CTRL="0b0100",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K").v1
-Instance Path : ddr_rx1.lscc_gddr_inst
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                             DELAYB         1           50.0
-                             IDDRX1         1           50.0
-SUB MODULES
-ddr_rx_ipgen_lscc_gddr_rx_sclk_centered_static_bypass(BUS_WIDTH=1)         1
-                              TOTAL         3
-----------------------------------------------------------------------
-Report for cell ddr_rx_ipgen_lscc_gddr_rx_sclk_centered_static_bypass(BUS_WIDTH=1).v1
-Instance Path : ddr_rx1.lscc_gddr_inst.RX_SCLK_CENTERED_STATIC_BYPASS.u_lscc_gddr_rx_sclk_centered_static_bypass
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                             DELAYB         1           50.0
-                             IDDRX1         1           50.0
-                              TOTAL         2
-----------------------------------------------------------------------
-Report for cell freq_demod.v1
-Instance Path : fm_demod0
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               CCU2       366           29.6
-                            FD1P3DX        60            0.4
-                            FD1P3IX        16            4.1
-                               LUT4      1550           17.3
-                          MULT18X18         2            6.9
-                MULTADDSUB18X18WIDE         1           50.0
-                            WIDEFN9        93            1.5
-                              TOTAL      2088
+                            FD1P3DX         3            1.7
+                            FD1P3IX       220           64.5
+                            FD1P3JX         4           80.0
+                               LUT4        88            5.0
+                            WIDEFN9        50           11.8
+                              TOTAL       365
 ----------------------------------------------------------------------
 Report for cell pll_osc.v1
 Instance Path : pll0
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                PLL         1           50.0
+                                PLL         1          100.0
 SUB MODULES
 pll_osc_ipgen_lscc_pll(FVCO=1216.0,CLKI_FREQ=26.0,CLKOP_FREQ_ACTUAL=152.0,CLKOS_FREQ_ACTUAL=64.0,CLKOS2_FREQ_ACTUAL=38.0,CLKOS_EN=1,CLKOS2_EN=1,FRAC_N_EN=1,PLL_RST=1,LOCK_EN=1,FBK_MODE="INTCLKOP",FBCLK_DIVIDER_ACTUAL_STR="46",DIVOP_ACTUAL_STR="7",DIVOS_ACTUAL_STR="18",DIVOS2_ACTUAL_STR="31",DIVOS3_ACTUAL_STR="7",DIVOS4_ACTUAL_STR="7",DIVOS5_ACTUAL_STR="7",SSC_N_CODE_STR="0b000101110",SSC_F_CODE_STR="0b110001001111000",DELA="7",DELB="18",DELC="31",DELD="7",DELE="7",DELF="7",IPI_CMP="0b1100",CSET="8P",CRIPPLE="1P",IPP_CTRL="0b0110",BW_CTL_BIAS="0b1111",V2I_PP_RES="9K")         1
                               TOTAL         2
@@ -755,24 +166,5 @@ Report for cell pll_osc_ipgen_lscc_pll(FVCO=1216.0,CLKI_FREQ=26.0,CLKOP_FREQ_ACT
 Instance Path : pll0.lscc_pll_inst
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                PLL         1           50.0
+                                PLL         1          100.0
                               TOTAL         1
-----------------------------------------------------------------------
-Report for cell rssi_est.v1
-Instance Path : rssi0
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               CCU2        50            4.0
-                            FD1P3DX        35            0.2
-                            FD1P3IX        36            9.3
-                               LUT4        30            0.3
-                            WIDEFN9        15            0.2
-                              TOTAL       166
-----------------------------------------------------------------------
-Report for cell iq_offset.v1
-Instance Path : iq_offset0
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               CCU2        18            1.5
-                               LUT4        26            0.3
-                              TOTAL        44

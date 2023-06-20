@@ -4,7 +4,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
-Sat Jun 10 12:53:40 2023
+Tue Jun 20 11:08:27 2023
 
 
 Command: bitgen -w -g REGISTER_INIT:ON -s C:/Users/SP5WWP/Documents/Radiant/OpenHT/security_setting/OpenHT.secproj -gui OpenHT_impl_1.udb 

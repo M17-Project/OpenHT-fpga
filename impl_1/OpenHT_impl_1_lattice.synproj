@@ -2,7 +2,7 @@
 -p LIFCL-40
 -t QFN72
 -sp "9_High-Performance_1.0V"
--frequency 200
+
 -optimization_goal Timing
 -bram_utilization 100
 -ramstyle Auto
@@ -23,7 +23,7 @@
 -loop_limit 1950
 
 
-
+-print_trimmed_nets
 
 
 

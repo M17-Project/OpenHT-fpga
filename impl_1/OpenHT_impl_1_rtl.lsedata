@@ -1,20 +1,14 @@
 <top name = "main_all"  library = "work"  arch = "RTL"  entry = "VHDL">
 
 <clocks>
-    <clockitem name = "clk_i"  type = "port" />
-    <clockitem name = "clk_38"  type = "net" />
     <clockitem name = "clk_64"  type = "net" />
+    <clockitem name = "clk_i"  type = "port" />
     <clockitem name = "clk_rx_i"  type = "port" />
-    <clockitem name = "clk_152"  type = "net" />
-    <clockitem name = "drdyd"  type = "net" />
-    <clockitem name = "zero_word"  type = "net" />
-    <clockitem name = "regs_latch"  type = "net" />
-    <clockitem name = "samp_clk"  type = "net" />
 </clocks>
 
 <!--
     //=============================================================
-    //  Number of Clocks processed: 9
+    //  Number of Clocks processed: 3
     //
     //  If a clock cannot be found in the top level pins section,
     //  that means it is an internal clock.

@@ -1,19 +1,13 @@
 ###File created by Lattice CPE. Do not modify.###
 set_hierarchy_separator /
-#create_clock -name {clk_i} -period 7.8125 [get_pins {ddr_rx0/clk_i }]
+#create_clock -name {clk_i} -period 10 [get_pins {ddr_rx0/clk_i }]
 ##Original File: C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_rx/constraints/ddr_rx.ldc
-#create_clock -name {clk_i} -period 7.8125 [get_pins {ddr_rx1/clk_i }]
+#create_clock -name {clk_i} -period 10 [get_pins {ddr_rx1/clk_i }]
 ##Original File: C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_rx/constraints/ddr_rx.ldc
-#create_clock -name {clk_i} -period 7.8125 [get_pins {ddr_tx0/clk_i }]
+#create_clock -name {clk_i} -period 10 [get_pins {ddr_tx0/clk_i }]
 ##Original File: C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_rx/constraints/ddr_rx.ldc
-#create_clock -name {rd_clk_i} -period 40 [get_pins {fifo_in/rd_clk_i }]
-##Original File: C:/Users/SP5WWP/Documents/Radiant/OpenHT/fifo/constraints/fifo.ldc
-#create_clock -name {wr_clk_i} -period 40 [get_pins {fifo_in/wr_clk_i }]
-##Original File: C:/Users/SP5WWP/Documents/Radiant/OpenHT/fifo/constraints/fifo.ldc
 #create_clock -name {clki_i} -period 38.462 [get_pins {pll0/clki_i }]
 ##Original File: C:/Users/SP5WWP/Documents/Radiant/OpenHT/pll_osc/constraints/pll_osc.ldc
-#create_clock -name {clki_i} -period 35.714 [get_pins {pll1/clki_i }]
-##Original File: C:/Users/SP5WWP/Documents/Radiant/OpenHT/pll_samp/constraints/pll_samp.ldc
 #For PLL
 ##Original File: C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_rx/constraints/ddr_rx.ldc
 #For DDR
@@ -38,11 +32,5 @@ ldc_set_port -iobuf {IO_TYPE=LVDS} [get_ports clk_tx_o]
 ##Original File: C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_tx/constraints/ddr_tx.ldc
 ldc_set_port -iobuf {IO_TYPE=LVDS} [get_ports data_tx_o]
 ##Original File: C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_tx/constraints/ddr_tx.ldc
-set_false_path -through [get_pins {fifo_in/lscc_fifo_dc_inst/rst_i }]
-##Original File: C:/Users/SP5WWP/Documents/Radiant/OpenHT/fifo/constraints/fifo.ldc
-set_false_path -through [get_pins {fifo_in/lscc_fifo_dc_inst/rp_rst_i }]
-##Original File: C:/Users/SP5WWP/Documents/Radiant/OpenHT/fifo/constraints/fifo.ldc
-# IO_TYPE constraint - Refclk
-##Original File: C:/Users/SP5WWP/Documents/Radiant/OpenHT/pll_osc/constraints/pll_osc.ldc
 # IO_TYPE constraint - Refclk
 ##Original File: C:/Users/SP5WWP/Documents/Radiant/OpenHT/pll_osc/constraints/pll_osc.ldc
