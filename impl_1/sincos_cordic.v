@@ -1,5 +1,5 @@
 // Verilog netlist produced by program LSE 
-// Netlist written on Wed Jun 21 13:33:20 2023
+// Netlist written on Tue Jun 20 15:45:57 2023
 // Source file index table: 
 // Object locations will have the form @<file_index>(<first_ line>[<left_column>],<last_line>[<right_column>])
 // file 0 "c:/radiant/ip/avant/fifo/rtl/lscc_fifo.v"
@@ -133,20 +133,25 @@
 // file 128 "c:/radiant/cae_library/simulation/verilog/uaplatform/pclkdivsp.v"
 // file 129 "c:/radiant/cae_library/simulation/verilog/uaplatform/spr16x4.v"
 // file 130 "c:/radiant/cae_library/simulation/verilog/uaplatform/widefn9.v"
+// file 131 "c:/users/sp5wwp/documents/radiant/openht/sincos_cordic/cordicatan.rom"
 
 //
-// Verilog Description of module ddr_tx
+// Verilog Description of module sincos_cordic
 // module wrapper written out since it is a black-box. 
 //
 
 //
 
-module ddr_tx (rst_i, data_i, clk_i, data_o, clk_o);
-    input rst_i;
-    input [1:0]data_i;
+module sincos_cordic (xout_o, phasein_i, rfi_o, inpvalid_i, clk_i, 
+            yout_o, rst_n_i, outvalid_o);
+    output [15:0]xout_o;
+    input [15:0]phasein_i;
+    output rfi_o;
+    input inpvalid_i;
     input clk_i;
-    output [0:0]data_o;
-    output clk_o;
+    output [15:0]yout_o;
+    input rst_n_i;
+    output outvalid_o;
     
     
     

@@ -1,0 +1,8 @@
+-ver "C:/Radiant/ip/pmi/pmi_lifcl.v"
+-lib pmi -vhd "C:/Radiant/ip/pmi/pmi_lifcl.vhd"
+-ver "C:/Users/SP5WWP/Documents/Radiant/OpenHT/sincos_cordic/rtl/sincos_cordic.v"
+-sdc "C:/Users/SP5WWP/Documents/Radiant/OpenHT/sincos_cordic/constraints/sincos_cordic.ldc"
+-path "C:/Users/SP5WWP/Documents/Radiant/OpenHT/sincos_cordic" "C:/Users/SP5WWP/Documents/Radiant/OpenHT"
+-vh2008
+-top sincos_cordic
+-a "LIFCL"

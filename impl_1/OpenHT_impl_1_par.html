@@ -42,7 +42,7 @@ if (a)
 <DIV id="content" onclick="hideTocList()"><PRE>
 <A name="Par"></A>Copyright (c) 2002-2022 Lattice Semiconductor Corporation,  All rights reserved.
 
-Tue Jun 20 11:08:05 2023
+Wed Jun 21 13:33:40 2023
 
 Command Line: par -w -n 1 -t 1 -s 1 -cores 12 -sp 9_High-Performance_1.0V -hsp \
 	9_High-Performance_1.0V -exp parPathBased=ON OpenHT_impl_1_map.udb \
@@ -53,15 +53,15 @@ Command Line: par -w -n 1 -t 1 -s 1 -cores 12 -sp 9_High-Performance_1.0V -hsp \
 Level/       Number       Worst        Timing       Worst        Timing       Run          Run
 Cost [udb]   Unrouted     Slack        Score        Slack(hold)  Score(hold)  Time         Status
 ----------   --------     -----        ------       -----------  -----------  ----         ------
-5_1   *      0            6.640        0            0.272        0            20           Completed
+5_1   *      0            6.119        0            0.272        0            20           Completed
 * : Design saved.
 
-Total (real) run time for 1-seed: 20 secs 
+Total (real) run time for 1-seed: 21 secs 
 
 par done!
 
 Lattice Place and Route Report for Design &quot;OpenHT_impl_1_map.udb&quot;
-Tue Jun 20 11:08:05 2023
+Wed Jun 21 13:33:40 2023
 
 
 <A name="par_best"></A><B><U><big>Best Par Run</big></U></B>
@@ -114,7 +114,7 @@ WARNING - par: Top module port &apos;io1&apos; does not connect to anything.
 WARNING - par: Top module port &apos;io2&apos; does not connect to anything.
 
 Device SLICE utilization summary after final SLICE packing:
-   SLICE           2612/16128        16% used
+   SLICE           2478/16128        15% used
 
 WARNING - par: Unable to find the instance/port &apos;io0&apos; in the constraint &apos;ldc_set_location -site {44} [get_ports io0]&apos;
 
@@ -165,11 +165,17 @@ WARNING - par: Unable to find the instance/port &apos;data_rx09_i&apos; in the c
 WARNING - par: In the constraint &apos;ldc_set_location -site {27} [get_ports data_rx09_i]&apos;, the locate object is not specified
 
 Number of Signals: 3131
-Number of Connections: 11679
+Number of Connections: 11222
 
 <A name="par_dus"></A><B><U><big>Device utilization summary:</big></U></B>
 
+   GSR                   1/1           100% used
    VHI                   1/1           100% used
+   MULT9                 2/112           1% used
+   MULT18                1/56            1% used
+   REG18                 2/112           1% used
+   ACC54                 1/28            3% used
+   PREADD9               2/112           1% used
    DIFFIO18              2/37            5% used
                          2/11           18% bonded
    IOLOGIC               2/74            2% used
@@ -178,29 +184,31 @@ Number of Connections: 11679
    SEIO33               10/39           25% used
                         10/17           58% bonded
    PLL                   1/3            33% used
-   SLICE              2612/16128        16% used
-     LUT              2909/32256         9% used
-     REG               519/32256         1% used
+   SLICE              2478/16128        15% used
+     LUT              2619/32256         8% used
+     REG               575/32256         1% used
 
 
 Pin Constraint Summary:
    12 out of 12 pins locked (100% locked).
-Starting Placer Phase 0 (HIER). CPU time: 3 secs , REAL time: 4 secs 
-..........
-Finished Placer Phase 0 (HIER). CPU time: 3 secs , REAL time: 4 secs 
 
-Starting Placer Phase 1. CPU time: 4 secs , REAL time: 4 secs 
+Starting Placer Phase 0 (HIER). CPU time: 4 secs , REAL time: 4 secs 
+...........
+Finished Placer Phase 0 (HIER). CPU time: 4 secs , REAL time: 5 secs 
+
+
+Starting Placer Phase 1. CPU time: 4 secs , REAL time: 5 secs 
 ..  ..
 .....................
 
-Placer score = 812521.
-Finished Placer Phase 1. CPU time: 9 secs , REAL time: 10 secs 
+Placer score = 796093.
+Finished Placer Phase 1. CPU time: 10 secs , REAL time: 11 secs 
 
 Starting Placer Phase 2.
 .
 
-Placer score =  782583
-Finished Placer Phase 2.  CPU time: 10 secs , REAL time: 11 secs 
+Placer score =  776860
+Finished Placer Phase 2.  CPU time: 11 secs , REAL time: 12 secs 
 
 After final PLC packing legalization, all 0 SLICEs that were not satisfying 1 CLK/CE/LSR per HALF-PLC restriction are all placed into compatible PLCs.
 
@@ -219,9 +227,10 @@ Global Clock Resources:
   PCIE       : 0 out of 1 (0%)
 
 Global Clocks:
-  PRIMARY &quot;clk_64&quot; from CLKOS on comp &quot;pll0.lscc_pll_inst.gen_no_refclk_mon.u_PLL.PLL_inst&quot; on PLL site &quot;PLL_ULC&quot;, clk load = 494, ce load = 0, sr load = 0
+  PRIMARY &quot;io4_c&quot; from CLKOS on comp &quot;pll0.lscc_pll_inst.gen_no_refclk_mon.u_PLL.PLL_inst&quot; on PLL site &quot;PLL_ULC&quot;, clk load = 538, ce load = 0, sr load = 0
+  PRIMARY &quot;regs_latch&quot; from Q0 on comp &quot;spi_slave0.SLICE_842&quot; on site &quot;R38C49A&quot;, clk load = 12, ce load = 0, sr load = 0
 
-  PRIMARY  : 1 out of 16 (6%)
+  PRIMARY  : 2 out of 16 (12%)
 
 Edge Clocks:
 
@@ -253,7 +262,7 @@ I/O Bank Usage Summary:
 | 5        | 0 / 10 (  0%) | -          | -          | -          |
 +----------+---------------+------------+------------+------------+
 
-Total Placer CPU time: 10 secs , REAL time: 11 secs 
+Total Placer CPU time: 11 secs , REAL time: 12 secs 
 
 Writing design to file OpenHT_impl_1_par.dir/5_1.udb ...
 
@@ -282,7 +291,7 @@ WARNING - par: Unable to find the instance/port &apos;data_rx09_i&apos; in the c
 WARNING - par: In the constraint &apos;ldc_set_location -site {27} [get_ports data_rx09_i]&apos;, the locate object is not specified
 
 
-Start NBR router at 11:08:16 06/20/23
+Start NBR router at 13:33:52 06/21/23
 
 *****************************************************************
 Info: NBR allows conflicts(one node used by more than one signal)
@@ -300,81 +309,71 @@ Note: NBR uses a different method to calculate timing slacks. The
 Starting routing resource preassignment
 Preassignment Summary:
 --------------------------------------------------------------------------------
-374 connections routed with dedicated routing resources
-1 global clock signals routed
-881 connections routed (of 11679 total) (7.54%)
+541 connections routed with dedicated routing resources
+2 global clock signals routed
+1132 connections routed (of 11222 total) (10.09%)
 ---------------------------------------------------------
 Clock routing summary:
-Primary clocks (2 used out of 32 available):
-    Signal &quot;clk_64&quot; (4, 20)
-       Clock   loads: 494   out of   494 routed (100.00%)
+Primary clocks (4 used out of 32 available):
+    Signal &quot;io4_c&quot; (4, 20)
+       Clock   loads: 538   out of   538 routed (100.00%)
+       Data    loads: 0     out of     1 routed (  0.00%)
+    Signal &quot;regs_latch&quot; (0, 16)
+       Clock   loads: 12    out of    12 routed (100.00%)
+       Data    loads: 0     out of     2 routed (  0.00%)
 Other clocks:
     Signal &quot;VCC_net&quot;
        Clock   loads: 2     out of     2 routed (100.00%)
-       Control loads: 2     out of     2 routed (100.00%)
-       Data    loads: 9     out of     9 routed (100.00%)
+       Control loads: 8     out of     8 routed (100.00%)
+       Data    loads: 31    out of    31 routed (100.00%)
     Signal &quot;pll0.lscc_pll_inst.fbclk_w&quot;
        Clock   loads: 1     out of     1 routed (100.00%)
-    Signal &quot;clk_i_c&quot;
+    Signal &quot;io5_c_c&quot;
        Clock   loads: 1     out of     1 routed (100.00%)
+       Data    loads: 0     out of     1 routed (  0.00%)
 ---------------------------------------------------------
 --------------------------------------------------------------------------------
 Completed routing resource preassignment
 
-Start NBR section for initial routing at 11:08:18 06/20/23
+Start NBR section for initial routing at 13:33:54 06/21/23
 Level 4, iteration 1
-2253(0.13%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack&lt;setup&gt;: 6.619ns/0.000ns; real time: 4 secs 
+2178(0.12%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack&lt;setup&gt;: 6.064ns/0.000ns; real time: 4 secs 
 
 Info: Initial congestion level at 75.00% usage is 0
 Info: Initial congestion area  at 75.00% usage is 0 (0.00%)
 
-Start NBR section for normal routing at 11:08:20 06/20/23
+Start NBR section for normal routing at 13:33:56 06/21/23
 Level 4, iteration 1
-1824(0.10%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack&lt;setup&gt;: 6.619ns/0.000ns; real time: 4 secs 
+1664(0.09%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack&lt;setup&gt;: 6.101ns/0.000ns; real time: 4 secs 
 Level 4, iteration 2
-918(0.05%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack&lt;setup&gt;: 6.619ns/0.000ns; real time: 5 secs 
+720(0.04%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack&lt;setup&gt;: 6.101ns/0.000ns; real time: 5 secs 
 Level 4, iteration 3
-712(0.04%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack&lt;setup&gt;: 6.619ns/0.000ns; real time: 5 secs 
+527(0.03%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack&lt;setup&gt;: 6.125ns/0.000ns; real time: 5 secs 
 Level 4, iteration 4
-614(0.04%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack&lt;setup&gt;: 6.619ns/0.000ns; real time: 5 secs 
+440(0.03%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack&lt;setup&gt;: 6.125ns/0.000ns; real time: 5 secs 
 Level 4, iteration 5
-208(0.01%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack&lt;setup&gt;: 6.627ns/0.000ns; real time: 5 secs 
+94(0.01%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack&lt;setup&gt;: 6.125ns/0.000ns; real time: 5 secs 
 Level 4, iteration 6
-190(0.01%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack&lt;setup&gt;: 6.627ns/0.000ns; real time: 5 secs 
+21(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack&lt;setup&gt;: 6.125ns/0.000ns; real time: 5 secs 
 Level 4, iteration 7
-137(0.01%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack&lt;setup&gt;: 6.627ns/0.000ns; real time: 6 secs 
+15(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack&lt;setup&gt;: 6.125ns/0.000ns; real time: 5 secs 
 Level 4, iteration 8
-32(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack&lt;setup&gt;: 6.627ns/0.000ns; real time: 6 secs 
-Level 4, iteration 9
-11(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack&lt;setup&gt;: 6.627ns/0.000ns; real time: 6 secs 
-Level 4, iteration 10
-6(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack&lt;setup&gt;: 6.627ns/0.000ns; real time: 6 secs 
-Level 4, iteration 11
-4(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack&lt;setup&gt;: 6.627ns/0.000ns; real time: 6 secs 
-Level 4, iteration 12
-3(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack&lt;setup&gt;: 6.627ns/0.000ns; real time: 6 secs 
-Level 4, iteration 13
 0(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 
-Estimated worst slack/total negative slack&lt;setup&gt;: 6.627ns/0.000ns; real time: 6 secs 
+Estimated worst slack/total negative slack&lt;setup&gt;: 6.125ns/0.000ns; real time: 6 secs 
 
-Start NBR section for setup/hold timing optimization with effort level 3 at 11:08:22 06/20/23
+Start NBR section for setup/hold timing optimization with effort level 3 at 13:33:58 06/21/23
 
 Starting full timing analysis...
 
-Start NBR section for post-routing at 11:08:23 06/20/23
+Start NBR section for post-routing at 13:33:58 06/21/23
 
 End NBR router with 0 unrouted connection
 
@@ -384,7 +383,7 @@ Starting full timing analysis...
 <A name="par_nbrsum"></A><B><U><big>NBR Summary</big></U></B>
 -----------
   Number of unrouted connections : 0 (0.00%)
-  Estimated worst slack&lt;setup&gt; : 6.640ns
+  Estimated worst slack&lt;setup&gt; : 6.119ns
   Estimated worst slack&lt;hold &gt; : 0.272ns
   Timing score&lt;setup&gt; : 0
   Timing score&lt;hold &gt; : 0
@@ -393,10 +392,10 @@ Starting full timing analysis...
 -----------
 
 
-Total CPU time 8 secs 
+Total CPU time 7 secs 
 Total REAL time: 8 secs 
 Completely routed.
-End of route.  11679 routed (100.00%); 0 unrouted.
+End of route.  11222 routed (100.00%); 0 unrouted.
 
 Writing design to file OpenHT_impl_1_par.dir/5_1.udb ...
 
@@ -406,15 +405,15 @@ All signals are completely routed.
 
 PAR_SUMMARY::Run status = Completed
 PAR_SUMMARY::Number of unrouted conns = 0
-PAR_SUMMARY::Worst  slack&lt;setup/&lt;ns&gt;&gt; = 6.640
+PAR_SUMMARY::Worst  slack&lt;setup/&lt;ns&gt;&gt; = 6.119
 PAR_SUMMARY::Timing score&lt;setup/&lt;ns&gt;&gt; = 0.000
 PAR_SUMMARY::Worst  slack&lt;hold /&lt;ns&gt;&gt; = 0.272
 PAR_SUMMARY::Timing score&lt;hold /&lt;ns&gt;&gt; = 0.000
 PAR_SUMMARY::Number of errors = 0
 
-Total CPU  Time: 19 secs 
-Total REAL Time: 20 secs 
-Peak Memory Usage: 448.10 MB
+Total CPU  Time: 20 secs 
+Total REAL Time: 21 secs 
+Peak Memory Usage: 447.22 MB
 
 
 par done!

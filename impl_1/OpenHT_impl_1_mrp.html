@@ -48,7 +48,7 @@ Package: QFN72
 Performance Grade:  9_High-Performance_1.0V
 
 Mapper:    version Radiant Software (64-bit) 2022.1.1.289.4
-Mapped on: Tue Jun 20 11:08:04 2023
+Mapped on: Wed Jun 21 13:33:39 2023
 
 
 <A name="mrp_di"></A><B><U><big>Design Information</big></U></B>
@@ -58,15 +58,15 @@ Command line:   map -i OpenHT_impl_1_syn.udb -pdc
      OpenHT_impl_1_map.udb -mp OpenHT_impl_1.mrp -hierrpt -gui
 
 <A name="mrp_ds"></A><B><U><big>Design Summary</big></U></B>
-   Number of registers:         519 out of 32373 (2%)
-      Number of SLICE         registers:  519 out of 32256 (2%)
+   Number of registers:         575 out of 32373 (2%)
+      Number of SLICE         registers:  575 out of 32256 (2%)
       Number of PIO Input     registers:    0 out of    39 (0%)
       Number of PIO Output    registers:    0 out of    39 (0%)
       Number of PIO Tri-State registers:    0 out of    39 (0%)
-   Number of LUT4s:            2909 out of 32256 (9%)
-      Number used as logic LUT4s:                       2559
+   Number of LUT4s:            2619 out of 32256 (8%)
+      Number used as logic LUT4s:                       2359
       Number used as distributed RAM:                      0 (6 per 16X4 RAM)
-      Number used as ripple logic:                       350 (2 per CCU2)
+      Number used as ripple logic:                       260 (2 per CCU2)
    Number of PIOs used/reserved:   17 out of    39 (36%)
       Number of PIOs reserved:      3 (per sysConfig and/or prohibit constraint)
       Number of PIOs used:         14
@@ -89,22 +89,30 @@ Command line:   map -i OpenHT_impl_1_syn.udb -pdc
    Number of Large RAMs:          0 out of 2 (0%)
    Number of Logical DSP Functions:
       Number of Pre-Adders (9+9):    0 out of 112 (0%)
-      Number of Multipliers (18x18): 0 out of 56 (0%)
+      Number of Multipliers (18x18): 1 out of 56 (1%)
          Number of 9X9:        0 (1 18x18 = 2   9x9)
-         Number of 18x18:      0 (1 18x18 = 1 18x18)
+         Number of 18x18:      1 (1 18x18 = 1 18x18)
          Number of 18x36:      0 (2 18x18 = 1 18x36)
          Number of 36x36:      0 (4 18x18 = 1 36x36)
-      Number of 54-bit Accumulators: 0 out of 28 (0%)
+      Number of 54-bit Accumulators: 1 out of 28 (3%)
       Number of 18-bit Registers:    0 out of 112 (0%)
    Number of Physical DSP Components:
-      Number of PREADD9:             0 out of 112 (0%)
-      Number of MULT9:               0 out of 112 (0%)
+      Number of PREADD9:             2 out of 112 (1%)
+         Used PREADD9:               0
 
-      Number of MULT18:              0 out of 56 (0%)
+         Bypassed PREADD9:           2
+      Number of MULT9:               2 out of 112 (1%)
+         Used MULT9:                 2
+         Bypassed MULT9:             0
+      Number of MULT18:              1 out of 56 (1%)
+         Used MULT18:                1
+         Disabled MULT18:            0
       Number of MULT18X36:           0 out of 28 (0%)
       Number of MULT36:              0 out of 14 (0%)
-      Number of ACC54:               0 out of 28 (0%)
-      Number of REG18:               0 out of 112 (0%)
+      Number of ACC54:               1 out of 28 (3%)
+      Number of REG18:               2 out of 112 (1%)
+         Used REG18:                 0
+         Bypassed REG18:             2
    Number of ALUREGs:             0 out of 1 (0%)
    Number of PLLs:                1 out of 3 (33%)
    Number of DDRDLLs:             0 out of 2 (0%)
@@ -124,75 +132,92 @@ Command line:   map -i OpenHT_impl_1_syn.udb -pdc
    Number of I2CFIFOs:            0 out of 1 (0%)
    Number of DPHYs:               0 out of 2 (0%)
    Number of Oscillators:         0 out of 1 (0%)
-   Number of GSR:                 0 out of 1 (0%)
+   Number of GSR:                 1 out of 1 (100%)
    Number of Cryptographic Block: 0 out of 1 (0%)
    Number of Config IP:           0 out of 1 (0%)
                  TSALL:           0 out of 1 (0%)
    Number of JTAG:                0 out of 1 (0%)
    Number of SED:                 0 out of 1 (0%)
    Number of PCSs:                0 out of 1 (0%)
-   Number of Clocks:  2
-      Net clk_64: 494 loads, 494 rising, 0 falling (Driver: Pin
+   Number of Clocks:  3
+      Net io4_c: 538 loads, 538 rising, 0 falling (Driver: Pin
      pll0.lscc_pll_inst.gen_no_refclk_mon.u_PLL.PLL_inst/CLKOS)
-      Net clk_i_c: 1 loads, 1 rising, 0 falling (Driver: Port clk_i)
-   Number of Clock Enables:  27
-      Net freq_mod0.clk_64_enable_294: 26 loads, 26 SLICEs
-      Net freq_mod0.clk_64_enable_206: 1 loads, 1 SLICEs
-      Net freq_mod0.clk_64_enable_270: 22 loads, 22 SLICEs
-      Net spi_slave0.clk_64_enable_207: 1 loads, 1 SLICEs
-      Net spi_slave0.clk_64_enable_307: 28 loads, 28 SLICEs
-      Net spi_slave0.miso_o_N_707: 2 loads, 2 SLICEs
-      Net spi_slave0.clk_64_enable_37: 1 loads, 1 SLICEs
-      Net spi_slave0.clk_64_enable_322: 16 loads, 16 SLICEs
-      Net spi_slave0.clk_64_enable_209: 15 loads, 15 SLICEs
-      Net zero_insert0.clk_64_enable_208: 1 loads, 1 SLICEs
-      Net ctcss_enc0.clk_64_enable_241: 11 loads, 11 SLICEs
-      Net clk_64_enable_333: 12 loads, 12 SLICEs
-      Net ctrl_regs0.clk_64_enable_204: 16 loads, 16 SLICEs
-      Net ctrl_regs0.clk_64_enable_348: 16 loads, 16 SLICEs
-      Net ctrl_regs0.clk_64_enable_113: 16 loads, 16 SLICEs
-      Net ctrl_regs0.clk_64_enable_170: 16 loads, 16 SLICEs
-      Net ctrl_regs0.clk_64_enable_48: 16 loads, 16 SLICEs
-      Net ctrl_regs0.clk_64_enable_68: 16 loads, 16 SLICEs
-      Net ctrl_regs0.clk_64_enable_128: 16 loads, 16 SLICEs
-      Net ctrl_regs0.clk_64_enable_363: 16 loads, 16 SLICEs
-      Net ctrl_regs0.clk_64_enable_174: 16 loads, 16 SLICEs
+      Net regs_latch: 12 loads, 12 rising, 0 falling (Driver: Pin
+     spi_slave0.ld.ff_inst/Q)
+      Net io5_c_c: 1 loads, 1 rising, 0 falling (Driver: Port clk_i)
+   Number of Clock Enables:  29
+      Net VCC_net: 4 loads, 0 SLICEs
+      Net freq_mod0.io4_c_enable_276: 12 loads, 12 SLICEs
+      Net freq_mod0.io4_c_enable_235: 26 loads, 26 SLICEs
+      Net freq_mod0.io4_c_enable_158: 1 loads, 1 SLICEs
+      Net ctrl_regs0.io4_c_enable_278: 16 loads, 16 SLICEs
+      Net ctrl_regs0.io4_c_enable_348: 16 loads, 16 SLICEs
+      Net ctrl_regs0.io4_c_enable_318: 16 loads, 16 SLICEs
+      Net ctrl_regs0.io4_c_enable_46: 16 loads, 16 SLICEs
+      Net ctrl_regs0.io4_c_enable_114: 16 loads, 16 SLICEs
+      Net ctrl_regs0.io4_c_enable_333: 16 loads, 16 SLICEs
+      Net ctrl_regs0.io4_c_enable_363: 16 loads, 16 SLICEs
 
-      Net ctrl_regs0.clk_64_enable_98: 16 loads, 16 SLICEs
-      Net ctrl_regs0.clk_64_enable_205: 1 loads, 1 SLICEs
-      Net ctrl_regs0.clk_64_enable_378: 16 loads, 16 SLICEs
-      Net ctrl_regs0.clk_64_enable_83: 16 loads, 16 SLICEs
-      Net ctrl_regs0.clk_64_enable_143: 16 loads, 16 SLICEs
-      Net ctrl_regs0.clk_64_enable_53: 16 loads, 16 SLICEs
-   Number of LSRs:  17
-      Net VCC_net: 2 loads, 0 SLICEs
+      Net ctrl_regs0.io4_c_enable_368: 16 loads, 16 SLICEs
+      Net ctrl_regs0.io4_c_enable_146: 16 loads, 16 SLICEs
+      Net ctrl_regs0.io4_c_enable_177: 16 loads, 16 SLICEs
+      Net ctrl_regs0.io4_c_enable_51: 16 loads, 16 SLICEs
+      Net ctrl_regs0.io4_c_enable_63: 16 loads, 16 SLICEs
+      Net ctrl_regs0.io4_c_enable_82: 16 loads, 16 SLICEs
+      Net ctrl_regs0.io4_c_enable_99: 16 loads, 16 SLICEs
+      Net ctrl_regs0.io4_c_enable_160: 1 loads, 1 SLICEs
+      Net spi_slave0.io4_c_enable_157: 1 loads, 1 SLICEs
+      Net spi_slave0.io4_c_enable_303: 28 loads, 28 SLICEs
+      Net spi_slave0.miso_o_N_736: 2 loads, 2 SLICEs
+      Net spi_slave0.io4_c_enable_250: 16 loads, 16 SLICEs
+      Net spi_slave0.io4_c_enable_69: 1 loads, 1 SLICEs
+      Net spi_slave0.io4_c_enable_161: 15 loads, 15 SLICEs
+      Net dither_source0.tmp2_23__N_69: 32 loads, 32 SLICEs
+      Net ctcss_enc0.io4_c_enable_209: 11 loads, 11 SLICEs
+      Net io4_c_enable_223: 12 loads, 12 SLICEs
+      Net zero_insert0.io4_c_enable_159: 1 loads, 1 SLICEs
+   Number of LSRs:  29
+      Net VCC_net: 4 loads, 0 SLICEs
+      Pin nrst: 232 loads, 232 SLICEs (Net: nrst_c)
+      Net freq_mod0.n1077: 5 loads, 5 SLICEs
+      Net freq_mod0.sincos_lut0.n31722: 1 loads, 1 SLICEs
+      Net n31870: 1 loads, 0 SLICEs
       Net clk_tx_o_N_1: 2 loads, 0 SLICEs
-      Pin nrst: 242 loads, 242 SLICEs (Net: nrst_c)
-      Net freq_mod0.n25687: 1 loads, 1 SLICEs
-      Net n984: 5 loads, 5 SLICEs
-      Net n32891: 1 loads, 0 SLICEs
       Net unpack0.n11: 13 loads, 13 SLICEs
-      Net unpack0.n13207: 2 loads, 2 SLICEs
+      Net unpack0.n13319: 2 loads, 2 SLICEs
+      Net ctrl_regs0.n14850: 15 loads, 15 SLICEs
+      Net ctrl_regs0.n24859: 1 loads, 1 SLICEs
       Net regs_rw[0][13]: 12 loads, 12 SLICEs
-      Net tx_mod_sel0.n15072: 14 loads, 14 SLICEs
+      Net tx_mod_sel0.n14152: 14 loads, 14 SLICEs
       Net spi_slave0.n4: 1 loads, 1 SLICEs
-      Net spi_slave0.n32892: 3 loads, 3 SLICEs
-      Net spi_slave0.n25690: 1 loads, 1 SLICEs
-      Net spi_slave0.ld_N_672: 4 loads, 4 SLICEs
-      Net zero_insert0.n15810: 5 loads, 5 SLICEs
-      Net ctrl_regs0.n25509: 1 loads, 1 SLICEs
-      Net ctrl_regs0.n15818: 15 loads, 15 SLICEs
+      Net spi_slave0.n31871: 3 loads, 3 SLICEs
+      Net spi_slave0.n25082: 1 loads, 1 SLICEs
+      Net spi_slave0.ld_N_701: 4 loads, 4 SLICEs
+      Net ctcss_enc0.sincos_lut0.n31823: 1 loads, 1 SLICEs
+      Net fifo_in.cnt_5__N_1900: 1 loads, 1 SLICEs
+      Net fifo_in.cnt_5__N_1894: 1 loads, 1 SLICEs
+      Net fifo_in.cnt_5__N_1901: 1 loads, 1 SLICEs
+      Net fifo_in.cnt_5__N_1896: 1 loads, 1 SLICEs
+      Net fifo_in.cnt_5__N_1904: 1 loads, 1 SLICEs
+      Net fifo_in.cnt_5__N_1897: 1 loads, 1 SLICEs
+      Net fifo_in.cnt_5__N_1907: 1 loads, 1 SLICEs
+      Net fifo_in.cnt_5__N_1898: 1 loads, 1 SLICEs
+      Net fifo_in.cnt_5__N_1910: 1 loads, 1 SLICEs
+      Net fifo_in.cnt_5__N_1899: 1 loads, 1 SLICEs
+      Net fifo_in.cnt_5__N_1913: 1 loads, 1 SLICEs
+      Net zero_insert0.n14842: 5 loads, 5 SLICEs
    Top 10 highest fanout non-clock nets:
-      Net freq_mod0.phased[11]: 355 loads
-      Net freq_mod0.phased[12]: 334 loads
-      Net ctcss_enc0.phase[14]: 331 loads
-      Net ctcss_enc0.phase[12]: 330 loads
-      Net freq_mod0.phased[14]: 328 loads
-      Net ctcss_enc0.phase[13]: 327 loads
-      Net freq_mod0.phased[13]: 325 loads
-      Net ctcss_enc0.phase[11]: 319 loads
-      Net nrst_c: 265 loads
-      Net ctcss_enc0.phase[15]: 206 loads
+      Net ctcss_enc0.phase[12]: 332 loads
+      Net ctcss_enc0.phase[14]: 329 loads
+      Net ctcss_enc0.phase[13]: 328 loads
+      Net ctcss_enc0.phase[11]: 321 loads
+      Net nrst_c: 253 loads
+      Net freq_mod0.phased[14]: 237 loads
+      Net freq_mod0.phased[12]: 231 loads
+      Net freq_mod0.phased[13]: 230 loads
+
+      Net freq_mod0.phased[11]: 220 loads
+      Net ctcss_enc0.phase[15]: 202 loads
 
 
 
@@ -200,6 +225,7 @@ Command line:   map -i OpenHT_impl_1_syn.udb -pdc
    Number of warnings:  12
    Number of errors:    0
 
+   Number of warnings:  12
    Number of errors:    0
 
 
@@ -218,7 +244,6 @@ WARNING - map: Top module port &apos;data_rx24_i&apos; does not connect to anyth
 WARNING - map: Top module port &apos;io0&apos; does not connect to anything.
 WARNING - map: Top module port &apos;io1&apos; does not connect to anything.
 WARNING - map: Top module port &apos;io2&apos; does not connect to anything.
-
 
 
 
@@ -255,11 +280,11 @@ WARNING - map: Top module port &apos;io2&apos; does not connect to anything.
 
 
 
+
 <A name="mrp_rm"></A><B><U><big>Removed logic</big></U></B>
 
-Block GSR_INST undriven or does not drive anything - clipped.
 Block i2 was optimized away.
-Block spi_slave0/i6471_1_lut was optimized away.
+Block spi_slave0/i5359_1_lut was optimized away.
 
 
 
@@ -269,20 +294,19 @@ Block spi_slave0/i6471_1_lut was optimized away.
 PLL 1:                                 Pin/Node Value
   PLL Instance Name:                            pll0/lscc_pll_inst/gen_no_refclk
        _mon.u_PLL.PLL_inst
-  Input Reference Clock:               PIN      clk_i_c
+  Input Reference Clock:               PIN      io5_c_c
   Output Clock(P):                              NONE
-  Output Clock(S):                     NODE     clk_64
+  Output Clock(S):                     PIN,NODE io4_c
   Output Clock(S2):                             NONE
   Output Clock(S3):                             NONE
   Output Clock(S4):                             NONE
   Output Clock(S5):                             NONE
   Feedback Signal:                     NODE     pll0.lscc_pll_inst.fbclk_w
-  Reset Signal:                        NODE     n32891
+  Reset Signal:                        NODE     n31870
   Standby Signal:                      NODE     GND_net
   PLL LOCK signal:                     NODE     regs_r[1][0]
   PLL Internal LOCK Signal:                     NONE
   A Divider:                                    7
-
   B Divider:                                    18
   C Divider:                                    31
   D Divider:                                    7
@@ -312,8 +336,679 @@ PLL 1:                                 Pin/Node Value
 <A name="mrp_asic"></A><B><U><big>ASIC Components</big></U></B>
 ---------------
 
+Instance Name: dither_source0/add_21_add_12_add_12_add_12_add_12_add_12_add_12_a
+     dd_5.PREADD9_L0
+         Type: PREADD9_CORE
+Instance Name: dither_source0/add_21_add_12_add_12_add_12_add_12_add_12_add_12_a
+     dd_5.PREADD9_H0
+         Type: PREADD9_CORE
+Instance Name: dither_source0/add_21_add_12_add_12_add_12_add_12_add_12_add_12_a
+
+     dd_5.MULT9_L0
+         Type: MULT9_CORE
+Instance Name: dither_source0/add_21_add_12_add_12_add_12_add_12_add_12_add_12_a
+     dd_5.MULT9_H0
+         Type: MULT9_CORE
+Instance Name: dither_source0/add_21_add_12_add_12_add_12_add_12_add_12_add_12_a
+     dd_5.MULT18_0
+         Type: MULT18_CORE
+Instance Name: dither_source0/add_21_add_12_add_12_add_12_add_12_add_12_add_12_a
+     dd_5.REG18_L0_0
+         Type: REG18_CORE
+Instance Name: dither_source0/add_21_add_12_add_12_add_12_add_12_add_12_add_12_a
+     dd_5.REG18_L0_1
+         Type: REG18_CORE
+Instance Name: dither_source0/add_21_add_12_add_12_add_12_add_12_add_12_add_12_a
+     dd_5.ACC54_0
+         Type: ACC54_CORE
 Instance Name: pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst
          Type: PLL_CORE
+
+
+
+<A name="mrp_gsr"></A><B><U><big>GSR Usage</big></U></B>
+---------
+
+GSR Component:
+   The Global Set Reset (GSR) resource has been used to implement a global reset
+        of the design. The reset signal used for GSR control is &apos;cnt_5__N_1916&apos;.
+
+GSR Property:
+   The design components with GSR property set to ENABLED will respond to global
+        set reset while the components with GSR property set to DISABLED will
+        not.
+
+Components with disabled GSR Property
+-------------------------------------
+
+These components have the GSR property set to DISABLED. The components will not
+     respond to the reset signal &apos;cnt_5__N_1916&apos; via the GSR component.
+
+Type and number of components of the type:
+   Register = 574
+   ACC54_CORE = 1, PREADD9_CORE = 2 , MULT9_CORE = 2 , REG18_CORE = 2
+
+Type and instance name of component:
+   Register : freq_mod0.sincos_lut0.cosine_o_i1.ff_inst
+   Register : freq_mod0.sincos_lut0.sine_o_i1.ff_inst
+   Register : freq_mod0.sincos_lut0.sine_o_i13.ff_inst
+   Register : freq_mod0.sincos_lut0.sine_o_i12.ff_inst
+   Register : freq_mod0.sincos_lut0.sine_o_i11.ff_inst
+   Register : freq_mod0.sincos_lut0.sine_o_i10.ff_inst
+   Register : freq_mod0.sincos_lut0.sine_o_i9.ff_inst
+   Register : freq_mod0.sincos_lut0.sine_o_i8.ff_inst
+   Register : freq_mod0.sincos_lut0.sine_o_i7.ff_inst
+   Register : freq_mod0.sincos_lut0.sine_o_i6.ff_inst
+   Register : freq_mod0.sincos_lut0.sine_o_i5.ff_inst
+   Register : freq_mod0.sincos_lut0.sine_o_i4.ff_inst
+   Register : freq_mod0.sincos_lut0.sine_o_i3.ff_inst
+   Register : freq_mod0.sincos_lut0.sine_o_i2.ff_inst
+   Register : freq_mod0.sincos_lut0.cosine_o_i13.ff_inst
+   Register : freq_mod0.sincos_lut0.cosine_o_i12.ff_inst
+   Register : freq_mod0.sincos_lut0.cosine_o_i11.ff_inst
+   Register : freq_mod0.sincos_lut0.cosine_o_i10.ff_inst
+   Register : freq_mod0.sincos_lut0.cosine_o_i9.ff_inst
+
+   Register : freq_mod0.sincos_lut0.cosine_o_i8.ff_inst
+   Register : freq_mod0.sincos_lut0.cosine_o_i7.ff_inst
+   Register : freq_mod0.sincos_lut0.cosine_o_i6.ff_inst
+   Register : freq_mod0.sincos_lut0.cosine_o_i5.ff_inst
+   Register : freq_mod0.sincos_lut0.cosine_o_i4.ff_inst
+   Register : freq_mod0.sincos_lut0.cosine_o_i3.ff_inst
+   Register : freq_mod0.sincos_lut0.cosine_o_i2.ff_inst
+   Register : freq_mod0.phase_dither0.add_7_add_12_add_12_add_12_add_12_add_12_e
+        1_i1.ff_inst
+   Register : freq_mod0.q_o__i1.ff_inst
+   Register : freq_mod0.counter__i0.ff_inst
+   Register : freq_mod0.add_6_add_12_add_12_add_12_add_12_add_12_e1_i0.ff_inst
+   Register : freq_mod0.i_o__i1.ff_inst
+   Register : freq_mod0.phase__i1.ff_inst
+   Register : freq_mod0.counter__i7.ff_inst
+   Register : freq_mod0.counter__i6.ff_inst
+   Register : freq_mod0.counter__i5.ff_inst
+   Register : freq_mod0.counter__i4.ff_inst
+   Register : freq_mod0.counter__i3.ff_inst
+   Register : freq_mod0.counter__i2.ff_inst
+   Register : freq_mod0.counter__i1.ff_inst
+   Register : freq_mod0.q_o__i13.ff_inst
+   Register : freq_mod0.q_o__i12.ff_inst
+   Register : freq_mod0.q_o__i11.ff_inst
+   Register : freq_mod0.q_o__i10.ff_inst
+   Register : freq_mod0.q_o__i9.ff_inst
+   Register : freq_mod0.q_o__i8.ff_inst
+   Register : freq_mod0.q_o__i7.ff_inst
+   Register : freq_mod0.q_o__i6.ff_inst
+   Register : freq_mod0.q_o__i5.ff_inst
+   Register : freq_mod0.q_o__i4.ff_inst
+   Register : freq_mod0.q_o__i3.ff_inst
+   Register : freq_mod0.q_o__i2.ff_inst
+   Register : freq_mod0.i_o__i13.ff_inst
+   Register : freq_mod0.i_o__i12.ff_inst
+   Register : freq_mod0.i_o__i11.ff_inst
+   Register : freq_mod0.i_o__i10.ff_inst
+   Register : freq_mod0.i_o__i9.ff_inst
+   Register : freq_mod0.i_o__i8.ff_inst
+   Register : freq_mod0.i_o__i7.ff_inst
+   Register : freq_mod0.i_o__i6.ff_inst
+   Register : freq_mod0.i_o__i5.ff_inst
+   Register : freq_mod0.i_o__i4.ff_inst
+   Register : freq_mod0.i_o__i3.ff_inst
+   Register : freq_mod0.i_o__i2.ff_inst
+   Register : freq_mod0.add_432_add_12_add_12_e1_i19.ff_inst
+   Register : freq_mod0.add_432_add_12_add_12_e1_i18.ff_inst
+   Register : freq_mod0.add_432_add_12_add_12_e1_i17.ff_inst
+   Register : freq_mod0.add_432_add_12_add_12_e1_i16.ff_inst
+   Register : freq_mod0.add_432_add_12_add_12_e1_i15.ff_inst
+   Register : freq_mod0.add_432_add_12_add_12_e1_i14.ff_inst
+   Register : freq_mod0.add_432_add_12_add_12_e1_i13.ff_inst
+   Register : freq_mod0.add_432_add_12_add_12_e1_i12.ff_inst
+   Register : freq_mod0.add_432_add_12_add_12_e1_i11.ff_inst
+   Register : freq_mod0.add_432_add_12_add_12_e1_i10.ff_inst
+   Register : freq_mod0.add_432_add_12_add_12_e1_i9.ff_inst
+   Register : freq_mod0.add_432_add_12_add_12_e1_i8.ff_inst
+
+   Register : freq_mod0.add_432_add_12_add_12_e1_i7.ff_inst
+   Register : freq_mod0.add_432_add_12_add_12_e1_i6.ff_inst
+   Register : freq_mod0.add_432_add_12_add_12_e1_i5.ff_inst
+   Register : freq_mod0.add_432_add_12_add_12_e1_i4.ff_inst
+   Register : freq_mod0.add_432_add_12_add_12_e1_i3.ff_inst
+   Register : freq_mod0.add_432_add_12_add_12_e1_i2.ff_inst
+   Register : freq_mod0.add_432_add_12_add_12_e1_i1.ff_inst
+   Register : unpack0.tx_reg_i1.ff_inst
+   Register : unpack0.data_o_i0.ff_inst
+   Register : unpack0.add_7_add_12_add_12_e1__i5.ff_inst
+   Register : unpack0.add_7_add_12_add_12_e1__i4.ff_inst
+   Register : unpack0.add_7_add_12_add_12_e1__i3.ff_inst
+   Register : unpack0.add_7_add_12_add_12_e1__i2.ff_inst
+   Register : unpack0.add_7_add_12_add_12_e1__i1.ff_inst
+   Register : unpack0.data_o_i1.ff_inst
+   Register : unpack0.tx_reg_i31.ff_inst
+   Register : unpack0.tx_reg_i30.ff_inst
+   Register : unpack0.tx_reg_i29.ff_inst
+   Register : unpack0.tx_reg_i28.ff_inst
+   Register : unpack0.tx_reg_i27.ff_inst
+   Register : unpack0.tx_reg_i26.ff_inst
+   Register : unpack0.tx_reg_i25.ff_inst
+   Register : unpack0.tx_reg_i24.ff_inst
+   Register : unpack0.tx_reg_i23.ff_inst
+   Register : unpack0.tx_reg_i22.ff_inst
+   Register : unpack0.tx_reg_i21.ff_inst
+   Register : unpack0.tx_reg_i20.ff_inst
+   Register : unpack0.tx_reg_i19.ff_inst
+   Register : unpack0.tx_reg_i18.ff_inst
+   Register : unpack0.tx_reg_i17.ff_inst
+   Register : unpack0.tx_reg_i16.ff_inst
+   Register : unpack0.tx_reg_i15.ff_inst
+   Register : unpack0.tx_reg_i14.ff_inst
+   Register : unpack0.tx_reg_i13.ff_inst
+   Register : unpack0.tx_reg_i12.ff_inst
+   Register : unpack0.tx_reg_i11.ff_inst
+   Register : unpack0.tx_reg_i10.ff_inst
+   Register : unpack0.tx_reg_i9.ff_inst
+   Register : unpack0.tx_reg_i8.ff_inst
+   Register : unpack0.tx_reg_i7.ff_inst
+   Register : unpack0.tx_reg_i6.ff_inst
+   Register : unpack0.tx_reg_i5.ff_inst
+   Register : unpack0.tx_reg_i4.ff_inst
+   Register : unpack0.tx_reg_i3.ff_inst
+   Register : unpack0.tx_reg_i2.ff_inst
+   Register : unpack0.bit_cnt__i5.ff_inst
+   Register : unpack0.bit_cnt__i4.ff_inst
+   Register : unpack0.bit_cnt__i3.ff_inst
+   Register : unpack0.bit_cnt__i2.ff_inst
+   Register : unpack0.bit_cnt__i1.ff_inst
+   Register : ctrl_regs0.data_o_i0_i11.ff_inst
+   Register : ctrl_regs0.regs_rw[0]__i0.ff_inst
+   Register : ctrl_regs0.data_o_i0_i0.ff_inst
+   Register : ctrl_regs0.data_o_i0_i12.ff_inst
+   Register : ctrl_regs0.regs_rw[12]__i10.ff_inst
+   Register : ctrl_regs0.regs_rw[12]__i0.ff_inst
+   Register : ctrl_regs0.regs_rw[11]__i0.ff_inst
+
+   Register : ctrl_regs0.regs_rw[10]__i0.ff_inst
+   Register : ctrl_regs0.regs_rw[9]__i0.ff_inst
+   Register : ctrl_regs0.regs_rw[8]__i0.ff_inst
+   Register : ctrl_regs0.regs_rw[7]__i0.ff_inst
+   Register : ctrl_regs0.regs_rw[3]__i0.ff_inst
+   Register : ctrl_regs0.regs_rw[2]__i0.ff_inst
+   Register : ctrl_regs0.regs_rw[12]__i11.ff_inst
+   Register : ctrl_regs0.regs_rw[12]__i12.ff_inst
+   Register : ctrl_regs0.regs_rw[1]_i0.ff_inst
+   Register : ctrl_regs0.pp_latch_c.ff_inst
+   Register : ctrl_regs0.regs_rw[4]_i0.ff_inst
+   Register : ctrl_regs0.regs_rw[5]_i0.ff_inst
+   Register : ctrl_regs0.regs_rw[6]_i0.ff_inst
+   Register : ctrl_regs0.p_latch_c.ff_inst
+   Register : ctrl_regs0.regs_rw[12]__i13.ff_inst
+   Register : ctrl_regs0.regs_rw[12]__i14.ff_inst
+   Register : ctrl_regs0.regs_rw[12]__i15.ff_inst
+   Register : ctrl_regs0.regs_rw[11]__i1.ff_inst
+   Register : ctrl_regs0.regs_rw[11]__i2.ff_inst
+   Register : ctrl_regs0.regs_rw[12]__i9.ff_inst
+   Register : ctrl_regs0.regs_rw[11]__i3.ff_inst
+   Register : ctrl_regs0.regs_rw[11]__i4.ff_inst
+   Register : ctrl_regs0.regs_rw[12]__i8.ff_inst
+   Register : ctrl_regs0.regs_rw[11]__i5.ff_inst
+   Register : ctrl_regs0.regs_rw[11]__i6.ff_inst
+   Register : ctrl_regs0.regs_rw[12]__i7.ff_inst
+   Register : ctrl_regs0.regs_rw[11]__i7.ff_inst
+   Register : ctrl_regs0.regs_rw[11]__i8.ff_inst
+   Register : ctrl_regs0.regs_rw[12]__i6.ff_inst
+   Register : ctrl_regs0.regs_rw[11]__i9.ff_inst
+   Register : ctrl_regs0.regs_rw[11]__i10.ff_inst
+   Register : ctrl_regs0.regs_rw[12]__i5.ff_inst
+   Register : ctrl_regs0.regs_rw[11]__i11.ff_inst
+   Register : ctrl_regs0.regs_rw[11]__i12.ff_inst
+   Register : ctrl_regs0.regs_rw[12]__i4.ff_inst
+   Register : ctrl_regs0.regs_rw[11]__i13.ff_inst
+   Register : ctrl_regs0.regs_rw[11]__i14.ff_inst
+   Register : ctrl_regs0.regs_rw[12]__i3.ff_inst
+   Register : ctrl_regs0.regs_rw[11]__i15.ff_inst
+   Register : ctrl_regs0.regs_rw[10]__i1.ff_inst
+   Register : ctrl_regs0.regs_rw[12]__i2.ff_inst
+   Register : ctrl_regs0.regs_rw[10]__i2.ff_inst
+   Register : ctrl_regs0.regs_rw[10]__i3.ff_inst
+   Register : ctrl_regs0.regs_rw[12]__i1.ff_inst
+   Register : ctrl_regs0.regs_rw[10]__i4.ff_inst
+   Register : ctrl_regs0.regs_rw[10]__i5.ff_inst
+   Register : ctrl_regs0.regs_rw[10]__i6.ff_inst
+   Register : ctrl_regs0.regs_rw[10]__i7.ff_inst
+   Register : ctrl_regs0.regs_rw[10]__i8.ff_inst
+   Register : ctrl_regs0.regs_rw[10]__i9.ff_inst
+   Register : ctrl_regs0.regs_rw[10]__i10.ff_inst
+   Register : ctrl_regs0.regs_rw[10]__i11.ff_inst
+   Register : ctrl_regs0.regs_rw[10]__i12.ff_inst
+   Register : ctrl_regs0.regs_rw[10]__i13.ff_inst
+   Register : ctrl_regs0.regs_rw[10]__i14.ff_inst
+   Register : ctrl_regs0.regs_rw[10]__i15.ff_inst
+   Register : ctrl_regs0.regs_rw[9]__i1.ff_inst
+
+   Register : ctrl_regs0.regs_rw[9]__i2.ff_inst
+   Register : ctrl_regs0.regs_rw[9]__i3.ff_inst
+   Register : ctrl_regs0.regs_rw[9]__i4.ff_inst
+   Register : ctrl_regs0.regs_rw[9]__i5.ff_inst
+   Register : ctrl_regs0.regs_rw[9]__i6.ff_inst
+   Register : ctrl_regs0.regs_rw[9]__i7.ff_inst
+   Register : ctrl_regs0.regs_rw[9]__i8.ff_inst
+   Register : ctrl_regs0.regs_rw[9]__i9.ff_inst
+   Register : ctrl_regs0.regs_rw[9]__i10.ff_inst
+   Register : ctrl_regs0.regs_rw[9]__i11.ff_inst
+   Register : ctrl_regs0.regs_rw[9]__i12.ff_inst
+   Register : ctrl_regs0.regs_rw[9]__i13.ff_inst
+   Register : ctrl_regs0.regs_rw[9]__i14.ff_inst
+   Register : ctrl_regs0.regs_rw[9]__i15.ff_inst
+   Register : ctrl_regs0.regs_rw[8]__i1.ff_inst
+   Register : ctrl_regs0.regs_rw[8]__i2.ff_inst
+   Register : ctrl_regs0.regs_rw[8]__i3.ff_inst
+   Register : ctrl_regs0.regs_rw[8]__i4.ff_inst
+   Register : ctrl_regs0.regs_rw[8]__i5.ff_inst
+   Register : ctrl_regs0.regs_rw[8]__i6.ff_inst
+   Register : ctrl_regs0.regs_rw[8]__i7.ff_inst
+   Register : ctrl_regs0.regs_rw[8]__i8.ff_inst
+   Register : ctrl_regs0.regs_rw[8]__i9.ff_inst
+   Register : ctrl_regs0.regs_rw[8]__i10.ff_inst
+   Register : ctrl_regs0.regs_rw[8]__i11.ff_inst
+   Register : ctrl_regs0.regs_rw[8]__i12.ff_inst
+   Register : ctrl_regs0.regs_rw[8]__i13.ff_inst
+   Register : ctrl_regs0.regs_rw[8]__i14.ff_inst
+   Register : ctrl_regs0.regs_rw[8]__i15.ff_inst
+   Register : ctrl_regs0.regs_rw[7]__i1.ff_inst
+   Register : ctrl_regs0.regs_rw[7]__i2.ff_inst
+   Register : ctrl_regs0.regs_rw[7]__i3.ff_inst
+   Register : ctrl_regs0.regs_rw[7]__i4.ff_inst
+   Register : ctrl_regs0.regs_rw[7]__i5.ff_inst
+   Register : ctrl_regs0.regs_rw[7]__i6.ff_inst
+   Register : ctrl_regs0.regs_rw[7]__i7.ff_inst
+   Register : ctrl_regs0.regs_rw[7]__i8.ff_inst
+   Register : ctrl_regs0.regs_rw[7]__i9.ff_inst
+   Register : ctrl_regs0.regs_rw[7]__i10.ff_inst
+   Register : ctrl_regs0.regs_rw[7]__i11.ff_inst
+   Register : ctrl_regs0.regs_rw[7]__i12.ff_inst
+   Register : ctrl_regs0.regs_rw[7]__i13.ff_inst
+   Register : ctrl_regs0.regs_rw[7]__i14.ff_inst
+   Register : ctrl_regs0.regs_rw[7]__i15.ff_inst
+   Register : ctrl_regs0.regs_rw[3]__i1.ff_inst
+   Register : ctrl_regs0.regs_rw[3]__i2.ff_inst
+   Register : ctrl_regs0.regs_rw[3]__i3.ff_inst
+   Register : ctrl_regs0.regs_rw[3]__i4.ff_inst
+   Register : ctrl_regs0.regs_rw[3]__i5.ff_inst
+   Register : ctrl_regs0.regs_rw[3]__i6.ff_inst
+   Register : ctrl_regs0.regs_rw[3]__i7.ff_inst
+   Register : ctrl_regs0.regs_rw[3]__i8.ff_inst
+   Register : ctrl_regs0.data_o_i0_i13.ff_inst
+   Register : ctrl_regs0.regs_rw[3]__i9.ff_inst
+   Register : ctrl_regs0.regs_rw[3]__i10.ff_inst
+   Register : ctrl_regs0.regs_rw[3]__i11.ff_inst
+   Register : ctrl_regs0.regs_rw[3]__i12.ff_inst
+
+   Register : ctrl_regs0.data_o_i0_i14.ff_inst
+   Register : ctrl_regs0.regs_rw[3]__i13.ff_inst
+   Register : ctrl_regs0.data_o_i0_i15.ff_inst
+   Register : ctrl_regs0.regs_rw[3]__i14.ff_inst
+   Register : ctrl_regs0.regs_rw[3]__i15.ff_inst
+   Register : ctrl_regs0.regs_rw[2]__i1.ff_inst
+   Register : ctrl_regs0.regs_rw[2]__i2.ff_inst
+   Register : ctrl_regs0.regs_rw[2]__i3.ff_inst
+   Register : ctrl_regs0.regs_rw[2]__i4.ff_inst
+   Register : ctrl_regs0.regs_rw[2]__i5.ff_inst
+   Register : ctrl_regs0.regs_rw[2]__i6.ff_inst
+   Register : ctrl_regs0.regs_rw[2]__i7.ff_inst
+   Register : ctrl_regs0.regs_rw[2]__i8.ff_inst
+   Register : ctrl_regs0.regs_rw[2]__i9.ff_inst
+   Register : ctrl_regs0.regs_rw[2]__i10.ff_inst
+   Register : ctrl_regs0.write_pend_c.ff_inst
+   Register : ctrl_regs0.regs_rw[0]__i15.ff_inst
+   Register : ctrl_regs0.regs_rw[0]__i14.ff_inst
+   Register : ctrl_regs0.regs_rw[0]__i13.ff_inst
+   Register : ctrl_regs0.regs_rw[0]__i12.ff_inst
+   Register : ctrl_regs0.regs_rw[0]__i11.ff_inst
+   Register : ctrl_regs0.regs_rw[0]__i10.ff_inst
+   Register : ctrl_regs0.regs_rw[0]__i9.ff_inst
+   Register : ctrl_regs0.regs_rw[0]__i8.ff_inst
+   Register : ctrl_regs0.regs_rw[0]__i7.ff_inst
+   Register : ctrl_regs0.regs_rw[0]__i6.ff_inst
+   Register : ctrl_regs0.regs_rw[0]__i5.ff_inst
+   Register : ctrl_regs0.regs_rw[0]__i4.ff_inst
+   Register : ctrl_regs0.regs_rw[0]__i3.ff_inst
+   Register : ctrl_regs0.regs_rw[0]__i2.ff_inst
+   Register : ctrl_regs0.regs_rw[0]__i1.ff_inst
+   Register : ctrl_regs0.data_o_i0_i1.ff_inst
+   Register : ctrl_regs0.data_o_i0_i2.ff_inst
+   Register : ctrl_regs0.data_o_i0_i3.ff_inst
+   Register : ctrl_regs0.data_o_i0_i4.ff_inst
+   Register : ctrl_regs0.data_o_i0_i5.ff_inst
+   Register : ctrl_regs0.data_o_i0_i6.ff_inst
+   Register : ctrl_regs0.data_o_i0_i7.ff_inst
+   Register : ctrl_regs0.data_o_i0_i8.ff_inst
+   Register : ctrl_regs0.data_o_i0_i9.ff_inst
+   Register : ctrl_regs0.data_o_i0_i10.ff_inst
+   Register : ctrl_regs0.regs_rw[6]_i15.ff_inst
+   Register : ctrl_regs0.regs_rw[6]_i14.ff_inst
+   Register : ctrl_regs0.regs_rw[6]_i13.ff_inst
+   Register : ctrl_regs0.regs_rw[6]_i12.ff_inst
+   Register : ctrl_regs0.regs_rw[6]_i11.ff_inst
+   Register : ctrl_regs0.regs_rw[6]_i10.ff_inst
+   Register : ctrl_regs0.regs_rw[6]_i9.ff_inst
+   Register : ctrl_regs0.regs_rw[6]_i8.ff_inst
+   Register : ctrl_regs0.regs_rw[6]_i7.ff_inst
+   Register : ctrl_regs0.regs_rw[6]_i6.ff_inst
+   Register : ctrl_regs0.regs_rw[6]_i5.ff_inst
+   Register : ctrl_regs0.regs_rw[6]_i4.ff_inst
+   Register : ctrl_regs0.regs_rw[6]_i3.ff_inst
+   Register : ctrl_regs0.regs_rw[6]_i2.ff_inst
+   Register : ctrl_regs0.regs_rw[6]_i1.ff_inst
+   Register : ctrl_regs0.regs_rw[5]_i15.ff_inst
+
+   Register : ctrl_regs0.regs_rw[5]_i14.ff_inst
+   Register : ctrl_regs0.regs_rw[5]_i13.ff_inst
+   Register : ctrl_regs0.regs_rw[5]_i12.ff_inst
+   Register : ctrl_regs0.regs_rw[5]_i11.ff_inst
+   Register : ctrl_regs0.regs_rw[5]_i10.ff_inst
+   Register : ctrl_regs0.regs_rw[5]_i9.ff_inst
+   Register : ctrl_regs0.regs_rw[5]_i8.ff_inst
+   Register : ctrl_regs0.regs_rw[5]_i7.ff_inst
+   Register : ctrl_regs0.regs_rw[5]_i6.ff_inst
+   Register : ctrl_regs0.regs_rw[5]_i5.ff_inst
+   Register : ctrl_regs0.regs_rw[5]_i4.ff_inst
+   Register : ctrl_regs0.regs_rw[5]_i3.ff_inst
+   Register : ctrl_regs0.regs_rw[5]_i2.ff_inst
+   Register : ctrl_regs0.regs_rw[5]_i1.ff_inst
+   Register : ctrl_regs0.regs_rw[4]_i15.ff_inst
+   Register : ctrl_regs0.regs_rw[4]_i14.ff_inst
+   Register : ctrl_regs0.regs_rw[4]_i13.ff_inst
+   Register : ctrl_regs0.regs_rw[4]_i12.ff_inst
+   Register : ctrl_regs0.regs_rw[4]_i11.ff_inst
+   Register : ctrl_regs0.regs_rw[4]_i10.ff_inst
+   Register : ctrl_regs0.regs_rw[4]_i9.ff_inst
+   Register : ctrl_regs0.regs_rw[4]_i8.ff_inst
+   Register : ctrl_regs0.regs_rw[4]_i7.ff_inst
+   Register : ctrl_regs0.regs_rw[4]_i6.ff_inst
+   Register : ctrl_regs0.regs_rw[4]_i5.ff_inst
+   Register : ctrl_regs0.regs_rw[4]_i4.ff_inst
+   Register : ctrl_regs0.regs_rw[4]_i3.ff_inst
+   Register : ctrl_regs0.regs_rw[4]_i2.ff_inst
+   Register : ctrl_regs0.regs_rw[4]_i1.ff_inst
+   Register : ctrl_regs0.regs_rw[1]_i15.ff_inst
+   Register : ctrl_regs0.regs_rw[1]_i14.ff_inst
+   Register : ctrl_regs0.regs_rw[1]_i13.ff_inst
+   Register : ctrl_regs0.regs_rw[1]_i12.ff_inst
+   Register : ctrl_regs0.regs_rw[1]_i11.ff_inst
+   Register : ctrl_regs0.regs_rw[1]_i10.ff_inst
+   Register : ctrl_regs0.regs_rw[1]_i9.ff_inst
+   Register : ctrl_regs0.regs_rw[1]_i8.ff_inst
+   Register : ctrl_regs0.regs_rw[1]_i7.ff_inst
+   Register : ctrl_regs0.regs_rw[1]_i6.ff_inst
+   Register : ctrl_regs0.regs_rw[1]_i5.ff_inst
+   Register : ctrl_regs0.regs_rw[1]_i4.ff_inst
+   Register : ctrl_regs0.regs_rw[1]_i3.ff_inst
+   Register : ctrl_regs0.regs_rw[1]_i2.ff_inst
+   Register : ctrl_regs0.regs_rw[1]_i1.ff_inst
+   Register : ctrl_regs0.regs_rw[2]__i15.ff_inst
+   Register : ctrl_regs0.regs_rw[2]__i14.ff_inst
+   Register : ctrl_regs0.regs_rw[2]__i13.ff_inst
+   Register : ctrl_regs0.regs_rw[2]__i12.ff_inst
+   Register : ctrl_regs0.regs_rw[2]__i11.ff_inst
+   Register : tx_mod_sel0.q_o_i1.ff_inst
+   Register : tx_mod_sel0.i_o_i1.ff_inst
+   Register : tx_mod_sel0.i_o_i13.ff_inst
+   Register : tx_mod_sel0.i_o_i12.ff_inst
+   Register : tx_mod_sel0.i_o_i11.ff_inst
+   Register : tx_mod_sel0.i_o_i10.ff_inst
+   Register : tx_mod_sel0.i_o_i9.ff_inst
+   Register : tx_mod_sel0.i_o_i8.ff_inst
+
+   Register : tx_mod_sel0.i_o_i7.ff_inst
+   Register : tx_mod_sel0.i_o_i6.ff_inst
+   Register : tx_mod_sel0.i_o_i5.ff_inst
+   Register : tx_mod_sel0.i_o_i4.ff_inst
+   Register : tx_mod_sel0.i_o_i3.ff_inst
+   Register : tx_mod_sel0.i_o_i2.ff_inst
+   Register : tx_mod_sel0.q_o_i13.ff_inst
+   Register : tx_mod_sel0.q_o_i12.ff_inst
+   Register : tx_mod_sel0.q_o_i11.ff_inst
+   Register : tx_mod_sel0.q_o_i10.ff_inst
+   Register : tx_mod_sel0.q_o_i9.ff_inst
+   Register : tx_mod_sel0.q_o_i8.ff_inst
+   Register : tx_mod_sel0.q_o_i7.ff_inst
+   Register : tx_mod_sel0.q_o_i6.ff_inst
+   Register : tx_mod_sel0.q_o_i5.ff_inst
+   Register : tx_mod_sel0.q_o_i4.ff_inst
+   Register : tx_mod_sel0.q_o_i3.ff_inst
+   Register : tx_mod_sel0.q_o_i2.ff_inst
+   Register : spi_slave0.data_rx_i0.ff_inst
+   Register : spi_slave0.pp_ncs_c.ff_inst
+   Register : spi_slave0.p_sck_c.ff_inst
+   Register : spi_slave0.pp_sck_c.ff_inst
+   Register : spi_slave0.cnt_i0.ff_inst
+   Register : spi_slave0.p_ncs_c.ff_inst
+   Register : spi_slave0.add_22_add_12_add_12_add_12_add_12_add_12_e1_i0.ff_inst
+   Register : spi_slave0.addr_o_i0_i0.ff_inst
+   Register : spi_slave0.addr_inc_c.ff_inst
+   Register : spi_slave0.miso_o.ff_inst
+   Register : spi_slave0.i127.ff_inst
+   Register : spi_slave0.data_o_i0_i0.ff_inst
+   Register : spi_slave0.ld.ff_inst
+   Register : spi_slave0.cnt_i5.ff_inst
+   Register : spi_slave0.cnt_i4.ff_inst
+   Register : spi_slave0.cnt_i3.ff_inst
+   Register : spi_slave0.cnt_i2.ff_inst
+   Register : spi_slave0.cnt_i1.ff_inst
+   Register : spi_slave0.data_rx_i22.ff_inst
+   Register : spi_slave0.data_rx_i21.ff_inst
+   Register : spi_slave0.data_rx_i20.ff_inst
+   Register : spi_slave0.data_rx_i19.ff_inst
+   Register : spi_slave0.data_rx_i18.ff_inst
+   Register : spi_slave0.data_rx_i17.ff_inst
+   Register : spi_slave0.data_rx_i16.ff_inst
+   Register : spi_slave0.data_rx_i15.ff_inst
+   Register : spi_slave0.data_rx_i14.ff_inst
+   Register : spi_slave0.data_rx_i13.ff_inst
+   Register : spi_slave0.data_rx_i12.ff_inst
+   Register : spi_slave0.data_rx_i11.ff_inst
+   Register : spi_slave0.data_rx_i10.ff_inst
+   Register : spi_slave0.data_rx_i9.ff_inst
+   Register : spi_slave0.data_rx_i8.ff_inst
+   Register : spi_slave0.data_rx_i7.ff_inst
+   Register : spi_slave0.data_rx_i6.ff_inst
+   Register : spi_slave0.data_rx_i5.ff_inst
+   Register : spi_slave0.data_rx_i4.ff_inst
+   Register : spi_slave0.data_rx_i3.ff_inst
+   Register : spi_slave0.data_rx_i2.ff_inst
+
+   Register : spi_slave0.data_rx_i1.ff_inst
+   Register : spi_slave0.data_tx__i15.ff_inst
+   Register : spi_slave0.data_tx__i14.ff_inst
+   Register : spi_slave0.data_tx__i13.ff_inst
+   Register : spi_slave0.data_tx__i12.ff_inst
+   Register : spi_slave0.data_tx__i11.ff_inst
+   Register : spi_slave0.data_tx__i10.ff_inst
+   Register : spi_slave0.data_tx__i9.ff_inst
+   Register : spi_slave0.data_tx__i8.ff_inst
+   Register : spi_slave0.data_tx__i7.ff_inst
+   Register : spi_slave0.data_tx__i6.ff_inst
+   Register : spi_slave0.data_tx__i5.ff_inst
+   Register : spi_slave0.data_tx__i4.ff_inst
+   Register : spi_slave0.data_tx__i3.ff_inst
+   Register : spi_slave0.data_tx__i2.ff_inst
+   Register : spi_slave0.rw.ff_inst
+   Register : spi_slave0.data_tx__i1.ff_inst
+   Register : spi_slave0.data_o_i0_i15.ff_inst
+   Register : spi_slave0.data_o_i0_i14.ff_inst
+   Register : spi_slave0.data_o_i0_i13.ff_inst
+   Register : spi_slave0.data_o_i0_i12.ff_inst
+   Register : spi_slave0.data_o_i0_i11.ff_inst
+   Register : spi_slave0.data_o_i0_i10.ff_inst
+   Register : spi_slave0.data_o_i0_i9.ff_inst
+   Register : spi_slave0.data_o_i0_i8.ff_inst
+   Register : spi_slave0.data_o_i0_i7.ff_inst
+   Register : spi_slave0.data_o_i0_i6.ff_inst
+   Register : spi_slave0.data_o_i0_i5.ff_inst
+   Register : spi_slave0.data_o_i0_i4.ff_inst
+   Register : spi_slave0.data_o_i0_i3.ff_inst
+   Register : spi_slave0.data_o_i0_i2.ff_inst
+   Register : spi_slave0.data_o_i0_i1.ff_inst
+   Register : spi_slave0.addr_o_i0_i13.ff_inst
+   Register : spi_slave0.addr_o_i0_i12.ff_inst
+   Register : spi_slave0.addr_o_i0_i11.ff_inst
+   Register : spi_slave0.addr_o_i0_i10.ff_inst
+   Register : spi_slave0.addr_o_i0_i9.ff_inst
+   Register : spi_slave0.addr_o_i0_i8.ff_inst
+   Register : spi_slave0.addr_o_i0_i7.ff_inst
+   Register : spi_slave0.addr_o_i0_i6.ff_inst
+   Register : spi_slave0.addr_o_i0_i5.ff_inst
+   Register : spi_slave0.addr_o_i0_i4.ff_inst
+   Register : spi_slave0.addr_o_i0_i3.ff_inst
+   Register : spi_slave0.addr_o_i0_i2.ff_inst
+   Register : spi_slave0.addr_o_i0_i1.ff_inst
+   Register :
+        spi_slave0.add_22_add_12_add_12_add_12_add_12_add_12_e1_i13.ff_inst
+   Register :
+        spi_slave0.add_22_add_12_add_12_add_12_add_12_add_12_e1_i12.ff_inst
+   Register :
+        spi_slave0.add_22_add_12_add_12_add_12_add_12_add_12_e1_i11.ff_inst
+   Register :
+        spi_slave0.add_22_add_12_add_12_add_12_add_12_add_12_e1_i10.ff_inst
+   Register : spi_slave0.add_22_add_12_add_12_add_12_add_12_add_12_e1_i9.ff_inst
+   Register : spi_slave0.add_22_add_12_add_12_add_12_add_12_add_12_e1_i8.ff_inst
+   Register : spi_slave0.add_22_add_12_add_12_add_12_add_12_add_12_e1_i7.ff_inst
+   Register : spi_slave0.add_22_add_12_add_12_add_12_add_12_add_12_e1_i6.ff_inst
+
+   Register : spi_slave0.add_22_add_12_add_12_add_12_add_12_add_12_e1_i5.ff_inst
+   Register : spi_slave0.add_22_add_12_add_12_add_12_add_12_add_12_e1_i4.ff_inst
+   Register : spi_slave0.add_22_add_12_add_12_add_12_add_12_add_12_e1_i3.ff_inst
+   Register : spi_slave0.add_22_add_12_add_12_add_12_add_12_add_12_e1_i2.ff_inst
+   Register : spi_slave0.add_22_add_12_add_12_add_12_add_12_add_12_e1_i1.ff_inst
+   Register : dither_source0.tmp1_i0.ff_inst
+   Register : dither_source0.tmp1_i1.ff_inst
+   Register : dither_source0.tmp1_i2.ff_inst
+   Register : dither_source0.tmp1_i3.ff_inst
+   Register : dither_source0.tmp1_i4.ff_inst
+   Register : dither_source0.tmp1_i5.ff_inst
+   Register : dither_source0.tmp1_i6.ff_inst
+   Register : dither_source0.tmp1_i7.ff_inst
+   Register : dither_source0.tmp1_i8.ff_inst
+   Register : dither_source0.tmp1_i9.ff_inst
+   Register : dither_source0.tmp1_i10.ff_inst
+   Register : dither_source0.tmp1_i11.ff_inst
+   Register : dither_source0.tmp1_i12.ff_inst
+   Register : dither_source0.tmp1_i13.ff_inst
+   Register : dither_source0.tmp1_i14.ff_inst
+   Register : dither_source0.tmp1_i15.ff_inst
+   Register : dither_source0.tmp2_i1.ff_inst
+   Register : dither_source0.tmp2_i2.ff_inst
+   Register : dither_source0.tmp2_i3.ff_inst
+   Register : dither_source0.tmp2_i4.ff_inst
+   Register : dither_source0.tmp2_i5.ff_inst
+   Register : dither_source0.tmp2_i6.ff_inst
+   Register : dither_source0.tmp2_i7.ff_inst
+   Register : dither_source0.tmp2_i8.ff_inst
+   Register : dither_source0.tmp2_i9.ff_inst
+   Register : dither_source0.tmp2_i10.ff_inst
+   Register : dither_source0.tmp2_i11.ff_inst
+   Register : dither_source0.tmp2_i12.ff_inst
+   Register : dither_source0.tmp2_i13.ff_inst
+   Register : dither_source0.tmp2_i14.ff_inst
+   Register : dither_source0.tmp2_i15.ff_inst
+   Register : dither_source0.tmp2_i0.ff_inst
+   Register : ctcss_enc0.sincos_lut0.sine_o_i1.ff_inst
+   Register : ctcss_enc0.sincos_lut0.sine_o_i12.ff_inst
+   Register : ctcss_enc0.sincos_lut0.sine_o_i11.ff_inst
+   Register : ctcss_enc0.sincos_lut0.sine_o_i10.ff_inst
+   Register : ctcss_enc0.sincos_lut0.sine_o_i9.ff_inst
+   Register : ctcss_enc0.sincos_lut0.sine_o_i8.ff_inst
+   Register : ctcss_enc0.sincos_lut0.sine_o_i7.ff_inst
+   Register : ctcss_enc0.sincos_lut0.sine_o_i6.ff_inst
+   Register : ctcss_enc0.sincos_lut0.sine_o_i5.ff_inst
+   Register : ctcss_enc0.sincos_lut0.sine_o_i4.ff_inst
+   Register : ctcss_enc0.sincos_lut0.sine_o_i3.ff_inst
+   Register : ctcss_enc0.sincos_lut0.sine_o_i2.ff_inst
+   Register : ctcss_enc0.pp_trig_i_c.ff_inst
+   Register : ctcss_enc0.ptrg_c.ff_inst
+   Register : ctcss_enc0.phase_435__i1.ff_inst
+   Register : ctcss_enc0.phase_435__i21.ff_inst
+   Register : ctcss_enc0.phase_435__i20.ff_inst
+   Register : ctcss_enc0.phase_435__i19.ff_inst
+   Register : ctcss_enc0.phase_435__i18.ff_inst
+   Register : ctcss_enc0.phase_435__i17.ff_inst
+
+   Register : ctcss_enc0.phase_435__i16.ff_inst
+   Register : ctcss_enc0.phase_435__i15.ff_inst
+   Register : ctcss_enc0.phase_435__i14.ff_inst
+   Register : ctcss_enc0.phase_435__i13.ff_inst
+   Register : ctcss_enc0.phase_435__i12.ff_inst
+   Register : ctcss_enc0.phase_435__i11.ff_inst
+   Register : ctcss_enc0.phase_435__i10.ff_inst
+   Register : ctcss_enc0.phase_435__i9.ff_inst
+   Register : ctcss_enc0.phase_435__i8.ff_inst
+   Register : ctcss_enc0.phase_435__i7.ff_inst
+   Register : ctcss_enc0.phase_435__i6.ff_inst
+   Register : ctcss_enc0.phase_435__i5.ff_inst
+   Register : ctcss_enc0.phase_435__i4.ff_inst
+   Register : ctcss_enc0.phase_435__i3.ff_inst
+   Register : ctcss_enc0.phase_435__i2.ff_inst
+   Register : fifo_in.cnt_i0_i1_reset.ff_inst
+   Register : fifo_in.cnt_i0_i1_set.ff_inst
+   Register : fifo_in.cnt_i0_i2_reset.ff_inst
+   Register : fifo_in.cnt_i0_i2_set.ff_inst
+   Register : fifo_in.cnt_i0_i3_reset.ff_inst
+   Register : fifo_in.cnt_i0_i3_set.ff_inst
+   Register : fifo_in.cnt_i0_i4_reset.ff_inst
+   Register : fifo_in.cnt_i0_i4_set.ff_inst
+   Register : fifo_in.cnt_i0_i5_reset.ff_inst
+   Register : fifo_in.cnt_i0_i5_set.ff_inst
+   Register : fifo_in.cnt_i0_i0_set.ff_inst
+   Register : zero_insert0.s_o.ff_inst
+   Register : zero_insert0.counter__i0.ff_inst
+   Register : zero_insert0.counter__i7.ff_inst
+   Register : zero_insert0.counter__i6.ff_inst
+   Register : zero_insert0.counter__i5.ff_inst
+   Register : zero_insert0.counter__i4.ff_inst
+   Register : zero_insert0.counter__i3.ff_inst
+   Register : zero_insert0.counter__i2.ff_inst
+   Register : zero_insert0.counter__i1.ff_inst
+   Register : mod_in_r_15__I_0_add_12_add_12_add_12_add_12_add_12_e2_i0.ff_inst
+   Register : mod_in_r_15__I_0_add_12_add_12_add_12_add_12_add_12_e2_i15.ff_inst
+   Register : mod_in_r_15__I_0_add_12_add_12_add_12_add_12_add_12_e2_i10.ff_inst
+   Register : mod_in_r_15__I_0_add_12_add_12_add_12_add_12_add_12_e2_i9.ff_inst
+   Register : mod_in_r_15__I_0_add_12_add_12_add_12_add_12_add_12_e2_i8.ff_inst
+   Register : mod_in_r_15__I_0_add_12_add_12_add_12_add_12_add_12_e2_i7.ff_inst
+   Register : mod_in_r_15__I_0_add_12_add_12_add_12_add_12_add_12_e2_i6.ff_inst
+   Register : mod_in_r_15__I_0_add_12_add_12_add_12_add_12_add_12_e2_i5.ff_inst
+   Register : mod_in_r_15__I_0_add_12_add_12_add_12_add_12_add_12_e2_i4.ff_inst
+   Register : mod_in_r_15__I_0_add_12_add_12_add_12_add_12_add_12_e2_i3.ff_inst
+   Register : mod_in_r_15__I_0_add_12_add_12_add_12_add_12_add_12_e2_i2.ff_inst
+   Register : mod_in_r_15__I_0_add_12_add_12_add_12_add_12_add_12_e2_i1.ff_inst
+   PREADD9_CORE : dither_source0.add_21_add_12_add_12_add_12_add_12_add_12_add_1
+        2_add_5.PREADD9_L0
+   PREADD9_CORE : dither_source0.add_21_add_12_add_12_add_12_add_12_add_12_add_1
+        2_add_5.PREADD9_H0
+   MULT9_CORE : dither_source0.add_21_add_12_add_12_add_12_add_12_add_12_add_12_
+        add_5.MULT9_L0
+   MULT9_CORE : dither_source0.add_21_add_12_add_12_add_12_add_12_add_12_add_12_
+        add_5.MULT9_H0
+   REG18_CORE : dither_source0.add_21_add_12_add_12_add_12_add_12_add_12_add_12_
+        add_5.REG18_L0_0
+
+   REG18_CORE : dither_source0.add_21_add_12_add_12_add_12_add_12_add_12_add_12_
+        add_5.REG18_L0_1
+   ACC54_CORE : dither_source0.add_21_add_12_add_12_add_12_add_12_add_12_add_12_
+        add_5.ACC54_0
+
+DDR components with enabled GSR
+-------------------------------
+
+These DDR components have the GSR property set to ENABLED. The components will
+     respond to the asynchronous reset signal &apos;cnt_5__N_1916&apos; via the GSR
+     component.
+
+Type and number of components of the type:
+   DDR = 2
+
+Type and instance name of component:
+   DDR : ddr_tx0.lscc_gddr_inst.TX_SCLK_ALIGNED_STATIC_BYPASS.u_lscc_gddr_tx_scl
+        k_aligned_static_bypass.Data[0].u_data_ODDRX1
+   DDR : ddr_tx0.lscc_gddr_inst.TX_SCLK_ALIGNED_STATIC_BYPASS.u_lscc_gddr_tx_scl
+        k_aligned_static_bypass.u_clk_ODDRX1
 
 
 
@@ -330,7 +1025,20 @@ Instance Name: pll0/lscc_pll_inst/gen_no_refclk_mon.u_PLL.PLL_inst
 
    Total CPU Time: 2 secs
    Total REAL Time: 3 secs
-   Peak Memory Usage: 358 MB
+   Peak Memory Usage: 356 MB
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -422,6 +1130,7 @@ Copyright (c) 2002-2022 Lattice Semiconductor
 <LI><A href=#mrp_rm>Removed logic</A></LI>
 <LI><A href=#mrp_pll>PLL/DLL Summary</A></LI>
 <LI><A href=#mrp_asic>ASIC Components</A></LI>
+<LI><A href=#mrp_gsr>GSR Usage</A></LI>
 <LI><A href=#mrp_consum>Constraint Summary</A></LI>
 <LI><A href=#mrp_runtime>Run Time and Memory Usage</A></LI>
 </UL>
