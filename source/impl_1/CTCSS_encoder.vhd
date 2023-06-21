@@ -3,7 +3,7 @@
 --
 -- Wojciech Kaczmarski, SP5WWP
 -- M17 Project
--- April 2023
+-- June 2023
 -------------------------------------------------------------
 library IEEE;
 use IEEE.std_logic_1164.all;
@@ -28,11 +28,16 @@ architecture magic of ctcss_encoder is
 		'0' & x"0042B"	-- 203.5
 	);
 
-	component sincos_16 is
+	component sincos_lut is
+		generic(
+			LUT_SIZE    : natural;
+			WORD_SIZE   : natural
+		);
 		port(
-			theta_i		:   in  std_logic_vector(9 downto 0);
-			sine_o		:   out std_logic_vector(15 downto 0);
-			cosine_o	:   out std_logic_vector(15 downto 0)
+			clk_i		: in std_logic;
+			theta_i		: in std_logic_vector;
+			sine_o		: out std_logic_vector;
+			cosine_o	: out std_logic_vector
 		);
 	end component;
 	
@@ -41,7 +46,12 @@ architecture magic of ctcss_encoder is
 	signal p_trig_i, pp_trig_i	: std_logic := '0';
 begin
 	-- sincos LUT
-	sincos_lut0: sincos_16 port map(
+	sincos_lut0: sincos_lut generic map(
+        LUT_SIZE  => 256*4,
+        WORD_SIZE => 16
+	)
+	port map(
+		clk_i => clk_i,
 		theta_i => phase(20 downto 11),
 		sine_o => raw_r
 		--cosine_o =>

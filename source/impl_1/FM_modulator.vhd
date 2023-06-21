@@ -25,13 +25,31 @@ entity fm_modulator is
 end fm_modulator;
 
 architecture magic of fm_modulator is
-	component sincos_16 is
+	component sincos_lut is
+		generic(
+			LUT_SIZE    : natural;
+			WORD_SIZE   : natural
+		);
 		port(
-			theta_i		:   in  std_logic_vector(9 downto 0);
-			sine_o		:   out std_logic_vector(15 downto 0);
-			cosine_o	:   out std_logic_vector(15 downto 0)
+			clk_i		: in std_logic;
+			theta_i		: in std_logic_vector;
+			sine_o		: out std_logic_vector;
+			cosine_o	: out std_logic_vector
 		);
 	end component;
+	
+	--component sincos_cordic is
+		--port(
+			--clk_i		: in std_logic;
+			--inpvalid_i	: in std_logic;
+			--phasein_i	: in std_logic_vector(15 downto 0);
+			--rst_n_i		: in std_logic;
+			--outvalid_o	: out std_logic;
+			--rfi_o		: out std_logic;
+			--xout_o		: out std_logic_vector(15 downto 0);
+			--yout_o		: out std_logic_vector(15 downto 0)
+		--);
+	--end component;
 	
 	component dither_adder is
 		port(
@@ -47,7 +65,27 @@ architecture magic of fm_modulator is
 	signal phased	: std_logic_vector(20 downto 0) := (others => '0');
 begin
 	-- sincos LUT
-	sincos_lut0: sincos_16 port map(theta_i => phased(20 downto 11), sine_o => raw_q, cosine_o => raw_i);
+	sincos_lut0: sincos_lut generic map(
+		LUT_SIZE => 256*4,
+		WORD_SIZE => 16
+	)
+	port map(
+		clk_i => clk_i,
+		theta_i => phased(20 downto 11),
+		sine_o => raw_q,
+		cosine_o => raw_i
+	);
+	
+	--sincos_lut0: sincos_cordic port map(
+		--clk_i		=> clk_i,
+		--inpvalid_i	=> '1',
+		--phasein_i	=> phased(20 downto 20-16+1),
+		--rst_n_i		=> '1',
+		----outvalid_o	=> ,
+		----rfi_o		=> ,
+		--xout_o		=> raw_i,
+		--yout_o		=> raw_q
+	--);
 
 	-- phase dither
 	phase_dither0: dither_adder port map(

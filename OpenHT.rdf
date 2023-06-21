@@ -63,6 +63,9 @@
         <Source name="source/impl_1/CTCSS_encoder.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
+        <Source name="source/impl_1/fifo_dc.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
         <Source name="source/impl_1/ctrl_regs.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
@@ -118,9 +121,6 @@
             <Options/>
         </Source>
         <Source name="ddr_tx/ddr_tx.ipx" type="IPX_Module" type_short="IPX">
-            <Options/>
-        </Source>
-        <Source name="fifo/fifo.ipx" type="IPX_Module" type_short="IPX">
             <Options/>
         </Source>
         <Source name="source/impl_1/impl_1.pdc" type="Physical Constraints File" type_short="PDC">

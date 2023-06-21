@@ -1,0 +1,21 @@
+#Start recording tcl command: 6/21/2023 08:22:21
+#Project Location: C:/Users/SP5WWP/Documents/Radiant/OpenHT; Project name: OpenHT
+prj_open "C:/Users/SP5WWP/Documents/Radiant/OpenHT/OpenHT.rdf"
+prj_run Export -impl impl_1
+prj_run Export -impl impl_1
+prj_run PAR -impl impl_1
+prj_run Export -impl impl_1
+prj_run PAR -impl impl_1
+prj_run PAR -impl impl_1
+prj_run Export -impl impl_1
+prj_disable_source "C:/Users/SP5WWP/Documents/Radiant/OpenHT/fifo/fifo.ipx"
+prj_add_source "C:/Users/SP5WWP/Documents/Radiant/OpenHT/source/impl_1/fifo_dc.vhd"
+prj_run PAR -impl impl_1
+prj_run Synthesis -impl impl_1
+prj_run Synthesis -impl impl_1
+prj_run Synthesis -impl impl_1
+prj_run PAR -impl impl_1
+prj_run PAR -impl impl_1
+prj_run Export -impl impl_1
+prj_remove_source "C:/Users/SP5WWP/Documents/Radiant/OpenHT/fifo/fifo.ipx"
+#Stop recording: 6/21/2023 13:44:05

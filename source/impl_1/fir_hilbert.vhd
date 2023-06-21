@@ -76,7 +76,7 @@ begin
 			end if;
 
 			if busy='1' then
-				if counter=TAPS_NUM-1 then
+				if counter=TAPS_NUM then
 					-- output result
 					data_o <= mac(6+16+16-6-1 downto 6+16+16-6-1-16+1);
 					-- deassert busy flag

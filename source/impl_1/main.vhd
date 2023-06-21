@@ -3,6 +3,7 @@
 --
 -- Wojciech Kaczmarski, SP5WWP
 -- Morgan Diepart, ON4MOD
+-- Alvaro, EA4HGZ
 -- M17 Project
 -- June 2023
 -------------------------------------------------------------
@@ -22,20 +23,20 @@ entity main_all is
 		-- master reset, high active
 		nrst				: in std_logic;
 		-- baseband TX (DDR)
-		clk_tx_o			: out std_logic;
-		data_tx_o			: out std_logic;
+		clk_tx_o			: out std_logic := '0';
+		data_tx_o			: out std_logic := '0';
 		-- baseband RX (DDR)
 		clk_rx_i			: in std_logic;
 		data_rx09_i			: in std_logic;
 		data_rx24_i			: in std_logic;
 		-- SPI slave exposed for the STM32
 		spi_ncs				: in std_logic;
-		spi_miso			: out std_logic;
+		spi_miso			: out std_logic := 'Z';
 		spi_mosi			: in std_logic;
 		spi_sck				: in std_logic;
 		-- a bunch of IOs
 		io0, io1, io2		: in std_logic;
-		io3, io4, io5, io6	: out std_logic
+		io3, io4, io5, io6	: out std_logic := '0'
 	);
 end main_all;
 
@@ -429,6 +430,7 @@ architecture magic of main_all is
 	-- phase modulator
 	component pm_modulator is
 		port(
+			clk_i	: in std_logic;							-- clock in
 			mod_i	: in std_logic_vector(15 downto 0);		-- modulation in
 			i_o		: out std_logic_vector(15 downto 0);	-- I data out
 			q_o		: out std_logic_vector(15 downto 0)		-- Q data out
@@ -510,21 +512,35 @@ architecture magic of main_all is
 		);
 	end component;
 	
-	component fifo is
-		port(
-			rd_clk_i		: in std_logic;
-			rd_en_i			: in std_logic;
-			rp_rst_i		: in std_logic;
-			rst_i			: in std_logic;
-			wr_clk_i		: in std_logic;
-			wr_data_i		: in std_logic_vector(15 downto 0);
-			wr_en_i			: in std_logic;
-			almost_empty_o	: out std_logic;
-			empty_o			: out std_logic;
-			full_o			: out std_logic;
-			rd_data_o		: out std_logic_vector(15 downto 0)
+	--component fifo is
+		--port(
+			--rd_clk_i		: in std_logic;
+			--rd_en_i			: in std_logic;
+			--rp_rst_i		: in std_logic;
+			--rst_i			: in std_logic;
+			--wr_clk_i		: in std_logic;
+			--wr_data_i		: in std_logic_vector(15 downto 0);
+			--wr_en_i			: in std_logic;
+			--almost_empty_o	: out std_logic;
+			--empty_o			: out std_logic;
+			--full_o			: out std_logic;
+			--rd_data_o		: out std_logic_vector(15 downto 0)
+		--);
+	--end component;
+	
+	component fifo_dc is
+		generic(
+			DEPTH       : natural;  -- buffer length
+			D_WIDTH     : natural   -- data width
 		);
-	end component;
+		port(
+			clk_a_i     : in std_logic;
+			clk_b_i     : in std_logic;
+			data_i      : in std_logic_vector(D_WIDTH-1 downto 0);
+			data_o      : out std_logic_vector(D_WIDTH-1 downto 0);
+			fifo_ae     : out std_logic			-- fifo almost empty
+		);
+	end component;	
 begin
 	------------------------------------- port maps -------------------------------------
 	pll0: pll_osc port map(
@@ -637,12 +653,12 @@ begin
 	
 	---------------------------------------- TX -----------------------------------------
 	-- frequency modulator
-	--dither_source0: dither_source port map(
-		--clk_i => clk_64,
-		--ena => regs_rw(CR_1)(5),
-		--trig => zero_word,
-		--out_o => fm_dith_r
-	--);
+	dither_source0: dither_source port map(
+		clk_i => clk_64,
+		ena => regs_rw(CR_1)(5),
+		trig => zero_word,
+		out_o => fm_dith_r
+	);
 	
 	ctcss_enc0: ctcss_encoder port map(
 		nrst => nrst,
@@ -668,16 +684,16 @@ begin
 	);
 	
 	-- amplitude modulator
-	--ampl_mod0: am_modulator port map(
-		--mod_i => mod_in_r,
-		--i_o => i_am_tx,
-		--q_o => q_am_tx
-	--);
+	ampl_mod0: am_modulator port map(
+		mod_i => mod_in_r,
+		i_o => i_am_tx,
+		q_o => q_am_tx
+	);
 	
 	-- single sideband modulator
 	-- TODO: it's a sampler, actually
 	--decim0: decim port map(
-		--clk_i => clk_i,
+		--clk_i => clk_64,
 		--i_data_i => signed(mod_in_r), -- I branch is the input signal
 		--q_data_i => signed(mod_in_r), -- Q branch is the Hilbert-transformed input signal
 		--i_data_o => ssb_id_r,
@@ -693,14 +709,14 @@ begin
 	--);
 	
 	--delay_block0: delay_block port map(
-		--clk_i => clk_i,
+		--clk_i => clk_64,
 		--d_i => ssb_id_r,
 		--signed(d_o) => i_ssb_tx,
 		--trig_i => ssb_rdy
 	--);
 	
 	--hilbert0: fir_hilbert port map(
-		--clk_i => clk_38,
+		--clk_i => clk_64,
 		--data_i => signed(sel_ssb_qd_r),
 		--std_logic_vector(data_o) => q_ssb_tx,
 		--trig_i => ssb_rdy
@@ -730,8 +746,9 @@ begin
 		--q_o => q_qam_tx
 	--);
 	
-	-- phase modulator
+	---- phase modulator
 	--pm_mod0: pm_modulator port map(
+		--clk_i => clk_64,
 		--mod_i => mod_in_r, --x"0000",
 		--i_o => i_pm_tx,
 		--q_o => q_pm_tx
@@ -837,33 +854,46 @@ begin
 		regs_r => regs_r
 	);
 	
-	--clk_div_in_samp: clk_div_block
-	--generic map(
-		--DIV => 400/8
-	--)
-	--port map(
-		--clk_i => zero_word,
-		--clk_o => samp_clk
-	--);
+	clk_div_in_samp: clk_div_block
+	generic map(
+		DIV => 400/8
+	)
+	port map(
+		clk_i => zero_word,
+		clk_o => samp_clk
+	);
 
-	mod_in_r <= regs_rw(MOD_IN) when rising_edge(clk_64);
-	--mod_in_r <= fifo_in_data_o when regs_rw(CR_2)(11)='1' else regs_rw(MOD_IN);
-	--fifo_in_data_i <= reg_data_wr when unsigned(reg_addr)=MOD_IN else (others => '0');
+	--mod_in_r <= regs_rw(MOD_IN) when rising_edge(clk_64);
+	mod_in_r <= fifo_in_data_o when regs_rw(CR_2)(11)='1' else regs_rw(MOD_IN);
+	fifo_in_data_i <= reg_data_wr when unsigned(reg_addr)=MOD_IN else (others => '0');
 	
-	-- TODO: finish this
+	-- TODO: fix this
 	--fifo_in: fifo port map(
-		--rd_clk_i => samp_clk,
+		--rd_clk_i => clk_64,--samp_clk,
 		--rd_en_i => '1',
 		--rp_rst_i => '0',
 		--rst_i => not nrst or (not regs_rw(CR_2)(1) and regs_rw(CR_2)(0)),
-		--wr_clk_i => regs_latch,
-		--wr_data_i => fifo_in_data_i,
+		--wr_clk_i => clk_64,--regs_latch,
+		--wr_data_i => (others => '1'),--fifo_in_data_i,
 		--wr_en_i => '1',
 		--almost_empty_o => fifo_in_ae,
 		----empty_o => ,
 		----full_o => ,
 		--rd_data_o => fifo_in_data_o
 	--);
+	
+	fifo_in: fifo_dc
+	generic map(
+		DEPTH => 32,
+		D_WIDTH => 16
+	)
+	port map(
+		clk_a_i => regs_latch,
+		clk_b_i => samp_clk,
+		data_i => fifo_in_data_i,
+		data_o => fifo_in_data_o,
+		fifo_ae => fifo_in_ae
+	);
 	
 	-- additional connections
 	regs_r(SR_1) <= REV_MAJOR & REV_MINOR; -- revision number
@@ -888,7 +918,7 @@ begin
 	   drdy					when "100",
 	   fifo_in_ae			when "101",
        '1'					when others;
-	--io4 <= clk_64;
-	--io5 <= clk_i;
+	io4 <= clk_64;
+	io5 <= clk_i;
 	io6 <= '0';
 end magic;
