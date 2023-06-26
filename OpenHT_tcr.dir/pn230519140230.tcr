@@ -1,9 +1,0 @@
-#Start recording tcl command: 5/19/2023 13:46:40
-#Project Location: C:/Users/SP5WWP/Documents/Radiant/OpenHT; Project name: OpenHT
-prj_open "C:/Users/SP5WWP/Documents/Radiant/OpenHT/OpenHT.rdf"
-prj_run Synthesis -impl impl_1
-prj_set_device -part LIFCL-40-9SG72C -performance "9_High-Performance_1.0V"
-prj_run Export -impl impl_1
-prj_save 
-prj_close
-#Stop recording: 5/19/2023 14:02:30

@@ -1,0 +1,12 @@
+
+.ng_run_manager.ini
+.recovery
+.setting.ini
+.build_status
+.vdbs/
+IBIS/
+*.html
+impl*/
+*.dmp
+*.tcr
+*.log

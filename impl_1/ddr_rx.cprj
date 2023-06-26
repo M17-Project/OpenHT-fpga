@@ -1,8 +1,0 @@
--ver "C:/Radiant/ip/pmi/pmi_lifcl.v"
--lib pmi -vhd "C:/Radiant/ip/pmi/pmi_lifcl.vhd"
--ver "C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_rx/rtl/ddr_rx.v"
--sdc "C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_rx/constraints/ddr_rx.ldc"
--path "C:/Users/SP5WWP/Documents/Radiant/OpenHT/ddr_rx" "C:/Users/SP5WWP/Documents/Radiant/OpenHT"
--vh2008
--top ddr_rx
--a "LIFCL"
