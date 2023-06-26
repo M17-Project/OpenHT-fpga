@@ -107,6 +107,7 @@ architecture magic of main_all is
 	signal fifo_in_data_i			: std_logic_vector(15 downto 0) := (others => '0');
 	signal fifo_in_data_o			: std_logic_vector(15 downto 0) := (others => '0');
 	signal fifo_in_ae				: std_logic := '0';
+	signal fifo_in_en				: std_logic := '0';
 	
 	----------------------------- low level building blocks -----------------------------
 	-- main PLL block
@@ -534,6 +535,7 @@ architecture magic of main_all is
 			D_WIDTH     : natural   -- data width
 		);
 		port(
+			en_i		: in std_logic;
 			clk_a_i     : in std_logic;
 			clk_b_i     : in std_logic;
 			data_i      : in std_logic_vector(D_WIDTH-1 downto 0);
@@ -865,6 +867,7 @@ begin
 
 	--mod_in_r <= regs_rw(MOD_IN) when rising_edge(clk_64);
 	mod_in_r <= fifo_in_data_o when regs_rw(CR_2)(11)='1' else regs_rw(MOD_IN);
+	fifo_in_en <= '1' when unsigned(spi_addr_r)=MOD_IN else '0';
 	
 	-- TODO: fix this
 	--fifo_in: fifo port map(
@@ -887,6 +890,7 @@ begin
 		D_WIDTH => 16
 	)
 	port map(
+		en_i	=> fifo_in_en,
 		clk_a_i => regs_latch,
 		clk_b_i => samp_clk,
 		data_i => spi_rx_r,
@@ -917,7 +921,7 @@ begin
 	   drdy					when "100",
 	   fifo_in_ae			when "101",
        '1'					when others;
-	io4 <= clk_64;
-	io5 <= clk_i;
+	 io4 <= zero_word;
+	-- io5 <= clk_i;
 	io6 <= '0';
 end magic;
