@@ -865,7 +865,6 @@ begin
 
 	--mod_in_r <= regs_rw(MOD_IN) when rising_edge(clk_64);
 	mod_in_r <= fifo_in_data_o when regs_rw(CR_2)(11)='1' else regs_rw(MOD_IN);
-	fifo_in_data_i <= reg_data_wr when unsigned(reg_addr)=MOD_IN else (others => '0');
 	
 	-- TODO: fix this
 	--fifo_in: fifo port map(
@@ -890,7 +889,7 @@ begin
 	port map(
 		clk_a_i => regs_latch,
 		clk_b_i => samp_clk,
-		data_i => fifo_in_data_i,
+		data_i => spi_rx_r,
 		data_o => fifo_in_data_o,
 		fifo_ae => fifo_in_ae
 	);
