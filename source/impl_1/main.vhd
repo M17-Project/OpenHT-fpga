@@ -94,6 +94,7 @@ architecture magic of main_all is
 	signal fm_dith_r				: signed(15 downto 0) := (others => '0');
 	signal pm_mod					: std_logic_vector(15 downto 0) := (others => '0');
 	signal mod_in_r					: std_logic_vector(15 downto 0) := (others => '0');
+	signal mod_in_r_sync			: std_logic_vector(15 downto 0) := (others => '0');
 	--signal symb_clk					: std_logic := '0';
 	-- control registers related
 	signal reg_data_wr, reg_data_rd	: std_logic_vector(15 downto 0) := (others => '0');
@@ -108,6 +109,7 @@ architecture magic of main_all is
 	signal fifo_in_data_o			: std_logic_vector(15 downto 0) := (others => '0');
 	signal fifo_in_ae				: std_logic := '0';
 	signal fifo_in_en				: std_logic := '0';
+	signal fifo_in_en_sync			: std_logic := '0';
 	
 	----------------------------- low level building blocks -----------------------------
 	-- main PLL block
@@ -566,7 +568,7 @@ begin
 	ddr_rx0: ddr_rx port map(
 		clk_i => clk_rx_i,
 		data_i => data_rx09_i,
-		rst_i => (regs_rw(CR_2)(0) and not regs_rw(CR_2)(1)) or (not regs_rw(CR_1)(0)), -- check if STATE=RX and the band is correct
+		rst_i => (regs_rw(CR_2)(0) and not regs_rw(CR_2)(1)) or (regs_rw(CR_1)(0)), -- check if STATE=RX and the band is correct
 		sclk_o => clk_rx09,
 		data_o => data_rx09_r
 	);
@@ -575,7 +577,7 @@ begin
 	ddr_rx1: ddr_rx port map(
 		clk_i => clk_rx_i,
 		data_i => data_rx24_i,
-		rst_i =>  (regs_rw(CR_2)(0) and not regs_rw(CR_2)(1)) or (not regs_rw(CR_1)(1)), -- check if STATE=RX and the band is correct
+		rst_i =>  (regs_rw(CR_2)(0) and not regs_rw(CR_2)(1)) or (not regs_rw(CR_1)(0)), -- check if STATE=RX and the band is correct
 		sclk_o => clk_rx24,
 		data_o => data_rx24_r
 	);
@@ -669,7 +671,7 @@ begin
 		ctcss_i => regs_rw(CR_2)(7 downto 2),
 		ctcss_o	=> ctcss_r
 	);
-	ctcss_fm_tx <= std_logic_vector(signed(mod_in_r) + signed(ctcss_r));
+	ctcss_fm_tx <= std_logic_vector(signed(mod_in_r_sync) + signed(ctcss_r));
 	
 	freq_mod0: fm_modulator
 	generic map(
@@ -687,7 +689,7 @@ begin
 	
 	-- amplitude modulator
 	ampl_mod0: am_modulator port map(
-		mod_i => mod_in_r,
+		mod_i => mod_in_r_sync,
 		i_o => i_am_tx,
 		q_o => q_am_tx
 	);
@@ -768,8 +770,8 @@ begin
 		q2_i => q_ssb_tx,
 		i3_i => i_pm_tx, --invalid (used for PM for now)
 		q3_i => q_pm_tx,
-		i4_i => x"7FFF", -- invalid
-		q4_i => x"0000",
+		i4_i => regs_rw(16#B#),--x"7FFF", -- invalid
+		q4_i => regs_rw(16#C#),--x"0000",
 		i_o => i_raw_tx,
 		q_o => q_raw_tx
 	);
@@ -865,24 +867,10 @@ begin
 		clk_o => samp_clk
 	);
 
-	--mod_in_r <= regs_rw(MOD_IN) when rising_edge(clk_64);
 	mod_in_r <= fifo_in_data_o when regs_rw(CR_2)(11)='1' else regs_rw(MOD_IN);
+	mod_in_r_sync <= mod_in_r when rising_edge(clk_64);
 	fifo_in_en <= '1' when unsigned(spi_addr_r)=MOD_IN else '0';
-	
-	-- TODO: fix this
-	--fifo_in: fifo port map(
-		--rd_clk_i => clk_64,--samp_clk,
-		--rd_en_i => '1',
-		--rp_rst_i => '0',
-		--rst_i => not nrst or (not regs_rw(CR_2)(1) and regs_rw(CR_2)(0)),
-		--wr_clk_i => clk_64,--regs_latch,
-		--wr_data_i => (others => '1'),--fifo_in_data_i,
-		--wr_en_i => '1',
-		--almost_empty_o => fifo_in_ae,
-		----empty_o => ,
-		----full_o => ,
-		--rd_data_o => fifo_in_data_o
-	--);
+	fifo_in_en_sync <= fifo_in_en when rising_edge(clk_64);
 	
 	fifo_in: fifo_dc
 	generic map(
@@ -890,7 +878,7 @@ begin
 		D_WIDTH => 16
 	)
 	port map(
-		en_i	=> fifo_in_en,
+		en_i	=> fifo_in_en_sync,
 		clk_a_i => regs_latch,
 		clk_b_i => samp_clk,
 		data_i => spi_rx_r,
@@ -921,7 +909,7 @@ begin
 	   drdy					when "100",
 	   fifo_in_ae			when "101",
        '1'					when others;
-	 io4 <= zero_word;
-	-- io5 <= clk_i;
+	io4 <= '0';
+	io5 <= '0';
 	io6 <= '0';
 end magic;
