@@ -118,18 +118,6 @@ architecture magic of main_all is
 			rstn_i		: in std_logic;						-- reset in (low-active)
 			clki_i		: in std_logic;						-- reference input
 			clkop_o		: out std_logic;					-- primary output
-			clkos_o		: out std_logic;					-- secondary output 1
-			clkos2_o	: out std_logic;					-- secondary output 2
-			lock_o		: out std_logic						-- lock flag
-		);
-	end component;
-	
-	-- sample rate generator PLL block
-	component pll_samp is
-		port(
-			rstn_i		: in std_logic;						-- reset in (low-active)
-			clki_i		: in std_logic;						-- reference input
-			clkop_o		: out std_logic;					-- primary output
 			lock_o		: out std_logic						-- lock flag
 		);
 	end component;
@@ -550,18 +538,9 @@ begin
 	pll0: pll_osc port map(
 		rstn_i => nrst,
 		clki_i => clk_i,
-		clkop_o => clk_152,
-		clkos_o => clk_64,
-		clkos2_o => clk_38,
+		clkop_o => clk_64,
 		lock_o => regs_r(SR_2)(0)
 	);
-	
-	--pll1: pll_samp port map(
-		--rstn_i => nrst,
-		--clki_i => clk_i,
-		--clkop_o => clk_7M2,
-		--lock_o => regs_r(SR_2)(1)
-	--);
 	
 	---------------------------------------- RX -----------------------------------------
 	-- sub-GHz receiver
