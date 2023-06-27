@@ -909,7 +909,7 @@ begin
 	   drdy					when "100",
 	   fifo_in_ae			when "101",
        '1'					when others;
-	io4 <= '0';
-	io5 <= '0';
-	io6 <= '0';
+	io4 <= regs_latch;
+	io5 <= samp_clk;
+	io6 <= fifo_in_en_sync;
 end magic;
