@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<RadiantModule architecture="LIFCL" date="2023 06 28 22:00:04" device="LIFCL-40" generator="ipgen" library="module" module="fifo_dc" name="fifo_in_samples" package="QFN72" source_format="Verilog" speed="9_High-Performance_1.0V" vendor="latticesemi.com" version="1.4.0">
+ <Package>
+  <File modified="2023 06 28 22:00:04" name="rtl/fifo_in_samples_bb.v" type="black_box_verilog"/>
+  <File modified="2023 06 28 22:00:04" name="fifo_in_samples.cfg" type="cfg"/>
+  <File modified="2023 06 28 22:00:04" name="misc/fifo_in_samples_tmpl.v" type="template_verilog"/>
+  <File modified="2023 06 28 22:00:04" name="misc/fifo_in_samples_tmpl.vhd" type="template_vhdl"/>
+  <File modified="2023 06 28 22:00:04" name="rtl/fifo_in_samples.v" type="top_level_verilog"/>
+  <File modified="2023 06 28 22:00:04" name="constraints/fifo_in_samples.ldc" type="timing_constraints"/>
+  <File modified="2023 06 28 22:00:04" name="testbench/dut_params.v" type="dependency_file"/>
+  <File modified="2023 06 28 22:00:04" name="testbench/dut_inst.v" type="dependency_file"/>
+  <File modified="2023 06 28 22:00:04" name="eval/dut_params.v" type="dependency_file"/>
+  <File modified="2023 06 28 22:00:04" name="eval/dut_inst.v" type="dependency_file"/>
+  <File modified="2023 06 28 22:00:04" name="component.xml" type="IP-XACT_component"/>
+  <File modified="2023 06 28 22:00:04" name="design.xml" type="IP-XACT_design"/>
+  <File modified="2021 03 16 07:05:28" name="testbench/clk_rst_gen.v" type="testbench_verilog"/>
+  <File modified="2022 12 23 05:15:34" name="testbench/fifo_master.v" type="testbench_verilog"/>
+  <File modified="2022 06 14 04:34:13" name="testbench/flag_checker.v" type="testbench_verilog"/>
+  <File modified="2021 03 16 07:05:28" name="testbench/mem_model.v" type="testbench_verilog"/>
+  <File modified="2023 01 06 16:55:06" name="testbench/tb_top.v" type="testbench_verilog"/>
+  <File modified="2022 12 28 03:58:04" name="eval/constraint.pdc" type="eval"/>
+ </Package>
+</RadiantModule>

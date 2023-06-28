@@ -503,36 +503,22 @@ architecture magic of main_all is
 		);
 	end component;
 	
-	--component fifo is
-		--port(
-			--rd_clk_i		: in std_logic;
-			--rd_en_i			: in std_logic;
-			--rp_rst_i		: in std_logic;
-			--rst_i			: in std_logic;
-			--wr_clk_i		: in std_logic;
-			--wr_data_i		: in std_logic_vector(15 downto 0);
-			--wr_en_i			: in std_logic;
-			--almost_empty_o	: out std_logic;
-			--empty_o			: out std_logic;
-			--full_o			: out std_logic;
-			--rd_data_o		: out std_logic_vector(15 downto 0)
-		--);
-	--end component;
-	
-	component fifo_dc is
-		generic(
-			DEPTH       : natural;  -- buffer length
-			D_WIDTH     : natural   -- data width
-		);
+	component fifo_in_samples is
 		port(
-			en_i		: in std_logic;
-			clk_a_i     : in std_logic;
-			clk_b_i     : in std_logic;
-			data_i      : in std_logic_vector(D_WIDTH-1 downto 0);
-			data_o      : out std_logic_vector(D_WIDTH-1 downto 0);
-			fifo_ae     : out std_logic			-- fifo almost empty
+			wr_clk_i: in std_logic;
+			rd_clk_i: in std_logic;
+			rst_i: in std_logic;
+			rp_rst_i: in std_logic;
+			wr_en_i: in std_logic;
+			rd_en_i: in std_logic;
+			wr_data_i: in std_logic_vector(15 downto 0);
+			full_o: out std_logic;
+			empty_o: out std_logic;
+			almost_empty_o: out std_logic;
+			rd_data_o: out std_logic_vector(15 downto 0)
 		);
-	end component;	
+	end component;
+	
 begin
 	------------------------------------- port maps -------------------------------------
 	pll0: pll_osc port map(
@@ -851,18 +837,18 @@ begin
 	fifo_in_en <= '1' when unsigned(spi_addr_r)=MOD_IN else '0';
 	fifo_in_en_sync <= fifo_in_en when rising_edge(clk_64);
 	
-	fifo_in: fifo_dc
-	generic map(
-		DEPTH => 32,
-		D_WIDTH => 16
-	)
-	port map(
-		en_i	=> fifo_in_en_sync,
-		clk_a_i => regs_latch,
-		clk_b_i => samp_clk,
-		data_i => spi_rx_r,
-		data_o => fifo_in_data_o,
-		fifo_ae => fifo_in_ae
+	fifo_input : fifo_in_samples port map(
+		wr_clk_i => regs_latch,
+		rd_clk_i => samp_clk,
+		rst_i => '0',
+		rp_rst_i => '0',
+		wr_en_i => fifo_in_en_sync,
+		rd_en_i => '1',
+		wr_data_i => spi_rx_r,
+		full_o => open,
+		empty_o=> open,
+		almost_empty_o => fifo_in_ae,
+		rd_data_o => fifo_in_data_o
 	);
 	
 	-- additional connections
