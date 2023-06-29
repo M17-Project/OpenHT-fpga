@@ -4,7 +4,7 @@
 -- Wojciech Kaczmarski, SP5WWP
 -- Morgan Diepart, ON4MOD
 -- Alvaro, EA4HGZ
--- Sebastien ON4SEB
+-- Sebastien Van Cauwenberghe, ON4SEB
 -- M17 Project
 -- June 2023
 -------------------------------------------------------------
@@ -43,8 +43,8 @@ end main_all;
 
 architecture magic of main_all is
 	-------------------------------------- signals --------------------------------------
-	-- 38, 64 and 152 MHz clocks
-	signal clk_38, clk_64, clk_152	: std_logic := '0';
+	-- 64 MHz clock
+	signal clk_64 : std_logic := '0';
 	
 	-- DDR signals
 	signal clk_rx09					: std_logic := '0';

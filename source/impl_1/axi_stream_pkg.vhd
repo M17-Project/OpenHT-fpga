@@ -1,7 +1,7 @@
 -------------------------------------------------------------
 -- AXI stream pkg
 --
--- Sebastien ON4SEB
+-- Sebastien Van Cauwenberghe, ON4SEB
 -- M17 Project
 -- June 2023
 -- Reference : https://developer.arm.com/documentation/ihi0051/latest/
@@ -18,23 +18,23 @@ package axi_stream_pkg is
     constant AXIS_IQ_TDATA_SIZE : natural := 32;
     constant AXIS_MOD_TDATA_SIZE : natural := 16;
 
-    type axi_in_iq_t is record
+    type axis_in_iq_t is record
         tdata : std_logic_vector(AXIS_IQ_TDATA_SIZE-1 downto 0); -- DATA I(31->16), Q(15->0)
         tvalid : std_logic; -- Data is valid
         tlast : std_logic; -- Last burst of packet
     end record;
 
-    type axi_out_iq_t is record
+    type axis_out_iq_t is record
         tready : std_logic; -- Downstream is ready
     end record;
 
-    type axi_in_mod_t is record
+    type axis_in_mod_t is record
         tdata : std_logic_vector(AXIS_MOD_TDATA_SIZE-1 downto 0);
         tvalid : std_logic; -- Data is valid
         tlast : std_logic; -- Last burst of packet
     end record;
 
-    type axi_out_mod_t is record
+    type axis_out_mod_t is record
         tready : std_logic; -- Downstream is ready
     end record;
 
