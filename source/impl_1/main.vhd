@@ -4,6 +4,7 @@
 -- Wojciech Kaczmarski, SP5WWP
 -- Morgan Diepart, ON4MOD
 -- Alvaro, EA4HGZ
+-- Sebastien Van Cauwenberghe, ON4SEB
 -- M17 Project
 -- June 2023
 -------------------------------------------------------------
@@ -42,10 +43,8 @@ end main_all;
 
 architecture magic of main_all is
 	-------------------------------------- signals --------------------------------------
-	-- 38, 64 and 152 MHz clocks
-	signal clk_38, clk_64, clk_152	: std_logic := '0';
-	-- 7.2MHz sample clock
-	signal clk_7M2					: std_logic := '0';
+	-- 64 MHz clock
+	signal clk_64 : std_logic := '0';
 	
 	-- DDR signals
 	signal clk_rx09					: std_logic := '0';
@@ -143,366 +142,6 @@ architecture magic of main_all is
 		);
 	end component;
 	
-	-- IQ deserializer block
-	component iq_des is
-		port(
-			clk_i		: in std_logic;
-			ddr_clk_i	: in std_logic;
-			data_i		: in std_logic_vector(1 downto 0);
-			rst			: in std_logic;
-			i_o, q_o	: out std_logic_vector(12 downto 0);
-			drdy		: out std_logic
-		);
-	end component;
-	
-	-- IQ frame unpack block
-	component unpack is
-		port(
-			clk_i	: in std_logic;
-			zero	: in std_logic;							-- send zero words if high
-			i_i		: in std_logic_vector(15 downto 0);		-- 16-bit signed, sign at the MSB
-			q_i		: in std_logic_vector(15 downto 0);		-- 16-bit signed, sign at the MSB
-			data_o	: out std_logic_vector(1 downto 0)
-		);
-	end component;
-	
-	-- "zero word" insertion block
-	component zero_insert is
-		port(
-			clk_i	: in std_logic;							-- 64MHz clock in
-			runup_i	: in std_logic;							-- set to '1' to send initial zero words to the transceiver
-			s_o 	: out std_logic							-- zero word out ('1' = send zero words)
-		);
-	end component;
-	
-	------------------------------------ DSP blocks -------------------------------------
-	-- decimation block
-	component decim is
-		generic(
-			DECIM		: integer := 10;
-			BIT_SIZE	: integer := 16
-		);
-		port(
-			clk_i					: in std_logic;						-- fast clock in
-			i_data_i, q_data_i		: in signed(BIT_SIZE-1 downto 0);	-- data in
-			i_data_o, q_data_o		: out signed(BIT_SIZE-1 downto 0);	-- data out
-			trig_i					: in std_logic;						-- trigger in
-			drdy_o					: out std_logic						-- data ready out
-		);
-	end component;
-	
-	-- clock divider
-	component clk_div_block is
-		generic(
-			DIV		: integer
-		);
-		port(
-			clk_i	: in std_logic;							-- fast clock in
-			clk_o	: inout std_logic						-- slow clock out
-		);
-	end component;
-	
-	-- 16-bit add const block
-	--component add_const is
-		--port(
-			--data_i		: in signed(15 downto 0);			-- data in
-			--data_o		: out std_logic_vector(15 downto 0)	-- data out
-		--);
-	--end component;
-	
-	-- local oscillator (40kHz, complex sincos)
-	component local_osc is
-		generic(
-			DIV			: integer := 10 					-- for a sample rate of 400k, this gives 40k
-		);
-		port(
-			clk_i	: in std_logic;
-			trig_i	: in std_logic;
-			i_o		: out signed(15 downto 0);
-			q_o		: out signed(15 downto 0)
-		);
-	end component;
-	
-	-- complex multiplier block
-	component complex_mul is
-		port(
-			a_re, a_im, b_re, b_im	: in signed(15 downto 0);
-			c_re, c_im				: out signed(15 downto 0)
-		);
-	end component;
-	
-	-- channel filter
-	component channel_filter is
-		generic(
-			SAMP_WIDTH	: integer := 16
-		);
-		port(
-			clk_i		: in std_logic;							-- 38MHz clock in
-			ch_width	: in std_logic_vector(1 downto 0);		-- channel width selector
-			i_i			: in signed(SAMP_WIDTH-1 downto 0);		-- I in
-			q_i			: in signed(SAMP_WIDTH-1 downto 0);		-- Q in
-			i_o			: out signed(SAMP_WIDTH-1 downto 0);	-- I out
-			q_o			: out signed(SAMP_WIDTH-1 downto 0);	-- Q out
-			trig_i		: in std_logic;							-- trigger in
-			drdy_o		: out std_logic							-- data ready out
-		);
-	end component;
-	
-	-- Hilbert transformer
-	component fir_hilbert is
-		generic(
-			TAPS_NUM : integer := 81
-		);
-		port(
-			clk_i		: in std_logic;						-- fast clock in
-			data_i		: in signed(15 downto 0);			-- data in
-			data_o		: out signed(15 downto 0);			-- data out
-			trig_i		: in std_logic;						-- trigger in
-			drdy_o		: out std_logic						-- data ready out
-		);
-	end component;
-	
-	-- Root Raised Cosine filter
-	--component fir_rrc is
-		--generic(
-			--TAPS_NUM : integer := 81
-		--);
-		--port(
-			--clk_i			: in std_logic;					-- fast clock in
-			--data_i		: in signed(15 downto 0);		-- data in
-			--data_o		: out signed(15 downto 0);		-- data out
-			--trig_i		: in std_logic;					-- trigger in
-			--drdy_o		: out std_logic					-- data ready out
-		--);
-	--end component;
-	
-	component fir_rssi is
-		generic(
-			TAPS_NUM : integer := 81
-		);
-		port(
-			clk_i		: in std_logic;					-- fast clock in
-			data_i		: in signed(15 downto 0);		-- data in
-			data_o		: out signed(15 downto 0);		-- data out
-			trig_i		: in std_logic;					-- trigger in
-			drdy_o		: out std_logic := '0'			-- data ready out
-		);
-	end component;
-	
-	-- delay block
-	component delay_block is
-		generic(
-			DELAY		: integer := 40
-		);
-		port(
-			clk_i	: in std_logic;							-- fast clock in
-			d_i		: in signed(15 downto 0);				-- data in
-			d_o		: out signed(15 downto 0);				-- data out
-			trig_i	: in std_logic							-- trigger in
-		);
-	end component;
-	
-	-- magnitude estimator, |z| = sqrt(i^2 + q^2)
-	component mag_est is
-		port(
-			clk_i		: in std_logic;
-			trig_i		: in std_logic;
-			i_i, q_i	: in signed(15 downto 0);
-			est_o		: out unsigned(15 downto 0);
-			rdy_o		: out std_logic
-		);
-	end component;
-	
-	-- received signal strength (RSSI) estimator
-	component rssi_est is
-		generic(
-			NUM		: integer := 2**8
-		);
-		port(
-			clk_i	: in std_logic;
-			r_i		: in signed(15 downto 0);
-			r_o		: out unsigned(15 downto 0);
-			rdy		: out std_logic
-		);
-	end component;
-	
-	-- polynomial digital predistortion block
-	component dpd is
-		port(
-			p1 : in signed(15 downto 0);
-			p2 : in signed(15 downto 0);
-			p3 : in signed(15 downto 0);
-			i_i : in std_logic_vector(15 downto 0);
-			q_i : in std_logic_vector(15 downto 0);
-			i_o: out std_logic_vector(15 downto 0);
-			q_o: out std_logic_vector(15 downto 0)
-		);
-	end component;
-	
-	-- IQ balancing
-	component iq_balancer_16 is
-		port(
-			i_i		: in std_logic_vector(15 downto 0);		-- I data in
-			q_i		: in std_logic_vector(15 downto 0);		-- Q data in
-			ib_i	: in std_logic_vector(15 downto 0);		-- I balance in, 0x4000 = "+1.0"
-			qb_i	: in std_logic_vector(15 downto 0);		-- Q balance in, 0x4000 = "+1.0"
-			i_o		: out std_logic_vector(15 downto 0);	-- I data in
-			q_o		: out std_logic_vector(15 downto 0)		-- Q data in
-		);
-	end component;
-	
-	-- IQ offset null
-	component iq_offset is
-		port(
-			i_i : in std_logic_vector(15 downto 0);
-			q_i : in std_logic_vector(15 downto 0);
-			ai_i : in std_logic_vector(15 downto 0);
-			aq_i : in std_logic_vector(15 downto 0);
-			i_o : out std_logic_vector(15 downto 0);
-			q_o : out std_logic_vector(15 downto 0)
-		);
-	end component;
-	
-	-- CTCSS tone generator
-	component ctcss_encoder is
-		port(
-			nrst	: in std_logic;							-- reset
-			trig_i	: in std_logic;							-- trigger input, 400k
-			clk_i	: in std_logic;							-- main clock
-			ctcss_i	: in std_logic_vector(5 downto 0);		-- CTCSS code in
-			ctcss_o	: out std_logic_vector(15 downto 0)		-- CTCSS tone out
-		);
-	end component;
-	
-	------------------------------------ modulators -------------------------------------
-	-- dither source
-	component dither_source is
-		port(
-			clk_i	: in  std_logic;
-			ena		: in std_logic;
-			trig	: in std_logic := '0';
-			out_o	: out signed(15 downto 0)
-		);
-	end component;
-	
-	-- frequency modulator
-	component fm_modulator is
-		generic(
-			DIV : integer									-- set to satisfy clk_i/DIV=400k
-		);
-		port(
-			nrst	: in std_logic;							-- reset
-			clk_i	: in std_logic;							-- main clock
-			mod_i	: in std_logic_vector(15 downto 0);		-- modulation in
-			dith_i	: in signed(15 downto 0);				-- phase dither input
-			nw_i	: in std_logic;							-- narrow/wide selector
-			i_o		: out std_logic_vector(15 downto 0);	-- I data out
-			q_o		: out std_logic_vector(15 downto 0)		-- Q data out
-		);
-	end component;
-	
-	-- amplitude modulator
-	component am_modulator is
-		port(
-			mod_i	: in std_logic_vector(15 downto 0);		-- modulation in
-			i_o		: out std_logic_vector(15 downto 0);	-- I data out
-			q_o		: out std_logic_vector(15 downto 0)		-- Q data out
-		);
-	end component;
-	
-	-- QAM16 modulator
-	component qam_16 is
-		port(
-			data_i		: in  std_logic_vector(3 downto 0);
-			i_o, q_o	: out std_logic_vector(15 downto 0)
-		);
-	end component;
-	
-	-- phase modulator
-	component pm_modulator is
-		port(
-			clk_i	: in std_logic;							-- clock in
-			mod_i	: in std_logic_vector(15 downto 0);		-- modulation in
-			i_o		: out std_logic_vector(15 downto 0);	-- I data out
-			q_o		: out std_logic_vector(15 downto 0)		-- Q data out
-		);
-	end component;
-	
-	----------------------------------- demodulators ------------------------------------
-	-- frequency demodulator
-	component freq_demod is
-		port(
-			clk_i		: in std_logic;				-- demod clock
-			i_i, q_i	: in signed(15 downto 0);	-- I/Q inputs
-			demod_o		: out signed(15 downto 0)	-- freq demod out
-		);
-	end component;
-
-	-- amplitude demodulator is the 'mag_est' block
-	
-	-------------------------------------- control --------------------------------------
-	-- control registers
-	component ctrl_regs is
-		port(
-			clk_i		: in std_logic;							-- clock in
-			nrst		: in std_logic;							-- reset
-			addr_i		: in std_logic_vector(13 downto 0);		-- address in
-			data_i		: in std_logic_vector(15 downto 0);		-- data in
-			data_o		: out std_logic_vector(15 downto 0);	-- data out
-			rw_i		: in std_logic;							-- read/write flag, r:0 w:1
-			latch_i		: in std_logic;							-- latch signal (rising edge)
-			-- registers
-			regs_rw		: inout t_rw_regs;
-			regs_r		: in t_r_regs
-		);
-	end component;
-	
-	-- sideband selector
-	component sideband_sel is
-		port(
-			sel			: in std_logic;							-- sideband selector (0-USB, 1-LSB)
-			d_i			: in signed(15 downto 0);				-- I data out
-			d_o			: out signed(15 downto 0)				-- Q data out
-		);
-	end component;
-	
-	-- modulation selector
-	component mod_sel is
-		port(
-			clk_i		: in std_logic;							-- clock in
-			sel			: in std_logic_vector(2 downto 0);		-- mod selector
-			i0_i, q0_i	: in std_logic_vector(15 downto 0);		-- input 0
-			i1_i, q1_i	: in std_logic_vector(15 downto 0);		-- input 1
-			i2_i, q2_i	: in std_logic_vector(15 downto 0);		-- input 2
-			i3_i, q3_i	: in std_logic_vector(15 downto 0);		-- input 3
-			i4_i, q4_i	: in std_logic_vector(15 downto 0);		-- input 4
-			i_o			: out std_logic_vector(15 downto 0);	-- I data out
-			q_o			: out std_logic_vector(15 downto 0)		-- Q data out
-		);
-	end component;
-	
-	------------------------------------ interfaces -------------------------------------
-	-- SPI slave interface
-	component spi_slave is
-		generic(
-			MAX_ADDR : natural := RW_REGS_NUM + R_REGS_NUM - 1
-		);
-		port(
-			miso_o	: out std_logic;						-- serial data out
-			mosi_i	: in std_logic;							-- serial data in
-			sck_i	: in std_logic;							-- clock
-			ncs_i	: in std_logic;							-- slave select signal
-			data_o	: out std_logic_vector(15 downto 0);	-- received data register
-			addr_o	: out std_logic_vector(13 downto 0);	-- address (for data read)
-			data_i	: in std_logic_vector(15 downto 0);		-- input data register
-			nrst	: in std_logic;							-- reset
-			ena		: in std_logic;							-- enable
-			rw		: inout std_logic;						-- read/write flag, r=0, w=1
-			ld      : out std_logic;						-- load signal for a FIFO (positive pulse after word end)
-			clk_i	: in std_logic							-- fast clock
-		);
-	end component;
-	
 	component fifo_in_samples is
 		port(
 			wr_clk_i: in std_logic;
@@ -547,24 +186,15 @@ begin
 		data_o => data_rx24_r
 	);
 	
-	--iq_des0: iq_des port map(
-		--clk_i => clk_152,
-		--ddr_clk_i => clk_rx09 or clk_rx24,		-- TODO: check if this actually works!
-		--data_i => data_rx09_r or data_rx24_r,	-- ...this too. otherwise add a switch block
-		--rst => not regs_rw(CR_2)(1),
-		--i_o => i_r,
-		--q_o => q_r,
-		--drdy => drdy
-	--);
 	
-	--lo0: local_osc port map(
+	--lo0: entity work.local_osc port map(
 		--clk_i => clk_38,
 		--trig_i => drdy,
 		--i_o => lo_mix_i,
 		--q_o => lo_mix_q
 	--);
 	
-	--mix0: complex_mul port map(
+	--mix0: entity work.complex_mul port map(
 		--a_re => signed(i_r(11 downto 0) & '0' & '0' & '0' & '0'), -- a gain of 2
 		--a_im => signed(q_r(11 downto 0) & '0' & '0' & '0' & '0'), -- somehow concatenating with "0000" didn't work here
 		--b_re => lo_mix_i,
@@ -573,7 +203,7 @@ begin
 		--c_im => mix_q_o
 	--);
 	
-	--channel_flt0: channel_filter
+	--channel_flt0: entity work.channel_filter
 	--generic map(
 		--SAMP_WIDTH => 16
 	--)
@@ -589,14 +219,14 @@ begin
 	--);
 	
 	----mag_sq_r <= std_logic_vector(flt_id_r*flt_id_r + flt_qd_r*flt_qd_r);
-	--rssi0: rssi_est port map(
+	--rssi0: entity work.rssi_est port map(
 		--clk_i => drdyd,
 		--r_i => flt_id_r, --mag_sq_r(31 downto 16),
 		--std_logic_vector(r_o) => rssi_r,
 		--rdy => rssi_rdy
 	--);
 	
-	--rssi_fir0: fir_rssi port map(
+	--rssi_fir0: entity work.fir_rssi port map(
 		--clk_i => clk_38,
 		--data_i => signed('0' & rssi_r(14 downto 0)),
 		--std_logic_vector(data_o) => regs_r(RSSI_REG),
@@ -604,7 +234,7 @@ begin
 		----drdy_o => 
 	--);
 	
-	--am_demod0: mag_est port map(
+	--am_demod0: entity work.mag_est port map(
 		--clk_i => clk_38,
 		--trig_i => drdyd,
 		--i_i => flt_id_r,
@@ -613,7 +243,7 @@ begin
 		--rdy_o => am_demod_rdy
 	--);
 	
-	--fm_demod0: freq_demod port map(
+	--fm_demod0: entity work.freq_demod port map(
 		--clk_i => drdyd,
 		--i_i => flt_id_r(14 downto 0) & '0',
 		--q_i => flt_qd_r(14 downto 0) & '0',
@@ -622,14 +252,14 @@ begin
 	
 	---------------------------------------- TX -----------------------------------------
 	-- frequency modulator
-	dither_source0: dither_source port map(
+	dither_source0: entity work.dither_source port map(
 		clk_i => clk_64,
 		ena => regs_rw(CR_1)(5),
 		trig => zero_word,
 		out_o => fm_dith_r
 	);
 	
-	ctcss_enc0: ctcss_encoder port map(
+	ctcss_enc0: entity work.ctcss_encoder port map(
 		nrst => nrst,
 		trig_i => zero_word,
 		clk_i => clk_64,
@@ -638,7 +268,7 @@ begin
 	);
 	ctcss_fm_tx <= std_logic_vector(signed(mod_in_r_sync) + signed(ctcss_r));
 	
-	freq_mod0: fm_modulator
+	freq_mod0: entity work.fm_modulator
 	generic map(
 		DIV => 160
 	)
@@ -653,7 +283,7 @@ begin
 	);
 	
 	-- amplitude modulator
-	ampl_mod0: am_modulator port map(
+	ampl_mod0: entity work.am_modulator port map(
 		mod_i => mod_in_r_sync,
 		i_o => i_am_tx,
 		q_o => q_am_tx
@@ -661,7 +291,7 @@ begin
 	
 	-- single sideband modulator
 	-- TODO: it's a sampler, actually
-	--decim0: decim port map(
+	--decim0: entity work.decim port map(
 		--clk_i => clk_64,
 		--i_data_i => signed(mod_in_r), -- I branch is the input signal
 		--q_data_i => signed(mod_in_r), -- Q branch is the Hilbert-transformed input signal
@@ -671,20 +301,20 @@ begin
 		--drdy_o => ssb_rdy
 	--);
 	
-	--sb_sel0: sideband_sel port map(
+	--sb_sel0: entity work.sideband_sel port map(
 		--sel => regs_rw(CR_1)(15),
 		--d_i => ssb_qd_r,
 		--d_o => sel_ssb_qd_r
 	--);
 	
-	--delay_block0: delay_block port map(
+	--delay_block0: entity work.delay_block port map(
 		--clk_i => clk_64,
 		--d_i => ssb_id_r,
 		--signed(d_o) => i_ssb_tx,
 		--trig_i => ssb_rdy
 	--);
 	
-	--hilbert0: fir_hilbert port map(
+	--hilbert0: entity work.fir_hilbert port map(
 		--clk_i => clk_64,
 		--data_i => signed(sel_ssb_qd_r),
 		--std_logic_vector(data_o) => q_ssb_tx,
@@ -693,7 +323,7 @@ begin
 	--);
 	
 	-- 16QAM modulator
-	--symb_clk_div0: clk_div_block
+	--symb_clk_div0: entity work.clk_div_block
 	--generic map(
 		--DIV => 40
 	--)
@@ -702,21 +332,21 @@ begin
 		--clk_o => symb_clk
 	--);
 	
-	--rand_symb_source0: dither_source port map(
+	--rand_symb_source0: entity work.dither_source port map(
 		--clk_i => clk_i,
 		--ena => '1',
 		--trig => symb_clk,
 		--out_o => raw_rand
 	--);
 	
-	--qam_mod0: qam_16 port map(
+	--qam_mod0: entity work.qam_16 port map(
 		--data_i => mod_in_r(3 downto 0), --std_logic_vector(raw_rand(3 downto 0))
 		--i_o => i_qam_tx,
 		--q_o => q_qam_tx
 	--);
 	
 	---- phase modulator
-	--pm_mod0: pm_modulator port map(
+	--pm_mod0: entity work.pm_modulator port map(
 		--clk_i => clk_64,
 		--mod_i => mod_in_r, --x"0000",
 		--i_o => i_pm_tx,
@@ -724,7 +354,7 @@ begin
 	--);
 	
 	-- modulation selector
-	tx_mod_sel0: mod_sel port map(
+	tx_mod_sel0: entity work.mod_sel port map(
 		clk_i => clk_64,
 		sel => regs_rw(CR_1)(14 downto 12),
 		i0_i => i_fm_tx, --FM
@@ -742,7 +372,7 @@ begin
 	);
 
 	-- digital predistortion blocks
-	--dpd0: dpd port map(
+	--dpd0: entity work.dpd port map(
 		--p1 => signed(regs_rw(DPD_1)),
 		--p2 => signed(regs_rw(DPD_2)),
 		--p3 => signed(regs_rw(DPD_3)),
@@ -752,7 +382,7 @@ begin
 		--q_o => q_dpd_tx
 	--);
 	
-	--iq_bal0: iq_balancer_16 port map(
+	--iq_bal0: entity work.iq_balancer_16 port map(
 		--i_i => i_dpd_tx,
 		--q_i => q_dpd_tx,
 		--ib_i => regs_rw(I_GAIN),
@@ -761,7 +391,7 @@ begin
 		--q_o	=> q_bal_tx
 	--);
 	
-	--iq_offset0: iq_offset port map(
+	--iq_offset0: entity work.iq_offset port map(
 		--i_i => i_bal_tx,
 		--q_i => q_bal_tx,
 		--ai_i => regs_rw(I_OFFS_NULL),
@@ -773,13 +403,13 @@ begin
 	q_offs_tx <= q_raw_tx;
 
 	-- DDR TX queue
-	zero_insert0: zero_insert port map(
+	zero_insert0: entity work.zero_insert port map(
 		clk_i => clk_64,
 		runup_i => nrst,
 		s_o => zero_word
 	);
 	
-	unpack0: unpack port map(
+	unpack0: entity work.unpack port map(
 		clk_i => clk_64,
 		zero => zero_word,
 		i_i => i_offs_tx,
@@ -796,7 +426,7 @@ begin
 	);
 	
 	----------------------------------- control etc. ------------------------------------
-	spi_slave0: spi_slave port map(
+	spi_slave0: entity work.spi_slave port map(
 		miso_o => spi_miso,
 		mosi_i => spi_mosi,
 		sck_i => spi_sck,
@@ -811,7 +441,7 @@ begin
 		clk_i => clk_64
 	);
 	
-	ctrl_regs0: ctrl_regs port map(
+	ctrl_regs0: entity work.ctrl_regs port map(
 		clk_i => clk_64,
 		nrst => nrst,
 		addr_i => spi_addr_r,
@@ -823,7 +453,7 @@ begin
 		regs_r => regs_r
 	);
 	
-	clk_div_in_samp: clk_div_block
+	clk_div_in_samp: entity work.clk_div_block
 	generic map(
 		DIV => 400/8
 	)
