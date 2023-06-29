@@ -14,16 +14,27 @@ use ieee.numeric_std.all;
 use ieee.math_real.all;
 
 package axi_stream_pkg is
-    
-    constant AXIS_TDATA_SIZE : natural := 32;
 
-    type axi_in_t is record
-        tdata : std_logic_vector(AXIS_TDATA_SIZE-1 downto 0); -- DATA I(31->16), Q(15->0)
+    constant AXIS_IQ_TDATA_SIZE : natural := 32;
+    constant AXIS_MOD_TDATA_SIZE : natural := 16;
+
+    type axi_in_iq_t is record
+        tdata : std_logic_vector(AXIS_IQ_TDATA_SIZE-1 downto 0); -- DATA I(31->16), Q(15->0)
         tvalid : std_logic; -- Data is valid
         tlast : std_logic; -- Last burst of packet
     end record;
 
-    type axi_out_t is record 
+    type axi_out_iq_t is record
+        tready : std_logic; -- Downstream is ready
+    end record;
+
+    type axi_in_mod_t is record
+        tdata : std_logic_vector(AXIS_MOD_TDATA_SIZE-1 downto 0);
+        tvalid : std_logic; -- Data is valid
+        tlast : std_logic; -- Last burst of packet
+    end record;
+
+    type axi_out_mod_t is record
         tready : std_logic; -- Downstream is ready
     end record;
 
