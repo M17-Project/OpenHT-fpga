@@ -403,17 +403,17 @@ begin
 	q_offs_tx <= q_raw_tx;
 
 	-- DDR TX queue
-	zero_insert0: entity work.zero_insert port map(
-		clk_i => clk_64,
-		runup_i => nrst,
-		s_o => zero_word
-	);
+	--zero_insert0: entity work.zero_insert port map(
+		--clk_i => clk_64,
+		--runup_i => nrst,
+		--s_o => zero_word
+	--);
 	
 	unpack0: entity work.unpack port map(
 		clk_i => clk_64,
-		zero => zero_word,
 		i_i => i_offs_tx,
 		q_i => q_offs_tx,
+		req_o => zero_word,
 		data_o => data_tx_r
 	);	
 	
