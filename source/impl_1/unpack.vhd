@@ -12,7 +12,7 @@ use IEEE.numeric_std.all;
 
 entity unpack is
 	port(
-		clk_i	: in std_logic;
+		clk_i	: in std_logic;											-- 64 MHz clock in
 		i_i		: in std_logic_vector(15 downto 0);						-- 16-bit signed, sign at the MSB
 		q_i		: in std_logic_vector(15 downto 0);						-- 16-bit signed, sign at the MSB
 		req_o	: out std_logic := '1';									-- data request

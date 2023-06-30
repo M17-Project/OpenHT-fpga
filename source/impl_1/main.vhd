@@ -262,7 +262,7 @@ begin
 	ctcss_enc0: entity work.ctcss_encoder port map(
 		nrst => nrst,
 		trig_i => zero_word,
-		clk_i => clk_64,
+		--clk_i => clk_64,
 		ctcss_i => regs_rw(CR_2)(7 downto 2),
 		ctcss_o	=> ctcss_r
 	);
