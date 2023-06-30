@@ -15,14 +15,14 @@ entity unpack is
 		clk_i	: in std_logic;
 		i_i		: in std_logic_vector(15 downto 0);						-- 16-bit signed, sign at the MSB
 		q_i		: in std_logic_vector(15 downto 0);						-- 16-bit signed, sign at the MSB
-		req_o	: out std_logic := '0';									-- data request
+		req_o	: out std_logic := '1';									-- data request
 		data_o	: out std_logic_vector(1 downto 0) := (others => '0')	-- dibit data out for DDR
 	);
 end unpack;
 
 architecture magic of unpack is
 	signal tx_reg : std_logic_vector(31 downto 0) := (others => '0');
-	signal req : std_logic := '0';
+	signal req : std_logic := '1';
 begin
 	process(clk_i)
 		variable cnt : natural range 0 to 160 := 0;
