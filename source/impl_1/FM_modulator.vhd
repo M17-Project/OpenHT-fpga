@@ -11,11 +11,11 @@ use IEEE.numeric_std.all;
 
 entity fm_modulator is
 	generic(
-		DIV : integer								-- set to satisfy clk_i/DIV=400k
+		SINCOS_RES : natural := 10					-- sincos LUT bit resolution, default - 10 bits
 	);
 	port(
+		trig_i	: in std_logic;						-- 400k trigger
 		nrst	: in std_logic;						-- reset
-		clk_i	: in std_logic;						-- main clock
 		mod_i	: in std_logic_vector(15 downto 0);	-- modulation in
 		dith_i	: in signed(15 downto 0);			-- phase dither input
 		nw_i	: in std_logic;						-- narrow/wide selector, N=0, W=1
@@ -66,12 +66,12 @@ architecture magic of fm_modulator is
 begin
 	-- sincos LUT
 	sincos_lut0: sincos_lut generic map(
-		LUT_SIZE => 256*4,
+		LUT_SIZE => 2**SINCOS_RES,
 		WORD_SIZE => 16
 	)
 	port map(
-		clk_i => clk_i,
-		theta_i => phased(20 downto 11),
+		clk_i => trig_i,
+		theta_i => phased(20 downto 20-SINCOS_RES+1),
 		sine_o => raw_q,
 		cosine_o => raw_i
 	);
@@ -94,25 +94,19 @@ begin
 		std_logic_vector(phase_o) => phased
 	);
 
-	process(clk_i)
-		variable counter : integer range 0 to DIV := 0;
+	process(trig_i)
 	begin
-		if rising_edge(clk_i) then
+		if rising_edge(trig_i) then
 			if nrst='1' then
-				if counter=DIV-1 then
-					if nw_i='0' then -- narrow FM
-						phase <= std_logic_vector(unsigned(phase) + unsigned(resize(signed(mod_i), 21))); -- update phase accumulator
-					else -- wide FM
-						phase <= std_logic_vector(unsigned(phase) + unsigned(resize(signed(mod_i & '0'), 21))); -- update phase accumulator
-					end if;
-					counter := 0;
-					i_o <= raw_i;
-					q_o <= raw_q;
-				else
-					counter := counter + 1;
+				if nw_i='0' then -- narrow FM
+					phase <= std_logic_vector(unsigned(phase) + unsigned(resize(signed(mod_i), 21))); -- update phase accumulator
+				else -- wide FM
+					phase <= std_logic_vector(unsigned(phase) + unsigned(resize(signed(mod_i & '0'), 21))); -- update phase accumulator
 				end if;
+					
+				i_o <= raw_i;
+				q_o <= raw_q;
 			else
-				counter := 0;
 				phase <= (others => '0');
 			end if;
 		end if;

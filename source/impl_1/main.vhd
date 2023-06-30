@@ -270,11 +270,11 @@ begin
 	
 	freq_mod0: entity work.fm_modulator
 	generic map(
-		DIV => 160
+		SINCOS_RES => 10
 	)
 	port map(
 		nrst => nrst,
-		clk_i => clk_64,
+		trig_i => zero_word,
 		mod_i => ctcss_fm_tx,
 		dith_i => fm_dith_r,
 		nw_i => regs_rw(CR_2)(8),
