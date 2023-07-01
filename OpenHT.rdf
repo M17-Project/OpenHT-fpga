@@ -96,6 +96,9 @@
         <Source name="source/impl_1/regs_pkg.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
+        <Source name="source/impl_1/axi_stream_pkg.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
         <Source name="source/impl_1/c_16qam_map.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
