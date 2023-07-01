@@ -7,14 +7,12 @@
 -- Reference : https://developer.arm.com/documentation/ihi0051/latest/
 -- AXI stream spec IHI 0051B
 -------------------------------------------------------------
-
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.math_real.all;
 
 package axi_stream_pkg is
-
     constant AXIS_IQ_TDATA_SIZE : natural := 32;
     constant AXIS_MOD_TDATA_SIZE : natural := 16;
 
@@ -37,5 +35,4 @@ package axi_stream_pkg is
     type axis_out_mod_t is record
         tready : std_logic; -- Downstream is ready
     end record;
-
 end package;
