@@ -477,7 +477,7 @@ begin
 	fifo_input : fifo_in_samples port map(
 		wr_clk_i => regs_latch,
 		rd_clk_i => samp_clk,
-		rst_i => '0',
+		rst_i => not nrst,
 		rp_rst_i => '0',
 		wr_en_i => fifo_in_en_sync,
 		rd_en_i => not fifo_in_empty,
