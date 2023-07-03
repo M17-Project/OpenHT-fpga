@@ -109,6 +109,10 @@ architecture magic of main_all is
 	signal fifo_in_ae				: std_logic := '0';
 	signal fifo_in_en				: std_logic := '0';
 	signal fifo_in_en_sync			: std_logic := '0';
+	signal fifo_in_empty			: std_logic := '0';
+	signal fifo_in_full				: std_logic := '0';
+	--signal fifo_in_rd_clk			: std_logic := '0';
+	--signal fifo_in_wr_clk			: std_logic := '0';
 	
 	----------------------------- low level building blocks -----------------------------
 	-- main PLL block
@@ -467,16 +471,19 @@ begin
 	fifo_in_en <= '1' when unsigned(spi_addr_r)=MOD_IN else '0';
 	fifo_in_en_sync <= fifo_in_en when rising_edge(clk_64);
 	
+	--fifo_in_wr_clk <= regs_latch and not fifo_in_full;
+	--fifo_in_rd_clk <= samp_clk and not fifo_in_empty;
+	
 	fifo_input : fifo_in_samples port map(
 		wr_clk_i => regs_latch,
 		rd_clk_i => samp_clk,
 		rst_i => '0',
 		rp_rst_i => '0',
 		wr_en_i => fifo_in_en_sync,
-		rd_en_i => '1',
+		rd_en_i => not fifo_in_empty,
 		wr_data_i => spi_rx_r,
-		full_o => open,
-		empty_o=> open,
+		full_o => fifo_in_full,
+		empty_o => fifo_in_empty,
 		almost_empty_o => fifo_in_ae,
 		rd_data_o => fifo_in_data_o
 	);
@@ -504,7 +511,7 @@ begin
 	   drdy					when "100",
 	   fifo_in_ae			when "101",
        '1'					when others;
-	io4 <= spi_rw; --regs_latch;
-	io5 <= '1' when unsigned(spi_addr_r)=MOD_IN else '0'; --;samp_clk;
-	io6 <= fifo_in_en_sync;
+	io4 <= regs_latch;
+	io5 <= samp_clk; --'1' when unsigned(spi_addr_r)=MOD_IN else '0';
+	io6 <= fifo_in_full;
 end magic;
