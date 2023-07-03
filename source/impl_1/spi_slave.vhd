@@ -35,6 +35,7 @@ architecture magic of spi_slave is
 	signal data_rx			: std_logic_vector(31 downto 0) := (others => '0');
 	signal data_tx			: std_logic_vector(15 downto 0) := (others => '0');
 	signal addr_inc         : std_logic := '0';
+	signal got_data			: std_logic := '0';
 begin
 	process(clk_i)
 		variable cnt    : integer range 0 to 32 := 0;
@@ -52,6 +53,7 @@ begin
 					miso_o <= '0';
 					ld <= '0';
 					rw <= '0';
+					got_data <= '0';
 					cnt := 0;
 				end if;
 
@@ -79,14 +81,16 @@ begin
 					-- check if WRITE bit is set
 					if cnt=16 then
 						if data_rx(15)='1' then
-							rw <= '1';
+							if got_data='0' then
+								rw <= '1';
+							end if;
 						else
 							data_tx <= data_i(14 downto 0) & "0";
 							miso_o <= data_i(15);
 						end if;
 					end if;
 
-					if cnt=24 then -- in the middle of the data
+					if cnt=24 and got_data='0' then -- in the middle of the data
                         if data_rx(22)='1' then
                             addr_inc <= '1'; -- update the address increment flag
                         end if;
@@ -113,6 +117,7 @@ begin
 							miso_o <= data_i(15);
 						end if;
 						ld <= '1';
+						got_data <= '1';
 					end if;
 				end if;
 
@@ -120,6 +125,7 @@ begin
 				if (pp_ncs='0' and p_ncs='1') or nrst='0' then
 					miso_o <= 'Z';
 					addr_inc <= '0'; -- reset the address increment flag
+					got_data <= '0';
 					ld <= '0'; -- release the ld line
 					rw <= '0'; -- release the RW flag
 				end if;

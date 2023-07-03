@@ -504,7 +504,7 @@ begin
 	   drdy					when "100",
 	   fifo_in_ae			when "101",
        '1'					when others;
-	io4 <= regs_latch;
-	io5 <= samp_clk;
+	io4 <= spi_rw; --regs_latch;
+	io5 <= '1' when unsigned(spi_addr_r)=MOD_IN else '0'; --;samp_clk;
 	io6 <= fifo_in_en_sync;
 end magic;
