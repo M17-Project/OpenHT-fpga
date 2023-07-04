@@ -467,7 +467,7 @@ begin
 	);
 
 	mod_in_r <= fifo_in_data_o when regs_rw(CR_2)(11)='1' else regs_rw(MOD_IN);
-	mod_in_r_sync <= mod_in_r when rising_edge(zero_word);
+	mod_in_r_sync <= mod_in_r;-- when rising_edge(zero_word);
 	fifo_in_en <= '1' when unsigned(spi_addr_r)=MOD_IN else '0';
 	fifo_in_en_sync <= fifo_in_en;-- when rising_edge(clk_64);
 	
