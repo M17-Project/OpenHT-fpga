@@ -467,25 +467,41 @@ begin
 	);
 
 	mod_in_r <= fifo_in_data_o when regs_rw(CR_2)(11)='1' else regs_rw(MOD_IN);
-	mod_in_r_sync <= mod_in_r when rising_edge(clk_64);
+	mod_in_r_sync <= mod_in_r when rising_edge(zero_word);
 	fifo_in_en <= '1' when unsigned(spi_addr_r)=MOD_IN else '0';
-	fifo_in_en_sync <= fifo_in_en when rising_edge(clk_64);
+	fifo_in_en_sync <= fifo_in_en;-- when rising_edge(clk_64);
 	
 	--fifo_in_wr_clk <= regs_latch and not fifo_in_full;
 	--fifo_in_rd_clk <= samp_clk and not fifo_in_empty;
 	
-	fifo_input : fifo_in_samples port map(
+	--fifo_input: fifo_in_samples port map(
+		--wr_clk_i => regs_latch,
+		--rd_clk_i => samp_clk,
+		--rst_i => not nrst,
+		--rp_rst_i => '0',
+		--wr_en_i => fifo_in_en_sync,-- and not fifo_in_full,
+		--rd_en_i => '1',--not fifo_in_empty,
+		--wr_data_i => spi_rx_r(7 downto 0) & spi_rx_r(15 downto 8), -- endianness fix
+		--full_o => fifo_in_full,
+		--empty_o => fifo_in_empty,
+		--almost_empty_o => fifo_in_ae,
+		--rd_data_o => fifo_in_data_o
+	--);
+	
+	fifo_input: entity work.fifo_dc generic map(
+		DEPTH => 32,
+		D_WIDTH => 16
+	)
+	port map(
 		wr_clk_i => regs_latch,
-		rd_clk_i => samp_clk,
-		rst_i => not nrst,
-		rp_rst_i => '0',
-		wr_en_i => fifo_in_en_sync and not fifo_in_full,
-		rd_en_i => not fifo_in_empty,
-		wr_data_i => spi_rx_r(7 downto 0) & spi_rx_r(15 downto 8), -- endianness fix
-		full_o => fifo_in_full,
-		empty_o => fifo_in_empty,
-		almost_empty_o => fifo_in_ae,
-		rd_data_o => fifo_in_data_o
+        rd_clk_i => samp_clk,
+		--wr_en_i => fifo_in_en_sync, -- and not fifo_in_full,
+		--rd_en_i => not fifo_in_empty,
+        data_i => spi_rx_r(7 downto 0) & spi_rx_r(15 downto 8),
+        data_o => fifo_in_data_o,
+        fifo_ae => fifo_in_ae,
+		fifo_full => open, --fifo_in_full,
+		fifo_empty => open --fifo_in_empty
 	);
 	
 	-- additional connections
@@ -511,7 +527,7 @@ begin
 	   drdy					when "100",
 	   fifo_in_ae			when "101",
        '1'					when others;
-	io4 <= regs_latch;
-	io5 <= samp_clk; --'1' when unsigned(spi_addr_r)=MOD_IN else '0';
-	io6 <= fifo_in_full;
+	io4 <= '1' when unsigned(spi_addr_r)=MOD_IN else '0';
+	io5 <= fifo_in_full;
+	io6 <= fifo_in_empty;
 end magic;
