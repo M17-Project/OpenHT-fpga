@@ -479,7 +479,7 @@ begin
 		rd_clk_i => samp_clk,
 		rst_i => not nrst,
 		rp_rst_i => '0',
-		wr_en_i => fifo_in_en_sync,
+		wr_en_i => fifo_in_en_sync and not fifo_in_full,
 		rd_en_i => not fifo_in_empty,
 		wr_data_i => spi_rx_r(7 downto 0) & spi_rx_r(15 downto 8), -- endianness fix
 		full_o => fifo_in_full,
