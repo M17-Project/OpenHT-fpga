@@ -424,6 +424,7 @@ begin
 
 	-- digital predistortion blocks
 	--dpd0: entity work.dpd port map(
+		--clk_i => clk_64,
 		--p1 => signed(regs_rw(DPD_1)),
 		--p2 => signed(regs_rw(DPD_2)),
 		--p3 => signed(regs_rw(DPD_3)),
@@ -434,6 +435,7 @@ begin
 	--);
 	
 	--iq_bal0: entity work.iq_balancer_16 port map(
+		--clk_i => clk_64,
 		--i_i => i_dpd_tx,
 		--q_i => q_dpd_tx,
 		--ib_i => regs_rw(I_GAIN),
@@ -443,6 +445,7 @@ begin
 	--);
 	
 	--iq_offset0: entity work.iq_offset port map(
+		--clk_i => clk_64,
 		--i_i => i_bal_tx,
 		--q_i => q_bal_tx,
 		--ai_i => regs_rw(I_OFFS_NULL),
