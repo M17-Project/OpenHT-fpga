@@ -41,6 +41,9 @@ begin
 	process(clk_i)
 	begin
 		if rising_edge(clk_i) then
+			i_o <= x"8000" when (signed(iesum)<-32768) else
+				x"7FFF" when (signed(iesum)>32767) else
+				iesum(15 downto 0);
 			q_o <= x"8000" when (signed(qesum)<-32768) else
 				x"7FFF" when (signed(qesum)>32767) else
 				qesum(15 downto 0);
@@ -52,9 +55,6 @@ begin
 	i2 <= std_logic_vector(signed(imul) * p2) when signed(i_i)>=0 else std_logic_vector(-signed(imul) * p2);
 	i3 <= std_logic_vector(signed(imul) * signed(i_i) * p3);
 	iesum <= std_logic_vector(signed(i1(29) & i1(29) & i1(29 downto 14)) + signed(i2(43) & i2(43) & i2(43 downto 28)) + signed(i3(57) & i3(57) & i3(57 downto 42)));
-	i_o <= x"8000" when (signed(iesum)<-32768) else
-		x"7FFF" when (signed(iesum)>32767) else
-		iesum(15 downto 0);
 
 	qmul <= std_logic_vector(signed(q_i) * signed(q_i));
 	q1 <= std_logic_vector(signed(q_i) * p1);
