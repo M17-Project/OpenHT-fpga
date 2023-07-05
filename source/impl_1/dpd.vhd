@@ -1,9 +1,12 @@
 -------------------------------------------------
 -- IQ polynomial digital predistortion model
 --
+-- p1*x + p2*sgn(x)*x^2 + p3*x^3
+-- 0x4000 is "+1.00"
+--
 -- Wojciech Kaczmarski, SP5WWP
 -- M17 Project
--- March 2023
+-- July  2023
 -------------------------------------------------
 library IEEE;
 use IEEE.std_logic_1164.all;
@@ -11,8 +14,7 @@ use IEEE.numeric_std.all;
 
 entity dpd is
 	port(
-		-- p1*x + p2*sgn(x)*x^2 + p3*x^3
-		-- 0x4000 is "+1.00"
+		clk_i : in std_logic;
 		p1 : in signed(15 downto 0);
 		p2 : in signed(15 downto 0);
 		p3 : in signed(15 downto 0);
@@ -36,6 +38,15 @@ architecture magic of dpd is
 	signal qmul : std_logic_vector(31 downto 0) := (others => '0');
 	signal qesum : std_logic_vector(17 downto 0) := (others => '0'); --bit extended sum (16->18)
 begin
+	process(clk_i)
+	begin
+		if rising_edge(clk_i) then
+			q_o <= x"8000" when (signed(qesum)<-32768) else
+				x"7FFF" when (signed(qesum)>32767) else
+				qesum(15 downto 0);
+		end if;
+	end process;
+
 	imul <= std_logic_vector(signed(i_i) * signed(i_i));
 	i1 <= std_logic_vector(signed(i_i) * p1);
 	i2 <= std_logic_vector(signed(imul) * p2) when signed(i_i)>=0 else std_logic_vector(-signed(imul) * p2);
@@ -50,7 +61,4 @@ begin
 	q2 <= std_logic_vector(signed(qmul) * p2) when signed(q_i)>=0 else std_logic_vector(-signed(qmul) * p2);
 	q3 <= std_logic_vector(signed(qmul) * signed(q_i) * p3);
 	qesum <= std_logic_vector(signed(q1(29) & q1(29) & q1(29 downto 14)) + signed(q2(43) & q2(43) & q2(43 downto 28)) + signed(q3(57) & q3(57) & q3(57 downto 42)));
-	q_o <= x"8000" when (signed(qesum)<-32768) else
-		x"7FFF" when (signed(qesum)>32767) else
-		qesum(15 downto 0);
 end magic;
