@@ -500,7 +500,7 @@ begin
         data_i => spi_rx_r(7 downto 0) & spi_rx_r(15 downto 8),
         data_o => fifo_in_data_o,
         fifo_ae => fifo_in_ae,
-		fifo_full => open, --fifo_in_full,
+		fifo_full => fifo_in_full,
 		fifo_empty => open --fifo_in_empty
 	);
 	
@@ -527,7 +527,7 @@ begin
 	   drdy					when "100",
 	   fifo_in_ae			when "101",
        '1'					when others;
-	io4 <= '0'; --'1' when unsigned(spi_addr_r)=MOD_IN else '0';
-	io5 <= '0'; --samp_clk;
-	io6 <= '0'; --fifo_in_full;
+	io4 <= '1' when unsigned(spi_addr_r)=MOD_IN else '0';
+	io5 <= samp_clk;
+	io6 <= fifo_in_full;
 end magic;

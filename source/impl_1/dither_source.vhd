@@ -10,7 +10,7 @@
 --
 -- Wojciech Kaczmarski, SP5WWP
 -- M17 Project
--- March 2023
+-- July 2023
 -------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
@@ -30,19 +30,29 @@ architecture magic of dither_source is
 	signal tmp1		: unsigned(15 downto 0) := x"0080"; --seed
 	signal tmp2		: unsigned(15+8 downto 0) := x"000080"; --seed
 	signal ptrg		: std_logic := '0';
+	signal pptrg	: std_logic := '0';
 begin
 	process(clk_i)
 	begin
 		if rising_edge(clk_i) then
 			ptrg <= trig;
+			pptrg <= ptrg;
 
-			if (ptrg='0' and trig='1') or (ptrg='1' and trig='0') then
+			if (pptrg='0' and ptrg='1') or (pptrg='1' and ptrg='0') then
 				tmp2 <= m * tmp1 + 7;
 				tmp1 <= tmp2(15 downto 0);
 			end if;
 		end if;
 	end process;
 
-	out_o <= resize(signed(tmp1(15 downto 8)), 16) when ena='1' else
-		(others => '0');
+	process(trig, ena)
+	begin
+		if ena='1' then
+			if rising_edge(trig) then
+				out_o <= resize(signed(tmp1(15 downto 8)), 16);
+			end if;
+		else
+				out_o <= (others => '0');
+		end if;
+	end process;
 end architecture;

@@ -33,15 +33,15 @@ architecture magic of fifo_dc is
     signal fl : fifo_line := (others => (others => '0'));
 	signal head, tail : unsigned(integer(ceil(log2(real(DEPTH+1)))) downto 0) := (others => '0');
 	signal fill : unsigned(integer(ceil(log2(real(DEPTH+1)))) downto 0) := (others => '0');
-	signal f_full : std_logic := '0';
-	signal f_empty : std_logic := '1';
+	signal fifo_full_int : std_logic := '0';
+	signal fifo_empty_int : std_logic := '1';
 begin
 	process(wr_clk_i)
 	begin
 		--if rising_edge(wr_clk_i) and wr_en_i='1' then
 		if rising_edge(wr_clk_i) then
             fl <= fl(DEPTH-2 downto 0) & data_i;
-            if fifo_full='0' then
+            if fifo_full_int='0' then
                 if head<DEPTH then
                     head <= head + 1;
                 else
@@ -57,7 +57,7 @@ begin
 		if rising_edge(rd_clk_i) then
             data_o <= fl(to_integer(head)-to_integer(tail)-1) when head>tail else
                 fl(DEPTH-1-(to_integer(tail)-to_integer(head)-1)) when tail>head;
-            if fifo_empty='0' then
+            if fifo_empty_int='0' then
                 if tail<DEPTH then
                     tail <= tail + 1;
                 else
@@ -68,9 +68,12 @@ begin
 	end process;
 
 	-- combinational logic
-	fifo_full <= '1' when head=tail-1 or (head=DEPTH and tail=0) else '0';
-	fifo_empty <= '1' when tail=head else '0';
+	fifo_full_int <= '1' when head=tail-1 or (head=DEPTH and tail=0) else '0';
+	fifo_empty_int <= '1' when tail=head else '0';
 	fill <= head-tail when head>=tail else
         DEPTH-(tail-head-1) when tail>head;
 	fifo_ae <= '1' when fill<DEPTH/2-1 else '0';
+	
+	fifo_full <= fifo_full_int;
+	fifo_empty <= fifo_empty_int;
 end magic;
