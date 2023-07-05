@@ -6,7 +6,7 @@
 -- Alvaro, EA4HGZ
 -- Sebastien Van Cauwenberghe, ON4SEB
 -- M17 Project
--- June 2023
+-- July 2023
 -------------------------------------------------------------
 library IEEE;
 use IEEE.std_logic_1164.all;
@@ -57,6 +57,7 @@ architecture magic of main_all is
 	signal spi_rx_r, spi_tx_r		: std_logic_vector(15 downto 0) := (others => '0');
 	signal spi_addr_r				: std_logic_vector(13 downto 0) := (others => '0');
 	-- IQ - RX
+	signal des_inp					: std_logic_vector(1 downto 0) := (others => '0');
 	signal i_r, q_r					: std_logic_vector(12 downto 0) := (others => '0');		-- raw 13-bit I/Q samples from the deserializer
 	signal i_d, q_d					: signed(12 downto 0) := (others => '0');
 	signal i_raw, q_raw				: signed(12 downto 0) := (others => '0');
@@ -104,6 +105,7 @@ architecture magic of main_all is
 	signal regs_latch				: std_logic := '0';
 	--FIFOs
 	signal samp_clk					: std_logic := '0';
+	signal fifo_ae					: std_logic := '0';
 	signal fifo_in_data_i			: std_logic_vector(15 downto 0) := (others => '0');
 	signal fifo_in_data_o			: std_logic_vector(15 downto 0) := (others => '0');
 	signal fifo_in_ae				: std_logic := '0';
@@ -113,6 +115,7 @@ architecture magic of main_all is
 	signal fifo_in_full				: std_logic := '0';
 	--signal fifo_in_rd_clk			: std_logic := '0';
 	--signal fifo_in_wr_clk			: std_logic := '0';
+	signal fifo_out_ae				: std_logic := '0';
 	
 	----------------------------- low level building blocks -----------------------------
 	-- main PLL block
@@ -190,6 +193,20 @@ begin
 		data_o => data_rx24_r
 	);
 	
+	--des_inp <= data_rx09_r or data_rx24_r; -- crude, but works
+	des_inp <= data_rx09_r when regs_rw(CR_1)(1 downto 0)="00"
+		else data_rx24_r when regs_rw(CR_1)(1 downto 0)="01"
+		else (others => '0');
+	-- IQ stream deserializer
+	deserializer0: entity work.iq_des port map(
+		clk_i		=> clk_64,
+		ddr_clk_i	=> clk_rx09,
+		data_i		=> des_inp,
+		rst			=> not nrst,
+		i_o			=> open,
+		q_o			=> open,
+		drdy		=> drdy
+	);
 	
 	--lo0: entity work.local_osc port map(
 		--clk_i => clk_38,
@@ -266,7 +283,6 @@ begin
 	ctcss_enc0: entity work.ctcss_encoder port map(
 		nrst => nrst,
 		trig_i => zero_word,
-		--clk_i => clk_64,
 		ctcss_i => regs_rw(CR_2)(7 downto 2),
 		ctcss_o	=> ctcss_r
 	);
@@ -405,13 +421,6 @@ begin
 	--);
 	i_offs_tx <= i_raw_tx;
 	q_offs_tx <= q_raw_tx;
-
-	-- DDR TX queue
-	--zero_insert0: entity work.zero_insert port map(
-		--clk_i => clk_64,
-		--runup_i => nrst,
-		--s_o => zero_word
-	--);
 	
 	unpack0: entity work.unpack port map(
 		clk_i => clk_64,
@@ -497,10 +506,10 @@ begin
         rd_clk_i => samp_clk,
 		--wr_en_i => fifo_in_en_sync, -- and not fifo_in_full,
 		--rd_en_i => not fifo_in_empty,
-        data_i => spi_rx_r(7 downto 0) & spi_rx_r(15 downto 8),
+        data_i => spi_rx_r(7 downto 0) & spi_rx_r(15 downto 8), -- endianness fix
         data_o => fifo_in_data_o,
         fifo_ae => fifo_in_ae,
-		fifo_full => fifo_in_full,
+		fifo_full => open, --fifo_in_full,
 		fifo_empty => open --fifo_in_empty
 	);
 	
@@ -519,15 +528,18 @@ begin
 	regs_r(Q_FLT_REG) <= std_logic_vector(flt_qd_r);
 	
 	-- I/Os
+	fifo_ae <= fifo_in_ae when regs_rw(CR_2)(1 downto 0)="01"
+		else fifo_out_ae when regs_rw(CR_2)(1 downto 0)="10"
+		else '0';
 	with regs_rw(CR_1)(11 downto 9) select -- TODO: set this to match the register map
     io3 <= regs_r(SR_2)(0)	when "000",
        drdyd				when "001",
 	   zero_word			when "010",
 	   flt_i_rdy			when "011",
 	   drdy					when "100",
-	   fifo_in_ae			when "101",
+	   fifo_ae				when "101",
        '1'					when others;
-	io4 <= '1' when unsigned(spi_addr_r)=MOD_IN else '0';
-	io5 <= samp_clk;
-	io6 <= fifo_in_full;
+	io4 <= drdy; --'1' when unsigned(spi_addr_r)=MOD_IN else '0';
+	io5 <= '0'; --samp_clk;
+	io6 <= '0'; --fifo_in_full;
 end magic;
