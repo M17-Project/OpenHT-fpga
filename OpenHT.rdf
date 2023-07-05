@@ -90,9 +90,6 @@
         <Source name="source/impl_1/unpack.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
-        <Source name="source/impl_1/zero_insert.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
-        </Source>
         <Source name="source/impl_1/dpd.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
