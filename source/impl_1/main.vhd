@@ -423,38 +423,36 @@ begin
 	);
 
 	-- digital predistortion blocks
-	--dpd0: entity work.dpd port map(
-		--clk_i => clk_64,
-		--p1 => signed(regs_rw(DPD_1)),
-		--p2 => signed(regs_rw(DPD_2)),
-		--p3 => signed(regs_rw(DPD_3)),
-		--i_i => i_raw_tx,
-		--q_i => q_raw_tx,
-		--i_o => i_dpd_tx,
-		--q_o => q_dpd_tx
-	--);
+	dpd0: entity work.dpd port map(
+		clk_i => clk_64,
+		p1 => signed(regs_rw(DPD_1)),
+		p2 => signed(regs_rw(DPD_2)),
+		p3 => signed(regs_rw(DPD_3)),
+		i_i => i_raw_tx,
+		q_i => q_raw_tx,
+		i_o => i_dpd_tx,
+		q_o => q_dpd_tx
+	);
 	
-	--iq_bal0: entity work.iq_balancer_16 port map(
-		--clk_i => clk_64,
-		--i_i => i_dpd_tx,
-		--q_i => q_dpd_tx,
-		--ib_i => regs_rw(I_GAIN),
-		--qb_i => regs_rw(Q_GAIN),
-		--i_o => i_bal_tx,
-		--q_o	=> q_bal_tx
-	--);
+	iq_bal0: entity work.iq_balancer_16 port map(
+		clk_i => clk_64,
+		i_i => i_dpd_tx,
+		q_i => q_dpd_tx,
+		ib_i => regs_rw(I_GAIN),
+		qb_i => regs_rw(Q_GAIN),
+		i_o => i_bal_tx,
+		q_o	=> q_bal_tx
+	);
 	
-	--iq_offset0: entity work.iq_offset port map(
-		--clk_i => clk_64,
-		--i_i => i_bal_tx,
-		--q_i => q_bal_tx,
-		--ai_i => regs_rw(I_OFFS_NULL),
-		--aq_i => regs_rw(Q_OFFS_NULL),
-		--i_o => i_offs_tx,
-		--q_o => q_offs_tx
-	--);
-	i_offs_tx <= i_raw_tx;
-	q_offs_tx <= q_raw_tx;
+	iq_offset0: entity work.iq_offset port map(
+		clk_i => clk_64,
+		i_i => i_bal_tx,
+		q_i => q_bal_tx,
+		ai_i => regs_rw(I_OFFS_NULL),
+		aq_i => regs_rw(Q_OFFS_NULL),
+		i_o => i_offs_tx,
+		q_o => q_offs_tx
+	);
 	
 	unpack0: entity work.unpack port map(
 		clk_i => clk_64,
