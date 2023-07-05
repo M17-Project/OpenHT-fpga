@@ -2,19 +2,19 @@
 -- Local oscillator (complex)
 --
 -- Frequency = f_trig/DIV
--- Update LUTs for DIV!=10
 --
 -- Wojciech Kaczmarski, SP5WWP
 -- M17 Project
--- May 2023
+-- July 2023
 -------------------------------------------------------------
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
+use IEEE.math_real.all;
 
 entity local_osc is
 	generic(
-		DIV		: integer := 10
+		DIV		: natural := 10
 	);
 	port(
 		clk_i	: in std_logic;
@@ -26,15 +26,14 @@ end local_osc;
 
 architecture magic of local_osc is
 	type lut is array(integer range 0 to DIV-1) of signed(15 downto 0);
-	constant i_lut : lut := (
-		x"7FFF", x"678D", x"278E", x"D872", x"9873", x"8001", x"9873", x"D872", x"278E", x"678D"
-	);
-	constant q_lut : lut := (
-		x"0000", x"4B3C", x"79BB", x"79BB", x"4B3C", x"0000", x"B4C4", x"8645", x"8645", x"B4C4"
-	);
-	
+	signal i_lut, q_lut : lut;
 	signal p_trig, pp_trig : std_logic := '0';
 begin
+    generate_lut: for n in 0 to DIV-1 generate
+        i_lut(n) <= to_signed(integer(real(2**(16-1)-1)*cos(real(n)/real(DIV)*real(2)*real(MATH_PI))), 16);
+		q_lut(n) <= to_signed(integer(real(2**(16-1)-1)*sin(real(n)/real(DIV)*real(2)*real(MATH_PI))), 16);
+	end generate generate_lut;
+
 	process(clk_i)
 		variable cnt : integer range 0 to DIV := 0;
 	begin

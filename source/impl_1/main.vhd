@@ -203,26 +203,27 @@ begin
 		ddr_clk_i	=> clk_rx09,
 		data_i		=> des_inp,
 		rst			=> not nrst,
-		i_o			=> open,
-		q_o			=> open,
+		i_o			=> i_r,
+		q_o			=> q_r,
 		drdy		=> drdy
 	);
 	
-	--lo0: entity work.local_osc port map(
-		--clk_i => clk_38,
-		--trig_i => drdy,
-		--i_o => lo_mix_i,
-		--q_o => lo_mix_q
-	--);
+	lo0: entity work.local_osc port map(
+		clk_i => clk_64,
+		trig_i => drdy,
+		i_o => lo_mix_i,
+		q_o => lo_mix_q
+	);
 	
-	--mix0: entity work.complex_mul port map(
-		--a_re => signed(i_r(11 downto 0) & '0' & '0' & '0' & '0'), -- a gain of 2
-		--a_im => signed(q_r(11 downto 0) & '0' & '0' & '0' & '0'), -- somehow concatenating with "0000" didn't work here
-		--b_re => lo_mix_i,
-		--b_im => lo_mix_q,
-		--c_re => mix_i_o,
-		--c_im => mix_q_o
-	--);
+	mix0: entity work.complex_mul port map(
+		clk_i => clk_64, 
+		a_re => signed(i_r(11 downto 0) & '0' & '0' & '0' & '0'), -- a gain of 2
+		a_im => signed(q_r(11 downto 0) & '0' & '0' & '0' & '0'), -- somehow concatenating with "0000" didn't work here
+		b_re => lo_mix_i,
+		b_im => lo_mix_q,
+		c_re => mix_i_o,
+		c_im => mix_q_o
+	);
 	
 	--channel_flt0: entity work.channel_filter
 	--generic map(
