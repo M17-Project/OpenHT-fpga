@@ -527,7 +527,7 @@ begin
 	   drdy					when "100",
 	   fifo_in_ae			when "101",
        '1'					when others;
-	io4 <= '1' when unsigned(spi_addr_r)=MOD_IN else '0';
-	io5 <= fifo_in_full;
-	io6 <= fifo_in_empty;
+	io4 <= '0'; --'1' when unsigned(spi_addr_r)=MOD_IN else '0';
+	io5 <= '0'; --samp_clk;
+	io6 <= '0'; --fifo_in_full;
 end magic;

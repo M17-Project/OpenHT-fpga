@@ -72,5 +72,5 @@ begin
 	fifo_empty <= '1' when tail=head else '0';
 	fill <= head-tail when head>=tail else
         DEPTH-(tail-head-1) when tail>head;
-	fifo_ae <= '0' when fill>DEPTH/2-1 else '1';
+	fifo_ae <= '1' when fill<DEPTH/2-1 else '0';
 end magic;
