@@ -11,13 +11,13 @@ use IEEE.numeric_std.all;
 
 entity iq_offset is
 	port(
-		clk_i	: in std_logic;
-		i_i		: in std_logic_vector(15 downto 0);
-		q_i		: in std_logic_vector(15 downto 0);
-		ai_i	: in std_logic_vector(15 downto 0);
-		aq_i	: in std_logic_vector(15 downto 0);
-		i_o		: out std_logic_vector(15 downto 0);
-		q_o		: out std_logic_vector(15 downto 0)
+		clk_i	: in std_logic;											-- main clock input
+		i_i		: in std_logic_vector(15 downto 0);						-- I input
+		q_i		: in std_logic_vector(15 downto 0);						-- Q input
+		ai_i	: in std_logic_vector(15 downto 0);						-- offset - real part
+		aq_i	: in std_logic_vector(15 downto 0);						-- offset - imaginary part
+		i_o		: out std_logic_vector(15 downto 0) := (others => '0');	-- I output
+		q_o		: out std_logic_vector(15 downto 0) := (others => '0')	-- Q output
 	);
 end iq_offset;
 

@@ -14,14 +14,14 @@ use IEEE.numeric_std.all;
 
 entity dpd is
 	port(
-		clk_i : in std_logic;
-		p1 : in signed(15 downto 0);
-		p2 : in signed(15 downto 0);
-		p3 : in signed(15 downto 0);
-		i_i : in std_logic_vector(15 downto 0);
-		q_i : in std_logic_vector(15 downto 0);
-		i_o: out std_logic_vector(15 downto 0);
-		q_o: out std_logic_vector(15 downto 0)
+		clk_i	: in std_logic;											-- main clock
+		p1		: in signed(15 downto 0);								-- coeff 1
+		p2		: in signed(15 downto 0);								-- coeff 2
+		p3		: in signed(15 downto 0);								-- coeff 3
+		i_i		: in std_logic_vector(15 downto 0);						-- I input
+		q_i		: in std_logic_vector(15 downto 0);						-- Q input
+		i_o		: out std_logic_vector(15 downto 0) := (others => '0');	-- I output
+		q_o		: out std_logic_vector(15 downto 0) := (others => '0')	-- Q output
 	);
 end dpd;
 
@@ -30,7 +30,7 @@ architecture magic of dpd is
 	signal i2 : std_logic_vector(47 downto 0) := (others => '0');
 	signal i3 : std_logic_vector(63 downto 0) := (others => '0');
 	signal imul : std_logic_vector(31 downto 0) := (others => '0');
-	signal iesum : std_logic_vector(17 downto 0) := (others => '0'); --bit extended sum (16->18)
+	signal iesum : std_logic_vector(17 downto 0) := (others => '0');	--bit extended sum (16->18)
 
 	signal q1 : std_logic_vector(31 downto 0) := (others => '0');
 	signal q2 : std_logic_vector(47 downto 0) := (others => '0');
