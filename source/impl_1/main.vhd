@@ -53,12 +53,13 @@ architecture magic of main_all is
 	signal data_rx24_r				: std_logic_vector(1 downto 0) := (others => '0');
 	signal data_tx_r				: std_logic_vector(1 downto 0) := (others => '0');
 	-- SPI data regs
-	signal spi_rw					: std_logic := '0';										-- SPI R/W flag
+	signal spi_rw					: std_logic := '0';									-- SPI R/W flag
 	signal spi_rx_r, spi_tx_r		: std_logic_vector(15 downto 0) := (others => '0');
 	signal spi_addr_r				: std_logic_vector(13 downto 0) := (others => '0');
 	-- IQ - RX
 	signal des_inp					: std_logic_vector(1 downto 0) := (others => '0');
-	signal i_r, q_r					: std_logic_vector(12 downto 0) := (others => '0');		-- raw 13-bit I/Q samples from the deserializer
+	signal i_r_pre, q_r_pre			: std_logic_vector(12 downto 0) := (others => '0');	-- raw 13-bit I/Q samples from the deserializer
+	signal i_r, q_r					: std_logic_vector(12 downto 0) := (others => '0');
 	signal i_d, q_d					: signed(12 downto 0) := (others => '0');
 	signal i_raw, q_raw				: signed(12 downto 0) := (others => '0');
 	signal drdy, drdyd				: std_logic := '0';
@@ -116,6 +117,7 @@ architecture magic of main_all is
 	--signal fifo_in_rd_clk			: std_logic := '0';
 	--signal fifo_in_wr_clk			: std_logic := '0';
 	signal fifo_out_ae				: std_logic := '0';
+	signal fifo_i_ae, fifo_q_ae		: std_logic := '0';
 	
 	----------------------------- low level building blocks -----------------------------
 	-- main PLL block
@@ -149,21 +151,21 @@ architecture magic of main_all is
 		);
 	end component;
 	
-	component fifo_in_samples is
-		port(
-			wr_clk_i: in std_logic;
-			rd_clk_i: in std_logic;
-			rst_i: in std_logic;
-			rp_rst_i: in std_logic;
-			wr_en_i: in std_logic;
-			rd_en_i: in std_logic;
-			wr_data_i: in std_logic_vector(15 downto 0);
-			full_o: out std_logic;
-			empty_o: out std_logic;
-			almost_empty_o: out std_logic;
-			rd_data_o: out std_logic_vector(15 downto 0)
-		);
-	end component;
+	--component fifo_in_samples is
+		--port(
+			--wr_clk_i: in std_logic;
+			--rd_clk_i: in std_logic;
+			--rst_i: in std_logic;
+			--rp_rst_i: in std_logic;
+			--wr_en_i: in std_logic;
+			--rd_en_i: in std_logic;
+			--wr_data_i: in std_logic_vector(15 downto 0);
+			--full_o: out std_logic;
+			--empty_o: out std_logic;
+			--almost_empty_o: out std_logic;
+			--rd_data_o: out std_logic_vector(15 downto 0)
+		--);
+	--end component;
 	
 begin
 	------------------------------------- port maps -------------------------------------
@@ -193,20 +195,48 @@ begin
 		data_o => data_rx24_r
 	);
 	
+	-- IQ stream deserializer
 	--des_inp <= data_rx09_r or data_rx24_r; -- crude, but works
 	des_inp <= data_rx09_r when regs_rw(CR_1)(1 downto 0)="00"
 		else data_rx24_r when regs_rw(CR_1)(1 downto 0)="01"
 		else (others => '0');
-	-- IQ stream deserializer
 	deserializer0: entity work.iq_des port map(
 		clk_i		=> clk_64,
 		ddr_clk_i	=> clk_rx09,
 		data_i		=> des_inp,
 		rst			=> not nrst,
-		i_o			=> i_r,
-		q_o			=> q_r,
+		i_o			=> i_r_pre,
+		q_o			=> q_r_pre,
 		drdy		=> drdy
 	);
+	
+	i_fifo: entity work.fifo_dc generic map(
+		DEPTH => 8,
+		D_WIDTH => 13
+	)
+	port map(
+		wr_clk_i => drdy,
+        rd_clk_i => drdy and not fifo_i_ae,
+        data_i => i_r_pre,
+        data_o => i_r,
+        fifo_ae => fifo_i_ae,
+		fifo_full => open,
+		fifo_empty => open
+	);
+	
+	q_fifo: entity work.fifo_dc generic map(
+		DEPTH => 8,
+		D_WIDTH => 13
+	)
+	port map(
+		wr_clk_i => drdy,
+        rd_clk_i => drdy and not fifo_q_ae,
+        data_i => q_r_pre,
+        data_o => q_r,
+        fifo_ae => fifo_q_ae,
+		fifo_full => open,
+		fifo_empty => open
+	);	
 	
 	lo0: entity work.local_osc port map(
 		clk_i => clk_64,
@@ -230,7 +260,7 @@ begin
 		--SAMP_WIDTH => 16
 	--)
 	--port map(
-		--clk_i		=> clk_38,
+		--clk_i		=> clk_64,
 		--ch_width	=> regs_rw(CR_2)(10 downto 9),
 		--i_i			=> mix_i_o,
 		--q_i			=> mix_q_o,
@@ -525,8 +555,8 @@ begin
 	--regs_r(RSSI_REG) <= ;
 	regs_r(I_RAW_REG) <= i_r & "000";
 	regs_r(Q_RAW_REG) <= q_r & "000";
-	regs_r(I_FLT_REG) <= std_logic_vector(flt_id_r);
-	regs_r(Q_FLT_REG) <= std_logic_vector(flt_qd_r);
+	--regs_r(I_FLT_REG) <= std_logic_vector(flt_id_r);
+	--regs_r(Q_FLT_REG) <= std_logic_vector(flt_qd_r);
 	
 	-- I/Os
 	fifo_ae <= fifo_in_ae when regs_rw(CR_2)(1 downto 0)="01"
@@ -541,6 +571,6 @@ begin
 	   fifo_ae				when "101",
        '1'					when others;
 	io4 <= drdy; --'1' when unsigned(spi_addr_r)=MOD_IN else '0';
-	io5 <= '0'; --samp_clk;
+	io5 <= drdyd; --samp_clk;
 	io6 <= '0'; --fifo_in_full;
 end magic;

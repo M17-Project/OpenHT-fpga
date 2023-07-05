@@ -3,7 +3,7 @@
 --
 -- Wojciech Kaczmarski, SP5WWP
 -- M17 Project
--- June 2023
+-- July 2023
 -------------------------------------------------------------
 library IEEE;
 use IEEE.std_logic_1164.all;
@@ -93,9 +93,9 @@ begin
 				end if;
 			end if;
 		end if;
+		
+		drdy_o <= not busy;
 	end process;
-
-	drdy_o <= not busy;
 end magic;
 
 ----------------------------------- 12.5k -----------------------------------
@@ -187,9 +187,9 @@ begin
 				end if;
 			end if;
 		end if;
+		
+		drdy_o <= not busy;
 	end process;
-
-	drdy_o <= not busy;
 end magic;
 
 ----------------------------------- 25k -----------------------------------
@@ -281,7 +281,7 @@ begin
 				end if;
 			end if;
 		end if;
+		
+		drdy_o <= not busy;
 	end process;
-
-	drdy_o <= not busy;
 end magic;
