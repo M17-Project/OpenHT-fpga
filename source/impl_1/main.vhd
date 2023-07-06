@@ -16,7 +16,7 @@ use work.regs_pkg.all;
 entity main_all is
 	generic(
 		REV_MAJOR			: std_logic_vector(7 downto 0) := x"00";
-		REV_MINOR			: std_logic_vector(7 downto 0) := x"01"
+		REV_MINOR			: std_logic_vector(7 downto 0) := x"02"
 	);
 	port(
 		-- 26 MHz clock input from the AT86
