@@ -75,6 +75,8 @@ architecture magic of main_all is
 	signal am_demod_rdy				: std_logic := '0';
 	signal rssi_rdy					: std_logic := '0';
 	signal rssi_r					: unsigned(15 downto 0) := (others => '0');
+	signal demod_raw				: std_logic_vector(15 downto 0) := (others => '0');
+	signal demod_out_pre			: std_logic_vector(15 downto 0) := (others => '0');
 	--signal mag_sq_r					: std_logic_vector(31 downto 0) := (others => '0');
 	-- IQ - TX
 	signal zero_word				: std_logic := '0';
@@ -121,6 +123,9 @@ architecture magic of main_all is
 	signal fifo_iq_clk_en			: std_logic := '0';
 	signal fifo_iq_rdy				: std_logic := '0';
 	signal i_out, q_out				: std_logic_vector(15 downto 0) := (others => '0');
+	-- misc
+	signal mod_reg_check			: std_logic := '0';
+	signal demod_reg_check			: std_logic := '0';
 	
 	----------------------------- low level building blocks -----------------------------
 	-- main PLL block
@@ -199,10 +204,10 @@ begin
 	);
 	
 	-- IQ stream deserializer
-	--des_inp <= data_rx09_r or data_rx24_r; -- crude, but works
-	des_inp <= data_rx09_r when regs_rw(CR_1)(1 downto 0)="00"
-		else data_rx24_r when regs_rw(CR_1)(1 downto 0)="01"
-		else (others => '0');
+	des_inp <= data_rx09_r or data_rx24_r; -- crude, but works
+	--des_inp <= data_rx09_r when regs_rw(CR_1)(1 downto 0)="00"
+		--else data_rx24_r when regs_rw(CR_1)(1 downto 0)="01"
+		--else (others => '0');
 	deserializer0: entity work.iq_des port map(
 		clk_i		=> clk_64,
 		ddr_clk_i	=> clk_rx09,
@@ -328,12 +333,12 @@ begin
 		--rdy_o => am_demod_rdy
 	--);
 	
-	--fm_demod0: entity work.freq_demod port map(
-		--clk_i => drdyd,
-		--i_i => flt_id_r(14 downto 0) & '0',
-		--q_i => flt_qd_r(14 downto 0) & '0',
-		--demod_o => fm_demod_raw
-	--);
+	fm_demod0: entity work.freq_demod port map(
+		clk_i => drdyd,
+		i_i => flt_id_r(14 downto 0) & '0',
+		q_i => flt_qd_r(14 downto 0) & '0',
+		demod_o => fm_demod_raw
+	);
 	
 	---------------------------------------- TX -----------------------------------------
 	-- frequency modulator
@@ -558,47 +563,45 @@ begin
 
 	mod_in_r <= fifo_in_data_o when regs_rw(CR_2)(11)='1' else regs_rw(MOD_IN);
 	mod_in_r_sync <= mod_in_r;-- when rising_edge(zero_word);
-	fifo_in_en <= '1' when unsigned(spi_addr_r)=MOD_IN else '0';
-	fifo_in_en_sync <= fifo_in_en;-- when rising_edge(clk_64);
 	
-	--fifo_in_wr_clk <= regs_latch and not fifo_in_full;
-	--fifo_in_rd_clk <= samp_clk and not fifo_in_empty;
-	
-	--fifo_input: fifo_in_samples port map(
-		--wr_clk_i => regs_latch,
-		--rd_clk_i => samp_clk,
-		--rst_i => not nrst,
-		--rp_rst_i => '0',
-		--wr_en_i => fifo_in_en_sync,-- and not fifo_in_full,
-		--rd_en_i => '1',--not fifo_in_empty,
-		--wr_data_i => spi_rx_r(7 downto 0) & spi_rx_r(15 downto 8), -- endianness fix
-		--full_o => fifo_in_full,
-		--empty_o => fifo_in_empty,
-		--almost_empty_o => fifo_in_ae,
-		--rd_data_o => fifo_in_data_o
-	--);
-	
-	fifo_bsb_in: entity work.fifo_dc generic map(
+	-- mod in FIFO
+	mod_in_fifo: entity work.fifo_dc generic map(
 		DEPTH => 32,
 		D_WIDTH => 16
 	)
 	port map(
-		wr_clk_i => regs_latch,
+		wr_clk_i => regs_latch and mod_reg_check, -- write only when address is MOD_IN
         rd_clk_i => samp_clk,
-		--wr_en_i => fifo_in_en_sync, -- and not fifo_in_full,
-		--rd_en_i => not fifo_in_empty,
         data_i => spi_rx_r(7 downto 0) & spi_rx_r(15 downto 8), -- endianness fix
         data_o => fifo_in_data_o,
         fifo_ae => fifo_in_ae,
-		fifo_full => open, --fifo_in_full,
-		fifo_empty => open --fifo_in_empty
+		fifo_full => open,
+		fifo_empty => open
 	);
+	mod_reg_check <= '1' when unsigned(spi_addr_r)=MOD_IN else '0';
+	
+	-- demod out FIFO
+	demod_out_fifo: entity work.fifo_dc generic map(
+		DEPTH => 32,
+		D_WIDTH => 16
+	)
+	port map(
+		wr_clk_i => drdyd,
+        rd_clk_i => regs_latch and demod_reg_check, -- read samples only when address is DEMOD_REG
+        data_i => demod_raw,
+        data_o => demod_out_pre,
+        fifo_ae => fifo_out_ae,
+		fifo_full => open,
+		fifo_empty => open
+	);
+	demod_reg_check <= '1' when unsigned(spi_addr_r)=DEMOD_REG else '0';
+	regs_r(DEMOD_REG) <= demod_out_pre when rising_edge(clk_64);
 	
 	-- additional connections
 	regs_r(SR_1) <= REV_MAJOR & REV_MINOR; -- revision number
 	--regs_r(SR_2) <= ;
 	with regs_rw(CR_1)(4 downto 2) select
-		regs_r(DEMOD_REG) <= std_logic_vector(fm_demod_raw)		when "000", -- frequency demodulator
+		demod_raw <= std_logic_vector(fm_demod_raw)				when "000", -- frequency demodulator
 		std_logic_vector(am_demod_raw)							when "001", -- amplitude ----//-----
 		(others => '0')											when "010", -- SSB (placeholder)
 		(others => '0')											when others;
