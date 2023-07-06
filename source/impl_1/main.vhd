@@ -120,6 +120,7 @@ architecture magic of main_all is
 	signal fifo_i_ae, fifo_q_ae		: std_logic := '0';
 	signal fifo_iq_clk_en			: std_logic := '0';
 	signal fifo_iq_rdy				: std_logic := '0';
+	signal i_out, q_out				: std_logic_vector(15 downto 0) := (others => '0');
 	
 	----------------------------- low level building blocks -----------------------------
 	-- main PLL block
@@ -250,7 +251,7 @@ begin
         --fifo_ae => fifo_q_ae,
 		--fifo_full => open,
 		--fifo_empty => open
-	--);	
+	--);
 	
 	-- local oscillator, 40kHz
 	--lo0: entity work.local_osc port map(
@@ -470,10 +471,65 @@ begin
 		q_o => q_offs_tx
 	);
 	
-	unpack0: entity work.unpack port map(
+	--fifo_iq_out_rdy <= (not fifo_i_out_ae) and (not fifo_q_out_ae);
+	--process(zero_word)
+	--begin
+		--if nrst='1' then
+			--if rising_edge(fifo_iq_out_rdy) then
+				--fifo_iq_out_clk_en <= '1';
+			--end if;
+		--else
+			--fifo_iq_out_clk_en <= '0';
+		--end if;
+	--end process;
+	--fifo_i_out: entity work.fifo_dc generic map(
+		--DEPTH => 8,
+		--D_WIDTH => 16
+	--)
+	--port map(
+		--wr_clk_i => zero_word,
+        --rd_clk_i => zero_word and fifo_iq_out_clk_en,
+        --data_i => i_offs_tx,
+        --data_o => i_out,
+        --fifo_ae => fifo_i_out_ae,
+		--fifo_full => open,
+		--fifo_empty => open
+	--);
+	
+	--fifo_q_out: entity work.fifo_dc generic map(
+		--DEPTH => 8,
+		--D_WIDTH => 16
+	--)
+	--port map(
+		--wr_clk_i => zero_word,
+        --rd_clk_i => zero_word and fifo_iq_out_clk_en,
+        --data_i => q_offs_tx,
+        --data_o => q_out,
+        --fifo_ae => fifo_q_out_ae,
+		--fifo_full => open,
+		--fifo_empty => open
+	--);
+	
+	iq_fifo_out: entity work.iq_fifo generic map(
+		DEPTH => 8,
+		D_WIDTH => 16
+	)
+	port map(
 		clk_i => clk_64,
+		nrst_i => nrst,
+		trig_i => zero_word,
+		wr_clk_i => zero_word,
+		rd_clk_i => zero_word,
 		i_i => i_offs_tx,
 		q_i => q_offs_tx,
+		i_o => i_out,
+		q_o => q_out
+	);
+	
+	unpack0: entity work.unpack port map(
+		clk_i => clk_64,
+		i_i => i_out,
+		q_i => q_out,
 		req_o => zero_word,
 		data_o => data_tx_r
 	);	

@@ -6,8 +6,7 @@
 .vdbs/
 IBIS/
 *.html
-impl*/
+/impl*/
 *.dmp
 *.tcr
 *.log
-!source/
