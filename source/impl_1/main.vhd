@@ -118,6 +118,8 @@ architecture magic of main_all is
 	--signal fifo_in_wr_clk			: std_logic := '0';
 	signal fifo_out_ae				: std_logic := '0';
 	signal fifo_i_ae, fifo_q_ae		: std_logic := '0';
+	signal fifo_iq_clk_en			: std_logic := '0';
+	signal fifo_iq_rdy				: std_logic := '0';
 	
 	----------------------------- low level building blocks -----------------------------
 	-- main PLL block
@@ -197,63 +199,77 @@ begin
 	
 	-- IQ stream deserializer
 	--des_inp <= data_rx09_r or data_rx24_r; -- crude, but works
-	des_inp <= data_rx09_r when regs_rw(CR_1)(1 downto 0)="00"
-		else data_rx24_r when regs_rw(CR_1)(1 downto 0)="01"
-		else (others => '0');
-	deserializer0: entity work.iq_des port map(
-		clk_i		=> clk_64,
-		ddr_clk_i	=> clk_rx09,
-		data_i		=> des_inp,
-		rst			=> not nrst,
-		i_o			=> i_r_pre,
-		q_o			=> q_r_pre,
-		drdy		=> drdy
-	);
+	--des_inp <= data_rx09_r when regs_rw(CR_1)(1 downto 0)="00"
+		--else data_rx24_r when regs_rw(CR_1)(1 downto 0)="01"
+		--else (others => '0');
+	--deserializer0: entity work.iq_des port map(
+		--clk_i		=> clk_64,
+		--ddr_clk_i	=> clk_rx09,
+		--data_i		=> des_inp,
+		--nrst		=> nrst,
+		--i_o			=> i_r_pre,
+		--q_o			=> q_r_pre,
+		--drdy		=> drdy
+	--);
 	
-	i_fifo: entity work.fifo_dc generic map(
-		DEPTH => 8,
-		D_WIDTH => 13
-	)
-	port map(
-		wr_clk_i => drdy,
-        rd_clk_i => drdy and not fifo_i_ae,
-        data_i => i_r_pre,
-        data_o => i_r,
-        fifo_ae => fifo_i_ae,
-		fifo_full => open,
-		fifo_empty => open
-	);
+	-- FIFOs
+	--fifo_iq_rdy <= (not fifo_i_ae) and (not fifo_q_ae);
+	--process(fifo_iq_rdy)
+	--begin
+		--if nrst='1' then
+			--if rising_edge(fifo_iq_rdy) then
+				--fifo_iq_clk_en <= '1';
+			--end if;
+		--else
+			--fifo_iq_clk_en <= '0';
+		--end if;
+	--end process;
+	--i_fifo: entity work.fifo_dc generic map(
+		--DEPTH => 8,
+		--D_WIDTH => 13
+	--)
+	--port map(
+		--wr_clk_i => drdy,
+        --rd_clk_i => drdy and fifo_iq_clk_en,
+        --data_i => i_r_pre,
+        --data_o => i_r,
+        --fifo_ae => fifo_i_ae,
+		--fifo_full => open,
+		--fifo_empty => open
+	--);
 	
-	q_fifo: entity work.fifo_dc generic map(
-		DEPTH => 8,
-		D_WIDTH => 13
-	)
-	port map(
-		wr_clk_i => drdy,
-        rd_clk_i => drdy and not fifo_q_ae,
-        data_i => q_r_pre,
-        data_o => q_r,
-        fifo_ae => fifo_q_ae,
-		fifo_full => open,
-		fifo_empty => open
-	);	
+	--q_fifo: entity work.fifo_dc generic map(
+		--DEPTH => 8,
+		--D_WIDTH => 13
+	--)
+	--port map(
+		--wr_clk_i => drdy,
+        --rd_clk_i => drdy and fifo_iq_clk_en,
+        --data_i => q_r_pre,
+        --data_o => q_r,
+        --fifo_ae => fifo_q_ae,
+		--fifo_full => open,
+		--fifo_empty => open
+	--);	
 	
-	lo0: entity work.local_osc port map(
-		clk_i => clk_64,
-		trig_i => drdy,
-		i_o => lo_mix_i,
-		q_o => lo_mix_q
-	);
+	-- local oscillator, 40kHz
+	--lo0: entity work.local_osc port map(
+		--clk_i => clk_64,
+		--trig_i => drdy,
+		--i_o => lo_mix_i,
+		--q_o => lo_mix_q
+	--);
 	
-	mix0: entity work.complex_mul port map(
-		clk_i => clk_64, 
-		a_re => signed(i_r(11 downto 0) & '0' & '0' & '0' & '0'), -- a gain of 2
-		a_im => signed(q_r(11 downto 0) & '0' & '0' & '0' & '0'), -- somehow concatenating with "0000" didn't work here
-		b_re => lo_mix_i,
-		b_im => lo_mix_q,
-		c_re => mix_i_o,
-		c_im => mix_q_o
-	);
+	-- mixer
+	--mix0: entity work.complex_mul port map(
+		--clk_i => clk_64, 
+		--a_re => signed(i_r(11 downto 0) & '0' & '0' & '0' & '0'), -- a gain of 2
+		--a_im => signed(q_r(11 downto 0) & '0' & '0' & '0' & '0'), -- somehow concatenating with "0000" didn't work here
+		--b_re => lo_mix_i,
+		--b_im => lo_mix_q,
+		--c_re => mix_i_o,
+		--c_im => mix_q_o
+	--);
 	
 	--channel_flt0: entity work.channel_filter
 	--generic map(
@@ -307,7 +323,7 @@ begin
 	dither_source0: entity work.dither_source port map(
 		clk_i => clk_64,
 		ena => regs_rw(CR_1)(5),
-		trig => zero_word,
+		trig_i => zero_word,
 		out_o => fm_dith_r
 	);
 	
@@ -406,7 +422,7 @@ begin
 	
 	-- modulation selector
 	tx_mod_sel0: entity work.mod_sel port map(
-		clk_i => clk_64,
+		clk_i => zero_word,
 		sel => regs_rw(CR_1)(14 downto 12),
 		i0_i => i_fm_tx, --FM
 		q0_i => q_fm_tx,
@@ -424,7 +440,7 @@ begin
 
 	-- digital predistortion blocks
 	dpd0: entity work.dpd port map(
-		clk_i => clk_64,
+		clk_i => zero_word,
 		p1 => signed(regs_rw(DPD_1)),
 		p2 => signed(regs_rw(DPD_2)),
 		p3 => signed(regs_rw(DPD_3)),
@@ -435,7 +451,7 @@ begin
 	);
 	
 	iq_bal0: entity work.iq_balancer_16 port map(
-		clk_i => clk_64,
+		clk_i => zero_word,
 		i_i => i_dpd_tx,
 		q_i => q_dpd_tx,
 		ib_i => regs_rw(I_GAIN),
@@ -445,7 +461,7 @@ begin
 	);
 	
 	iq_offset0: entity work.iq_offset port map(
-		clk_i => clk_64,
+		clk_i => zero_word,
 		i_i => i_bal_tx,
 		q_i => q_bal_tx,
 		ai_i => regs_rw(I_OFFS_NULL),

@@ -14,7 +14,7 @@ entity iq_des is
 		clk_i		: in std_logic;						-- 64 MHz clock
 		ddr_clk_i	: in std_logic;						-- DDR clock
 		data_i		: in std_logic_vector(1 downto 0);
-		rst			: in std_logic;
+		nrst		: in std_logic;
 		i_o, q_o	: out std_logic_vector(12 downto 0) := (others => '0');
 		drdy		: out std_logic := '0'
 	);
@@ -63,7 +63,7 @@ begin
 				end if;
 			end if;
 			
-			if rst='1' then
+			if nrst='0' then
 				cnt := 0;
 				start_cnt := 0;
 				syncd <= '0';
