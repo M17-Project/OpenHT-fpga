@@ -106,7 +106,7 @@ architecture magic of main_all is
 	signal regs_latch				: std_logic := '0';
 	--FIFOs
 	signal samp_clk					: std_logic := '0';
-	signal fifo_ae					: std_logic := '0';
+	signal bsb_fifo_ae				: std_logic := '0';
 	signal fifo_in_data_i			: std_logic_vector(15 downto 0) := (others => '0');
 	signal fifo_in_data_o			: std_logic_vector(15 downto 0) := (others => '0');
 	signal fifo_in_ae				: std_logic := '0';
@@ -200,18 +200,18 @@ begin
 	
 	-- IQ stream deserializer
 	--des_inp <= data_rx09_r or data_rx24_r; -- crude, but works
-	--des_inp <= data_rx09_r when regs_rw(CR_1)(1 downto 0)="00"
-		--else data_rx24_r when regs_rw(CR_1)(1 downto 0)="01"
-		--else (others => '0');
-	--deserializer0: entity work.iq_des port map(
-		--clk_i		=> clk_64,
-		--ddr_clk_i	=> clk_rx09,
-		--data_i		=> des_inp,
-		--nrst		=> nrst,
-		--i_o			=> i_r_pre,
-		--q_o			=> q_r_pre,
-		--drdy		=> drdy
-	--);
+	des_inp <= data_rx09_r when regs_rw(CR_1)(1 downto 0)="00"
+		else data_rx24_r when regs_rw(CR_1)(1 downto 0)="01"
+		else (others => '0');
+	deserializer0: entity work.iq_des port map(
+		clk_i		=> clk_64,
+		ddr_clk_i	=> clk_rx09,
+		data_i		=> des_inp,
+		nrst		=> nrst,
+		i_o			=> i_r_pre,
+		q_o			=> q_r_pre,
+		drdy		=> drdy
+	);
 	
 	-- FIFOs
 	--fifo_iq_rdy <= (not fifo_i_ae) and (not fifo_q_ae);
@@ -253,39 +253,55 @@ begin
 		--fifo_empty => open
 	--);
 	
+	iq_fifo_in: entity work.iq_fifo generic map(
+		DEPTH => 8,
+		D_WIDTH => 13
+	)
+	port map(
+		clk_i => clk_64,
+		nrst_i => nrst,
+		trig_i => drdy,
+		wr_clk_i => drdy,
+		rd_clk_i => drdy,
+		i_i => i_r_pre,
+		q_i => q_r_pre,
+		i_o => i_r,
+		q_o => q_r
+	);
+	
 	-- local oscillator, 40kHz
-	--lo0: entity work.local_osc port map(
-		--clk_i => clk_64,
-		--trig_i => drdy,
-		--i_o => lo_mix_i,
-		--q_o => lo_mix_q
-	--);
+	lo0: entity work.local_osc port map(
+		clk_i => clk_64,
+		trig_i => drdy,
+		i_o => lo_mix_i,
+		q_o => lo_mix_q
+	);
 	
 	-- mixer
-	--mix0: entity work.complex_mul port map(
-		--clk_i => clk_64, 
-		--a_re => signed(i_r(11 downto 0) & '0' & '0' & '0' & '0'), -- a gain of 2
-		--a_im => signed(q_r(11 downto 0) & '0' & '0' & '0' & '0'), -- somehow concatenating with "0000" didn't work here
-		--b_re => lo_mix_i,
-		--b_im => lo_mix_q,
-		--c_re => mix_i_o,
-		--c_im => mix_q_o
-	--);
+	mix0: entity work.complex_mul port map(
+		clk_i => clk_64, 
+		a_re => signed(i_r(11 downto 0) & '0' & '0' & '0' & '0'), -- a gain of 2
+		a_im => signed(q_r(11 downto 0) & '0' & '0' & '0' & '0'), -- somehow concatenating with "0000" didn't work here
+		b_re => lo_mix_i,
+		b_im => lo_mix_q,
+		c_re => mix_i_o,
+		c_im => mix_q_o
+	);
 	
-	--channel_flt0: entity work.channel_filter
-	--generic map(
-		--SAMP_WIDTH => 16
-	--)
-	--port map(
-		--clk_i		=> clk_64,
-		--ch_width	=> regs_rw(CR_2)(10 downto 9),
-		--i_i			=> mix_i_o,
-		--q_i			=> mix_q_o,
-		--i_o			=> flt_id_r,
-		--q_o			=> flt_qd_r,
-		--trig_i		=> drdy,
-		--drdy_o		=> drdyd
-	--);
+	channel_flt0: entity work.channel_filter
+	generic map(
+		SAMP_WIDTH => 16
+	)
+	port map(
+		clk_i		=> clk_64,
+		ch_width	=> regs_rw(CR_2)(10 downto 9),
+		i_i			=> mix_i_o,
+		q_i			=> mix_q_o,
+		i_o			=> flt_id_r,
+		q_o			=> flt_qd_r,
+		trig_i		=> drdy,
+		drdy_o		=> drdyd
+	);
 	
 	----mag_sq_r <= std_logic_vector(flt_id_r*flt_id_r + flt_qd_r*flt_qd_r);
 	--rssi0: entity work.rssi_est port map(
@@ -471,45 +487,6 @@ begin
 		q_o => q_offs_tx
 	);
 	
-	--fifo_iq_out_rdy <= (not fifo_i_out_ae) and (not fifo_q_out_ae);
-	--process(zero_word)
-	--begin
-		--if nrst='1' then
-			--if rising_edge(fifo_iq_out_rdy) then
-				--fifo_iq_out_clk_en <= '1';
-			--end if;
-		--else
-			--fifo_iq_out_clk_en <= '0';
-		--end if;
-	--end process;
-	--fifo_i_out: entity work.fifo_dc generic map(
-		--DEPTH => 8,
-		--D_WIDTH => 16
-	--)
-	--port map(
-		--wr_clk_i => zero_word,
-        --rd_clk_i => zero_word and fifo_iq_out_clk_en,
-        --data_i => i_offs_tx,
-        --data_o => i_out,
-        --fifo_ae => fifo_i_out_ae,
-		--fifo_full => open,
-		--fifo_empty => open
-	--);
-	
-	--fifo_q_out: entity work.fifo_dc generic map(
-		--DEPTH => 8,
-		--D_WIDTH => 16
-	--)
-	--port map(
-		--wr_clk_i => zero_word,
-        --rd_clk_i => zero_word and fifo_iq_out_clk_en,
-        --data_i => q_offs_tx,
-        --data_o => q_out,
-        --fifo_ae => fifo_q_out_ae,
-		--fifo_full => open,
-		--fifo_empty => open
-	--);
-	
 	iq_fifo_out: entity work.iq_fifo generic map(
 		DEPTH => 8,
 		D_WIDTH => 16
@@ -601,7 +578,7 @@ begin
 		--rd_data_o => fifo_in_data_o
 	--);
 	
-	fifo_input: entity work.fifo_dc generic map(
+	fifo_bsb_in: entity work.fifo_dc generic map(
 		DEPTH => 32,
 		D_WIDTH => 16
 	)
@@ -626,24 +603,32 @@ begin
 		(others => '0')											when "010", -- SSB (placeholder)
 		(others => '0')											when others;
 	--regs_r(RSSI_REG) <= ;
-	regs_r(I_RAW_REG) <= i_r & "000";
-	regs_r(Q_RAW_REG) <= q_r & "000";
+	--regs_r(I_RAW_REG) <= i_r & "000";
+	--regs_r(Q_RAW_REG) <= q_r & "000";
 	--regs_r(I_FLT_REG) <= std_logic_vector(flt_id_r);
 	--regs_r(Q_FLT_REG) <= std_logic_vector(flt_qd_r);
 	
 	-- I/Os
-	fifo_ae <= fifo_in_ae when regs_rw(CR_2)(1 downto 0)="01"
+	-- automatically select the source of the fifo_ae signal
+	bsb_fifo_ae <= fifo_in_ae when regs_rw(CR_2)(1 downto 0)="01"
 		else fifo_out_ae when regs_rw(CR_2)(1 downto 0)="10"
 		else '0';
-	with regs_rw(CR_1)(11 downto 9) select -- TODO: set this to match the register map
-    io3 <= regs_r(SR_2)(0)	when "000",
-       drdyd				when "001",
-	   zero_word			when "010",
-	   flt_i_rdy			when "011",
-	   drdy					when "100",
-	   fifo_ae				when "101",
-       '1'					when others;
-	io4 <= drdy; --'1' when unsigned(spi_addr_r)=MOD_IN else '0';
-	io5 <= drdyd; --samp_clk;
-	io6 <= '0'; --fifo_in_full;
+	
+	-- IO mux
+	process(clk_64)
+	begin
+		if rising_edge(clk_64) then
+			with regs_rw(CR_1)(11 downto 9) select -- TODO: set this to match the register map
+			io3 <= regs_r(SR_2)(0)	when "000",	-- PLL lock flag
+			   '0'					when "001",
+			   '0'					when "010",
+			   '0'					when "011",
+			   '0'					when "100",
+			   bsb_fifo_ae			when "101",	-- baseband FIFO almost empty flag
+			   '1'					when others;
+			io4 <= drdyd;
+			io5 <= '0';
+			io6 <= '0';
+		end if;
+	end process;
 end magic;

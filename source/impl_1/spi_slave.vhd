@@ -3,7 +3,7 @@
 --
 -- Wojciech Kaczmarski, SP5WWP
 -- M17 Project
--- June 2023
+-- July 2023
 -------------------------------------------------------------
 library IEEE;
 use IEEE.std_logic_1164.all;
@@ -19,11 +19,11 @@ entity spi_slave is
 		sck_i	: in std_logic;				                                -- clock
 		ncs_i	: in std_logic;			                                    -- slave select signal
 		data_o	: out std_logic_vector(15 downto 0) := (others => '0'); 	-- received data register
-		addr_o	: inout std_logic_vector(13 downto 0) := (others => '0');	-- address
+		addr_o	: out std_logic_vector(13 downto 0) := (others => '0');		-- address
 		data_i	: in std_logic_vector(15 downto 0);				            -- input data register
 		nrst	: in std_logic;										    	-- reset
 		ena		: in std_logic;						                        -- enable
-		rw		: inout std_logic := '0';							    	-- read/write flag, r=0, w=1
+		rw		: out std_logic := '0';							   		 	-- read/write flag, r=0, w=1
 		ld      : out std_logic := '0';                                     -- load signal for a FIFO (positive pulse after word end)
 		clk_i	: in std_logic										    	-- fast clock
 	);
@@ -36,6 +36,8 @@ architecture magic of spi_slave is
 	signal data_tx			: std_logic_vector(15 downto 0) := (others => '0');
 	signal addr_inc         : std_logic := '0';
 	signal got_data			: std_logic := '0';
+	signal rw_int			: std_logic := '0';
+	signal addr_o_int		: std_logic_vector(13 downto 0) := (others => '0');
 begin
 	process(clk_i)
 		variable cnt    : integer range 0 to 32 := 0;
@@ -45,6 +47,9 @@ begin
 			pp_ncs <= p_ncs;
 			p_sck <= sck_i;
 			pp_sck <= p_sck;
+			
+			addr_o <= addr_o_int;
+			rw <= rw_int;
 
 			if ena='1' then
 				-- falling edge of the nCS - data transaction start
@@ -52,7 +57,7 @@ begin
 					data_rx <= (others => '0');
 					miso_o <= '0';
 					ld <= '0';
-					rw <= '0';
+					rw_int <= '0';
 					got_data <= '0';
 					cnt := 0;
 				end if;
@@ -62,15 +67,15 @@ begin
 					data_rx <= data_rx(30 downto 0) & mosi_i;
 					cnt := cnt + 1;
 					if cnt=16 then -- if it's the last bit
-						addr_o <= data_rx(12 downto 0) & mosi_i;
+						addr_o_int <= data_rx(12 downto 0) & mosi_i;
 					end if;
 					if cnt=17 then
                         ld <= '0';
                         if addr_inc='1' then
-                            if unsigned(addr_o)<MAX_ADDR then
-                                addr_o <= std_logic_vector(unsigned(addr_o) + 1);
+                            if unsigned(addr_o_int)<MAX_ADDR then
+                                addr_o_int <= std_logic_vector(unsigned(addr_o_int) + 1);
                             else
-                                addr_o <= (others => '0');
+                                addr_o_int <= (others => '0');
                             end if;
 						end if;
                     end if;
@@ -82,7 +87,7 @@ begin
 					if cnt=16 then
 						if data_rx(15)='1' then
 							if got_data='0' then
-								rw <= '1';
+								rw_int <= '1';
 							end if;
 						else
 							data_tx <= data_i(14 downto 0) & "0";
@@ -97,20 +102,20 @@ begin
 					end if;
 
 					-- if READ then clock out the data from data_tx
-					if rw='0' and cnt>16 then
+					if rw_int='0' and cnt>16 then
 						data_tx <= data_tx(14 downto 0) & "0";
 						miso_o <= data_tx(15);
 					end if;
 
 					-- last clock - falling edge
 					if cnt=32 then
-						if rw='1' then -- write - latch data
+						if rw_int='1' then -- write - latch data
 							data_o <= data_rx(15 downto 0);
 						else -- read - deassert MISO line
 							miso_o <= '0';
 						end if;
 						cnt := 16;
-						if rw='1' then
+						if rw_int='1' then
                             --
 						else
                             data_tx <= data_i(14 downto 0) & "0";
@@ -127,7 +132,7 @@ begin
 					addr_inc <= '0'; -- reset the address increment flag
 					got_data <= '0';
 					ld <= '0'; -- release the ld line
-					rw <= '0'; -- release the RW flag
+					rw_int <= '0'; -- release the RW flag
 				end if;
 			end if;
 		end if;
