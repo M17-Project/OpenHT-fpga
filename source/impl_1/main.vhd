@@ -15,11 +15,11 @@ use work.regs_pkg.all;
 
 entity main_all is
 	generic(
-		REV_MAJOR			: std_logic_vector(7 downto 0) := x"00";
-		REV_MINOR			: std_logic_vector(7 downto 0) := x"02"
+		REV_MAJOR			: natural := 0;
+		REV_MINOR			: natural := 2
 	);
 	port(
-		-- 26 MHz clock input from the AT86
+		-- 32 MHz clock input from the AT86
 		clk_i 				: in std_logic;
 		-- master reset, high active
 		nrst				: in std_logic;
@@ -218,46 +218,7 @@ begin
 		drdy		=> drdy
 	);
 	
-	-- FIFOs
-	--fifo_iq_rdy <= (not fifo_i_ae) and (not fifo_q_ae);
-	--process(fifo_iq_rdy)
-	--begin
-		--if nrst='1' then
-			--if rising_edge(fifo_iq_rdy) then
-				--fifo_iq_clk_en <= '1';
-			--end if;
-		--else
-			--fifo_iq_clk_en <= '0';
-		--end if;
-	--end process;
-	--i_fifo: entity work.fifo_dc generic map(
-		--DEPTH => 8,
-		--D_WIDTH => 13
-	--)
-	--port map(
-		--wr_clk_i => drdy,
-        --rd_clk_i => drdy and fifo_iq_clk_en,
-        --data_i => i_r_pre,
-        --data_o => i_r,
-        --fifo_ae => fifo_i_ae,
-		--fifo_full => open,
-		--fifo_empty => open
-	--);
-	
-	--q_fifo: entity work.fifo_dc generic map(
-		--DEPTH => 8,
-		--D_WIDTH => 13
-	--)
-	--port map(
-		--wr_clk_i => drdy,
-        --rd_clk_i => drdy and fifo_iq_clk_en,
-        --data_i => q_r_pre,
-        --data_o => q_r,
-        --fifo_ae => fifo_q_ae,
-		--fifo_full => open,
-		--fifo_empty => open
-	--);
-	
+	-- FIFO
 	iq_fifo_in: entity work.iq_fifo generic map(
 		DEPTH => 8,
 		D_WIDTH => 13
@@ -598,7 +559,7 @@ begin
 	regs_r(DEMOD_REG) <= demod_out_pre when rising_edge(clk_64);
 	
 	-- additional connections
-	regs_r(SR_1) <= REV_MAJOR & REV_MINOR; -- revision number
+	regs_r(SR_1) <= std_logic_vector(to_unsigned(REV_MAJOR, 8)) & std_logic_vector(to_unsigned(REV_MINOR, 8)); -- revision number
 	--regs_r(SR_2) <= ;
 	with regs_rw(CR_1)(4 downto 2) select
 		demod_raw <= std_logic_vector(fm_demod_raw)				when "000", -- frequency demodulator

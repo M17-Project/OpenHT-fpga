@@ -21,13 +21,13 @@ entity iq_des is
 end iq_des;
 
 architecture magic of iq_des is
-	signal rx_r			: std_logic_vector(31 downto 0) := (others => '0');
-	signal syncd		: std_logic := '0';
-	--signal drdy_int		: std_logic := '0';
-	signal i_r, q_r		: std_logic_vector(12 downto 0) := (others => '0');
-	--signal pi_r, pq_r	: std_logic_vector(12 downto 0) := (others => '0');
-	--signal ppi_r, ppq_r	: std_logic_vector(12 downto 0) := (others => '0');
-	signal p_ddr_clk, pp_ddr_clk	: std_logic := '0';
+	signal rx_r						: std_logic_vector(31 downto 0) := (others => '0');
+	signal syncd					: std_logic := '0';
+	signal drdy_int					: std_logic := '0';
+	signal i_r, q_r					: std_logic_vector(12 downto 0) := (others => '0');
+	signal i_o_pre0, i_o_pre1		: std_logic_vector(12 downto 0) := (others => '0');
+	signal q_o_pre0, q_o_pre1		: std_logic_vector(12 downto 0) := (others => '0');
+	signal drdy_pre0, drdy_pre1		: std_logic := '0';
 begin
 	process(ddr_clk_i)
 		variable cnt : integer range 0 to 16+1 := 0;
@@ -54,12 +54,12 @@ begin
 					i_r <= rx_r(29 downto 17);
 					q_r <= rx_r(13 downto 1);
 					cnt := 0;
-					drdy <= '1';
+					drdy_int <= '1';
 					syncd <= '0';
 				end if;
 						
 				if cnt=1 then
-					drdy <= '0';
+					drdy_int <= '0';
 				end if;
 			end if;
 			
@@ -68,28 +68,30 @@ begin
 				start_cnt := 0;
 				syncd <= '0';
 				rx_r <= (others => '0');
-				i_o <= (others => '0');
-				q_o <= (others => '0');
+				--i_o <= (others => '0');
+				--q_o <= (others => '0');
+				i_r <= (others => '0');
+				q_r <= (others => '0');
 			else
-				i_o <= i_r;
-				q_o <= q_r;
+				i_o_pre0 <= i_r;
+				q_o_pre0 <= q_r;
+				drdy_pre0 <= drdy_int;
 			end if;
 		end if;
 	end process;
 	
-	--process(clk_i)
-	--begin
-		--if rising_edge(clk_i) then
-			----pi_r <= i_r;
-			------ppi_r <= pi_r;
-			----pq_r <= q_r;
-			------ppq_r <= pq_r;
-				
-			--i_o <= pi_r;
-			----q_o <= pq_r;
-			--drdy <= drdy_int;
-		--end if;
-	--end process;
+	process(clk_i)
+	begin
+		if rising_edge(clk_i) then
+			i_o_pre1 <= i_o_pre0;
+			q_o_pre1 <= q_o_pre0;
+			drdy_pre1 <= drdy_pre0;
+			
+			i_o <= i_o_pre1;
+			q_o <= q_o_pre1;
+			drdy <= drdy_pre1;
+		end if;
+	end process;
 
 	--process(clk_i, data_i, rst, syncd)
 		--variable cnt : integer range 0 to 16+1 := 0;
