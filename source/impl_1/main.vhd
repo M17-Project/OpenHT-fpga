@@ -311,6 +311,7 @@ begin
 	);
 	
 	ctcss_enc0: entity work.ctcss_encoder port map(
+		clk_i => clk_64,
 		nrst => nrst,
 		trig_i => zero_word,
 		ctcss_i => regs_rw(CR_2)(7 downto 2),
@@ -320,9 +321,12 @@ begin
 	
 	freq_mod0: entity work.fm_modulator
 	generic map(
-		SINCOS_RES => 10
+		SINCOS_RES=> 16,
+		SINCOS_ITER	=> 14,
+		SINCOS_COEFF => x"26DD"
 	)
 	port map(
+		clk_i => clk_64,
 		nrst => nrst,
 		trig_i => zero_word,
 		mod_i => ctcss_fm_tx,

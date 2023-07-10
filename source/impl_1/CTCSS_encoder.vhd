@@ -3,7 +3,7 @@
 --
 -- Wojciech Kaczmarski, SP5WWP
 -- M17 Project
--- June 2023
+-- July 2023
 -------------------------------------------------------------
 library IEEE;
 use IEEE.std_logic_1164.all;
@@ -11,6 +11,7 @@ use IEEE.numeric_std.all;
 
 entity ctcss_encoder is
 	port(
+		clk_i	: in std_logic;						-- main clock in
 		nrst	: in std_logic;						-- reset
 		trig_i	: in std_logic;						-- trigger input, 400k
 		ctcss_i	: in std_logic_vector(5 downto 0);	-- CTCSS in
@@ -92,15 +93,28 @@ architecture magic of ctcss_encoder is
 	signal phase		: std_logic_vector(20 downto 0) := (others => '0');
 begin
 	-- sincos LUT
-	sincos_lut0: sincos_lut generic map(
-        LUT_SIZE  => 256*4,
-        WORD_SIZE => 16
-	)
+	--sincos_lut0: sincos_lut generic map(
+        --LUT_SIZE  => 256*4,
+        --WORD_SIZE => 16
+	--)
+	--port map(
+		--clk_i => trig_i,
+		--theta_i => phase(20 downto 11),
+		--sine_o => raw_r,
+		--cosine_o => open
+	--);
+	
+	sincos: entity work.cordic generic map(
+        RES_WIDTH => 16,
+        ITER_NUM => 14,
+        COMP_COEFF => x"26DD"
+    )
 	port map(
-		clk_i => trig_i,
-		theta_i => phase(20 downto 11),
-		sine_o => raw_r,
-		cosine_o => open
+		clk_i => clk_i,
+		phase_i => unsigned(phase(20 downto 20-16+1)),
+		std_logic_vector(sin_o) => raw_r,
+		cos_o => open,
+		trig_o => open
 	);
 
 	process(trig_i)

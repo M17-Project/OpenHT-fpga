@@ -3,7 +3,7 @@
 --
 -- Wojciech Kaczmarski, SP5WWP
 -- M17 Project
--- June 2023
+-- July 2023
 -------------------------------------------------------------
 library IEEE;
 use IEEE.std_logic_1164.all;
@@ -11,9 +11,12 @@ use IEEE.numeric_std.all;
 
 entity fm_modulator is
 	generic(
-		SINCOS_RES : natural := 10					-- sincos LUT bit resolution, default - 10 bits
+		SINCOS_RES 		: natural := 16;			-- CORDIC resolution, default - 16 bits
+		SINCOS_ITER		: natural := 14;			-- CORDIC iterations, default - 14
+		SINCOS_COEFF	: signed := x"26DD"			-- CORDIC scaling coefficient
 	);
 	port(
+		clk_i	: in std_logic;						-- main clock in
 		trig_i	: in std_logic;						-- 400k trigger
 		nrst	: in std_logic;						-- reset
 		mod_i	: in std_logic_vector(15 downto 0);	-- modulation in
@@ -25,32 +28,6 @@ entity fm_modulator is
 end fm_modulator;
 
 architecture magic of fm_modulator is
-	component sincos_lut is
-		generic(
-			LUT_SIZE    : natural;
-			WORD_SIZE   : natural
-		);
-		port(
-			clk_i		: in std_logic;
-			theta_i		: in std_logic_vector;
-			sine_o		: out std_logic_vector;
-			cosine_o	: out std_logic_vector
-		);
-	end component;
-	
-	--component sincos_cordic is
-		--port(
-			--clk_i		: in std_logic;
-			--inpvalid_i	: in std_logic;
-			--phasein_i	: in std_logic_vector(15 downto 0);
-			--rst_n_i		: in std_logic;
-			--outvalid_o	: out std_logic;
-			--rfi_o		: out std_logic;
-			--xout_o		: out std_logic_vector(15 downto 0);
-			--yout_o		: out std_logic_vector(15 downto 0)
-		--);
-	--end component;
-	
 	component dither_adder is
 		port(
 			phase_i	: in unsigned(20 downto 0);
@@ -63,30 +40,23 @@ architecture magic of fm_modulator is
 	signal raw_q	: std_logic_vector(15 downto 0) := (others => '0');
 	signal phase	: std_logic_vector(20 downto 0) := (others => '0');
 	signal phased	: std_logic_vector(20 downto 0) := (others => '0');
+	signal theta	: unsigned(15 downto 0) := (others => '0');
 begin
-	-- sincos LUT
-	sincos_lut0: sincos_lut generic map(
-		LUT_SIZE => 2**SINCOS_RES,
-		WORD_SIZE => 16
-	)
+	-- sincos
+	theta <= unsigned(phased(20 downto 20-16+1)) when rising_edge(trig_i);
+	sincos: entity work.cordic generic map(
+        RES_WIDTH => SINCOS_RES,
+        ITER_NUM => SINCOS_ITER,
+        COMP_COEFF => SINCOS_COEFF
+    )
 	port map(
-		clk_i => trig_i,
-		theta_i => phased(20 downto 20-SINCOS_RES+1),
-		sine_o => raw_q,
-		cosine_o => raw_i
+		clk_i => clk_i,
+		phase_i => theta,
+		std_logic_vector(sin_o) => raw_q,
+		std_logic_vector(cos_o) => raw_i,
+		trig_o => open
 	);
 	
-	--sincos_lut0: sincos_cordic port map(
-		--clk_i		=> clk_i,
-		--inpvalid_i	=> '1',
-		--phasein_i	=> phased(20 downto 20-16+1),
-		--rst_n_i		=> '1',
-		----outvalid_o	=> ,
-		----rfi_o		=> ,
-		--xout_o		=> raw_i,
-		--yout_o		=> raw_q
-	--);
-
 	-- phase dither
 	phase_dither0: dither_adder port map(
 		phase_i => unsigned(phase),
