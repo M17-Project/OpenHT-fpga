@@ -83,13 +83,15 @@ architecture magic of main_all is
 	signal i_fm_tx, q_fm_tx			: std_logic_vector(15 downto 0) := (others => '0');
 	signal i_am_tx, q_am_tx			: std_logic_vector(15 downto 0) := (others => '0');
 	signal i_ssb_tx, q_ssb_tx		: std_logic_vector(15 downto 0) := (others => '0');
+	signal i_ssb_tx_sync			: std_logic_vector(15 downto 0) := (others => '0');
+	signal q_ssb_tx_sync			: std_logic_vector(15 downto 0) := (others => '0');
 	signal i_pm_tx, q_pm_tx			: std_logic_vector(15 downto 0) := (others => '0');
 	signal i_qam_tx, q_qam_tx		: std_logic_vector(15 downto 0) := (others => '0');
 	signal ctcss_r					: std_logic_vector(15 downto 0) := (others => '0');
 	signal ctcss_fm_tx				: std_logic_vector(15 downto 0) := (others => '0');
 	signal ssb_id_r, ssb_qd_r		: signed(15 downto 0) := (others => '0');
 	signal sel_ssb_qd_r				: signed(15 downto 0) := (others => '0');
-	signal ssb_rdy					: std_logic := '0';
+	signal ssb_hilb_rdy				: std_logic := '0';
 	signal i_raw_tx, q_raw_tx		: std_logic_vector(15 downto 0) := (others => '0');
 	signal i_dpd_tx, q_dpd_tx		: std_logic_vector(15 downto 0) := (others => '0');
 	signal i_bal_tx, q_bal_tx		: std_logic_vector(15 downto 0) := (others => '0');
@@ -349,37 +351,31 @@ begin
 	);
 	
 	-- single sideband modulator
-	-- TODO: it's a sampler, actually
-	--decim0: entity work.decim port map(
-		--clk_i => clk_64,
-		--i_data_i => signed(mod_in_r), -- I branch is the input signal
-		--q_data_i => signed(mod_in_r), -- Q branch is the Hilbert-transformed input signal
-		--i_data_o => ssb_id_r,
-		--q_data_o => ssb_qd_r,
-		--trig_i => zero_word, -- 400kHz
-		--drdy_o => ssb_rdy
-	--);
+	ssb_id_r <= signed(fifo_in_data_o);
+	ssb_qd_r <= signed(fifo_in_data_o);
 	
-	--sb_sel0: entity work.sideband_sel port map(
-		--sel => regs_rw(CR_1)(15),
-		--d_i => ssb_qd_r,
-		--d_o => sel_ssb_qd_r
-	--);
+	sb_sel0: entity work.sideband_sel port map(
+		sel => regs_rw(CR_1)(15),
+		d_i => ssb_qd_r,
+		d_o => sel_ssb_qd_r
+	);
 	
-	--delay_block0: entity work.delay_block port map(
-		--clk_i => clk_64,
-		--d_i => ssb_id_r,
-		--signed(d_o) => i_ssb_tx,
-		--trig_i => ssb_rdy
-	--);
+	delay_block0: entity work.delay_block port map(
+		clk_i => clk_64,
+		d_i => ssb_id_r,
+		signed(d_o) => i_ssb_tx,
+		trig_i => samp_clk
+	);
 	
-	--hilbert0: entity work.fir_hilbert port map(
-		--clk_i => clk_64,
-		--data_i => signed(sel_ssb_qd_r),
-		--std_logic_vector(data_o) => q_ssb_tx,
-		--trig_i => ssb_rdy
-		----drdy_o => ssb_hilb_rdy
-	--);
+	hilbert0: entity work.fir_hilbert port map(
+		clk_i => clk_64,
+		data_i => signed(sel_ssb_qd_r),
+		std_logic_vector(data_o) => q_ssb_tx,
+		trig_i => samp_clk,
+		drdy_o => ssb_hilb_rdy
+	);
+	i_ssb_tx_sync <= i_ssb_tx when rising_edge(ssb_hilb_rdy);
+	q_ssb_tx_sync <= q_ssb_tx when rising_edge(ssb_hilb_rdy);
 	
 	-- 16QAM modulator
 	--symb_clk_div0: entity work.clk_div_block
@@ -420,8 +416,8 @@ begin
 		q0_i => q_fm_tx,
 		i1_i => i_am_tx, --AM
 		q1_i => q_am_tx,
-		i2_i => i_ssb_tx, --SSB
-		q2_i => q_ssb_tx,
+		i2_i => i_ssb_tx_sync, --SSB
+		q2_i => q_ssb_tx_sync,
 		i3_i => i_pm_tx, --invalid (used for PM for now)
 		q3_i => q_pm_tx,
 		i4_i => regs_rw(16#B#),--x"7FFF", -- invalid
