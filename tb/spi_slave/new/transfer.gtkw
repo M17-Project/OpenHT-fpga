@@ -1,0 +1,49 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Mon Jul  3 11:32:13 2023
+[*]
+[dumpfile] "/home/sp5wwp/Desktop/vhdl/spi_slave/new/spi_slave_test.ghw"
+[dumpfile_mtime] "Mon Jul  3 11:27:22 2023"
+[dumpfile_size] 40398
+[savefile] "/home/sp5wwp/Desktop/vhdl/spi_slave/new/transfer.gtkw"
+[timestart] 0
+[size] 1280 975
+[pos] -1 -1
+*-39.784653 3700000000000 3650000000000 2050000000000 550000000000 5250000000000 6850000000000 8450000000000 10050000000000 12200000000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.spi_slave_test.
+[treeopen] top.spi_slave_test.dut.
+[sst_width] 196
+[signals_width] 172
+[sst_expanded] 1
+[sst_vpaned_height] 287
+@28
+top.spi_slave_test.dut.clk_i
+top.spi_slave_test.dut.miso_o
+top.spi_slave_test.dut.mosi_i
+top.spi_slave_test.dut.sck_i
+top.spi_slave_test.dut.ncs_i
+@200
+-
+@28
+top.spi_slave_test.dut.rw
+top.spi_slave_test.dut.ld
+top.spi_slave_test.dut.addr_inc
+top.spi_slave_test.dut.got_addr
+top.spi_slave_test.dut.got_data
+@24
+#{top.spi_slave_test.dut.cnt[15:0]} top.spi_slave_test.dut.cnt[5] top.spi_slave_test.dut.cnt[4] top.spi_slave_test.dut.cnt[3] top.spi_slave_test.dut.cnt[2] top.spi_slave_test.dut.cnt[1] top.spi_slave_test.dut.cnt[0]
+@200
+-
+@22
+#{top.spi_slave_test.dut.data_i[15:0]} top.spi_slave_test.dut.data_i[15] top.spi_slave_test.dut.data_i[14] top.spi_slave_test.dut.data_i[13] top.spi_slave_test.dut.data_i[12] top.spi_slave_test.dut.data_i[11] top.spi_slave_test.dut.data_i[10] top.spi_slave_test.dut.data_i[9] top.spi_slave_test.dut.data_i[8] top.spi_slave_test.dut.data_i[7] top.spi_slave_test.dut.data_i[6] top.spi_slave_test.dut.data_i[5] top.spi_slave_test.dut.data_i[4] top.spi_slave_test.dut.data_i[3] top.spi_slave_test.dut.data_i[2] top.spi_slave_test.dut.data_i[1] top.spi_slave_test.dut.data_i[0]
+#{top.spi_slave_test.dut.addr_o[13:0]} top.spi_slave_test.dut.addr_o[13] top.spi_slave_test.dut.addr_o[12] top.spi_slave_test.dut.addr_o[11] top.spi_slave_test.dut.addr_o[10] top.spi_slave_test.dut.addr_o[9] top.spi_slave_test.dut.addr_o[8] top.spi_slave_test.dut.addr_o[7] top.spi_slave_test.dut.addr_o[6] top.spi_slave_test.dut.addr_o[5] top.spi_slave_test.dut.addr_o[4] top.spi_slave_test.dut.addr_o[3] top.spi_slave_test.dut.addr_o[2] top.spi_slave_test.dut.addr_o[1] top.spi_slave_test.dut.addr_o[0]
+#{top.spi_slave_test.dut.data_o[15:0]} top.spi_slave_test.dut.data_o[15] top.spi_slave_test.dut.data_o[14] top.spi_slave_test.dut.data_o[13] top.spi_slave_test.dut.data_o[12] top.spi_slave_test.dut.data_o[11] top.spi_slave_test.dut.data_o[10] top.spi_slave_test.dut.data_o[9] top.spi_slave_test.dut.data_o[8] top.spi_slave_test.dut.data_o[7] top.spi_slave_test.dut.data_o[6] top.spi_slave_test.dut.data_o[5] top.spi_slave_test.dut.data_o[4] top.spi_slave_test.dut.data_o[3] top.spi_slave_test.dut.data_o[2] top.spi_slave_test.dut.data_o[1] top.spi_slave_test.dut.data_o[0]
+@200
+-
+@22
+#{top.spi_slave_test.dut.addr_rx[15:0]} top.spi_slave_test.dut.addr_rx[15] top.spi_slave_test.dut.addr_rx[14] top.spi_slave_test.dut.addr_rx[13] top.spi_slave_test.dut.addr_rx[12] top.spi_slave_test.dut.addr_rx[11] top.spi_slave_test.dut.addr_rx[10] top.spi_slave_test.dut.addr_rx[9] top.spi_slave_test.dut.addr_rx[8] top.spi_slave_test.dut.addr_rx[7] top.spi_slave_test.dut.addr_rx[6] top.spi_slave_test.dut.addr_rx[5] top.spi_slave_test.dut.addr_rx[4] top.spi_slave_test.dut.addr_rx[3] top.spi_slave_test.dut.addr_rx[2] top.spi_slave_test.dut.addr_rx[1] top.spi_slave_test.dut.addr_rx[0]
+#{top.spi_slave_test.dut.data_rx[15:0]} top.spi_slave_test.dut.data_rx[15] top.spi_slave_test.dut.data_rx[14] top.spi_slave_test.dut.data_rx[13] top.spi_slave_test.dut.data_rx[12] top.spi_slave_test.dut.data_rx[11] top.spi_slave_test.dut.data_rx[10] top.spi_slave_test.dut.data_rx[9] top.spi_slave_test.dut.data_rx[8] top.spi_slave_test.dut.data_rx[7] top.spi_slave_test.dut.data_rx[6] top.spi_slave_test.dut.data_rx[5] top.spi_slave_test.dut.data_rx[4] top.spi_slave_test.dut.data_rx[3] top.spi_slave_test.dut.data_rx[2] top.spi_slave_test.dut.data_rx[1] top.spi_slave_test.dut.data_rx[0]
+#{top.spi_slave_test.dut.data_tx[15:0]} top.spi_slave_test.dut.data_tx[15] top.spi_slave_test.dut.data_tx[14] top.spi_slave_test.dut.data_tx[13] top.spi_slave_test.dut.data_tx[12] top.spi_slave_test.dut.data_tx[11] top.spi_slave_test.dut.data_tx[10] top.spi_slave_test.dut.data_tx[9] top.spi_slave_test.dut.data_tx[8] top.spi_slave_test.dut.data_tx[7] top.spi_slave_test.dut.data_tx[6] top.spi_slave_test.dut.data_tx[5] top.spi_slave_test.dut.data_tx[4] top.spi_slave_test.dut.data_tx[3] top.spi_slave_test.dut.data_tx[2] top.spi_slave_test.dut.data_tx[1] top.spi_slave_test.dut.data_tx[0]
+[pattern_trace] 1
+[pattern_trace] 0
