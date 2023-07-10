@@ -80,19 +80,6 @@ architecture magic of ctcss_encoder is
 		'0' & x"00520", -- 250.3
 		'0' & x"00534"  -- 254.1
 	);
-
-	component sincos_lut is
-		generic(
-			LUT_SIZE    : natural;
-			WORD_SIZE   : natural
-		);
-		port(
-			clk_i		: in std_logic;
-			theta_i		: in std_logic_vector;
-			sine_o		: out std_logic_vector;
-			cosine_o	: out std_logic_vector
-		);
-	end component;
 	
 	signal raw_r		: std_logic_vector(15 downto 0) := (others => '0');
 	signal phase		: std_logic_vector(20 downto 0) := (others => '0');
@@ -114,12 +101,12 @@ begin
 	process(trig_i)
 	begin
 		if rising_edge(trig_i) then
-			if nrst='1' then
+			if nrst='1' and ctcss_i/="000000" then
 				phase <= std_logic_vector(unsigned(phase) + unsigned(ctcss_lut(to_integer(unsigned(ctcss_i))))); -- update phase accumulator
-				ctcss_o <= std_logic_vector(resize(signed(raw_r(15 downto 4)), 16));
 			else
 				phase <= (others => '0');
 			end if;
+			ctcss_o <= std_logic_vector(resize(signed(raw_r(15 downto 4)), 16));
 		end if;
 	end process;
 end magic;
