@@ -10,6 +10,11 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
 entity ctcss_encoder is
+	generic(
+		SINCOS_RES 		: natural := 16;			-- CORDIC resolution, default - 16 bits
+		SINCOS_ITER		: natural := 14;			-- CORDIC iterations, default - 14
+		SINCOS_COEFF	: signed := x"4DB9"			-- CORDIC scaling coefficient		
+	);
 	port(
 		clk_i	: in std_logic;						-- main clock in
 		nrst	: in std_logic;						-- reset
@@ -92,22 +97,11 @@ architecture magic of ctcss_encoder is
 	signal raw_r		: std_logic_vector(15 downto 0) := (others => '0');
 	signal phase		: std_logic_vector(20 downto 0) := (others => '0');
 begin
-	-- sincos LUT
-	--sincos_lut0: sincos_lut generic map(
-        --LUT_SIZE  => 256*4,
-        --WORD_SIZE => 16
-	--)
-	--port map(
-		--clk_i => trig_i,
-		--theta_i => phase(20 downto 11),
-		--sine_o => raw_r,
-		--cosine_o => open
-	--);
-	
+	-- sincos
 	sincos: entity work.cordic generic map(
-        RES_WIDTH => 16,
-        ITER_NUM => 14,
-        COMP_COEFF => x"26DD"
+        RES_WIDTH => SINCOS_RES,
+        ITER_NUM => SINCOS_ITER,
+        COMP_COEFF => SINCOS_COEFF
     )
 	port map(
 		clk_i => clk_i,

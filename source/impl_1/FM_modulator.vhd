@@ -13,7 +13,7 @@ entity fm_modulator is
 	generic(
 		SINCOS_RES 		: natural := 16;			-- CORDIC resolution, default - 16 bits
 		SINCOS_ITER		: natural := 14;			-- CORDIC iterations, default - 14
-		SINCOS_COEFF	: signed := x"26DD"			-- CORDIC scaling coefficient
+		SINCOS_COEFF	: signed := x"4DB9"			-- CORDIC scaling coefficient
 	);
 	port(
 		clk_i	: in std_logic;						-- main clock in

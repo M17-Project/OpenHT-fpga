@@ -310,7 +310,12 @@ begin
 		out_o => fm_dith_r
 	);
 	
-	ctcss_enc0: entity work.ctcss_encoder port map(
+	ctcss_enc0: entity work.ctcss_encoder generic map(
+		SINCOS_RES=> 16,
+		SINCOS_ITER	=> 20,
+		SINCOS_COEFF => x"4DB0" --x"4DB9",		
+	)
+	port map(
 		clk_i => clk_64,
 		nrst => nrst,
 		trig_i => zero_word,
@@ -322,8 +327,8 @@ begin
 	freq_mod0: entity work.fm_modulator
 	generic map(
 		SINCOS_RES=> 16,
-		SINCOS_ITER	=> 14,
-		SINCOS_COEFF => x"26DD"
+		SINCOS_ITER	=> 20,
+		SINCOS_COEFF => x"4DB0" --x"4DB9",
 	)
 	port map(
 		clk_i => clk_64,
