@@ -345,7 +345,8 @@ begin
 	
 	-- amplitude modulator
 	ampl_mod0: entity work.am_modulator port map(
-		mod_i => mod_in_r_sync,
+		clk_i => zero_word,
+		mod_i => mod_in_r_sync(14 downto 0) & '0', -- the mod_in_r_sync bus holds signed values only, we need unsigned
 		i_o => i_am_tx,
 		q_o => q_am_tx
 	);
@@ -367,7 +368,11 @@ begin
 		trig_i => samp_clk
 	);
 	
-	hilbert0: entity work.fir_hilbert port map(
+	hilbert0: entity work.fir_hilbert generic map(
+		TAPS_NUM => 81,
+		SAMP_WIDTH=> 16
+	)
+	port map(
 		clk_i => clk_64,
 		data_i => signed(sel_ssb_qd_r),
 		std_logic_vector(data_o) => q_ssb_tx,

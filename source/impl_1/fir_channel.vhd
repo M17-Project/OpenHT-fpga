@@ -52,50 +52,43 @@ architecture magic of fir_channel_6_25 is
 	
 	signal dline : arr_sig_t := (others => (others => '0'));
 
-	signal p_trig, pp_trig : std_logic := '0';
 	signal busy : std_logic := '0';
 	signal mac : signed(integer(ceil(log2(real(TAPS_NUM))))+2*SAMP_WIDTH-1 downto 0) := (others => '0');
 	signal mul : signed(2*SAMP_WIDTH-1 downto 0) := (others => '0');
+	signal cnt : integer range 0 to TAPS_NUM+1 := 0;
 begin
-	process(clk_i)
-		variable counter : integer range 0 to TAPS_NUM+1 := 0;
+	process(clk_i, trig_i)
 	begin
+        if rising_edge(trig_i) then
+            -- update delay line
+            dline <= dline(1 to TAPS_NUM-1) & data_i;
+            -- init all stuff
+            mul <= dline(0) * taps(0);
+            mac <= (others => '0');
+            cnt <= 0;
+            busy <= '1';
+        end if;
+
 		if rising_edge(clk_i) then
-			p_trig <= trig_i;
-			pp_trig <= p_trig;
-
-			-- detect rising edge at the trig input
-			if pp_trig='0' and p_trig='1' then
-				-- update data register
-				dline <= dline(1 to TAPS_NUM-1) & data_i;
-				-- zero all stuff
-				counter := 0;
-				mul <= (others => '0');
-				mac <= resize(data_i * taps(TAPS_NUM-1), integer(ceil(log2(real(TAPS_NUM))))+2*SAMP_WIDTH);
-				-- assert busy flag
-				busy <= '1';
-			end if;
-
-			if busy='1' then
-				if counter=TAPS_NUM then
-					-- output result
+            if busy='1' then
+                if cnt<TAPS_NUM then
+                    -- perform some arithmetic
+                    mul <= dline(cnt) * taps(cnt);
+                    mac <= mac + mul;
+                    cnt <= cnt + 1;
+                elsif cnt=TAPS_NUM then
+                    -- output result
 					data_o <= mac(2*SAMP_WIDTH-1 downto SAMP_WIDTH);
-					-- deassert busy flag
-					busy <= '0';
-					-- zero the counter
-					counter := 0;
-				else
-					-- perform some arithmetic
-					mul <= dline(counter) * taps(counter);
-					mac <= mac + mul;
-					-- update the counter
-					counter := counter + 1;
-				end if;
-			end if;
-		end if;
-		
-		drdy_o <= not busy;
+                    -- deassert busy flag
+                    busy <= '0';
+                    -- reset the counter and bring back shift registers to order
+                    --cnt <= 0;
+                end if;
+            end if;
+        end if;
 	end process;
+
+	drdy_o <= not busy;
 end magic;
 
 ----------------------------------- 12.5k -----------------------------------
@@ -146,50 +139,43 @@ architecture magic of fir_channel_12_5 is
 	
 	signal dline : arr_sig_t := (others => (others => '0'));
 
-	signal p_trig, pp_trig : std_logic := '0';
 	signal busy : std_logic := '0';
 	signal mac : signed(integer(ceil(log2(real(TAPS_NUM))))+2*SAMP_WIDTH-1 downto 0) := (others => '0');
 	signal mul : signed(2*SAMP_WIDTH-1 downto 0) := (others => '0');
+	signal cnt : integer range 0 to TAPS_NUM+1 := 0;
 begin
-	process(clk_i)
-		variable counter : integer range 0 to TAPS_NUM+1 := 0;
+	process(clk_i, trig_i)
 	begin
+        if rising_edge(trig_i) then
+            -- update delay line
+            dline <= dline(1 to TAPS_NUM-1) & data_i;
+            -- init all stuff
+            mul <= dline(0) * taps(0);
+            mac <= (others => '0');
+            cnt <= 0;
+            busy <= '1';
+        end if;
+
 		if rising_edge(clk_i) then
-			p_trig <= trig_i;
-			pp_trig <= p_trig;
-
-			-- detect rising edge at the trig input
-			if pp_trig='0' and p_trig='1' then
-				-- update data register
-				dline <= dline(1 to TAPS_NUM-1) & data_i;
-				-- zero all stuff
-				counter := 0;
-				mul <= (others => '0');
-				mac <= resize(data_i * taps(TAPS_NUM-1), integer(ceil(log2(real(TAPS_NUM))))+2*SAMP_WIDTH);
-				-- assert busy flag
-				busy <= '1';
-			end if;
-
-			if busy='1' then
-				if counter=TAPS_NUM then
-					-- output result
+            if busy='1' then
+                if cnt<TAPS_NUM then
+                    -- perform some arithmetic
+                    mul <= dline(cnt) * taps(cnt);
+                    mac <= mac + mul;
+                    cnt <= cnt + 1;
+                elsif cnt=TAPS_NUM then
+                    -- output result
 					data_o <= mac(2*SAMP_WIDTH-1 downto SAMP_WIDTH);
-					-- deassert busy flag
-					busy <= '0';
-					-- zero the counter
-					counter := 0;
-				else
-					-- perform some arithmetic
-					mul <= dline(counter) * taps(counter);
-					mac <= mac + mul;
-					-- update the counter
-					counter := counter + 1;
-				end if;
-			end if;
-		end if;
-		
-		drdy_o <= not busy;
+                    -- deassert busy flag
+                    busy <= '0';
+                    -- reset the counter and bring back shift registers to order
+                    --cnt <= 0;
+                end if;
+            end if;
+        end if;
 	end process;
+
+	drdy_o <= not busy;
 end magic;
 
 ----------------------------------- 25k -----------------------------------
@@ -240,48 +226,41 @@ architecture magic of fir_channel_25 is
 	
 	signal dline : arr_sig_t := (others => (others => '0'));
 
-	signal p_trig, pp_trig : std_logic := '0';
 	signal busy : std_logic := '0';
 	signal mac : signed(integer(ceil(log2(real(TAPS_NUM))))+2*SAMP_WIDTH-1 downto 0) := (others => '0');
 	signal mul : signed(2*SAMP_WIDTH-1 downto 0) := (others => '0');
+	signal cnt : integer range 0 to TAPS_NUM+1 := 0;
 begin
-	process(clk_i)
-		variable counter : integer range 0 to TAPS_NUM+1 := 0;
+	process(clk_i, trig_i)
 	begin
+        if rising_edge(trig_i) then
+            -- update delay line
+            dline <= dline(1 to TAPS_NUM-1) & data_i;
+            -- init all stuff
+            mul <= dline(0) * taps(0);
+            mac <= (others => '0');
+            cnt <= 0;
+            busy <= '1';
+        end if;
+
 		if rising_edge(clk_i) then
-			p_trig <= trig_i;
-			pp_trig <= p_trig;
-
-			-- detect rising edge at the trig input
-			if pp_trig='0' and p_trig='1' then
-				-- update data register
-				dline <= dline(1 to TAPS_NUM-1) & data_i;
-				-- zero all stuff
-				counter := 0;
-				mul <= (others => '0');
-				mac <= resize(data_i * taps(TAPS_NUM-1), integer(ceil(log2(real(TAPS_NUM))))+2*SAMP_WIDTH);
-				-- assert busy flag
-				busy <= '1';
-			end if;
-
-			if busy='1' then
-				if counter=TAPS_NUM then
-					-- output result
+            if busy='1' then
+                if cnt<TAPS_NUM then
+                    -- perform some arithmetic
+                    mul <= dline(cnt) * taps(cnt);
+                    mac <= mac + mul;
+                    cnt <= cnt + 1;
+                elsif cnt=TAPS_NUM then
+                    -- output result
 					data_o <= mac(2*SAMP_WIDTH-1 downto SAMP_WIDTH);
-					-- deassert busy flag
-					busy <= '0';
-					-- zero the counter
-					counter := 0;
-				else
-					-- perform some arithmetic
-					mul <= dline(counter) * taps(counter);
-					mac <= mac + mul;
-					-- update the counter
-					counter := counter + 1;
-				end if;
-			end if;
-		end if;
-		
-		drdy_o <= not busy;
+                    -- deassert busy flag
+                    busy <= '0';
+                    -- reset the counter and bring back shift registers to order
+                    --cnt <= 0;
+                end if;
+            end if;
+        end if;
 	end process;
+
+	drdy_o <= not busy;
 end magic;

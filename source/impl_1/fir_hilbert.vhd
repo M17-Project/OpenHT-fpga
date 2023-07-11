@@ -8,10 +8,12 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
+use IEEE.math_real.all;
 
 entity fir_hilbert is
 	generic(
-		TAPS_NUM : integer := 81
+		TAPS_NUM : integer := 81;
+		SAMP_WIDTH	: integer := 16
 	);
 	port(
 		clk_i		: in std_logic;									-- fast clock in
@@ -51,52 +53,38 @@ architecture magic of fir_hilbert is
 	type delay_line is array(integer range 0 to TAPS_NUM-1) of signed(15 downto 0);
 	signal dline : delay_line := (others => (others => '0'));
 
-	signal p_trig, pp_trig : std_logic := '0';
 	signal busy : std_logic := '0';
-	signal mac : signed(6+16+16-1 downto 0) := (others => '0');
-	signal mul : signed(31 downto 0) := (others => '0');
+	signal mac : signed(integer(ceil(log2(real(TAPS_NUM))))+2*SAMP_WIDTH-1 downto 0) := (others => '0');
+	signal mul : signed(2*SAMP_WIDTH-1 downto 0) := (others => '0');
+	signal cnt : integer range 0 to TAPS_NUM+1 := 0;
 begin
-	process(clk_i)
-		variable counter : integer range 0 to TAPS_NUM+1 := 0;
+	process(clk_i, trig_i)
 	begin
+        if rising_edge(trig_i) then
+            -- update delay line
+            dline <= dline(1 to TAPS_NUM-1) & data_i;
+            -- init all stuff
+            mul <= dline(0) * taps(0);
+            mac <= (others => '0');
+            cnt <= 0;
+            busy <= '1';
+        end if;
+
 		if rising_edge(clk_i) then
-			p_trig <= trig_i;
-			pp_trig <= p_trig;
-
-			-- detect rising edge at the trig input
-			if pp_trig='0' and p_trig='1' then
-				-- update data register
-				dline <= dline(1 to TAPS_NUM-1) & data_i;
-				-- zero all stuff
-				counter := 0;
-				mac <= (others => '0');
-				mul <= (others => '0');
-				-- assert busy flag
-				busy <= '1';
-			end if;
-
-			if busy='1' then
-				if counter=TAPS_NUM then
-					-- output result
-					data_o <= mac(6+16+16-6-1 downto 6+16+16-6-1-16+1);
-					-- deassert busy flag
-					busy <= '0';
-					-- zero the counter and bring back shift registers to order
-					counter := 0;
-					--taps <= taps(TAPS_NUM-1) & taps(0 to TAPS_NUM-2);
-					--dline <= dline(1 to TAPS_NUM-1) & dline(0);
-				else
-					-- perform some arithmetic
-					mul <= dline(counter) * taps(counter);
-					mac <= mac + mul;
-					-- update shift registers
-					--taps <= taps(TAPS_NUM-1) & taps(0 to TAPS_NUM-2);
-					--dline <= dline(1 to TAPS_NUM-1) & dline(0);
-					-- update the counter
-					counter := counter + 1;
-				end if;
-			end if;
-		end if;
+            if busy='1' then
+                if cnt<TAPS_NUM then
+                    -- perform some arithmetic
+                    mul <= dline(cnt) * taps(cnt);
+                    mac <= mac + mul;
+                    cnt <= cnt + 1;
+                elsif cnt=TAPS_NUM then
+                    -- output result
+                    data_o <= mac(6+16+16-6-1 downto 6+16+16-6-1-16+1);
+                    -- deassert busy flag
+                    busy <= '0';
+                end if;
+            end if;
+        end if;
 	end process;
 
 	drdy_o <= not busy;

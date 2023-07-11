@@ -3,7 +3,7 @@
 --
 -- Wojciech Kaczmarski, SP5WWP
 -- M17 Project
--- March 2023
+-- July 2023
 -------------------------------------------------------------
 library IEEE;
 use IEEE.std_logic_1164.all;
@@ -26,17 +26,17 @@ architecture magic of delay_block is
 	signal dline : d_line := (others => (others => '0'));
 	signal p_trig, pp_trig : std_logic := '0';
 begin
-	process(clk_i)
+	process(trig_i)
 	begin
-		if rising_edge(clk_i) then
-			p_trig <= trig_i;
-			pp_trig <= p_trig;
+		if rising_edge(trig_i) then
+			--p_trig <= trig_i;
+			--pp_trig <= p_trig;
 
 			-- detect rising edge at the trig input
-			if pp_trig='0' and p_trig='1' then
+			--if pp_trig='0' and p_trig='1' then
 				dline <= dline(1 to DELAY-1) & d_i;
 				d_o <= dline(0);
-			end if;
+			--end if;
 		end if;
 	end process;
 end magic;
