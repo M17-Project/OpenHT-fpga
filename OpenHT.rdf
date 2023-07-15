@@ -126,9 +126,6 @@
         <Source name="ddr_tx/ddr_tx.ipx" type="IPX_Module" type_short="IPX">
             <Options/>
         </Source>
-        <Source name="fifo_in_samples/fifo_in_samples.ipx" type="IPX_Module" type_short="IPX">
-            <Options/>
-        </Source>
         <Source name="source/impl_1/impl_1.pdc" type="Physical Constraints File" type_short="PDC">
             <Options/>
         </Source>

@@ -1,11 +1,12 @@
 -------------------------------------------------------------
--- AXI stream pkg
+-- AXI stream package
 --
 -- Sebastien Van Cauwenberghe, ON4SEB
--- M17 Project
--- June 2023
+-- 
 -- Reference : https://developer.arm.com/documentation/ihi0051/latest/
 -- AXI stream spec IHI 0051B
+-- M17 Project
+-- July 2023
 -------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;

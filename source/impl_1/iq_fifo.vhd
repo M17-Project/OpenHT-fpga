@@ -58,13 +58,16 @@ begin
 		D_WIDTH => D_WIDTH
 	)
 	port map(
+		clk_i => clk_i,
+		nrst_i => nrst_i,
 		wr_clk_i => trig_i,
         rd_clk_i => trig_i and wr_clk_en,
-        data_i => i_i,
-        data_o => i_out,
-        fifo_ae => i_out_ae,
-		fifo_full => open,
-		fifo_empty => open
+        wr_data_i => i_i,
+        rd_data_o => i_out,
+		fifo_empty_o => open,
+        fifo_ae_o => i_out_ae,
+		fifo_af_o => open,
+		fifo_full_o => open
 	);
 	
 	q_fifo: entity work.fifo_dc generic map(
@@ -72,12 +75,15 @@ begin
 		D_WIDTH => D_WIDTH
 	)
 	port map(
+		clk_i => clk_i,
+		nrst_i => nrst_i,
 		wr_clk_i => trig_i,
         rd_clk_i => trig_i and wr_clk_en,
-        data_i => q_i,
-        data_o => q_out,
-        fifo_ae => q_out_ae,
-		fifo_full => open,
-		fifo_empty => open
+        wr_data_i => q_i,
+        rd_data_o => q_out,
+		fifo_empty_o => open,
+        fifo_ae_o => q_out_ae,
+		fifo_af_o => open,
+		fifo_full_o => open
 	);
 end magic;
