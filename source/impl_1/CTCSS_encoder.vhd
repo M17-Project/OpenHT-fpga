@@ -28,7 +28,7 @@ architecture magic of ctcss_encoder is
 	type ctcss_f is array(0 to 50) of std_logic_vector(20 downto 0);
 	
 	constant ctcss_lut : ctcss_f := (
-        21x"000000",	-- no CTCSS
+        21x"000000", -- no CTCSS
 		21x"00015F", -- 67.0
 		21x"00016B", -- 69.3
 		21x"000179", -- 71.9
@@ -76,7 +76,7 @@ architecture magic of ctcss_encoder is
 		21x"00049F", -- 225.7
 		21x"0004B1", -- 229.1
 		21x"0004C9", -- 233.6
-		21x"000534",  -- 254.1
+		21x"000534", -- 254.1
 		21x"000520", -- 250.3
 		21x"0004F4"  -- 241.8
 	);
