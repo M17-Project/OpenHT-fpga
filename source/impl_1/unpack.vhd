@@ -23,19 +23,6 @@ entity unpack is
 end unpack;
 
 architecture magic of unpack is
-    component tx_out_fifo
-        port (
-			clk_i : in std_logic;
-			nrst_i : in std_logic;
-			wr_en_i : in std_logic;
-			rd_en_i : in std_logic;
-			wr_data_i : in std_logic_vector (32 downto 0);
-			full_o : out std_logic;
-			empty_o : out std_logic;
-			rd_data_o : out std_logic_vector (32 downto 0)
-		);
-    end component;
-
 	signal wr_en_i : std_logic := '0';
     signal full_o : std_logic := '0';
     signal empty_o : std_logic := '0';
@@ -59,22 +46,22 @@ begin
 	s_axis_iq_o.tready <= not full_o;
 	wr_data_i <= s_axis_iq_i.tlast & s_axis_iq_i.tdata;
 
-	tx_out_fifo_inst : entity work.fifo_dc
-	generic map(
-        DEPTH => 32,
-        D_WIDTH => 33		
-	)
-	port map(
-		clk_i => clk_i,
-		nrst_i => nrst_i,
-		wr_en_i => wr_en_i,
-		rd_en_i => rd_en_i,
-		wr_data_i => wr_data_i,
-		fifo_full_o => full_o,
-		fifo_empty_o => empty_o,
-		rd_data_o => rd_data_o
-	);
-	--rd_data_o <= s_axis_iq_i.tlast & s_axis_iq_i.tdata;
+	--tx_out_fifo_inst : entity work.fifo_dc
+	--generic map(
+        --DEPTH => 32,
+        --D_WIDTH => 33		
+	--)
+	--port map(
+		--clk_i => clk_i,
+		--nrst_i => nrst_i,
+		--wr_en_i => wr_en_i,
+		--rd_en_i => rd_en_i,
+		--wr_data_i => wr_data_i,
+		--fifo_full_o => full_o,
+		--fifo_empty_o => empty_o,
+		--rd_data_o => rd_data_o
+	--);
+	rd_data_o <= s_axis_iq_i.tlast & s_axis_iq_i.tdata;
 
 	process(clk_i)
 	begin
