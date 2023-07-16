@@ -39,7 +39,7 @@ architecture magic of cordic is
 	signal cos_next     : signed(RES_WIDTH-1 downto 0) := (others => '0');
     signal angle        : signed(RES_WIDTH-1 downto 0) := (others => '0');
     signal angle_next   : signed(RES_WIDTH-1 downto 0) := (others => '0');
-    signal cnt          : integer:= -1;
+    signal cnt          : integer := -1;
     signal left_half    : std_logic := '0';
 begin
     -- compute angles at synthesis-time

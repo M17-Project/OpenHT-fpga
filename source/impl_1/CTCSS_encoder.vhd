@@ -76,9 +76,9 @@ architecture magic of ctcss_encoder is
 		21x"00049F", -- 225.7
 		21x"0004B1", -- 229.1
 		21x"0004C9", -- 233.6
-		21x"000534"  -- 254.1
+		21x"000534",  -- 254.1
 		21x"000520", -- 250.3
-		21x"0004F4", -- 241.8
+		21x"0004F4"  -- 241.8
 	);
 	
 	signal raw_r		: std_logic_vector(15 downto 0) := (others => '0');
@@ -95,7 +95,7 @@ begin
 		phase_i => unsigned(phase(20 downto 20-16+1)),
 		std_logic_vector(sin_o) => raw_r,
 		cos_o => open,
-		trig_o => open
+		valid_o => open
 	);
 
 	process(trig_i)

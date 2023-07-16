@@ -27,7 +27,7 @@ begin
 	begin
 		if rising_edge(clk_i) then
 			if s_axis_mod_i.tvalid and m_axis_iq_i.tready then
-				m_axis_iq_o.tdata(31 downto 16) <= '0' & s_axis_mod_i.tdata(14 downto 1);
+				m_axis_iq_o.tdata(31 downto 16) <= '0' & s_axis_mod_i.tdata(14 downto 0);
 				m_axis_iq_o.tdata(15 downto 0) <= (others => '0');
 			end if;
 
