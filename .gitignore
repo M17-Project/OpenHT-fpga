@@ -12,3 +12,5 @@ IBIS/
 *.log
 *.cf
 *.ghw
+vunit_out
+

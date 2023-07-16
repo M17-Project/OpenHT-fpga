@@ -46,22 +46,22 @@ begin
 	s_axis_iq_o.tready <= not full_o;
 	wr_data_i <= s_axis_iq_i.tlast & s_axis_iq_i.tdata;
 
-	--tx_out_fifo_inst : entity work.fifo_dc
-	--generic map(
-        --DEPTH => 32,
-        --D_WIDTH => 33		
-	--)
-	--port map(
-		--clk_i => clk_i,
-		--nrst_i => nrst_i,
-		--wr_en_i => wr_en_i,
-		--rd_en_i => rd_en_i,
-		--wr_data_i => wr_data_i,
-		--fifo_full_o => full_o,
-		--fifo_empty_o => empty_o,
-		--rd_data_o => rd_data_o
-	--);
-	rd_data_o <= s_axis_iq_i.tlast & s_axis_iq_i.tdata;
+	fifo_simple_inst : entity work.fifo_simple
+  	generic map (
+    	g_WIDTH => 33,
+    	g_DEPTH => 16
+  	)
+  	port map (
+		i_rstn_async => nrst_i,
+		i_clk => clk_i,
+		i_wr_en => wr_en_i,
+		i_wr_data => wr_data_i,
+		o_full => full_o,
+		i_rd_en => rd_en_i,
+		o_rd_data => rd_data_o,
+		o_empty => empty_o
+  	);
+	--rd_data_o <= s_axis_iq_i.tlast & s_axis_iq_i.tdata;
 
 	process(clk_i)
 	begin
@@ -76,7 +76,9 @@ begin
 					if sreg_reload then
 						unpack_state <= PADDING;
 						pad_count <= (others => '0');
-						rd_en_i <= '1'; -- Data will be out of the FIFO for the next round after padding
+						if not empty_o then
+							rd_en_i <= '1'; -- Data will be out of the FIFO for the next round after padding
+						end if;
 					end if;
 
 				when PADDING =>
