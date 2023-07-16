@@ -19,9 +19,10 @@ entity cordic is
 	port(
 		clk_i           : in std_logic;                                 		-- clock in
 		phase_i         : in unsigned(RES_WIDTH-1 downto 0);                    -- phase word in
-		sin_o           : out signed(RES_WIDTH-1 downto 0) := (others => '0');  -- sine out
+        phase_valid_i   : in std_logic;                                         -- Phase word valid
+        sin_o           : out signed(RES_WIDTH-1 downto 0) := (others => '0');  -- sine out
 		cos_o           : out signed(RES_WIDTH-1 downto 0) := (others => '0');  -- cosine out
-		trig_o          : out std_logic := '0'                          		-- data ready
+		valid_o         : out std_logic := '0'                          		-- data ready
 	);
 end cordic;
 
@@ -38,7 +39,7 @@ architecture magic of cordic is
 	signal cos_next     : signed(RES_WIDTH-1 downto 0) := (others => '0');
     signal angle        : signed(RES_WIDTH-1 downto 0) := (others => '0');
     signal angle_next   : signed(RES_WIDTH-1 downto 0) := (others => '0');
-    signal cnt          : integer := -1;
+    signal cnt          : integer:= -1;
     signal left_half    : std_logic := '0';
 begin
     -- compute angles at synthesis-time
@@ -51,8 +52,8 @@ begin
 	process(clk_i)
 	begin
 		if rising_edge(clk_i) then
-            if cnt=-1 then
-                trig_o <= '0';
+            valid_o <= '0';
+            if cnt=-1 and phase_valid_i = '1' then
                 --  quadrant check
                 if phase_i>deg_270 then
                     angle <= signed(phase_i);
@@ -81,7 +82,7 @@ begin
                     sin_o <= -cos_next; -- this swap is intentional
                     cos_o <= -sin_next;
                 end if;
-                trig_o <= '1';
+                valid_o <= '1';
             end if;
 
             if cnt<ITER_NUM then
