@@ -39,6 +39,9 @@ package axi_stream_pkg is
     constant axis_in_mod_null : axis_in_mod_t := ((others => '0'), '0', '0');
 
     type axis_out_mod_t is record
+        tdata : std_logic_vector(AXIS_MOD_TDATA_SIZE-1 downto 0);
         tready : std_logic; -- Downstream is ready
+        tlast : std_logic; -- Downstream is ready
     end record;
+	constant axis_out_mod_null : axis_out_mod_t := ((others => '0'), '0', '0');
 end package;

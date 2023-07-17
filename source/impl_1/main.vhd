@@ -70,6 +70,8 @@ architecture magic of main_all is
 	signal mod_fifo_ae					: std_logic := '0';
 	-- misc
 	signal mux_axis_iq					: axis_in_iq_t := axis_in_iq_null;
+	signal fm_axis_iq					: axis_in_iq_t := axis_in_iq_null;
+	signal unp_axis_iq_o				: axis_out_iq_t := axis_out_iq_null;
 	
 	----------------------------- low level building blocks -----------------------------
 	-- main PLL block
@@ -251,22 +253,19 @@ begin
 	--);
 	--ctcss_fm_tx <= std_logic_vector(signed(mod_in_r_sync) + signed(ctcss_r));
 	
-	--freq_mod0: entity work.fm_modulator
-	--generic map(
-		--SINCOS_RES=> 16,
-		--SINCOS_ITER	=> 20,
-		--SINCOS_COEFF => x"4DB0" --x"4DB9",
-	--)
-	--port map(
-		--clk_i => clk_64,
-		--nrst_i => nrst,
-		--trig_i => zero_word,
-		--mod_i => ctcss_fm_tx,
-		--dith_i => fm_dith_r,
-		--nw_i => regs_rw(CR_2)(8),
-		--i_o => i_fm_tx,
-		--q_o => q_fm_tx
-	--);
+	freq_mod0: entity work.fm_modulator
+	generic map(
+		SINCOS_RES=> 16,
+		SINCOS_ITER	=> 20,
+		SINCOS_COEFF => x"4DB0" --x"4DB9",
+	)
+	port map(
+		clk_i => clk_64,
+		nrst_i => nrst,
+		nw_i => regs_rw(CR_2)(8),
+		s_axis_mod_i => (tlast => '0', tvalid => unp_axis_iq_o.tready, tdata => x"147B"),
+		m_axis_iq_o => fm_axis_iq
+	);
 	
 	-- amplitude modulator
 	--ampl_mod0: entity work.am_modulator port map(
@@ -345,9 +344,9 @@ begin
 	tx_mod_sel0: entity work.mod_sel port map(
 		clk_i => clk_64,
 		sel_i => regs_rw(CR_1)(14 downto 12),
-		m_axis_iq0_i => (x"7FFF0000", '1', '0'), -- FM
-		m_axis_iq1_i => (x"0FFF0000", '1', '0'), -- AM
-		m_axis_iq2_i => (x"01FF0000", '1', '0'), -- SSB
+		m_axis_iq0_i => fm_axis_iq, -- FM
+		m_axis_iq1_i => (x"7FFF0000", '1', '0'), -- AM
+		m_axis_iq2_i => (x"0FFF0000", '1', '0'), -- SSB
 		m_axis_iq3_i => (x"7FFF0000", '1', '0'), -- reserved
 		m_axis_iq4_i => (x"7FFF0000", '1', '0'), -- reserved
 		m_axis_iq_o => mux_axis_iq
@@ -405,6 +404,7 @@ begin
 		clk_i => clk_64,
 		nrst_i => nrst,
 		s_axis_iq_i => mux_axis_iq,
+		s_axis_iq_o => unp_axis_iq_o,
 		data_o => data_tx_r
 	);	
 	
@@ -516,9 +516,9 @@ begin
 			   '0'					when "100",
 			   mod_fifo_ae			when "101",	-- baseband FIFO almost empty flag
 			   '0'					when others;
-			io4 <= '0';
-			io5 <= '0';
-			io6 <= '0';
+			io4 <= fm_axis_iq.tvalid;
+			io5 <= mux_axis_iq.tvalid;
+			io6 <= unp_axis_iq_o.tready;
 		end if;
 	end process;
 end magic;
