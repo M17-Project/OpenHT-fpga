@@ -17,7 +17,7 @@ entity unpack is
 		clk_i		: in std_logic;
 		nrst_i   	: in std_logic;
 		s_axis_iq_i : in axis_in_iq_t;
-		s_axis_iq_o : out axis_out_iq_t := (others => '0');
+		s_axis_iq_o : out axis_out_iq_t := axis_out_iq_null;
 		data_o		: out std_logic_vector(1 downto 0) := (others => '0')
 	);
 end unpack;
@@ -43,7 +43,7 @@ begin
 	sreg_reload <= '1' when bit_cnt >= 15 else '0';
 
 	wr_en_i <= s_axis_iq_i.tvalid and not full_o;
-	s_axis_iq_o.tready <= not full_o;
+	s_axis_iq_o.tready <= not full_o; -- other s_axis_iq_o fields are unused in this block (it's the last one)
 	wr_data_i <= s_axis_iq_i.tlast & s_axis_iq_i.tdata;
 
 	fifo_simple_inst : entity work.fifo_simple

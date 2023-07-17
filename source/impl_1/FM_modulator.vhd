@@ -19,18 +19,18 @@ entity fm_modulator is
 	);
 	port(
 		clk_i	: in std_logic;											-- main clock in
-		nrst	: in std_logic;											-- reset
+		nrst_i	: in std_logic;											-- reset
 		nw_i	: in std_logic;											-- narrow/wide selector, N=0, W=1
 		s_axis_mod_i : in axis_in_mod_t;
 		s_axis_mod_o : out axis_out_mod_t;
-		m_axis_iq_o : out axis_in_iq_t;
-		m_axis_iq_i : in axis_out_iq_t
+		m_axis_iq_i : in axis_out_iq_t;
+		m_axis_iq_o : out axis_in_iq_t
 	);
 end fm_modulator;
 
 architecture magic of fm_modulator is
 	signal phase	: std_logic_vector(20 downto 0) := (others => '0');
-	signal phase_vld : std_logic;
+	signal phase_vld : std_logic := '0';
 
 	signal theta	: unsigned(15 downto 0) := (others => '0');
 	signal cordic_trig : std_logic := '0';
@@ -53,7 +53,7 @@ architecture magic of fm_modulator is
 
 	process(clk_i)
 	begin
-		if nrst='0' then
+		if nrst_i='0' then
 			phase <= (others => '0');
 		elsif rising_edge(clk_i) then
 			phase_vld <= s_axis_mod_i.tvalid;

@@ -69,7 +69,7 @@ architecture magic of main_all is
 	signal fifo_in_ae, fifo_out_ae		: std_logic := '0';
 	signal mod_fifo_ae					: std_logic := '0';
 	-- misc
-	--
+	signal mux_axis_iq					: axis_in_iq_t := axis_in_iq_null;
 	
 	----------------------------- low level building blocks -----------------------------
 	-- main PLL block
@@ -259,7 +259,7 @@ begin
 	--)
 	--port map(
 		--clk_i => clk_64,
-		--nrst => nrst,
+		--nrst_i => nrst,
 		--trig_i => zero_word,
 		--mod_i => ctcss_fm_tx,
 		--dith_i => fm_dith_r,
@@ -342,22 +342,16 @@ begin
 	--);
 	
 	-- modulation selector
-	--tx_mod_sel0: entity work.mod_sel port map(
-		--clk_i => clk_64,
-		--sel => regs_rw(CR_1)(14 downto 12),
-		--i0_i => i_fm_tx, --FM
-		--q0_i => q_fm_tx,
-		--i1_i => i_am_tx, --AM
-		--q1_i => q_am_tx,
-		--i2_i => i_ssb_tx_sync, --SSB
-		--q2_i => q_ssb_tx_sync,
-		--i3_i => i_pm_tx, --invalid (used for PM for now)
-		--q3_i => q_pm_tx,
-		--i4_i => regs_rw(16#B#),--x"7FFF", -- invalid
-		--q4_i => regs_rw(16#C#),--x"0000",
-		--i_o => i_raw_tx,
-		--q_o => q_raw_tx
-	--);
+	tx_mod_sel0: entity work.mod_sel port map(
+		clk_i => clk_64,
+		sel_i => regs_rw(CR_1)(14 downto 12),
+		m_axis_iq0_i => (x"7FFF0000", '1', '0'), -- FM
+		m_axis_iq1_i => (x"0FFF0000", '1', '0'), -- AM
+		m_axis_iq2_i => (x"01FF0000", '1', '0'), -- SSB
+		m_axis_iq3_i => (x"7FFF0000", '1', '0'), -- reserved
+		m_axis_iq4_i => (x"7FFF0000", '1', '0'), -- reserved
+		m_axis_iq_o => mux_axis_iq
+	);
 
 	-- digital predistortion blocks
 	--dpd0: entity work.dpd port map(
@@ -407,14 +401,10 @@ begin
 		--q_o => q_out
 	--);
 	
-	i_out <= x"7FFF";
-	q_out <= x"0000";
 	unpack0: entity work.unpack port map(
 		clk_i => clk_64,
 		nrst_i => nrst,
-		s_axis_iq_i.tdata => i_out & q_out,
-		s_axis_iq_i.tvalid => '1',
-		s_axis_iq_i.tlast => '0',
+		s_axis_iq_i => mux_axis_iq,
 		data_o => data_tx_r
 	);	
 	
