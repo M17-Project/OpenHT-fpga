@@ -17,7 +17,7 @@ entity unpack is
 		clk_i		: in std_logic;
 		nrst_i   	: in std_logic;
 		s_axis_iq_i : in axis_in_iq_t;
-		s_axis_iq_o : out axis_out_iq_t := axis_out_iq_null;
+		s_axis_iq_o : out axis_out_iq_t;
 		data_o		: out std_logic_vector(1 downto 0) := (others => '0')
 	);
 end unpack;

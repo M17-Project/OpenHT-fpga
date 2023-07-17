@@ -25,11 +25,8 @@ package axi_stream_pkg is
     constant axis_in_iq_null : axis_in_iq_t := ((others => '0'), '0', '0');
 
     type axis_out_iq_t is record
-		tdata : std_logic_vector(AXIS_IQ_TDATA_SIZE-1 downto 0); -- DATA I(31->16), Q(15->0)
         tready : std_logic; -- Downstream is ready
-		tlast : std_logic; -- Last burst of packet
     end record;
-	constant axis_out_iq_null : axis_out_iq_t := ((others => '0'), '0', '0');
 
     type axis_in_mod_t is record
         tdata : std_logic_vector(AXIS_MOD_TDATA_SIZE-1 downto 0);
