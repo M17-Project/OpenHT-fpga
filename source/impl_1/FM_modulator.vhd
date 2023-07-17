@@ -22,16 +22,19 @@ entity fm_modulator is
 		nrst_i	: in std_logic;											-- reset
 		nw_i	: in std_logic;											-- narrow/wide selector, N=0, W=1
 		s_axis_mod_i : in axis_in_mod_t;
+		s_axis_mod_o : out axis_out_mod_t;
+		m_axis_iq_i : in axis_out_iq_t;
 		m_axis_iq_o : out axis_in_iq_t
 	);
 end fm_modulator;
 
 architecture magic of fm_modulator is
 	signal phase	: std_logic_vector(20 downto 0) := (others => '0');
-	signal theta	: unsigned(15 downto 0) := (others => '0');
 	signal phase_vld : std_logic := '0';
-	signal cordic_vld : std_logic := '0';
-begin
+
+	signal theta	: unsigned(15 downto 0) := (others => '0');
+	signal cordic_trig : std_logic := '0';
+	begin
 	-- sincos
 	theta <= unsigned(phase(20 downto 20-16+1));
 	sincos: entity work.cordic generic map(
@@ -45,11 +48,9 @@ begin
 		phase_valid_i => phase_vld,
 		std_logic_vector(sin_o) => m_axis_iq_o.tdata(15 downto 0), -- Q
 		std_logic_vector(cos_o) => m_axis_iq_o.tdata(31 downto 16), -- I
-		valid_o => cordic_vld
+		valid_o => m_axis_iq_o.tvalid
 	);
-	
-	m_axis_iq_o.tvalid <= cordic_vld and phase_vld; -- TODO: we need to make the CORDIC one-shot
-	
+
 	process(clk_i)
 	begin
 		if nrst_i='0' then
@@ -67,4 +68,5 @@ begin
 	end process;
 
 	m_axis_iq_o.tlast <= '0';
+
 end magic;
