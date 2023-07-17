@@ -33,7 +33,9 @@ architecture magic of fm_modulator is
 	signal phase_vld : std_logic := '0';
 
 	signal theta	: unsigned(15 downto 0) := (others => '0');
-	signal cordic_trig : std_logic := '0';
+	signal ready : std_logic;
+	signal cordic_valid : std_logic;
+	signal output_valid : std_logic := '0';
 	begin
 	-- sincos
 	theta <= unsigned(phase(20 downto 20-16+1));
@@ -48,7 +50,7 @@ architecture magic of fm_modulator is
 		phase_valid_i => phase_vld,
 		std_logic_vector(sin_o) => m_axis_iq_o.tdata(15 downto 0), -- Q
 		std_logic_vector(cos_o) => m_axis_iq_o.tdata(31 downto 16), -- I
-		valid_o => m_axis_iq_o.tvalid
+		valid_o => cordic_valid
 	);
 
 	process(clk_i)
@@ -56,8 +58,22 @@ architecture magic of fm_modulator is
 		if nrst_i='0' then
 			phase <= (others => '0');
 		elsif rising_edge(clk_i) then
-			phase_vld <= s_axis_mod_i.tvalid;
-			if s_axis_mod_i.tvalid then
+			-- Store a new transaction when ready
+			if ready then
+				phase_vld <= s_axis_mod_i.tvalid;
+			end if;
+
+			-- When data is computed, put output to 1
+			if cordic_valid then
+				output_valid <= '1';
+				phase_vld <= '0';
+			end if;
+			-- When consumed by downstream, allow new data to enter
+			if m_axis_iq_i.tready and output_valid then
+				output_valid <= '0';
+			end if;
+
+			if s_axis_mod_i.tvalid and ready then
 				if nw_i='0' then -- narrow FM
 					phase <= std_logic_vector(unsigned(phase) + unsigned(resize(signed(s_axis_mod_i.tdata), 21))); -- update phase accumulator
 				else -- wide FM
@@ -67,6 +83,10 @@ architecture magic of fm_modulator is
 		end if;
 	end process;
 
-	m_axis_iq_o.tlast <= '0';
+	ready <= (not phase_vld and not output_valid);
 
+	s_axis_mod_o.tready <= ready;
+
+	m_axis_iq_o.tlast <= '0';
+	m_axis_iq_o.tvalid <= output_valid;
 end magic;

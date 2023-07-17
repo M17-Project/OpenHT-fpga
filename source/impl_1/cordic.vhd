@@ -90,8 +90,12 @@ begin
                     sin_val <= sin_next;
                     cos_val <= cos_next;
                     angle <= angle_next;
+                    cnt <= cnt + 1;
+                else
+                    if phase_valid_i then
+                        cnt <= cnt + 1;
+                    end if;
                 end if;
-                cnt <= cnt + 1;
             else
                 cnt <= -1;
             end if;
