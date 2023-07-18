@@ -8,6 +8,7 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
+use work.axi_stream_pkg.all;
 
 entity ctcss_encoder is
 	generic(
@@ -16,11 +17,11 @@ entity ctcss_encoder is
 		SINCOS_COEFF	: signed := x"4DB9"			-- CORDIC scaling coefficient		
 	);
 	port(
-		clk_i	: in std_logic;						-- main clock in
-		nrst	: in std_logic;						-- reset
-		trig_i	: in std_logic;						-- trigger input, 400k
-		ctcss_i	: in std_logic_vector(5 downto 0);	-- CTCSS in
-		ctcss_o	: out std_logic_vector(15 downto 0)	-- CTCSS tone out
+		clk_i			: in std_logic;						-- main clock in
+		nrst_i			: in std_logic;						-- reset
+		ctcss_i			: in std_logic_vector(5 downto 0);	-- CTCSS code in
+		m_axis_mod_i	: in axis_out_mod_t;
+		m_axis_mod_o	: out axis_in_mod_t
 	);
 end ctcss_encoder;
 
@@ -83,6 +84,9 @@ architecture magic of ctcss_encoder is
 	
 	signal raw_r		: std_logic_vector(15 downto 0) := (others => '0');
 	signal phase		: std_logic_vector(20 downto 0) := (others => '0');
+	signal ready		: std_logic := '0';
+	signal cordic_valid : std_logic := '0';
+	signal output_valid	: std_logic := '0';
 begin
 	-- sincos
 	sincos: entity work.cordic generic map(
@@ -93,20 +97,39 @@ begin
 	port map(
 		clk_i => clk_i,
 		phase_i => unsigned(phase(20 downto 20-16+1)),
+		phase_valid_i => not output_valid,
 		std_logic_vector(sin_o) => raw_r,
 		cos_o => open,
-		valid_o => open
+		valid_o => cordic_valid
 	);
-
-	process(trig_i)
+	m_axis_mod_o.tdata <= std_logic_vector(resize(signed(raw_r(15 downto 4)), 16));
+	
+	process(clk_i)
 	begin
-		if rising_edge(trig_i) then
-			if nrst='1' and ctcss_i/="000000" then
-				phase <= std_logic_vector(unsigned(phase) + unsigned(ctcss_lut(to_integer(unsigned(ctcss_i))))); -- update phase accumulator
-			else
-				phase <= (others => '0');
+		if nrst_i='0' then
+			phase <= (others => '0');
+		elsif rising_edge(clk_i) then
+			-- when data is computed, set output to 1
+			if cordic_valid then
+				output_valid <= '1';
 			end if;
-			ctcss_o <= std_logic_vector(resize(signed(raw_r(15 downto 4)), 16));
+			
+			-- when consumed by downstream, allow new data to enter
+			if m_axis_mod_i.tready and output_valid then
+				output_valid <= '0';
+			end if;	
+			
+			-- update phase
+			if not output_valid then
+				if ctcss_i/="000000" then
+					phase <= std_logic_vector(unsigned(phase) + unsigned(ctcss_lut(to_integer(unsigned(ctcss_i))))); -- update phase accumulator
+				else
+					phase <= (others => '0');
+				end if;
+			end if;
 		end if;
 	end process;
+	
+	m_axis_mod_o.tlast <= '0';
+	m_axis_mod_o.tvalid <= output_valid;
 end magic;

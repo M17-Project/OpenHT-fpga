@@ -69,6 +69,8 @@ architecture magic of main_all is
 	signal fifo_in_ae, fifo_out_ae		: std_logic := '0';
 	signal mod_fifo_ae					: std_logic := '0';
 	-- misc
+	signal ctcss_axis_out_mod			: axis_in_mod_t;
+	signal ctcss_axis_in_mod			: axis_out_mod_t;
 	signal freq_mod_axis_in_iq			: axis_in_iq_t := axis_in_iq_null;
 	signal mux_axis_in_iq				: axis_in_iq_t := axis_in_iq_null;
 	signal mux_axis_out_iq				: axis_out_iq_t;
@@ -233,18 +235,18 @@ begin
 	
 	---------------------------------------- TX -----------------------------------------
 	-- frequency modulator
-	--ctcss_enc0: entity work.ctcss_encoder generic map(
-		--SINCOS_RES=> 16,
-		--SINCOS_ITER	=> 20,
-		--SINCOS_COEFF => x"4DB0" --x"4DB9",		
-	--)
-	--port map(
-		--clk_i => clk_64,
-		--nrst => nrst,
-		--trig_i => zero_word,
-		--ctcss_i => regs_rw(CR_2)(7 downto 2),
-		--ctcss_o	=> ctcss_r
-	--);
+	ctcss_enc0: entity work.ctcss_encoder generic map(
+		SINCOS_RES=> 16,
+		SINCOS_ITER	=> 20,
+		SINCOS_COEFF => x"4DB0" --x"4DB9",		
+	)
+	port map(
+		clk_i => clk_64,
+		nrst_i => nrst,
+		ctcss_i => regs_rw(CR_2)(7 downto 2),
+		m_axis_mod_i => ctcss_axis_in_mod,
+		m_axis_mod_o => ctcss_axis_out_mod	
+	);
 	--ctcss_fm_tx <= std_logic_vector(signed(mod_in_r_sync) + signed(ctcss_r));
 	
 	freq_mod0: entity work.fm_modulator
@@ -257,8 +259,8 @@ begin
 		clk_i => clk_64,
 		nrst_i => nrst,
 		nw_i => regs_rw(CR_2)(8),
-		s_axis_mod_i => (tlast => '0', tvalid => '1', tdata => x"147B"),
-		s_axis_mod_o => open,
+		s_axis_mod_i => ctcss_axis_out_mod,--(tlast => '0', tvalid => '1', tdata => x"147B"), --ctcss_axis_out_mod
+		s_axis_mod_o => ctcss_axis_in_mod,
 		m_axis_iq_i => mux_axis_out_iq,
 		m_axis_iq_o => freq_mod_axis_in_iq
 	);
