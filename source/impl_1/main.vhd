@@ -69,7 +69,10 @@ architecture magic of main_all is
 	signal fifo_in_ae, fifo_out_ae		: std_logic := '0';
 	signal mod_fifo_ae					: std_logic := '0';
 	-- misc
-	signal mux_axis_iq					: axis_in_iq_t := axis_in_iq_null;
+	signal freq_mod_axis_in_iq			: axis_in_iq_t := axis_in_iq_null;
+	signal mux_axis_in_iq				: axis_in_iq_t := axis_in_iq_null;
+	signal mux_axis_out_iq				: axis_out_iq_t;
+	signal unpack_axis_out_iq			: axis_out_iq_t;
 	
 	----------------------------- low level building blocks -----------------------------
 	-- main PLL block
@@ -230,13 +233,6 @@ begin
 	
 	---------------------------------------- TX -----------------------------------------
 	-- frequency modulator
-	--dither_source0: entity work.dither_source port map(
-		--clk_i => clk_64,
-		--ena => regs_rw(CR_1)(5),
-		--trig_i => zero_word,
-		--out_o => fm_dith_r
-	--);
-	
 	--ctcss_enc0: entity work.ctcss_encoder generic map(
 		--SINCOS_RES=> 16,
 		--SINCOS_ITER	=> 20,
@@ -251,22 +247,21 @@ begin
 	--);
 	--ctcss_fm_tx <= std_logic_vector(signed(mod_in_r_sync) + signed(ctcss_r));
 	
-	--freq_mod0: entity work.fm_modulator
-	--generic map(
-		--SINCOS_RES=> 16,
-		--SINCOS_ITER	=> 20,
-		--SINCOS_COEFF => x"4DB0" --x"4DB9",
-	--)
-	--port map(
-		--clk_i => clk_64,
-		--nrst_i => nrst,
-		--trig_i => zero_word,
-		--mod_i => ctcss_fm_tx,
-		--dith_i => fm_dith_r,
-		--nw_i => regs_rw(CR_2)(8),
-		--i_o => i_fm_tx,
-		--q_o => q_fm_tx
-	--);
+	freq_mod0: entity work.fm_modulator
+	generic map(
+		SINCOS_RES=> 16,
+		SINCOS_ITER	=> 20,
+		SINCOS_COEFF => x"4DB0" --x"4DB9",
+	)
+	port map(
+		clk_i => clk_64,
+		nrst_i => nrst,
+		nw_i => regs_rw(CR_2)(8),
+		s_axis_mod_i => (tlast => '0', tvalid => '1', tdata => x"147B"),
+		s_axis_mod_o => open,
+		m_axis_iq_i => mux_axis_out_iq,
+		m_axis_iq_o => freq_mod_axis_in_iq
+	);
 	
 	-- amplitude modulator
 	--ampl_mod0: entity work.am_modulator port map(
@@ -345,12 +340,18 @@ begin
 	tx_mod_sel0: entity work.mod_sel port map(
 		clk_i => clk_64,
 		sel_i => regs_rw(CR_1)(14 downto 12),
-		m_axis_iq0_i => (x"7FFF0000", '1', '0'), -- FM
-		m_axis_iq1_i => (x"0FFF0000", '1', '0'), -- AM
-		m_axis_iq2_i => (x"01FF0000", '1', '0'), -- SSB
-		m_axis_iq3_i => (x"7FFF0000", '1', '0'), -- reserved
-		m_axis_iq4_i => (x"7FFF0000", '1', '0'), -- reserved
-		m_axis_iq_o => mux_axis_iq
+		s00_axis_iq_i => freq_mod_axis_in_iq, -- FM
+		s01_axis_iq_i => (x"0FFF0000", '1', '0'), -- AM
+		s02_axis_iq_i => (x"01FF0000", '1', '0'), -- SSB
+		s03_axis_iq_i => (x"7FFF0000", '1', '0'), -- reserved
+		s04_axis_iq_i => (x"7FFF0000", '1', '0'), -- reserved
+		s00_axis_iq_o => mux_axis_out_iq,
+		s01_axis_iq_o => open,
+		s02_axis_iq_o => open,
+		s03_axis_iq_o => open,
+		s04_axis_iq_o => open,
+		m_axis_iq_i => unpack_axis_out_iq,
+		m_axis_iq_o => mux_axis_in_iq
 	);
 
 	-- digital predistortion blocks
@@ -404,7 +405,8 @@ begin
 	unpack0: entity work.unpack port map(
 		clk_i => clk_64,
 		nrst_i => nrst,
-		s_axis_iq_i => mux_axis_iq,
+		s_axis_iq_i => mux_axis_in_iq,
+		s_axis_iq_o => unpack_axis_out_iq,
 		data_o => data_tx_r
 	);	
 	
@@ -516,9 +518,9 @@ begin
 			   '0'					when "100",
 			   mod_fifo_ae			when "101",	-- baseband FIFO almost empty flag
 			   '0'					when others;
-			io4 <= '0';
-			io5 <= '0';
-			io6 <= '0';
+			io4 <= mux_axis_out_iq.tready;
+			io5 <= freq_mod_axis_in_iq.tvalid;
+			io6 <= mux_axis_in_iq.tvalid;
 		end if;
 	end process;
 end magic;
