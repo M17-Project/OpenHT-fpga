@@ -87,6 +87,8 @@ architecture magic of ctcss_encoder is
 	signal ready		: std_logic := '0';
 	signal cordic_valid : std_logic := '0';
 	signal output_valid	: std_logic := '0';
+	signal ctcss_cntr : unsigned(7 downto 0) := (others => '0');
+	signal ctcss_increment : std_logic;
 begin
 	-- sincos
 	sincos: entity work.cordic generic map(
@@ -97,7 +99,7 @@ begin
 	port map(
 		clk_i => clk_i,
 		phase_i => unsigned(phase(20 downto 20-16+1)),
-		phase_valid_i => not output_valid,
+		phase_valid_i => ctcss_increment,
 		std_logic_vector(sin_o) => raw_r,
 		cos_o => open,
 		valid_o => cordic_valid
@@ -109,6 +111,14 @@ begin
 		if nrst_i='0' then
 			phase <= (others => '0');
 		elsif rising_edge(clk_i) then
+			ctcss_increment <= '0';
+			if ctcss_cntr >= 159 then
+				ctcss_cntr <= (others => '0');
+				ctcss_increment <= '1';
+			else
+				ctcss_cntr <= ctcss_cntr + 1;
+			end if;
+
 			-- when data is computed, set output to 1
 			if cordic_valid then
 				output_valid <= '1';
@@ -120,7 +130,7 @@ begin
 			end if;	
 			
 			-- update phase
-			if not output_valid then
+			if ctcss_increment then
 				if ctcss_i/="000000" then
 					phase <= std_logic_vector(unsigned(phase) + unsigned(ctcss_lut(to_integer(unsigned(ctcss_i))))); -- update phase accumulator
 				else
