@@ -112,7 +112,7 @@ begin
 			phase <= (others => '0');
 		elsif rising_edge(clk_i) then
 			ctcss_increment <= '0';
-			if ctcss_cntr >= 159 then
+			if ctcss_cntr >= 160-1 then -- 64 / 0.4 = 160
 				ctcss_cntr <= (others => '0');
 				ctcss_increment <= '1';
 			else
