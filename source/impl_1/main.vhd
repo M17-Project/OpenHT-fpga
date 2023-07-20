@@ -68,13 +68,16 @@ architecture magic of main_all is
 	-- FIFOs
 	signal fifo_in_ae, fifo_out_ae		: std_logic := '0';
 	signal mod_fifo_ae					: std_logic := '0';
+	signal fifo_in_reg_check			: std_logic := '0';
 	-- misc
+	signal source_axis_out_mod			: axis_in_mod_t;
 	signal ctcss_axis_out_mod			: axis_in_mod_t;
 	signal ctcss_axis_in_mod			: axis_out_mod_t;
 	signal freq_mod_axis_in_iq			: axis_in_iq_t := axis_in_iq_null;
 	signal mux_axis_in_iq				: axis_in_iq_t := axis_in_iq_null;
 	signal mux_axis_out_iq				: axis_out_iq_t;
 	signal unpack_axis_out_iq			: axis_out_iq_t;
+	signal samp_clk						: std_logic := '0';
 	
 	----------------------------- low level building blocks -----------------------------
 	-- main PLL block
@@ -232,9 +235,47 @@ begin
 		--q_i => flt_qd_r(14 downto 0) & '0',
 		--demod_o => fm_demod_raw
 	--);
-	
+
+	-- demod out FIFO
+	--demod_out_fifo: entity work.fifo_dc generic map(
+		--DEPTH => 32,
+		--D_WIDTH => 16
+	--)
+	--port map(
+		--wr_clk_i => drdyd,
+        --rd_clk_i => regs_latch and demod_reg_check, -- read samples only when address is DEMOD_REG
+        --data_i => demod_raw,
+        --data_o => demod_out_pre,
+        --fifo_ae => fifo_out_ae,
+		--fifo_full => open,
+		--fifo_empty => open
+	--);
+
 	---------------------------------------- TX -----------------------------------------
-	-- frequency modulator
+	-- mod in FIFO
+	mod_in_fifo: entity work.fifo_dc generic map(
+		DEPTH => 32,
+		D_WIDTH => 16
+	)
+	port map(
+		clk_i => clk_64,
+		nrst_i => nrst,
+		wr_clk_i => regs_latch,
+        rd_clk_i => samp_clk,
+		wr_en_i => fifo_in_reg_check, -- write only when address is MOD_IN
+		rd_en_i => '1',
+        wr_data_i => spi_rx_r(7 downto 0) & spi_rx_r(15 downto 8), -- endianness fix
+        rd_data_o => source_axis_out_mod.tdata,
+		fifo_empty_o => open,
+        fifo_ae_o => fifo_in_ae,
+		fifo_af_o => open,
+		fifo_full_o => open
+	);
+	fifo_in_reg_check <= '1' when unsigned(spi_addr_r)=MOD_IN else '0';
+	source_axis_out_mod.tvalid <= '1';
+	source_axis_out_mod.tlast <= '1';
+	
+	-- CTCSS source
 	ctcss_enc0: entity work.ctcss_encoder generic map(
 		SINCOS_RES => 16,
 		SINCOS_ITER	=> 20,
@@ -249,6 +290,7 @@ begin
 	);
 	--ctcss_fm_tx <= std_logic_vector(signed(mod_in_r_sync) + signed(ctcss_r));
 	
+	-- frequency modulator
 	freq_mod0: entity work.fm_modulator
 	generic map(
 		SINCOS_RES => 16,
@@ -259,11 +301,12 @@ begin
 		clk_i => clk_64,
 		nrst_i => nrst,
 		nw_i => regs_rw(CR_2)(8),
-		s_axis_mod_i => ctcss_axis_out_mod,--(tlast => '0', tvalid => '1', tdata => x"147B"), --ctcss_axis_out_mod
+		s_axis_mod_i => (tlast => ctcss_axis_out_mod.tlast, tvalid => ctcss_axis_out_mod.tvalid, tdata => std_logic_vector(signed(ctcss_axis_out_mod.tdata) + signed(source_axis_out_mod.tdata))), --tdata => x"147B"),
 		s_axis_mod_o => ctcss_axis_in_mod,
 		m_axis_iq_i => mux_axis_out_iq,
 		m_axis_iq_o => freq_mod_axis_in_iq
 	);
+	
 	
 	-- amplitude modulator
 	--ampl_mod0: entity work.am_modulator port map(
@@ -448,50 +491,14 @@ begin
 		regs_r => regs_r
 	);
 	
-	--clk_div_in_samp: entity work.clk_div_block
-	--generic map(
-		--DIV => 400/8
-	--)
-	--port map(
-		--clk_i => zero_word,
-		--clk_o => samp_clk
-	--);
-
-	--mod_in_r <= fifo_in_data_o when regs_rw(CR_2)(11)='1' else regs_rw(MOD_IN);
-	--mod_in_r_sync <= mod_in_r;-- when rising_edge(zero_word);
-	
-	-- mod in FIFO
-	--mod_in_fifo: entity work.fifo_dc generic map(
-		--DEPTH => 32,
-		--D_WIDTH => 16
-	--)
-	--port map(
-		--wr_clk_i => regs_latch and mod_reg_check, -- write only when address is MOD_IN
-        --rd_clk_i => samp_clk,
-        --data_i => spi_rx_r(7 downto 0) & spi_rx_r(15 downto 8), -- endianness fix
-        --data_o => fifo_in_data_o,
-        --fifo_ae => fifo_in_ae,
-		--fifo_full => open,
-		--fifo_empty => open
-	--);
-	--mod_reg_check <= '1' when unsigned(spi_addr_r)=MOD_IN else '0';
-	
-	-- demod out FIFO
-	--demod_out_fifo: entity work.fifo_dc generic map(
-		--DEPTH => 32,
-		--D_WIDTH => 16
-	--)
-	--port map(
-		--wr_clk_i => drdyd,
-        --rd_clk_i => regs_latch and demod_reg_check, -- read samples only when address is DEMOD_REG
-        --data_i => demod_raw,
-        --data_o => demod_out_pre,
-        --fifo_ae => fifo_out_ae,
-		--fifo_full => open,
-		--fifo_empty => open
-	--);
-	--demod_reg_check <= '1' when unsigned(spi_addr_r)=DEMOD_REG else '0';
-	--regs_r(DEMOD_REG) <= demod_out_pre when rising_edge(clk_64);
+	clk_div_in_samp: entity work.clk_div_block
+	generic map(
+		DIV => 400/8
+	)
+	port map(
+		clk_i => ctcss_axis_in_mod.tready,
+		clk_o => samp_clk
+	);
 	
 	-- additional connections
 	regs_r(SR_1) <= std_logic_vector(to_unsigned(REV_MAJOR, 8)) & std_logic_vector(to_unsigned(REV_MINOR, 8)); -- revision number
