@@ -36,7 +36,8 @@ architecture magic of fm_modulator is
 	signal ready : std_logic;
 	signal cordic_valid : std_logic;
 	signal output_valid : std_logic := '0';
-	begin
+	signal sin_r, cos_r : signed(20 downto 0);
+begin
 	-- sincos
 	theta <= unsigned(phase(20 downto 20-16+1));
 	sincos: entity work.cordic generic map(
