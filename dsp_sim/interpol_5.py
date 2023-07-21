@@ -5,10 +5,13 @@ from scipy.fft import fft
 from scipy import signal
 
 fs = 8000
-freq = 10
+freq = 3400
 L = 5
-x = np.arange(2048)
+x = np.arange(3000)
 Q = 16
+
+def quantize(val, bits):
+    return int(val * (2**bits))/2**bits
 
 incoming_sig = np.sin(2 * np.pi * freq * x/fs)
 print(incoming_sig)
@@ -24,8 +27,8 @@ plt.plot(sig_upsampled)
 plt.subplot(4,2,4)
 plt.plot(20*np.log(fft(sig_upsampled)))
 
-fir = signal.remez(400, [0, 3800, 4200, fs*L/2], [1,0], fs=fs*L) * L
-fir = np.array([int(x * 2**Q) for x in fir]) / 2**Q
+fir = signal.remez(500, [0, 3800, 4200, fs*L/2], [1,0], fs=fs*L) * L
+fir = np.array([quantize(x, Q) for x in fir])
 
 plt.subplot(4,2,5)
 plt.plot(fir)
@@ -40,5 +43,20 @@ plt.plot(interpol)
 
 plt.subplot(4,2,8)
 plt.plot(20*np.log(fft(interpol)))
+
+# HDL concept check
+print(interpol)
+hdl_impl = np.zeros(len(x) * L)
+for i in range(L):
+    i_filt = fir[i::L]
+    hdl_impl[i::L] = signal.lfilter(i_filt, 1, incoming_sig)
+
+for k in range(len(x) * L):
+    ref = quantize(interpol[k], Q)
+    hdl = quantize(hdl_impl[k], Q)
+    print(k, ref, hdl, ref == hdl)
+    if (ref != hdl):
+        print("Check failed")
+        break
 
 plt.show()
