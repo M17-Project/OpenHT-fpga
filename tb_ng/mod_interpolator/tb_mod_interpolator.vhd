@@ -19,6 +19,7 @@ use vunit_lib.stream_master_pkg.all;
 use vunit_lib.stream_slave_pkg.all;
 
 use work.axi_stream_pkg.all;
+use work.openht_utils_pkg.all;
 
 entity tb_mod_interpolator is
   generic (runner_cfg : string);
@@ -54,14 +55,17 @@ begin
   main : process
     variable tlast_in : std_logic;
     variable data_in : std_logic_vector(15 downto 0);
+
+    constant INTERP_TAPS : taps_mod_t(0 to 499) := (X"0000", X"0000");
+
   begin
     test_runner_setup(runner, runner_cfg);
     rst_i <= '0';
     wait for 100 ns;
     rst_i <= '1';
 
-    for loop_var in 0 to 20 loop
-        push_axi_stream(net, master_axi_stream, x"7FFF", tlast => '0');
+    for loop_var in 0 to 200 loop
+        push_axi_stream(net, master_axi_stream, x"1000", tlast => '0');
         pop_axi_stream(net, slave_axi_stream, data_in, tlast_in);
     end loop;
     wait for 10 us;
@@ -72,7 +76,8 @@ begin
   mod_interpolator_inst : entity work.mod_interpolator
   generic map (
     N_TAPS => 100,
-    L => 5
+    L => 5,
+    C_TAPS => INTERP_TAPS
   )
   port map (
     clk_i => clk_i,
