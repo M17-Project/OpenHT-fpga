@@ -11,6 +11,7 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
+
 use work.regs_pkg.all;
 use work.axi_stream_pkg.all;
 
@@ -62,8 +63,8 @@ architecture magic of main_all is
 	-- control registers related
 	signal reg_data_wr, reg_data_rd		: std_logic_vector(15 downto 0) := (others => '0');		-- data to be written to/read from a specific register	
 	signal reg_rw						: std_logic := '0';
-	signal regs_rw						: t_rw_regs := (others => (others => '0'));
-	signal regs_r						: t_r_regs := (others => (others => '0'));
+	signal regs_rw						: rw_regs_t := (others => (others => '0'));
+	signal regs_r						: r_regs_t := (others => (others => '0'));
 	signal regs_latch					: std_logic := '0';										-- data latch signal for the control regs array
 	-- FIFOs
 	signal fifo_in_ae, fifo_out_ae		: std_logic := '0';
@@ -71,6 +72,8 @@ architecture magic of main_all is
 	signal fifo_in_reg_check			: std_logic := '0';
 	-- misc
 	signal source_axis_out_mod			: axis_in_mod_t;
+	signal resampler_axis_out_mod		: axis_in_mod_t;
+	signal resampler_axis_in_mod		: axis_out_mod_t;
 	signal ctcss_axis_out_mod			: axis_in_mod_t;
 	signal ctcss_axis_in_mod			: axis_out_mod_t;
 	signal freq_mod_axis_in_iq			: axis_in_iq_t := axis_in_iq_null;
@@ -272,22 +275,33 @@ begin
 		fifo_full_o => open
 	);
 	fifo_in_reg_check <= '1' when unsigned(spi_addr_r)=MOD_IN else '0';
+	source_axis_out_mod.tready <= '1';
 	source_axis_out_mod.tvalid <= '1';
-	source_axis_out_mod.tlast <= '1';
+	source_axis_out_mod.tlast <= '0';
 	
-	-- CTCSS source
-	ctcss_enc0: entity work.ctcss_encoder generic map(
-		SINCOS_RES => 16,
-		SINCOS_ITER	=> 20,
-		SINCOS_COEFF => x"4DB0" --x"4DB9",
-	)
+	--interpol
+	interpol0: entity work.mod_resampler
 	port map(
 		clk_i => clk_64,
-		nrst_i => nrst,
-		ctcss_i => regs_rw(CR_2)(7 downto 2),
-		m_axis_mod_i => ctcss_axis_in_mod,
-		m_axis_mod_o => ctcss_axis_out_mod	
+		s_axis_mod_i => source_axis_out_mod,
+		s_axis_mod_o => open,
+		m_axis_mod_o => open,
+		m_axis_mod_i.tready => samp_clk
 	);
+	
+	-- CTCSS source
+	--ctcss_enc0: entity work.ctcss_encoder generic map(
+		--SINCOS_RES => 16,
+		--SINCOS_ITER	=> 20,
+		--SINCOS_COEFF => x"4DB0" --x"4DB9",
+	--)
+	--port map(
+		--clk_i => clk_64,
+		--nrst_i => nrst,
+		--ctcss_i => regs_rw(CR_2)(7 downto 2),
+		--m_axis_mod_i => ctcss_axis_in_mod,
+		--m_axis_mod_o => ctcss_axis_out_mod	
+	--);
 	--ctcss_fm_tx <= std_logic_vector(signed(mod_in_r_sync) + signed(ctcss_r));
 	
 	-- frequency modulator
@@ -301,7 +315,7 @@ begin
 		clk_i => clk_64,
 		nrst_i => nrst,
 		nw_i => regs_rw(CR_2)(8),
-		s_axis_mod_i => (tlast => ctcss_axis_out_mod.tlast, tvalid => ctcss_axis_out_mod.tvalid, tdata => std_logic_vector(signed(ctcss_axis_out_mod.tdata) + signed(source_axis_out_mod.tdata))), --tdata => x"147B"),
+		s_axis_mod_i => resampler_axis_out_mod,
 		s_axis_mod_o => ctcss_axis_in_mod,
 		m_axis_iq_i => mux_axis_out_iq,
 		m_axis_iq_o => freq_mod_axis_in_iq
@@ -491,23 +505,11 @@ begin
 		regs_r => regs_r
 	);
 	
-	clk_div_in_samp: entity work.clk_div_block
-	generic map(
-		DIV => 400/8
-	)
-	port map(
-		clk_i => ctcss_axis_in_mod.tready,
-		clk_o => samp_clk
-	);
-	
 	-- additional connections
 	regs_r(SR_1) <= std_logic_vector(to_unsigned(REV_MAJOR, 8)) & std_logic_vector(to_unsigned(REV_MINOR, 8)); -- revision number
-	--regs_r(SR_2) <= ;
-	--regs_r(RSSI_REG) <= ;
-	--regs_r(I_RAW_REG) <= i_r & "000";
-	--regs_r(Q_RAW_REG) <= q_r & "000";
-	--regs_r(I_FLT_REG) <= std_logic_vector(flt_id_r);
-	--regs_r(Q_FLT_REG) <= std_logic_vector(flt_qd_r);
+	--regs_r(SR_2) <= ; -- PLL lock
+	regs_r(SR_3 to SR_7) <= (others => (others => '0'));
+	regs_r(DEMOD_OUT) <= (others => '0');
 	
 	-- I/Os
 	-- automatically select the source of the fifo_ae signal

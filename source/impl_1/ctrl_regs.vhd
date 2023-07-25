@@ -23,6 +23,7 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
+
 use work.regs_pkg.all;
 
 entity ctrl_regs is
@@ -35,8 +36,8 @@ entity ctrl_regs is
 		rw_i		: in std_logic;											-- read/write flag, r:0 w:1
 		latch_i		: in std_logic;											-- latch signal (rising edge)
 		-- registers
-		regs_rw		: inout t_rw_regs := (others => (others => '0'));
-		regs_r		: in t_r_regs
+		regs_rw		: inout rw_regs_t := (others => (others => '0'));
+		regs_r		: in r_regs_t
 	);
 end ctrl_regs;
 

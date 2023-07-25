@@ -46,8 +46,8 @@ package regs_pkg is
 	constant DEMOD_OUT		: integer := 7;
 	
 	-- type definitions
-	type t_rw_regs is array(0 to RW_REGS_NUM-1) of std_logic_vector(15 downto 0);
-	type t_r_regs is array(0 to R_REGS_NUM-1) of std_logic_vector(15 downto 0);
+	type rw_regs_t is array(0 to RW_REGS_NUM-1) of std_logic_vector(15 downto 0);
+	type r_regs_t is array(0 to R_REGS_NUM-1) of std_logic_vector(15 downto 0);
 end regs_pkg;
 
 package body regs_pkg is
