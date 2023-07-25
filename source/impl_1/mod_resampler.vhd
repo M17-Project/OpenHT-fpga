@@ -1,5 +1,5 @@
 -------------------------------------------------------------
--- Modulator resampler
+-- Modulation resampler
 --
 -- Wojciech Kaczmarski, SP5WWP
 -- M17 Project
@@ -192,10 +192,10 @@ entity mod_resampler is
 end mod_resampler;
 
 architecture magic of mod_resampler is
-	signal interp0_axis_in		: axis_in_mod_t;
-	signal interp0_axis_out		: axis_out_mod_t;
-	signal interp1_axis_in		: axis_in_mod_t;
-	signal interp1_axis_out		: axis_out_mod_t;
+	signal interp0_axis_in		: axis_out_mod_t;
+	signal interp0_axis_out		: axis_in_mod_t;
+	signal interp1_axis_in		: axis_out_mod_t;
+	signal interp1_axis_out		: axis_in_mod_t;
 begin
 	interpol0: entity work.mod_interpolator
 	generic map(
@@ -208,8 +208,8 @@ begin
 		clk_i			=> clk_i,
 		s_axis_mod_i	=> s_axis_mod_i,
 		s_axis_mod_o	=> s_axis_mod_o,
-		m_axis_mod_o	=> interp0_axis_in,
-		m_axis_mod_i 	=> interp0_axis_out
+		m_axis_mod_o	=> interp0_axis_out,
+		m_axis_mod_i 	=> interp0_axis_in
 	);
 	
 	interpol1: entity work.mod_interpolator
@@ -221,10 +221,10 @@ begin
 	port map
 	(
 		clk_i			=> clk_i,
-		s_axis_mod_i	=> interp0_axis_in,
-		s_axis_mod_o	=> interp0_axis_out,
-		m_axis_mod_o	=> interp1_axis_in,
-		m_axis_mod_i 	=> interp1_axis_out
+		s_axis_mod_i	=> interp0_axis_out,
+		s_axis_mod_o	=> interp0_axis_in,
+		m_axis_mod_o	=> interp1_axis_out,
+		m_axis_mod_i 	=> interp1_axis_in
 	);
 	
 	interpol2: entity work.mod_interpolator
@@ -236,8 +236,8 @@ begin
 	port map
 	(
 		clk_i			=> clk_i,
-		s_axis_mod_i	=> interp1_axis_in,
-		s_axis_mod_o	=> interp1_axis_out,
+		s_axis_mod_i	=> interp1_axis_out,
+		s_axis_mod_o	=> interp1_axis_in,
 		m_axis_mod_o	=> m_axis_mod_o,
 		m_axis_mod_i 	=> m_axis_mod_i
 	);	

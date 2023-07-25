@@ -275,7 +275,6 @@ begin
 		fifo_full_o => open
 	);
 	fifo_in_reg_check <= '1' when unsigned(spi_addr_r)=MOD_IN else '0';
-	source_axis_out_mod.tready <= '1';
 	source_axis_out_mod.tvalid <= '1';
 	source_axis_out_mod.tlast <= '0';
 	
@@ -284,9 +283,9 @@ begin
 	port map(
 		clk_i => clk_64,
 		s_axis_mod_i => source_axis_out_mod,
-		s_axis_mod_o => open,
-		m_axis_mod_o => open,
-		m_axis_mod_i.tready => samp_clk
+		s_axis_mod_o.tready => samp_clk,
+		m_axis_mod_o => resampler_axis_out_mod,
+		m_axis_mod_i => resampler_axis_in_mod
 	);
 	
 	-- CTCSS source
@@ -316,7 +315,7 @@ begin
 		nrst_i => nrst,
 		nw_i => regs_rw(CR_2)(8),
 		s_axis_mod_i => resampler_axis_out_mod,
-		s_axis_mod_o => ctcss_axis_in_mod,
+		s_axis_mod_o => resampler_axis_in_mod,
 		m_axis_iq_i => mux_axis_out_iq,
 		m_axis_iq_o => freq_mod_axis_in_iq
 	);
