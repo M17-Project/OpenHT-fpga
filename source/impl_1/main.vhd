@@ -72,6 +72,7 @@ architecture magic of main_all is
 	signal fifo_in_reg_check			: std_logic := '0';
 	-- misc
 	signal source_axis_out_mod			: axis_in_mod_t;
+	signal source_axis_in_mod			: axis_out_mod_t;
 	signal resampler_axis_out_mod		: axis_in_mod_t;
 	signal resampler_axis_in_mod		: axis_out_mod_t;
 	signal ctcss_axis_out_mod			: axis_in_mod_t;
@@ -256,34 +257,53 @@ begin
 
 	---------------------------------------- TX -----------------------------------------
 	-- mod in FIFO
-	mod_in_fifo: entity work.fifo_dc generic map(
-		DEPTH => 32,
-		D_WIDTH => 16
-	)
-	port map(
-		clk_i => clk_64,
-		nrst_i => nrst,
-		wr_clk_i => regs_latch,
-        rd_clk_i => samp_clk,
-		wr_en_i => fifo_in_reg_check, -- write only when address is MOD_IN
-		rd_en_i => '1',
-        wr_data_i => spi_rx_r(7 downto 0) & spi_rx_r(15 downto 8), -- endianness fix
-        rd_data_o => source_axis_out_mod.tdata,
-		fifo_empty_o => open,
-        fifo_ae_o => fifo_in_ae,
-		fifo_af_o => open,
-		fifo_full_o => open
-	);
+	--mod_in_fifo: entity work.fifo_dc generic map(
+		--DEPTH => 32,
+		--D_WIDTH => 16
+	--)
+	--port map(
+		--clk_i => clk_64,
+		--nrst_i => nrst,
+		--wr_clk_i => regs_latch,
+        --rd_clk_i => samp_clk,
+		--wr_en_i => fifo_in_reg_check, -- write only when address is MOD_IN
+		--rd_en_i => '1',
+        --wr_data_i => spi_rx_r(7 downto 0) & spi_rx_r(15 downto 8), -- endianness fix
+        --rd_data_o => source_axis_out_mod.tdata,
+		--fifo_empty_o => open,
+        --fifo_ae_o => fifo_in_ae,
+		--fifo_af_o => open,
+		--fifo_full_o => open
+	--);
 	fifo_in_reg_check <= '1' when unsigned(spi_addr_r)=MOD_IN else '0';
 	source_axis_out_mod.tvalid <= '1';
 	source_axis_out_mod.tlast <= '0';
+	
+	mod_in_fifo: entity work.fifo_simple
+	generic map(
+		g_DEPTH => 32,
+		g_WIDTH => 16
+    )
+	port map(
+		i_rstn_async => nrst,
+		i_clk => clk_64,
+		-- FIFO Write Interface
+		i_wr_en => fifo_in_reg_check,
+		i_wr_data => spi_rx_r(7 downto 0) & spi_rx_r(15 downto 8), -- endianness fix
+		o_full => open,
+		-- FIFO Read Interface
+		i_rd_en => source_axis_in_mod.tready,
+		o_rd_data => source_axis_out_mod.tdata,
+		o_ae => fifo_in_ae,
+		o_empty => open
+	);
 	
 	--interpol
 	interpol0: entity work.mod_resampler
 	port map(
 		clk_i => clk_64,
 		s_axis_mod_i => source_axis_out_mod,
-		s_axis_mod_o.tready => samp_clk,
+		s_axis_mod_o => source_axis_in_mod,
 		m_axis_mod_o => resampler_axis_out_mod,
 		m_axis_mod_i => resampler_axis_in_mod
 	);

@@ -59,7 +59,8 @@ begin
 		o_full => full_o,
 		i_rd_en => rd_en_i,
 		o_rd_data => rd_data_o,
-		o_empty => empty_o
+		o_empty => empty_o,
+		o_ae => open
   	);
 	--rd_data_o <= s_axis_iq_i.tlast & s_axis_iq_i.tdata;
 

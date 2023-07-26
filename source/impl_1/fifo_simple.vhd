@@ -28,7 +28,8 @@ use ieee.numeric_std.all;
 entity fifo_simple is
   generic (
     g_WIDTH : natural := 8;
-    g_DEPTH : integer := 32
+    g_DEPTH : integer := 32;
+	g_AE_THRESH : integer := g_DEPTH/2-1
     );
   port (
     i_rstn_async : in std_logic;
@@ -42,6 +43,7 @@ entity fifo_simple is
     -- FIFO Read Interface
     i_rd_en   : in  std_logic;
     o_rd_data : out std_logic_vector(g_WIDTH-1 downto 0);
+	o_ae      : out std_logic;
     o_empty   : out std_logic
     );
 end fifo_simple;
@@ -58,6 +60,7 @@ architecture rtl of fifo_simple is
   signal r_FIFO_COUNT : integer range -1 to g_DEPTH+1 := 0;
  
   signal w_FULL  : std_logic;
+  signal w_ALMOST_EMPTY : std_logic;
   signal w_EMPTY : std_logic;
    
 begin
@@ -103,10 +106,12 @@ begin
    
   o_rd_data <= r_FIFO_DATA(r_RD_INDEX);
  
-  w_FULL  <= '1' when r_FIFO_COUNT = g_DEPTH else '0';
-  w_EMPTY <= '1' when r_FIFO_COUNT = 0       else '0';
+  w_FULL  <= '1' when r_FIFO_COUNT = g_DEPTH			else '0';
+  w_ALMOST_EMPTY <= '1' when r_FIFO_COUNT < g_AE_THRESH else '0';
+  w_EMPTY <= '1' when r_FIFO_COUNT = 0       			else '0';
  
   o_full  <= w_FULL;
+  o_ae <= w_ALMOST_EMPTY;
   o_empty <= w_EMPTY;
    
   -- ASSERTION LOGIC - Not synthesized
