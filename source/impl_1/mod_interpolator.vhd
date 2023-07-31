@@ -21,7 +21,7 @@ entity mod_interpolator is
   (
     N_TAPS : natural := 4; --!!! TAPS count must be a multiple of L
     L      : natural := 2; -- Interpolation factor
-    C_TAPS : taps_mod_t := (x"1000", x"1000", x"1000", x"1000") -- TAPS value
+    C_TAPS : taps_mod_t := (x"1000", x"1000", x"1000", x"1000") -- TAPS value	
   );
   port
   (

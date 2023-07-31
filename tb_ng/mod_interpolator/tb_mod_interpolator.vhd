@@ -43,7 +43,7 @@ architecture tb of tb_mod_interpolator is
   constant slave_axi_stream : axi_stream_slave_t := new_axi_stream_slave(
     data_length => 16);
 
-  constant INTERP_TAPS : taps_mod_t(0 to 404) := (
+  constant INTERP_TAPS : taps_mod_t := (
 	x"0014", x"000C", x"0000", x"FFF4", x"FFEC", 
 	x"FFEC", x"FFF3", x"0000", x"000D", x"0016", 
 	x"0016", x"000E", x"0000", x"FFF2", x"FFE8", 

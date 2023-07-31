@@ -98,6 +98,7 @@ entity mod_resampler is
 			x"0016", x"000D", x"0000", x"FFF3", x"FFEC", 
 			x"FFEC", x"FFF4", x"0000", x"000C", x"0014"
 		);
+		
 		C_TAPS_2 : taps_mod_t := (
 			x"0000", x"0008", x"0000", x"FFF8", x"0000", 
 			x"0009", x"0000", x"FFF7", x"0000", x"0009", 
@@ -203,8 +204,7 @@ begin
 		L		=> 5,
 		C_TAPS	=> C_TAPS_5
 	)
-	port map
-	(
+	port map(
 		clk_i			=> clk_i,
 		s_axis_mod_i	=> s_axis_mod_i,
 		s_axis_mod_o	=> s_axis_mod_o,
@@ -218,8 +218,7 @@ begin
 		L		=> 5,
 		C_TAPS	=> C_TAPS_5
 	)
-	port map
-	(
+	port map(
 		clk_i			=> clk_i,
 		s_axis_mod_i	=> interp0_axis_out,
 		s_axis_mod_o	=> interp0_axis_in,
@@ -230,11 +229,10 @@ begin
 	interpol2: entity work.mod_interpolator
 	generic map(
 		N_TAPS	=> 405,
-		L		=> 2,
-		C_TAPS	=> C_TAPS_2
+		L		=> 5,--2,
+		C_TAPS	=> C_TAPS_5 --C_TAPS_2
 	)
-	port map
-	(
+	port map(
 		clk_i			=> clk_i,
 		s_axis_mod_i	=> interp1_axis_out,
 		s_axis_mod_o	=> interp1_axis_in,

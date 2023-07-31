@@ -293,10 +293,16 @@ begin
 		o_full => open,
 		-- FIFO Read Interface
 		i_rd_en => source_axis_in_mod.tready,
-		o_rd_data => source_axis_out_mod.tdata,
+		o_rd_data => open, --source_axis_out_mod.tdata,
 		o_ae => fifo_in_ae,
 		o_empty => open
 	);
+	
+	--debug
+	source_axis_out_mod.tdata <= x"147B";
+	--resampler_axis_out_mod.tdata <= x"147B";
+	--resampler_axis_out_mod.tvalid <= '1';
+	--resampler_axis_out_mod.tlast <= '0';
 	
 	--interpol
 	interpol0: entity work.mod_resampler
