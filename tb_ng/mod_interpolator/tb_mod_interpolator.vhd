@@ -146,7 +146,7 @@ begin
     wait for 100 ns;
     rst_i <= '1';
 
-    for loop_var in 0 to 200 loop
+    for loop_var in 0 to 300 loop
         push_axi_stream(net, master_axi_stream, x"1000", tlast => '0');
         pop_axi_stream(net, slave_axi_stream, data_in, tlast_in);
     end loop;

@@ -113,7 +113,7 @@ begin
                 data_counter <= (others => '0');
                 buffer_rdptr <= round_rdptr;
                 if not accumulate_1 then
-                    m_axis_mod_o.tdata <= std_logic_vector(accumulator(39-12 downto 24-12));
+                    m_axis_mod_o.tdata <= std_logic_vector(accumulator(39-log2up(N_TAPS) downto 39-16-log2up(N_TAPS)+1));
                     m_axis_mod_o.tvalid <= '1';
                 end if;
 
