@@ -28,7 +28,7 @@ entity mod_interpolator is
     clk_i        : in std_logic;
     s_axis_mod_i : in axis_in_mod_t;
     s_axis_mod_o : out axis_out_mod_t;
-    m_axis_mod_o : out axis_in_mod_t;
+    m_axis_mod_o : out axis_in_mod_t := (tdata => (others => '0'), tvalid => '0', tlast => '0');
     m_axis_mod_i : in axis_out_mod_t
   );
 end entity mod_interpolator;
@@ -38,21 +38,21 @@ architecture rtl of mod_interpolator is
 
     type interp_state_t is (IDLE, START_COMPUTE, FIR_COMPUTE, OUTPUT_DATA);
     signal interp_state : interp_state_t := IDLE;
-    signal interp_round : unsigned(3 downto 0);
-    signal tap_addr    : unsigned(log2up(N_TAPS)-1 downto 0);
-    signal data_counter : unsigned(log2up(C_BUFFER_SIZE)-1 downto 0);
+    signal interp_round : unsigned(3 downto 0) := (others => '0');
+    signal tap_addr    : unsigned(log2up(N_TAPS)-1 downto 0) := (others => '0');
+    signal data_counter : unsigned(log2up(C_BUFFER_SIZE)-1 downto 0) := (others => '0');
 
     signal accumulator : signed(39 downto 0) := (others => '0');
-    signal accumulate_0 : std_logic;
-    signal accumulate_1 : std_logic;
+    signal accumulate_0 : std_logic := '0';
+    signal accumulate_1 : std_logic := '0';
 
-    signal coeff_data : signed(15 downto 0);
-    signal buffer_rddata : signed(15 downto 0);
+    signal coeff_data : signed(15 downto 0) := (others => '0');
+    signal buffer_rddata : signed(15 downto 0) := (others => '0');
 
     signal multiply_out : signed(31 downto 0);
 
-    type buffer_data_t is array (0 to 2**log2up(C_BUFFER_SIZE)-1) of signed(s_axis_mod_i.tdata'range);
-    signal buffer_data : buffer_data_t;
+    type buffer_data_t is array (0 to 2**log2up(C_BUFFER_SIZE)-1) of signed(15 downto 0);
+    signal buffer_data : buffer_data_t := (others => (others => '0'));
     signal buffer_wrptr : unsigned(log2up(C_BUFFER_SIZE)-1 downto 0) := (others => '0');
     signal round_rdptr : unsigned(log2up(C_BUFFER_SIZE)-1 downto 0) := (others => '0');
     signal buffer_rdptr : unsigned(log2up(C_BUFFER_SIZE)-1 downto 0) := (others => '0');
@@ -86,7 +86,7 @@ begin
         accumulate_1 <= accumulate_0;
 
         if accumulate_1 then
-            accumulator <= accumulator + ((7 downto 0 => multiply_out(multiply_out'high)) & multiply_out);
+            accumulator <= accumulator + multiply_out;
         end if;
 
         case interp_state is
@@ -104,8 +104,8 @@ begin
                     data_counter <= data_counter + 1;
                     buffer_rdptr <= buffer_rdptr - 1;
                 else
-                    interp_state        <= OUTPUT_DATA;
-                    interp_round        <= interp_round + 1;
+                    interp_state <= OUTPUT_DATA;
+                    interp_round <= interp_round + 1;
                     accumulate_0 <= '0'; -- Stop accumulation
                 end if;
 
@@ -113,7 +113,7 @@ begin
                 data_counter <= (others => '0');
                 buffer_rdptr <= round_rdptr;
                 if not accumulate_1 then
-                    m_axis_mod_o.tdata <= std_logic_vector(accumulator(39 downto 24));
+                    m_axis_mod_o.tdata <= std_logic_vector(accumulator(39-12 downto 24-12));
                     m_axis_mod_o.tvalid <= '1';
                 end if;
 
@@ -122,28 +122,28 @@ begin
                     m_axis_mod_o.tvalid <= '0';
                     accumulator <= (others => '0');
                     if interp_round < L then
-                        interp_state                 <= FIR_COMPUTE;
-                        tap_addr                     <= (others => '0');
-                        tap_addr(interp_round'range) <= interp_round;
+                        interp_state	<= FIR_COMPUTE;
+                        tap_addr		<= resize(interp_round, 9);
                     else
-                        interp_state <= IDLE;
+                        interp_state	<= IDLE;
                     end if;
                 end if;
 
             when others => -- IDLE
                 s_axis_mod_o.tready <= '1';
-                interp_round        <= (others => '0');
-                tap_addr           <= (others => '0');
-                data_counter <= (others => '0');
-                accumulate_0 <= '0';
+                interp_round		<= (others => '0');
+                tap_addr			<= (others => '0');
+                data_counter		<= (others => '0');
+                accumulate_0		<= '0';
 
                 -- When new data comes in, start to compute
                 if s_axis_mod_i.tvalid and s_axis_mod_o.tready then
                     s_axis_mod_o.tready <= '0';
-                    interp_state <= START_COMPUTE;
+                    interp_state		<= START_COMPUTE;
                 end if;
         end case;
     end if;
   end process;
 
+	m_axis_mod_o.tlast <= '0';
 end architecture;
