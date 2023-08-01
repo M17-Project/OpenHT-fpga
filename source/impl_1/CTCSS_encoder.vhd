@@ -140,6 +140,5 @@ begin
 		end if;
 	end process;
 	
-	m_axis_mod_o.tlast <= '0';
 	m_axis_mod_o.tvalid <= output_valid;
 end magic;

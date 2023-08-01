@@ -27,7 +27,6 @@ architecture rtl of axis_mod_fifo_if is
 begin
     fifo_rd_en <= m_axis_mod_i.tready and not fifo_empty;
     
-    m_axis_mod_o.tlast <= '0';
     m_axis_mod_o.tdata <= fifo_rd_data;
     m_axis_mod_o.tvalid <= not fifo_empty;
 

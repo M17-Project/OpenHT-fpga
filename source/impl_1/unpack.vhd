@@ -26,9 +26,9 @@ architecture magic of unpack is
 	signal wr_en_i : std_logic := '0';
     signal full_o : std_logic := '0';
     signal empty_o : std_logic := '0';
-    signal wr_data_i : std_logic_vector (32 downto 0) := (others => '0');
+    signal wr_data_i : std_logic_vector (31 downto 0) := (others => '0');
 
-	signal rd_data_o : std_logic_vector (32 downto 0) := (others => '0');
+	signal rd_data_o : std_logic_vector (31 downto 0) := (others => '0');
 	signal rd_en_i : std_logic := '0';
 
 	type unpack_state_t is (IDLE, DATA, PADDING);
@@ -44,11 +44,11 @@ begin
 
 	wr_en_i <= s_axis_iq_i.tvalid and not full_o;
 	s_axis_iq_o.tready <= not full_o; -- other s_axis_iq_o fields are unused in this block (it's the last one)
-	wr_data_i <= s_axis_iq_i.tlast & s_axis_iq_i.tdata;
+	wr_data_i <= s_axis_iq_i.tdata;
 
 	fifo_simple_inst : entity work.fifo_simple
   	generic map (
-    	g_WIDTH => 33,
+    	g_WIDTH => 32,
     	g_DEPTH => 16
   	)
   	port map (
@@ -62,7 +62,6 @@ begin
 		o_empty => empty_o,
 		o_ae => open
   	);
-	--rd_data_o <= s_axis_iq_i.tlast & s_axis_iq_i.tdata;
 
 	process(clk_i)
 	begin

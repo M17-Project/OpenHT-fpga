@@ -32,7 +32,6 @@ begin
 			end if;
 
 			-- push the flags further
-			m_axis_iq_o.tlast <= s_axis_mod_i.tlast;
 			m_axis_iq_o.tvalid <= s_axis_mod_i.tvalid;
 		end if;
 	end process;

@@ -28,7 +28,7 @@ entity mod_interpolator is
     clk_i        : in std_logic;
     s_axis_mod_i : in axis_in_mod_t;
     s_axis_mod_o : out axis_out_mod_t;
-    m_axis_mod_o : out axis_in_mod_t := (tdata => (others => '0'), tvalid => '0', tlast => '0');
+    m_axis_mod_o : out axis_in_mod_t := (tdata => (others => '0'), tvalid => '0');
     m_axis_mod_i : in axis_out_mod_t
   );
 end entity mod_interpolator;
@@ -145,5 +145,4 @@ begin
     end if;
   end process;
 
-	m_axis_mod_o.tlast <= '0';
 end architecture;

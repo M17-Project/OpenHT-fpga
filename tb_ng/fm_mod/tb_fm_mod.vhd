@@ -94,7 +94,6 @@ begin
       areset_n => rst_i,
       tvalid => s_axis_mod_i.tvalid,
       tready => s_axis_mod_o.tready,
-      tlast => s_axis_mod_i.tlast,
       tdata  => s_axis_mod_i.tdata);
 
       axi_stream_slave_inst : entity vunit_lib.axi_stream_slave
@@ -105,7 +104,6 @@ begin
         areset_n => rst_i,
         tvalid   => m_axis_iq_o.tvalid,
         tready   => m_axis_iq_i.tready,
-        tdata    => m_axis_iq_o.tdata,
-        tlast    => m_axis_iq_o.tlast);
+        tdata    => m_axis_iq_o.tdata);
 
 end architecture;

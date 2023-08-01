@@ -74,7 +74,6 @@ begin
       aclk   => clk_i,
       tvalid => s_axis_iq_i.tvalid,
       tready => s_axis_iq_o.tready,
-      tlast => s_axis_iq_i.tlast,
       tdata  => s_axis_iq_i.tdata);
 
 end architecture;

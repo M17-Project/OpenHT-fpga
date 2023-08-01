@@ -299,7 +299,6 @@ begin
 	--source_axis_out_mod.tdata <= x"147B";
 	--resampler_axis_out_mod.tdata <= x"147B";
 	--resampler_axis_out_mod.tvalid <= '1';
-	--resampler_axis_out_mod.tlast <= '0';
 
 	--interpol
 	interpol0: entity work.mod_resampler
@@ -422,10 +421,10 @@ begin
 		clk_i => clk_64,
 		sel_i => regs_rw(CR_1)(14 downto 12),
 		s00_axis_iq_i => freq_mod_axis_in_iq, -- FM
-		s01_axis_iq_i => (x"0FFF0000", '1', '0'), -- AM
-		s02_axis_iq_i => (x"01FF0000", '1', '0'), -- SSB
-		s03_axis_iq_i => (x"7FFF0000", '1', '0'), -- reserved
-		s04_axis_iq_i => (x"7FFF0000", '1', '0'), -- reserved
+		s01_axis_iq_i => (x"0FFF0000", '1'), -- AM
+		s02_axis_iq_i => (x"01FF0000", '1'), -- SSB
+		s03_axis_iq_i => (x"7FFF0000", '1'), -- reserved
+		s04_axis_iq_i => (x"7FFF0000", '1'), -- reserved
 		s00_axis_iq_o => mux_axis_out_iq,
 		s01_axis_iq_o => open,
 		s02_axis_iq_o => open,

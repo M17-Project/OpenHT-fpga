@@ -88,6 +88,5 @@ begin
 
 	s_axis_mod_o.tready <= ready;
 
-	m_axis_iq_o.tlast <= '0';
 	m_axis_iq_o.tvalid <= output_valid;
 end magic;

@@ -127,7 +127,6 @@ begin
         areset_n => rst_i,
         tvalid   => m_axis_mod_o.tvalid,
         tready   => m_axis_mod_i.tready,
-        tdata    => m_axis_mod_o.tdata,
-        tlast    => m_axis_mod_o.tlast);
+        tdata    => m_axis_mod_o.tdata);
 
 end architecture;
