@@ -180,7 +180,7 @@ entity mod_resampler is
 			x"FFF5", x"0000", x"000B", x"0000", x"FFF6", 
 			x"0000", x"000A", x"0000", x"FFF7", x"0000", 
 			x"0009", x"0000", x"FFF7", x"0000", x"0009", 
-			x"0000", x"FFF8", x"0000", x"0008", x"0000"
+			x"0000", x"FFF8", x"0000", x"0008"
 		)
 	);
 	port(
@@ -228,9 +228,9 @@ begin
 	
 	interpol2: entity work.mod_interpolator
 	generic map(
-		N_TAPS	=> 405,
-		L		=> 5,--2,
-		C_TAPS	=> C_TAPS_5 --C_TAPS_2
+		N_TAPS	=> 404,
+		L		=> 2,
+		C_TAPS	=> C_TAPS_2
 	)
 	port map(
 		clk_i			=> clk_i,
