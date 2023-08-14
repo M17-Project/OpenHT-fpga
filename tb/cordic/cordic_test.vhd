@@ -65,8 +65,8 @@ begin
 		sin_ref_val <= gain_scaling * sin(real(to_integer(phase_i)) / real(2**16) * MATH_2_PI);
 		wait for 0 ns;
 
-		cos_err := cos_ref_val - cos_test_val;
-		sin_err := sin_ref_val - sin_test_val;
+		cos_err := abs(cos_ref_val - cos_test_val);
+		sin_err := abs(sin_ref_val - sin_test_val);
 
 		-- Max error
 		if cos_err > cos_max_err then
