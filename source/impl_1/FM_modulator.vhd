@@ -11,12 +11,9 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 use work.axi_stream_pkg.all;
 
+use work.cordic.all;
+
 entity fm_modulator is
-	generic(
-		SINCOS_RES 		: natural := 16;			-- CORDIC resolution, default - 16 bits
-		SINCOS_ITER		: natural := 14;			-- CORDIC iterations, default - 14
-		SINCOS_COEFF	: signed := x"4DB9"			-- CORDIC scaling coefficient
-	);
 	port(
 		clk_i	: in std_logic;											-- main clock in
 		nrst_i	: in std_logic;											-- reset
@@ -29,29 +26,41 @@ entity fm_modulator is
 end fm_modulator;
 
 architecture magic of fm_modulator is
-	signal phase	: std_logic_vector(20 downto 0) := (others => '0');
+	signal phase	: signed(20 downto 0) := (others => '0');
 	signal phase_vld : std_logic := '0';
 
-	signal theta	: unsigned(15 downto 0) := (others => '0');
 	signal ready : std_logic;
 	signal cordic_valid : std_logic;
 	signal output_valid : std_logic := '0';
-	signal sin_r, cos_r : signed(20 downto 0);
+
+	constant gain_scaling : real := 1.5;
+
+	type mod_state_t is (IDLE, COMPUTE, DONE);
+	signal mod_state : mod_state_t := IDLE;
+
 begin
 	-- sincos
-	theta <= unsigned(phase(20 downto 20-16+1));
-	sincos: entity work.cordic generic map(
-        RES_WIDTH => SINCOS_RES,
-        ITER_NUM => SINCOS_ITER,
-        COMP_COEFF => SINCOS_COEFF
+	sincos: entity work.cordic_sincos generic map(
+		SIZE => 21,
+		ITERATIONS => 21,
+		TRUNC_SIZE => 16,
+        RESET_ACTIVE_LEVEL => '0'
     )
 	port map(
-		clk_i => clk_i,
-		phase_i => theta,
-		phase_valid_i => phase_vld,
-		std_logic_vector(sin_o) => m_axis_iq_o.tdata(15 downto 0), -- Q
-		std_logic_vector(cos_o) => m_axis_iq_o.tdata(31 downto 16), -- I
-		valid_o => cordic_valid
+		Clock => clk_i,
+		Reset => nrst_i,
+
+		Data_valid => phase_vld,
+		Busy       => open,
+		Result_valid => output_valid,
+		Mode => cordic_rotate,
+
+		X => to_signed(integer(1.0/cordic_gain(21) * gain_scaling * 2.0 ** 19) , 21),
+		Y => 21x"000000",
+        Z => phase,
+
+		std_logic_vector(X_result) => m_axis_iq_o.tdata(31 downto 16), -- I
+		std_logic_vector(Y_result) => m_axis_iq_o.tdata(15 downto 0) -- Q
 	);
 
 	process(clk_i)
@@ -60,33 +69,39 @@ begin
 			phase <= (others => '0');
 		elsif rising_edge(clk_i) then
 			-- Store a new transaction when ready
-			if ready then
-				phase_vld <= s_axis_mod_i.tvalid;
-			end if;
+			ready <= '0';
+			case mod_state is
+				when COMPUTE =>
+					phase_vld <= '0';
+					if output_valid then
+						mod_state <= DONE;
+					end if;
 
-			-- When data is computed, put output to 1
-			if cordic_valid then
-				output_valid <= '1';
-				phase_vld <= '0';
-			end if;
-			-- When consumed by downstream, allow new data to enter
-			if m_axis_iq_i.tready and output_valid then
-				output_valid <= '0';
-			end if;
+				when DONE =>
+					m_axis_iq_o.tvalid <= '1';
+					if m_axis_iq_i.tready then
+						mod_state <= IDLE;
+						m_axis_iq_o.tvalid <= '0';
+					end if;
 
-			if s_axis_mod_i.tvalid and ready then
-				if nw_i='0' then -- narrow FM
-					phase <= std_logic_vector(unsigned(phase) + unsigned(resize(signed(s_axis_mod_i.tdata), 21))); -- update phase accumulator
-				else -- wide FM
-					phase <= std_logic_vector(unsigned(phase) + unsigned(resize(signed(s_axis_mod_i.tdata & '0'), 21))); -- update phase accumulator
-				end if;
-			end if;
+				when others => -- IDLE, safe
+					ready <= '1';
+					if s_axis_mod_i.tvalid then
+						ready <= '0';
+						phase_vld <= '1';
+						mod_state <= COMPUTE;
+
+						if nw_i='0' then -- narrow FM
+							phase <= phase + resize(signed(s_axis_mod_i.tdata), 21); -- update phase accumulator
+						else -- wide FM
+							phase <= phase + resize(signed(s_axis_mod_i.tdata & '0'), 21); -- update phase accumulator
+						end if;
+
+					end if;
+
+			end case;
 		end if;
 	end process;
 
-	ready <= (not phase_vld and not output_valid);
-
 	s_axis_mod_o.tready <= ready;
-
-	m_axis_iq_o.tvalid <= output_valid;
 end magic;

@@ -327,11 +327,6 @@ begin
 
 	-- frequency modulator
 	freq_mod0: entity work.fm_modulator
-	generic map(
-		SINCOS_RES => 16,
-		SINCOS_ITER	=> 20,
-		SINCOS_COEFF => x"4DB0" --x"4DB9",
-	)
 	port map(
 		clk_i => clk_64,
 		nrst_i => nrst,
