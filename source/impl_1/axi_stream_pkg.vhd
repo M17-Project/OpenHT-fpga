@@ -36,4 +36,7 @@ package axi_stream_pkg is
     type axis_out_mod_t is record
         tready : std_logic; -- Downstream is ready
     end record;
+    constant axis_out_mod_null : axis_out_mod_t := (tready => '0');
+
+
 end package;

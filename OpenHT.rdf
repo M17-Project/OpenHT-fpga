@@ -63,12 +63,6 @@
         <Source name="source/impl_1/FM_modulator.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
-        <Source name="source/impl_1/PM_modulator.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
-        </Source>
-        <Source name="source/impl_1/CTCSS_encoder.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
-        </Source>
         <Source name="source/impl_1/ctrl_regs.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
@@ -97,9 +91,6 @@
             <Options/>
         </Source>
         <Source name="source/impl_1/mod_sel.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
-        </Source>
-        <Source name="source/impl_1/sincos.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
         <Source name="source/impl_1/cordic.vhd" type="VHDL" type_short="VHDL">
@@ -139,6 +130,9 @@
             <Options/>
         </Source>
         <Source name="ddr_tx/ddr_tx.ipx" type="IPX_Module" type_short="IPX">
+            <Options/>
+        </Source>
+        <Source name="source/impl_1/cordic_sincos.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
         <Source name="source/impl_1/impl_1.pdc" type="Physical Constraints File" type_short="PDC">

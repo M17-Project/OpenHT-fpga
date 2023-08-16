@@ -37,5 +37,5 @@ begin
 	end process;
 
 	-- pass the TREADY flag as is
-	s_axis_mod_o.tready <= m_axis_iq_i.tready;
+	s_axis_mod_o.tready <= m_axis_iq_i.tready and not m_axis_iq_o.tvalid;
 end magic;

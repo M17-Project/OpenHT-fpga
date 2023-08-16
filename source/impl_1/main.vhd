@@ -78,6 +78,7 @@ architecture magic of main_all is
 	signal source_axis_in_mod			: axis_out_mod_t;
 	signal resampler_axis_out_mod		: axis_in_mod_t;
 	signal resampler_axis_in_mod		: axis_out_mod_t;
+	signal fm_mod_axis_in_mod    		: axis_out_mod_t;
 	signal ctcss_axis_out_mod			: axis_in_mod_t;
 	signal ctcss_axis_in_mod			: axis_out_mod_t;
 	signal freq_mod_axis_in_iq			: axis_in_iq_t := axis_in_iq_null;
@@ -307,7 +308,7 @@ begin
 		s_axis_mod_i => source_axis_out_mod,
 		s_axis_mod_o => source_axis_in_mod,
 		m_axis_mod_o => resampler_axis_out_mod,
-		m_axis_mod_i => resampler_axis_in_mod
+		m_axis_mod_i => fm_mod_axis_in_mod
 	);
 
 	-- CTCSS source
@@ -325,6 +326,16 @@ begin
 	--);
 	--ctcss_fm_tx <= std_logic_vector(signed(mod_in_r_sync) + signed(ctcss_r));
 
+	axis_fork_inst : entity work.axis_fork
+	port map (
+	  s_mod_in => resampler_axis_in_mod,
+	  m00_mod_out => fm_mod_axis_in_mod,
+	  m01_mod_out => axis_out_mod_null,
+	  m02_mod_out => axis_out_mod_null,
+	  m03_mod_out => axis_out_mod_null,
+	  m04_mod_out => axis_out_mod_null
+	);
+
 	-- frequency modulator
 	freq_mod0: entity work.fm_modulator
 	port map(
@@ -336,7 +347,6 @@ begin
 		m_axis_iq_i => mux_axis_out_iq,
 		m_axis_iq_o => freq_mod_axis_in_iq
 	);
-
 
 	-- amplitude modulator
 	--ampl_mod0: entity work.am_modulator port map(

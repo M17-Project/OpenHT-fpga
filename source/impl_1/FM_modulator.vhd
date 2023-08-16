@@ -103,5 +103,5 @@ begin
 		end if;
 	end process;
 
-	s_axis_mod_o.tready <= ready;
+	s_axis_mod_o.tready <= ready and m_axis_iq_i.tready;
 end magic;
