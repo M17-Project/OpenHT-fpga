@@ -66,9 +66,6 @@
         <Source name="source/impl_1/ctrl_regs.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
-        <Source name="source/impl_1/fifo_dc.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
-        </Source>
         <Source name="source/impl_1/fifo_simple.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
@@ -85,9 +82,6 @@
             <Options/>
         </Source>
         <Source name="source/impl_1/iq_offset.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
-        </Source>
-        <Source name="source/impl_1/iq_fifo.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
         <Source name="source/impl_1/mod_sel.vhd" type="VHDL" type_short="VHDL">
@@ -112,9 +106,6 @@
             <Options/>
         </Source>
         <Source name="source/impl_1/c_16qam_map.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
-        </Source>
-        <Source name="source/impl_1/clk_div.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
         <Source name="source/impl_1/delay_block.vhd" type="VHDL" type_short="VHDL">
