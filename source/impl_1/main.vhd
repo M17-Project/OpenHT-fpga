@@ -27,7 +27,6 @@ entity main_all is
 		-- master reset, high active
 		nrst				: in std_logic;
 		-- baseband TX (DDR)
-		clk_tx_o			: out std_logic := '0';
 		data_tx_o			: out std_logic_vector(1 downto 0) := (others => '0');
 		-- baseband RX (DDR)
 		clk_rx09_i			: in std_logic;

@@ -18,7 +18,7 @@ use work.axi_stream_pkg.all;
 entity main_pads is
 	generic(
 		REV_MAJOR			: natural := 0;
-		REV_MINOR			: natural := 2
+		REV_MINOR			: natural := 3
 	);
 	port(
 		-- 32 MHz clock input from the AT86
@@ -97,7 +97,6 @@ begin
       clk_i => clk_64,
       lock_i => lock_o, 
       nrst => nrst,
-      clk_tx_o => clk_tx_o,
       data_tx_o => data_tx_r,
       clk_rx09_i => clk_rx09_r,
       data_rx09_i => data_rx09_r,
