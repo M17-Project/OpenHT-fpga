@@ -469,7 +469,7 @@ begin
 
 	-- additional connections
 	regs_r(SR_1) <= std_logic_vector(to_unsigned(REV_MAJOR, 8)) & std_logic_vector(to_unsigned(REV_MINOR, 8)); -- revision number
-	--regs_r(SR_2) <= ; -- PLL lock
+	regs_r(SR_2)(0) <= lock_i; -- PLL lock
 	regs_r(SR_3 to SR_7) <= (others => (others => '0'));
 	regs_r(DEMOD_OUT) <= (others => '0');
 
