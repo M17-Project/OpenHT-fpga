@@ -124,7 +124,7 @@ use ieee.numeric_std.all;
 use ieee.math_real.all;
 
 --library extras;
-use work.cordic.all;
+use work.cordic_pkg.all;
 
 entity cordic_sincos is
   generic (
