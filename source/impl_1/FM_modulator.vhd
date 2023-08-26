@@ -30,7 +30,6 @@ architecture magic of fm_modulator is
 	signal phase_vld : std_logic := '0';
 
 	signal ready : std_logic;
-	signal cordic_valid : std_logic;
 	signal output_valid : std_logic := '0';
 
 	constant gain_scaling : real := 1.5;
@@ -79,7 +78,7 @@ begin
 
 				when DONE =>
 					m_axis_iq_o.tvalid <= '1';
-					if m_axis_iq_i.tready then
+					if m_axis_iq_i.tready and m_axis_iq_o.tvalid then
 						mod_state <= IDLE;
 						m_axis_iq_o.tvalid <= '0';
 					end if;
@@ -87,7 +86,7 @@ begin
 				when others => -- IDLE, safe
 					m_axis_iq_o.tvalid <= '0';
 					ready <= '1';
-					if s_axis_mod_i.tvalid then
+					if s_axis_mod_i.tvalid and ready then
 						ready <= '0';
 						phase_vld <= '1';
 						mod_state <= COMPUTE;
@@ -104,5 +103,5 @@ begin
 		end if;
 	end process;
 
-	s_axis_mod_o.tready <= ready and m_axis_iq_i.tready;
+	s_axis_mod_o.tready <= ready and not m_axis_iq_o.tvalid;
 end magic;
