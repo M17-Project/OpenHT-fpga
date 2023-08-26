@@ -11,7 +11,7 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 use work.axi_stream_pkg.all;
 
-use work.cordic.all;
+use work.cordic_pkg.all;
 
 entity fm_modulator is
 	port(
@@ -85,6 +85,7 @@ begin
 					end if;
 
 				when others => -- IDLE, safe
+					m_axis_iq_o.tvalid <= '0';
 					ready <= '1';
 					if s_axis_mod_i.tvalid then
 						ready <= '0';
