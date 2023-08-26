@@ -23,15 +23,17 @@ entity main_all is
 	port(
 		-- 32 MHz clock input from the AT86
 		clk_i 				: in std_logic;
+		lock_i              : in std_logic;
 		-- master reset, high active
 		nrst				: in std_logic;
 		-- baseband TX (DDR)
 		clk_tx_o			: out std_logic := '0';
-		data_tx_o			: out std_logic := '0';
+		data_tx_o			: out std_logic_vector(1 downto 0) := (others => '0');
 		-- baseband RX (DDR)
-		clk_rx_i			: in std_logic;
-		data_rx09_i			: in std_logic;
-		data_rx24_i			: in std_logic;
+		clk_rx09_i			: in std_logic;
+		data_rx09_i			: in std_logic_vector(1 downto 0);
+		clk_rx24_i			: in std_logic;
+		data_rx24_i			: in std_logic_vector(1 downto 0);
 		-- SPI slave exposed for the STM32
 		spi_ncs				: in std_logic;
 		spi_miso			: out std_logic := 'Z';
@@ -53,7 +55,6 @@ architecture magic of main_all is
 	signal clk_rx24						: std_logic := '0';
 	signal data_rx09_r					: std_logic_vector(1 downto 0) := (others => '0');
 	signal data_rx24_r					: std_logic_vector(1 downto 0) := (others => '0');
-	signal data_tx_r					: std_logic_vector(1 downto 0) := (others => '0');
 	-- SPI data regs
 	signal spi_rw						: std_logic := '0';										-- SPI R/W flag
 	signal spi_rx_r, spi_tx_r			: std_logic_vector(15 downto 0) := (others => '0');		-- SPI receive/send data
@@ -85,67 +86,11 @@ architecture magic of main_all is
 	signal mux_axis_in_iq				: axis_in_iq_t := axis_in_iq_null;
 	signal mux_axis_out_iq				: axis_out_iq_t;
 	signal unpack_axis_out_iq			: axis_out_iq_t;
-	signal samp_clk						: std_logic := '0';
 
-	----------------------------- low level building blocks -----------------------------
-	-- main PLL block
-	component pll_osc is
-		port(
-			rstn_i		: in std_logic;						-- reset in (low-active)
-			clki_i		: in std_logic;						-- reference input
-			clkop_o		: out std_logic;					-- primary output
-			lock_o		: out std_logic						-- lock flag
-		);
-	end component;
-
-	-- DDR interfaces
-	component ddr_tx is
-		port(
-			clk_i  : in std_logic;
-			data_i : in std_logic_vector(1 downto 0);
-			rst_i  : in std_logic;
-			clk_o  : out std_logic;
-			data_o : out std_logic
-		);
-	end component;
-
-	component ddr_rx is
-		port(
-			clk_i  : in std_logic;
-			data_i : in std_logic;
-			rst_i  : in std_logic;
-			sclk_o : out std_logic;
-			data_o : out std_logic_vector(1 downto 0)
-		);
-	end component;
 begin
-	------------------------------------- port maps -------------------------------------
-	pll0: pll_osc port map(
-		rstn_i => nrst,
-		clki_i => clk_i,
-		clkop_o => clk_64,
-		lock_o => regs_r(SR_2)(0)
-	);
 
+	clk_64 <= clk_i;
 	---------------------------------------- RX -----------------------------------------
-	-- sub-GHz receiver
-	--ddr_rx0: ddr_rx port map(
-		--clk_i => clk_rx_i,
-		--data_i => data_rx09_i,
-		--rst_i => (regs_rw(CR_2)(0) and not regs_rw(CR_2)(1)) or (regs_rw(CR_1)(0)), -- check if STATE=RX and the band is correct
-		--sclk_o => clk_rx09,
-		--data_o => data_rx09_r
-	--);
-
-	-- 2.4 GHz receiver
-	--ddr_rx1: ddr_rx port map(
-		--clk_i => clk_rx_i,
-		--data_i => data_rx24_i,
-		--rst_i =>  (regs_rw(CR_2)(0) and not regs_rw(CR_2)(1)) or (not regs_rw(CR_1)(0)), -- check if STATE=RX and the band is correct
-		--sclk_o => clk_rx24,
-		--data_o => data_rx24_r
-	--);
-
 	-- IQ stream deserializer
 	--des_inp <= data_rx09_r or data_rx24_r; -- crude, but works
 	----des_inp <= data_rx09_r when regs_rw(CR_1)(1 downto 0)="00"
@@ -260,7 +205,7 @@ begin
 	--);
 
 	---------------------------------------- TX -----------------------------------------
-	fifo_in_reg_check <= '1' when unsigned(spi_addr_r)=MOD_IN else '0';
+	fifo_in_reg_check <= '1' when unsigned(spi_addr_r)=MOD_IN and regs_latch = '1' and spi_rw = '1' else '0';
 
 	mod_in_fifo: entity work.fifo_simple
 	generic map(
@@ -308,7 +253,7 @@ begin
 		s_axis_mod_i => source_axis_out_mod,
 		s_axis_mod_o => source_axis_in_mod,
 		m_axis_mod_o => resampler_axis_out_mod,
-		m_axis_mod_i => fm_mod_axis_in_mod
+		m_axis_mod_i => resampler_axis_in_mod
 	);
 
 	-- CTCSS source
@@ -343,7 +288,7 @@ begin
 		nrst_i => nrst,
 		nw_i => regs_rw(CR_2)(8),
 		s_axis_mod_i => resampler_axis_out_mod,
-		s_axis_mod_o => resampler_axis_in_mod,
+		s_axis_mod_o => fm_mod_axis_in_mod,
 		m_axis_iq_i => mux_axis_out_iq,
 		m_axis_iq_o => freq_mod_axis_in_iq
 	);
@@ -429,7 +374,7 @@ begin
 		s01_axis_iq_i => (x"0FFF0000", '1'), -- AM
 		s02_axis_iq_i => (x"01FF0000", '1'), -- SSB
 		s03_axis_iq_i => (x"7FFF0000", '1'), -- reserved
-		s04_axis_iq_i => (x"7FFF0000", '1'), -- reserved
+		s04_axis_iq_i => (x"7FFF1FF0", '1'), -- reserved
 		s00_axis_iq_o => mux_axis_out_iq,
 		s01_axis_iq_o => open,
 		s02_axis_iq_o => open,
@@ -492,14 +437,6 @@ begin
 		nrst_i => nrst,
 		s_axis_iq_i => mux_axis_in_iq,
 		s_axis_iq_o => unpack_axis_out_iq,
-		data_o => data_tx_r
-	);
-
-	ddr_tx0: ddr_tx port map(
-		clk_i => clk_64,
-		data_i => data_tx_r,
-		rst_i => regs_rw(CR_2)(1) or not regs_rw(CR_2)(0),
-		clk_o => clk_tx_o,
 		data_o => data_tx_o
 	);
 
