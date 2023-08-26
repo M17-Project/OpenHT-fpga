@@ -2,6 +2,7 @@
 -- SPI slave
 --
 -- Wojciech Kaczmarski, SP5WWP
+-- Sébastien, ON4SEB
 -- M17 Project
 -- July 2023
 -------------------------------------------------------------
@@ -30,111 +31,84 @@ entity spi_slave is
 end spi_slave;
 
 architecture magic of spi_slave is
-	signal p_ncs, pp_ncs	: std_logic := '0';
-	signal p_sck, pp_sck	: std_logic := '0';
-	signal data_rx			: std_logic_vector(31 downto 0) := (others => '0');
-	signal data_tx			: std_logic_vector(15 downto 0) := (others => '0');
-	signal addr_inc         : std_logic := '0';
-	signal got_data			: std_logic := '0';
-	signal rw_int			: std_logic := '0';
-	signal addr_o_int		: std_logic_vector(13 downto 0) := (others => '0');
+	-- Resync registers
+	signal csn_r : std_logic_vector(2 downto 0);
+	signal sck_r : std_logic_vector(2 downto 0);
+	signal mosi_r : std_logic_vector(2 downto 0);
+	
+	-- State registers
+	signal din_sreg : std_logic_vector(15 downto 0);
+	signal din_valid : std_logic;
+	signal dout_sreg : std_logic_vector(15 downto 0);
+	signal bit_cnt : unsigned(4 downto 0);
+
+	type spi_state_t is (ADDRESS, READ_REG, READ_REG2, DATA);
+	signal spi_state : spi_state_t;
+	signal addr_inc : std_logic := '0';
+
 begin
 	process(clk_i)
-		variable cnt    : integer range 0 to 32 := 0;
 	begin
 		if rising_edge(clk_i) then
-			p_ncs <= ncs_i;
-			pp_ncs <= p_ncs;
-			p_sck <= sck_i;
-			pp_sck <= p_sck;
-			
-			addr_o <= addr_o_int;
-			rw <= rw_int;
+			-- Resync and edge detect
+			csn_r <= csn_r(1 downto 0) & ncs_i;
+			sck_r <= sck_r(1 downto 0) & sck_i;
+			mosi_r <= mosi_r(1 downto 0) & mosi_i;
 
-			if ena='1' then
-				-- falling edge of the nCS - data transaction start
-				if (pp_ncs='1' and p_ncs='0') or nrst='0' then
-					data_rx <= (others => '0');
-					miso_o <= '0';
-					ld <= '0';
-					rw_int <= '0';
-					got_data <= '0';
-					cnt := 0;
-				end if;
-
-				-- rising edge of SCK - data sampling if n_CS is low
-				if (pp_sck='0' and p_sck='1' and ncs_i='0') then
-					data_rx <= data_rx(30 downto 0) & mosi_i;
-					cnt := cnt + 1;
-					if cnt=16 then -- if it's the last bit
-						addr_o_int <= data_rx(12 downto 0) & mosi_i;
+			din_valid <= '0';
+			if not csn_r(1) then
+				-- Capture data on rising edge, output it every 16 clock cycles
+				if not sck_r(2) and sck_r(1) then
+					-- Input part
+					din_sreg <= din_sreg(14 downto 0) & mosi_r(1);
+					bit_cnt <= bit_cnt + 1;
+					if bit_cnt = 15 then -- 1 full word captured
+						bit_cnt <= (others => '0');
+						din_valid <= '1';
 					end if;
-					if cnt=17 then
-                        ld <= '0';
-                        if addr_inc='1' then
-                            if unsigned(addr_o_int)<MAX_ADDR then
-                                addr_o_int <= std_logic_vector(unsigned(addr_o_int) + 1);
-                            else
-                                addr_o_int <= (others => '0');
-                            end if;
-						end if;
-                    end if;
+
+					-- Output part
+					-- Updating output on the rising edge makes it appear more or less at the falling edge
+					-- This should respect setup/hold wrt to rising edge
+					dout_sreg <= dout_sreg(14 downto 0) & '0';
 				end if;
 
-				-- falling edge of SCK
-				if (pp_sck='1' and p_sck='0' and ncs_i='0') then
-					-- check if WRITE bit is set
-					if cnt=16 then
-						if data_rx(15)='1' then
-							if got_data='0' then
-								rw_int <= '1';
+				ld <= '0';
+				case spi_state is
+					when ADDRESS =>
+						if din_valid then -- Triage valid data
+							rw <= din_sreg(15);
+							addr_inc <= din_sreg(14);
+							addr_o <= din_sreg(13 downto 0);
+							spi_state <= READ_REG;
+						end if;
+
+					when READ_REG =>
+						spi_state <= READ_REG2;
+
+					when READ_REG2 => -- TODO: remove this state after APB implementation
+						spi_state <= DATA;
+						dout_sreg <= data_i;
+
+					when DATA =>
+						if din_valid then -- Triage valid data
+							if addr_inc then
+								addr_o <= std_logic_vector(unsigned(addr_o) + 1);
 							end if;
-						else
-							data_tx <= data_i(14 downto 0) & "0";
-							miso_o <= data_i(15);
+							data_o <= din_sreg;
+							ld <= '1';
 						end if;
-					end if;
+				end case;
+				miso_o <= dout_sreg(dout_sreg'high);
 
-					if cnt=24 and got_data='0' then -- in the middle of the data
-                        if data_rx(22)='1' then
-                            addr_inc <= '1'; -- update the address increment flag
-                        end if;
-					end if;
-
-					-- if READ then clock out the data from data_tx
-					if rw_int='0' and cnt>16 then
-						data_tx <= data_tx(14 downto 0) & "0";
-						miso_o <= data_tx(15);
-					end if;
-
-					-- last clock - falling edge
-					if cnt=32 then
-						if rw_int='1' then -- write - latch data
-							data_o <= data_rx(15 downto 0);
-						else -- read - deassert MISO line
-							miso_o <= '0';
-						end if;
-						cnt := 16;
-						if rw_int='1' then
-                            --
-						else
-                            data_tx <= data_i(14 downto 0) & "0";
-							miso_o <= data_i(15);
-						end if;
-						ld <= '1';
-						got_data <= '1';
-					end if;
-				end if;
-
-                -- rising edge of the nCS - data transaction stop
-				if (pp_ncs='0' and p_ncs='1') or nrst='0' then
-					miso_o <= 'Z';
-					addr_inc <= '0'; -- reset the address increment flag
-					got_data <= '0';
-					ld <= '0'; -- release the ld line
-					rw_int <= '0'; -- release the RW flag
-				end if;
+			else -- When slave is disabled
+				din_sreg <= (others => '0');
+				bit_cnt <= (others => '0');
+				dout_sreg <= (others => '0');
+				spi_state <= ADDRESS;
+				miso_o <= 'Z';
 			end if;
+
 		end if;
 	end process;
 end magic;
