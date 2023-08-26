@@ -123,7 +123,7 @@ begin
                     accumulator <= (others => '0');
                     if interp_round < L then
                         interp_state	<= FIR_COMPUTE;
-                        tap_addr		<= resize(interp_round, 9);
+                        tap_addr		<= resize(interp_round, tap_addr'length);
                     else
                         interp_state	<= IDLE;
                     end if;
