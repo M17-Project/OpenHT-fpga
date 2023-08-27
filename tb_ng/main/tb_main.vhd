@@ -33,7 +33,6 @@ architecture tb of tb_main is
   signal clk_i : std_logic;
   signal rst_i : std_logic;
   
-  signal clk_tx_o : std_logic;
   signal data_tx_o : std_logic_vector(1 downto 0);
   signal clk_rx_i : std_logic;
   signal data_rx09_i : std_logic_vector(1 downto 0);
@@ -113,7 +112,6 @@ begin
     clk_i => clk_i,
     lock_i => '0',
     nrst => rst_i,
-    clk_tx_o => clk_tx_o,
     data_tx_o => data_tx_o,
     clk_rx09_i => clk_rx_i,
     data_rx09_i => data_rx09_i,
