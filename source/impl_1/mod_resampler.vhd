@@ -100,26 +100,26 @@ entity mod_resampler is
 		);
 		
 		C_TAPS_2 : taps_mod_t := (
-			x"0000", x"0008", x"0000", x"FFF8", x"0000", 
-			x"0009", x"0000", x"FFF7", x"0000", x"0009", 
-			x"0000", x"FFF7", x"0000", x"000A", x"0000", 
-			x"FFF6", x"0000", x"000B", x"0000", x"FFF5", 
-			x"0000", x"000C", x"0000", x"FFF3", x"0000", 
-			x"000D", x"0000", x"FFF2", x"0000", x"000F", 
-			x"0000", x"FFF0", x"0000", x"0011", x"0000", 
-			x"FFEE", x"0000", x"0013", x"0000", x"FFEB", 
-			x"0000", x"0016", x"0000", x"FFE9", x"0000", 
-			x"0019", x"0000", x"FFE5", x"0000", x"001C", 
-			x"0000", x"FFE2", x"0000", x"0020", x"0000", 
-			x"FFDE", x"0000", x"0024", x"0000", x"FFDA", 
-			x"0000", x"0028", x"0000", x"FFD5", x"0000", 
-			x"002D", x"0000", x"FFD0", x"0000", x"0032", 
-			x"0000", x"FFCB", x"0000", x"0038", x"0000", 
-			x"FFC5", x"0000", x"003E", x"0000", x"FFBF", 
-			x"0000", x"0045", x"0000", x"FFB8", x"0000", 
-			x"004C", x"0000", x"FFB0", x"0000", x"0054", 
-			x"0000", x"FFA8", x"0000", x"005C", x"0000", 
-			x"FF9F", x"0000", x"0066", x"0000", x"FF96"
+			x"7FFF", x"7FFF", x"7FFF", x"7FFF", x"7FFF",
+			x"7FFF", x"7FFF", x"7FFF", x"7FFF", x"7FFF",
+			x"7FFF", x"7FFF", x"7FFF", x"7FFF", x"7FFF",
+			x"7FFF", x"7FFF", x"7FFF", x"7FFF", x"7FFF",
+			x"7FFF", x"7FFF", x"7FFF", x"7FFF", x"7FFF",
+			x"7FFF", x"7FFF", x"7FFF", x"7FFF", x"7FFF",
+			x"7FFF", x"7FFF", x"7FFF", x"7FFF", x"7FFF",
+			x"7FFF", x"7FFF", x"7FFF", x"7FFF", x"7FFF",
+			x"7FFF", x"7FFF", x"7FFF", x"7FFF", x"7FFF",
+			x"7FFF", x"7FFF", x"7FFF", x"7FFF", x"7FFF",
+			x"7FFF", x"7FFF", x"7FFF", x"7FFF", x"7FFF",
+			x"7FFF", x"7FFF", x"7FFF", x"7FFF", x"7FFF",
+			x"7FFF", x"7FFF", x"7FFF", x"7FFF", x"7FFF",
+			x"7FFF", x"7FFF", x"7FFF", x"7FFF", x"7FFF",
+			x"7FFF", x"7FFF", x"7FFF", x"7FFF", x"7FFF",
+			x"7FFF", x"7FFF", x"7FFF", x"7FFF", x"7FFF",
+			x"7FFF", x"7FFF", x"7FFF", x"7FFF", x"7FFF",
+			x"7FFF", x"7FFF", x"7FFF", x"7FFF", x"7FFF",
+			x"7FFF", x"7FFF", x"7FFF", x"7FFF", x"7FFF",
+			x"7FFF", x"7FFF", x"7FFF", x"7FFF", x"7FFF"
 		)
 	);
 	port(
