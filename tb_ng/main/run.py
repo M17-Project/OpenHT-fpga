@@ -26,6 +26,7 @@ vu.add_external_library('lifcl', root+'/lattice_libs/lifcl')
 # Add all files ending in .vhd in current working directory to library
 lib.add_source_files("*.vhd")
 lib.add_source_files(root+"/../source/impl_1/*.vhd")
+lib.add_source_files(root+"/../source/tx_chain/*.vhd")
 lib.add_source_file(root+"/../ddr_tx/rtl/ddr_tx.v")
 lib.add_source_file(root+"/../ddr_rx/rtl/ddr_rx.v")
 lib.add_source_file(root+"/../pll_osc/rtl/pll_osc.v")

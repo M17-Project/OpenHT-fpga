@@ -71,20 +71,14 @@ architecture magic of main_all is
 	signal fifo_in_rd_data              : std_logic_vector(15 downto 0);
 	signal fifo_in_rd_en                : std_logic;
 	signal fifo_in_empty                : std_logic;
+	signal fifo_in_full                 : std_logic;
 	signal mod_fifo_ae					: std_logic := '0';
 	signal fifo_in_reg_check			: std_logic := '0';
 	-- misc
 	signal source_axis_out_mod			: axis_in_mod_t;
 	signal source_axis_in_mod			: axis_out_mod_t;
-	signal resampler_axis_out_mod		: axis_in_mod_t;
-	signal resampler_axis_in_mod		: axis_out_mod_t;
-	signal fm_mod_axis_in_mod    		: axis_out_mod_t;
-	signal ctcss_axis_out_mod			: axis_in_mod_t;
-	signal ctcss_axis_in_mod			: axis_out_mod_t;
-	signal freq_mod_axis_in_iq			: axis_in_iq_t := axis_in_iq_null;
-	signal mux_axis_in_iq				: axis_in_iq_t := axis_in_iq_null;
-	signal mux_axis_out_iq				: axis_out_iq_t;
-	signal unpack_axis_out_iq			: axis_out_iq_t;
+	signal tx_axis_iq_o					: axis_in_iq_t := axis_in_iq_null;
+	signal tx_axis_iq_i 				: axis_out_iq_t;
 
 begin
 
@@ -204,7 +198,7 @@ begin
 	--);
 
 	---------------------------------------- TX -----------------------------------------
-	fifo_in_reg_check <= '1' when unsigned(spi_addr_r)=MOD_IN and regs_latch = '1' and spi_rw = '1' else '0';
+	fifo_in_reg_check <= '1' when unsigned(spi_addr_r)=MOD_IN and regs_latch = '1' and spi_rw = '1' and fifo_in_full = '0' else '0';
 
 	mod_in_fifo: entity work.fifo_simple
 	generic map(
@@ -217,7 +211,7 @@ begin
 		-- FIFO Write Interface
 		i_wr_en => fifo_in_reg_check,
 		i_wr_data => spi_rx_r(7 downto 0) & spi_rx_r(15 downto 8), -- endianness fix
-		o_full => open,
+		o_full => fifo_in_full,
 		-- FIFO Read Interface
 		i_rd_en => fifo_in_rd_en,
 		o_rd_data => fifo_in_rd_data,
@@ -240,21 +234,6 @@ begin
 	  m_axis_mod_i => source_axis_in_mod
 	);
 
-	--debug
-	--source_axis_out_mod.tdata <= x"147B";
-	--resampler_axis_out_mod.tdata <= x"147B";
-	--resampler_axis_out_mod.tvalid <= '1';
-
-	--interpol
-	interpol0: entity work.mod_resampler
-	port map(
-		clk_i => clk_64,
-		s_axis_mod_i => source_axis_out_mod,
-		s_axis_mod_o => source_axis_in_mod,
-		m_axis_mod_o => resampler_axis_out_mod,
-		m_axis_mod_i => resampler_axis_in_mod
-	);
-
 	-- CTCSS source
 	--ctcss_enc0: entity work.ctcss_encoder generic map(
 		--SINCOS_RES => 16,
@@ -270,28 +249,8 @@ begin
 	--);
 	--ctcss_fm_tx <= std_logic_vector(signed(mod_in_r_sync) + signed(ctcss_r));
 
-	axis_fork_inst : entity work.axis_fork
-	port map (
-	  s_mod_in => resampler_axis_in_mod,
-	  m00_mod_out => fm_mod_axis_in_mod,
-	  m01_mod_out => axis_out_mod_null,
-	  m02_mod_out => axis_out_mod_null,
-	  m03_mod_out => axis_out_mod_null,
-	  m04_mod_out => axis_out_mod_null
-	);
-
-	-- frequency modulator
-	freq_mod0: entity work.fm_modulator
-	port map(
-		clk_i => clk_64,
-		nrst_i => nrst,
-		nw_i => regs_rw(CR_2)(8),
-		s_axis_mod_i => resampler_axis_out_mod,
-		s_axis_mod_o => fm_mod_axis_in_mod,
-		m_axis_iq_i => mux_axis_out_iq,
-		m_axis_iq_o => freq_mod_axis_in_iq
-	);
-
+	
+	
 	-- amplitude modulator
 	--ampl_mod0: entity work.am_modulator port map(
 		--clk_i => clk_64,
@@ -365,24 +324,6 @@ begin
 		--q_o => q_pm_tx
 	--);
 
-	-- modulation selector
-	tx_mod_sel0: entity work.mod_sel port map(
-		clk_i => clk_64,
-		sel_i => regs_rw(CR_1)(14 downto 12),
-		s00_axis_iq_i => freq_mod_axis_in_iq, -- FM
-		s01_axis_iq_i => (x"0FFF0000", '1'), -- AM
-		s02_axis_iq_i => (x"01FF0000", '1'), -- SSB
-		s03_axis_iq_i => (x"7FFF0000", '1'), -- reserved
-		s04_axis_iq_i => (x"7FFF1FF0", '1'), -- reserved
-		s00_axis_iq_o => mux_axis_out_iq,
-		s01_axis_iq_o => open,
-		s02_axis_iq_o => open,
-		s03_axis_iq_o => open,
-		s04_axis_iq_o => open,
-		m_axis_iq_i => unpack_axis_out_iq,
-		m_axis_iq_o => mux_axis_in_iq
-	);
-
 	-- digital predistortion blocks
 	--dpd0: entity work.dpd port map(
 		--clk_i => clk_64,
@@ -431,11 +372,22 @@ begin
 		--q_o => q_out
 	--);
 
-	unpack0: entity work.unpack port map(
+	tx_chain_inst : entity work.tx_chain
+	port map (
+	  clk_64 => clk_64,
+	  resetn => nrst,
+	  source_axis_out_mod => source_axis_out_mod,
+	  source_axis_in_mod => source_axis_in_mod,
+	  tx_axis_iq_o => tx_axis_iq_o,
+	  tx_axis_iq_i => tx_axis_iq_i,
+	  regs_rw => regs_rw
+	);
+
+	ddr_unpack0: entity work.ddr_unpack port map(
 		clk_i => clk_64,
 		nrst_i => nrst,
-		s_axis_iq_i => mux_axis_in_iq,
-		s_axis_iq_o => unpack_axis_out_iq,
+		s_axis_iq_i => tx_axis_iq_o,
+		s_axis_iq_o => tx_axis_iq_i,
 		data_o => data_tx_o
 	);
 
@@ -491,9 +443,9 @@ begin
 			   '0'					when "100",
 			   mod_fifo_ae			when "101",	-- baseband FIFO almost empty flag
 			   '0'					when others;
-			io4 <= mux_axis_out_iq.tready;
-			io5 <= freq_mod_axis_in_iq.tvalid;
-			io6 <= mux_axis_in_iq.tvalid;
+			io4 <= '0'; --mux_axis_out_iq.tready;
+			io5 <= '0'; --freq_mod_axis_in_iq.tvalid;
+			io6 <= '0'; --mux_axis_in_iq.tvalid;
 		end if;
 	end process;
 end magic;

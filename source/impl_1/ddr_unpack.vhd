@@ -12,7 +12,7 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 use work.axi_stream_pkg.all;
 
-entity unpack is
+entity ddr_unpack is
 	port(
 		clk_i		: in std_logic;
 		nrst_i   	: in std_logic;
@@ -20,9 +20,9 @@ entity unpack is
 		s_axis_iq_o : out axis_out_iq_t;
 		data_o		: out std_logic_vector(1 downto 0) := (others => '0')
 	);
-end unpack;
+end ddr_unpack;
 
-architecture magic of unpack is
+architecture magic of ddr_unpack is
 	signal wr_en_i : std_logic := '0';
     signal full_o : std_logic := '0';
     signal empty_o : std_logic := '0';
