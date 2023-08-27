@@ -4,9 +4,9 @@ import matplotlib.pyplot as plt
 from scipy.fft import fft
 from scipy import signal
 
-fs = 8000
+fs = 200000
 freq = 3400
-L = 5
+L = 2
 x = np.arange(3000)
 Q = 16
 
@@ -27,7 +27,7 @@ plt.plot(sig_upsampled)
 plt.subplot(4,2,4)
 plt.plot(20*np.log(fft(sig_upsampled)))
 
-fir = signal.remez(500, [0, 3800, 4200, fs*L/2], [1,0], fs=fs*L) * L
+fir = signal.remez(100, [0, 4400, 30000, fs*L/2], [1,0], fs=fs*L) * L
 fir = np.array([quantize(x, Q) for x in fir])
 
 plt.subplot(4,2,5)
@@ -42,10 +42,18 @@ plt.subplot(4,2,7)
 plt.plot(interpol)
 
 plt.subplot(4,2,8)
-plt.plot(20*np.log(fft(interpol)))
+plt.plot(np.arange(3000*L) / 3000 * fs,20*np.log(fft(interpol)))
+
+for i in enumerate(fir):
+    r = int(i[1] * 2**Q)
+    if r < 0:
+        r += 2**Q
+    print(f"x\"{r:04x}\"", end=', ')
+    if (i[0] + 1) % 8 == 0:
+        print('')
 
 # HDL concept check
-print(interpol)
+#print(interpol)
 hdl_impl = np.zeros(len(x) * L)
 for i in range(L):
     i_filt = fir[i::L]
@@ -54,9 +62,11 @@ for i in range(L):
 for k in range(len(x) * L):
     ref = quantize(interpol[k], Q)
     hdl = quantize(hdl_impl[k], Q)
-    print(k, ref, hdl, ref == hdl)
+    #print(k, ref, hdl, ref == hdl)
     if (ref != hdl):
         print("Check failed")
         break
+
+
 
 plt.show()
