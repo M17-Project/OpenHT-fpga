@@ -58,7 +58,7 @@ begin
     test_runner_cleanup(runner); -- Simulation ends here
   end process;
 
-  unpack_inst : entity work.unpack
+  unpack_inst : entity work.ddr_unpack
   port map (
     clk_i => clk_i,
     nrst_i => rst_i,
