@@ -21,7 +21,8 @@ entity mod_interpolator is
   (
     N_TAPS : natural := 4; --!!! TAPS count must be a multiple of L
     L      : natural := 2; -- Interpolation factor
-    C_TAPS : taps_mod_t := (x"1000", x"1000", x"1000", x"1000") -- TAPS value	
+    C_TAPS : taps_mod_t := (x"1000", x"1000", x"1000", x"1000"); -- TAPS value
+    C_OUT_SHIFT : natural
   );
   port
   (
@@ -113,7 +114,7 @@ begin
                 data_counter <= (others => '0');
                 buffer_rdptr <= round_rdptr;
                 if not accumulate_1 then
-                    m_axis_mod_o.tdata <= std_logic_vector(accumulator(39-log2up(N_TAPS) downto 39-16-log2up(N_TAPS)+1));
+                    m_axis_mod_o.tdata <= std_logic_vector(accumulator(39-log2up(N_TAPS)-C_OUT_SHIFT downto 39-16-log2up(N_TAPS)-C_OUT_SHIFT+1));
                     m_axis_mod_o.tvalid <= '1';
                 end if;
 

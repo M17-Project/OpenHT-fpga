@@ -2,7 +2,7 @@
 from vunit import VUnit
 
 # Create VUnit instance by parsing command line arguments
-vu = VUnit.from_argv()
+vu = VUnit.from_argv(compile_builtins=False)
 
 # Optionally add VUnit's builtin HDL utilities for checking, logging, communication...
 # See http://vunit.github.io/hdl_libraries.html.
@@ -20,6 +20,7 @@ lib = vu.add_library("lib")
 lib.add_source_files("../../source/impl_1/axi_stream_pkg.vhd")
 lib.add_source_files("../../source/impl_1/openht_utils_pkg.vhd")
 lib.add_source_files("../../source/impl_1/mod_interpolator.vhd")
+lib.add_source_files("../../source/impl_1/mod_resampler.vhd")
 lib.add_source_files("*.vhd")
 
 # Run vunit function
