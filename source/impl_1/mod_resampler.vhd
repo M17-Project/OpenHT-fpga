@@ -176,9 +176,9 @@ architecture magic of mod_resampler is
 begin
 	interpol0: entity work.mod_interpolator
 	generic map(
-		N_TAPS	=> 205,
+		N_TAPS	=> 405,
 		L		=> 5,
-		C_TAPS	=> C_TAPS_5_40K,
+		C_TAPS	=> C_TAPS_5_8K,
 		C_OUT_SHIFT => 0
 	)
 	port map(
@@ -209,7 +209,7 @@ begin
 		N_TAPS	=> 100,
 		L		=> 2,
 		C_TAPS	=> C_TAPS_2_200K,
-		C_OUT_SHIFT => 2
+		C_OUT_SHIFT => 1
 	)
 	port map(
 		clk_i			=> clk_i,
