@@ -105,15 +105,6 @@
         <Source name="source/impl_1/sideband_selector.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
-        <Source name="pll_osc/pll_osc.ipx" type="IPX_Module" type_short="IPX">
-            <Options/>
-        </Source>
-        <Source name="ddr_rx/ddr_rx.ipx" type="IPX_Module" type_short="IPX">
-            <Options/>
-        </Source>
-        <Source name="ddr_tx/ddr_tx.ipx" type="IPX_Module" type_short="IPX">
-            <Options/>
-        </Source>
         <Source name="source/impl_1/cordic_sincos.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
@@ -136,6 +127,18 @@
             <Options/>
         </Source>
         <Source name="source/impl_1/ddr_unpack.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="source/impl_1/gain_mod.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="pll_osc/pll_osc.ipx" type="IPX_Module" type_short="IPX">
+            <Options/>
+        </Source>
+        <Source name="ddr_rx/ddr_rx.ipx" type="IPX_Module" type_short="IPX">
+            <Options/>
+        </Source>
+        <Source name="ddr_tx/ddr_tx.ipx" type="IPX_Module" type_short="IPX">
             <Options/>
         </Source>
         <Source name="source/impl_1/impl_1.pdc" type="Physical Constraints File" type_short="PDC">

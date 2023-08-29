@@ -35,6 +35,8 @@ architecture rtl of tx_chain is
     signal fm_mod_axis_out_mod    		: axis_out_mod_t;
 	signal freq_mod_axis_in_iq			: axis_in_iq_t;
     signal freq_mod_axis_out_iq			: axis_out_iq_t;
+	signal gain_axis_in_mod				: axis_out_mod_t;
+	signal gain_axis_out_mod			: axis_in_mod_t;
 begin
     -- Interpolator 8 to 400kHz
 	interpol0: entity work.mod_resampler
@@ -43,6 +45,15 @@ begin
 		s_axis_mod_i => source_axis_out_mod,
 		s_axis_mod_o => source_axis_in_mod,
 		m_axis_mod_o => resampler_axis_out_mod,
+		m_axis_mod_i => gain_axis_in_mod
+	);
+	
+	--gain block
+	post_gain0: entity work.gain_mod port map(
+		clk_i => clk_64,
+		s_axis_mod_i => resampler_axis_out_mod,
+		s_axis_mod_o => gain_axis_in_mod,
+		m_axis_mod_o => gain_axis_out_mod,
 		m_axis_mod_i => resampler_axis_in_mod
 	);
 
@@ -63,7 +74,7 @@ begin
         clk_i => clk_64,
         nrst_i => resetn,
         nw_i => regs_rw(CR_2)(8),
-        s_axis_mod_i => resampler_axis_out_mod,
+        s_axis_mod_i => gain_axis_out_mod,
         s_axis_mod_o => fm_mod_axis_in_mod,
         m_axis_iq_i => freq_mod_axis_out_iq,
         m_axis_iq_o => freq_mod_axis_in_iq
