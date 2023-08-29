@@ -9,48 +9,6 @@
         <Source name="source/impl_1/spi_slave.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
-        <Source name="source/impl_1/add_const.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
-        </Source>
-        <Source name="source/impl_1/complex_mul.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
-        </Source>
-        <Source name="source/impl_1/decim.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
-        </Source>
-        <Source name="source/impl_1/rssi_est.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
-        </Source>
-        <Source name="source/impl_1/fir_channel.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
-        </Source>
-        <Source name="source/impl_1/fir_hilbert.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
-        </Source>
-        <Source name="source/impl_1/fir_rrc.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
-        </Source>
-        <Source name="source/impl_1/fir_rssi.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
-        </Source>
-        <Source name="source/impl_1/fir_halfband.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
-        </Source>
-        <Source name="source/impl_1/channel_filter.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
-        </Source>
-        <Source name="source/impl_1/freq_demod.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
-        </Source>
-        <Source name="source/impl_1/iq_deserializer.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
-        </Source>
-        <Source name="source/impl_1/local_osc.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
-        </Source>
-        <Source name="source/impl_1/mag_est.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
-        </Source>
         <Source name="source/impl_1/mod_interpolator.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
@@ -66,25 +24,10 @@
         <Source name="source/impl_1/axis_mod_fifo_if.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
-        <Source name="source/impl_1/dither_adder.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
-        </Source>
-        <Source name="source/impl_1/dither_source.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
-        </Source>
-        <Source name="source/impl_1/iq_balancer.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
-        </Source>
-        <Source name="source/impl_1/iq_offset.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
-        </Source>
         <Source name="source/impl_1/mod_sel.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
         <Source name="source/impl_1/cordic.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
-        </Source>
-        <Source name="source/impl_1/dpd.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
         <Source name="source/impl_1/regs_pkg.vhd" type="VHDL" type_short="VHDL">
@@ -96,13 +39,13 @@
         <Source name="source/impl_1/openht_utils_pkg.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
-        <Source name="source/impl_1/c_16qam_map.vhd" type="VHDL" type_short="VHDL">
+        <Source name="pll_osc/pll_osc.ipx" type="IPX_Module" type_short="IPX">
             <Options/>
         </Source>
-        <Source name="source/impl_1/delay_block.vhd" type="VHDL" type_short="VHDL">
+        <Source name="ddr_rx/ddr_rx.ipx" type="IPX_Module" type_short="IPX">
             <Options/>
         </Source>
-        <Source name="source/impl_1/sideband_selector.vhd" type="VHDL" type_short="VHDL">
+        <Source name="ddr_tx/ddr_tx.ipx" type="IPX_Module" type_short="IPX">
             <Options/>
         </Source>
         <Source name="source/impl_1/cordic_sincos.vhd" type="VHDL" type_short="VHDL">
