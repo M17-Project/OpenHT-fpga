@@ -17,8 +17,8 @@ use work.axi_stream_pkg.all;
 
 entity main_all is
 	generic(
-		REV_MAJOR			: natural := 0;
-		REV_MINOR			: natural := 2
+		REV_MAJOR : natural;
+		REV_MINOR : natural
 	);
 	port(
 		-- 32 MHz clock input from the AT86
