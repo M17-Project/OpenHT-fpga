@@ -27,14 +27,13 @@ end entity gain_mod;
 architecture magic of gain_mod is
 	signal gain_out : std_logic_vector(31 downto 0) := (others => '0');
 begin
-	gain_out <= x"0000" & s_axis_mod_i.tdata; --std_logic_vector(signed(s_axis_mod_i.tdata) * x"6AAA"); -- gain = +1.6667
+	gain_out <= std_logic_vector(signed(s_axis_mod_i.tdata) * x"6AAA"); -- gain = +1.6667
 
 	process(clk_i)
 	begin
 		if rising_edge(clk_i) then
 			if s_axis_mod_i.tvalid and m_axis_mod_i.tready then
-				--m_axis_mod_o.tdata <= gain_out(31-2 downto 16-2); -- TODO: add saturation here
-				m_axis_mod_o.tdata <= gain_out(15 downto 0);
+				m_axis_mod_o.tdata <= gain_out(31-2 downto 16-2); -- TODO: add saturation here
 			end if;
 
 			-- push the flags further
@@ -43,5 +42,5 @@ begin
 	end process;
 
 	-- pass the TREADY flag as is
-	s_axis_mod_o.tready <= m_axis_mod_i.tready and not m_axis_mod_o.tvalid;
+	s_axis_mod_o.tready <= m_axis_mod_i.tready;
 end architecture;

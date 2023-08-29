@@ -3,6 +3,9 @@
     <Options/>
     <Implementation title="impl_1" dir="impl_1" description="impl_1" synthesis="lse" default_strategy="Strategy1">
         <Options def_top="am_modulator" top="main_pads"/>
+        <Source name="source/impl_1/main_pads.vhd" type="VHDL" type_short="VHDL">
+            <Options top_module="main_pads"/>
+        </Source>
         <Source name="source/impl_1/main.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
@@ -39,23 +42,11 @@
         <Source name="source/impl_1/openht_utils_pkg.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
-        <Source name="pll_osc/pll_osc.ipx" type="IPX_Module" type_short="IPX">
-            <Options/>
-        </Source>
-        <Source name="ddr_rx/ddr_rx.ipx" type="IPX_Module" type_short="IPX">
-            <Options/>
-        </Source>
-        <Source name="ddr_tx/ddr_tx.ipx" type="IPX_Module" type_short="IPX">
-            <Options/>
-        </Source>
         <Source name="source/impl_1/cordic_sincos.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
         <Source name="source/impl_1/axis_fork.vhd" type="VHDL" type_short="VHDL">
             <Options/>
-        </Source>
-        <Source name="source/impl_1/main_pads.vhd" type="VHDL" type_short="VHDL">
-            <Options top_module="main_pads"/>
         </Source>
         <Source name="source/impl_1/cordic_pkg.vhd" type="VHDL" type_short="VHDL">
             <Options/>
