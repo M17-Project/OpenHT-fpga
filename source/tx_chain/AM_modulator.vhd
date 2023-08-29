@@ -23,7 +23,7 @@ end am_modulator;
 
 architecture magic of am_modulator is
 begin
-	process (clk_i)
+	process(clk_i)
 	begin
 		if rising_edge(clk_i) then
 			if s_axis_mod_i.tvalid and m_axis_iq_i.tready then
@@ -37,5 +37,5 @@ begin
 	end process;
 
 	-- pass the TREADY flag as is
-	s_axis_mod_o.tready <= m_axis_iq_i.tready and not m_axis_iq_o.tvalid;
+	s_axis_mod_o.tready <= m_axis_iq_i.tready;
 end magic;

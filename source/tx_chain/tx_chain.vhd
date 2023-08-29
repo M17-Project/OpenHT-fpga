@@ -79,6 +79,16 @@ begin
         m_axis_iq_i => freq_mod_axis_out_iq,
         m_axis_iq_o => freq_mod_axis_in_iq
     );
+	
+    -- amplitude modulator
+    ampl_mod0: entity work.am_modulator
+    port map(
+        clk_i => clk_64,
+        s_axis_mod_i => open,
+        s_axis_mod_o => open,
+        m_axis_iq_i => open,
+        m_axis_iq_o => open
+    );	
 
 	-- modulation selector
 	tx_mod_sel0: entity work.mod_sel port map(
