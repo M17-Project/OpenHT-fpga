@@ -37,6 +37,8 @@ architecture rtl of tx_chain is
     signal freq_mod_axis_out_iq			: axis_out_iq_t;
 	signal gain_axis_in_mod				: axis_out_mod_t;
 	signal gain_axis_out_mod			: axis_in_mod_t;
+	signal bal_axis_in_iq				: axis_out_iq_t;
+	signal bal_axis_out_iq				: axis_in_iq_t;
 	signal offset_axis_in_iq			: axis_out_iq_t;
 	signal offset_axis_out_iq			: axis_in_iq_t;
 begin
@@ -106,9 +108,20 @@ begin
 		s02_axis_iq_o => open,
 		s03_axis_iq_o => open,
 		s04_axis_iq_o => open,
-		m_axis_iq_i => offset_axis_in_iq,
-		m_axis_iq_o => offset_axis_out_iq
+		m_axis_iq_i => bal_axis_in_iq,
+		m_axis_iq_o => bal_axis_out_iq
 	);
+	
+	-- I/Q balancing block
+	iq_balance0: entity work.bal_iq port map(
+		clk_i		=> clk_64,
+		i_bal_i	=> regs_rw(I_GAIN),
+		q_bal_i	=> regs_rw(Q_GAIN),
+		s_axis_iq_i	=> bal_axis_out_iq,
+		s_axis_iq_o	=> bal_axis_in_iq,
+		m_axis_iq_o	=> offset_axis_out_iq,
+		m_axis_iq_i	=> offset_axis_in_iq
+	);	
 	
 	-- I/Q offset block
 	iq_offset0: entity work.offset_iq port map(
