@@ -37,6 +37,8 @@ architecture rtl of tx_chain is
     signal freq_mod_axis_out_iq			: axis_out_iq_t;
 	signal gain_axis_in_mod				: axis_out_mod_t;
 	signal gain_axis_out_mod			: axis_in_mod_t;
+	signal offset_axis_in_iq			: axis_out_iq_t;
+	signal offset_axis_out_iq			: axis_in_iq_t;
 begin
     -- Interpolator 8 to 400kHz
 	interpol0: entity work.mod_resampler
@@ -104,8 +106,19 @@ begin
 		s02_axis_iq_o => open,
 		s03_axis_iq_o => open,
 		s04_axis_iq_o => open,
-		m_axis_iq_i => tx_axis_iq_i,
-		m_axis_iq_o => tx_axis_iq_o
+		m_axis_iq_i => offset_axis_in_iq,
+		m_axis_iq_o => offset_axis_out_iq
+	);
+	
+	-- I/Q offset block
+	iq_offset0: entity work.offset_iq port map(
+		clk_i		=> clk_64,
+		i_offs_i	=> regs_rw(I_OFFS),
+		q_offs_i	=> regs_rw(Q_OFFS),
+		s_axis_iq_i	=> offset_axis_out_iq,
+		s_axis_iq_o	=> offset_axis_in_iq,
+		m_axis_iq_o	=> tx_axis_iq_o,
+		m_axis_iq_i	=> tx_axis_iq_i
 	);
 
 end architecture;

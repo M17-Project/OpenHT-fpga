@@ -32,7 +32,7 @@ architecture magic of fm_modulator is
 	signal ready : std_logic;
 	signal output_valid : std_logic := '0';
 
-	constant gain_scaling : real := 1.5;
+	constant gain_scaling : real := 1.75; -- TODO: explain this param and increase the dynamic range
 
 	type mod_state_t is (IDLE, COMPUTE, DONE);
 	signal mod_state : mod_state_t := IDLE;
