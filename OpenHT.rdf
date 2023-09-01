@@ -2,7 +2,7 @@
 <RadiantProject version="4.2" radiant="2022.1.1.289.4" title="OpenHT" device="LIFCL-40-9SG72C" performance_grade="9_High-Performance_1.0V" default_implementation="impl_1">
     <Options/>
     <Implementation title="impl_1" dir="impl_1" description="impl_1" synthesis="lse" default_strategy="Strategy1">
-        <Options def_top="main_pads" top="main_pads"/>
+        <Options def_top="axis_fork" top="main_pads"/>
         <Source name="source/impl_1/main_pads.vhd" type="VHDL" type_short="VHDL">
             <Options top_module="main_pads"/>
         </Source>
