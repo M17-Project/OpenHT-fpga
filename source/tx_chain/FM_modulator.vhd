@@ -85,7 +85,7 @@ begin
 
 				when others => -- IDLE, safe
 					m_axis_iq_o.tvalid <= '0';
-					ready <= '1';
+					ready <= m_axis_iq_i.tready;
 					if s_axis_mod_i.tvalid and ready then
 						ready <= '0';
 						phase_vld <= '1';
