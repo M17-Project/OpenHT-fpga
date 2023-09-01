@@ -35,11 +35,17 @@ architecture tb of tb_fm_mod is
   signal m_axis_iq_o : axis_in_iq_t;
   signal data_o : std_logic_vector(1 downto 0);
 
-  constant master_stall_config : stall_config_t := new_stall_config(stall_probability => 0.2, min_stall_cycles => 2, max_stall_cycles => 10);
+  constant protocol_checker : axi_stream_protocol_checker_t := new_axi_stream_protocol_checker(
+    data_length => 32,
+    logger      => get_logger("protocol_checker"),
+    max_waits   => 64
+  );
+
+  constant master_stall_config : stall_config_t := new_stall_config(stall_probability => 0.2, min_stall_cycles => 2, max_stall_cycles => 40);
   constant master_axi_stream : axi_stream_master_t := new_axi_stream_master(data_length => 16,
     stall_config => master_stall_config);
 
-  constant slave_stall_config : stall_config_t := new_stall_config(stall_probability => 0.2, min_stall_cycles => 2, max_stall_cycles => 10);
+  constant slave_stall_config : stall_config_t := new_stall_config(stall_probability => 0.2, min_stall_cycles => 2, max_stall_cycles => 40);
   constant slave_axi_stream : axi_stream_slave_t := new_axi_stream_slave(
     data_length => 32);
 
@@ -71,11 +77,6 @@ begin
   end process;
 
   fm_modulator_inst : entity work.fm_modulator
-  generic map (
-    SINCOS_RES => 16,
-    SINCOS_ITER => 20,
-    SINCOS_COEFF => X"4DB0"
-  )
   port map (
     clk_i => clk_i,
     nrst_i => rst_i,
@@ -96,14 +97,25 @@ begin
       tready => s_axis_mod_o.tready,
       tdata  => s_axis_mod_i.tdata);
 
-      axi_stream_slave_inst : entity vunit_lib.axi_stream_slave
-      generic map(
-        slave => slave_axi_stream)
-      port map(
-        aclk     => clk_i,
-        areset_n => rst_i,
-        tvalid   => m_axis_iq_o.tvalid,
-        tready   => m_axis_iq_i.tready,
-        tdata    => m_axis_iq_o.tdata);
+  axi_stream_slave_inst : entity vunit_lib.axi_stream_slave
+  generic map(
+    slave => slave_axi_stream)
+  port map(
+    aclk     => clk_i,
+    areset_n => rst_i,
+    tvalid   => m_axis_iq_o.tvalid,
+    tready   => m_axis_iq_i.tready,
+    tdata    => m_axis_iq_o.tdata);
+
+  axi_stream_protocol_checker_inst : entity vunit_lib.axi_stream_protocol_checker
+  generic map(
+    protocol_checker => protocol_checker)
+  port map(
+    aclk     => clk_i,
+    areset_n => rst_i,
+    tvalid   => m_axis_iq_o.tvalid,
+    tready   => m_axis_iq_i.tready,
+    tdata    => m_axis_iq_o.tdata
+  );
 
 end architecture;

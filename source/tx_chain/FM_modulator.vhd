@@ -66,6 +66,7 @@ begin
 	begin
 		if nrst_i='0' then
 			phase <= (others => '0');
+			m_axis_iq_o.tvalid <= '0';
 		elsif rising_edge(clk_i) then
 			-- Store a new transaction when ready
 			ready <= '0';
