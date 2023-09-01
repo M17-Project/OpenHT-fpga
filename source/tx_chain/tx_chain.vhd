@@ -90,8 +90,19 @@ begin
         s_axis_mod_o => am_mod_axis_in_mod,
         m_axis_iq_i => ampl_mod_axis_out_iq,
         m_axis_iq_o => ampl_mod_axis_in_iq
-    );	
-
+    );
+	
+	-- Backpropagation of the ready signal to interpolator
+	axis_fork0: entity work.axis_fork port map(
+		s_mod_in => resampler_axis_in_mod,
+		sel_i => regs_rw(CR_1)(14 downto 12),
+		m00_mod_out => fm_mod_axis_in_mod,
+		m01_mod_out => am_mod_axis_in_mod,
+		m02_mod_out => axis_out_mod_null,
+		m03_mod_out => axis_out_mod_null,
+		m04_mod_out => axis_out_mod_null
+	);
+		
 	-- modulation selector
 	tx_mod_sel0: entity work.mod_sel port map(
 		clk_i => clk_64,
@@ -107,14 +118,7 @@ begin
 		s03_axis_iq_o => open,
 		s04_axis_iq_o => open,
 		m_axis_iq_i => bal_axis_in_iq,
-		m_axis_iq_o => bal_axis_out_iq,
-		-- Backpropagation of the ready signal to interpolator
-		s_mod_in => resampler_axis_in_mod,
-		m00_mod_out => fm_mod_axis_in_mod,
-		m01_mod_out => am_mod_axis_in_mod,
-		m02_mod_out => axis_out_mod_null,
-		m03_mod_out => axis_out_mod_null,
-		m04_mod_out => axis_out_mod_null
+		m_axis_iq_o => bal_axis_out_iq
 	);
 	
 	-- I/Q balancing block
