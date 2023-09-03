@@ -80,10 +80,35 @@ architecture magic of main_all is
 	signal tx_axis_iq_o					: axis_in_iq_t := axis_in_iq_null;
 	signal tx_axis_iq_i 				: axis_out_iq_t;
 
+	signal rx_axis_iq_09_o				: axis_in_iq_t := axis_in_iq_null;
+	signal rx_axis_iq_09_i 				: axis_out_iq_t;
+	signal rx_axis_iq_24_o				: axis_in_iq_t := axis_in_iq_null;
+	signal rx_axis_iq_24_i 				: axis_out_iq_t;
+
 begin
 
 	clk_64 <= clk_i;
 	---------------------------------------- RX -----------------------------------------
+	ddr_pack_09_inst : entity work.ddr_pack
+	port map (
+	  clk_i => clk_64,
+	  nrst_i => '1',
+	  ddr_din => data_rx09_r,
+	  ddr_clkin => clk_rx09,
+	  m_axis_iq_o => rx_axis_iq_09_o,
+	  m_axis_iq_i => rx_axis_iq_09_i
+	);
+
+	ddr_pack_24_inst : entity work.ddr_pack
+	port map (
+		clk_i => clk_64,
+		nrst_i => '1',
+		ddr_din => data_rx24_r,
+		ddr_clkin => clk_rx24,
+		m_axis_iq_o => rx_axis_iq_24_o,
+		m_axis_iq_i => rx_axis_iq_24_i
+	);
+
 	-- IQ stream deserializer
 	--des_inp <= data_rx09_r or data_rx24_r; -- crude, but works
 	----des_inp <= data_rx09_r when regs_rw(CR_1)(1 downto 0)="00"
