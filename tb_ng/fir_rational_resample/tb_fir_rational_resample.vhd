@@ -21,11 +21,11 @@ use vunit_lib.stream_slave_pkg.all;
 use work.axi_stream_pkg.all;
 use work.openht_utils_pkg.all;
 
-entity tb_mod_interpolator is
+entity tb_fir_rational_resample is
   generic (runner_cfg : string);
 end entity;
 
-architecture tb of tb_mod_interpolator is
+architecture tb of tb_fir_rational_resample is
   signal clk_i : std_logic;
   signal rst_i : std_logic;
 
@@ -34,6 +34,12 @@ architecture tb of tb_mod_interpolator is
 
   signal m_axis_mod_i : axis_out_mod_t;
   signal m_axis_mod_o : axis_in_mod_t;
+
+  constant protocol_checker : axi_stream_protocol_checker_t := new_axi_stream_protocol_checker(
+    data_length => 16,
+    logger      => get_logger("protocol_checker"),
+    max_waits   => 64
+  );
 
   constant master_stall_config : stall_config_t := new_stall_config(stall_probability => 0.2, min_stall_cycles => 2, max_stall_cycles => 10);
   constant master_axi_stream : axi_stream_master_t := new_axi_stream_master(data_length => 16,
@@ -93,14 +99,25 @@ begin
       tready => s_axis_mod_o.tready,
       tdata  => s_axis_mod_i.tdata);
 
-      axi_stream_slave_inst : entity vunit_lib.axi_stream_slave
-      generic map(
-        slave => slave_axi_stream)
-      port map(
-        aclk     => clk_i,
-        areset_n => rst_i,
-        tvalid   => m_axis_mod_o.tvalid,
-        tready   => m_axis_mod_i.tready,
-        tdata    => m_axis_mod_o.tdata);
+  axi_stream_slave_inst : entity vunit_lib.axi_stream_slave
+  generic map(
+    slave => slave_axi_stream)
+  port map(
+    aclk     => clk_i,
+    areset_n => rst_i,
+    tvalid   => m_axis_mod_o.tvalid,
+    tready   => m_axis_mod_i.tready,
+    tdata    => m_axis_mod_o.tdata);
+
+  axi_stream_protocol_checker_inst : entity vunit_lib.axi_stream_protocol_checker
+  generic map(
+    protocol_checker => protocol_checker)
+  port map(
+    aclk     => clk_i,
+    areset_n => rst_i,
+    tvalid   => m_axis_mod_o.tvalid,
+    tready   => m_axis_mod_i.tready,
+    tdata    => m_axis_mod_o.tdata
+  );
 
 end architecture;

@@ -19,7 +19,7 @@ lib = vu.add_library("lib")
 # Add all files ending in .vhd in current working directory to library
 lib.add_source_files("../../source/impl_1/axi_stream_pkg.vhd")
 lib.add_source_files("../../source/impl_1/openht_utils_pkg.vhd")
-lib.add_source_files("../../source/impl_1/mod_interpolator.vhd")
+lib.add_source_files("../../source/impl_1/fir_rational_resample.vhd")
 lib.add_source_files("../../source/impl_1/mod_resampler.vhd")
 lib.add_source_files("*.vhd")
 

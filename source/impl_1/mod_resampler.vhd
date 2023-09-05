@@ -174,7 +174,7 @@ architecture magic of mod_resampler is
 	signal interp1_axis_in		: axis_out_mod_t;
 	signal interp1_axis_out		: axis_in_mod_t;
 begin
-	interpol0: entity work.mod_interpolator
+	interpol0: entity work.fir_rational_resample
 	generic map(
 		N_TAPS	=> 405,
 		L		=> 5,
@@ -189,7 +189,7 @@ begin
 		m_axis_mod_i 	=> interp0_axis_in
 	);
 
-	interpol1: entity work.mod_interpolator
+	interpol1: entity work.fir_rational_resample
 	generic map(
 		N_TAPS	=> 205,
 		L		=> 5,
@@ -204,7 +204,7 @@ begin
 		m_axis_mod_i 	=> interp1_axis_in
 	);
 
-	interpol2: entity work.mod_interpolator
+	interpol2: entity work.fir_rational_resample
 	generic map(
 		N_TAPS	=> 100,
 		L		=> 2,

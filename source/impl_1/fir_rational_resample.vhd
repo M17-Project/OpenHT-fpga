@@ -16,11 +16,12 @@ use ieee.math_real.all;
 use work.axi_stream_pkg.all;
 use work.openht_utils_pkg.all;
 
-entity mod_interpolator is
+entity fir_rational_resample is
   generic
   (
     N_TAPS : natural := 4; --!!! TAPS count must be a multiple of L
     L      : natural := 2; -- Interpolation factor
+    M      : natural := 4; -- Decimation factor
     C_TAPS : taps_mod_t := (x"1000", x"1000", x"1000", x"1000"); -- TAPS value
     C_OUT_SHIFT : natural
   );
@@ -32,14 +33,15 @@ entity mod_interpolator is
     m_axis_mod_o : out axis_in_mod_t := (tdata => (others => '0'), tvalid => '0');
     m_axis_mod_i : in axis_out_mod_t
   );
-end entity mod_interpolator;
+end entity fir_rational_resample;
 
-architecture rtl of mod_interpolator is
+architecture rtl of fir_rational_resample is
     constant C_BUFFER_SIZE : natural := N_TAPS / L;
 
-    type interp_state_t is (IDLE, START_COMPUTE, FIR_COMPUTE, OUTPUT_DATA);
+    type interp_state_t is (IDLE, START_COMPUTE, FIR_COMPUTE, OUTPUT_DATA_1, OUTPUT_DATA_2);
     signal interp_state : interp_state_t := IDLE;
     signal interp_round : unsigned(3 downto 0) := (others => '0');
+    signal decimation_round : unsigned(3 downto 0) := (others => '0');
     signal tap_addr    : unsigned(log2up(N_TAPS)-1 downto 0) := (others => '0');
     signal data_counter : unsigned(log2up(C_BUFFER_SIZE)-1 downto 0) := (others => '0');
 
@@ -105,14 +107,30 @@ begin
                     data_counter <= data_counter + 1;
                     buffer_rdptr <= buffer_rdptr - 1;
                 else
-                    interp_state <= OUTPUT_DATA;
+                    interp_state <= OUTPUT_DATA_1;
                     interp_round <= interp_round + 1;
                     accumulate_0 <= '0'; -- Stop accumulation
                 end if;
 
-            when OUTPUT_DATA => -- Wait until acc is ready
+            when OUTPUT_DATA_1 =>
                 data_counter <= (others => '0');
                 buffer_rdptr <= round_rdptr;
+                if decimation_round < M-1 then
+                    decimation_round <= decimation_round + 1;
+                else
+                    decimation_round <= (others => '0');
+                end if;
+
+                if decimation_round = 0 then
+                    interp_state <= OUTPUT_DATA_2;
+                elsif interp_round = L then
+                    interp_state <= IDLE;
+                else
+                    interp_state <= FIR_COMPUTE;
+                end if;
+                tap_addr		<= resize(interp_round, tap_addr'length);
+
+            when OUTPUT_DATA_2 => -- Wait until acc is ready
                 if not accumulate_1 then
                     m_axis_mod_o.tdata <= std_logic_vector(accumulator(39-log2up(N_TAPS)-C_OUT_SHIFT downto 39-16-log2up(N_TAPS)-C_OUT_SHIFT+1));
                     m_axis_mod_o.tvalid <= '1';
@@ -124,14 +142,13 @@ begin
                     accumulator <= (others => '0');
                     if interp_round < L then
                         interp_state	<= FIR_COMPUTE;
-                        tap_addr		<= resize(interp_round, tap_addr'length);
                     else
                         interp_state	<= IDLE;
                     end if;
                 end if;
 
             when others => -- IDLE
-                s_axis_mod_o.tready <= '1';
+                s_axis_mod_o.tready <= m_axis_mod_i.tready;
                 interp_round		<= (others => '0');
                 tap_addr			<= (others => '0');
                 data_counter		<= (others => '0');
