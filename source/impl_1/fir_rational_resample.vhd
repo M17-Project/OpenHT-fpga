@@ -38,7 +38,7 @@ end entity fir_rational_resample;
 architecture rtl of fir_rational_resample is
     constant C_BUFFER_SIZE : natural := N_TAPS / L;
 
-    type interp_state_t is (IDLE, START_COMPUTE, FIR_COMPUTE, OUTPUT_DATA_1, OUTPUT_DATA_2);
+    type interp_state_t is (IDLE, START_COMPUTE, FIR_COMPUTE, FINISH_COMPUTE, OUTPUT_DATA);
     signal interp_state : interp_state_t := IDLE;
     signal interp_round : unsigned(3 downto 0) := (others => '0');
     signal decimation_round : unsigned(3 downto 0) := (others => '0');
@@ -102,17 +102,18 @@ begin
                 accumulate_0 <= '1'; -- Accumulate
 
                 -- Compute N samples FIR
-                if data_counter < (N_TAPS/L) - 1 then
+                -- Skip this output sample is decimated
+                if data_counter < (N_TAPS/L) - 1 and decimation_round = 0 then
                     tap_addr <= tap_addr + L;
                     data_counter <= data_counter + 1;
                     buffer_rdptr <= buffer_rdptr - 1;
                 else
-                    interp_state <= OUTPUT_DATA_1;
+                    interp_state <= FINISH_COMPUTE;
                     interp_round <= interp_round + 1;
                     accumulate_0 <= '0'; -- Stop accumulation
                 end if;
 
-            when OUTPUT_DATA_1 =>
+            when FINISH_COMPUTE =>
                 data_counter <= (others => '0');
                 buffer_rdptr <= round_rdptr;
                 if decimation_round < M-1 then
@@ -122,7 +123,7 @@ begin
                 end if;
 
                 if decimation_round = 0 then
-                    interp_state <= OUTPUT_DATA_2;
+                    interp_state <= OUTPUT_DATA;
                 elsif interp_round = L then
                     interp_state <= IDLE;
                 else
@@ -130,7 +131,7 @@ begin
                 end if;
                 tap_addr		<= resize(interp_round, tap_addr'length);
 
-            when OUTPUT_DATA_2 => -- Wait until acc is ready
+            when OUTPUT_DATA => -- Wait until acc is ready
                 if not accumulate_1 then
                     m_axis_mod_o.tdata <= std_logic_vector(accumulator(39-log2up(N_TAPS)-C_OUT_SHIFT downto 39-16-log2up(N_TAPS)-C_OUT_SHIFT+1));
                     m_axis_mod_o.tvalid <= '1';
