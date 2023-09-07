@@ -47,7 +47,7 @@ architecture tb of tb_fm_mod is
 
   constant slave_stall_config : stall_config_t := new_stall_config(stall_probability => 0.2, min_stall_cycles => 2, max_stall_cycles => 40);
   constant slave_axi_stream : axi_stream_slave_t := new_axi_stream_slave(
-    data_length => 32);
+    data_length => 32, stall_config => slave_stall_config);
 
 begin
   clk_p : process
