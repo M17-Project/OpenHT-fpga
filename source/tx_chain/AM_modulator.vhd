@@ -24,22 +24,26 @@ end am_modulator;
 
 architecture magic of am_modulator is
 	signal post_offset : std_logic_vector(15 downto 0) := (others => '0');
+	signal out_valid : std_logic := '0';
 begin
 	post_offset <= std_logic_vector(signed(s_axis_mod_i.tdata) - 16#8000#);
 
 	process(clk_i)
 	begin
 		if rising_edge(clk_i) then
-			if s_axis_mod_i.tvalid and m_axis_iq_i.tready then
+			if s_axis_mod_i.tvalid then
 				m_axis_iq_o.tdata(31 downto 16) <= '0' & post_offset(15 downto 1);
 				m_axis_iq_o.tdata(15 downto 0) <= (others => '0');
+				out_valid <= '1';
 			end if;
 
-			-- push the flags further
-			m_axis_iq_o.tvalid <= s_axis_mod_i.tvalid;
+			if m_axis_iq_i.tready and out_valid then
+				out_valid <= '0';
+			end if;
+
 		end if;
 	end process;
-
-	-- pass the TREADY flag as is
-	s_axis_mod_o.tready <= m_axis_iq_i.tready;
+	
+	m_axis_iq_o.tvalid <= out_valid;
+	s_axis_mod_o.tready <= m_axis_iq_i.tready and not out_valid;
 end magic;
