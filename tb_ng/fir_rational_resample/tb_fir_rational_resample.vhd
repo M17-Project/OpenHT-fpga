@@ -47,7 +47,7 @@ architecture tb of tb_fir_rational_resample is
 
   constant slave_stall_config : stall_config_t := new_stall_config(stall_probability => 0.2, min_stall_cycles => 2, max_stall_cycles => 10);
   constant slave_axi_stream : axi_stream_slave_t := new_axi_stream_slave(
-    data_length => 16);
+    data_length => 16, stall_config => slave_stall_config);
 
 begin
   clk_p : process
