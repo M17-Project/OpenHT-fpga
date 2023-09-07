@@ -20,8 +20,8 @@ entity fir_rational_resample is
   generic
   (
     N_TAPS : natural := 4; --!!! TAPS count must be a multiple of L
-    L      : natural := 2; -- Interpolation factor
-    M      : natural := 4; -- Decimation factor
+    L      : natural; -- Interpolation factor
+    M      : natural; -- Decimation factor
     C_TAPS : taps_mod_t := (x"1000", x"1000", x"1000", x"1000"); -- TAPS value
     C_OUT_SHIFT : natural
   );
@@ -38,7 +38,7 @@ end entity fir_rational_resample;
 architecture rtl of fir_rational_resample is
     constant C_BUFFER_SIZE : natural := N_TAPS / L;
 
-    type interp_state_t is (IDLE, START_COMPUTE, FIR_COMPUTE, FINISH_COMPUTE, OUTPUT_DATA);
+    type interp_state_t is (IDLE, SETUP_INTERPOLATE, SETUP_DECIMATE, FIR_COMPUTE, OUTPUT_DATA);
     signal interp_state : interp_state_t := IDLE;
     signal interp_round : unsigned(3 downto 0) := (others => '0');
     signal decimation_round : unsigned(3 downto 0) := (others => '0');
@@ -86,50 +86,49 @@ begin
     begin
         if rising_edge(clk_i) then
         s_axis_mod_o.tready <= '0';
+        accumulate_0 <= '0'; -- Stop accumulation, overriden when state = FIR_COMPUTE
         accumulate_1 <= accumulate_0;
 
-        if accumulate_1 then
+        if accumulate_0 then
             accumulator <= accumulator + multiply_out;
         end if;
 
         case interp_state is
-            when START_COMPUTE =>
+            when SETUP_INTERPOLATE =>
+                if interp_round < L then
+                    interp_state <= SETUP_DECIMATE;
+                    interp_round <= interp_round + 1;
+                else
+                    interp_round <= (others => '0');
+                    interp_state <= IDLE;
+                end if;
                 data_counter <= (others => '0');
                 buffer_rdptr <= round_rdptr;
+                tap_addr <= resize(interp_round, tap_addr'length);
+
+            when SETUP_DECIMATE =>
                 interp_state <= FIR_COMPUTE;
+                if decimation_round < M-1 then
+                    decimation_round <= decimation_round + 1;
+                    interp_state <= SETUP_INTERPOLATE;
+                else
+                    decimation_round <= (others => '0');
+                    interp_state <= FIR_COMPUTE;
+                end if;
 
             when FIR_COMPUTE =>
                 accumulate_0 <= '1'; -- Accumulate
 
                 -- Compute N samples FIR
                 -- Skip this output sample is decimated
-                if data_counter < (N_TAPS/L) - 1 and decimation_round = 0 then
+                if data_counter < (N_TAPS/L) - 1 then
                     tap_addr <= tap_addr + L;
                     data_counter <= data_counter + 1;
                     buffer_rdptr <= buffer_rdptr - 1;
                 else
-                    interp_state <= FINISH_COMPUTE;
-                    interp_round <= interp_round + 1;
-                    accumulate_0 <= '0'; -- Stop accumulation
-                end if;
-
-            when FINISH_COMPUTE =>
-                data_counter <= (others => '0');
-                buffer_rdptr <= round_rdptr;
-                if decimation_round < M-1 then
-                    decimation_round <= decimation_round + 1;
-                else
-                    decimation_round <= (others => '0');
-                end if;
-
-                if decimation_round = 0 then
                     interp_state <= OUTPUT_DATA;
-                elsif interp_round = L then
-                    interp_state <= IDLE;
-                else
-                    interp_state <= FIR_COMPUTE;
+                    -- Stop accumulation by after exiting this state
                 end if;
-                tap_addr		<= resize(interp_round, tap_addr'length);
 
             when OUTPUT_DATA => -- Wait until acc is ready
                 if not accumulate_1 then
@@ -141,11 +140,7 @@ begin
                 if m_axis_mod_i.tready and m_axis_mod_o.tvalid then
                     m_axis_mod_o.tvalid <= '0';
                     accumulator <= (others => '0');
-                    if interp_round < L then
-                        interp_state	<= FIR_COMPUTE;
-                    else
-                        interp_state	<= IDLE;
-                    end if;
+                    interp_state <= SETUP_INTERPOLATE;
                 end if;
 
             when others => -- IDLE
@@ -158,7 +153,7 @@ begin
                 -- When new data comes in, start to compute
                 if s_axis_mod_i.tvalid and s_axis_mod_o.tready then
                     s_axis_mod_o.tready <= '0';
-                    interp_state		<= START_COMPUTE;
+                    interp_state		<= SETUP_INTERPOLATE;
                 end if;
         end case;
     end if;

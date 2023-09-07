@@ -178,6 +178,7 @@ begin
 	generic map(
 		N_TAPS	=> 405,
 		L		=> 5,
+		M       => 1,
 		C_TAPS	=> C_TAPS_5_8K,
 		C_OUT_SHIFT => 0
 	)
@@ -193,6 +194,7 @@ begin
 	generic map(
 		N_TAPS	=> 205,
 		L		=> 5,
+		M       => 1,
 		C_TAPS	=> C_TAPS_5_40K,
 		C_OUT_SHIFT => 1
 	)
@@ -208,6 +210,7 @@ begin
 	generic map(
 		N_TAPS	=> 100,
 		L		=> 2,
+		M       => 1,
 		C_TAPS	=> C_TAPS_2_200K,
 		C_OUT_SHIFT => 1
 	)

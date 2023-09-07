@@ -72,7 +72,7 @@ begin
         push_axi_stream(net, master_axi_stream, x"7FFF", tlast => '0');
     end loop;
 
-	for loop_var in 0 to 10000 loop
+	for loop_var in 0 to 4000 loop
 		pop_axi_stream(net, slave_axi_stream, data_in, tlast_in);
 	end loop;
     wait for 10 us;
