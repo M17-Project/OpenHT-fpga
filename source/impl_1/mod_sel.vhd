@@ -35,36 +35,40 @@ entity mod_sel is
 end mod_sel;
 
 architecture magic of mod_sel is
+	signal ds_ready : std_logic;
 begin
 	process(clk_i)
 	begin
 		if rising_edge(clk_i) then
-			case sel_i is
-				when "000" =>
-					m_axis_iq_o	<= s00_axis_iq_i;
+			if ds_ready then
+				case sel_i is
+					when "000" =>
+						m_axis_iq_o	<= s00_axis_iq_i;
 
-				when "001" =>
-					m_axis_iq_o	<= s01_axis_iq_i;
+					when "001" =>
+						m_axis_iq_o	<= s01_axis_iq_i;
 
-				when "010" =>
-					m_axis_iq_o	<= s02_axis_iq_i;
+					when "010" =>
+						m_axis_iq_o	<= s02_axis_iq_i;
 
-				when "011" =>
-					m_axis_iq_o	<= s03_axis_iq_i;
+					when "011" =>
+						m_axis_iq_o	<= s03_axis_iq_i;
 
-				when "100" =>
-					m_axis_iq_o	<= s04_axis_iq_i;
+					when "100" =>
+						m_axis_iq_o	<= s04_axis_iq_i;
 
-				when others =>
-					m_axis_iq_o.tvalid <= '0';
-					
-			end case;
+					when others =>
+						m_axis_iq_o.tvalid <= '0';		
+				end case;
+			end if;
 		end if;
 	end process;
 
-	s00_axis_iq_o.tready <= m_axis_iq_i.tready;
-	s01_axis_iq_o.tready <= m_axis_iq_i.tready;
-	s02_axis_iq_o.tready <= m_axis_iq_i.tready;
-	s03_axis_iq_o.tready <= m_axis_iq_i.tready;
-	s04_axis_iq_o.tready <= m_axis_iq_i.tready;
+	ds_ready <= m_axis_iq_i.tready or not m_axis_iq_o.tvalid;
+
+	s00_axis_iq_o.tready <= ds_ready;
+	s01_axis_iq_o.tready <= ds_ready;
+	s02_axis_iq_o.tready <= ds_ready;
+	s03_axis_iq_o.tready <= ds_ready;
+	s04_axis_iq_o.tready <= ds_ready;
 end magic;
