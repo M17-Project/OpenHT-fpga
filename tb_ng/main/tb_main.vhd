@@ -32,7 +32,7 @@ end entity;
 architecture tb of tb_main is
   signal clk_i : std_logic;
   signal rst_i : std_logic;
-  
+
   signal data_tx_o : std_logic_vector(1 downto 0);
   signal clk_rx_i : std_logic;
   signal data_rx09_i : std_logic_vector(1 downto 0);
@@ -138,28 +138,35 @@ begin
     spi_ncs <= '1';
     wait for 100 ns;
     rst_i <= '1';
-    wait for 100 ns;
+    wait for 100 us;
     SPI_MASTER(SPI_PER, X"8000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
     SPI_MASTER(SPI_PER, X"0000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
     wait for 100 ns;
+
     SPI_MASTER(SPI_PER, X"800B", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
-    SPI_MASTER(SPI_PER, X"0100", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
-    SPI_MASTER(SPI_PER, X"0110", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
-    SPI_MASTER(SPI_PER, X"0120", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
-    SPI_MASTER(SPI_PER, X"0130", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
+    for iterations in 1 to 4 loop
+      for k in 1 to 2 loop
+        SPI_MASTER(SPI_PER, X"7FFF", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
+      end loop;
+      for k in 1 to 2 loop
+        SPI_MASTER(SPI_PER, X"8001", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
+      end loop;
+    end loop;
+      SPI_MASTER(SPI_PER, X"7FFF", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
+
     wait for 100 ns;
     SPI_MASTER(SPI_PER, X"0010", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
     SPI_MASTER(SPI_PER, X"0000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
-    
+
     -- SPI_MASTER(SPI_PER, X"0140", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
     -- SPI_MASTER(SPI_PER, X"0150", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
     -- SPI_MASTER(SPI_PER, X"0160", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
     -- SPI_MASTER(SPI_PER, X"0170", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
     -- SPI_MASTER(SPI_PER, X"0180", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
     -- SPI_MASTER(SPI_PER, X"0200", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
-    
 
-    wait for 2 ms;
+
+    wait for 8 ms;
 
     test_runner_cleanup(runner); -- Simulation ends here
   end process;
