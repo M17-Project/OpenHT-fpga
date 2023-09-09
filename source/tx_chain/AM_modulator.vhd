@@ -31,19 +31,15 @@ begin
 	process(clk_i)
 	begin
 		if rising_edge(clk_i) then
-			if s_axis_mod_i.tvalid then
+			if s_axis_mod_o.tready then
 				m_axis_iq_o.tdata(31 downto 16) <= '0' & post_offset(15 downto 1);
 				m_axis_iq_o.tdata(15 downto 0) <= (others => '0');
-				out_valid <= '1';
-			end if;
-
-			if m_axis_iq_i.tready and out_valid then
-				out_valid <= '0';
+				out_valid <= s_axis_mod_i.tvalid;
 			end if;
 
 		end if;
 	end process;
-	
+
 	m_axis_iq_o.tvalid <= out_valid;
-	s_axis_mod_o.tready <= m_axis_iq_i.tready and not out_valid;
+	s_axis_mod_o.tready <= m_axis_iq_i.tready or not out_valid;
 end magic;

@@ -27,21 +27,19 @@ entity offset_iq is
 end entity offset_iq;
 
 architecture magic of offset_iq is
-	--
+	signal out_valid : std_logic := '0';
 begin
 	process(clk_i)
 	begin
 		if rising_edge(clk_i) then
-			if s_axis_iq_i.tvalid and m_axis_iq_i.tready then
+			if s_axis_iq_o.tready then
 				m_axis_iq_o.tdata <= std_logic_vector(signed(s_axis_iq_i.tdata(31 downto 16))+signed(i_offs_i))
 					& std_logic_vector(signed(s_axis_iq_i.tdata(15 downto 0))+signed(q_offs_i)); -- TODO: add saturation here
+				out_valid <= s_axis_iq_i.tvalid;
 			end if;
-
-			-- push the flags further
-			m_axis_iq_o.tvalid <= s_axis_iq_i.tvalid;
 		end if;
 	end process;
 
-	-- pass the TREADY flag as is
-	s_axis_iq_o.tready <= m_axis_iq_i.tready;
+	m_axis_iq_o.tvalid <= out_valid;
+	s_axis_iq_o.tready <= m_axis_iq_i.tready or not out_valid;
 end architecture;
