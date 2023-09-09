@@ -68,11 +68,18 @@ begin
     wait for 100 ns;
     rst_i <= '1';
 
-    for loop_var in 0 to 999 loop
-        push_axi_stream(net, master_axi_stream, x"7FFF", tlast => '0');
+    for iterations in 1 to 10 loop
+      for l in 1 to 5 loop
+          for k in 1 to iterations loop
+            push_axi_stream(net, master_axi_stream, x"7FFF", tlast => '0');
+          end loop;
+          for k in 1 to iterations loop
+            push_axi_stream(net, master_axi_stream, x"8001", tlast => '0');
+          end loop;
+      end loop; 
     end loop;
 
-	for loop_var in 0 to 4000 loop
+	for loop_var in 0 to 25000 loop
 		pop_axi_stream(net, slave_axi_stream, data_in, tlast_in);
 	end loop;
     wait for 10 us;
