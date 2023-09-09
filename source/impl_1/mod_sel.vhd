@@ -28,7 +28,7 @@ entity mod_sel is
 		s03_axis_iq_o : out axis_out_iq_t;
 		s04_axis_iq_i : in axis_in_iq_t;
 		s04_axis_iq_o : out axis_out_iq_t;
-		
+
 		m_axis_iq_o : out axis_in_iq_t;
 		m_axis_iq_i : in axis_out_iq_t
 	);
@@ -58,7 +58,7 @@ begin
 						m_axis_iq_o	<= s04_axis_iq_i;
 
 					when others =>
-						m_axis_iq_o.tvalid <= '0';		
+						m_axis_iq_o.tvalid <= '0';
 				end case;
 			end if;
 		end if;
