@@ -219,6 +219,7 @@ begin
         Y => Ya,
         Z => Za,
         Data_Valid => data_valid_r,
+        Busy => Busy,
         mode => mode,
 
         X_result => X_result_i,

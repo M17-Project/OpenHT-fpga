@@ -41,11 +41,11 @@ architecture tb of tb_fm_mod is
     max_waits   => 64
   );
 
-  constant master_stall_config : stall_config_t := new_stall_config(stall_probability => 0.2, min_stall_cycles => 2, max_stall_cycles => 40);
+  constant master_stall_config : stall_config_t := new_stall_config(stall_probability => 0.5, min_stall_cycles => 2, max_stall_cycles => 40);
   constant master_axi_stream : axi_stream_master_t := new_axi_stream_master(data_length => 16,
     stall_config => master_stall_config);
 
-  constant slave_stall_config : stall_config_t := new_stall_config(stall_probability => 0.2, min_stall_cycles => 2, max_stall_cycles => 40);
+  constant slave_stall_config : stall_config_t := new_stall_config(stall_probability => 0.25, min_stall_cycles => 2, max_stall_cycles => 40);
   constant slave_axi_stream : axi_stream_slave_t := new_axi_stream_slave(
     data_length => 32, stall_config => slave_stall_config);
 
@@ -67,8 +67,11 @@ begin
     wait for 100 ns;
     rst_i <= '1';
 
-    for loop_var in 0 to 20 loop
+    for loop_var in 0 to 200 loop
         push_axi_stream(net, master_axi_stream, x"7FFF", tlast => '0');
+    end loop;
+
+    for loop_var in 0 to 200 loop
         pop_axi_stream(net, slave_axi_stream, data_in, tlast_in);
     end loop;
     wait for 10 us;

@@ -29,8 +29,9 @@ architecture magic of fm_modulator is
 	signal phase	: signed(20 downto 0) := (others => '0');
 	signal phase_vld : std_logic := '0';
 
-	signal ready : std_logic;
+	signal ready : std_logic := '0';
 	signal output_valid : std_logic := '0';
+	signal cordic_busy : std_logic;
 
 	constant gain_scaling : real := 1.75; -- TODO: explain this param and increase the dynamic range
 
@@ -50,7 +51,7 @@ begin
 		Reset => nrst_i,
 
 		Data_valid => phase_vld,
-		Busy       => open,
+		Busy       => cordic_busy,
 		Result_valid => output_valid,
 		Mode => cordic_rotate,
 
@@ -75,19 +76,20 @@ begin
 					phase_vld <= '0';
 					if output_valid then
 						mod_state <= DONE;
+						m_axis_iq_o.tvalid <= '1';
 					end if;
 
 				when DONE =>
-					m_axis_iq_o.tvalid <= '1';
 					if m_axis_iq_i.tready and m_axis_iq_o.tvalid then
 						mod_state <= IDLE;
 						m_axis_iq_o.tvalid <= '0';
+						ready <= '1';
 					end if;
 
 				when others => -- IDLE, safe
 					m_axis_iq_o.tvalid <= '0';
-					ready <= m_axis_iq_i.tready;
-					if s_axis_mod_i.tvalid and ready then
+					ready <= '1';
+					if s_axis_mod_i.tvalid and not cordic_busy then
 						ready <= '0';
 						phase_vld <= '1';
 						mod_state <= COMPUTE;
@@ -104,5 +106,5 @@ begin
 		end if;
 	end process;
 
-	s_axis_mod_o.tready <= ready and not m_axis_iq_o.tvalid;
+	s_axis_mod_o.tready <= ready;
 end magic;
