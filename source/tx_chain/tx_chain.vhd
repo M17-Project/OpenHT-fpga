@@ -99,6 +99,7 @@ begin
 	tx_fir_inst : entity work.tx_fir
 	port map (
 	  clk_i => clk_64,
+	  mode => regs_rw(CR_1)(15),
 	  s_axis_mod_i => gain_axis_out_mod,
 	  s_axis_mod_o => fir_axis_in_mod,
 	  m_axis_iq_i => fir_axis_out_iq,

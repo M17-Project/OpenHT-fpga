@@ -15,6 +15,7 @@ use work.openht_utils_pkg.all;
 entity tx_fir is
 	port(
 		clk_i        : in std_logic;
+		mode         : in std_logic;
 		s_axis_mod_i : in axis_in_mod_t;
 		s_axis_mod_o : out axis_out_mod_t;
 		m_axis_iq_o : out axis_in_iq_t;
@@ -70,7 +71,7 @@ begin
 	);
 
 	m_axis_iq_o.tdata(31 downto 16) <= i_axis_out.tdata;
-	m_axis_iq_o.tdata(15 downto 0) <= q_axis_out.tdata;
+	m_axis_iq_o.tdata(15 downto 0) <= q_axis_out.tdata when mode = '0' else std_logic_vector(-(signed(q_axis_out.tdata)));
 	m_axis_iq_o.tvalid <= i_axis_out.tvalid;
 	axis_in.tready <= m_axis_iq_i.tready;
 
