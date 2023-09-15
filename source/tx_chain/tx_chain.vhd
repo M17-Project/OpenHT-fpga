@@ -35,14 +35,17 @@ architecture rtl of tx_chain is
 	signal resampler_axis_in_mod		: axis_out_mod_t;
 	-- FM
     signal fm_mod_axis_in_mod    		: axis_out_mod_t;
-    signal fm_mod_axis_out_mod    		: axis_out_mod_t;
 	signal freq_mod_axis_in_iq			: axis_in_iq_t;
     signal freq_mod_axis_out_iq			: axis_out_iq_t;
 	-- AM
 	signal am_mod_axis_in_mod    		: axis_out_mod_t;
-    signal am_mod_axis_out_mod    		: axis_out_mod_t;
 	signal ampl_mod_axis_in_iq			: axis_in_iq_t;
     signal ampl_mod_axis_out_iq			: axis_out_iq_t;
+	-- SSB
+	signal fir_axis_in_mod    			: axis_out_mod_t;
+	signal fir_axis_in_iq				: axis_in_iq_t;
+    signal fir_axis_out_iq				: axis_out_iq_t;
+
 	-- post-processing
 	signal gain_axis_in_mod				: axis_out_mod_t;
 	signal gain_axis_out_mod			: axis_in_mod_t;
@@ -92,13 +95,23 @@ begin
         m_axis_iq_o => ampl_mod_axis_in_iq
     );
 	
+	-- FIR filter (for SSB)
+	tx_fir_inst : entity work.tx_fir
+	port map (
+	  clk_i => clk_64,
+	  s_axis_mod_i => gain_axis_out_mod,
+	  s_axis_mod_o => fir_axis_in_mod,
+	  m_axis_iq_i => fir_axis_out_iq,
+	  m_axis_iq_o => fir_axis_in_iq
+	);
+
 	-- Backpropagation of the ready signal to interpolator
 	axis_fork0: entity work.axis_fork port map(
 		s_mod_in => resampler_axis_in_mod,
 		sel_i => regs_rw(CR_1)(14 downto 12),
 		m00_mod_out => fm_mod_axis_in_mod,
 		m01_mod_out => am_mod_axis_in_mod,
-		m02_mod_out => axis_out_mod_null,
+		m02_mod_out => fir_axis_in_mod,
 		m03_mod_out => axis_out_mod_null,
 		m04_mod_out => axis_out_mod_null
 	);
@@ -109,12 +122,12 @@ begin
 		sel_i => regs_rw(CR_1)(14 downto 12),
 		s00_axis_iq_i => freq_mod_axis_in_iq, -- FM
 		s01_axis_iq_i => ampl_mod_axis_in_iq, -- AM
-		s02_axis_iq_i => (x"01FF0000", '1'), -- SSB
+		s02_axis_iq_i => fir_axis_in_iq, -- SSB
 		s03_axis_iq_i => (x"7FFF0000", '1'), -- reserved
 		s04_axis_iq_i => (x"7FFF1FF0", '1'), -- reserved
 		s00_axis_iq_o => freq_mod_axis_out_iq,
 		s01_axis_iq_o => ampl_mod_axis_out_iq,
-		s02_axis_iq_o => open,
+		s02_axis_iq_o => fir_axis_out_iq,
 		s03_axis_iq_o => open,
 		s04_axis_iq_o => open,
 		m_axis_iq_i => bal_axis_in_iq,
@@ -124,8 +137,8 @@ begin
 	-- I/Q balancing block
 	iq_balance0: entity work.bal_iq port map(
 		clk_i		=> clk_64,
-		i_bal_i	=> regs_rw(I_GAIN),
-		q_bal_i	=> regs_rw(Q_GAIN),
+		i_bal_i	=> X"1FFF",
+		q_bal_i	=> X"1FFF",
 		s_axis_iq_i	=> bal_axis_out_iq,
 		s_axis_iq_o	=> bal_axis_in_iq,
 		m_axis_iq_o	=> offset_axis_out_iq,
@@ -135,8 +148,8 @@ begin
 	-- I/Q offset block
 	iq_offset0: entity work.offset_iq port map(
 		clk_i		=> clk_64,
-		i_offs_i	=> regs_rw(I_OFFS),
-		q_offs_i	=> regs_rw(Q_OFFS),
+		i_offs_i	=> X"0000",
+		q_offs_i	=> X"0000",
 		s_axis_iq_i	=> offset_axis_out_iq,
 		s_axis_iq_o	=> offset_axis_in_iq,
 		m_axis_iq_o	=> tx_axis_iq_o,

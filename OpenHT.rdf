@@ -84,6 +84,9 @@
         <Source name="source/impl_1/fir_rational_resample.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
+        <Source name="source/tx_chain/tx_fir.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
         <Source name="source/impl_1/impl_1.pdc" type="Physical Constraints File" type_short="PDC">
             <Options/>
         </Source>
