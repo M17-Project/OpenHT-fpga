@@ -14,11 +14,15 @@ use ieee.math_real.all;
 
 use work.axi_stream_pkg.all;
 use work.regs_pkg.all;
+use work.apb_pkg.all;
 
 entity tx_chain is
     port (
         clk_64 : in std_logic;
         resetn : in std_logic;
+		-- Control Regs
+		s_apb_in : in apb_in_t;
+        s_apb_out : out apb_out_t;
         -- Modulation source
         source_axis_out_mod : in axis_in_mod_t;
         source_axis_in_mod : out axis_out_mod_t;
@@ -53,7 +57,21 @@ architecture rtl of tx_chain is
 	signal bal_axis_out_iq				: axis_in_iq_t;
 	signal offset_axis_in_iq			: axis_out_iq_t;
 	signal offset_axis_out_iq			: axis_in_iq_t;
+
+	signal mode : std_logic_vector(2 downto 0);
+
 begin
+
+	tx_apb_regs_inst : entity work.tx_apb_regs
+	generic map (
+		PSEL_ID => 0
+	)
+	port map (
+		clk => clk_64,
+		s_apb_in => s_apb_in,
+		s_apb_out => s_apb_out,
+		mode => mode
+	);
     -- Interpolator 8 to 400kHz
 	interpol0: entity work.mod_resampler
 	port map(
@@ -109,7 +127,7 @@ begin
 	-- Backpropagation of the ready signal to interpolator
 	axis_fork0: entity work.axis_fork port map(
 		s_mod_in => resampler_axis_in_mod,
-		sel_i => regs_rw(CR_1)(14 downto 12),
+		sel_i => mode,
 		m00_mod_out => fm_mod_axis_in_mod,
 		m01_mod_out => am_mod_axis_in_mod,
 		m02_mod_out => fir_axis_in_mod,
@@ -120,7 +138,7 @@ begin
 	-- modulation selector
 	tx_mod_sel0: entity work.mod_sel port map(
 		clk_i => clk_64,
-		sel_i => regs_rw(CR_1)(14 downto 12),
+		sel_i => mode,
 		s00_axis_iq_i => freq_mod_axis_in_iq, -- FM
 		s01_axis_iq_i => ampl_mod_axis_in_iq, -- AM
 		s02_axis_iq_i => fir_axis_in_iq, -- SSB

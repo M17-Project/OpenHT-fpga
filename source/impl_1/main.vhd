@@ -14,6 +14,7 @@ use IEEE.numeric_std.all;
 
 use work.regs_pkg.all;
 use work.axi_stream_pkg.all;
+use work.apb_pkg.all;
 
 entity main_all is
 	generic(
@@ -84,6 +85,16 @@ architecture magic of main_all is
 	signal rx_axis_iq_09_i 				: axis_out_iq_t;
 	signal rx_axis_iq_24_o				: axis_in_iq_t := axis_in_iq_null;
 	signal rx_axis_iq_24_i 				: axis_out_iq_t;
+
+	signal dout_o : std_logic_vector(15 downto 0);
+	signal dout_vld_o : std_logic;
+	signal cs_o : std_logic;
+	signal din_i : std_logic_vector(15 downto 0);
+	signal din_vld_i : std_logic;
+
+	signal tx_apb_out : apb_out_t;
+	signal m_apb_in : apb_in_t;
+	signal m_apb_out : apb_out_t;
 
 begin
 
@@ -401,12 +412,15 @@ begin
 	port map (
 	  clk_64 => clk_64,
 	  resetn => nrst,
+	  s_apb_in => m_apb_in,
+	  s_apb_out => tx_apb_out,
 	  source_axis_out_mod => source_axis_out_mod,
 	  source_axis_in_mod => source_axis_in_mod,
 	  tx_axis_iq_o => tx_axis_iq_o,
 	  tx_axis_iq_i => tx_axis_iq_i,
 	  regs_rw => regs_rw
 	);
+	m_apb_out <= tx_apb_out;
 
 	ddr_unpack0: entity work.ddr_unpack port map(
 		clk_i => clk_64,
@@ -417,24 +431,36 @@ begin
 	);
 
 	----------------------------------- control etc. ------------------------------------
-	spi_slave0: entity work.spi_slave port map(
-		miso_o => spi_miso,
-		mosi_i => spi_mosi,
-		sck_i => spi_sck,
-		ncs_i => spi_ncs,
-		data_o => spi_rx_r,
-		addr_o => spi_addr_r,
-		data_i => spi_tx_r,
-		nrst => nrst,
-		ena => '1',
-		rw => spi_rw,
-		ld => regs_latch,
-		clk_i => clk_64
+	spi_slave_inst : entity work.spi_slave
+	port map (
+	  clk_i => clk_i,
+	  miso_o => spi_miso,
+	  mosi_i => spi_mosi,
+	  sck_i => spi_sck,
+	  ncs_i => spi_ncs,
+	  dout_o => dout_o,
+	  dout_vld_o => dout_vld_o,
+	  cs_o => cs_o,
+	  din_i => din_i,
+	  din_vld_i => din_vld_i
+	);
+
+	apb_bridge_inst : entity work.apb_bridge
+	port map (
+	  clk_i => clk_i,
+	  rstn_i => nrst,
+	  dout => dout_o,
+	  dout_vld => dout_vld_o,
+	  cs => cs_o,
+	  din => din_i,
+	  din_vld => din_vld_i,
+	  m_apb_in => m_apb_in,
+	  m_apb_out => m_apb_out
 	);
 
 	ctrl_regs0: entity work.ctrl_regs port map(
 		clk_i => clk_64,
-		nrst_i => nrst,
+		nrst_i => '0',
 		addr_i => spi_addr_r,
 		data_i => spi_rx_r,
 		data_o => spi_tx_r,

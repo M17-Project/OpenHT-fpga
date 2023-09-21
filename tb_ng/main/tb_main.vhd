@@ -140,8 +140,12 @@ begin
     rst_i <= '1';
     wait for 100 us;
     SPI_MASTER(SPI_PER, X"8000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
+    SPI_MASTER(SPI_PER, X"0007", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
+    wait for 100 ns;
+    SPI_MASTER(SPI_PER, X"0000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
     SPI_MASTER(SPI_PER, X"0000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
     wait for 100 ns;
+
 
     SPI_MASTER(SPI_PER, X"800B", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
     for iterations in 1 to 4 loop
