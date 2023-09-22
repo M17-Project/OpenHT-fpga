@@ -1,3 +1,13 @@
+-------------------------------------------------------------
+-- APB TX routing regs
+--
+-- Sebastien Van Cauwenberghe, ON4SEB
+--
+-- Reference: https://developer.arm.com/documentation/ihi0024/latest/
+-- APB spec IHI0024E
+-- M17 Project
+-- September 2023
+-------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
