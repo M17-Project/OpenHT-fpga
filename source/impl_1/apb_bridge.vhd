@@ -105,7 +105,8 @@ begin
                     if dout_vld and cs then
                         rw <= dout(15);
                         autoincrement <= dout(14);
-                        address <= unsigned(dout(13 downto 0)) & "00";
+                        -- Byte address
+                        address <= "0" & unsigned(dout(13 downto 0)) & "0";
                         apb_state <= GOT_ADDRESS;
                     end if;
 
