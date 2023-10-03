@@ -75,7 +75,7 @@ begin
 
 				-- Serial input SREG
 				if din_valid then
-					dout_o <= din_sreg;
+					dout_o <= din_sreg(7 downto 0) & din_sreg(15 downto 8);
 				end if;
 				dout_vld_o <= din_valid;
 

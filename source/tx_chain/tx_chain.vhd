@@ -28,9 +28,7 @@ entity tx_chain is
         source_axis_in_mod : out axis_out_mod_t;
 		-- TX output
         tx_axis_iq_o : out axis_in_iq_t;
-		tx_axis_iq_i : in axis_out_iq_t;
-        -- TODO remove this
-        regs_rw : in rw_regs_t
+		tx_axis_iq_i : in axis_out_iq_t
     );
 end entity tx_chain;
 
@@ -41,6 +39,7 @@ architecture rtl of tx_chain is
     signal fm_mod_axis_in_mod    		: axis_out_mod_t;
 	signal freq_mod_axis_in_iq			: axis_in_iq_t;
     signal freq_mod_axis_out_iq			: axis_out_iq_t;
+	signal fm_nw                        : std_logic;
 	-- AM
 	signal am_mod_axis_in_mod    		: axis_out_mod_t;
 	signal ampl_mod_axis_in_iq			: axis_in_iq_t;
@@ -49,6 +48,7 @@ architecture rtl of tx_chain is
 	signal fir_axis_in_mod    			: axis_out_mod_t;
 	signal fir_axis_in_iq				: axis_in_iq_t;
     signal fir_axis_out_iq				: axis_out_iq_t;
+	signal ssb_sideband                 : std_logic;
 
 	-- post-processing
 	signal gain_axis_in_mod				: axis_out_mod_t;
@@ -64,13 +64,15 @@ begin
 
 	tx_apb_regs_inst : entity work.tx_apb_regs
 	generic map (
-		PSEL_ID => 0
+		PSEL_ID => 1
 	)
 	port map (
 		clk => clk_64,
 		s_apb_in => s_apb_in,
 		s_apb_out => s_apb_out,
-		mode => mode
+		mode => mode,
+		fm_nw => fm_nw,
+		ssb_sideband => ssb_sideband
 	);
     -- Interpolator 8 to 400kHz
 	interpol0: entity work.mod_resampler
@@ -96,7 +98,7 @@ begin
     port map(
         clk_i => clk_64,
         nrst_i => resetn,
-        nw_i => regs_rw(CR_2)(8),
+        nw_i => fm_nw,
         s_axis_mod_i => gain_axis_out_mod,
         s_axis_mod_o => fm_mod_axis_in_mod,
         m_axis_iq_i => freq_mod_axis_out_iq,
@@ -117,7 +119,7 @@ begin
 	tx_fir_inst : entity work.tx_fir
 	port map (
 	  clk_i => clk_64,
-	  mode => regs_rw(CR_1)(15),
+	  mode => ssb_sideband,
 	  s_axis_mod_i => gain_axis_out_mod,
 	  s_axis_mod_o => fir_axis_in_mod,
 	  m_axis_iq_i => fir_axis_out_iq,

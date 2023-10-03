@@ -22,7 +22,7 @@ entity main_all is
 		REV_MINOR : natural
 	);
 	port(
-		-- 32 MHz clock input from the AT86
+		-- 64 MHz clock input from the AT86
 		clk_i 				: in std_logic;
 		lock_i              : in std_logic;
 		-- master reset, high active
@@ -47,26 +47,13 @@ end main_all;
 
 architecture magic of main_all is
 	-------------------------------------- signals --------------------------------------
-	-- 64 MHz clock
-	signal clk_64 : std_logic := '0';
 
 	-- DDR signals
 	signal clk_rx09						: std_logic := '0';
 	signal clk_rx24						: std_logic := '0';
 	signal data_rx09_r					: std_logic_vector(1 downto 0) := (others => '0');
 	signal data_rx24_r					: std_logic_vector(1 downto 0) := (others => '0');
-	-- SPI data regs
-	signal spi_rw						: std_logic := '0';										-- SPI R/W flag
-	signal spi_rx_r, spi_tx_r			: std_logic_vector(15 downto 0) := (others => '0');		-- SPI receive/send data
-	signal spi_addr_r					: std_logic_vector(13 downto 0) := (others => '0');		-- SPI received address
-	-- IQ - TX
-	signal i_out, q_out					: std_logic_vector(15 downto 0) := (others => '0');
-	-- control registers related
-	signal reg_data_wr, reg_data_rd		: std_logic_vector(15 downto 0) := (others => '0');		-- data to be written to/read from a specific register
-	signal reg_rw						: std_logic := '0';
-	signal regs_rw						: rw_regs_t := (others => (others => '0'));
-	signal regs_r						: r_regs_t := (others => (others => '0'));
-	signal regs_latch					: std_logic := '0';										-- data latch signal for the control regs array
+
 	-- FIFOs
 	signal fifo_in_ae, fifo_out_ae		: std_logic := '0';
 	signal fifo_in_rd_data              : std_logic_vector(15 downto 0);
@@ -74,7 +61,10 @@ architecture magic of main_all is
 	signal fifo_in_empty                : std_logic;
 	signal fifo_in_full                 : std_logic;
 	signal mod_fifo_ae					: std_logic := '0';
-	signal fifo_in_reg_check			: std_logic := '0';
+	signal tx_data                      : std_logic_vector(15 downto 0);
+	signal tx_data_valid                : std_logic;
+	signal fifo_in_wr                   : std_logic;
+
 	-- misc
 	signal source_axis_out_mod			: axis_in_mod_t;
 	signal source_axis_in_mod			: axis_out_mod_t;
@@ -93,16 +83,24 @@ architecture magic of main_all is
 	signal din_vld_i : std_logic;
 
 	signal tx_apb_out : apb_out_t;
+	signal common_apb_out : apb_out_t;
 	signal m_apb_in : apb_in_t;
 	signal m_apb_out : apb_out_t;
+	signal m_apb_dec_in : apb_in_t;
+
+	-- Global system state
+	signal io3_sel : std_logic_vector(2 downto 0);
+	signal io4_sel : std_logic_vector(2 downto 0);
+	signal io5_sel : std_logic_vector(2 downto 0);
+	signal io6_sel : std_logic_vector(2 downto 0);
+	signal rxtx : std_logic_vector(1 downto 0);
 
 begin
 
-	clk_64 <= clk_i;
 	---------------------------------------- RX -----------------------------------------
 	ddr_pack_09_inst : entity work.ddr_pack
 	port map (
-	  clk_i => clk_64,
+	  clk_i => clk_i,
 	  nrst_i => '1',
 	  ddr_din => data_rx09_r,
 	  ddr_clkin => clk_rx09,
@@ -112,7 +110,7 @@ begin
 
 	ddr_pack_24_inst : entity work.ddr_pack
 	port map (
-		clk_i => clk_64,
+		clk_i => clk_i,
 		nrst_i => '1',
 		ddr_din => data_rx24_r,
 		ddr_clkin => clk_rx24,
@@ -126,7 +124,7 @@ begin
 		----else data_rx24_r when regs_rw(CR_1)(1 downto 0)="01"
 		----else (others => '0');
 	--deserializer0: entity work.iq_des port map(
-		--clk_i		=> clk_64,
+		--clk_i		=> clk_i,
 		--ddr_clk_i	=> clk_rx09,
 		--data_i		=> des_inp,
 		--nrst		=> nrst,
@@ -141,7 +139,7 @@ begin
 		--D_WIDTH => 13
 	--)
 	--port map(
-		--clk_i => clk_64,
+		--clk_i => clk_i,
 		--nrst_i => nrst,
 		--trig_i => drdy,
 		--wr_clk_i => drdy,
@@ -154,7 +152,7 @@ begin
 
 	-- local oscillator, 40kHz
 	--lo0: entity work.local_osc port map(
-		--clk_i => clk_64,
+		--clk_i => clk_i,
 		--trig_i => drdy,
 		--i_o => lo_mix_i,
 		--q_o => lo_mix_q
@@ -162,7 +160,7 @@ begin
 
 	-- mixer
 	--mix0: entity work.complex_mul port map(
-		--clk_i => clk_64,
+		--clk_i => clk_i,
 		--a_re => signed(i_r(11 downto 0) & '0' & '0' & '0' & '0'), -- a gain of 2
 		--a_im => signed(q_r(11 downto 0) & '0' & '0' & '0' & '0'), -- somehow concatenating with "0000" didn't work here
 		--b_re => lo_mix_i,
@@ -176,7 +174,7 @@ begin
 		--SAMP_WIDTH => 16
 	--)
 	--port map(
-		--clk_i		=> clk_64,
+		--clk_i		=> clk_i,
 		--ch_width	=> regs_rw(CR_2)(10 downto 9),
 		--i_i			=> mix_i_o,
 		--q_i			=> mix_q_o,
@@ -234,7 +232,7 @@ begin
 	--);
 
 	---------------------------------------- TX -----------------------------------------
-	fifo_in_reg_check <= '1' when unsigned(spi_addr_r)=MOD_IN and regs_latch = '1' and spi_rw = '1' and fifo_in_full = '0' else '0';
+	fifo_in_wr <= tx_data_valid and not fifo_in_full;
 
 	mod_in_fifo: entity work.fifo_simple
 	generic map(
@@ -243,10 +241,10 @@ begin
     )
 	port map(
 		i_rstn_async => nrst,
-		i_clk => clk_64,
+		i_clk => clk_i,
 		-- FIFO Write Interface
-		i_wr_en => fifo_in_reg_check,
-		i_wr_data => spi_rx_r(7 downto 0) & spi_rx_r(15 downto 8), -- endianness fix
+		i_wr_en => fifo_in_wr,
+		i_wr_data => tx_data, -- endianness fix
 		o_full => fifo_in_full,
 		-- FIFO Read Interface
 		i_rd_en => fifo_in_rd_en,
@@ -260,7 +258,7 @@ begin
 	  G_DATA_SIZE => 16
 	)
 	port map (
-	  clk => clk_64,
+	  clk => clk_i,
 	  nrst => nrst,
 	  fifo_rd_en => fifo_in_rd_en,
 	  fifo_rd_data => fifo_in_rd_data,
@@ -270,160 +268,20 @@ begin
 	  m_axis_mod_i => source_axis_in_mod
 	);
 
-	-- CTCSS source
-	--ctcss_enc0: entity work.ctcss_encoder generic map(
-		--SINCOS_RES => 16,
-		--SINCOS_ITER	=> 20,
-		--SINCOS_COEFF => x"4DB0" --x"4DB9",
-	--)
-	--port map(
-		--clk_i => clk_64,
-		--nrst_i => nrst,
-		--ctcss_i => regs_rw(CR_2)(7 downto 2),
-		--m_axis_mod_i => ctcss_axis_in_mod,
-		--m_axis_mod_o => ctcss_axis_out_mod
-	--);
-	--ctcss_fm_tx <= std_logic_vector(signed(mod_in_r_sync) + signed(ctcss_r));
-
-	
-	
-	-- amplitude modulator
-	--ampl_mod0: entity work.am_modulator port map(
-		--clk_i => clk_64,
-		--mod_i => mod_in_r_sync(14 downto 0) & '0', -- the mod_in_r_sync bus holds signed values only, we need unsigned
-		--i_o => i_am_tx,
-		--q_o => q_am_tx
-	--);
-
-	-- single sideband modulator
-	--ssb_id_r <= signed(fifo_in_data_o);
-	--ssb_qd_r <= signed(fifo_in_data_o);
-
-	--sb_sel0: entity work.sideband_sel port map(
-		--sel => regs_rw(CR_1)(15),
-		--d_i => ssb_qd_r,
-		--d_o => sel_ssb_qd_r
-	--);
-
-	--delay_block0: entity work.delay_block generic map(
-		--DELAY => 40
-	--)
-	--port map(
-		--clk_i => clk_64,
-		--trig_i => samp_clk,
-		--d_i => ssb_id_r,
-		--signed(d_o) => i_ssb_tx
-	--);
-
-	--hilbert0: entity work.fir_hilbert generic map(
-		--TAPS_NUM => 81,
-		--SAMP_WIDTH => 16
-	--)
-	--port map(
-		--clk_i => clk_64,
-		--trig_i => samp_clk,
-		--data_i => sel_ssb_qd_r,
-		--std_logic_vector(data_o) => q_ssb_tx,
-		--drdy_o => ssb_hilb_rdy
-	--);
-	--i_ssb_tx_sync <= i_ssb_tx;-- when rising_edge(ssb_hilb_rdy);
-	--q_ssb_tx_sync <= q_ssb_tx;-- when rising_edge(ssb_hilb_rdy);
-
-	-- 16QAM modulator
-	--symb_clk_div0: entity work.clk_div_block
-	--generic map(
-		--DIV => 40
-	--)
-	--port map(
-		--clk_i => zero_word,
-		--clk_o => symb_clk
-	--);
-
-	--rand_symb_source0: entity work.dither_source port map(
-		--clk_i => clk_i,
-		--ena => '1',
-		--trig => symb_clk,
-		--out_o => raw_rand
-	--);
-
-	--qam_mod0: entity work.qam_16 port map(
-		--data_i => mod_in_r(3 downto 0), --std_logic_vector(raw_rand(3 downto 0))
-		--i_o => i_qam_tx,
-		--q_o => q_qam_tx
-	--);
-
-	---- phase modulator
-	--pm_mod0: entity work.pm_modulator port map(
-		--clk_i => clk_64,
-		--mod_i => mod_in_r, --x"0000",
-		--i_o => i_pm_tx,
-		--q_o => q_pm_tx
-	--);
-
-	-- digital predistortion blocks
-	--dpd0: entity work.dpd port map(
-		--clk_i => clk_64,
-		--p1 => signed(regs_rw(DPD_1)),
-		--p2 => signed(regs_rw(DPD_2)),
-		--p3 => signed(regs_rw(DPD_3)),
-		--i_i => i_raw_tx,
-		--q_i => q_raw_tx,
-		--i_o => i_dpd_tx,
-		--q_o => q_dpd_tx
-	--);
-
-	--iq_bal0: entity work.iq_balancer_16 port map(
-		--clk_i => clk_64,
-		--i_i => i_dpd_tx,
-		--q_i => q_dpd_tx,
-		--ib_i => regs_rw(I_GAIN),
-		--qb_i => regs_rw(Q_GAIN),
-		--i_o => i_bal_tx,
-		--q_o	=> q_bal_tx
-	--);
-
-	--iq_offset0: entity work.iq_offset port map(
-		--clk_i => clk_64,
-		--i_i => i_bal_tx,
-		--q_i => q_bal_tx,
-		--ai_i => regs_rw(I_OFFS_NULL),
-		--aq_i => regs_rw(Q_OFFS_NULL),
-		--i_o => i_offs_tx,
-		--q_o => q_offs_tx
-	--);
-
-	--iq_fifo_out: entity work.iq_fifo generic map(
-		--DEPTH => 8,
-		--D_WIDTH => 16
-	--)
-	--port map(
-		--clk_i => clk_64,
-		--nrst_i => nrst,
-		--trig_i => zero_word,
-		--wr_clk_i => zero_word,
-		--rd_clk_i => zero_word,
-		--i_i => i_offs_tx,
-		--q_i => q_offs_tx,
-		--i_o => i_out,
-		--q_o => q_out
-	--);
-
 	tx_chain_inst : entity work.tx_chain
 	port map (
-	  clk_64 => clk_64,
+	  clk_64 => clk_i,
 	  resetn => nrst,
-	  s_apb_in => m_apb_in,
+	  s_apb_in => m_apb_dec_in,
 	  s_apb_out => tx_apb_out,
 	  source_axis_out_mod => source_axis_out_mod,
 	  source_axis_in_mod => source_axis_in_mod,
 	  tx_axis_iq_o => tx_axis_iq_o,
-	  tx_axis_iq_i => tx_axis_iq_i,
-	  regs_rw => regs_rw
+	  tx_axis_iq_i => tx_axis_iq_i
 	);
-	m_apb_out <= tx_apb_out;
 
 	ddr_unpack0: entity work.ddr_unpack port map(
-		clk_i => clk_64,
+		clk_i => clk_i,
 		nrst_i => nrst,
 		s_axis_iq_i => tx_axis_iq_o,
 		s_axis_iq_o => tx_axis_iq_i,
@@ -458,45 +316,57 @@ begin
 	  m_apb_out => m_apb_out
 	);
 
-	ctrl_regs0: entity work.ctrl_regs port map(
-		clk_i => clk_64,
-		nrst_i => '0',
-		addr_i => spi_addr_r,
-		data_i => spi_rx_r,
-		data_o => spi_tx_r,
-		rw_i => spi_rw,
-		latch_i => regs_latch,
-		regs_rw => regs_rw,
-		regs_r => regs_r
+	common_apb_regs_inst : entity work.common_apb_regs
+	generic map (
+	  PSEL_ID => 0,
+	  REV_MAJOR => REV_MAJOR,
+	  REV_MINOR => REV_MINOR
+	)
+	port map (
+	  clk => clk_i,
+	  s_apb_in => m_apb_dec_in,
+	  s_apb_out => common_apb_out,
+	  pll_lock => lock_i,
+	  io3_sel => io3_sel,
+	  io4_sel => io4_sel,
+	  io5_sel => io5_sel,
+	  io6_sel => io6_sel,
+	  tx_data => tx_data,
+	  tx_data_valid => tx_data_valid,
+	  rxtx => rxtx
 	);
 
-	-- additional connections
-	regs_r(SR_1) <= std_logic_vector(to_unsigned(REV_MAJOR, 8)) & std_logic_vector(to_unsigned(REV_MINOR, 8)); -- revision number
-	regs_r(SR_2)(0) <= lock_i; -- PLL lock
-	regs_r(SR_3 to SR_7) <= (others => (others => '0'));
-	regs_r(DEMOD_OUT) <= (others => '0');
+	apb_merge_inst : entity work.apb_merge
+	generic map (
+	  N_SLAVES => 2
+	)
+	port map (
+	  clk_i => clk_i,
+	  rstn_i => nrst,
+	  m_apb_in => m_apb_in,
+	  m_apb_out => m_apb_out,
+	  s_apb_in => m_apb_dec_in,
+	  s_apb_out(0) => common_apb_out,
+	  s_apb_out(1) => tx_apb_out
+	);
 
 	-- I/Os
 	-- automatically select the source of the fifo_ae signal
-	mod_fifo_ae <= fifo_in_ae when regs_rw(CR_2)(1 downto 0)="01"
-		else fifo_out_ae when regs_rw(CR_2)(1 downto 0)="10"
+	mod_fifo_ae <= fifo_in_ae when rxtx = "01"
+		else fifo_out_ae when rxtx ="10"
 		else '0';
 
 	-- IO update
-	process(clk_64)
-	begin
-		if rising_edge(clk_64) then
-			with regs_rw(CR_1)(11 downto 9) select -- TODO: set this to match the register map
-			io3 <= regs_r(SR_2)(0)	when "000",	-- PLL lock flag
-			   '0'					when "001",
-			   '0'					when "010",
-			   '0'					when "011",
-			   '0'					when "100",
-			   mod_fifo_ae			when "101",	-- baseband FIFO almost empty flag
-			   '0'					when others;
-			io4 <= '0'; --mux_axis_out_iq.tready;
-			io5 <= '0'; --freq_mod_axis_in_iq.tvalid;
-			io6 <= '0'; --mux_axis_in_iq.tvalid;
-		end if;
-	end process;
+	with io3_sel select
+	io3 <= lock_i        	when "000",	-- PLL lock flag
+	'0'					when "001",
+	'0'					when "010",
+	'0'					when "011",
+	'0'					when "100",
+	mod_fifo_ae			when "101",	-- baseband FIFO almost empty flag
+	'0'					when others;
+
+	io4 <= '0'; --mux_axis_out_iq.tready;
+	io5 <= '0'; --freq_mod_axis_in_iq.tvalid;
+	io6 <= '0'; --mux_axis_in_iq.tvalid;
 end magic;

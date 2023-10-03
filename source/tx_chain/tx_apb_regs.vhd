@@ -24,7 +24,9 @@ entity tx_apb_regs is
         s_apb_in : in apb_in_t;
         s_apb_out : out apb_out_t;
 
-        mode : out std_logic_vector(2 downto 0)
+        mode : out std_logic_vector(2 downto 0);
+        fm_nw : out std_logic;
+        ssb_sideband : out std_logic
     );
 end entity tx_apb_regs;
 
@@ -40,11 +42,15 @@ begin
             if s_apb_in.PSEL(PSEL_ID) then
                 if s_apb_in.PENABLE and s_apb_in.PWRITE then
                     mode <= s_apb_in.PWDATA(2 downto 0);
+                    fm_nw <= s_apb_in.PWDATA(3);
+                    ssb_sideband <= s_apb_in.pwdata(4);
                 end if;
 
                 if not s_apb_in.PENABLE then
                     s_apb_out.pready <= '1';
                     s_apb_out.prdata(2 downto 0) <= mode;
+                    s_apb_out.prdata(3) <= fm_nw;
+                    s_apb_out.prdata(4) <= ssb_sideband;
                 end if;
 
             end if;

@@ -83,13 +83,17 @@ begin
                     m_apb_in.PWRITE <= rw;
                     m_apb_in.PENABLE <= '0';
                     m_apb_in.PSEL <= (others => '0');
-                    m_apb_in.PSEL(to_integer(address(14 downto 14-APB_PSELID_BITS+1))) <= '1';
+                    if to_integer(address(14 downto 14-APB_PSELID_BITS+1)) < APB_SLAVE_CNT then
+                        m_apb_in.PSEL(to_integer(address(14 downto 14-APB_PSELID_BITS+1))) <= '1';
+                    end if;
                     apb_state <= APB_ACCESS;
 
                 when APB_ACCESS =>
                     m_apb_in.PENABLE <= '1';
                     m_apb_in.PSEL <= (others => '0');
-                    m_apb_in.PSEL(to_integer(address(14 downto 14-APB_PSELID_BITS+1))) <= '1';
+                    if to_integer(address(14 downto 14-APB_PSELID_BITS+1)) < APB_SLAVE_CNT then
+                        m_apb_in.PSEL(to_integer(address(14 downto 14-APB_PSELID_BITS+1))) <= '1';
+                    end if;
 
                     if data_rdy then
                         apb_state <= WAIT_FOR_NEW_WORD;

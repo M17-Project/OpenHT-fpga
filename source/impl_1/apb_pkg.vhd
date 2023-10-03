@@ -16,7 +16,7 @@ use ieee.math_real.all;
 package apb_pkg is
     constant APB_ADDR_SIZE: positive := 16;
     constant APB_DATA_SIZE: positive := 16;
-    constant APB_SLAVE_CNT: positive := 1;
+    constant APB_SLAVE_CNT: positive := 2;
     constant APB_PSELID_BITS : positive := 3;
 
     constant PSEL_TX_CTRL : natural := 0;
