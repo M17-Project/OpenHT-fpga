@@ -76,11 +76,12 @@ architecture tb of tb_main is
     signal SMM_MISO : in  std_logic;
     constant DEASSERT_CS : in boolean
 ) is
+  constant DATA_OUT : std_logic_vector(WORD_SIZE-1 downto 0) := SMM_MDI(7 downto 0) & SMM_MDI(15 downto 8);
 begin
     SMM_CS_N <= '0';
     for i in 0 to (WORD_SIZE-1) loop
         SMM_SCLK <= '0';
-        SMM_MOSI <= SMM_MDI(WORD_SIZE-1-i);
+        SMM_MOSI <= DATA_OUT(WORD_SIZE-1-i);
         wait for SPI_PER/2;
         SMM_SCLK <= '1';
         SMM_MDO(WORD_SIZE-1-i) := SMM_MISO;
@@ -139,6 +140,9 @@ begin
     wait for 100 ns;
     rst_i <= '1';
     wait for 100 us;
+    SPI_MASTER(SPI_PER, X"0000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
+    SPI_MASTER(SPI_PER, X"0000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
+    wait for 100 us;
     SPI_MASTER(SPI_PER, X"8000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
     SPI_MASTER(SPI_PER, X"0007", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
     wait for 100 ns;
@@ -147,7 +151,7 @@ begin
     wait for 100 ns;
 
 
-    SPI_MASTER(SPI_PER, X"800B", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
+    SPI_MASTER(SPI_PER, X"8004", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
     for iterations in 1 to 4 loop
       for k in 1 to 2 loop
         SPI_MASTER(SPI_PER, X"7FFF", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
