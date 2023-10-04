@@ -100,6 +100,9 @@ begin
                         din <= data_in;
                         din_vld <= '1';
 
+                        m_apb_in.PENABLE <= '0';
+                        m_apb_in.PSEL <= (others => '0');
+
                         if autoincrement then
                             address <= address + 1;
                         end if;

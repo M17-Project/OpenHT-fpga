@@ -27,14 +27,14 @@ entity common_apb_regs is
         s_apb_out : out apb_out_t;
 
         pll_lock : in std_logic;
-        io3_sel : out std_logic_vector(2 downto 0);
-        io4_sel : out std_logic_vector(2 downto 0);
-        io5_sel : out std_logic_vector(2 downto 0);
-        io6_sel : out std_logic_vector(2 downto 0);
+        io3_sel : out std_logic_vector(2 downto 0) := (others => '0');
+        io4_sel : out std_logic_vector(2 downto 0) := (others => '0');
+        io5_sel : out std_logic_vector(2 downto 0) := (others => '0');
+        io6_sel : out std_logic_vector(2 downto 0) := (others => '0');
 
         tx_data : out std_logic_vector(15 downto 0);
         tx_data_valid : out std_logic;
-        rxtx : out std_logic_vector(1 downto 0)
+        rxtx : out std_logic_vector(1 downto 0) := (others => '0')
     );
 end entity common_apb_regs;
 
@@ -67,7 +67,7 @@ begin
                             io6_sel <= s_apb_in.pwdata(11 downto 9);
 
                         when "100" => -- TX Fifo
-                            tx_data_valid <= '0';
+                            tx_data_valid <= '1';
                             tx_data <= s_apb_in.pwdata;
 
                         when "101" => -- TX Fifo status
