@@ -27,20 +27,28 @@ entity common_apb_regs is
         s_apb_out : out apb_out_t;
 
         pll_lock : in std_logic;
-        io3_sel : out std_logic_vector(2 downto 0) := (others => '0');
-        io4_sel : out std_logic_vector(2 downto 0) := (others => '0');
-        io5_sel : out std_logic_vector(2 downto 0) := (others => '0');
-        io6_sel : out std_logic_vector(2 downto 0) := (others => '0');
+        io3_sel : out std_logic_vector(2 downto 0);
+        io4_sel : out std_logic_vector(2 downto 0);
+        io5_sel : out std_logic_vector(2 downto 0);
+        io6_sel : out std_logic_vector(2 downto 0);
 
         tx_data : out std_logic_vector(15 downto 0);
         tx_data_valid : out std_logic;
-        rxtx : out std_logic_vector(1 downto 0) := (others => '0')
+        rxtx : out std_logic_vector(1 downto 0)
     );
 end entity common_apb_regs;
 
 architecture rtl of common_apb_regs is
+    signal rxtx_i : std_logic_vector(1 downto 0) := (others => '0');
+    signal io3_sel_i : std_logic_vector(2 downto 0) := (others => '0');
+    signal io4_sel_i : std_logic_vector(2 downto 0) := (others => '0');
+    signal io5_sel_i : std_logic_vector(2 downto 0) := (others => '0');
+    signal io6_sel_i : std_logic_vector(2 downto 0) := (others => '0');
 
 begin
+
+    rxtx <= rxtx_i;
+
     process (clk)
     begin
         if rising_edge(clk) then
@@ -58,13 +66,13 @@ begin
                             null;
 
                         when "010" => -- Control REG
-                            rxtx <= s_apb_in.pwdata(1 downto 0);
+                            rxtx_i <= s_apb_in.pwdata(1 downto 0);
 
                         when "011" => -- IO out reg
-                            io3_sel <= s_apb_in.pwdata(2 downto 0);
-                            io4_sel <= s_apb_in.pwdata(5 downto 3);
-                            io5_sel <= s_apb_in.pwdata(8 downto 6);
-                            io6_sel <= s_apb_in.pwdata(11 downto 9);
+                            io3_sel_i <= s_apb_in.pwdata(2 downto 0);
+                            io4_sel_i <= s_apb_in.pwdata(5 downto 3);
+                            io5_sel_i <= s_apb_in.pwdata(8 downto 6);
+                            io6_sel_i <= s_apb_in.pwdata(11 downto 9);
 
                         when "100" => -- TX Fifo
                             tx_data_valid <= '1';
@@ -88,13 +96,13 @@ begin
                             s_apb_out.prdata(0) <= pll_lock;
 
                         when "010" => -- Control REG
-                            s_apb_out.prdata(1 downto 0) <= rxtx;
+                            s_apb_out.prdata(1 downto 0) <= rxtx_i;
 
                         when "011" => -- IO out reg
-                            s_apb_out.prdata(2 downto 0) <= io3_sel;
-                            s_apb_out.prdata(5 downto 3) <= io4_sel;
-                            s_apb_out.prdata(8 downto 6) <= io5_sel;
-                            s_apb_out.prdata(11 downto 9) <= io6_sel;
+                            s_apb_out.prdata(2 downto 0) <= io3_sel_i;
+                            s_apb_out.prdata(5 downto 3) <= io4_sel_i;
+                            s_apb_out.prdata(8 downto 6) <= io5_sel_i;
+                            s_apb_out.prdata(11 downto 9) <= io6_sel_i;
 
                         when "100" => -- TX Fifo
                             null;

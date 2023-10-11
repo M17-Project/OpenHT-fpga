@@ -70,7 +70,7 @@ begin
 
 				-- Load output SREG
 				if din_vld_i then
-					dout_sreg <= din_i;
+					dout_sreg <= din_i(7 downto 0) & din_i(15 downto 8);
 				end if;
 
 				-- Serial input SREG

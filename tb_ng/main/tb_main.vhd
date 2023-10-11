@@ -92,6 +92,7 @@ begin
     if DEASSERT_CS then
       SMM_CS_N <= '1';
     end if;
+    wait for SPI_PER;
 end procedure;
 
 
@@ -107,7 +108,7 @@ begin
   main_all_inst : entity work.main_all
   generic map (
     REV_MAJOR => 0,
-    REV_MINOR => 3
+    REV_MINOR => 4
   )
   port map (
     clk_i => clk_i,
@@ -143,12 +144,29 @@ begin
     SPI_MASTER(SPI_PER, X"0000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
     SPI_MASTER(SPI_PER, X"0000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
     wait for 100 us;
+    SPI_MASTER(SPI_PER, X"8002", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
+    SPI_MASTER(SPI_PER, X"0001", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
+    SPI_MASTER(SPI_PER, X"0002", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
+    SPI_MASTER(SPI_PER, X"0000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
+    SPI_MASTER(SPI_PER, X"0002", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
+    SPI_MASTER(SPI_PER, X"0000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
+    wait for 100 us;
     SPI_MASTER(SPI_PER, X"8000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
     SPI_MASTER(SPI_PER, X"0007", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
     wait for 100 ns;
     SPI_MASTER(SPI_PER, X"0000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
     SPI_MASTER(SPI_PER, X"0000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
     wait for 100 ns;
+    SPI_MASTER(SPI_PER, X"8003", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
+    SPI_MASTER(SPI_PER, X"0005", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
+    wait for 100 ns;
+    SPI_MASTER(SPI_PER, X"8800", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
+    SPI_MASTER(SPI_PER, X"0001", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
+    wait for 100 ns;
+    SPI_MASTER(SPI_PER, X"8002", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
+    SPI_MASTER(SPI_PER, X"0002", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
+    wait for 100 ns;
+
 
 
     SPI_MASTER(SPI_PER, X"8004", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);

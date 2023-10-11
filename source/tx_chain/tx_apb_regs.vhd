@@ -24,9 +24,9 @@ entity tx_apb_regs is
         s_apb_in : in apb_in_t;
         s_apb_out : out apb_out_t;
 
-        mode : out std_logic_vector(2 downto 0);
-        fm_nw : out std_logic;
-        ssb_sideband : out std_logic
+        mode : out std_logic_vector(2 downto 0) := (others => '0');
+        fm_nw : out std_logic := '0';
+        ssb_sideband : out std_logic := '0'
     );
 end entity tx_apb_regs;
 
