@@ -48,6 +48,10 @@ architecture rtl of common_apb_regs is
 begin
 
     rxtx <= rxtx_i;
+    io3_sel <= io3_sel_i;
+    io4_sel <= io4_sel_i;
+    io5_sel <= io5_sel_i;
+    io6_sel <= io6_sel_i;
 
     process (clk)
     begin
