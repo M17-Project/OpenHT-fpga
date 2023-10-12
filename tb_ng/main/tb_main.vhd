@@ -162,6 +162,9 @@ begin
     wait for 100 ns;
     SPI_MASTER(SPI_PER, X"8800", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
     SPI_MASTER(SPI_PER, X"0001", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
+
+    SPI_MASTER(SPI_PER, X"0800", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
+    SPI_MASTER(SPI_PER, X"0000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
     wait for 100 ns;
     SPI_MASTER(SPI_PER, X"8002", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
     SPI_MASTER(SPI_PER, X"0002", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);

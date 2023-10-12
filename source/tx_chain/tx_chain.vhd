@@ -60,7 +60,25 @@ architecture rtl of tx_chain is
 
 	signal mode : std_logic_vector(2 downto 0);
 
+	signal s_apb_out_tx_regs : apb_out_t;
+	signal s_apb_out_iqbal : apb_out_t;
+	signal s_apb_out_iqoffs : apb_out_t;
+
 begin
+	apb_merge_inst : entity work.apb_merge
+	generic map (
+	  N_SLAVES => 3
+	)
+	port map (
+	  clk_i => clk_64,
+	  rstn_i => resetn,
+	  m_apb_in => s_apb_in,
+	  m_apb_out => s_apb_out,
+	  s_apb_in => open,
+	  s_apb_out(0) => s_apb_out_tx_regs,
+	  s_apb_out(1) => s_apb_out_iqbal,
+	  s_apb_out(2) => s_apb_out_iqoffs
+	);
 
 	tx_apb_regs_inst : entity work.tx_apb_regs
 	generic map (
@@ -69,7 +87,7 @@ begin
 	port map (
 		clk => clk_64,
 		s_apb_in => s_apb_in,
-		s_apb_out => s_apb_out,
+		s_apb_out => s_apb_out_tx_regs,
 		mode => mode,
 		fm_nw => fm_nw,
 		ssb_sideband => ssb_sideband
@@ -83,7 +101,7 @@ begin
 		m_axis_mod_o => resampler_axis_out_mod,
 		m_axis_mod_i => gain_axis_in_mod
 	);
-	
+
 	-- Gain block
 	post_gain0: entity work.gain_mod port map(
 		clk_i => clk_64,
@@ -104,7 +122,7 @@ begin
         m_axis_iq_i => freq_mod_axis_out_iq,
         m_axis_iq_o => freq_mod_axis_in_iq
     );
-	
+
     -- Amplitude modulator
     ampl_mod0: entity work.am_modulator
     port map(
@@ -114,7 +132,7 @@ begin
         m_axis_iq_i => ampl_mod_axis_out_iq,
         m_axis_iq_o => ampl_mod_axis_in_iq
     );
-	
+
 	-- FIR filter (for SSB)
 	tx_fir_inst : entity work.tx_fir
 	port map (
@@ -136,7 +154,7 @@ begin
 		m03_mod_out => axis_out_mod_null,
 		m04_mod_out => axis_out_mod_null
 	);
-		
+
 	-- modulation selector
 	tx_mod_sel0: entity work.mod_sel port map(
 		clk_i => clk_64,
@@ -154,23 +172,31 @@ begin
 		m_axis_iq_i => bal_axis_in_iq,
 		m_axis_iq_o => bal_axis_out_iq
 	);
-	
+
 	-- I/Q balancing block
-	iq_balance0: entity work.bal_iq port map(
+	iq_balance0: entity work.bal_iq
+	generic map (
+		PSEL_ID => 2
+	)
+	port map(
 		clk_i		=> clk_64,
-		i_bal_i	=> X"1FFF",
-		q_bal_i	=> X"1FFF",
+		s_apb_in => s_apb_in,
+		s_apb_out => s_apb_out_iqbal,
 		s_axis_iq_i	=> bal_axis_out_iq,
 		s_axis_iq_o	=> bal_axis_in_iq,
 		m_axis_iq_o	=> offset_axis_out_iq,
 		m_axis_iq_i	=> offset_axis_in_iq
-	);	
-	
+	);
+
 	-- I/Q offset block
-	iq_offset0: entity work.offset_iq port map(
+	iq_offset0: entity work.offset_iq
+	generic map (
+		PSEL_ID => 3
+	)
+	port map(
 		clk_i		=> clk_64,
-		i_offs_i	=> X"0000",
-		q_offs_i	=> X"0000",
+		s_apb_in => s_apb_in,
+		s_apb_out => s_apb_out_iqoffs,
 		s_axis_iq_i	=> offset_axis_out_iq,
 		s_axis_iq_o	=> offset_axis_in_iq,
 		m_axis_iq_o	=> tx_axis_iq_o,

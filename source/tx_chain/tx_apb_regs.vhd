@@ -41,22 +41,33 @@ begin
 
             if s_apb_in.PSEL(PSEL_ID) then
                 if s_apb_in.PENABLE and s_apb_in.PWRITE then
-                    mode <= s_apb_in.PWDATA(2 downto 0);
-                    fm_nw <= s_apb_in.PWDATA(3);
-                    ssb_sideband <= s_apb_in.pwdata(4);
+                    case s_apb_in.paddr(3 downto 1) is
+                        when "000" => -- Mode reg
+                            mode <= s_apb_in.PWDATA(2 downto 0);
+                            fm_nw <= s_apb_in.PWDATA(3);
+                            ssb_sideband <= s_apb_in.pwdata(4);
+
+                        when others =>
+                            null;
+                    end case;
                 end if;
 
                 if not s_apb_in.PENABLE then
                     s_apb_out.pready <= '1';
-                    s_apb_out.prdata(2 downto 0) <= mode;
-                    s_apb_out.prdata(3) <= fm_nw;
-                    s_apb_out.prdata(4) <= ssb_sideband;
-                end if;
+                    case s_apb_in.paddr(3 downto 1) is
+                        when "000" => -- Mode reg
+                            s_apb_out.prdata(2 downto 0) <= mode;
+                            s_apb_out.prdata(3) <= fm_nw;
+                            s_apb_out.prdata(4) <= ssb_sideband;
 
+                        when others =>
+                            null;
+                    end case;
+                end if;
             end if;
 
         end if;
     end process;
-    
+
 
 end architecture;
