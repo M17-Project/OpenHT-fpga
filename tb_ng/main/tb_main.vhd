@@ -65,7 +65,7 @@ architecture tb of tb_main is
   END COMPONENT;
 
   constant WORD_SIZE : positive := 16;
-  constant SPI_PER : time := 120 ns;
+  constant SPI_PER : time := 82 ns;
   procedure SPI_MASTER (
     constant SPI_PER : time;
     constant SMM_MDI  : in  std_logic_vector(WORD_SIZE-1 downto 0);
@@ -165,7 +165,19 @@ begin
 
     SPI_MASTER(SPI_PER, X"0800", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
     SPI_MASTER(SPI_PER, X"0000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
-    wait for 100 ns;
+    wait for 500 ns;
+    SPI_MASTER(SPI_PER, X"9000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
+    SPI_MASTER(SPI_PER, X"1FFF", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
+
+    SPI_MASTER(SPI_PER, X"1000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
+    SPI_MASTER(SPI_PER, X"0000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
+
+    SPI_MASTER(SPI_PER, X"9001", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
+    SPI_MASTER(SPI_PER, X"1FFF", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
+
+    SPI_MASTER(SPI_PER, X"1001", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
+    SPI_MASTER(SPI_PER, X"0000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
+    wait for 500 ns;
     SPI_MASTER(SPI_PER, X"8002", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
     SPI_MASTER(SPI_PER, X"0002", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
     wait for 100 ns;
