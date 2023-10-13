@@ -40,6 +40,8 @@ architecture magic of spi_slave is
 	signal bit_cnt : unsigned(4 downto 0);
 
 begin
+	miso_o <= 'Z' when ncs_i = '1' else dout_sreg(dout_sreg'high);
+
 	process(clk_i)
 	begin
 		if rising_edge(clk_i) then
@@ -79,13 +81,11 @@ begin
 				end if;
 				dout_vld_o <= din_valid;
 
-				miso_o <= dout_sreg(dout_sreg'high);
-
 			else -- When slave is disabled
 				din_sreg <= (others => '0');
 				bit_cnt <= (others => '0');
 				dout_sreg <= (others => '0');
-				miso_o <= 'Z';
+
 			end if;
 
 		end if;
