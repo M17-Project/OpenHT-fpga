@@ -318,7 +318,7 @@ begin
 
 	common_apb_regs_inst : entity work.common_apb_regs
 	generic map (
-	  PSEL_ID => 0,
+	  PSEL_ID => C_COM_REGS_PSEL,
 	  REV_MAJOR => REV_MAJOR,
 	  REV_MINOR => REV_MINOR
 	)

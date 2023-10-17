@@ -33,8 +33,12 @@ entity tx_chain is
 end entity tx_chain;
 
 architecture rtl of tx_chain is
-	signal resampler_axis_out_mod		: axis_in_mod_t;
-	signal resampler_axis_in_mod		: axis_out_mod_t;
+	signal resampl_gain_axis_in_mod		: axis_in_mod_t;
+	signal gain_fork_axis_out_mod		: axis_out_mod_t;
+
+	-- CTCSS
+	signal ctcss_interp_axis_in_mod		: axis_in_mod_t;
+	signal ctcss_interp_axis_out_mod    : axis_out_mod_t;
 	-- FM
     signal fm_mod_axis_in_mod    		: axis_out_mod_t;
 	signal freq_mod_axis_in_iq			: axis_in_iq_t;
@@ -51,8 +55,8 @@ architecture rtl of tx_chain is
 	signal ssb_sideband                 : std_logic;
 
 	-- post-processing
-	signal gain_axis_in_mod				: axis_out_mod_t;
-	signal gain_axis_out_mod			: axis_in_mod_t;
+	signal resampl_gain_axis_out_mod				: axis_out_mod_t;
+	signal gain_mods_in_mod			: axis_in_mod_t;
 	signal bal_axis_in_iq				: axis_out_iq_t;
 	signal bal_axis_out_iq				: axis_in_iq_t;
 	signal offset_axis_in_iq			: axis_out_iq_t;
@@ -63,11 +67,12 @@ architecture rtl of tx_chain is
 	signal s_apb_out_tx_regs : apb_out_t;
 	signal s_apb_out_iqbal : apb_out_t;
 	signal s_apb_out_iqoffs : apb_out_t;
+	signal s_apb_out_ctcss : apb_out_t;
 
 begin
 	apb_merge_inst : entity work.apb_merge
 	generic map (
-	  N_SLAVES => 3
+	  N_SLAVES => 4
 	)
 	port map (
 	  clk_i => clk_64,
@@ -77,12 +82,13 @@ begin
 	  s_apb_in => open,
 	  s_apb_out(0) => s_apb_out_tx_regs,
 	  s_apb_out(1) => s_apb_out_iqbal,
-	  s_apb_out(2) => s_apb_out_iqoffs
+	  s_apb_out(2) => s_apb_out_iqoffs,
+	  s_apb_out(3) => s_apb_out_ctcss
 	);
 
 	tx_apb_regs_inst : entity work.tx_apb_regs
 	generic map (
-		PSEL_ID => 1
+		PSEL_ID => C_TX_REGS_PSEL
 	)
 	port map (
 		clk => clk_64,
@@ -92,23 +98,39 @@ begin
 		fm_nw => fm_nw,
 		ssb_sideband => ssb_sideband
 	);
+
+	ctcss_gen_inst : entity work.ctcss_gen
+  	generic map (
+    	PSEL_ID => C_TX_CTCSS_PSEL
+  	)
+  	port map (
+		clk_i => clk_64,
+		nrst_i => resetn,
+		s_apb_in => s_apb_in,
+		s_apb_out => s_apb_out_ctcss,
+		s_axis_mod_i => source_axis_out_mod,
+		s_axis_mod_o => source_axis_in_mod,
+		m_axis_mod_i => ctcss_interp_axis_out_mod,
+		m_axis_mod_o => ctcss_interp_axis_in_mod
+  	);
+
     -- Interpolator 8 to 400kHz
 	interpol0: entity work.mod_resampler
 	port map(
 		clk_i => clk_64,
-		s_axis_mod_i => source_axis_out_mod,
-		s_axis_mod_o => source_axis_in_mod,
-		m_axis_mod_o => resampler_axis_out_mod,
-		m_axis_mod_i => gain_axis_in_mod
+		s_axis_mod_i => ctcss_interp_axis_in_mod,
+		s_axis_mod_o => ctcss_interp_axis_out_mod,
+		m_axis_mod_o => resampl_gain_axis_in_mod,
+		m_axis_mod_i => resampl_gain_axis_out_mod
 	);
 
 	-- Gain block
 	post_gain0: entity work.gain_mod port map(
 		clk_i => clk_64,
-		s_axis_mod_i => resampler_axis_out_mod,
-		s_axis_mod_o => gain_axis_in_mod,
-		m_axis_mod_o => gain_axis_out_mod,
-		m_axis_mod_i => resampler_axis_in_mod
+		s_axis_mod_i => resampl_gain_axis_in_mod,
+		s_axis_mod_o => resampl_gain_axis_out_mod,
+		m_axis_mod_o => gain_mods_in_mod,
+		m_axis_mod_i => gain_fork_axis_out_mod
 	);
 
     -- Frequency modulator
@@ -117,7 +139,7 @@ begin
         clk_i => clk_64,
         nrst_i => resetn,
         nw_i => fm_nw,
-        s_axis_mod_i => gain_axis_out_mod,
+        s_axis_mod_i => gain_mods_in_mod,
         s_axis_mod_o => fm_mod_axis_in_mod,
         m_axis_iq_i => freq_mod_axis_out_iq,
         m_axis_iq_o => freq_mod_axis_in_iq
@@ -127,7 +149,7 @@ begin
     ampl_mod0: entity work.am_modulator
     port map(
         clk_i => clk_64,
-        s_axis_mod_i => gain_axis_out_mod,
+        s_axis_mod_i => gain_mods_in_mod,
         s_axis_mod_o => am_mod_axis_in_mod,
         m_axis_iq_i => ampl_mod_axis_out_iq,
         m_axis_iq_o => ampl_mod_axis_in_iq
@@ -138,7 +160,7 @@ begin
 	port map (
 	  clk_i => clk_64,
 	  mode => ssb_sideband,
-	  s_axis_mod_i => gain_axis_out_mod,
+	  s_axis_mod_i => gain_mods_in_mod,
 	  s_axis_mod_o => fir_axis_in_mod,
 	  m_axis_iq_i => fir_axis_out_iq,
 	  m_axis_iq_o => fir_axis_in_iq
@@ -146,7 +168,7 @@ begin
 
 	-- Backpropagation of the ready signal to interpolator
 	axis_fork0: entity work.axis_fork port map(
-		s_mod_in => resampler_axis_in_mod,
+		s_mod_in => gain_fork_axis_out_mod,
 		sel_i => mode,
 		m00_mod_out => fm_mod_axis_in_mod,
 		m01_mod_out => am_mod_axis_in_mod,
@@ -176,7 +198,7 @@ begin
 	-- I/Q balancing block
 	iq_balance0: entity work.bal_iq
 	generic map (
-		PSEL_ID => 2
+		PSEL_ID => C_TX_IQ_GAIN_PSEL
 	)
 	port map(
 		clk_i		=> clk_64,
@@ -191,7 +213,7 @@ begin
 	-- I/Q offset block
 	iq_offset0: entity work.offset_iq
 	generic map (
-		PSEL_ID => 3
+		PSEL_ID => C_TX_IQ_OFFSET_PSEL
 	)
 	port map(
 		clk_i		=> clk_64,

@@ -99,6 +99,9 @@
         <Source name="source/impl_1/common_apb_regs.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
+        <Source name="source/tx_chain/CTCSS_gen.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
         <Source name="source/impl_1/impl_1.pdc" type="Physical Constraints File" type_short="PDC">
             <Options/>
         </Source>

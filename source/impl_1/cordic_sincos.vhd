@@ -131,7 +131,8 @@ entity cordic_sincos is
     SIZE       : positive;
     ITERATIONS : positive;
     TRUNC_SIZE : positive;
-    RESET_ACTIVE_LEVEL : std_ulogic := '1'
+    RESET_ACTIVE_LEVEL : std_ulogic := '1';
+    ROUND_ENABLE : boolean := true
   );
   port (
     Clock : in std_ulogic;
@@ -186,10 +187,16 @@ begin
     Y_result <= Y_result_rnd(SIZE-1 downto SIZE-TRUNC_SIZE);
     Z_result <= Z_result_rnd(SIZE-1 downto SIZE-TRUNC_SIZE);
 
-    X_rnd <= (TRUNC_SIZE-1 downto 0 => '0') & X_lsb & (SIZE - TRUNC_SIZE - 2 downto 0 => not X_lsb);
-    Y_rnd <= (TRUNC_SIZE-1 downto 0 => '0') & Y_lsb & (SIZE - TRUNC_SIZE - 2 downto 0 => not Y_lsb);
-    Z_rnd <= (TRUNC_SIZE-1 downto 0 => '0') & Z_lsb & (SIZE - TRUNC_SIZE - 2 downto 0 => not Z_lsb);
-
+    -- Rounding ADD
+    round_g : if ROUND_ENABLE generate
+      X_rnd <= (TRUNC_SIZE-1 downto 0 => '0') & X_lsb & (SIZE - TRUNC_SIZE - 2 downto 0 => not X_lsb);
+      Y_rnd <= (TRUNC_SIZE-1 downto 0 => '0') & Y_lsb & (SIZE - TRUNC_SIZE - 2 downto 0 => not Y_lsb);
+      Z_rnd <= (TRUNC_SIZE-1 downto 0 => '0') & Z_lsb & (SIZE - TRUNC_SIZE - 2 downto 0 => not Z_lsb);
+    else generate
+      X_rnd <= (others => '0');
+      Y_rnd <= (others => '0');
+      Z_rnd <= (others => '0');
+    end generate;
 
     process (Clock)
     begin
