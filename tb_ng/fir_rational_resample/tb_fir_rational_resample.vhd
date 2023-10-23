@@ -68,26 +68,33 @@ begin
     wait for 100 ns;
     rst_i <= '1';
 
-    for iterations in 1 to 10 loop
-      for l in 1 to 5 loop
-          for k in 1 to iterations loop
-            push_axi_stream(net, master_axi_stream, x"7FFF", tlast => '0');
-          end loop;
-          for k in 1 to iterations loop
-            push_axi_stream(net, master_axi_stream, x"8001", tlast => '0');
-          end loop;
-      end loop; 
+    set_timeout(runner, 150 us);
+
+    for m in 1 to 20 loop
+      for iterations in 1 to 10 loop
+        for l in 1 to 5 loop
+            for k in 1 to iterations loop
+              push_axi_stream(net, master_axi_stream, x"7FFF", tlast => '0');
+            end loop;
+            for k in 1 to iterations loop
+              push_axi_stream(net, master_axi_stream, x"8001", tlast => '0');
+            end loop;
+        end loop; 
+      end loop;
     end loop;
 
-	for loop_var in 0 to 25000 loop
+  for loop_var in 0 to 4000 loop
 		pop_axi_stream(net, slave_axi_stream, data_in, tlast_in);
 	end loop;
-    wait for 10 us;
+    wait for 20 us;
 
     test_runner_cleanup(runner); -- Simulation ends here
   end process;
 
-  mod_resampler_inst : entity work.mod_resampler
+  fir_rational_resample_inst : entity work.fir_rational_resample
+  generic map (
+    C_OUT_SHIFT => 0
+  )
   port map (
     clk_i => clk_i,
     s_axis_mod_i => s_axis_mod_i,

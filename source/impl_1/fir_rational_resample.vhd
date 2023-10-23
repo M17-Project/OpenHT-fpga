@@ -19,10 +19,6 @@ use work.openht_utils_pkg.all;
 entity fir_rational_resample is
   generic
   (
-    N_TAPS : natural := 4; --!!! TAPS count must be a multiple of L
-    L      : natural; -- Interpolation factor
-    M      : natural; -- Decimation factor
-    C_TAPS : taps_mod_t := (x"1000", x"1000", x"1000", x"1000"); -- TAPS value
     C_OUT_SHIFT : natural
   );
   port
@@ -36,14 +32,15 @@ entity fir_rational_resample is
 end entity fir_rational_resample;
 
 architecture rtl of fir_rational_resample is
-    constant C_BUFFER_SIZE : natural := N_TAPS / L;
+    constant C_BUFFER_SIZE : natural := 1024;
 
     type interp_state_t is (IDLE, SETUP_INTERPOLATE, SETUP_DECIMATE, FIR_COMPUTE, OUTPUT_DATA);
     signal interp_state : interp_state_t := IDLE;
     signal interp_round : unsigned(3 downto 0) := (others => '0');
     signal decimation_round : unsigned(3 downto 0) := (others => '0');
-    signal tap_addr    : unsigned(log2up(N_TAPS)-1 downto 0) := (others => '0');
-    signal data_counter : unsigned(log2up(C_BUFFER_SIZE)-1 downto 0) := (others => '0');
+    signal tap_addr    : unsigned(log2up(C_BUFFER_SIZE-1)-1 downto 0) := (others => '0');
+    signal tap_count : unsigned(log2up(C_BUFFER_SIZE-1)-1 downto 0) := (others => '0');
+    signal data_counter : unsigned(log2up(C_BUFFER_SIZE-1)-1 downto 0) := (others => '0');
 
     signal accumulator : signed(39 downto 0) := (others => '0');
     signal accumulate_0 : std_logic := '0';
@@ -54,16 +51,19 @@ architecture rtl of fir_rational_resample is
 
     signal multiply_out : signed(31 downto 0);
 
-    type buffer_data_t is array (0 to 2**log2up(C_BUFFER_SIZE)-1) of signed(15 downto 0);
+    type buffer_data_t is array (0 to C_BUFFER_SIZE-1) of signed(15 downto 0);
     signal buffer_data : buffer_data_t := (others => (others => '0'));
-    signal buffer_wrptr : unsigned(log2up(C_BUFFER_SIZE)-1 downto 0) := (others => '0');
-    signal round_rdptr : unsigned(log2up(C_BUFFER_SIZE)-1 downto 0) := (others => '0');
-    signal buffer_rdptr : unsigned(log2up(C_BUFFER_SIZE)-1 downto 0) := (others => '0');
+    signal buffer_wrptr : unsigned(log2up(C_BUFFER_SIZE-1)-1 downto 0) := (others => '0');
+    signal round_rdptr : unsigned(log2up(C_BUFFER_SIZE-1)-1 downto 0) := (others => '0');
+    signal buffer_rdptr : unsigned(log2up(C_BUFFER_SIZE-1)-1 downto 0) := (others => '0');
+
+    signal L : unsigned(3 downto 0) := X"3";
+    signal M : unsigned(3 downto 0) := X"1";
+    signal enable : std_logic := '0';
+    signal taps_count : unsigned(9 downto 0) := 10x"00f";
+    signal taps_iq_offset : unsigned(9 downto 0) := (others => '0');
 
 begin
-
-    assert N_TAPS mod L = 0 report "Taps count must be a multiple of L" severity error;
-    assert C_TAPS'length = N_TAPS report "Taps not the same size as the declared number" severity error;
 
     process (clk_i)
     begin
@@ -76,7 +76,7 @@ begin
             end if;
 
             buffer_rddata <= buffer_data(to_integer(buffer_rdptr));
-            coeff_data <= C_TAPS(to_integer(tap_addr));
+            coeff_data <= X"0001"; -- C_TAPS(to_integer(tap_addr));
         end if;
     end process;
 
@@ -85,7 +85,6 @@ begin
     process (clk_i)
     begin
         if rising_edge(clk_i) then
-        s_axis_mod_o.tready <= '0';
         accumulate_0 <= '0'; -- Stop accumulation, overriden when state = FIR_COMPUTE
         accumulate_1 <= accumulate_0;
 
@@ -105,6 +104,7 @@ begin
                 data_counter <= (others => '0');
                 buffer_rdptr <= round_rdptr;
                 tap_addr <= resize(interp_round, tap_addr'length);
+                tap_count <= (others => '0');
 
             when SETUP_DECIMATE =>
                 interp_state <= FIR_COMPUTE;
@@ -121,8 +121,9 @@ begin
 
                 -- Compute N samples FIR
                 -- Skip this output sample is decimated
-                if data_counter < (N_TAPS/L) - 1 then
+                if tap_count < taps_count then
                     tap_addr <= tap_addr + L;
+                    tap_count <= tap_count + L;
                     data_counter <= data_counter + 1;
                     buffer_rdptr <= buffer_rdptr - 1;
                 else
@@ -132,7 +133,8 @@ begin
 
             when OUTPUT_DATA => -- Wait until acc is ready
                 if not accumulate_1 then
-                    m_axis_mod_o.tdata <= std_logic_vector(accumulator(39-log2up(N_TAPS)-C_OUT_SHIFT downto 39-16-log2up(N_TAPS)-C_OUT_SHIFT+1));
+                    -- TODO fix dynamic offset
+                    m_axis_mod_o.tdata <= std_logic_vector(accumulator(39 downto 39-16+1));
                     m_axis_mod_o.tvalid <= '1';
                 end if;
 
@@ -144,7 +146,6 @@ begin
                 end if;
 
             when others => -- IDLE
-                s_axis_mod_o.tready <= m_axis_mod_i.tready;
                 interp_round		<= (others => '0');
                 tap_addr			<= (others => '0');
                 data_counter		<= (others => '0');
@@ -152,11 +153,12 @@ begin
 
                 -- When new data comes in, start to compute
                 if s_axis_mod_i.tvalid and s_axis_mod_o.tready then
-                    s_axis_mod_o.tready <= '0';
                     interp_state		<= SETUP_INTERPOLATE;
                 end if;
         end case;
     end if;
   end process;
+
+  s_axis_mod_o.tready <= '1' when interp_state = IDLE else '0';
 
 end architecture;
