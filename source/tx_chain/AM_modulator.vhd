@@ -15,8 +15,8 @@ use work.axi_stream_pkg.all;
 entity am_modulator is
 	port(
 		clk_i : in std_logic;
-		s_axis_mod_i : in axis_in_mod_t;
-		s_axis_mod_o : out axis_out_mod_t;
+		s_axis_mod_i : in axis_in_iq_t;
+		s_axis_mod_o : out axis_out_iq_t;
 		m_axis_iq_o : out axis_in_iq_t;
 		m_axis_iq_i : in axis_out_iq_t
 	);
@@ -26,12 +26,14 @@ architecture magic of am_modulator is
 	signal post_offset : std_logic_vector(15 downto 0) := (others => '0');
 	signal out_valid : std_logic := '0';
 begin
-	post_offset <= std_logic_vector(signed(s_axis_mod_i.tdata) - 16#8000#);
+	-- Only use I input regardless of Q component
+	post_offset <= std_logic_vector(signed(s_axis_mod_i.tdata(31 downto 16)) - 16#8000#);
 
 	process(clk_i)
 	begin
 		if rising_edge(clk_i) then
 			if s_axis_mod_o.tready then
+				m_axis_iq_o.tstrb <= X"F"; -- I and Q are valid but only I input is used
 				m_axis_iq_o.tdata(31 downto 16) <= '0' & post_offset(15 downto 1);
 				m_axis_iq_o.tdata(15 downto 0) <= (others => '0');
 				out_valid <= s_axis_mod_i.tvalid;

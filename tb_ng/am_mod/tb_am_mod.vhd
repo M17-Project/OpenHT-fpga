@@ -1,5 +1,5 @@
 -----------------------------------------
--- Unpack testbench
+-- AM modulator testbench
 --
 -- Sebastien, ON4SEB
 -----------------------------------------
@@ -28,8 +28,8 @@ architecture tb of tb_am_mod is
   signal clk_i : std_logic;
   signal rst_i : std_logic;
 
-  signal s_axis_mod_i : axis_in_mod_t;
-  signal s_axis_mod_o : axis_out_mod_t;
+  signal s_axis_mod_i : axis_in_iq_t;
+  signal s_axis_mod_o : axis_out_iq_t;
 
   signal m_axis_iq_i : axis_out_iq_t;
   signal m_axis_iq_o : axis_in_iq_t;
@@ -42,7 +42,7 @@ architecture tb of tb_am_mod is
   );
 
   constant master_stall_config : stall_config_t := new_stall_config(stall_probability => 0.0, min_stall_cycles => 2, max_stall_cycles => 40);
-  constant master_axi_stream : axi_stream_master_t := new_axi_stream_master(data_length => 16,
+  constant master_axi_stream : axi_stream_master_t := new_axi_stream_master(data_length => 32,
     stall_config => master_stall_config);
 
   constant slave_stall_config : stall_config_t := new_stall_config(stall_probability => 0.2, min_stall_cycles => 2, max_stall_cycles => 40);
@@ -68,7 +68,7 @@ begin
     rst_i <= '1';
 
     for loop_var in 0 to 200 loop
-        push_axi_stream(net, master_axi_stream, std_logic_vector(to_unsigned(loop_var, 16)), tlast => '0');
+        push_axi_stream(net, master_axi_stream, std_logic_vector(to_unsigned(loop_var, 16)) & X"0000", tlast => '0');
     end loop;
 
     for loop_var in 0 to 200 loop
