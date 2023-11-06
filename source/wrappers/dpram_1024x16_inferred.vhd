@@ -4,7 +4,7 @@ use ieee.numeric_std.all;
 use ieee.math_real.all;
 
 architecture inferred of dpram_1024x16 is
-    type mem_array_t is array (0 to 2047) of std_logic_vector(15 downto 0);
+    type mem_array_t is array (0 to 1023) of std_logic_vector(15 downto 0);
     signal mem_array : mem_array_t := (others => (others => '0'));
 begin
     process (clk)
