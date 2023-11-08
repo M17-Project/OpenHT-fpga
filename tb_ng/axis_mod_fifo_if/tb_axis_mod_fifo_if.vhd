@@ -40,12 +40,12 @@ architecture tb of tb_axis_mod_fifo_if is
   signal o_ae : std_logic;
   signal o_empty : std_logic;
 
-  signal m_axis_mod_i : axis_out_mod_t;
-  signal m_axis_mod_o : axis_in_mod_t;
+  signal m_axis_mod_i : axis_out_iq_t;
+  signal m_axis_mod_o : axis_in_iq_t;
 
   constant slave_stall_config : stall_config_t := new_stall_config(stall_probability => 0.2, min_stall_cycles => 2, max_stall_cycles => 10);
   constant slave_axi_stream : axi_stream_slave_t := new_axi_stream_slave(
-    data_length => 16);
+    data_length => 32);
 
 begin
   clk_p : process

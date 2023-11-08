@@ -66,8 +66,8 @@ architecture magic of main_all is
 	signal fifo_in_wr                   : std_logic;
 
 	-- misc
-	signal source_axis_out_mod			: axis_in_mod_t;
-	signal source_axis_in_mod			: axis_out_mod_t;
+	signal source_axis_out_mod			: axis_in_iq_t;
+	signal source_axis_in_mod			: axis_out_iq_t;
 	signal tx_axis_iq_o					: axis_in_iq_t := axis_in_iq_null;
 	signal tx_axis_iq_i 				: axis_out_iq_t;
 

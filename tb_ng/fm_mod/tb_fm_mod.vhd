@@ -28,8 +28,8 @@ architecture tb of tb_fm_mod is
   signal clk_i : std_logic;
   signal rst_i : std_logic;
 
-  signal s_axis_mod_i : axis_in_mod_t;
-  signal s_axis_mod_o : axis_out_mod_t;
+  signal s_axis_mod_i : axis_in_iq_t;
+  signal s_axis_mod_o : axis_out_iq_t;
 
   signal m_axis_iq_i : axis_out_iq_t;
   signal m_axis_iq_o : axis_in_iq_t;

@@ -17,8 +17,8 @@ entity axis_mod_fifo_if is
 		fifo_ae : in std_logic;
 		fifo_empty : in std_logic;
 
-        m_axis_mod_o : out axis_in_mod_t;
-        m_axis_mod_i : in axis_out_mod_t
+        m_axis_mod_o : out axis_in_iq_t;
+        m_axis_mod_i : in axis_out_iq_t
     );
 end entity axis_mod_fifo_if;
 
@@ -27,7 +27,9 @@ architecture rtl of axis_mod_fifo_if is
 begin
     fifo_rd_en <= m_axis_mod_i.tready and not fifo_empty;
     
-    m_axis_mod_o.tdata <= fifo_rd_data;
+    -- TODO fix stuff for raw IQ
+    m_axis_mod_o.tdata <= fifo_rd_data & X"0000";
+    m_axis_mod_o.tstrb <= X"C";
     m_axis_mod_o.tvalid <= not fifo_empty;
 
 end architecture;
