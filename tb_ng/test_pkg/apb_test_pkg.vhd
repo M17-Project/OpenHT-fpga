@@ -61,9 +61,12 @@ package body apb_test_pkg is
         got_data := false;
         for i in 0 to 49 loop
             wait until rising_edge(clk);
+            apb_in.penable <= '1';
             if apb_out.pready then
                 got_data := true;
                 data := apb_out.prdata;
+                apb_in.psel <= (others => '0');
+                apb_in.penable <= '0';
                 exit;
             end if;
         end loop;
@@ -84,13 +87,16 @@ package body apb_test_pkg is
         apb_in.psel <= (others => '0');
         apb_in.psel(pselid) <= '1';
         apb_in.penable <= '0';
-        apb_in.pwrite <= '0';
+        apb_in.pwrite <= '1';
         apb_in.pwdata <= data;
         did_write := false;
         for i in 0 to 49 loop
             wait until rising_edge(clk);
+            apb_in.penable <= '1';
             if apb_out.pready then
                 did_write := true;
+                apb_in.psel <= (others => '0');
+                apb_in.penable <= '0';
                 exit;
             end if;
         end loop;
