@@ -197,7 +197,7 @@ begin
 
           -- Compute N samples FIR
           -- Skip this output sample is decimated
-          if remaining_taps > L then
+          if remaining_taps >= L then
             tap_addr     <= tap_addr + L;
             remaining_taps <= remaining_taps - L;
             data_counter <= data_counter + 1;
