@@ -2,7 +2,7 @@
 -- AXI stream package
 --
 -- Sebastien Van Cauwenberghe, ON4SEB
--- 
+--
 -- Reference : https://developer.arm.com/documentation/ihi0051/latest/
 -- AXI stream spec IHI 0051B
 -- M17 Project
@@ -27,5 +27,6 @@ package axi_stream_pkg is
     type axis_out_iq_t is record
         tready : std_logic; -- Downstream is ready
     end record;
+    constant axis_out_iq_null : axis_out_iq_t := (tready => '0');
 
 end package;
