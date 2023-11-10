@@ -31,6 +31,10 @@ plt.plot(20*np.log(fft(sig_upsampled)))
 fir = signal.remez(N, [0, 4400, 10000, fs*L/2], [2,0], fs=fs*L)
 fir = np.array([quantize(x, Q) for x in fir])
 
+max_acc = np.sum(np.abs(fir))*0x7FFF*0x7FFF
+print("Max acc value : ", max_acc)
+print("offset", np.log2(2**42 / max_acc))
+
 plt.subplot(4,2,5)
 plt.plot(fir)
 
