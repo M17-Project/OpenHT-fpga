@@ -66,8 +66,8 @@ architecture magic of main_all is
 	signal fifo_in_wr                   : std_logic;
 
 	-- misc
-	signal source_axis_out_mod			: axis_in_iq_t;
-	signal source_axis_in_mod			: axis_out_iq_t;
+	signal source_axis_out  			: axis_in_iq_t;
+	signal source_axis_in	    		: axis_out_iq_t;
 	signal tx_axis_iq_o					: axis_in_iq_t := axis_in_iq_null;
 	signal tx_axis_iq_i 				: axis_out_iq_t;
 
@@ -264,8 +264,8 @@ begin
 	  fifo_rd_data => fifo_in_rd_data,
 	  fifo_ae => fifo_in_ae,
 	  fifo_empty => fifo_in_empty,
-	  m_axis_mod_o => source_axis_out_mod,
-	  m_axis_mod_i => source_axis_in_mod
+	  m_axis_mod_o => source_axis_out,
+	  m_axis_mod_i => source_axis_in
 	);
 
 	tx_chain_inst : entity work.tx_chain
@@ -274,8 +274,8 @@ begin
 	  resetn => nrst,
 	  s_apb_in => m_apb_dec_in,
 	  s_apb_out => tx_apb_out,
-	  source_axis_out_mod => source_axis_out_mod,
-	  source_axis_in_mod => source_axis_in_mod,
+	  source_axis_out => source_axis_out,
+	  source_axis_in => source_axis_in,
 	  tx_axis_iq_o => tx_axis_iq_o,
 	  tx_axis_iq_i => tx_axis_iq_i
 	);

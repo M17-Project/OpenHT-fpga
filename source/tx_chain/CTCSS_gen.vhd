@@ -22,10 +22,10 @@ entity ctcss_gen is
 		nrst_i	: in std_logic;											-- reset
 		s_apb_in : in apb_in_t;
         s_apb_out : out apb_out_t;
-		s_axis_mod_i : in axis_in_mod_t;
-		s_axis_mod_o : out axis_out_mod_t;
-		m_axis_mod_i : in axis_out_mod_t;
-		m_axis_mod_o : out axis_in_mod_t
+		s_axis_i : in axis_in_iq_t;
+		s_axis_o : out axis_out_iq_t;
+		m_axis_i : in axis_out_iq_t;
+		m_axis_o : out axis_in_iq_t
 	);
 end ctcss_gen;
 
@@ -76,7 +76,7 @@ begin
 	begin
 		if nrst_i='0' then
 			phase <= (others => '0');
-			m_axis_mod_o.tvalid <= '0';
+			m_axis_o.tvalid <= '0';
 		elsif rising_edge(clk_i) then
 			-- Store a new transaction when ready
 			ready <= '0';
@@ -85,39 +85,39 @@ begin
 					phase_vld <= '0';
 					if output_valid then
 						mod_state <= DONE;
-						m_axis_mod_o.tvalid <= '1';
+						m_axis_o.tvalid <= '1';
 						if add_pass then
-							m_axis_mod_o.tdata <= std_logic_vector(sin_output + signed(s_axis_mod_i.tdata));
+							m_axis_o.tdata <= std_logic_vector(sin_output + signed(s_axis_i.tdata));
 						else
-							m_axis_mod_o.tdata <= std_logic_vector(sin_output);
+							m_axis_o.tdata <= std_logic_vector(sin_output);
 						end if;
 					end if;
 
 				when DONE =>
-					if m_axis_mod_i.tready and m_axis_mod_o.tvalid then
+					if m_axis_i.tready and m_axis_o.tvalid then
 						mod_state <= IDLE;
-						m_axis_mod_o.tvalid <= '0';
+						m_axis_o.tvalid <= '0';
 						ready <= '1';
 					end if;
 
 				when others => -- IDLE, safe
-					m_axis_mod_o.tvalid <= '0';
+					m_axis_o.tvalid <= '0';
 					ready <= '1';
-					if s_axis_mod_i.tvalid and not cordic_busy then
+					if s_axis_i.tvalid and not cordic_busy then
 						ready <= '0';
 						if enabled then
 							phase_vld <= '1';
 							mod_state <= COMPUTE;
 
 							if in_mode then
-								phase <= phase + signed(s_axis_mod_i.tdata);
+								phase <= phase + signed(s_axis_i.tdata);
 							else
 								phase <= phase + tuning_w;
 							end if;
 						else
 							mod_state <= DONE;
-							m_axis_mod_o.tdata <= s_axis_mod_i.tdata;
-							m_axis_mod_o.tvalid <= '1';
+							m_axis_o.tdata <= s_axis_i.tdata;
+							m_axis_o.tvalid <= '1';
 							phase <= (others => '0');
 						end if;
 					end if;
@@ -126,7 +126,7 @@ begin
 		end if;
 	end process;
 
-	s_axis_mod_o.tready <= ready;
+	s_axis_o.tready <= ready;
 
 	process (clk_i)
     begin
