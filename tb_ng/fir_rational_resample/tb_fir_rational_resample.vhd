@@ -18,6 +18,9 @@ use vunit_lib.axi_stream_pkg.all;
 use vunit_lib.stream_master_pkg.all;
 use vunit_lib.stream_slave_pkg.all;
 
+library osvvm;
+use osvvm.RandomPkg.all;
+
 use work.axi_stream_pkg.all;
 use work.openht_utils_pkg.all;
 use work.apb_pkg.all;
@@ -54,6 +57,7 @@ architecture tb of tb_fir_rational_resample is
   constant slave_axi_stream : axi_stream_slave_t := new_axi_stream_slave(
     data_length => 32, stall_config => slave_stall_config);
 
+  shared variable rv : RandomPType;
 begin
   clk_p : process
   begin
@@ -73,6 +77,7 @@ begin
     variable tuser_in : std_logic_vector(0 downto 1);
 
     variable tstrb_out : std_logic_vector(3 downto 0) := X"C";
+    variable data_out : std_logic_vector(31 downto 0);
     type accum_t is array (0 to 3) of signed(41 downto 0);
     
     variable acc_i : accum_t;
@@ -220,6 +225,15 @@ begin
             end loop;
             wait for 100 ns;
 
+          elsif run("test_bypass") then
+            for i in 0 to 1023 loop
+              tstrb_out := rv.RandSlv(4);
+              data_out := rv.RandSlv(32);
+              push_axi_stream(net, master_axi_stream, data_out, tstrb => tstrb_out, tlast => '0');
+              pop_axi_stream(net, slave_axi_stream, data_in, tlast_in, tkeep_in, tstrb_in, tid_in, tdest_in, tuser_in);
+              --check_equal(tstrb_in, tstrb_out);
+              check_equal(data_in, data_out);
+            end loop;      
         end if;
       -- rst_i <= '0';
       -- wait for 100 ns;

@@ -208,7 +208,7 @@ begin
           end if;
 
         when OUTPUT_DATA => -- Wait until acc is ready
-          if not accumulate_1 then
+          if not accumulate_1 and enabled then
             m_axis_o.tdata(31 downto 16) <= std_logic_vector(accumulator_trunc_i);
             m_axis_o.tdata(15 downto 0)  <= std_logic_vector(accumulator_trunc_q);
             m_axis_o.tvalid <= '1';
@@ -219,7 +219,11 @@ begin
             m_axis_o.tvalid <= '0';
             accumulator_i <= (others => '0');
             accumulator_q <= (others => '0');
-            interp_state        <= SETUP_INTERPOLATE;
+            if enabled then
+              interp_state        <= SETUP_INTERPOLATE;
+            else
+              interp_state        <= IDLE;
+            end if;
           end if;
 
         when others             => -- IDLE
@@ -230,29 +234,33 @@ begin
 
           -- When new data comes in, start to compute
           if s_axis_i.tvalid and s_axis_o.tready then
-            buffer_wr_ena <= '1';
-            if not duplicate_mod then
-              buffer_wr_data <= s_axis_i.tdata;
+            if not enabled then
+              m_axis_o <= s_axis_i;
+              interp_state <= OUTPUT_DATA;
             else
-              buffer_wr_data <= s_axis_i.tdata(31 downto 16) & s_axis_i.tdata(31 downto 16);
+              buffer_wr_ena <= '1';
+              if not duplicate_mod then
+                buffer_wr_data <= s_axis_i.tdata;
+              else
+                buffer_wr_data <= s_axis_i.tdata(31 downto 16) & s_axis_i.tdata(31 downto 16);
+              end if;
+              
+              buffer_rd_addr <= buffer_wr_addr;
+              
+              -- Detect if we are in IQ or MOD mode
+              if s_axis_i.tstrb(1 downto 0) = "11" or duplicate_mod = '1' then
+                mod_or_iq <= '1';
+                buffer_wr_enb <= '1';
+                m_axis_o.tstrb <= X"F";
+                buffer_wr_addr_i <= '0' & std_logic_vector(buffer_wr_addr(8 downto 0));
+                buffer_wr_addr_q <= '1' & std_logic_vector(buffer_wr_addr(8 downto 0));
+              else
+                m_axis_o.tstrb <= X"C";
+                mod_or_iq <= '0';
+                buffer_wr_addr_i <= std_logic_vector(buffer_wr_addr);
+              end if;
+              interp_state <= SETUP_INTERPOLATE;
             end if;
-            
-            buffer_rd_addr <= buffer_wr_addr;
-            
-            -- Detect if we are in IQ or MOD mode
-            if s_axis_i.tstrb(1 downto 0) = "11" or duplicate_mod = '1' then
-              mod_or_iq <= '1';
-              buffer_wr_enb <= '1';
-              m_axis_o.tstrb <= X"F";
-              buffer_wr_addr_i <= '0' & std_logic_vector(buffer_wr_addr(8 downto 0));
-              buffer_wr_addr_q <= '1' & std_logic_vector(buffer_wr_addr(8 downto 0));
-            else
-              m_axis_o.tstrb <= X"C";
-              mod_or_iq <= '0';
-              buffer_wr_addr_i <= std_logic_vector(buffer_wr_addr);
-            end if;
-
-            interp_state <= SETUP_INTERPOLATE;
           end if;
       end case;
     end if;
