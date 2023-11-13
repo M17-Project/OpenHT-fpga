@@ -87,9 +87,9 @@ begin
 						mod_state <= DONE;
 						m_axis_o.tvalid <= '1';
 						if add_pass then
-							m_axis_o.tdata <= std_logic_vector(sin_output + signed(s_axis_i.tdata));
+							m_axis_o.tdata <= std_logic_vector(sin_output + signed(s_axis_i.tdata(31 downto 16))) & X"0000";
 						else
-							m_axis_o.tdata <= std_logic_vector(sin_output);
+							m_axis_o.tdata <= std_logic_vector(sin_output) & X"0000";
 						end if;
 					end if;
 
@@ -110,7 +110,7 @@ begin
 							mod_state <= COMPUTE;
 
 							if in_mode then
-								phase <= phase + signed(s_axis_i.tdata);
+								phase <= phase + signed(s_axis_i.tdata(31 downto 16));
 							else
 								phase <= phase + tuning_w;
 							end if;
