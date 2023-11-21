@@ -84,6 +84,9 @@ begin
     
     elsif rising_edge(clk_i) then
       ready <= '0';
+
+      -- TODO : add AM demod
+
       case sig_state is
         when COMPUTE =>
           iq_vld <= '0';
@@ -92,6 +95,7 @@ begin
             m_axis_o.tvalid <= '1';
 
             -- FM demod only at the moment
+            -- TODO : add PM demod
 
             -- Compute the phase difference between the current and previous sample
             phase_1 <= phase;
