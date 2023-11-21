@@ -83,7 +83,7 @@ architecture rtl of tx_chain is
 begin
 	apb_merge_inst : entity work.apb_merge
 	generic map (
-	  N_SLAVES => 5
+	  N_SLAVES => 8
 	)
 	port map (
 	  clk_i => clk_64,
@@ -95,7 +95,10 @@ begin
 	  s_apb_out(1) => s_apb_out_iqbal,
 	  s_apb_out(2) => s_apb_out_iqoffs,
 	  s_apb_out(3) => s_apb_out_prefilter,
-	  s_apb_out(4) => s_apb_out_ctcss
+	  s_apb_out(4) => s_apb_out_ctcss,
+	  s_apb_out(5) => s_apb_out_interp0,
+	  s_apb_out(6) => s_apb_out_interp1,
+	  s_apb_out(7) => s_apb_out_interp2
 	);
 
 	tx_apb_regs_inst : entity work.tx_apb_regs
