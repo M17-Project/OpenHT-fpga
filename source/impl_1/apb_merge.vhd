@@ -32,7 +32,7 @@ entity apb_merge is
 end entity apb_merge;
 
 architecture rtl of apb_merge is
-    signal address : unsigned(APB_PSELID_BITS-1 downto 0);
+
 begin
     s_apb_in <= m_apb_in;
     
