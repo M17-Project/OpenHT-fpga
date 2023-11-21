@@ -2,7 +2,7 @@
 -- Complex frequency demodulator
 --
 -- Takes in a 32bit IQ signal stream (16bis I, 16bit Q) and outputs
--- the phase of the IQ signal (16bits).
+-- the demodulated signal (AM, PM or FM) as a 16bit stream.
 --
 --
 -- Frédéric Druppel, ON4PFD, fredcorp.cc
@@ -96,13 +96,15 @@ begin
           if m_axis_i.tready and m_axis_o.tvalid then
             sig_state <= IDLE;
             m_axis_o.tvalid <= '0';
+            
+            -- FM demod only at the moment
 
             -- Compute the phase difference between the current and previous sample
             phase_1 <= phase;
             phase <=  phase_1-phase;
 
             -- Output the phase difference
-            m_axis_o.tdata <= std_logic_vector(phase);
+            m_axis_o.tdata <= std_logic_vector(phase);  -- TODO : Convert to 16bit
           
           end if;
 
