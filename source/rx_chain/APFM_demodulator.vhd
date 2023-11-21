@@ -90,13 +90,7 @@ begin
           if output_valid then
             sig_state <= DONE;
             m_axis_o.tvalid <= '1';
-          end if;
 
-        when DONE =>
-          if m_axis_i.tready and m_axis_o.tvalid then
-            sig_state <= IDLE;
-            m_axis_o.tvalid <= '0';
-            
             -- FM demod only at the moment
 
             -- Compute the phase difference between the current and previous sample
@@ -105,7 +99,14 @@ begin
 
             -- Output the phase difference
             m_axis_o.tdata <= std_logic_vector(phase);  -- TODO : Convert to 16bit
-          
+
+
+          end if;
+
+        when DONE =>
+          if m_axis_i.tready and m_axis_o.tvalid then
+            sig_state <= IDLE;
+            m_axis_o.tvalid <= '0';
           end if;
 
         when others =>
