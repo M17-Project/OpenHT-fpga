@@ -9,6 +9,13 @@
 -- Sebastien, ON4SEB
 -- M17 Project
 -- November 2023
+--
+-- TODO : Implement AM and PM demodulation
+-- TODO : Implement mode selector (AM, PM, FM)
+-- TODO : Add APB interface
+-- TODO : Implement I/IQ mode for AM
+-- TODO : Normalise phase angle from -pi to pi
+--
 -------------------------------------------------------------
 
 library IEEE;
