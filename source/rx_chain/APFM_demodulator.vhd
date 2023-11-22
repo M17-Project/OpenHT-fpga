@@ -147,11 +147,9 @@ begin
                 m_axis_o.tdata <= std_logic_vector(phase);  -- TODO : Convert to 16bit
                 m_axis_o.tstrb <= 16#C#;
               when BYPASS =>
-                -- Output the IQ signal
+                -- Output the RAW data
                 m_axis_o.tdata <= s_axis_i.tdata;
-                m_axis_o.tvalid <= s_axis_i.tvalid;
                 m_axis_o.tstrb <= s_axis_i.tstrb;
-                s_axis_o.tready <= m_axis_i.tready;
               when others =>
                 null;
             end case;
