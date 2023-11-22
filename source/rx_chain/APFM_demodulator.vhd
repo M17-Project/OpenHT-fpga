@@ -173,8 +173,8 @@ begin
               end if;
 
           end case;
-        -- AXI Stream
-        s_axis_o.tready <= ready;
+          -- AXI Stream
+          s_axis_o.tready <= ready;
 
       end case;
     end if;
