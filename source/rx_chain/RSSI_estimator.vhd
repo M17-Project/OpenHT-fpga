@@ -28,9 +28,7 @@ entity RSSI_estimator is
     s_apb_i  : in apb_in_t;             -- slave apb interface in, from upstream
 
     s_axis_o : out axis_out_iq_t;       -- slave out, to upstream entity (ready)                      -- This entity's ready to receive flag (tready)
-    s_axis_i : in axis_in_iq_t;         -- slave in, from upstream entity (data and valid)            -- IQ signal (tdata), valid (tvalid)
-    m_axis_o : out axis_in_iq_t;        -- master out, to downstream entity (data and valid)          -- Signal RSSI (tdata), valid (tvalid)
-    m_axis_i : in axis_out_iq_t         -- master input, from downstream entity (ready)               -- From next entity's ready to receive flag (tready)
+    s_axis_i : in axis_in_iq_t          -- slave in, from upstream entity (data and valid)            -- IQ signal (tdata), valid (tvalid)
   );
 end entity;
 
@@ -39,6 +37,7 @@ architecture magic of RSSI_estimator is
   signal Q            : signed(15 downto 0) := (others => '0');
   signal magnitude    : signed(15 downto 0) := (others => '0');
   signal magnitude_o  : signed(15 downto 0) := (others => '0');
+  signal data_valid   : std_logic := '0';
 
   signal ready        : std_logic := '0';
 
@@ -79,6 +78,10 @@ begin
         if not s_apb_i.PENABLE then
           s_apb_o.pready <= '1';
           case s_apb_i.PADDR is
+            when "00" =>
+              if data_valid then
+                s_apb_o.prdata <= magnitude_o;
+              end if;
             when "01" =>
               s_apb_o.prdata <= attack;
             when "10" =>
@@ -117,18 +120,15 @@ begin
         
         when OUTPUT =>
           sig_state <= DONE;
-          m_axis_o.tvalid <= '1';
-          m_axis_o.tdata(31 downto 16) <= std_logic_vector(magnitude_o);
-          m_axis_o.tstrb <= x"C";
+          data_valid <= '1';
 
         when DONE =>
-          if m_axis_i.tready and m_axis_o.tvalid then
-            sig_state <= IDLE;
-            m_axis_o.tvalid <= '0';
-          end if;
+          data_valid;
+          sig_state <= IDLE;
+          data_valid <= '0';
 
         when others =>
-          m_axis_o.tvalid <= '0';
+          data_valid <= '0';
           ready <= '1';
           if s_axis_i.tvalid then
             ready <= '0';
@@ -143,5 +143,5 @@ begin
   Q <= signed(s_axis_i.tdata(15 downto 0)) when not s_axis_i.tdata(31) else -signed(s_axis_i.tdata(15 downto 0));
 
   -- AXI Stream
-  s_axis_o.tready <= ready when enable else (not m_axis_o.tvalid or m_axis_i.tready);
+  s_axis_o.tready <= ready when enable else (not data_valid);
 end architecture;
