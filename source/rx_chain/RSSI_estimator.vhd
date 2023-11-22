@@ -39,7 +39,6 @@ architecture magic of RSSI_estimator is
   signal min          : signed(15 downto 0) := (others => '0');
   signal magnitude    : signed(15 downto 0) := (others => '0');
   signal magnitude_o  : signed(15 downto 0) := (others => '0');
-  signal data_valid   : std_logic := '0';
 
   signal ready        : std_logic := '0';
 
@@ -123,15 +122,11 @@ begin
         
         when OUTPUT =>
           sig_state <= DONE;
-          data_valid <= '1';
 
         when DONE =>
-          data_valid;
           sig_state <= IDLE;
-          data_valid <= '0';
 
         when others =>
-          data_valid <= '0';
           ready <= '1';
           if s_axis_i.tvalid then
             ready <= '0';
