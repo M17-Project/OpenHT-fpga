@@ -50,8 +50,8 @@ architecture magic of FM_demodulator is
   signal output_valid : std_logic := '0';
   signal cordic_busy  : std_logic;
 
-  type demod_mode_t is (BYPASS, AM, PM, FM);
-  signal demod_mode   : demod_mode_t := FM;
+  signal enable       : std_logic := '0';
+  signal demod_mode   : std_logic_vector(1 downto 0) := (others => '0');
 
   type sig_state_t is (IDLE, COMPUTE, DONE);
   signal sig_state    : sig_state_t := IDLE;
@@ -95,7 +95,8 @@ begin
         if s_apb_i.PENABLE and s_apb_i.PWRITE then
           case s_apb_i.PADDR(2 downto 1) is
             when "00" => -- Mode
-              demod_mode <= demod_mode_t(to_integer(unsigned(s_apb_i.PWDATA(1 downto 0))));
+              enable <= s_apb_i.PWDATA(0);
+              demod_mode <= s_apb_i.PWDATA(2 downto 1);
             when others =>
               null;
           end case;
@@ -123,60 +124,57 @@ begin
     
     elsif rising_edge(clk_i) then
       ready <= '0';
-      case demod_mode is
-        when BYPASS =>
+      if not enable then
         -- Output the RAW signal
-          m_axis_o.tdata <= s_axis_i.tdata;
-          m_axis_o.tvalid <= s_axis_i.tvalid;
-          m_axis_o.tstrb <= s_axis_i.tstrb;
-          s_axis_o.tready <= m_axis_i.tready;
+        m_axis_o.tdata <= s_axis_i.tdata;
+        m_axis_o.tvalid <= s_axis_i.tvalid;
+        m_axis_o.tstrb <= s_axis_i.tstrb;
 
-        when others =>
-          case sig_state is
-            when COMPUTE =>
-              iq_vld <= '0';
-              if output_valid then
-                sig_state <= DONE;
-                m_axis_o.tvalid <= '1';
-                case demod_mode is
-                  when AM =>
-                    -- Output the magniutde
-                    m_axis_o.tdata <= std_logic_vector(magnitude);  -- TODO : Convert to 16bit
-                    m_axis_o.tstrb <= 16#C#;
-                  when PM =>
-                    -- Output the phase
-                    m_axis_o.tdata <= std_logic_vector(phase);  -- TODO : Convert to 16bit
-                    m_axis_o.tstrb <= 16#C#;
-                  when FM =>
-                    -- Compute the phase difference between the current and previous sample
-                    phase_1 <= phase;
-                    phase <=  phase_1-phase;
-                    -- Output the phase difference
-                    m_axis_o.tdata <= std_logic_vector(phase);  -- TODO : Convert to 16bit
-                    m_axis_o.tstrb <= 16#C#;
-                end case;
-              end if;
+      else
+        case sig_state is
+          when COMPUTE =>
+            iq_vld <= '0';
+            if output_valid then
+              sig_state <= DONE;
+              m_axis_o.tvalid <= '1';
+              case demod_mode is
+                when "00" => -- AM
+                  -- Output the magniutde
+                  m_axis_o.tdata <= std_logic_vector(magnitude);  -- TODO : Convert to 16bit
+                  m_axis_o.tstrb <= 16#C#;
+                when "01" => -- PM
+                  -- Output the phase
+                  m_axis_o.tdata <= std_logic_vector(phase);  -- TODO : Convert to 16bit
+                  m_axis_o.tstrb <= 16#C#;
+                when "10" => -- FM
+                  -- Compute the phase difference between the current and previous sample
+                  phase_1 <= phase;
+                  phase <=  phase_1-phase;
+                  -- Output the phase difference
+                  m_axis_o.tdata <= std_logic_vector(phase);  -- TODO : Convert to 16bit
+                  m_axis_o.tstrb <= 16#C#;
+              end case;
+            end if;
 
-            when DONE =>
-              if m_axis_i.tready and m_axis_o.tvalid then
-                sig_state <= IDLE;
-                m_axis_o.tvalid <= '0';
-              end if;
-
-            when others =>
+          when DONE =>
+            if m_axis_i.tready and m_axis_o.tvalid then
+              sig_state <= IDLE;
               m_axis_o.tvalid <= '0';
-              ready <= '1';
-              if s_axis_i.tvalid and not cordic_busy then
-                ready <= '0';
-                iq_vld <= '1';
-                sig_state <= COMPUTE;
-              end if;
+            end if;
 
-          end case;
-          -- AXI Stream
-          s_axis_o.tready <= ready;
+          when others =>
+            m_axis_o.tvalid <= '0';
+            ready <= '1';
+            if s_axis_i.tvalid and not cordic_busy then
+              ready <= '0';
+              iq_vld <= '1';
+              sig_state <= COMPUTE;
+            end if;
 
-      end case;
+        end case;
+      end if;
     end if;
   end process;
+  -- AXI Stream
+  m_axis_i.tready <= ready when enable else (not m_axis_o.tvalid or m_axis_i.tready);
 end architecture;
