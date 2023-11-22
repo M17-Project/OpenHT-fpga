@@ -35,8 +35,8 @@ entity FM_demodulator is
 
     s_axis_o : out axis_out_iq_t;       -- slave out, to upstream entity (ready)                      -- This entity's ready to receive flag (tready)
     s_axis_i : in axis_in_iq_t;         -- slave in, from upstream entity (data and valid)            -- IQ signal (tdata), valid (tvalid)
-    m_axis_o : out axis_in_mod_t;       -- master out, to downstream entity (data and valid)          -- Demodulated signal (tdata), valid (tvalid)
-    m_axis_i : in axis_out_mod_t        -- master input, from downstream entity (ready)               -- From next entity's ready to receive flag (tready)
+    m_axis_o : out axis_in_iq_t;        -- master out, to downstream entity (data and valid)          -- Demodulated signal (tdata), valid (tvalid)
+    m_axis_i : in axis_out_iq_t         -- master input, from downstream entity (ready)               -- From next entity's ready to receive flag (tready)
   );
 end entity;
 
