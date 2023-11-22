@@ -47,7 +47,7 @@ architecture magic of RSSI_estimator is
   signal decay        : std_logic_vector(15 downto 0) := (others => '0');
   signal hold_config  : std_logic_vector(15 downto 0) := (others => '0');
 
-  type sig_state_t is (IDLE, COMPUTE, OUTPUT, DONE);
+  type sig_state_t is (IDLE, COMPUTE,);
   signal sig_state    : sig_state_t := IDLE;
 
 begin
@@ -108,7 +108,7 @@ begin
             min <= I;
           end if;
           magnitude <= 15*max(15 downto 3) + 15*min(15 downto 4);
-          sig_state <= OUTPUT;
+          sig_state <= IDLE;
           if magnitude > magnitude_o then
             magnitude_o <= minimum(magnitude, magnitude_o+attack);
             hold <= hold_config;
@@ -119,12 +119,6 @@ begin
               magnitude_o <= magnitude_o-decay;
             end if;
           end if;
-        
-        when OUTPUT =>
-          sig_state <= DONE;
-
-        when DONE =>
-          sig_state <= IDLE;
 
         when others =>
           ready <= '1';
