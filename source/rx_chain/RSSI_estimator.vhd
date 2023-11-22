@@ -47,7 +47,7 @@ architecture magic of RSSI_estimator is
   signal decay        : std_logic_vector(15 downto 0) := (others => '0');
   signal hold_config  : std_logic_vector(15 downto 0) := (others => '0');
 
-  type sig_state_t is (IDLE, COMPUTE,);
+  type sig_state_t is (IDLE, COMPUTE);
   signal sig_state    : sig_state_t := IDLE;
 
 begin
@@ -100,7 +100,7 @@ begin
       case sig_state is
         when COMPUTE =>
           -- α*max(I,Q)+β*min(I,Q), with α=15/16 and β=15/32
-          if abs(I) > abs(Q) then
+          if I > Q then
             max <= I;
             min <= Q;
           else
@@ -130,8 +130,8 @@ begin
       end case;
     end if;
   end process;
-  I <= signed(s_axis_i.tdata(31 downto 16));
-  Q <= signed(s_axis_i.tdata(15 downto 0));
+  I <= abs(signed(s_axis_i.tdata(31 downto 16)));
+  Q <= abs(signed(s_axis_i.tdata(15 downto 0)));
 
   -- AXI Stream
   s_axis_o.tready <= ready;
