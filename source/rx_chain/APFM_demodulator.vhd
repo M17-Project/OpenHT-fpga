@@ -140,18 +140,18 @@ begin
               case demod_mode is
                 when "00" => -- AM
                   -- Output the magniutde
-                  m_axis_o.tdata <= std_logic_vector(magnitude);  -- TODO : Convert to 16bit
+                  m_axis_o.tdata <= std_logic_vector(magnitude(31 downto 16));
                   m_axis_o.tstrb <= 16#C#;
                 when "01" => -- PM
                   -- Output the phase
-                  m_axis_o.tdata <= std_logic_vector(phase);  -- TODO : Convert to 16bit
+                  m_axis_o.tdata <= std_logic_vector(phase(31 downto 16));
                   m_axis_o.tstrb <= 16#C#;
                 when "10" => -- FM
                   -- Compute the phase difference between the current and previous sample
                   phase_1 <= phase;
                   phase <=  phase_1-phase;
                   -- Output the phase difference
-                  m_axis_o.tdata <= std_logic_vector(phase);  -- TODO : Convert to 16bit
+                  m_axis_o.tdata <= std_logic_vector(phase(31 downto 16));
                   m_axis_o.tstrb <= 16#C#;
               end case;
             end if;
