@@ -44,6 +44,7 @@ begin
 				m_axis_iq_o.tdata <= std_logic_vector(signed(s_axis_iq_i.tdata(31 downto 16))+signed(i_offs))
 					& std_logic_vector(signed(s_axis_iq_i.tdata(15 downto 0))+signed(q_offs)); -- TODO: add saturation here
 				out_valid <= s_axis_iq_i.tvalid;
+				m_axis_iq_o.tstrb <= X"F";
 			end if;
 		end if;
 	end process;

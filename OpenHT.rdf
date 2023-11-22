@@ -12,9 +12,6 @@
         <Source name="source/impl_1/spi_slave.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
-        <Source name="source/impl_1/mod_resampler.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
-        </Source>
         <Source name="source/impl_1/fifo_simple.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
@@ -57,9 +54,6 @@
         <Source name="source/impl_1/ddr_unpack.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
-        <Source name="source/impl_1/gain_mod.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
-        </Source>
         <Source name="source/impl_1/iq_offset.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
@@ -81,9 +75,6 @@
         <Source name="source/impl_1/fir_rational_resample.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
-        <Source name="source/tx_chain/tx_fir.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
-        </Source>
         <Source name="source/impl_1/apb_bridge.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
@@ -100,6 +91,15 @@
             <Options/>
         </Source>
         <Source name="source/tx_chain/CTCSS_gen.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="source/wrappers/dpram_1024x16_inferred.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="source/wrappers/dpram_1024x16.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="source/impl_1/top_common.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
         <Source name="source/impl_1/impl_1.pdc" type="Physical Constraints File" type_short="PDC">

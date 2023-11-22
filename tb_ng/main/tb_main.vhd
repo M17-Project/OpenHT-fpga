@@ -22,8 +22,9 @@ context vunit_lib.data_types_context;
 
 use vunit_lib.axi_stream_pkg.all;
 use vunit_lib.stream_master_pkg.all;
+use work.apb_pkg.all;
 
---use work.axi_stream_pkg.all;
+--nse work.axi_stream_pkg.all;
 
 entity tb_main is
   generic (runner_cfg : string);
@@ -48,6 +49,30 @@ architecture tb of tb_main is
   signal io4 : std_logic;
   signal io5 : std_logic;
   signal io6 : std_logic;
+
+  function spi_write(increment : boolean; base : natural; offset: natural) return std_logic_vector is
+    variable res : std_logic_vector(15 downto 0);
+  begin
+    res := X"8000";
+    if increment then
+      res := res or X"4000";
+    end if;
+    res(13 downto 13-APB_PSELID_BITS+1) := std_logic_vector(to_unsigned(base, APB_PSELID_BITS));
+    res(13-APB_PSELID_BITS downto 0) := std_logic_vector(to_unsigned(offset, 14-APB_PSELID_BITS));
+    return res;
+  end function;
+
+  function spi_read(increment : boolean; base : natural; offset: natural) return std_logic_vector is
+    variable res : std_logic_vector(15 downto 0);
+  begin
+    res := X"0000";
+    if increment then
+      res := res or X"4000";
+    end if;
+    res(13 downto 13-APB_PSELID_BITS+1) := std_logic_vector(to_unsigned(base, APB_PSELID_BITS));
+    res(13-APB_PSELID_BITS downto 0) := std_logic_vector(to_unsigned(offset, 14-APB_PSELID_BITS));
+    return res;
+  end function;
 
   COMPONENT PUR
   GENERIC (
@@ -108,7 +133,7 @@ begin
   main_all_inst : entity work.main_all
   generic map (
     REV_MAJOR => 0,
-    REV_MINOR => 4
+    REV_MINOR => 5
   )
   port map (
     clk_i => clk_i,
@@ -140,75 +165,27 @@ begin
     spi_ncs <= '1';
     wait for 100 ns;
     rst_i <= '1';
-    wait for 100 us;
-    SPI_MASTER(SPI_PER, X"0000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
-    SPI_MASTER(SPI_PER, X"0000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
-    wait for 100 us;
-    SPI_MASTER(SPI_PER, X"8002", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
-    SPI_MASTER(SPI_PER, X"0001", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
-    SPI_MASTER(SPI_PER, X"0002", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
-    SPI_MASTER(SPI_PER, X"0000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
-    SPI_MASTER(SPI_PER, X"0002", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
-    SPI_MASTER(SPI_PER, X"0000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
-    wait for 100 us;
-    SPI_MASTER(SPI_PER, X"8000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
-    SPI_MASTER(SPI_PER, X"0007", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
-    wait for 100 ns;
-    SPI_MASTER(SPI_PER, X"0000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
-    SPI_MASTER(SPI_PER, X"0000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
-    wait for 100 ns;
-    SPI_MASTER(SPI_PER, X"8003", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
-    SPI_MASTER(SPI_PER, X"0005", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
-    wait for 100 ns;
-    SPI_MASTER(SPI_PER, X"8800", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
-    SPI_MASTER(SPI_PER, X"0001", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
+    wait for 10 us;
 
-    SPI_MASTER(SPI_PER, X"0800", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
-    SPI_MASTER(SPI_PER, X"0000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
-    wait for 500 ns;
-    SPI_MASTER(SPI_PER, X"9000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
-    SPI_MASTER(SPI_PER, X"1FFF", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
-
-    SPI_MASTER(SPI_PER, X"1000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
-    SPI_MASTER(SPI_PER, X"0000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
-
-    SPI_MASTER(SPI_PER, X"9001", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
-    SPI_MASTER(SPI_PER, X"1FFF", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
-
-    SPI_MASTER(SPI_PER, X"1001", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
-    SPI_MASTER(SPI_PER, X"0000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
-    wait for 500 ns;
-    SPI_MASTER(SPI_PER, X"8002", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
-    SPI_MASTER(SPI_PER, X"0002", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
-    wait for 100 ns;
-
-
-
-    SPI_MASTER(SPI_PER, X"8004", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
-    for iterations in 1 to 4 loop
-      for k in 1 to 2 loop
-        SPI_MASTER(SPI_PER, X"7FFF", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
-      end loop;
-      for k in 1 to 2 loop
-        SPI_MASTER(SPI_PER, X"8001", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
-      end loop;
+    for i in 0 to 8 loop
+        SPI_MASTER(SPI_PER, spi_read(false, i, 0), rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
+        SPI_MASTER(SPI_PER, X"0000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
+        wait for 10 us;
+        wait until rising_edge(clk_i);
     end loop;
-      SPI_MASTER(SPI_PER, X"7FFF", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
 
-    wait for 100 ns;
-    SPI_MASTER(SPI_PER, X"0010", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
-    SPI_MASTER(SPI_PER, X"0000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
+    SPI_MASTER(SPI_PER, spi_write(false, 0, 4), rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
+    for iterations in 1 to 4 loop
+        for k in 1 to 2 loop
+          SPI_MASTER(SPI_PER, X"7FFF", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
+        end loop;
+        for k in 1 to 2 loop
+          SPI_MASTER(SPI_PER, X"8001", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
+        end loop;
+    end loop;
+    SPI_MASTER(SPI_PER, X"7FFF", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
 
-    -- SPI_MASTER(SPI_PER, X"0140", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
-    -- SPI_MASTER(SPI_PER, X"0150", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
-    -- SPI_MASTER(SPI_PER, X"0160", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
-    -- SPI_MASTER(SPI_PER, X"0170", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
-    -- SPI_MASTER(SPI_PER, X"0180", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
-    -- SPI_MASTER(SPI_PER, X"0200", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
-
-
-    wait for 8 ms;
-
+    wait for 250 us;
     test_runner_cleanup(runner); -- Simulation ends here
   end process;
 

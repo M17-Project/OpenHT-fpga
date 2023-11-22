@@ -24,8 +24,8 @@ entity tx_chain is
 		s_apb_in : in apb_in_t;
         s_apb_out : out apb_out_t;
         -- Modulation source
-        source_axis_out_mod : in axis_in_mod_t;
-        source_axis_in_mod : out axis_out_mod_t;
+        source_axis_out : in axis_in_iq_t;
+        source_axis_in : out axis_out_iq_t;
 		-- TX output
         tx_axis_iq_o : out axis_in_iq_t;
 		tx_axis_iq_i : in axis_out_iq_t
@@ -33,46 +33,54 @@ entity tx_chain is
 end entity tx_chain;
 
 architecture rtl of tx_chain is
-	signal resampl_gain_axis_in_mod		: axis_in_mod_t;
-	signal gain_fork_axis_out_mod		: axis_out_mod_t;
-
+	-- Prefilter
+	signal prefilter_ctcss_axis_in	: axis_in_iq_t;
+	signal prefilter_ctcss_axis_out  : axis_out_iq_t;
 	-- CTCSS
-	signal ctcss_interp_axis_in_mod		: axis_in_mod_t;
-	signal ctcss_interp_axis_out_mod    : axis_out_mod_t;
+	signal ctcss_interp0_axis_in		: axis_in_iq_t;
+	signal ctcss_interp0_axis_out    : axis_out_iq_t;
+	-- Interpolators
+	signal interp0_interp1_axis_in		: axis_in_iq_t;
+	signal interp0_interp1_axis_out    : axis_out_iq_t;
+	signal interp1_interp2_axis_in		: axis_in_iq_t;
+	signal interp1_interp2_axis_out    : axis_out_iq_t;
+	signal interp2_mods_axis_in		: axis_in_iq_t;
+	signal interp2_mods_axis_out    : axis_out_iq_t;
+
 	-- FM
-    signal fm_mod_axis_in_mod    		: axis_out_mod_t;
-	signal freq_mod_axis_in_iq			: axis_in_iq_t;
-    signal freq_mod_axis_out_iq			: axis_out_iq_t;
+    signal fm_iq_axis_in    		: axis_out_iq_t;
+	signal freq_iq_axis_in			: axis_in_iq_t;
+    signal freq_iq_axis_out			: axis_out_iq_t;
 	signal fm_nw                        : std_logic;
 	-- AM
-	signal am_mod_axis_in_mod    		: axis_out_mod_t;
-	signal ampl_mod_axis_in_iq			: axis_in_iq_t;
-    signal ampl_mod_axis_out_iq			: axis_out_iq_t;
+	signal am_iq_axis_in    		: axis_out_iq_t;
+	signal ampl_iq_axis_in			: axis_in_iq_t;
+    signal ampl_iq_axis_out			: axis_out_iq_t;
 	-- SSB
-	signal fir_axis_in_mod    			: axis_out_mod_t;
-	signal fir_axis_in_iq				: axis_in_iq_t;
-    signal fir_axis_out_iq				: axis_out_iq_t;
-	signal ssb_sideband                 : std_logic;
+	signal ssb_sideband             : std_logic;
+	signal direct_iq_axis_in        : axis_out_iq_t;
 
 	-- post-processing
-	signal resampl_gain_axis_out_mod				: axis_out_mod_t;
-	signal gain_mods_in_mod			: axis_in_mod_t;
-	signal bal_axis_in_iq				: axis_out_iq_t;
-	signal bal_axis_out_iq				: axis_in_iq_t;
-	signal offset_axis_in_iq			: axis_out_iq_t;
-	signal offset_axis_out_iq			: axis_in_iq_t;
+	signal bal_axis_in				: axis_out_iq_t;
+	signal bal_axis_out				: axis_in_iq_t;
+	signal offset_axis_in			: axis_out_iq_t;
+	signal offset_axis_out			: axis_in_iq_t;
 
 	signal mode : std_logic_vector(2 downto 0);
 
 	signal s_apb_out_tx_regs : apb_out_t;
 	signal s_apb_out_iqbal : apb_out_t;
 	signal s_apb_out_iqoffs : apb_out_t;
+	signal s_apb_out_prefilter : apb_out_t;
 	signal s_apb_out_ctcss : apb_out_t;
+	signal s_apb_out_interp0 : apb_out_t;
+	signal s_apb_out_interp1 : apb_out_t;
+	signal s_apb_out_interp2 : apb_out_t;
 
 begin
 	apb_merge_inst : entity work.apb_merge
 	generic map (
-	  N_SLAVES => 4
+	  N_SLAVES => 8
 	)
 	port map (
 	  clk_i => clk_64,
@@ -83,7 +91,11 @@ begin
 	  s_apb_out(0) => s_apb_out_tx_regs,
 	  s_apb_out(1) => s_apb_out_iqbal,
 	  s_apb_out(2) => s_apb_out_iqoffs,
-	  s_apb_out(3) => s_apb_out_ctcss
+	  s_apb_out(3) => s_apb_out_prefilter,
+	  s_apb_out(4) => s_apb_out_ctcss,
+	  s_apb_out(5) => s_apb_out_interp0,
+	  s_apb_out(6) => s_apb_out_interp1,
+	  s_apb_out(7) => s_apb_out_interp2
 	);
 
 	tx_apb_regs_inst : entity work.tx_apb_regs
@@ -99,6 +111,20 @@ begin
 		ssb_sideband => ssb_sideband
 	);
 
+	prefilter_inst : entity work.fir_rational_resample
+	generic map (
+	  PSEL_ID => C_TX_PREFILTER_PSEL
+	)
+	port map (
+	  clk_i => clk_64,
+	  s_apb_i => s_apb_in,
+	  s_apb_o => s_apb_out_prefilter,
+	  s_axis_i => source_axis_out,
+	  s_axis_o => source_axis_in,
+	  m_axis_o => prefilter_ctcss_axis_in,
+	  m_axis_i => prefilter_ctcss_axis_out
+	);
+
 	ctcss_gen_inst : entity work.ctcss_gen
   	generic map (
     	PSEL_ID => C_TX_CTCSS_PSEL
@@ -108,29 +134,53 @@ begin
 		nrst_i => resetn,
 		s_apb_in => s_apb_in,
 		s_apb_out => s_apb_out_ctcss,
-		s_axis_mod_i => source_axis_out_mod,
-		s_axis_mod_o => source_axis_in_mod,
-		m_axis_mod_i => ctcss_interp_axis_out_mod,
-		m_axis_mod_o => ctcss_interp_axis_in_mod
+		s_axis_i => prefilter_ctcss_axis_in,
+		s_axis_o => prefilter_ctcss_axis_out,
+		m_axis_i => ctcss_interp0_axis_out,
+		m_axis_o => ctcss_interp0_axis_in
   	);
 
-    -- Interpolator 8 to 400kHz
-	interpol0: entity work.mod_resampler
-	port map(
-		clk_i => clk_64,
-		s_axis_mod_i => ctcss_interp_axis_in_mod,
-		s_axis_mod_o => ctcss_interp_axis_out_mod,
-		m_axis_mod_o => resampl_gain_axis_in_mod,
-		m_axis_mod_i => resampl_gain_axis_out_mod
+    -- Interpolator set
+	interp0_inst : entity work.fir_rational_resample
+	generic map (
+	  PSEL_ID => C_TX_INTERP0_PSEL
+	)
+	port map (
+	  clk_i => clk_64,
+	  s_apb_i => s_apb_in,
+	  s_apb_o => s_apb_out_interp0,
+	  s_axis_i => ctcss_interp0_axis_in,
+	  s_axis_o => ctcss_interp0_axis_out,
+	  m_axis_o => interp0_interp1_axis_in,
+	  m_axis_i => interp0_interp1_axis_out
 	);
 
-	-- Gain block
-	post_gain0: entity work.gain_mod port map(
-		clk_i => clk_64,
-		s_axis_mod_i => resampl_gain_axis_in_mod,
-		s_axis_mod_o => resampl_gain_axis_out_mod,
-		m_axis_mod_o => gain_mods_in_mod,
-		m_axis_mod_i => gain_fork_axis_out_mod
+	interp1_inst : entity work.fir_rational_resample
+	generic map (
+	  PSEL_ID => C_TX_INTERP1_PSEL
+	)
+	port map (
+	  clk_i => clk_64,
+	  s_apb_i => s_apb_in,
+	  s_apb_o => s_apb_out_interp1,
+	  s_axis_i => interp0_interp1_axis_in,
+	  s_axis_o => interp0_interp1_axis_out,
+	  m_axis_o => interp1_interp2_axis_in,
+	  m_axis_i => interp1_interp2_axis_out
+	);
+
+	interp2_inst : entity work.fir_rational_resample
+	generic map (
+	  PSEL_ID => C_TX_INTERP2_PSEL
+	)
+	port map (
+	  clk_i => clk_64,
+	  s_apb_i => s_apb_in,
+	  s_apb_o => s_apb_out_interp2,
+	  s_axis_i => interp1_interp2_axis_in,
+	  s_axis_o => interp1_interp2_axis_out,
+	  m_axis_o => interp2_mods_axis_in,
+	  m_axis_i => interp2_mods_axis_out
 	);
 
     -- Frequency modulator
@@ -139,60 +189,49 @@ begin
         clk_i => clk_64,
         nrst_i => resetn,
         nw_i => fm_nw,
-        s_axis_mod_i => gain_mods_in_mod,
-        s_axis_mod_o => fm_mod_axis_in_mod,
-        m_axis_iq_i => freq_mod_axis_out_iq,
-        m_axis_iq_o => freq_mod_axis_in_iq
+        s_axis_iq_i => interp2_mods_axis_in,
+        s_axis_iq_o => fm_iq_axis_in,
+        m_axis_iq_i => freq_iq_axis_out,
+        m_axis_iq_o => freq_iq_axis_in
     );
 
     -- Amplitude modulator
     ampl_mod0: entity work.am_modulator
     port map(
         clk_i => clk_64,
-        s_axis_mod_i => gain_mods_in_mod,
-        s_axis_mod_o => am_mod_axis_in_mod,
-        m_axis_iq_i => ampl_mod_axis_out_iq,
-        m_axis_iq_o => ampl_mod_axis_in_iq
+        s_axis_i => interp2_mods_axis_in,
+        s_axis_o => am_iq_axis_in,
+        m_axis_i => ampl_iq_axis_out,
+        m_axis_o => ampl_iq_axis_in
     );
-
-	-- FIR filter (for SSB)
-	tx_fir_inst : entity work.tx_fir
-	port map (
-	  clk_i => clk_64,
-	  mode => ssb_sideband,
-	  s_axis_mod_i => gain_mods_in_mod,
-	  s_axis_mod_o => fir_axis_in_mod,
-	  m_axis_iq_i => fir_axis_out_iq,
-	  m_axis_iq_o => fir_axis_in_iq
-	);
 
 	-- Backpropagation of the ready signal to interpolator
 	axis_fork0: entity work.axis_fork port map(
-		s_mod_in => gain_fork_axis_out_mod,
+		s_iq_in => interp2_mods_axis_out,
 		sel_i => mode,
-		m00_mod_out => fm_mod_axis_in_mod,
-		m01_mod_out => am_mod_axis_in_mod,
-		m02_mod_out => fir_axis_in_mod,
-		m03_mod_out => axis_out_mod_null,
-		m04_mod_out => axis_out_mod_null
+		m00_iq_out => fm_iq_axis_in,
+		m01_iq_out => am_iq_axis_in,
+		m02_iq_out => direct_iq_axis_in,
+		m03_iq_out => axis_out_iq_null,
+		m04_iq_out => axis_out_iq_null
 	);
 
 	-- modulation selector
-	tx_mod_sel0: entity work.mod_sel port map(
+	tx_iq_sel0: entity work.mod_sel port map(
 		clk_i => clk_64,
 		sel_i => mode,
-		s00_axis_iq_i => freq_mod_axis_in_iq, -- FM
-		s01_axis_iq_i => ampl_mod_axis_in_iq, -- AM
-		s02_axis_iq_i => fir_axis_in_iq, -- SSB
-		s03_axis_iq_i => (x"7FFF0000", '1'), -- reserved
-		s04_axis_iq_i => (x"7FFF1FF0", '1'), -- reserved
-		s00_axis_iq_o => freq_mod_axis_out_iq,
-		s01_axis_iq_o => ampl_mod_axis_out_iq,
-		s02_axis_iq_o => fir_axis_out_iq,
+		s00_axis_iq_i => freq_iq_axis_in, -- FM
+		s01_axis_iq_i => ampl_iq_axis_in, -- AM
+		s02_axis_iq_i => interp2_mods_axis_in, -- SSB/PM, direct IQ modulation
+		s03_axis_iq_i => (x"7FFF0000", x"F", '1'), -- reserved
+		s04_axis_iq_i => (x"7FFF1FF0", x"F", '1'), -- reserved
+		s00_axis_iq_o => freq_iq_axis_out,
+		s01_axis_iq_o => ampl_iq_axis_out,
+		s02_axis_iq_o => direct_iq_axis_in,
 		s03_axis_iq_o => open,
 		s04_axis_iq_o => open,
-		m_axis_iq_i => bal_axis_in_iq,
-		m_axis_iq_o => bal_axis_out_iq
+		m_axis_iq_i => bal_axis_in,
+		m_axis_iq_o => bal_axis_out
 	);
 
 	-- I/Q balancing block
@@ -204,10 +243,10 @@ begin
 		clk_i		=> clk_64,
 		s_apb_in => s_apb_in,
 		s_apb_out => s_apb_out_iqbal,
-		s_axis_iq_i	=> bal_axis_out_iq,
-		s_axis_iq_o	=> bal_axis_in_iq,
-		m_axis_iq_o	=> offset_axis_out_iq,
-		m_axis_iq_i	=> offset_axis_in_iq
+		s_axis_iq_i	=> bal_axis_out,
+		s_axis_iq_o	=> bal_axis_in,
+		m_axis_iq_o	=> offset_axis_out,
+		m_axis_iq_i	=> offset_axis_in
 	);
 
 	-- I/Q offset block
@@ -219,8 +258,8 @@ begin
 		clk_i		=> clk_64,
 		s_apb_in => s_apb_in,
 		s_apb_out => s_apb_out_iqoffs,
-		s_axis_iq_i	=> offset_axis_out_iq,
-		s_axis_iq_o	=> offset_axis_in_iq,
+		s_axis_iq_i	=> offset_axis_out,
+		s_axis_iq_o	=> offset_axis_in,
 		m_axis_iq_o	=> tx_axis_iq_o,
 		m_axis_iq_i	=> tx_axis_iq_i
 	);

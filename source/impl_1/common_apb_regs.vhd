@@ -34,6 +34,8 @@ entity common_apb_regs is
 
         tx_data : out std_logic_vector(15 downto 0);
         tx_data_valid : out std_logic;
+        tx_data_count : in std_logic_vector(7 downto 0);
+        tx_fifo_flags : in std_logic_vector(3 downto 0);
         rxtx : out std_logic_vector(1 downto 0)
     );
 end entity common_apb_regs;
@@ -112,7 +114,8 @@ begin
                             null;
 
                         when "101" => -- TX FIFO status
-                            null;
+                            s_apb_out.prdata(7 downto 0) <= tx_data_count;
+                            s_apb_out.prdata(11 downto 8) <= tx_fifo_flags;
 
                         when others =>
                             null;

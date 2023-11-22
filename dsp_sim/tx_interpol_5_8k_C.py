@@ -9,6 +9,7 @@ freq = 3400
 L = 5
 x = np.arange(3000)
 Q = 16
+N = 405
 
 def quantize(val, bits):
     return int(val * (2**bits))/2**bits
@@ -27,12 +28,12 @@ plt.plot(sig_upsampled)
 plt.subplot(4,2,4)
 plt.plot(20*np.log(fft(sig_upsampled)))
 
-fir = signal.remez(405, [0, 3800, 4200, fs*L/2], [1.0,0], fs=fs*L)
+fir = signal.remez(N, [0, 3800, 4200, fs*L/2], [1.0,0], fs=fs*L)
 fir = np.array([quantize(x, Q) for x in fir])
 
 max_acc = np.sum(np.abs(fir))*0x7FFF*0x7FFF
 print("Max acc value : ", max_acc)
-print("offset", 2**42 / max_acc)
+print("offset", np.log2(2**42 / max_acc))
 
 plt.subplot(4,2,5)
 plt.plot(fir)
@@ -48,13 +49,19 @@ plt.plot(interpol)
 plt.subplot(4,2,8)
 plt.plot(np.arange(3000*L) / 3000 * fs,20*np.log(fft(interpol)))
 
+print('\nC array:')
+print(f"const int16_t coeffs_5_8k[{N:d}]={{")
+print('\t', end='')
 for i in enumerate(fir):
     r = int(i[1] * 2**Q)
     if r < 0:
         r += 2**Q
-    print(f"x\"{r:04x}\"", end=', ')
+    print(f"0x{r:04X}", end=', ')
     if (i[0] + 1) % L == 0:
         print('')
+        if (i[0] + 1) < N:
+            print('\t', end='')
+print('};')
 
 # HDL concept check
 #print(interpol)

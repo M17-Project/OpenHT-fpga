@@ -18,8 +18,8 @@ entity fm_modulator is
 		clk_i	: in std_logic;											-- main clock in
 		nrst_i	: in std_logic;											-- reset
 		nw_i	: in std_logic;											-- narrow/wide selector, N=0, W=1
-		s_axis_mod_i : in axis_in_mod_t;
-		s_axis_mod_o : out axis_out_mod_t;
+		s_axis_iq_i : in axis_in_iq_t;
+		s_axis_iq_o : out axis_out_iq_t;
 		m_axis_iq_i : in axis_out_iq_t;
 		m_axis_iq_o : out axis_in_iq_t
 	);
@@ -77,6 +77,7 @@ begin
 					if output_valid then
 						mod_state <= DONE;
 						m_axis_iq_o.tvalid <= '1';
+						m_axis_iq_o.tstrb <= X"F";
 					end if;
 
 				when DONE =>
@@ -89,15 +90,15 @@ begin
 				when others => -- IDLE, safe
 					m_axis_iq_o.tvalid <= '0';
 					ready <= '1';
-					if s_axis_mod_i.tvalid and not cordic_busy then
+					if s_axis_iq_i.tvalid and not cordic_busy then
 						ready <= '0';
 						phase_vld <= '1';
 						mod_state <= COMPUTE;
 
 						if nw_i='0' then -- narrow FM
-							phase <= phase + resize(signed(s_axis_mod_i.tdata), 21); -- update phase accumulator
+							phase <= phase + resize(signed(s_axis_iq_i.tdata(31 downto 16)), 21); -- update phase accumulator
 						else -- wide FM
-							phase <= phase + resize(signed(s_axis_mod_i.tdata & '0'), 21); -- update phase accumulator
+							phase <= phase + resize(signed(s_axis_iq_i.tdata(31 downto 16) & '0'), 21); -- update phase accumulator
 						end if;
 
 					end if;
@@ -106,5 +107,5 @@ begin
 		end if;
 	end process;
 
-	s_axis_mod_o.tready <= ready;
+	s_axis_iq_o.tready <= ready;
 end magic;

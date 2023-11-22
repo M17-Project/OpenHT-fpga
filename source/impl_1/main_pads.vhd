@@ -18,7 +18,7 @@ use work.axi_stream_pkg.all;
 entity main_pads is
 	generic(
 		REV_MAJOR			: natural := 0;
-		REV_MINOR			: natural := 4
+		REV_MINOR			: natural := 5
 	);
 	port(
 		-- 32 MHz clock input from the AT86
