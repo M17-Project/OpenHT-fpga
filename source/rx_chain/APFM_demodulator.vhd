@@ -11,7 +11,6 @@
 -- November 2023
 --
 -- TODO : Implement I/IQ mode for AM
--- TODO : Normalise phase angle from -pi to pi
 --
 -------------------------------------------------------------
 
