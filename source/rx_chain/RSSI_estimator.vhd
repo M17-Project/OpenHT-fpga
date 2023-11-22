@@ -14,7 +14,6 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 use work.axi_stream_pkg.all;
-use work.cordic_pkg.all;
 use work.apb_pkg.all;
 
 entity RSSI_estimator is
@@ -36,15 +35,12 @@ entity RSSI_estimator is
 end entity;
 
 architecture magic of RSSI_estimator is
-  signal I            : signed(20 downto 0) := (others => '0');
-  signal Q            : signed(20 downto 0) := (others => '0');
+  signal I            : signed(15 downto 0) := (others => '0');
+  signal Q            : signed(15 downto 0) := (others => '0');
   signal magnitude    : signed(15 downto 0) := (others => '0');
   signal magnitude_o  : signed(15 downto 0) := (others => '0');
-  signal iq_vld       : std_logic := '0';
 
   signal ready        : std_logic := '0';
-  signal output_valid : std_logic := '0';
-  signal cordic_busy  : std_logic;
 
   signal hold         : std_logic_vector(15 downto 0) := (others => '0');
 
@@ -57,28 +53,6 @@ architecture magic of RSSI_estimator is
   signal sig_state    : sig_state_t := IDLE;
 
 begin
-  -- CORDIC
-  arctan : entity work.cordic_sincos generic map(
-    SIZE => 21,
-    ITERATIONS => 21,
-    TRUNC_SIZE => 16,
-    RESET_ACTIVE_LEVEL => '0'
-    )
-  port map(
-    Clock => clk_i,
-    Reset => nrst_i,
-
-    Data_valid => iq_vld,
-    Busy       => cordic_busy,
-    Result_valid => output_valid,
-    Mode => cordic_vector,
-
-    X => I,
-    Y => Q,
-    Z => 21x"000000", -- not used
-
-    std_logic_vector(X_Result) => magnitude
-  );
 
   -- APB
   process(clk_i)
@@ -86,32 +60,33 @@ begin
     if rising_edge(clk_i) then
       s_apb_o.pready <= '0';
       s_apb_o.prdata <= (others => '0');
+      if s_apb_i.PSEL(PSEL_ID) then
+        if s_apb_i.PENABLE and s_apb_i.PWRITE then
+          case s_apb_i.PADDR is
+            when "00" =>
+              enable <= s_apb_i.PWDATA(0);
+            when "01" =>
+              attack <= s_apb_i.PWDATA;
+            when "10" =>
+              decay <= s_apb_i.PWDATA;
+            when "11" =>
+              hold_config <= s_apb_i.PWDATA;
+            when others =>
+              null;
+          end case;
+        end if;
 
-      if s_apb_i.PENABLE and s_apb_i.PWRITE then
-        case s_apb_i.PADDR is
-          when "00" =>
-            enable <= s_apb_i.PWDATA(0);
-          when "01" =>
-            attack <= s_apb_i.PWDATA;
-          when "10" =>
-            decay <= s_apb_i.PWDATA;
-          when "11" =>
-            hold_config <= s_apb_i.PWDATA;
-          when others =>
-            null;
-        end case;
-      end if;
-
-      if not s_apb_i.PENABLE then
-        s_apb_o.pready <= '1';
-        case s_apb_i.PADDR is
-          when "01" =>
-            s_apb_o.prdata <= attack;
-          when "10" =>
-            s_apb_o.prdata <= decay;
-          when others =>
-            s_apb_o.prdata <= (others => '0');
-        end case;
+        if not s_apb_i.PENABLE then
+          s_apb_o.pready <= '1';
+          case s_apb_i.PADDR is
+            when "01" =>
+              s_apb_o.prdata <= attack;
+            when "10" =>
+              s_apb_o.prdata <= decay;
+            when others =>
+              s_apb_o.prdata <= (others => '0');
+          end case;
+        end if;
       end if;
     end if;
   end process;
@@ -121,32 +96,28 @@ begin
   begin
     if nrst_i = '0' then
       magnitude <= (others => '0');
-      iq_vld <= '0';
     
     elsif rising_edge(clk_i) then
       ready <= '0';
-      
       case sig_state is
         when COMPUTE =>
-          iq_vld <= '0';
-          if output_valid then
-            sig_state <= OUTPUT;
-            m_axis_o.tvalid <= '1';
-            if magnitude > magnitude_o then
-              magnitude_o <= minimum(magnitude, magnitude_o+attack);
-              hold <= hold_config;
+          -- α*max(I,Q)+β*min(I,Q), with α=15/16 and β=15/32
+          magnitude <= 15*maximum(abs(I), abs(Q))(15 downto 3) + 15*minimum(abs(Q), abs(I))(15 downto 4);
+          sig_state <= OUTPUT;
+          if magnitude > magnitude_o then
+            magnitude_o <= minimum(magnitude, magnitude_o+attack);
+            hold <= hold_config;
+          else
+            if hold > 0 then
+              hold <= hold-1;
             else
-              if hold > 0 then
-                magnitude_o <= magnitude_o;
-                hold <= hold-1;
-              else
-                magnitude_o <= magnitude_o-decay;
-              end if;
+              magnitude_o <= magnitude_o-decay;
             end if;
           end if;
         
         when OUTPUT =>
           sig_state <= DONE;
+          m_axis_o.tvalid <= '1';
           m_axis_o.tdata(31 downto 16) <= std_logic_vector(magnitude_o);
           m_axis_o.tstrb <= x"C";
 
@@ -159,9 +130,8 @@ begin
         when others =>
           m_axis_o.tvalid <= '0';
           ready <= '1';
-          if s_axis_i.tvalid and not cordic_busy then
+          if s_axis_i.tvalid then
             ready <= '0';
-            iq_vld <= '1';
             sig_state <= COMPUTE;
           end if;
 
