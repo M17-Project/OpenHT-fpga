@@ -141,9 +141,8 @@ begin
       end case;
     end if;
   end process;
-  -- Calculate I and Q, brought to quadrant 0 or 3 if I is negative
-  I <= signed(s_axis_i.tdata(31 downto 16)) when not s_axis_i.tdata(31) else -signed(s_axis_i.tdata(31 downto 16));
-  Q <= signed(s_axis_i.tdata(15 downto 0)) when not s_axis_i.tdata(31) else -signed(s_axis_i.tdata(15 downto 0));
+  I <= signed(s_axis_i.tdata(31 downto 16));
+  Q <= signed(s_axis_i.tdata(15 downto 0));
 
   -- AXI Stream
   s_axis_o.tready <= ready;
