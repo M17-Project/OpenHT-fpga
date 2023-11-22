@@ -41,9 +41,11 @@ entity FM_demodulator is
 end entity;
 
 architecture magic of FM_demodulator is
-  signal magnitude    : signed(20 downto 0) := (others => '0');
-  signal phase        : signed(20 downto 0) := (others => '0');
-  signal phase_1      : signed(20 downto 0) := (others => '0');
+  signal magnitude    : signed(15 downto 0) := (others => '0');
+  signal phase        : signed(15 downto 0) := (others => '0');
+  signal phase_0      : signed(15 downto 0) := (others => '0');
+  signal phase_1      : signed(15 downto 0) := (others => '0');
+  signal phase_o      : signed(15 downto 0) := (others => '0');
   signal iq_vld       : std_logic := '0';
 
   signal ready        : std_logic := '0';
@@ -53,7 +55,7 @@ architecture magic of FM_demodulator is
   signal enable       : std_logic := '0';
   signal demod_mode   : std_logic_vector(1 downto 0) := (others => '0');
 
-  type sig_state_t is (IDLE, COMPUTE, DONE);
+  type sig_state_t is (IDLE, COMPUTE, OUTPUT, DONE);
   signal sig_state    : sig_state_t := IDLE;
 
 begin
@@ -76,8 +78,8 @@ begin
     Result_valid => output_valid,
     Mode => cordic_vector,
 
-    X => to_signed(s_axis_i.tdata(31 downto 16), 21), -- I
-    Y => abs(to_signed(s_axis_i.tdata(15 downto 0), 21)), -- Q
+    X => abs(to_signed(s_axis_i.tdata(31 downto 16), 21)), -- I
+    Y => to_signed(s_axis_i.tdata(15 downto 0), 21),       -- Q
     Z => 21x"000000", -- not used
 
     std_logic_vector(X_Result) => magnitude,
@@ -135,26 +137,40 @@ begin
           when COMPUTE =>
             iq_vld <= '0';
             if output_valid then
-              sig_state <= DONE;
+              sig_state <= OUTPUT;
               m_axis_o.tvalid <= '1';
-              case demod_mode is
-                when "00" => -- AM
-                  -- Output the magniutde
-                  m_axis_o.tdata <= std_logic_vector(magnitude(31 downto 16));
-                  m_axis_o.tstrb <= 16#C#;
-                when "01" => -- PM
-                  -- Output the phase
-                  m_axis_o.tdata <= std_logic_vector(phase(31 downto 16));
-                  m_axis_o.tstrb <= 16#C#;
-                when "10" => -- FM
-                  -- Compute the phase difference between the current and previous sample
-                  phase_1 <= phase;
-                  phase <=  phase_1-phase;
-                  -- Output the phase difference
-                  m_axis_o.tdata <= std_logic_vector(phase(31 downto 16));
-                  m_axis_o.tstrb <= 16#C#;
-              end case;
+              -- Verify angle tdata(31) X (I),  tdata(15) Y (Q) of s_axis
+              -- 00 -> nothing
+              -- 10 -> add x"8000"
+              -- 11 -> add x"8000"
+              -- 01 -> nothing
+              if s_axis_i.tdata(31) = '1' then
+                phase_0 <= phase + x"8000";
+              else
+                phase_0 <= phase;
+              end if;
+
             end if;
+          
+          when OUTPUT =>
+          sig_state <= DONE;
+            case demod_mode is
+              when "00" => -- AM
+                -- Output the magniutde
+                m_axis_o.tdata(31 downto 16) <= std_logic_vector(magnitude);
+                m_axis_o.tstrb <= x"C";
+              when "01" => -- PM
+                -- Output the phase
+                m_axis_o.tdata(31 downto 16) <= std_logic_vector(phase);
+                m_axis_o.tstrb <= x"C";
+              when "10" => -- FM
+                -- Compute the phase difference between the current and previous sample
+                phase_1 <= phase_0;
+                phase_o <=  phase_0-phase_1;
+                -- Output the phase difference
+                m_axis_o.tdata(31 downto 16) <= std_logic_vector(phase_o);
+                m_axis_o.tstrb <= x"C";
+            end case;
 
           when DONE =>
             if m_axis_i.tready and m_axis_o.tvalid then
