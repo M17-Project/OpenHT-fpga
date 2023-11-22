@@ -42,8 +42,6 @@ architecture magic of RSSI_estimator is
   signal ready        : std_logic := '0';
 
   signal hold         : std_logic_vector(15 downto 0) := (others => '0');
-
-  signal enable       : std_logic := '0';
   signal attack       : std_logic_vector(15 downto 0) := (others => '0');
   signal decay        : std_logic_vector(15 downto 0) := (others => '0');
   signal hold_config  : std_logic_vector(15 downto 0) := (others => '0');
@@ -62,8 +60,6 @@ begin
       if s_apb_i.PSEL(PSEL_ID) then
         if s_apb_i.PENABLE and s_apb_i.PWRITE then
           case s_apb_i.PADDR is
-            when "00" =>
-              enable <= s_apb_i.PWDATA(0);
             when "01" =>
               attack <= s_apb_i.PWDATA;
             when "10" =>
@@ -79,9 +75,7 @@ begin
           s_apb_o.pready <= '1';
           case s_apb_i.PADDR is
             when "00" =>
-              if data_valid then
-                s_apb_o.prdata <= magnitude_o;
-              end if;
+              s_apb_o.prdata <= magnitude_o;
             when "01" =>
               s_apb_o.prdata <= attack;
             when "10" =>
@@ -143,5 +137,5 @@ begin
   Q <= signed(s_axis_i.tdata(15 downto 0)) when not s_axis_i.tdata(31) else -signed(s_axis_i.tdata(15 downto 0));
 
   -- AXI Stream
-  s_axis_o.tready <= ready when enable else (not data_valid);
+  s_axis_o.tready <= ready;
 end architecture;
