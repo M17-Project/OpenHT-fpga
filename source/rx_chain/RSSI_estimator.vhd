@@ -35,6 +35,8 @@ end entity;
 architecture magic of RSSI_estimator is
   signal I            : signed(15 downto 0) := (others => '0');
   signal Q            : signed(15 downto 0) := (others => '0');
+  signal max          : signed(15 downto 0) := (others => '0');
+  signal min          : signed(15 downto 0) := (others => '0');
   signal magnitude    : signed(15 downto 0) := (others => '0');
   signal magnitude_o  : signed(15 downto 0) := (others => '0');
   signal data_valid   : std_logic := '0';
@@ -99,7 +101,14 @@ begin
       case sig_state is
         when COMPUTE =>
           -- α*max(I,Q)+β*min(I,Q), with α=15/16 and β=15/32
-          magnitude <= 15*maximum(abs(I), abs(Q))(15 downto 3) + 15*minimum(abs(Q), abs(I))(15 downto 4);
+          if abs(I) > abs(Q) then
+            max <= I;
+            min <= Q;
+          else
+            max <= Q;
+            min <= I;
+          end if;
+          magnitude <= 15*max(15 downto 3) + 15*min(15 downto 4);
           sig_state <= OUTPUT;
           if magnitude > magnitude_o then
             magnitude_o <= minimum(magnitude, magnitude_o+attack);
