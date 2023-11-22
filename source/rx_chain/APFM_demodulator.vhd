@@ -10,8 +10,6 @@
 -- M17 Project
 -- November 2023
 --
--- TODO : Implement AM and PM demodulation
--- TODO : Implement mode selector (AM, PM, FM)
 -- TODO : Implement I/IQ mode for AM
 -- TODO : Normalise phase angle from -pi to pi
 --
@@ -29,11 +27,11 @@ entity FM_demodulator is
     PSEL_ID : natural
   );
   port (
-    clk_i   : in std_logic;             -- Clock, from upstream
-    nrst_i : in std_logic;              -- Reset, from upstream
+    clk_i    : in std_logic;            -- Clock, from upstream
+    nrst_i   : in std_logic;            -- Reset, from upstream
 
-    s_apb_o : out apb_out_t;            -- slave apb interface out, to upstream
-    s_apb_i : in apb_in_t;              -- slave apb interface in, from upstream
+    s_apb_o  : out apb_out_t;           -- slave apb interface out, to upstream
+    s_apb_i  : in apb_in_t;             -- slave apb interface in, from upstream
 
     s_axis_o : out axis_out_iq_t;       -- slave out, to upstream entity (ready)                      -- This entity's ready to receive flag (tready)
     s_axis_i : in axis_in_iq_t;         -- slave in, from upstream entity (data and valid)            -- IQ signal (tdata), valid (tvalid)
@@ -43,19 +41,20 @@ entity FM_demodulator is
 end entity;
 
 architecture magic of FM_demodulator is
-  signal phase	: signed(20 downto 0) := (others => '0');
-  signal phase_1	: signed(20 downto 0) := (others => '0');
-  signal iq_vld : std_logic := '0';
+  signal magnitude    : signed(20 downto 0) := (others => '0');
+  signal phase        : signed(20 downto 0) := (others => '0');
+  signal phase_1      : signed(20 downto 0) := (others => '0');
+  signal iq_vld       : std_logic := '0';
 
-  signal ready : std_logic := '0';
+  signal ready        : std_logic := '0';
   signal output_valid : std_logic := '0';
-  signal cordic_busy : std_logic;
+  signal cordic_busy  : std_logic;
 
   type demod_mode_t is (AM, PM, FM);
-  signal demod_mode : demod_mode_t := FM;
+  signal demod_mode   : demod_mode_t := FM;
 
   type sig_state_t is (IDLE, COMPUTE, DONE);
-  signal sig_state : sig_state_t := IDLE;
+  signal sig_state    : sig_state_t := IDLE;
 
 begin
   -- Find the phase of the IQ signal with the CORDIC's arctan function
@@ -81,6 +80,7 @@ begin
     Y => abs(to_signed(s_axis_i.tdata(15 downto 0), 21)), -- Q
     Z => 21x"000000", -- not used
 
+    std_logic_vector(X_Result) => magnitude,
     std_logic_vector(Z_Result) => phase
   );
 
@@ -124,26 +124,28 @@ begin
     elsif rising_edge(clk_i) then
       ready <= '0';
 
-      -- TODO : add AM demod
-
       case sig_state is
         when COMPUTE =>
           iq_vld <= '0';
           if output_valid then
             sig_state <= DONE;
             m_axis_o.tvalid <= '1';
-
-            -- FM demod only at the moment
-            -- TODO : add PM demod
-
-            -- Compute the phase difference between the current and previous sample
-            phase_1 <= phase;
-            phase <=  phase_1-phase;
-
-            -- Output the phase difference
-            m_axis_o.tdata <= std_logic_vector(phase);  -- TODO : Convert to 16bit
-
-
+            case demod_mode is
+              when AM =>
+                -- Output the magniutde
+                m_axis_o.tdata <= std_logic_vector(magnitude);  -- TODO : Convert to 16bit
+              when PM =>
+                -- Output the phase
+                m_axis_o.tdata <= std_logic_vector(phase);  -- TODO : Convert to 16bit
+              when FM =>
+                -- Compute the phase difference between the current and previous sample
+                phase_1 <= phase;
+                phase <=  phase_1-phase;
+                -- Output the phase difference
+                m_axis_o.tdata <= std_logic_vector(phase);  -- TODO : Convert to 16bit
+              when others =>
+                null;
+            end case;
           end if;
 
         when DONE =>
