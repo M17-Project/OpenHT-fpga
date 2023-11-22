@@ -123,57 +123,60 @@ begin
     
     elsif rising_edge(clk_i) then
       ready <= '0';
-
-      case sig_state is
-        when COMPUTE =>
-          iq_vld <= '0';
-          if output_valid then
-            sig_state <= DONE;
-            m_axis_o.tvalid <= '1';
-            case demod_mode is
-              when AM =>
-                -- Output the magniutde
-                m_axis_o.tdata <= std_logic_vector(magnitude);  -- TODO : Convert to 16bit
-                m_axis_o.tstrb <= 16#C#;
-              when PM =>
-                -- Output the phase
-                m_axis_o.tdata <= std_logic_vector(phase);  -- TODO : Convert to 16bit
-                m_axis_o.tstrb <= 16#C#;
-              when FM =>
-                -- Compute the phase difference between the current and previous sample
-                phase_1 <= phase;
-                phase <=  phase_1-phase;
-                -- Output the phase difference
-                m_axis_o.tdata <= std_logic_vector(phase);  -- TODO : Convert to 16bit
-                m_axis_o.tstrb <= 16#C#;
-              when BYPASS =>
-                -- Output the RAW data
-                m_axis_o.tdata <= s_axis_i.tdata;
-                m_axis_o.tstrb <= s_axis_i.tstrb;
-              when others =>
-                null;
-            end case;
-          end if;
-
-        when DONE =>
-          if m_axis_i.tready and m_axis_o.tvalid then
-            sig_state <= IDLE;
-            m_axis_o.tvalid <= '0';
-          end if;
+      case demod_mode is
+        when BYPASS =>
+        -- Output the RAW signal
+          m_axis_o.tdata <= s_axis_i.tdata;
+          m_axis_o.tvalid <= s_axis_i.tvalid;
+          m_axis_o.tstrb <= s_axis_i.tstrb;
+          s_axis_o.tready <= m_axis_i.tready;
 
         when others =>
-          m_axis_o.tvalid <= '0';
-          ready <= '1';
-          if s_axis_i.tvalid and not cordic_busy then
-            ready <= '0';
-            iq_vld <= '1';
-            sig_state <= COMPUTE;
-          end if;
+          case sig_state is
+            when COMPUTE =>
+              iq_vld <= '0';
+              if output_valid then
+                sig_state <= DONE;
+                m_axis_o.tvalid <= '1';
+                case demod_mode is
+                  when AM =>
+                    -- Output the magniutde
+                    m_axis_o.tdata <= std_logic_vector(magnitude);  -- TODO : Convert to 16bit
+                    m_axis_o.tstrb <= 16#C#;
+                  when PM =>
+                    -- Output the phase
+                    m_axis_o.tdata <= std_logic_vector(phase);  -- TODO : Convert to 16bit
+                    m_axis_o.tstrb <= 16#C#;
+                  when FM =>
+                    -- Compute the phase difference between the current and previous sample
+                    phase_1 <= phase;
+                    phase <=  phase_1-phase;
+                    -- Output the phase difference
+                    m_axis_o.tdata <= std_logic_vector(phase);  -- TODO : Convert to 16bit
+                    m_axis_o.tstrb <= 16#C#;
+                end case;
+              end if;
+
+            when DONE =>
+              if m_axis_i.tready and m_axis_o.tvalid then
+                sig_state <= IDLE;
+                m_axis_o.tvalid <= '0';
+              end if;
+
+            when others =>
+              m_axis_o.tvalid <= '0';
+              ready <= '1';
+              if s_axis_i.tvalid and not cordic_busy then
+                ready <= '0';
+                iq_vld <= '1';
+                sig_state <= COMPUTE;
+              end if;
+
+          end case;
+        -- AXI Stream
+        s_axis_o.tready <= ready;
 
       end case;
     end if;
   end process;
-
-  -- AXI Stream
-  s_axis_o.tready <= ready;
 end architecture;
