@@ -197,5 +197,5 @@ begin
   Q <= signed(s_axis_i.tdata(15 downto 0)) when not s_axis_i.tdata(31) else -signed(s_axis_i.tdata(15 downto 0));
 
   -- AXI Stream
-  m_axis_i.tready <= ready when enable else (not m_axis_o.tvalid or m_axis_i.tready);
+  s_axis_o.tready <= ready when enable else (not m_axis_o.tvalid or m_axis_i.tready);
 end architecture;
