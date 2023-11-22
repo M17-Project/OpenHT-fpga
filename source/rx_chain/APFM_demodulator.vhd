@@ -41,6 +41,8 @@ entity FM_demodulator is
 end entity;
 
 architecture magic of FM_demodulator is
+  signal I            : signed(20 downto 0) := (others => '0');
+  signal Q            : signed(20 downto 0) := (others => '0');
   signal magnitude    : signed(15 downto 0) := (others => '0');
   signal phase        : signed(15 downto 0) := (others => '0');
   signal phase_0      : signed(15 downto 0) := (others => '0');
@@ -78,8 +80,8 @@ begin
     Result_valid => output_valid,
     Mode => cordic_vector,
 
-    X => abs(to_signed(s_axis_i.tdata(31 downto 16), 21)), -- I
-    Y => to_signed(s_axis_i.tdata(15 downto 0), 21),       -- Q
+    X => I,
+    Y => Q,
     Z => 21x"000000", -- not used
 
     std_logic_vector(X_Result) => magnitude,
@@ -191,6 +193,10 @@ begin
       end if;
     end if;
   end process;
+  -- Calculate I and Q, brought to quadrant 0 or 3 if I is negative
+  I <= signed(s_axis_i.tdata(31 downto 16)) when not s_axis_i.tdata(31) else -signed(s_axis_i.tdata(31 downto 16));
+  Q <= signed(s_axis_i.tdata(15 downto 0)) when not s_axis_i.tdata(31) else -signed(s_axis_i.tdata(15 downto 0));
+
   -- AXI Stream
   m_axis_i.tready <= ready when enable else (not m_axis_o.tvalid or m_axis_i.tready);
 end architecture;
