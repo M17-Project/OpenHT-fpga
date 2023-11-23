@@ -102,6 +102,15 @@
         <Source name="source/impl_1/top_common.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
+        <Source name="source/rx_chain/band_sel.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="source/rx_chain/rx_chain.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="source/impl_1/axis_rx_fifo_if.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
         <Source name="source/impl_1/impl_1.pdc" type="Physical Constraints File" type_short="PDC">
             <Options/>
         </Source>

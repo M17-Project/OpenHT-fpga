@@ -16,7 +16,7 @@ use ieee.math_real.all;
 package apb_pkg is
     constant APB_ADDR_SIZE: positive := 16;
     constant APB_DATA_SIZE: positive := 16;
-    constant APB_SLAVE_CNT: positive := 9;
+    constant APB_SLAVE_CNT: positive := 13;
     constant APB_PSELID_BITS : positive := 4;
 
     constant PSEL_TX_CTRL : natural := 0;
@@ -49,5 +49,9 @@ package apb_pkg is
     constant C_TX_INTERP2_PSEL : integer := 6;
     constant C_TX_IQ_GAIN_PSEL : integer := 7;
     constant C_TX_IQ_OFFSET_PSEL : integer := 8;
+    constant C_RX_DEC0_PSEL : integer := 9;
+    constant C_RX_DEC1_PSEL : integer := 10;
+    constant C_RX_DEC2_PSEL : integer := 11;
+    constant C_RX_POSTFILTER_PSEL : integer := 12;
 
 end package;

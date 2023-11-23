@@ -44,24 +44,41 @@ end top_common;
 architecture magic of top_common is
 	-------------------------------------- signals --------------------------------------
 
-	-- FIFOs
-	signal tx_fifo_ae, rx_fifo_ae		: std_logic := '0';
-	signal tx_fifo_af, rx_fifo_af		: std_logic := '0';
+	-- TX chain
+	signal tx_fifo_ae					: std_logic := '0';
+	signal tx_fifo_af					: std_logic := '0';
 	signal tx_fifo_rd_data              : std_logic_vector(15 downto 0);
 	signal tx_fifo_rd_en                : std_logic;
 	signal tx_fifo_empty                : std_logic;
 	signal tx_fifo_full                 : std_logic;
-	signal mod_fifo_ae					: std_logic := '0';
 	signal tx_fifo_wr_data              : std_logic_vector(15 downto 0);
 	signal tx_fifo_wr_data_valid        : std_logic;
 	signal tx_fifo_wr                   : std_logic;
 	signal tx_fifo_count                : std_logic_vector(7 downto 0);
 
-	-- misc
 	signal tx_source_axis_o  			: axis_in_iq_t;
 	signal tx_source_axis_i     		: axis_out_iq_t;
 
+	-- RX chain
+	signal rx_fifo_ae					: std_logic := '0';
+	signal rx_fifo_af					: std_logic := '0';
+	signal rx_fifo_rd_data              : std_logic_vector(15 downto 0);
+	signal rx_fifo_rd_en                : std_logic;
+	signal rx_fifo_empty                : std_logic;
+	signal rx_fifo_full                 : std_logic;
+	signal rx_fifo_wr_data              : std_logic_vector(15 downto 0);
+	signal rx_fifo_wr_data_valid        : std_logic;
+	signal rx_fifo_wr                   : std_logic;
+	signal rx_fifo_count                : std_logic_vector(7 downto 0);
+
+	signal rx_demod_out  				: axis_in_iq_t;
+	signal rx_demod_in 		     		: axis_out_iq_t;
+
+	signal mod_fifo_ae					: std_logic := '0';
+
+	-- APB slaves
 	signal tx_apb_out : apb_out_t;
+	signal rx_apb_out : apb_out_t;
 	signal common_apb_out : apb_out_t;
 	signal m_apb_dec_in : apb_in_t;
 
@@ -71,10 +88,62 @@ architecture magic of top_common is
 	signal io5_sel : std_logic_vector(2 downto 0);
 	signal io6_sel : std_logic_vector(2 downto 0);
 	signal rxtx : std_logic_vector(1 downto 0);
+	signal band_sel : std_logic;
 
 begin
 
 	---------------------------------------- RX -----------------------------------------
+	rx_chain_inst : entity work.rx_chain
+	port map (
+	  clk_64 => clk_i,
+	  resetn => nrst,
+	  s_apb_in => m_apb_dec_in,
+	  s_apb_out => rx_apb_out,
+	  band_i => band_sel,
+	  rx_mod09_iq_i => rx_axis_iq_09_i,
+	  rx_mod09_iq_o => rx_axis_iq_09_o,
+	  rx_mod24_iq_i => rx_axis_iq_24_i,
+	  rx_mod24_iq_o => rx_axis_iq_24_o,
+	  rx_demod_iq_out => rx_demod_out,
+	  rx_demod_iq_in => rx_demod_in
+	);
+
+	axis_rx_fifo_if_inst : entity work.axis_rx_fifo_if
+	generic map (
+		G_DATA_SIZE => 16
+	)
+	port map (
+		clk => clk_i,
+		nrst => nrst,
+		s_axis_i => rx_demod_out,
+		s_axis_o => rx_demod_in,
+		fifo_wr_en => rx_fifo_wr_data_valid,
+		fifo_wr_data => rx_fifo_wr_data,
+		fifo_full => rx_fifo_full
+	);
+
+	rx_fifo_inst: entity work.fifo_simple
+	generic map(
+		g_DEPTH => 64,
+		g_WIDTH => 16,
+		g_AE_THRESH => 16,
+		g_AF_THRESH => 48
+    )
+	port map(
+		i_rstn_async => nrst,
+		i_clk => clk_i,
+		-- FIFO Write Interface
+		i_wr_en => rx_fifo_wr,
+		i_wr_data => rx_fifo_wr_data,
+		o_full => rx_fifo_full,
+		-- FIFO Read Interface
+		i_rd_en => rx_fifo_rd_en,
+		o_rd_data => rx_fifo_rd_data,
+		o_ae => rx_fifo_ae,
+		o_af => rx_fifo_af,
+		o_empty => rx_fifo_empty,
+		o_count => rx_fifo_count
+	);
 
 	---------------------------------------- TX -----------------------------------------
 	tx_fifo_wr <= tx_fifo_wr_data_valid and not tx_fifo_full;
@@ -91,7 +160,7 @@ begin
 		i_clk => clk_i,
 		-- FIFO Write Interface
 		i_wr_en => tx_fifo_wr,
-		i_wr_data => tx_fifo_wr_data, -- endianness fix
+		i_wr_data => tx_fifo_wr_data,
 		o_full => tx_fifo_full,
 		-- FIFO Read Interface
 		i_rd_en => tx_fifo_rd_en,
@@ -150,12 +219,17 @@ begin
 	  tx_data_valid => tx_fifo_wr_data_valid,
 	  tx_data_count => tx_fifo_count,
 	  tx_fifo_flags => tx_fifo_empty & tx_fifo_full & tx_fifo_ae & tx_fifo_af,
-	  rxtx => rxtx
+	  rx_data => rx_fifo_rd_data,
+	  rx_data_valid => rx_fifo_rd_en,
+	  rx_data_count => rx_fifo_count,
+	  rx_fifo_flags => rx_fifo_empty & rx_fifo_full & rx_fifo_ae & rx_fifo_af,
+	  rxtx => rxtx,
+	  band_sel => band_sel
 	);
 
 	apb_merge_inst : entity work.apb_merge
 	generic map (
-	  N_SLAVES => 2
+	  N_SLAVES => 3
 	)
 	port map (
 	  clk_i => clk_i,
@@ -164,13 +238,14 @@ begin
 	  m_apb_out => apb_out,
 	  s_apb_in => m_apb_dec_in,
 	  s_apb_out(0) => common_apb_out,
-	  s_apb_out(1) => tx_apb_out
+	  s_apb_out(1) => tx_apb_out,
+	  s_apb_out(2) => rx_apb_out
 	);
 
 	-- I/Os
 	-- automatically select the source of the fifo_ae signal
 	mod_fifo_ae <= tx_fifo_ae when rxtx = "01"
-		else rx_fifo_ae when rxtx ="10"
+		else rx_fifo_af when rxtx ="10"
 		else '0';
 
 	-- IO update
