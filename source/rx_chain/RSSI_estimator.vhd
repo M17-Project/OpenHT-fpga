@@ -87,16 +87,16 @@ begin
     end if;
   end process;
 
-  -- FSM
+  -- RSSI calculation
   process(clk_i)
   begin
     if nrst_i = '0' then
       magnitude <= (others => '0');
     
     elsif rising_edge(clk_i) then
-      ready <= '1';
+      ready <= '1';             -- Isn't the block always ready to receive new data ?
       if s_axis_i.tvalid then
-        ready <= '0';
+        ready <= '0';           -- Isn't the block always ready to receive new data ?
         -- α*max(I,Q)+β*min(I,Q), with α=15/16 and β=15/32
         if I > Q then
           max <= I;
@@ -123,5 +123,5 @@ begin
   Q <= abs(signed(s_axis_i.tdata(15 downto 0)));
 
   -- AXI Stream
-  s_axis_o.tready <= ready;
+  s_axis_o.tready <= ready;     -- Isn't the block always ready to receive new data ?
 end architecture;
