@@ -7,6 +7,7 @@
 -- M17 Project
 -- November 2023
 --
+-- TODO : Verify if ready can be trusted
 --
 -------------------------------------------------------------
 
@@ -46,9 +47,6 @@ architecture magic of RSSI_estimator is
   signal attack       : std_logic_vector(15 downto 0) := (others => '0');
   signal decay        : std_logic_vector(15 downto 0) := (others => '0');
   signal hold_config  : std_logic_vector(15 downto 0) := (others => '0');
-
-  type sig_state_t is (IDLE, COMPUTE);
-  signal sig_state    : sig_state_t := IDLE;
 
 begin
 
@@ -96,38 +94,29 @@ begin
       magnitude <= (others => '0');
     
     elsif rising_edge(clk_i) then
-      ready <= '0';
-      case sig_state is
-        when COMPUTE =>
-          -- α*max(I,Q)+β*min(I,Q), with α=15/16 and β=15/32
-          if I > Q then
-            max <= I;
-            min <= Q;
+      ready <= '1';
+      if s_axis_i.tvalid then
+        ready <= '0';
+        -- α*max(I,Q)+β*min(I,Q), with α=15/16 and β=15/32
+        if I > Q then
+          max <= I;
+          min <= Q;
+        else
+          max <= Q;
+          min <= I;
+        end if;
+        magnitude <= 15*max(15 downto 3) + 15*min(15 downto 4);
+        if magnitude > magnitude_o then
+          magnitude_o <= minimum(magnitude, magnitude_o+attack);
+          hold <= hold_config;
+        else
+          if hold > 0 then
+            hold <= hold-1;
           else
-            max <= Q;
-            min <= I;
+            magnitude_o <= magnitude_o-decay;
           end if;
-          magnitude <= 15*max(15 downto 3) + 15*min(15 downto 4);
-          sig_state <= IDLE;
-          if magnitude > magnitude_o then
-            magnitude_o <= minimum(magnitude, magnitude_o+attack);
-            hold <= hold_config;
-          else
-            if hold > 0 then
-              hold <= hold-1;
-            else
-              magnitude_o <= magnitude_o-decay;
-            end if;
-          end if;
-
-        when others =>
-          ready <= '1';
-          if s_axis_i.tvalid then
-            ready <= '0';
-            sig_state <= COMPUTE;
-          end if;
-
-      end case;
+        end if;
+      end if;
     end if;
   end process;
   I <= abs(signed(s_axis_i.tdata(31 downto 16)));
