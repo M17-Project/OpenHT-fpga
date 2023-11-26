@@ -6,7 +6,7 @@ vu = VUnit.from_argv(compile_builtins=False)
 
 # Optionally add VUnit's builtin HDL utilities for checking, logging, communication...
 # See http://vunit.github.io/hdl_libraries.html.
-vu.add_vhdl_builtins()
+vu.add_builtins()
 vu.add_verification_components()
 vu.add_osvvm()
 
@@ -21,6 +21,7 @@ lib.add_source_files("../../source/impl_1/axi_stream_pkg.vhd")
 lib.add_source_files("../../source/impl_1/openht_utils_pkg.vhd")
 lib.add_source_files("../../source/impl_1/apb_pkg.vhd")
 lib.add_source_files("../test_pkg/apb_test_pkg.vhd")
+lib.add_source_files("../../source/impl_1/cordic_pkg.vhd")
 lib.add_source_files("*.vhd")
 lib.add_source_files("../../source/rx_chain/APFM_demodulator.vhd")
 
