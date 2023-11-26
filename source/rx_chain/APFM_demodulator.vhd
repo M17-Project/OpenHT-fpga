@@ -125,6 +125,9 @@ begin
     if nrst_i = '0' then
       phase <= (others => '0');
       iq_vld <= '0';
+      m_axis_o.tvalid <= '0';
+      m_axis_o.tdata <= (others => '0');
+      m_axis_o.tstrb <= (others => '0');
     
     elsif rising_edge(clk_i) then
       ready <= '0';
@@ -140,7 +143,6 @@ begin
             iq_vld <= '0';
             if output_valid then
               sig_state <= OUTPUT;
-              m_axis_o.tvalid <= '1';
               -- Verify angle tdata(31) X (I),  tdata(15) Y (Q) of s_axis
               -- 00 -> nothing
               -- 10 -> add x"8000"
@@ -155,22 +157,26 @@ begin
             end if;
           
           when OUTPUT =>
-          sig_state <= DONE;
+            sig_state <= DONE;
+            m_axis_o.tvalid <= '1';
             case demod_mode is
               when "00" => -- AM
                 -- Output the magniutde
                 m_axis_o.tdata(31 downto 16) <= std_logic_vector(magnitude);
+                m_axis_o.tdata(15 downto 0) <= (others => '0');
                 m_axis_o.tstrb <= x"C";
               when "01" => -- PM
                 -- Output the phase
-                m_axis_o.tdata(31 downto 16) <= std_logic_vector(phase);
+                m_axis_o.tdata(31 downto 16) <= std_logic_vector(phase_0);
+                m_axis_o.tdata(15 downto 0) <= (others => '0');
                 m_axis_o.tstrb <= x"C";
               when others => -- FM
                 -- Compute the phase difference between the current and previous sample
                 phase_1 <= phase_0;
-                phase_o <=  phase_0-phase_1;
+                phase_o <= phase_0-phase_1;
                 -- Output the phase difference
                 m_axis_o.tdata(31 downto 16) <= std_logic_vector(phase_o);
+                m_axis_o.tdata(15 downto 0) <= (others => '0');
                 m_axis_o.tstrb <= x"C";
             end case;
 
@@ -181,6 +187,9 @@ begin
             end if;
 
           when others =>
+            -- Calculate I and Q, brought to quadrant 0 or 3 if I is negative
+            I <= resize(signed(s_axis_i.tdata(31 downto 16)), 21) when not s_axis_i.tdata(31) else resize(-signed(s_axis_i.tdata(31 downto 16)), 21);
+            Q <= resize(signed(s_axis_i.tdata(15 downto 0)), 21) when not s_axis_i.tdata(31) else resize(-signed(s_axis_i.tdata(15 downto 0)), 21);
             m_axis_o.tvalid <= '0';
             ready <= '1';
             if s_axis_i.tvalid and not cordic_busy then
@@ -193,9 +202,6 @@ begin
       end if;
     end if;
   end process;
-  -- Calculate I and Q, brought to quadrant 0 or 3 if I is negative
-  I <= resize(signed(s_axis_i.tdata(31 downto 16)), 21) when not s_axis_i.tdata(31) else resize(-signed(s_axis_i.tdata(31 downto 16)), 21);
-  Q <= resize(signed(s_axis_i.tdata(15 downto 0)), 21) when not s_axis_i.tdata(31) else resize(-signed(s_axis_i.tdata(15 downto 0)), 21);
 
   -- AXI Stream
   s_axis_o.tready <= ready when enable else (not m_axis_o.tvalid or m_axis_i.tready);
