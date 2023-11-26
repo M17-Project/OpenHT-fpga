@@ -6,7 +6,7 @@ vu = VUnit.from_argv(compile_builtins=False)
 
 # Optionally add VUnit's builtin HDL utilities for checking, logging, communication...
 # See http://vunit.github.io/hdl_libraries.html.
-vu.add_builtins()
+vu.add_vhdl_builtins()
 vu.add_verification_components()
 vu.add_osvvm()
 

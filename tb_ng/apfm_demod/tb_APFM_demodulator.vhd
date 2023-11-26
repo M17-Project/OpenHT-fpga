@@ -101,20 +101,16 @@ begin
         apb_write(clk_i, 0, s_apb_i, s_apb_o, X"0000", X"0000");    -- disable block
 
         wait until rising_edge(clk_i);
-        acc_i(0) := (others => '0');
 
         push_axi_stream(net, master_axi_stream, x"12345678", tstrb => tstrb_out, tlast => '0');
-
-        wait until rising_edge(clk_i);
-
         pop_axi_stream(net, slave_axi_stream, data_in, tlast_in, tkeep_in, tstrb_in, tid_in, tdest_in, tuser_in);
-        check_equal(data_in, x"12345678");
-        wait for 100 ns;
 
-        end if;
+        check_equal(signed(data_in), x"12345678", "data_in");
+
+      end if;
     end loop;
 
-        test_runner_cleanup(runner); -- Simulation ends here
+    test_runner_cleanup(runner); -- Simulation ends here
   end process;
 
   tb_APFM_demodulator_inst : entity work.APFM_demodulator
@@ -123,6 +119,7 @@ begin
   )
   port map (
     clk_i => clk_i,
+    nrst_i => rst_i,
     s_apb_i => s_apb_i,
     s_apb_o => s_apb_o,
     s_axis_i => s_axis_i,
