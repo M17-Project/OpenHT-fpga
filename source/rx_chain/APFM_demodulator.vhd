@@ -21,7 +21,7 @@ use work.axi_stream_pkg.all;
 use work.cordic_pkg.all;
 use work.apb_pkg.all;
 
-entity FM_demodulator is
+entity APFM_demodulator is
   generic  (
     PSEL_ID : natural
   );
@@ -39,7 +39,7 @@ entity FM_demodulator is
   );
 end entity;
 
-architecture magic of FM_demodulator is
+architecture magic of APFM_demodulator is
   signal I            : signed(20 downto 0) := (others => '0');
   signal Q            : signed(20 downto 0) := (others => '0');
   signal magnitude    : signed(15 downto 0) := (others => '0');
@@ -83,8 +83,8 @@ begin
     Y => Q,
     Z => 21x"000000", -- not used
 
-    std_logic_vector(X_Result) => magnitude,
-    std_logic_vector(Z_Result) => phase
+    X_Result => magnitude,
+    Z_Result => phase
   );
 
   -- APB
@@ -109,7 +109,8 @@ begin
           s_apb_o.pready <= '1';
           case s_apb_i.PADDR(2 downto 1) is
             when "00" => -- Mode
-              s_apb_o.prdata <= std_logic_vector(to_unsigned(to_integer(demod_mode), 2));
+              s_apb_o.prdata(0) <= enable;
+              s_apb_o.prdata(2 downto 1) <= demod_mode(1 downto 0);
             when others =>
               null;
           end case;
@@ -164,7 +165,7 @@ begin
                 -- Output the phase
                 m_axis_o.tdata(31 downto 16) <= std_logic_vector(phase);
                 m_axis_o.tstrb <= x"C";
-              when "10" => -- FM
+              when others => -- FM
                 -- Compute the phase difference between the current and previous sample
                 phase_1 <= phase_0;
                 phase_o <=  phase_0-phase_1;
@@ -193,8 +194,8 @@ begin
     end if;
   end process;
   -- Calculate I and Q, brought to quadrant 0 or 3 if I is negative
-  I <= signed(s_axis_i.tdata(31 downto 16)) when not s_axis_i.tdata(31) else -signed(s_axis_i.tdata(31 downto 16));
-  Q <= signed(s_axis_i.tdata(15 downto 0)) when not s_axis_i.tdata(31) else -signed(s_axis_i.tdata(15 downto 0));
+  I <= resize(signed(s_axis_i.tdata(31 downto 16)), 21) when not s_axis_i.tdata(31) else resize(-signed(s_axis_i.tdata(31 downto 16)), 21);
+  Q <= resize(signed(s_axis_i.tdata(15 downto 0)), 21) when not s_axis_i.tdata(31) else resize(-signed(s_axis_i.tdata(15 downto 0)), 21);
 
   -- AXI Stream
   s_axis_o.tready <= ready when enable else (not m_axis_o.tvalid or m_axis_i.tready);
