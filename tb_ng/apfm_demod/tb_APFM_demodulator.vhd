@@ -91,11 +91,12 @@ begin
 
     while test_suite loop
       if run("test_passthrough") then
-        tstrb_out := X"C";
+        tstrb_out := X"F";
         rst_i <= '0';
         wait for 100 ns;
         rst_i <= '1';
 
+        wait until rising_edge(clk_i);
         wait until rising_edge(clk_i);
 
         apb_write(clk_i, 0, s_apb_i, s_apb_o, X"0000", X"0000");    -- disable block
@@ -106,6 +107,23 @@ begin
         pop_axi_stream(net, slave_axi_stream, data_in, tlast_in, tkeep_in, tstrb_in, tid_in, tdest_in, tuser_in);
 
         check_equal(signed(data_in), x"12345678", "data_in");
+
+      elsif run("AM_demod") then
+        tstrb_out := X"F";
+        rst_i <= '0';
+        wait for 100 ns;
+        rst_i <= '1';
+
+        wait until rising_edge(clk_i);
+
+        apb_write(clk_i, 0, s_apb_i, s_apb_o, x"0000", "0000000000000001");   -- enable block and put in AM mode
+        wait until rising_edge(clk_i);
+
+        push_axi_stream(net, master_axi_stream, x"04E912CC", tstrb => tstrb_out, tlast => '0');
+        pop_axi_stream(net, slave_axi_stream, data_in, tlast_in, tkeep_in, tstrb_in, tid_in, tdest_in, tuser_in);
+
+        --check_equal(signed(tstrb_in), x"C", "tstrb_in");
+        check_equal(signed(data_in(31 downto 16)), 8190, "data_in");
 
       end if;
     end loop;
