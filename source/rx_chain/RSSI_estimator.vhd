@@ -28,20 +28,22 @@ entity RSSI_estimator is
     s_apb_o  : out apb_out_t;           -- slave apb interface out, to upstream
     s_apb_i  : in apb_in_t;             -- slave apb interface in, from upstream
 
-    s_axis_o : out axis_out_iq_t;       -- slave out, to upstream entity (ready)                      -- This entity's ready to receive flag (tready)
+    s_axis_o : in axis_out_iq_t;       -- slave out, to upstream entity (ready)                      -- This entity's ready to receive flag (tready)
     s_axis_i : in axis_in_iq_t          -- slave in, from upstream entity (data and valid)            -- IQ signal (tdata), valid (tvalid)
   );
 end entity;
 
 architecture magic of RSSI_estimator is
-  signal I            : signed(15 downto 0) := (others => '0');
-  signal Q            : signed(15 downto 0) := (others => '0');
-  signal max          : signed(15 downto 0) := (others => '0');
-  signal min          : signed(15 downto 0) := (others => '0');
-  signal magnitude    : signed(15 downto 0) := (others => '0');
-  signal magnitude_o  : signed(15 downto 0) := (others => '0');
+  signal I_0           : signed(15 downto 0) := (others => '0');
+  signal Q_0           : signed(15 downto 0) := (others => '0');
+  signal max_1         : signed(15 downto 0) := (others => '0');
+  signal min_1         : signed(15 downto 0) := (others => '0');
+  signal magnitude_2   : signed(15 downto 0) := (others => '0');
+  signal magnitude_o_3 : signed(15 downto 0) := (others => '0');
+  signal magnitude_rst : std_logic := '0';
 
-  signal ready        : std_logic := '0';
+  signal valid_1       : std_logic := '0';
+  signal valid_2       : std_logic := '0';
 
   signal hold         : std_logic_vector(15 downto 0) := (others => '0');
   signal attack       : std_logic_vector(15 downto 0) := (others => '0');
@@ -56,9 +58,12 @@ begin
     if rising_edge(clk_i) then
       s_apb_o.pready <= '0';
       s_apb_o.prdata <= (others => '0');
+      magnitude_rst <= '0';
       if s_apb_i.PSEL(PSEL_ID) then
         if s_apb_i.PENABLE and s_apb_i.PWRITE then
-          case s_apb_i.PADDR is
+          case s_apb_i.PADDR(2 downto 1) is
+            when "00" =>
+              magnitude_rst <= s_apb_i.PWDATA(0);
             when "01" =>
               attack <= s_apb_i.PWDATA;
             when "10" =>
@@ -72,13 +77,15 @@ begin
 
         if not s_apb_i.PENABLE then
           s_apb_o.pready <= '1';
-          case s_apb_i.PADDR is
+          case s_apb_i.PADDR(2 downto 1) is
             when "00" =>
-              s_apb_o.prdata <= magnitude_o;
+              s_apb_o.prdata <= magnitude_o_3;
             when "01" =>
               s_apb_o.prdata <= attack;
             when "10" =>
               s_apb_o.prdata <= decay;
+            when "11" =>
+              s_apb_o.prdata <= hold_config;
             when others =>
               s_apb_o.prdata <= (others => '0');
           end case;
@@ -91,37 +98,42 @@ begin
   process(clk_i)
   begin
     if nrst_i = '0' then
-      magnitude <= (others => '0');
-    
+      magnitude_2 <= (others => '0');
     elsif rising_edge(clk_i) then
-      ready <= '1';             -- Isn't the block always ready to receive new data ?
-      if s_axis_i.tvalid then
-        ready <= '0';           -- Isn't the block always ready to receive new data ?
+      valid_1 <= '0';
+      if s_axis_i.tvalid and s_axis_o.tready then
         -- α*max(I,Q)+β*min(I,Q), with α=15/16 and β=15/32
-        if I > Q then
-          max <= I;
-          min <= Q;
+        if I_0 > Q_0 then
+          max_1 <= I_0;
+          min_1 <= Q_0;
         else
-          max <= Q;
-          min <= I;
+          max_1 <= Q_0;
+          min_1 <= I_0;
         end if;
-        magnitude <= 15*max(15 downto 3) + 15*min(15 downto 4);
-        if magnitude > magnitude_o then
-          magnitude_o <= minimum(magnitude, magnitude_o+attack);
-          hold <= hold_config;
-        else
-          if hold > 0 then
-            hold <= hold-1;
+        valid_1 <= '1';
+      end if;
+
+      valid_2 <= valid_1;
+      magnitude_2 <= 15*max_1(15 downto 3) + 15*min_1(15 downto 4);
+
+      if not magnitude_rst then
+        if valid_2 then
+          if magnitude_2 > magnitude_o_3 then
+            magnitude_o_3 <= minimum(magnitude_2, magnitude_o_3 + attack);
+            hold <= hold_config;
           else
-            magnitude_o <= magnitude_o-decay;
+            if hold > 0 then
+              hold <= hold-1;
+            else 
+              magnitude_o_3 <= magnitude_o_3 - decay;
+            end if;
           end if;
         end if;
+      else
+        magnitude_o_3 <= (others => '0');
       end if;
     end if;
   end process;
-  I <= abs(signed(s_axis_i.tdata(31 downto 16)));
-  Q <= abs(signed(s_axis_i.tdata(15 downto 0)));
-
-  -- AXI Stream
-  s_axis_o.tready <= ready;     -- Isn't the block always ready to receive new data ?
+  I_0 <= abs(signed(s_axis_i.tdata(31 downto 16)));
+  Q_0 <= abs(signed(s_axis_i.tdata(15 downto 0)));
 end architecture;
