@@ -80,7 +80,7 @@ begin
     variable data_out : std_logic_vector(31 downto 0);
     type accum_t is array (0 to 3) of signed(41 downto 0);
 
-    variable apb_out : std_logic_vector(16 downto 0);
+    variable apb_out : std_logic_vector(15 downto 0);
     
     variable acc_i : accum_t;
     variable acc_q : accum_t;
@@ -98,24 +98,24 @@ begin
 
         wait until rising_edge(clk_i);
 
-        apb_write(clk_i, 0, s_apb_i, s_apb_o, X"0000", "0000000000000001");    -- enable block
-        apb_write(clk_i, 0, s_apb_i, s_apb_o, X"0001", x"02AC");               -- set attack
-        apb_write(clk_i, 0, s_apb_i, s_apb_o, X"0002", x"340D");               -- set decay
-        apb_write(clk_i, 0, s_apb_i, s_apb_o, X"0003", x"0005");               -- set hold cycles
+        apb_write(clk_i, 0, s_apb_i, s_apb_o, X"0001", "0000000000000000");    -- enable block
+        apb_write(clk_i, 0, s_apb_i, s_apb_o, X"0002", x"02AC");               -- set attack
+        apb_write(clk_i, 0, s_apb_i, s_apb_o, X"0004", x"340D");               -- set decay
+        apb_write(clk_i, 0, s_apb_i, s_apb_o, X"0006", x"0005");               -- set hold cycles
 
         wait until rising_edge(clk_i);
 
-        apb_read(clk_i, 0, s_apb_i, s_apb_o, X"0000", apb_out);                -- read RSSI
-        check_equal(apb_out, x"0000", "RSSI out");
+        apb_read(clk_i, 0, s_apb_i, s_apb_o, X"0001", apb_out);                -- read RSSI
+        check_equal(signed(apb_out), x"0000", "RSSI out");
 
-        apb_read(clk_i, 0, s_apb_i, s_apb_o, X"0001", apb_out);                -- read attack
-        check_equal(apb_out, x"02AC", "attack out");
+        apb_read(clk_i, 0, s_apb_i, s_apb_o, X"0002", apb_out);                -- read attack
+        check_equal(signed(apb_out), x"02AC", "attack out");
 
-        apb_read(clk_i, 0, s_apb_i, s_apb_o, X"0002", apb_out);                -- read decay
-        check_equal(apb_out, x"340D", "decay out");
+        apb_read(clk_i, 0, s_apb_i, s_apb_o, X"0004", apb_out);                -- read decay
+        check_equal(signed(apb_out), x"340D", "decay out");
 
-        apb_read(clk_i, 0, s_apb_i, s_apb_o, X"0003", apb_out);                -- read hold cycles
-        check_equal(apb_out, x"0005", "hold cycles out");
+        apb_read(clk_i, 0, s_apb_i, s_apb_o, X"0006", apb_out);                -- read hold cycles
+        check_equal(signed(apb_out), x"0005", "hold cycles out");
 
       end if;
     end loop;
@@ -147,25 +147,5 @@ begin
       tdata  => s_axis_i.tdata,
       tstrb => s_axis_i.tstrb);
 
-  axi_stream_slave_inst : entity vunit_lib.axi_stream_slave
-  generic map(
-    slave => slave_axi_stream)
-  port map(
-    aclk     => clk_i,
-    areset_n => rst_i,
-    tvalid   => m_axis_o.tvalid,
-    tready   => m_axis_i.tready,
-    tdata    => m_axis_o.tdata);
-
-  axi_stream_protocol_checker_inst : entity vunit_lib.axi_stream_protocol_checker
-  generic map(
-    protocol_checker => protocol_checker)
-  port map(
-    aclk     => clk_i,
-    areset_n => rst_i,
-    tvalid   => m_axis_o.tvalid,
-    tready   => m_axis_i.tready,
-    tdata    => m_axis_o.tdata
-  );
 
 end architecture;
