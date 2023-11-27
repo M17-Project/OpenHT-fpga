@@ -40,8 +40,8 @@ entity APFM_demodulator is
 end entity;
 
 architecture magic of APFM_demodulator is
-  signal I            : signed(20 downto 0) := (others => '0');
-  signal Q            : signed(20 downto 0) := (others => '0');
+  signal I            : signed(15 downto 0) := (others => '0');
+  signal Q            : signed(15 downto 0) := (others => '0');
   signal magnitude    : signed(15 downto 0) := (others => '0');
   signal phase        : signed(15 downto 0) := (others => '0');
   signal phase_0      : signed(15 downto 0) := (others => '0');
@@ -66,7 +66,7 @@ begin
   -- CORDIC
   arctan : entity work.cordic_sincos generic map( -- Same as cordic_sincos
     SIZE => 21,
-    ITERATIONS => 21,
+    ITERATIONS => 9,
     TRUNC_SIZE => 16,
     RESET_ACTIVE_LEVEL => '0'
     )
@@ -79,10 +79,9 @@ begin
     Result_valid => output_valid,
     Mode => cordic_vector,
 
-    X => I,
-    Y => Q,
-    Z => 21x"000000", -- not used
-
+    X => resize(I, 21),
+    Y => resize(Q, 21),
+    Z => 21x"000000", -- not use
     X_Result => magnitude,
     Z_Result => phase
   );
@@ -188,8 +187,8 @@ begin
 
           when others =>
             -- Calculate I and Q, brought to quadrant 0 or 3 if I is negative
-            I <= resize(signed(s_axis_i.tdata(31 downto 16)), 21) when not s_axis_i.tdata(31) else resize(-signed(s_axis_i.tdata(31 downto 16)), 21);
-            Q <= resize(signed(s_axis_i.tdata(15 downto 0)), 21) when not s_axis_i.tdata(31) else resize(-signed(s_axis_i.tdata(15 downto 0)), 21);
+            I <= signed(s_axis_i.tdata(31 downto 16)) when not s_axis_i.tdata(31) else -signed(s_axis_i.tdata(31 downto 16));
+            Q <= signed(s_axis_i.tdata(15 downto 0)) when not s_axis_i.tdata(31) else -signed(s_axis_i.tdata(15 downto 0));
             m_axis_o.tvalid <= '0';
             ready <= '1';
             if s_axis_i.tvalid and not cordic_busy then
