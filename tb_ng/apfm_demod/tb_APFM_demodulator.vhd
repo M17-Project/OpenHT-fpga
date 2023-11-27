@@ -25,6 +25,7 @@ use work.axi_stream_pkg.all;
 use work.openht_utils_pkg.all;
 use work.apb_pkg.all;
 use work.apb_test_pkg.all;
+use work.cordic_pkg.all;
 
 entity tb_APFM_demodulator is
   generic (runner_cfg : string);
@@ -108,7 +109,7 @@ begin
 
         check_equal(signed(data_in), x"12345678", "data_in");
 
-      elsif run("AM_demod") then
+      elsif run("AM_demod_1") then
         tstrb_out := X"F";
         rst_i <= '0';
         wait for 100 ns;
@@ -121,9 +122,28 @@ begin
 
         push_axi_stream(net, master_axi_stream, x"04E912CC", tstrb => tstrb_out, tlast => '0');
         pop_axi_stream(net, slave_axi_stream, data_in, tlast_in, tkeep_in, tstrb_in, tid_in, tdest_in, tuser_in);
-
+        
         --check_equal(signed(tstrb_in), x"C", "tstrb_in");
-        check_equal(signed(data_in(31 downto 16)), 8190, "data_in");
+        check_equal(cordic_gain(9), 1.6467560702048787, "cordic_gain(9)");
+        check_equal(signed(data_in(31 downto 16)), 8190, "data_in");  -- sqrt(x"04E9"^2 + x"12CC"^2)*cordic_gain(9) = 8190   (gain(9) = 1.6467560702048787)
+
+      elsif run("AM_demod_2") then
+        tstrb_out := X"F";
+        rst_i <= '0';
+        wait for 100 ns;
+        rst_i <= '1';
+
+        wait until rising_edge(clk_i);
+
+        apb_write(clk_i, 0, s_apb_i, s_apb_o, x"0000", "0000000000000001");   -- enable block and put in AM mode
+        wait until rising_edge(clk_i);
+
+        push_axi_stream(net, master_axi_stream, x"0159F9E4", tstrb => tstrb_out, tlast => '0');
+        pop_axi_stream(net, slave_axi_stream, data_in, tlast_in, tkeep_in, tstrb_in, tid_in, tdest_in, tuser_in);
+        
+        --check_equal(signed(tstrb_in), x"C", "tstrb_in");
+        check_equal(cordic_gain(9), 1.6467560702048787, "cordic_gain(9)");
+        check_equal(signed(data_in(31 downto 16)), 2639, "data_in");  -- sqrt(x"0159"^2 + x"F9E4"^2)*cordic_gain(9) = 2637   (gain(9) = 1.6467560702048787), CORDIC calculates 2639
 
       end if;
     end loop;
