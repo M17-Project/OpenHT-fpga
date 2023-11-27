@@ -69,7 +69,8 @@ begin
     SIZE => 21,
     ITERATIONS => 21,
     TRUNC_SIZE => 16,
-    RESET_ACTIVE_LEVEL => '0'
+    RESET_ACTIVE_LEVEL => '0',
+    ROUND_ENABLE => false
     )
   port map(
     Clock => clk_i,

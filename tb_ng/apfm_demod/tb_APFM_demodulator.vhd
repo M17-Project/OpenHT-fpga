@@ -127,7 +127,7 @@ begin
         check_equal(cordic_gain(9), 1.6467560702048787, "cordic_gain(9)");
         check_equal(cordic_gain(21), 1.6467602581208163, "cordic_gain(21)");
 
-        check_equal(signed(data_in(31 downto 16)), 8202, "data_in");  -- sqrt(x"04E9"^2 + x"12CC"^2)*cordic_gain(21) = 8202
+        check_equal(signed(data_in(31 downto 16)), 8202, "data_in");  -- sqrt(x"04E9"^2 + x"12CC"^2)*cordic_gain(21) = 8190, CORDIC gives 8202
 
       elsif run("AM_demod_2") then
         tstrb_out := X"F";
@@ -147,7 +147,7 @@ begin
         check_equal(cordic_gain(9), 1.6467560702048787, "cordic_gain(9)");
         check_equal(cordic_gain(21), 1.6467602581208163, "cordic_gain(21)");
         
-        check_equal(signed(data_in(31 downto 16)), 2651, "data_in");  -- sqrt(x"0159"^2 + x"F9E4"^2)*cordic_gain(21) = 2637   , CORDIC calculates 2651
+        check_equal(signed(data_in(31 downto 16)), 2651, "data_in");  -- sqrt(x"0159"^2 + x"F9E4"^2)*cordic_gain(21) = 2637, CORDIC gives 2651
 
       elsif run("PM_demod_1") then
         tstrb_out := X"F";
