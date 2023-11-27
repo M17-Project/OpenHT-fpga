@@ -33,9 +33,6 @@ entity tx_chain is
 end entity tx_chain;
 
 architecture rtl of tx_chain is
-	signal resampl_gain_axis_in		: axis_in_iq_t;
-	signal gain_fork_axis_out		: axis_out_iq_t;
-
 	-- Prefilter
 	signal prefilter_ctcss_axis_in	: axis_in_iq_t;
 	signal prefilter_ctcss_axis_out  : axis_out_iq_t;
@@ -210,7 +207,7 @@ begin
 
 	-- Backpropagation of the ready signal to interpolator
 	axis_fork0: entity work.axis_fork port map(
-		s_iq_in => gain_fork_axis_out,
+		s_iq_in => interp2_mods_axis_out,
 		sel_i => mode,
 		m00_iq_out => fm_iq_axis_in,
 		m01_iq_out => am_iq_axis_in,

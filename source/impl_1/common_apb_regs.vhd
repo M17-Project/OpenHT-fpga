@@ -34,11 +34,21 @@ entity common_apb_regs is
 
         tx_data : out std_logic_vector(15 downto 0);
         tx_data_valid : out std_logic;
-        rxtx : out std_logic_vector(1 downto 0)
+        tx_data_count : in std_logic_vector(7 downto 0);
+        tx_fifo_flags : in std_logic_vector(3 downto 0);
+
+        rx_data : in std_logic_vector(15 downto 0);
+        rx_data_valid : out std_logic;
+        rx_data_count : in std_logic_vector(7 downto 0);
+        rx_fifo_flags : in std_logic_vector(3 downto 0);
+
+        rxtx : out std_logic_vector(1 downto 0);
+        band_sel : out std_logic
     );
 end entity common_apb_regs;
 
 architecture rtl of common_apb_regs is
+    signal band_sel_i : std_logic := '0';
     signal rxtx_i : std_logic_vector(1 downto 0) := (others => '0');
     signal io3_sel_i : std_logic_vector(2 downto 0) := (others => '0');
     signal io4_sel_i : std_logic_vector(2 downto 0) := (others => '0');
@@ -47,6 +57,7 @@ architecture rtl of common_apb_regs is
 
 begin
 
+    band_sel <= band_sel_i;
     rxtx <= rxtx_i;
     io3_sel <= io3_sel_i;
     io4_sel <= io4_sel_i;
@@ -59,6 +70,7 @@ begin
             s_apb_out.pready <= '0';
             s_apb_out.prdata <= (others => '0');
             tx_data_valid <= '0';
+            rx_data_valid <= '0';
 
             if s_apb_in.PSEL(PSEL_ID) then
                 if s_apb_in.PENABLE and s_apb_in.PWRITE then
@@ -71,6 +83,7 @@ begin
 
                         when "010" => -- Control REG
                             rxtx_i <= s_apb_in.pwdata(1 downto 0);
+                            band_sel_i <= s_apb_in.pwdata(2);
 
                         when "011" => -- IO out reg
                             io3_sel_i <= s_apb_in.pwdata(2 downto 0);
@@ -83,6 +96,12 @@ begin
                             tx_data <= s_apb_in.pwdata;
 
                         when "101" => -- TX Fifo status
+                            null;
+
+                        when "110" => -- RX Fifo
+                            null;
+
+                        when "111" => -- RX Fifo status
                             null;
 
                         when others =>
@@ -101,6 +120,7 @@ begin
 
                         when "010" => -- Control REG
                             s_apb_out.prdata(1 downto 0) <= rxtx_i;
+                            s_apb_out.prdata(2) <= band_sel_i;
 
                         when "011" => -- IO out reg
                             s_apb_out.prdata(2 downto 0) <= io3_sel_i;
@@ -112,7 +132,16 @@ begin
                             null;
 
                         when "101" => -- TX FIFO status
-                            null;
+                            s_apb_out.prdata(7 downto 0) <= tx_data_count;
+                            s_apb_out.prdata(11 downto 8) <= tx_fifo_flags;
+
+                        when "110" => -- RX Fifo
+                            s_apb_out.prdata <= rx_data;
+                            rx_data_valid <= '1';
+
+                        when "111" => -- RX FIFO status
+                            s_apb_out.prdata(7 downto 0) <= rx_data_count;
+                            s_apb_out.prdata(11 downto 8) <= rx_fifo_flags;
 
                         when others =>
                             null;

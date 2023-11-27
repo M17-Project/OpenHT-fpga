@@ -51,6 +51,7 @@ begin
       if s_axis_iq_o.tready then
         m_axis_iq_o.tdata <= i_mult(31 - 2 downto 16 - 2) & q_mult(31 - 2 downto 16 - 2); -- TODO: add saturation here
         out_valid         <= s_axis_iq_i.tvalid;
+        m_axis_iq_o.tstrb <= X"F";
       end if;
     end if;
   end process;

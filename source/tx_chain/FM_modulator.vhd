@@ -77,6 +77,7 @@ begin
 					if output_valid then
 						mod_state <= DONE;
 						m_axis_iq_o.tvalid <= '1';
+						m_axis_iq_o.tstrb <= X"F";
 					end if;
 
 				when DONE =>

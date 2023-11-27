@@ -91,6 +91,7 @@ begin
 						else
 							m_axis_o.tdata <= std_logic_vector(sin_output) & X"0000";
 						end if;
+						m_axis_o.tstrb <= X"C";
 					end if;
 
 				when DONE =>
@@ -117,6 +118,7 @@ begin
 						else
 							mod_state <= DONE;
 							m_axis_o.tdata <= s_axis_i.tdata;
+							m_axis_o.tstrb <= s_axis_i.tstrb;
 							m_axis_o.tvalid <= '1';
 							phase <= (others => '0');
 						end if;

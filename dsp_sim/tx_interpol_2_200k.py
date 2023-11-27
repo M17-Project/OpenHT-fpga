@@ -27,7 +27,17 @@ plt.plot(sig_upsampled)
 plt.subplot(4,2,4)
 plt.plot(20*np.log(fft(sig_upsampled)))
 
-fir = signal.remez(100, [0, 4400, 30000, fs*L/2], [2,0], fs=fs*L)
+fir = signal.remez(100, [0, 4400, 30000, fs*L/2], [1.0, 0], fs=fs*L)
+
+print('')
+print('Python-like taps:')
+for i in enumerate(fir):
+    r=fir[i[0]];
+    print(f"{r:f}", end=', ')
+    if (i[0] + 1) % L == 0:
+        print('')
+print('')
+
 fir = np.array([quantize(x, Q) for x in fir])
 
 plt.subplot(4,2,5)

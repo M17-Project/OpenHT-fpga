@@ -15,3 +15,4 @@ IBIS/
 *.bak
 vunit_out
 private
+.DS_Store
