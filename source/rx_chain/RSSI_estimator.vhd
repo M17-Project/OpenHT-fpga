@@ -116,7 +116,7 @@ begin
       end if;
 
       valid_2 <= valid_1;
-      magnitude_2(15 downto 0) <= resize(15*max_1(15 downto 3), 16) + resize(15*min_1(15 downto 4), 16);
+      magnitude_2 <= resize(15*max_1/16, 16) + resize(15*min_1/32, 16);
 
       if not magnitude_rst then
         if valid_2 then
@@ -133,6 +133,7 @@ begin
         end if;
       else
         magnitude_o_3 <= (others => '0');
+        magnitude_2 <= (others => '0');
       end if;
     end if;
   end process;
