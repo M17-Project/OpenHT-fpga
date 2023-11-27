@@ -168,6 +168,46 @@ begin
         check_equal(cordic_gain(21), 1.6467602581208163, "cordic_gain(21)");
         check_equal(signed(data_in(31 downto 16)), 32042, "data_in");  -- arctan(x"007B"/x"F909") = -0,069rad or 3,073  CORDIC should give ((pi+arctan(x"007B"/x"F909"))/pi)*2^15 = ((pi-0.0656053796978532)/pi)*2^15 = 32 083, gives 32042 with 21 cycles, 32002 with 9
 
+      elsif run("FM_demod_1") then
+        tstrb_out := X"F";
+        rst_i <= '0';
+        wait for 100 ns;
+        rst_i <= '1';
+
+        wait until rising_edge(clk_i);
+
+        apb_write(clk_i, 0, s_apb_i, s_apb_o, x"0000", "0000000000000101");   -- enable block and put in FM mode
+        wait until rising_edge(clk_i);
+
+        push_axi_stream(net, master_axi_stream, x"F909007B", tstrb => tstrb_out, tlast => '0');
+        pop_axi_stream(net, slave_axi_stream, data_in, tlast_in, tkeep_in, tstrb_in, tid_in, tdest_in, tuser_in);
+        push_axi_stream(net, master_axi_stream, x"F909007B", tstrb => tstrb_out, tlast => '0');
+        pop_axi_stream(net, slave_axi_stream, data_in, tlast_in, tkeep_in, tstrb_in, tid_in, tdest_in, tuser_in);
+        
+        check_equal(cordic_gain(9), 1.6467560702048787, "cordic_gain(9)");
+        check_equal(cordic_gain(21), 1.6467602581208163, "cordic_gain(21)");
+        check_equal(signed(data_in(31 downto 16)), 0, "data_in");             -- expect no difference between two same phases
+
+      elsif run("FM_demod_2") then
+        tstrb_out := X"F";
+        rst_i <= '0';
+        wait for 100 ns;
+        rst_i <= '1';
+
+        wait until rising_edge(clk_i);
+
+        apb_write(clk_i, 0, s_apb_i, s_apb_o, x"0000", "0000000000000101");   -- enable block and put in FM mode
+        wait until rising_edge(clk_i);
+
+        push_axi_stream(net, master_axi_stream, x"F909007B", tstrb => tstrb_out, tlast => '0');
+        pop_axi_stream(net, slave_axi_stream, data_in, tlast_in, tkeep_in, tstrb_in, tid_in, tdest_in, tuser_in);
+        push_axi_stream(net, master_axi_stream, x"FAC200CF", tstrb => tstrb_out, tlast => '0');
+        pop_axi_stream(net, slave_axi_stream, data_in, tlast_in, tkeep_in, tstrb_in, tid_in, tdest_in, tuser_in);
+        
+        check_equal(cordic_gain(9), 1.6467560702048787, "cordic_gain(9)");
+        check_equal(cordic_gain(21), 1.6467602581208163, "cordic_gain(21)");
+        check_equal(signed(data_in(31 downto 16)), -874, "data_in");             -- ((pi-0.15304162498720425)/pi)*2^15-((pi-0.0656053796978532)/pi)*2^15 = -912, block outputs -874
+
       end if;
     end loop;
 
