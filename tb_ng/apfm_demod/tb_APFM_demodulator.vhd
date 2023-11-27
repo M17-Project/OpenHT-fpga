@@ -125,7 +125,9 @@ begin
         
         --check_equal(signed(tstrb_in), x"C", "tstrb_in");
         check_equal(cordic_gain(9), 1.6467560702048787, "cordic_gain(9)");
-        check_equal(signed(data_in(31 downto 16)), 8190, "data_in");  -- sqrt(x"04E9"^2 + x"12CC"^2)*cordic_gain(9) = 8190   (gain(9) = 1.6467560702048787)
+        check_equal(cordic_gain(21), 1.6467602581208163, "cordic_gain(21)");
+
+        check_equal(signed(data_in(31 downto 16)), 8202, "data_in");  -- sqrt(x"04E9"^2 + x"12CC"^2)*cordic_gain(21) = 8202
 
       elsif run("AM_demod_2") then
         tstrb_out := X"F";
@@ -143,7 +145,27 @@ begin
         
         --check_equal(signed(tstrb_in), x"C", "tstrb_in");
         check_equal(cordic_gain(9), 1.6467560702048787, "cordic_gain(9)");
-        check_equal(signed(data_in(31 downto 16)), 2639, "data_in");  -- sqrt(x"0159"^2 + x"F9E4"^2)*cordic_gain(9) = 2637   (gain(9) = 1.6467560702048787), CORDIC calculates 2639
+        check_equal(cordic_gain(21), 1.6467602581208163, "cordic_gain(21)");
+        
+        check_equal(signed(data_in(31 downto 16)), 2651, "data_in");  -- sqrt(x"0159"^2 + x"F9E4"^2)*cordic_gain(21) = 2637   , CORDIC calculates 2651
+
+      elsif run("PM_demod_1") then
+        tstrb_out := X"F";
+        rst_i <= '0';
+        wait for 100 ns;
+        rst_i <= '1';
+
+        wait until rising_edge(clk_i);
+
+        apb_write(clk_i, 0, s_apb_i, s_apb_o, x"0000", "0000000000000011");   -- enable block and put in PM mode
+        wait until rising_edge(clk_i);
+
+        push_axi_stream(net, master_axi_stream, x"F909007B", tstrb => tstrb_out, tlast => '0');
+        pop_axi_stream(net, slave_axi_stream, data_in, tlast_in, tkeep_in, tstrb_in, tid_in, tdest_in, tuser_in);
+        
+        --check_equal(signed(tstrb_in), x"C", "tstrb_in");
+        check_equal(cordic_gain(9), 1.6467560702048787, "cordic_gain(9)");
+        check_equal(signed(data_in(31 downto 16)), 32042, "data_in");  -- arctan(x"007B"/x"F909") = -0,069rad or 3,073  CORDIC should give ((pi+arctan(x"007B"/x"F909"))/pi)*2^15 = ((pi-0.0656053796978532)/pi)*2^15 = 32 083, gives 32042 with 21 cycles, 32002 with 9
 
       end if;
     end loop;
