@@ -142,6 +142,9 @@ begin
             iq_vld <= '0';
             if output_valid then
               sig_state <= OUTPUT;
+
+              phase_1 <= phase_0;
+              
               -- Verify angle tdata(31) X (I),  tdata(15) Y (Q) of s_axis
               -- 00 -> nothing
               -- 10 -> add x"8000"
@@ -170,11 +173,8 @@ begin
                 m_axis_o.tdata(15 downto 0) <= (others => '0');
                 m_axis_o.tstrb <= x"C";
               when others => -- FM
-                -- Compute the phase difference between the current and previous sample
-                phase_1 <= phase_0;
-                phase_o <= phase_0-phase_1;
                 -- Output the phase difference
-                m_axis_o.tdata(31 downto 16) <= std_logic_vector(phase_o);
+                m_axis_o.tdata(31 downto 16) <= std_logic_vector(phase_0-phase_1);
                 m_axis_o.tdata(15 downto 0) <= (others => '0');
                 m_axis_o.tstrb <= x"C";
             end case;
