@@ -165,6 +165,7 @@ begin
         
         --check_equal(signed(tstrb_in), x"C", "tstrb_in");
         check_equal(cordic_gain(9), 1.6467560702048787, "cordic_gain(9)");
+        check_equal(cordic_gain(21), 1.6467602581208163, "cordic_gain(21)");
         check_equal(signed(data_in(31 downto 16)), 32042, "data_in");  -- arctan(x"007B"/x"F909") = -0,069rad or 3,073  CORDIC should give ((pi+arctan(x"007B"/x"F909"))/pi)*2^15 = ((pi-0.0656053796978532)/pi)*2^15 = 32 083, gives 32042 with 21 cycles, 32002 with 9
 
       end if;
