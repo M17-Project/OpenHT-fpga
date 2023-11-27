@@ -122,7 +122,6 @@ begin
   process(clk_i)
   begin
     if nrst_i = '0' then
-      phase <= (others => '0');
       iq_vld <= '0';
       m_axis_o.tvalid <= '0';
       m_axis_o.tdata <= (others => '0');
