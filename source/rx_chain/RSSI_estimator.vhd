@@ -28,7 +28,7 @@ entity RSSI_estimator is
     s_apb_o  : out apb_out_t;           -- slave apb interface out, to upstream
     s_apb_i  : in apb_in_t;             -- slave apb interface in, from upstream
 
-    s_axis_o : in axis_out_iq_t;       -- slave out, to upstream entity (ready)                      -- This entity's ready to receive flag (tready)
+    s_axis_o : in axis_out_iq_t;       -- slave out, to upstream entity (ready)                       -- This entity's ready to receive flag (tready)
     s_axis_i : in axis_in_iq_t          -- slave in, from upstream entity (data and valid)            -- IQ signal (tdata), valid (tvalid)
   );
 end entity;
@@ -45,10 +45,10 @@ architecture magic of RSSI_estimator is
   signal valid_1       : std_logic := '0';
   signal valid_2       : std_logic := '0';
 
-  signal hold         : std_logic_vector(15 downto 0) := (others => '0');
-  signal attack       : std_logic_vector(15 downto 0) := (others => '0');
-  signal decay        : std_logic_vector(15 downto 0) := (others => '0');
-  signal hold_config  : std_logic_vector(15 downto 0) := (others => '0');
+  signal hold         : signed(15 downto 0) := (others => '0');
+  signal attack       : signed(15 downto 0) := (others => '0');
+  signal decay        : signed(15 downto 0) := (others => '0');
+  signal hold_config  : signed(15 downto 0) := (others => '0');
 
 begin
 
@@ -65,11 +65,11 @@ begin
             when "00" =>
               magnitude_rst <= s_apb_i.PWDATA(0);
             when "01" =>
-              attack <= s_apb_i.PWDATA;
+              attack <= signed(s_apb_i.PWDATA);
             when "10" =>
-              decay <= s_apb_i.PWDATA;
+              decay <= signed(s_apb_i.PWDATA);
             when "11" =>
-              hold_config <= s_apb_i.PWDATA;
+              hold_config <= signed(s_apb_i.PWDATA);
             when others =>
               null;
           end case;
@@ -79,13 +79,13 @@ begin
           s_apb_o.pready <= '1';
           case s_apb_i.PADDR(2 downto 1) is
             when "00" =>
-              s_apb_o.prdata <= magnitude_o_3;
+              s_apb_o.prdata <= std_logic_vector(magnitude_o_3);
             when "01" =>
-              s_apb_o.prdata <= attack;
+              s_apb_o.prdata <= std_logic_vector(attack);
             when "10" =>
-              s_apb_o.prdata <= decay;
+              s_apb_o.prdata <= std_logic_vector(decay);
             when "11" =>
-              s_apb_o.prdata <= hold_config;
+              s_apb_o.prdata <= std_logic_vector(hold_config);
             when others =>
               s_apb_o.prdata <= (others => '0');
           end case;
@@ -99,6 +99,8 @@ begin
   begin
     if nrst_i = '0' then
       magnitude_2 <= (others => '0');
+      magnitude_o_3 <= (others => '0');
+
     elsif rising_edge(clk_i) then
       valid_1 <= '0';
       if s_axis_i.tvalid and s_axis_o.tready then
@@ -114,7 +116,7 @@ begin
       end if;
 
       valid_2 <= valid_1;
-      magnitude_2 <= 15*max_1(15 downto 3) + 15*min_1(15 downto 4);
+      magnitude_2(15 downto 0) <= resize(15*max_1(15 downto 3), 16) + resize(15*min_1(15 downto 4), 16);
 
       if not magnitude_rst then
         if valid_2 then
