@@ -42,6 +42,7 @@ end entity;
 architecture magic of APFM_demodulator is
   signal I            : signed(15 downto 0) := (others => '0');
   signal Q            : signed(15 downto 0) := (others => '0');
+  signal is_negative  : std_logic := '0';
   signal magnitude    : signed(15 downto 0) := (others => '0');
   signal phase        : signed(15 downto 0) := (others => '0');
   signal phase_0      : signed(15 downto 0) := (others => '0');
@@ -66,7 +67,7 @@ begin
   -- CORDIC
   arctan : entity work.cordic_sincos generic map( -- Same as cordic_sincos
     SIZE => 21,
-    ITERATIONS => 9,
+    ITERATIONS => 21,
     TRUNC_SIZE => 16,
     RESET_ACTIVE_LEVEL => '0'
     )
@@ -146,8 +147,8 @@ begin
               -- 10 -> add x"8000"
               -- 11 -> add x"8000"
               -- 01 -> nothing
-              if s_axis_i.tdata(31) = '1' then
-                phase_0 <= phase + x"8000";
+              if is_negative then
+                phase_0 <= x"8000" + phase;
               else
                 phase_0 <= phase;
               end if;
@@ -186,6 +187,7 @@ begin
 
           when others =>
             -- Calculate I and Q, brought to quadrant 0 or 3 if I is negative
+            is_negative <= s_axis_i.tdata(31);
             I <= signed(s_axis_i.tdata(31 downto 16)) when not s_axis_i.tdata(31) else -signed(s_axis_i.tdata(31 downto 16));
             Q <= signed(s_axis_i.tdata(15 downto 0)) when not s_axis_i.tdata(31) else -signed(s_axis_i.tdata(15 downto 0));
             m_axis_o.tvalid <= '0';
