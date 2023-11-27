@@ -1,7 +1,12 @@
 -----------------------------------------
--- FIR rational resampler testbench
+-- RSSI Estimator testbench
 --
--- Sebastien, ON4SEB
+-- Frédéric Druppel, ON4PFD, fredcorp.cc
+--
+-- TODO : add arbitrary RSSI calculation
+--        with variable attack, decay
+--        and hold cycles
+--
 -----------------------------------------
 
 library ieee;
@@ -116,6 +121,32 @@ begin
 
         apb_read(clk_i, 0, s_apb_i, s_apb_o, X"0006", apb_out);                -- read hold cycles
         check_equal(signed(apb_out), x"0005", "hold cycles out");
+
+      elsif run("test_calculation") then
+        tstrb_out := X"F";
+        rst_i <= '0';
+        wait for 100 ns;
+        rst_i <= '1';
+
+        wait until rising_edge(clk_i);
+
+        apb_write(clk_i, 0, s_apb_i, s_apb_o, X"0001", "0000000000000000");    -- enable block
+        apb_write(clk_i, 0, s_apb_i, s_apb_o, X"0002", x"2000");               -- set attack to 8192
+        apb_write(clk_i, 0, s_apb_i, s_apb_o, X"0004", x"2000");               -- set decay to 8192
+        apb_write(clk_i, 0, s_apb_i, s_apb_o, X"0006", x"0005");               -- set hold cycles to 5
+
+        wait until rising_edge(clk_i);
+
+        push_axi_stream(net, master_axi_stream, x"04E912CC", tstrb => tstrb_out, tlast => '0');
+
+        for i in 0 to 3 loop
+          wait until rising_edge(clk_i);
+        end loop;
+
+        apb_read(clk_i, 0, s_apb_i, s_apb_o, X"0001", apb_out);    -- read RSSI
+
+
+        check_equal(signed(apb_out), 5100, "apb out"); -- 15*x"12CC"/16 + 15*x"04E9"/32 = 5100  (real magnitude = 4973)
 
       end if;
     end loop;
