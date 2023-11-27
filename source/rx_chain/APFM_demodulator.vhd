@@ -65,7 +65,7 @@ begin
   -- Ø = arctan(Q/I)
 
   -- CORDIC
-  arctan : entity work.cordic_sincos generic map( -- Same as cordic_sincos
+  arctan : entity work.cordic_demod generic map( -- Same as cordic_sincos
     SIZE => 21,
     ITERATIONS => 21,
     TRUNC_SIZE => 16,

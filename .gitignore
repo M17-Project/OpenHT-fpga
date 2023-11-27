@@ -14,4 +14,4 @@ IBIS/
 *.ghw
 *.bak
 vunit_out
-
+private
