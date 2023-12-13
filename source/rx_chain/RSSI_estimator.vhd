@@ -103,7 +103,7 @@ begin
 
     elsif rising_edge(clk_i) then
       valid_1 <= '0';
-      if s_axis_i.tvalid then -- and s_axis_o.tready then
+      if s_axis_i.tvalid and s_axis_o.tready then
         -- α*max(I,Q)+β*min(I,Q), with α=15/16 and β=15/32
         if I_0 > Q_0 then
           max_1 <= I_0;

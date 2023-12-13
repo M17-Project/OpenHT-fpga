@@ -178,5 +178,6 @@ begin
       tdata  => s_axis_i.tdata,
       tstrb => s_axis_i.tstrb);
 
+  s_axis_o.tready <= '1';
 
 end architecture;
