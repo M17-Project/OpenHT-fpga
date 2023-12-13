@@ -37,7 +37,9 @@ architecture rtl of rx_chain is
 	signal s_apb_out_dec0 : apb_out_t;
 	signal s_apb_out_dec1 : apb_out_t;
 	signal s_apb_out_dec2 : apb_out_t;
+	signal s_apb_out_demod : apb_out_t;
     signal s_apb_out_postfilter : apb_out_t;
+	signal s_apb_out_rssi : apb_out_t;
 
     -- AXI streams
     signal sel_dec0_axis_in  : axis_in_iq_t;
@@ -129,10 +131,35 @@ begin
 	  m_axis_i => dec2_demod_axis_out
 	);
 
+	-- RSSI estimator
+	RSSI_estimator_inst : entity work.RSSI_estimator
+	generic map (
+	  PSEL_ID => C_RX_RSSI_PSEL
+	)
+	port map (
+	  clk_i => clk_64,
+	  nrst_i => resetn,
+	  s_apb_i => s_apb_in,
+	  s_apb_o => s_apb_out_rssi,
+	  s_axis_o => dec2_demod_axis_out,
+	  s_axis_i => dec2_demod_axis_in
+	);
+
     -- Demodulator
-    -- TODO add demodulator
-    demod_postfilter_axis_in <= dec2_demod_axis_in;
-    dec2_demod_axis_out <= demod_postfilter_axis_out;
+	APFM_demodulator_inst : entity work.APFM_demodulator
+	generic map (
+		PSEL_ID => C_RX_DEMOD_PSEL
+	)
+	port map (
+		clk_i => clk_64,
+		nrst_i => resetn,
+		s_apb_i => s_apb_in,
+		s_apb_o => s_apb_out_demod,
+		s_axis_o => dec2_demod_axis_out,
+		s_axis_i => dec2_demod_axis_in,
+		m_axis_o => demod_postfilter_axis_in,
+		m_axis_i => demod_postfilter_axis_out
+	);
 
     -- Postfilter
 	postfilter_inst : entity work.fir_rational_resample
