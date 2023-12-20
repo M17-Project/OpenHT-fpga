@@ -67,7 +67,6 @@ architecture magic of top_common is
 	signal rx_fifo_empty                : std_logic;
 	signal rx_fifo_full                 : std_logic;
 	signal rx_fifo_wr_data              : std_logic_vector(15 downto 0);
-	signal rx_fifo_wr_data_valid        : std_logic;
 	signal rx_fifo_wr                   : std_logic;
 	signal rx_fifo_count                : std_logic_vector(7 downto 0);
 
@@ -117,7 +116,7 @@ begin
 		nrst => nrst,
 		s_axis_i => rx_demod_out,
 		s_axis_o => rx_demod_in,
-		fifo_wr_en => rx_fifo_wr_data_valid,
+		fifo_wr_en => rx_fifo_wr,
 		fifo_wr_data => rx_fifo_wr_data,
 		fifo_full => rx_fifo_full
 	);
@@ -148,7 +147,7 @@ begin
 	---------------------------------------- TX -----------------------------------------
 	tx_fifo_wr <= tx_fifo_wr_data_valid and not tx_fifo_full;
 
-	mod_in_fifo: entity work.fifo_simple
+	tx_fifo_inst: entity work.fifo_simple
 	generic map(
 		g_DEPTH => 32,
 		g_WIDTH => 16,

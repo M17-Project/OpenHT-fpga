@@ -27,6 +27,7 @@ architecture rtl of axis_rx_fifo_if is
 begin
     fifo_wr_en <= s_axis_i.tvalid and not fifo_full;
     fifo_wr_data <= s_axis_i.tdata(31 downto 16); -- Real part only
-    -- TODO do something with TSTRB
+    -- TODO do something with TSTRB : ignore
+    s_axis_o.tready <= not fifo_full;
     
 end architecture;

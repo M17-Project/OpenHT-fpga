@@ -23,6 +23,7 @@ context vunit_lib.data_types_context;
 use vunit_lib.axi_stream_pkg.all;
 use vunit_lib.stream_master_pkg.all;
 use work.apb_pkg.all;
+use work.at86rf215_pkg.all;
 
 --nse work.axi_stream_pkg.all;
 
@@ -35,8 +36,9 @@ architecture tb of tb_main is
   signal rst_i : std_logic;
 
   signal data_tx_o : std_logic_vector(1 downto 0);
-  signal clk_rx_i : std_logic;
+  signal clk_rx09_i : std_logic;
   signal data_rx09_i : std_logic_vector(1 downto 0);
+  signal clk_rx24_i : std_logic;
   signal data_rx24_i : std_logic_vector(1 downto 0);
   signal spi_ncs : std_logic;
   signal spi_miso : std_logic;
@@ -49,6 +51,11 @@ architecture tb of tb_main is
   signal io4 : std_logic;
   signal io5 : std_logic;
   signal io6 : std_logic;
+
+  constant rx_09_if : at86rf215_master_t := new_at86rf215_master;
+  constant rx_09_if_stream : stream_master_t := as_stream(rx_09_if);
+  constant rx_24_if : at86rf215_master_t := new_at86rf215_master;
+  constant rx_24_if_stream : stream_master_t := as_stream(rx_24_if);
 
   function spi_write(increment : boolean; base : natural; offset: natural) return std_logic_vector is
     variable res : std_logic_vector(15 downto 0);
@@ -140,9 +147,9 @@ begin
     lock_i => '0',
     nrst => rst_i,
     data_tx_o => data_tx_o,
-    clk_rx09_i => clk_rx_i,
+    clk_rx09_i => clk_rx09_i,
     data_rx09_i => data_rx09_i,
-    clk_rx24_i => clk_rx_i,
+    clk_rx24_i => clk_rx24_i,
     data_rx24_i => data_rx24_i,
     spi_ncs => spi_ncs,
     spi_miso => spi_miso,
@@ -157,35 +164,71 @@ begin
     io6 => io6
   );
 
+  at86rf215_master_09_inst : entity work.at86rf215_master
+  generic map (
+    radio_if => rx_09_if
+  )
+  port map (
+    ddr_clk => clk_rx09_i,
+    ddr_data => data_rx09_i
+  );
+
+  at86rf215_master_24_inst : entity work.at86rf215_master
+  generic map (
+    radio_if => rx_24_if
+  )
+  port map (
+    ddr_clk => clk_rx24_i,
+    ddr_data => data_rx24_i
+  );
+
   main : process
     variable rd_data : std_logic_vector(15 downto 0);
   begin
     test_runner_setup(runner, runner_cfg);
-    rst_i <= '0';
-    spi_ncs <= '1';
-    wait for 100 ns;
-    rst_i <= '1';
-    wait for 10 us;
+    while test_suite loop
+      if run("test_tx") then
+          rst_i <= '0';
+          spi_ncs <= '1';
+          wait for 100 ns;
+          rst_i <= '1';
+          wait for 10 us;
 
-    for i in 0 to 8 loop
-        SPI_MASTER(SPI_PER, spi_read(false, i, 0), rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
-        SPI_MASTER(SPI_PER, X"0000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
+          for i in 0 to 8 loop
+              SPI_MASTER(SPI_PER, spi_read(false, i, 0), rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
+              SPI_MASTER(SPI_PER, X"0000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
+              wait for 10 us;
+              wait until rising_edge(clk_i);
+          end loop;
+
+          SPI_MASTER(SPI_PER, spi_write(false, 0, 4), rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
+          for iterations in 1 to 4 loop
+              for k in 1 to 2 loop
+                SPI_MASTER(SPI_PER, X"7FFF", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
+              end loop;
+              for k in 1 to 2 loop
+                SPI_MASTER(SPI_PER, X"8001", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
+              end loop;
+          end loop;
+          SPI_MASTER(SPI_PER, X"7FFF", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
+
+          wait for 250 us;
+      elsif run("test_rx") then
+        rst_i <= '0';
+        spi_ncs <= '1';
+        wait for 100 ns;
+        rst_i <= '1';
         wait for 10 us;
-        wait until rising_edge(clk_i);
-    end loop;
 
-    SPI_MASTER(SPI_PER, spi_write(false, 0, 4), rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
-    for iterations in 1 to 4 loop
-        for k in 1 to 2 loop
-          SPI_MASTER(SPI_PER, X"7FFF", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
-        end loop;
-        for k in 1 to 2 loop
-          SPI_MASTER(SPI_PER, X"8001", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
-        end loop;
-    end loop;
-    SPI_MASTER(SPI_PER, X"7FFF", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
+        push_stream(net, rx_09_if_stream, rf_iq(13x"0123", 13x"0456"));
+        push_stream(net, rx_09_if_stream, rf_iq(13x"0555", 13x"0AAA"));
+        push_stream(net, rx_09_if_stream, rf_iq(13x"0555", 13x"0AAA"));
+        push_stream(net, rx_09_if_stream, rf_iq(13x"0555", 13x"0AAA"));
 
-    wait for 250 us;
+        wait for 250 us;
+      end if;
+
+    end loop;
     test_runner_cleanup(runner); -- Simulation ends here
   end process;
 

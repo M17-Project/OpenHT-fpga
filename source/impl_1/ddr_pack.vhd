@@ -71,6 +71,7 @@ begin
 			if nrst_i = '0' then
 				m_axis_iq_o.tvalid <= '0';
 			else
+				m_axis_iq_o.tstrb <= X"C";
 				data_valid_resync <= data_valid_resync(1 downto 0) & ddr_capture_vld;
 				if data_valid_resync(2) xor data_valid_resync(1) then
 					if ddr_capture_reg(31 downto 30) = "10" then
