@@ -37,7 +37,22 @@ entity top_common is
 		apb_out : out apb_out_t;
 		-- a bunch of IOs
 		io0, io1, io2		: in std_logic;
-		io3, io4, io5, io6	: out std_logic := '0'
+		io3, io4, io5, io6	: out std_logic := '0';
+		-- TX Debug
+		tx_dbg0_in : out axis_in_iq_t;
+		tx_dbg0_out : out axis_out_iq_t;
+		tx_dbg1_in : out axis_in_iq_t;
+		tx_dbg1_out : out axis_out_iq_t;
+		tx_dbg2_in : out axis_in_iq_t;
+		tx_dbg2_out : out axis_out_iq_t;
+		tx_dbg3_in : out axis_in_iq_t;
+		tx_dbg3_out : out axis_out_iq_t;
+		tx_dbg4_in : out axis_in_iq_t;
+		tx_dbg4_out : out axis_out_iq_t;
+		tx_dbg5_in : out axis_in_iq_t;
+		tx_dbg5_out : out axis_out_iq_t;
+		tx_dbg6_in : out axis_in_iq_t;
+		tx_dbg6_out : out axis_out_iq_t
 	);
 end top_common;
 
@@ -194,7 +209,21 @@ begin
 	  source_axis_out => tx_source_axis_o,
 	  source_axis_in => tx_source_axis_i,
 	  tx_axis_iq_o => tx_axis_iq_i,
-	  tx_axis_iq_i => tx_axis_iq_o
+	  tx_axis_iq_i => tx_axis_iq_o,
+	  dbg0_in => tx_dbg0_in,
+	  dbg0_out => tx_dbg0_out,
+	  dbg1_in => tx_dbg1_in,
+	  dbg1_out => tx_dbg1_out,
+	  dbg2_in => tx_dbg2_in,
+	  dbg2_out => tx_dbg2_out,
+	  dbg3_in => tx_dbg3_in,
+	  dbg3_out => tx_dbg3_out,
+	  dbg4_in => tx_dbg4_in,
+	  dbg4_out => tx_dbg4_out,
+	  dbg5_in => tx_dbg5_in,
+	  dbg5_out => tx_dbg5_out,
+	  dbg6_in => tx_dbg6_in,
+	  dbg6_out => tx_dbg6_out
 	);
 
 	----------------------------------- control etc. ------------------------------------
