@@ -52,7 +52,9 @@ entity top_common is
 		tx_dbg5_in : out axis_in_iq_t;
 		tx_dbg5_out : out axis_out_iq_t;
 		tx_dbg6_in : out axis_in_iq_t;
-		tx_dbg6_out : out axis_out_iq_t
+		tx_dbg6_out : out axis_out_iq_t;
+		tx_dbg7_in : out axis_in_iq_t;
+		tx_dbg7_out : out axis_out_iq_t
 	);
 end top_common;
 
@@ -223,7 +225,9 @@ begin
 	  dbg5_in => tx_dbg5_in,
 	  dbg5_out => tx_dbg5_out,
 	  dbg6_in => tx_dbg6_in,
-	  dbg6_out => tx_dbg6_out
+	  dbg6_out => tx_dbg6_out,
+	  dbg7_in => tx_dbg7_in,
+	  dbg7_out => tx_dbg7_out
 	);
 
 	----------------------------------- control etc. ------------------------------------

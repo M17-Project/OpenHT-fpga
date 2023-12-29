@@ -43,7 +43,9 @@ entity tx_chain is
 		dbg5_in : out axis_in_iq_t;
 		dbg5_out : out axis_out_iq_t;
 		dbg6_in : out axis_in_iq_t;
-		dbg6_out : out axis_out_iq_t
+		dbg6_out : out axis_out_iq_t;
+		dbg7_in : out axis_in_iq_t;
+		dbg7_out : out axis_out_iq_t
     );
 end entity tx_chain;
 
@@ -126,6 +128,8 @@ begin
 		ssb_sideband => ssb_sideband
 	);
 
+	dbg0_in <= source_axis_out;
+	dbg0_out <= source_axis_in;
 	prefilter_inst : entity work.fir_rational_resample
 	generic map (
 	  PSEL_ID => C_TX_PREFILTER_PSEL
@@ -139,8 +143,8 @@ begin
 	  m_axis_o => prefilter_ctcss_axis_in,
 	  m_axis_i => prefilter_ctcss_axis_out
 	);
-	dbg0_in <= prefilter_ctcss_axis_in;
-	dbg0_out <= prefilter_ctcss_axis_out;
+	dbg1_in <= prefilter_ctcss_axis_in;
+	dbg1_out <= prefilter_ctcss_axis_out;
 
 	ctcss_gen_inst : entity work.ctcss_gen
   	generic map (
@@ -156,8 +160,8 @@ begin
 		m_axis_i => ctcss_interp0_axis_out,
 		m_axis_o => ctcss_interp0_axis_in
   	);
-	  dbg1_in <= ctcss_interp0_axis_in;
-	  dbg1_out <= ctcss_interp0_axis_out;
+	  dbg2_in <= ctcss_interp0_axis_in;
+	  dbg2_out <= ctcss_interp0_axis_out;
 
     -- Interpolator set
 	interp0_inst : entity work.fir_rational_resample
@@ -173,8 +177,8 @@ begin
 	  m_axis_o => interp0_interp1_axis_in,
 	  m_axis_i => interp0_interp1_axis_out
 	);
-	dbg2_in <= interp0_interp1_axis_in;
-	dbg2_out <= interp0_interp1_axis_out;
+	dbg3_in <= interp0_interp1_axis_in;
+	dbg3_out <= interp0_interp1_axis_out;
 
 	interp1_inst : entity work.fir_rational_resample
 	generic map (
@@ -189,8 +193,8 @@ begin
 	  m_axis_o => interp1_interp2_axis_in,
 	  m_axis_i => interp1_interp2_axis_out
 	);
-	dbg3_in <= interp1_interp2_axis_in;
-	dbg3_out <= interp1_interp2_axis_out;
+	dbg4_in <= interp1_interp2_axis_in;
+	dbg4_out <= interp1_interp2_axis_out;
 
 	interp2_inst : entity work.fir_rational_resample
 	generic map (
@@ -205,8 +209,8 @@ begin
 	  m_axis_o => interp2_mods_axis_in,
 	  m_axis_i => interp2_mods_axis_out
 	);
-	dbg4_in <= interp2_mods_axis_in;
-	dbg4_out <= interp2_mods_axis_out;
+	dbg5_in <= interp2_mods_axis_in;
+	dbg5_out <= interp2_mods_axis_out;
 
     -- Frequency modulator
     freq_mod0: entity work.fm_modulator
@@ -258,8 +262,8 @@ begin
 		m_axis_iq_i => bal_axis_in,
 		m_axis_iq_o => bal_axis_out
 	);
-	dbg5_in <= bal_axis_out;
-	dbg5_out <= bal_axis_in;
+	dbg6_in <= bal_axis_out;
+	dbg6_out <= bal_axis_in;
 
 	-- I/Q balancing block
 	iq_balance0: entity work.bal_iq
@@ -275,8 +279,8 @@ begin
 		m_axis_iq_o	=> offset_axis_out,
 		m_axis_iq_i	=> offset_axis_in
 	);
-	dbg6_in <= offset_axis_out;
-	dbg6_out <= offset_axis_in;
+	dbg7_in <= offset_axis_out;
+	dbg7_out <= offset_axis_in;
 
 	-- I/Q offset block
 	iq_offset0: entity work.offset_iq
