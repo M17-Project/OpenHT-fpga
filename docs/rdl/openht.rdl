@@ -1,0 +1,27 @@
+//-----------------------------------------------------------------------------
+// OpenHT SystemRDL description
+//
+// OpenHT toplevel description
+//
+// December 2023 : Sebastien Van Cauwenberghe, ON4SEB
+//-----------------------------------------------------------------------------
+
+`include "openht_common.rdl"
+`include "openht_tx.rdl"
+`include "openht_fir.rdl"
+
+addrmap openht {
+    name = "OpenHT";
+    desc = "APB registers";
+
+    openht_common common_regs @0x0;
+    openht_tx tx_regs @0x1000;
+    openht_fir tx_fir0 @0x2000;
+    openht_fir tx_fir1 @0x4000;
+    openht_fir tx_fir2 @0x5000;
+    openht_fir tx_fir3 @0x6000;
+    openht_fir rx_fir0 @0x9000;
+    openht_fir rx_fir1 @0xa000;
+    openht_fir rx_fir2 @0xb000;
+    openht_fir rx_fir3 @0xd000;
+};

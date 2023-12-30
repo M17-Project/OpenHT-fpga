@@ -1,0 +1,56 @@
+//-----------------------------------------------------------------------------
+// OpenHT SystemRDL description
+//
+// OpenHT TX registers
+//
+// December 2023 : Sebastien Van Cauwenberghe, ON4SEB
+//-----------------------------------------------------------------------------
+
+enum mode_enum {
+    FM = 3'd0 { desc = "FM modulator"; };
+    AM = 3'd1 { desc = "AM modulator"; };
+    SSB = 3'd2 { desc = "SSB modulator"; };
+};
+
+enum ssb_enum {
+    LSB = 1'd0 { desc = "Lower sideband output"; };
+    USB = 1'd1 { desc = "Upper sideband output"; };
+};
+
+enum fm_enum {
+    FMN = 1'd0 { desc = "FM Narrow"; };
+    FMW = 1'd1 { desc = "FM Wide"; };
+};
+
+regfile openht_tx {
+    name = "OpenHT TX regs";
+    desc = "APB registers for TX side of OpenHT";
+    
+    default regwidth = 16;
+    default sw = r;
+    default hw = r;
+
+    reg {
+        name = "Control Register";
+
+        field {
+            desc = "LSB/USB";
+            encode = ssb_enum;
+            sw = rw; hw = r;
+        } SSB[4:4];
+
+        field {
+            desc = "FM narrow/wide";
+            encode = fm_enum;
+            sw = rw; hw = r;
+        } FMW[3:3];
+
+        field {
+            desc = "Mode";
+            encode = mode_enum;
+            sw = rw; hw = r;
+        } MODE[2:0];
+
+    } CTRL @0x0;
+  
+};

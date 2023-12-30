@@ -1,0 +1,102 @@
+//-----------------------------------------------------------------------------
+// OpenHT SystemRDL description
+//
+// FIR decimator/interpolator
+//
+// December 2023 : Sebastien Van Cauwenberghe, ON4SEB
+//-----------------------------------------------------------------------------
+
+regfile openht_fir {
+    name = "OpenHT TX regs";
+    desc = "APB registers for TX side of OpenHT";
+    
+    default regwidth = 16;
+    default sw = r;
+    default hw = r;
+
+    reg {
+        name = "Control Register";
+
+        field {
+            desc = "Copy I value into Q";
+            sw = rw; hw = r;
+        } DUPLICATE[1:1];
+
+        field {
+            desc = "Enabled";
+            sw = rw; hw = r;
+        } ENABLED[0:0];
+
+    } CTRL @0x0;
+
+    reg {
+        name = "Taps";
+
+        field {
+            desc = "Taps count";
+            sw = rw; hw = r;
+        } COUNT[9:0];
+
+    } TAPS @0x2;
+
+    reg {
+        name = "Interpolation";
+
+        field {
+            desc = "Interpolation";
+            sw = rw; hw = r;
+        } VALUE[3:0];
+
+    } L @0x4;
+
+    reg {
+        name = "Decimation";
+
+        field {
+            desc = "Decimation";
+            sw = rw; hw = r;
+        } VALUE[3:0];
+
+    } M @0x6;
+
+    reg {
+        name = "Taps address";
+
+        field {
+            desc = "Address";
+            sw = rw; hw = rw;
+        } ADDR[9:0];
+
+    } TAPS_ADDR @0x8;
+
+    reg {
+        name = "Taps data";
+
+        field {
+            desc = "Data";
+            sw = w; hw = rw;
+        } DATA[15:0];
+
+    } TAPS_DATA @0xA;
+
+    reg {
+        name = "I Accumulator shift";
+
+        field {
+            desc = "SHIFT";
+            sw = rw; hw = r;
+        } SHIFT[4:0];
+
+    } I_SHIFT @0xC;
+
+    reg {
+        name = "Q Accumulator shift";
+
+        field {
+            desc = "SHIFT";
+            sw = rw; hw = r;
+        } SHIFT[4:0];
+
+    } Q_SHIFT @0xE;
+
+};

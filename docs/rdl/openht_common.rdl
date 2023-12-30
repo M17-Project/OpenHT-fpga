@@ -1,0 +1,162 @@
+//-----------------------------------------------------------------------------
+// OpenHT SystemRDL description
+//
+// OpenHT common registers
+//
+// December 2023 : Sebastien Van Cauwenberghe, ON4SEB
+//-----------------------------------------------------------------------------
+
+enum band_enum {
+    BAND_09 = 1'd0 { desc = "sub-GHz band"; };
+    BAND_24 = 1'd1 { desc = "2.4 GHz band"; };
+};
+
+enum rxtx_enum {
+    TX = 2'd1 { desc = "Transmit mode"; };
+    RX = 2'd2 { desc = "Receive mode"; };
+};
+
+enum io3_enum {
+    PLL_LOCK = 3'd0 { desc = "PLL lock"; };
+    FIFO_STATUS = 3'd5 { desc = "FIFO almost full on RX, FIFO almost empty on TX"; };
+};
+
+regfile openht_common {
+    name = "OpenHT common regs";
+    desc = "Common APB registers for RX and TX side of OpenHT";
+    
+    default regwidth = 16;
+    default sw = r;
+    default hw = r;
+
+    reg {
+        name = "Version Register";
+
+        field {
+            desc = "Major Version";
+        } MAJOR[15:8];
+
+        field {
+            desc = "Minor Version";
+        } MINOR[7:0];
+    } VERSION @0x0;
+
+    reg {
+        name = "Status Register";
+
+        field {
+            desc = "PLL lock";
+            sw = r; hw = rw;
+        } PLL_LOCK[0:0];
+    } STATUS @0x2;
+
+    reg {
+        name = "Control Register";
+
+        field {
+            desc = "Band Selection";
+            encode = band_enum;
+            sw = rw; hw = r;
+        } BAND[2:2];
+
+        field {
+            desc = "RX or TX";
+            encode = rxtx_enum;
+            sw = rw; hw = r;
+        } RXTX[1:0];
+
+    } CTRL @0x4;
+
+    reg {
+        name = "IO configuration register";
+
+        field {
+            desc = "IO6 configuration";
+            sw = rw; hw = r;
+        } IO6[11:9];
+
+        field {
+            desc = "IO5 configuration";
+            sw = rw; hw = r;
+        } IO5[8:6];
+
+        field {
+            desc = "IO4 configuration";
+            sw = rw; hw = r;
+        } IO4[5:3];
+
+        field {
+            desc = "IO3 configuration";
+            encode = io3_enum;
+            sw = rw; hw = r;
+        } IO3[2:0];
+
+    } IO @0x6;
+
+    reg {
+        name = "TX data fifo";
+
+        field {
+            desc = "Transmit data";
+            sw = w; hw = r;
+        } TX_DATA[15:0];
+    } TX_FIFO @0x8;
+
+    reg {
+        name = "TX data fifo status";
+
+        field {
+            desc = "Data FIFO empty";
+        } EMPTY[11:11];
+
+        field {
+            desc = "Data FIFO full";
+        } FULL[10:10];
+
+        field {
+            desc = "Data FIFO almost empty";
+        } AE[9:9];
+
+        field {
+            desc = "Data FIFO almost full";
+        } AF[8:8];
+
+        field {
+            desc = "Data count";
+        } COUNT[7:0];
+    } TX_FIFO_STATUS @0xA;
+
+    reg {
+        name = "TX data fifo";
+
+        field {
+            desc = "Receive data";
+            sw = r; hw = w;
+        } RX_DATA[15:0];
+    } RX_FIFO @0xC;
+
+    reg {
+        name = "RX data fifo status";
+
+        field {
+            desc = "Data FIFO empty";
+        } EMPTY[11:11];
+
+        field {
+            desc = "Data FIFO full";
+        } FULL[10:10];
+
+        field {
+            desc = "Data FIFO almost empty";
+        } AE[9:9];
+
+        field {
+            desc = "Data FIFO almost full";
+        } AF[8:8];
+
+        field {
+            desc = "Data count";
+        } COUNT[7:0];
+    } RX_FIFO_STATUS @0xE;
+
+};
