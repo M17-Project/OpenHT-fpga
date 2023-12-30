@@ -28,7 +28,20 @@ entity rx_chain is
 		rx_mod24_iq_o : out axis_out_iq_t;
 		-- Demod data
         rx_demod_iq_out : out axis_in_iq_t;
-		rx_demod_iq_in : in axis_out_iq_t
+		rx_demod_iq_in : in axis_out_iq_t;
+		-- RX debug
+		dbg0_in : out axis_in_iq_t;
+		dbg0_out : out axis_out_iq_t;
+		dbg1_in : out axis_in_iq_t;
+		dbg1_out : out axis_out_iq_t;
+		dbg2_in : out axis_in_iq_t;
+		dbg2_out : out axis_out_iq_t;
+		dbg3_in : out axis_in_iq_t;
+		dbg3_out : out axis_out_iq_t;
+		dbg4_in : out axis_in_iq_t;
+		dbg4_out : out axis_out_iq_t;
+		dbg5_in : out axis_in_iq_t;
+		dbg5_out : out axis_out_iq_t
     );
 end entity rx_chain;
 
@@ -87,6 +100,8 @@ begin
 	  m_axis_iq_o => sel_dec0_axis_in,
 	  m_axis_iq_i => sel_dec0_axis_out
 	);
+	dbg0_in <= sel_dec0_axis_in;
+	dbg0_out <= sel_dec0_axis_out;
 
     -- Decimators
 	dec0_inst : entity work.fir_rational_resample
@@ -102,6 +117,8 @@ begin
 	  m_axis_o => dec0_dec1_axis_in,
 	  m_axis_i => dec0_dec1_axis_out
 	);
+	dbg1_in <= dec0_dec1_axis_in;
+	dbg1_out <= dec0_dec1_axis_out;
 
 	dec1_inst : entity work.fir_rational_resample
 	generic map (
@@ -116,6 +133,8 @@ begin
 	  m_axis_o => dec1_dec2_axis_in,
 	  m_axis_i => dec1_dec2_axis_out
 	);
+	dbg2_in <= dec1_dec2_axis_in;
+	dbg2_out <= dec1_dec2_axis_out;
 
 	dec2_inst : entity work.fir_rational_resample
 	generic map (
@@ -130,6 +149,8 @@ begin
 	  m_axis_o => dec2_demod_axis_in,
 	  m_axis_i => dec2_demod_axis_out
 	);
+	dbg3_in <= dec2_demod_axis_in;
+	dbg3_out <= dec2_demod_axis_out;
 
 	-- RSSI estimator
 	RSSI_estimator_inst : entity work.RSSI_estimator
@@ -160,6 +181,8 @@ begin
 		m_axis_o => demod_postfilter_axis_in,
 		m_axis_i => demod_postfilter_axis_out
 	);
+	dbg4_in <= demod_postfilter_axis_in;
+	dbg4_out <= demod_postfilter_axis_out;
 
     -- Postfilter
 	postfilter_inst : entity work.fir_rational_resample
@@ -175,5 +198,7 @@ begin
 	  m_axis_o => rx_demod_iq_out,
 	  m_axis_i => rx_demod_iq_in
 	);
+	dbg5_in <= rx_demod_iq_out;
+	dbg5_out <= rx_demod_iq_in;
 
 end architecture;

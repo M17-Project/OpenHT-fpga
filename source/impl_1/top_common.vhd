@@ -54,7 +54,20 @@ entity top_common is
 		tx_dbg6_in : out axis_in_iq_t;
 		tx_dbg6_out : out axis_out_iq_t;
 		tx_dbg7_in : out axis_in_iq_t;
-		tx_dbg7_out : out axis_out_iq_t
+		tx_dbg7_out : out axis_out_iq_t;
+		-- RX debug
+		rx_dbg0_in : out axis_in_iq_t;
+		rx_dbg0_out : out axis_out_iq_t;
+		rx_dbg1_in : out axis_in_iq_t;
+		rx_dbg1_out : out axis_out_iq_t;
+		rx_dbg2_in : out axis_in_iq_t;
+		rx_dbg2_out : out axis_out_iq_t;
+		rx_dbg3_in : out axis_in_iq_t;
+		rx_dbg3_out : out axis_out_iq_t;
+		rx_dbg4_in : out axis_in_iq_t;
+		rx_dbg4_out : out axis_out_iq_t;
+		rx_dbg5_in : out axis_in_iq_t;
+		rx_dbg5_out : out axis_out_iq_t
 	);
 end top_common;
 
@@ -121,7 +134,19 @@ begin
 	  rx_mod24_iq_i => rx_axis_iq_24_i,
 	  rx_mod24_iq_o => rx_axis_iq_24_o,
 	  rx_demod_iq_out => rx_demod_out,
-	  rx_demod_iq_in => rx_demod_in
+	  rx_demod_iq_in => rx_demod_in,
+	  dbg0_in => rx_dbg0_in,
+	  dbg0_out => rx_dbg0_out,
+	  dbg1_in => rx_dbg1_in,
+	  dbg1_out => rx_dbg1_out,
+	  dbg2_in => rx_dbg2_in,
+	  dbg2_out => rx_dbg2_out,
+	  dbg3_in => rx_dbg3_in,
+	  dbg3_out => rx_dbg3_out,
+	  dbg4_in => rx_dbg4_in,
+	  dbg4_out => rx_dbg4_out,
+	  dbg5_in => rx_dbg5_in,
+	  dbg5_out => rx_dbg5_out
 	);
 
 	axis_rx_fifo_if_inst : entity work.axis_rx_fifo_if
