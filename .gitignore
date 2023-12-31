@@ -17,3 +17,5 @@ vunit_out
 private
 .DS_Store
 *.odt#
+docs/rdl/html
+
