@@ -7,7 +7,6 @@
 -- M17 Project
 -- November 2023
 --
--- TODO : Verify if ready can be trusted
 --
 -------------------------------------------------------------
 
@@ -61,14 +60,14 @@ begin
       magnitude_rst <= '0';
       if s_apb_i.PSEL(PSEL_ID) then
         if s_apb_i.PENABLE and s_apb_i.PWRITE then
-          case s_apb_i.PADDR(2 downto 1) is
-            when "00" =>
+          case s_apb_i.PADDR(3 downto 1) is
+            when "000" =>
               magnitude_rst <= s_apb_i.PWDATA(0);
-            when "01" =>
+            when "001" =>
               attack <= signed(s_apb_i.PWDATA);
-            when "10" =>
+            when "010" =>
               decay <= signed(s_apb_i.PWDATA);
-            when "11" =>
+            when "011" =>
               hold_config <= signed(s_apb_i.PWDATA);
             when others =>
               null;
@@ -77,15 +76,15 @@ begin
 
         if not s_apb_i.PENABLE then
           s_apb_o.pready <= '1';
-          case s_apb_i.PADDR(2 downto 1) is
-            when "00" =>
-              s_apb_o.prdata <= std_logic_vector(magnitude_o_3);
-            when "01" =>
+          case s_apb_i.PADDR(3 downto 1) is
+            when "001" =>
               s_apb_o.prdata <= std_logic_vector(attack);
-            when "10" =>
+            when "010" =>
               s_apb_o.prdata <= std_logic_vector(decay);
-            when "11" =>
+            when "011" =>
               s_apb_o.prdata <= std_logic_vector(hold_config);
+            when "100" =>
+              s_apb_o.prdata <= std_logic_vector(magnitude_o_3);
             when others =>
               s_apb_o.prdata <= (others => '0');
           end case;
