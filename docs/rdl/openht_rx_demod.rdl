@@ -1,0 +1,38 @@
+//-----------------------------------------------------------------------------
+// OpenHT SystemRDL description
+//
+// OpenHT RX demod
+//
+// December 2023 : Sebastien Van Cauwenberghe, ON4SEB
+//-----------------------------------------------------------------------------
+
+enum demod_mode {
+    AM = 2'd0 { desc = "Amplitude demodulation"; };
+    PM = 2'd1 { desc = "Phase demodulation"; };
+    FM = 3'd2 { desc = "Frequency demodulation"; };
+};
+
+regfile openht_rx_demod {
+    name = "OpenHT RX Demod";
+    desc = "RX demodulator";
+    
+    default regwidth = 16;
+    default sw = r;
+    default hw = r;
+
+    reg {
+        name = "Control register";
+
+        field {
+            desc = "Mode";
+            encode = demod_mode;
+            sw = rw; hw = r;
+        } MODE[2:1];
+
+        field {
+            desc = "Enabled";
+            sw = rw; hw = r;
+        } ENABLE[0:0];
+    } CTRL @0x0;
+
+};

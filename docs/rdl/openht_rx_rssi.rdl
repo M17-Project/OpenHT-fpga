@@ -1,0 +1,62 @@
+//-----------------------------------------------------------------------------
+// OpenHT SystemRDL description
+//
+// OpenHT RX RSSI
+//
+// December 2023 : Sebastien Van Cauwenberghe, ON4SEB
+//-----------------------------------------------------------------------------
+
+regfile openht_rx_rssi {
+    name = "OpenHT RX RSSI";
+    desc = "RSSI computation";
+    
+    default regwidth = 16;
+    default sw = r;
+    default hw = r;
+
+    reg {
+        name = "Control register";
+ 
+        field {
+            desc = "Clear result";
+            sw = w; hw = r;
+        } CLEAR[0:0];
+    } CTRL @0x0;
+
+    reg {
+        name = "Attack register";
+ 
+        field {
+            desc = "Attack increment value at each sample";
+            sw = rw; hw = r;
+        } ATTACK[15:0];
+    } ATTACK @0x2;
+
+    reg {
+        name = "Decay register";
+ 
+        field {
+            desc = "Decay decrement value at each sample";
+            sw = rw; hw = r;
+        } DECAY[15:0];
+    } DECAY @0x4;
+
+    reg {
+        name = "Hold delay register";
+ 
+        field {
+            desc = "Sample count where value is lower than current RSSI before decaying";
+            sw = rw; hw = r;
+        } HOLD[15:0];
+    } HOLD @0x6;
+
+    reg {
+        name = "RSSI";
+ 
+        field {
+            desc = "RSSI";
+            sw = r; hw = r;
+        } RSSI[15:0];
+    } RSSI @0x8;
+
+};

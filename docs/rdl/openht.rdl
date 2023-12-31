@@ -8,7 +8,12 @@
 
 `include "openht_common.rdl"
 `include "openht_tx.rdl"
+`include "openht_tx_ctcss.rdl"
 `include "openht_fir.rdl"
+`include "openht_iq_bal.rdl"
+`include "openht_iq_offset.rdl"
+`include "openht_rx_demod.rdl"
+`include "openht_rx_rssi.rdl"
 
 addrmap openht {
     name = "OpenHT";
@@ -17,11 +22,16 @@ addrmap openht {
     openht_common common_regs @0x0;
     openht_tx tx_regs @0x1000;
     openht_fir tx_fir0 @0x2000;
+    openht_tx_ctcss tx_ctcss @0x3000;
     openht_fir tx_fir1 @0x4000;
     openht_fir tx_fir2 @0x5000;
     openht_fir tx_fir3 @0x6000;
+    openht_iq_bal tx_iq_bal @0x7000;
+    openht_iq_offset tx_iq_offset @0x8000;
     openht_fir rx_fir0 @0x9000;
     openht_fir rx_fir1 @0xa000;
     openht_fir rx_fir2 @0xb000;
+    openht_rx_demod rx_demod @0xc000;
     openht_fir rx_fir3 @0xd000;
+    openht_rx_rssi rx_rssi @0xe000;
 };

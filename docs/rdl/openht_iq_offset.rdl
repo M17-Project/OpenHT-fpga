@@ -1,0 +1,35 @@
+//-----------------------------------------------------------------------------
+// OpenHT SystemRDL description
+//
+// OpenHT TX IQ Offset
+//
+// December 2023 : Sebastien Van Cauwenberghe, ON4SEB
+//-----------------------------------------------------------------------------
+
+regfile openht_iq_offset {
+    name = "OpenHT TX IQ Offset";
+    desc = "IQ Offset";
+    
+    default regwidth = 16;
+    default sw = r;
+    default hw = r;
+
+    reg {
+        name = "I offset";
+
+        field {
+            desc = "I Offset";
+            sw = rw; hw = r;
+        } OFFSET[15:0];
+    } I_OFFSET @0x0;
+
+    reg {
+        name = "Q offset";
+
+        field {
+            desc = "Q Offset";
+            sw = rw; hw = r;
+        } OFFSET[15:0];
+    } Q_OFFSET @0x2;
+
+};

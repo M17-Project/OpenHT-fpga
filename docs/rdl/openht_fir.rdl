@@ -7,8 +7,8 @@
 //-----------------------------------------------------------------------------
 
 regfile openht_fir {
-    name = "OpenHT TX regs";
-    desc = "APB registers for TX side of OpenHT";
+    name = "OpenHT FIR";
+    desc = "APB registers for FIR filter";
     
     default regwidth = 16;
     default sw = r;
