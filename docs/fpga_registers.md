@@ -9,7 +9,7 @@ Don't override. Generated from: openht
 
 - Absolute Address: 0x0
 - Base Offset: 0x0
-- Size: 0xE00A
+- Size: 0xE00C
 
 <p>APB registers</p>
 
@@ -1534,7 +1534,7 @@ Don't override. Generated from: openht
 
 - Absolute Address: 0xE000
 - Base Offset: 0xE000
-- Size: 0xA
+- Size: 0xC
 
 <p>RSSI computation</p>
 
@@ -1545,6 +1545,7 @@ Don't override. Generated from: openht
 |  0x4 |   DECAY  |   Decay register  |
 |  0x6 |   HOLD   |Hold delay register|
 |  0x8 |   RSSI   |        RSSI       |
+|  0xA |    SQL   |   SQL threshold   |
 
 ### CTRL register
 
@@ -1615,3 +1616,17 @@ Don't override. Generated from: openht
 #### RSSI field
 
 <p>RSSI</p>
+
+### SQL register
+
+- Absolute Address: 0xE00A
+- Base Offset: 0xA
+- Size: 0x2
+
+|Bits|Identifier|Access|Reset|Name|
+|----|----------|------|-----|----|
+|15:0|  SQL_THR |   r  |  —  |  — |
+
+#### SQL_THR field
+
+<p>SQL Threshold</p>

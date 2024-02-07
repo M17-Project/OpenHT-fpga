@@ -100,6 +100,7 @@ architecture magic of top_common is
 	signal rx_demod_in 		     		: axis_out_iq_t;
 
 	signal mod_fifo_ae					: std_logic := '0';
+	signal sql_active                   : std_logic;
 
 	-- APB slaves
 	signal tx_apb_out : apb_out_t;
@@ -131,6 +132,7 @@ begin
 	  rx_mod24_iq_o => rx_axis_iq_24_o,
 	  rx_demod_iq_out => rx_demod_out,
 	  rx_demod_iq_in => rx_demod_in,
+	  sql_active => sql_active,
 	  dbg0_in => rx_dbg0_in,
 	  dbg0_out => rx_dbg0_out,
 	  dbg1_in => rx_dbg1_in,
@@ -309,7 +311,11 @@ begin
 	mod_fifo_ae			when "101",	-- baseband FIFO almost empty flag
 	'0'					when others;
 
-	io4 <= '0'; --mux_axis_out_iq.tready;
+	with io4_sel select
+	io4 <= '0'        when "000",
+	       sql_active when "001",
+		   '0'        when others;
+
 	io5 <= '0'; --freq_mod_axis_in_iq.tvalid;
 	io6 <= '0'; --mux_axis_in_iq.tvalid;
 end magic;

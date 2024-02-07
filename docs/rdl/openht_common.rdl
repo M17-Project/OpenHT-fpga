@@ -21,6 +21,11 @@ enum io3_enum {
     FIFO_STATUS = 3'd5 { desc = "FIFO almost full on RX, FIFO almost empty on TX"; };
 };
 
+enum io4_enum {
+    DEFAULT = 3'd0 { desc = "Inactive"; };
+    SQL_STATUS = 3'd1 { desc = "RX signal over RSSI threshold"; };
+};
+
 regfile openht_common {
     name = "OpenHT common regs";
     desc = "Common APB registers for RX and TX side of OpenHT";
@@ -82,6 +87,7 @@ regfile openht_common {
 
         field {
             desc = "IO4 configuration";
+            encode = io4_enum;
             sw = rw; hw = r;
         } IO4[5:3];
 

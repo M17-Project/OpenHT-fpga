@@ -24,6 +24,8 @@ entity RSSI_estimator is
     clk_i    : in std_logic;            -- Clock, from upstream
     nrst_i   : in std_logic;            -- Reset, from upstream
 
+    sql_active : out std_logic;      -- signal is present
+
     s_apb_o  : out apb_out_t;           -- slave apb interface out, to upstream
     s_apb_i  : in apb_in_t;             -- slave apb interface in, from upstream
 
@@ -33,22 +35,23 @@ entity RSSI_estimator is
 end entity;
 
 architecture magic of RSSI_estimator is
-  signal I_0           : signed(15 downto 0) := (others => '0');
-  signal Q_0           : signed(15 downto 0) := (others => '0');
-  signal max_1         : signed(15 downto 0) := (others => '0');
-  signal min_1         : signed(15 downto 0) := (others => '0');
-  signal magnitude_2   : signed(15 downto 0) := (others => '0');
-  signal magnitude_o_3 : signed(15 downto 0) := (others => '0');
+  signal I_0           : unsigned(15 downto 0) := (others => '0');
+  signal Q_0           : unsigned(15 downto 0) := (others => '0');
+  signal max_1         : unsigned(15 downto 0) := (others => '0');
+  signal min_1         : unsigned(15 downto 0) := (others => '0');
+  signal magnitude_2   : unsigned(15 downto 0) := (others => '0');
+  signal magnitude_o_3 : unsigned(15 downto 0) := (others => '0');
   signal magnitude_rst : std_logic := '0';
 
   signal valid_1       : std_logic := '0';
   signal valid_2       : std_logic := '0';
 
-  signal hold         : signed(15 downto 0) := (others => '0');
-  signal attack       : signed(15 downto 0) := (others => '0');
-  signal decay        : signed(15 downto 0) := (others => '0');
-  signal hold_config  : signed(15 downto 0) := (others => '0');
+  signal hold         : unsigned(15 downto 0) := (others => '0');
+  signal attack       : unsigned(15 downto 0) := (others => '0');
+  signal decay        : unsigned(15 downto 0) := (others => '0');
+  signal hold_config  : unsigned(15 downto 0) := (others => '0');
 
+  signal sql_threshold : unsigned(15 downto 0) := (others => '1');
 begin
 
   -- APB
@@ -64,11 +67,15 @@ begin
             when "000" =>
               magnitude_rst <= s_apb_i.PWDATA(0);
             when "001" =>
-              attack <= signed(s_apb_i.PWDATA);
+              attack <= unsigned(s_apb_i.PWDATA);
             when "010" =>
-              decay <= signed(s_apb_i.PWDATA);
+              decay <= unsigned(s_apb_i.PWDATA);
             when "011" =>
-              hold_config <= signed(s_apb_i.PWDATA);
+              hold_config <= unsigned(s_apb_i.PWDATA);
+            when "100" =>
+              null;
+            when "101" =>
+              sql_threshold <= unsigned(s_apb_i.PWDATA);
             when others =>
               null;
           end case;
@@ -85,6 +92,8 @@ begin
               s_apb_o.prdata <= std_logic_vector(hold_config);
             when "100" =>
               s_apb_o.prdata <= std_logic_vector(magnitude_o_3);
+            when "101" =>
+              s_apb_o.prdata <= std_logic_vector(sql_threshold);
             when others =>
               s_apb_o.prdata <= (others => '0');
           end case;
@@ -134,8 +143,12 @@ begin
         magnitude_o_3 <= (others => '0');
         magnitude_2 <= (others => '0');
       end if;
+
+      -- RF SQL threshold comparison
+      sql_active <= '1' when magnitude_o_3 > sql_threshold else '0';
+
     end if;
   end process;
-  I_0 <= abs(signed(s_axis_i.tdata(31 downto 16)));
-  Q_0 <= abs(signed(s_axis_i.tdata(15 downto 0)));
+  I_0 <= unsigned(abs(signed(s_axis_i.tdata(31 downto 16))));
+  Q_0 <= unsigned(abs(signed(s_axis_i.tdata(15 downto 0))));
 end architecture;

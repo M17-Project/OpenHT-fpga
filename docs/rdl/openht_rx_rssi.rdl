@@ -9,14 +9,14 @@
 regfile openht_rx_rssi {
     name = "OpenHT RX RSSI";
     desc = "RSSI computation";
-    
+
     default regwidth = 16;
     default sw = r;
     default hw = r;
 
     reg {
         name = "Control register";
- 
+
         field {
             desc = "Clear result";
             sw = w; hw = r;
@@ -25,7 +25,7 @@ regfile openht_rx_rssi {
 
     reg {
         name = "Attack register";
- 
+
         field {
             desc = "Attack increment value at each sample";
             sw = rw; hw = r;
@@ -34,7 +34,7 @@ regfile openht_rx_rssi {
 
     reg {
         name = "Decay register";
- 
+
         field {
             desc = "Decay decrement value at each sample";
             sw = rw; hw = r;
@@ -43,7 +43,7 @@ regfile openht_rx_rssi {
 
     reg {
         name = "Hold delay register";
- 
+
         field {
             desc = "Sample count where value is lower than current RSSI before decaying";
             sw = rw; hw = r;
@@ -52,11 +52,20 @@ regfile openht_rx_rssi {
 
     reg {
         name = "RSSI";
- 
+
         field {
             desc = "RSSI";
             sw = r; hw = r;
         } RSSI[15:0];
     } RSSI @0x8;
+
+    reg {
+        name = "SQL threshold";
+
+        field {
+            desc = "SQL Threshold";
+            sw = r; hw = r;
+        } SQL_THR[15:0];
+    } SQL_THRESHOLD @0xa;
 
 };

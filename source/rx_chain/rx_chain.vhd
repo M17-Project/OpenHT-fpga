@@ -29,6 +29,8 @@ entity rx_chain is
 		-- Demod data
         rx_demod_iq_out : out axis_in_iq_t;
 		rx_demod_iq_in : in axis_out_iq_t;
+		-- SQL information
+		sql_active : out std_logic;
 		-- RX debug
 		dbg0_in : out axis_in_iq_t;
 		dbg0_out : out axis_out_iq_t;
@@ -160,6 +162,7 @@ begin
 	port map (
 	  clk_i => clk_64,
 	  nrst_i => resetn,
+	  sql_active => sql_active,
 	  s_apb_i => s_apb_in,
 	  s_apb_o => s_apb_out_rssi,
 	  s_axis_o => dec2_demod_axis_out,
