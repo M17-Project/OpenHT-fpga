@@ -69,7 +69,11 @@ begin
 
                 when WAIT_FOR_NEW_WORD =>
                     if dout_vld then
-                        apb_state <= APB_SETUP;
+                        if rw then -- Write data directly at every received word
+                            apb_state <= APB_SETUP;
+                        elsif dout(0) then -- If last bit of received data is 1 read, skip otherwise
+                            apb_state <= APB_SETUP;
+                        end if;
                     end if;
 
                     -- Go back to capturing address when CS is deasserted

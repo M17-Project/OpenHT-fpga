@@ -196,6 +196,17 @@ begin
 
           for i in 0 to 8 loop
               SPI_MASTER(SPI_PER, spi_read(false, i, 0), rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
+              SPI_MASTER(SPI_PER, X"0001", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
+              wait for 10 us;
+              wait until rising_edge(clk_i);
+          end loop;
+
+          for i in 0 to 8 loop
+              SPI_MASTER(SPI_PER, spi_read(false, i, 0), rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
+              SPI_MASTER(SPI_PER, X"5555", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
+              SPI_MASTER(SPI_PER, X"FFFF", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
+              SPI_MASTER(SPI_PER, X"5555", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
+              SPI_MASTER(SPI_PER, X"FFFF", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, false);
               SPI_MASTER(SPI_PER, X"0000", rd_data, spi_sck, spi_ncs, spi_mosi, spi_miso, true);
               wait for 10 us;
               wait until rising_edge(clk_i);
