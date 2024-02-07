@@ -138,10 +138,6 @@ begin
   end process;
 
   main_all_inst : entity work.main_all
-  generic map (
-    REV_MAJOR => 0,
-    REV_MINOR => 5
-  )
   port map (
     clk_i => clk_i,
     lock_i => '0',

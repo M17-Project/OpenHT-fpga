@@ -14,12 +14,11 @@ use ieee.numeric_std.all;
 use ieee.math_real.all;
 
 use work.apb_pkg.all;
+use work.version_pkg.all;
 
 entity common_apb_regs is
     generic (
-        PSEL_ID : natural;
-        REV_MAJOR : natural;
-        REV_MINOR : natural
+        PSEL_ID : natural
     );
     port (
         clk   : in std_logic;
@@ -112,8 +111,8 @@ begin
                 if not s_apb_in.PENABLE then
                     case s_apb_in.paddr(3 downto 1) is
                         when "000" => -- VERSION REG
-                            s_apb_out.prdata(15 downto 8) <= std_logic_vector(to_unsigned(REV_MAJOR, 8));
-                            s_apb_out.prdata(7 downto 0) <= std_logic_vector(to_unsigned(REV_MINOR, 8));
+                            s_apb_out.prdata(15 downto 8) <= std_logic_vector(to_unsigned(VERSION_MAJOR, 8));
+                            s_apb_out.prdata(7 downto 0) <= std_logic_vector(to_unsigned(VERSION_MINOR, 8));
 
                         when "001" => -- Status REG
                             s_apb_out.prdata(0) <= pll_lock;

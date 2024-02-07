@@ -111,6 +111,18 @@
         <Source name="source/impl_1/axis_rx_fifo_if.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
+        <Source name="source/rx_chain/RSSI_estimator.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="source/impl_1/version_pkg.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="source/rx_chain/APFM_demodulator.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="source/impl_1/cordic_demod.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
         <Source name="source/impl_1/impl_1.pdc" type="Physical Constraints File" type_short="PDC">
             <Options/>
         </Source>

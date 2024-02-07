@@ -16,10 +16,6 @@ use work.regs_pkg.all;
 use work.axi_stream_pkg.all;
 
 entity main_pads is
-	generic(
-		REV_MAJOR			: natural := 0;
-		REV_MINOR			: natural := 5
-	);
 	port(
 		-- 32 MHz clock input from the AT86
 		clk_i 				: in std_logic;
@@ -89,10 +85,6 @@ begin
 
     ------------------------------------ MAIN --------------------------------------------
     main_all_inst : entity work.main_all
-    generic map (
-      REV_MAJOR => REV_MAJOR,
-      REV_MINOR => REV_MINOR
-    )
     port map (
       clk_i => clk_64,
       lock_i => lock_o, 

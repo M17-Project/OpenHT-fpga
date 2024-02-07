@@ -17,10 +17,6 @@ use work.axi_stream_pkg.all;
 use work.apb_pkg.all;
 
 entity main_all is
-	generic(
-		REV_MAJOR : natural;
-		REV_MINOR : natural
-	);
 	port(
 		-- 64 MHz clock input from the AT86
 		clk_i 				: in std_logic;
@@ -67,10 +63,6 @@ architecture magic of main_all is
 begin
 	---------------------------------------- Top -----------------------------------------
 	top_common_inst : entity work.top_common
-	generic map (
-	  REV_MAJOR => REV_MAJOR,
-	  REV_MINOR => REV_MINOR
-	)
 	port map (
 	  clk_i => clk_i,
 	  lock_i => lock_i,

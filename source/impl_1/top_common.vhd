@@ -14,10 +14,6 @@ use work.axi_stream_pkg.all;
 use work.apb_pkg.all;
 
 entity top_common is
-	generic(
-		REV_MAJOR : natural;
-		REV_MINOR : natural
-	);
 	port(
 		-- 64 MHz clock input from the AT86
 		clk_i 				: in std_logic;
@@ -259,9 +255,7 @@ begin
 
 	common_apb_regs_inst : entity work.common_apb_regs
 	generic map (
-	  PSEL_ID => C_COM_REGS_PSEL,
-	  REV_MAJOR => REV_MAJOR,
-	  REV_MINOR => REV_MINOR
+	  PSEL_ID => C_COM_REGS_PSEL
 	)
 	port map (
 	  clk => clk_i,
