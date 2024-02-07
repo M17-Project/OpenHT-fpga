@@ -9,7 +9,7 @@ Don't override. Generated from: openht
 
 - Absolute Address: 0x0
 - Base Offset: 0x0
-- Size: 0xE00C
+- Size: 0xE00E
 
 <p>APB registers</p>
 
@@ -1534,18 +1534,19 @@ Don't override. Generated from: openht
 
 - Absolute Address: 0xE000
 - Base Offset: 0xE000
-- Size: 0xC
+- Size: 0xE
 
 <p>RSSI computation</p>
 
-|Offset|Identifier|        Name       |
-|------|----------|-------------------|
-|  0x0 |   CTRL   |  Control register |
-|  0x2 |  ATTACK  |  Attack register  |
-|  0x4 |   DECAY  |   Decay register  |
-|  0x6 |   HOLD   |Hold delay register|
-|  0x8 |   RSSI   |        RSSI       |
-|  0xA |    SQL   |   SQL threshold   |
+|Offset|  Identifier |        Name       |
+|------|-------------|-------------------|
+|  0x0 |     CTRL    |  Control register |
+|  0x2 |    ATTACK   |  Attack register  |
+|  0x4 |    DECAY    |   Decay register  |
+|  0x6 |     HOLD    |Hold delay register|
+|  0x8 |     RSSI    |        RSSI       |
+|  0xA |SQL_THRESHOLD|   SQL threshold   |
+|  0xC |  SQL_COUNT  |     SQL count     |
 
 ### CTRL register
 
@@ -1617,7 +1618,7 @@ Don't override. Generated from: openht
 
 <p>RSSI</p>
 
-### SQL register
+### SQL_THRESHOLD register
 
 - Absolute Address: 0xE00A
 - Base Offset: 0xA
@@ -1630,3 +1631,17 @@ Don't override. Generated from: openht
 #### SQL_THR field
 
 <p>SQL Threshold</p>
+
+### SQL_COUNT register
+
+- Absolute Address: 0xE00C
+- Base Offset: 0xC
+- Size: 0x2
+
+|Bits|Identifier|Access|Reset|Name|
+|----|----------|------|-----|----|
+|15:0| SQL_COUNT|   r  |  —  |  — |
+
+#### SQL_COUNT field
+
+<p>Number of points where threshold is met</p>

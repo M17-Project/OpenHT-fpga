@@ -52,6 +52,9 @@ architecture magic of RSSI_estimator is
   signal hold_config  : unsigned(15 downto 0) := (others => '0');
 
   signal sql_threshold : unsigned(15 downto 0) := (others => '1');
+  signal sql_thresh_reached_cntr : unsigned(15 downto 0) := (others => '0');
+  signal sql_count : unsigned(15 downto 0) := (others => '0');
+
 begin
 
   -- APB
@@ -76,6 +79,8 @@ begin
               null;
             when "101" =>
               sql_threshold <= unsigned(s_apb_i.PWDATA);
+            when "110" =>
+              sql_count <= unsigned(s_apb_i.PWDATA);
             when others =>
               null;
           end case;
@@ -94,6 +99,8 @@ begin
               s_apb_o.prdata <= std_logic_vector(magnitude_o_3);
             when "101" =>
               s_apb_o.prdata <= std_logic_vector(sql_threshold);
+            when "110" =>
+              s_apb_o.prdata <= std_logic_vector(sql_count);
             when others =>
               s_apb_o.prdata <= (others => '0');
           end case;
@@ -139,13 +146,24 @@ begin
             end if;
           end if;
         end if;
+
+        -- RF SQL threshold comparison
+        if magnitude_o_3 > sql_threshold then
+          if sql_thresh_reached_cntr < sql_count then
+            sql_thresh_reached_cntr <= sql_thresh_reached_cntr + 1;
+          else
+            sql_active <= '1';  
+          end if;
+        else
+          sql_count <= (others => '0');
+          sql_active <= '0';
+        end if;
+
       else
         magnitude_o_3 <= (others => '0');
         magnitude_2 <= (others => '0');
       end if;
 
-      -- RF SQL threshold comparison
-      sql_active <= '1' when magnitude_o_3 > sql_threshold else '0';
 
     end if;
   end process;

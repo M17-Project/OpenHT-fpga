@@ -68,4 +68,12 @@ regfile openht_rx_rssi {
         } SQL_THR[15:0];
     } SQL_THRESHOLD @0xa;
 
+    reg {
+        name = "SQL count";
+
+        field {
+            desc = "Number of points where threshold is met";
+            sw = r; hw = r;
+        } SQL_COUNT[15:0];
+    } SQL_COUNT @0xc;
 };
